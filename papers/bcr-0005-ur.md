@@ -261,7 +261,7 @@ ur:bytes/1of7/jnva0jannrymfkpu7l9z0p9ldy3qys7qhdaqk9e95ek68yw3sx3s2akpkn/typjp25
 
 ```
 := qrCodes = MakeQRCodes[parts];
-DisplayQRCodes[qrCodes]
+:= DisplayQRCodes[qrCodes]
 ```
 
 ![](bcr-0005/1.png)
