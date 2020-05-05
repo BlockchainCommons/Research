@@ -1,0 +1,582 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     27434,        572]
+NotebookOptionsPosition[     26701,        551]
+NotebookOutlinePosition[     27040,        566]
+CellTagsIndexPosition[     26997,        563]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Comparative Efficiency of Various Text-to-Binary Formats", "Title",
+ CellChangeTimes->{{3.797686354236506*^9, 
+  3.797686370098319*^9}},ExpressionUUID->"b8329b0c-9682-4aed-8cc6-\
+b293ddfab6ee"],
+
+Cell["\<\
+Wolf McNally
+\[Copyright] 2020 Blockchain Commons\
+\>", "Subtitle",
+ CellChangeTimes->{{3.797686374733252*^9, 
+  3.797686386287784*^9}},ExpressionUUID->"a900776e-22d1-4695-b0d8-\
+895c3ec2fa93"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Efficiency", "[", 
+   RowBox[{"{", 
+    RowBox[{"format_", ",", "c_"}], "}"}], "]"}], ":=", 
+  RowBox[{"<|", 
+   RowBox[{
+    RowBox[{"\"\<Format\>\"", "\[Rule]", "format"}], ",", 
+    RowBox[{"\"\<Number of characters\>\"", "\[Rule]", "c"}], ",", 
+    RowBox[{"\"\<Number of bits per character\>\"", "\[Rule]", 
+     RowBox[{"N", "[", 
+      RowBox[{"Log2", "[", "c", "]"}], "]"}]}], ",", 
+    RowBox[{"\"\<Efficiency compared to raw binary\>\"", "\[Rule]", 
+     RowBox[{"ToString", "[", 
+      RowBox[{"PercentForm", "[", 
+       RowBox[{"N", "[", 
+        RowBox[{"1", "/", 
+         RowBox[{"Log", "[", 
+          RowBox[{"c", ",", "256"}], "]"}]}], "]"}], "]"}], "]"}]}]}], 
+   "|>"}]}]], "Input",
+ CellChangeTimes->{{3.797685290445138*^9, 3.797685429733686*^9}, {
+  3.7976854684583406`*^9, 3.797685539308918*^9}, {3.797685673172303*^9, 
+  3.797685675638137*^9}, {3.797685720111451*^9, 3.7976857248570547`*^9}, {
+  3.79768619939095*^9, 3.797686210155972*^9}},
+ CellLabel->
+  "In[272]:=",ExpressionUUID->"0e7d9d59-9e89-4229-9044-41eda866b6a6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Map", "[", 
+   RowBox[{"Efficiency", ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<raw binary\>\"", ",", " ", "256"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<base64\>\"", ",", "64"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<base45 (QR Code alphanumeric)\>\"", ",", "45"}], "}"}], 
+      ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<base32, bech32, BC32 (not including checksum)\>\"", ",", "32"}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<hexadecimal\>\"", ",", "16"}], "}"}]}], "}"}]}], "]"}], "//",
+   "Dataset"}]], "Input",
+ CellChangeTimes->{{3.797685583421632*^9, 3.797685650099559*^9}, {
+  3.7976857539978*^9, 3.797685794002221*^9}, {3.797686226514182*^9, 
+  3.797686237086626*^9}},
+ CellLabel->
+  "In[275]:=",ExpressionUUID->"e929bf96-8dfc-441a-84d1-0d179eea0fbe"],
+
+Cell[BoxData[
+ TemplateBox[{TagBox[
+    DynamicModuleBox[{
+     TypeSystem`NestedGrid`PackagePrivate`$state$$ = 
+      Data`UnorderedAssociation[
+       "RowCount" -> 5, "Length" -> 5, "InitialType" -> TypeSystem`Vector[
+          
+          TypeSystem`Struct[{
+           "Format", "Number of characters", "Number of bits per character", 
+            "Efficiency compared to raw binary"}, {
+            TypeSystem`Atom[String], 
+            TypeSystem`Atom[Integer], 
+            TypeSystem`Atom[Real], 
+            TypeSystem`Atom[String]}], 5], "Shape" -> 
+        TypeSystem`PackageScope`HeaderShape[
+          
+          Association[{All, "Format"} -> 1, {All, "Number of characters"} -> 
+           1, {All, "Number of bits per character"} -> 
+           1, {All, "Efficiency compared to raw binary"} -> 1], 
+          TypeSystem`PackageScope`Limited[
+           TypeSystem`PackageScope`ColumnShape[
+            TypeSystem`PackageScope`RowShape[
+             Association[
+             "Format" -> 
+              TypeSystem`PackageScope`AtomShape[432.00000000000006`], 
+              "Number of characters" -> TypeSystem`PackageScope`AtomShape[34],
+               "Number of bits per character" -> 
+              TypeSystem`PackageScope`AtomShape[60], 
+              "Efficiency compared to raw binary" -> 
+              TypeSystem`PackageScope`AtomShape[57.60000000000001]]]], 
+           5, {}]], "InitialData" -> 
+        TypeSystem`PackageScope`CacheHandle[1857878752], "Type" -> 
+        TypeSystem`Vector[
+          
+          TypeSystem`Struct[{
+           "Format", "Number of characters", "Number of bits per character", 
+            "Efficiency compared to raw binary"}, {
+            TypeSystem`Atom[String], 
+            TypeSystem`Atom[Integer], 
+            TypeSystem`Atom[Real], 
+            TypeSystem`Atom[String]}], 5], "HandleQ" -> True, "RowTarget" -> 
+        20, "Data" -> TypeSystem`PackageScope`CacheHandle[1857878752]], 
+      TypeSystem`NestedGrid`PackagePrivate`$path$$ = {}, 
+      TypeSystem`NestedGrid`PackagePrivate`$pos$$ = 1, 
+      TypeSystem`NestedGrid`PackagePrivate`$grid$$ = 
+      DynamicModule[{
+        TypeSystem`NestedGrid`PackagePrivate`renderedGrid = Deploy[
+           Style[
+            Grid[{{
+               Item[
+                Annotation[
+                 EventHandler[
+                  MouseAppearance[
+                   Mouseover[
+                    Pane[
+                    RawBoxes[
+                    StyleBox["\"Format\"", FontColor -> GrayLevel[0.4]]], {{
+                    20, Full}, 15}], 
+                    Style[
+                    Pane[
+                    RawBoxes[
+                    StyleBox[
+                    "\"Format\"", FontColor -> 
+                    RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], {{20, Full}, 15}], FontColor -> 
+                    RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], "LinkHand"], {"MouseClicked", 1} :> 
+                  TypeSystem`NestedGrid`PackagePrivate`updateState[
+                   TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$pos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    1046307739][{All, "Format"}]], 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[All, "Format"]], "Mouse"], 
+                Background -> GrayLevel[0.95], Alignment -> {Left, Baseline}], 
+               Item[
+                Annotation[
+                 EventHandler[
+                  MouseAppearance[
+                   Mouseover[
+                    Pane[
+                    RawBoxes[
+                    StyleBox[
+                    "\"Number of characters\"", FontColor -> 
+                    GrayLevel[0.4]]], {{20, Full}, 15}], 
+                    Style[
+                    Pane[
+                    RawBoxes[
+                    StyleBox[
+                    "\"Number of characters\"", FontColor -> 
+                    RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], {{20, Full}, 15}], FontColor -> 
+                    RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], "LinkHand"], {"MouseClicked", 1} :> 
+                  TypeSystem`NestedGrid`PackagePrivate`updateState[
+                   TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$pos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    1046307739][{All, "Number of characters"}]], 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[All, "Number of characters"]], 
+                 "Mouse"], Background -> GrayLevel[0.95], 
+                Alignment -> {Left, Baseline}], 
+               Item[
+                Annotation[
+                 EventHandler[
+                  MouseAppearance[
+                   Mouseover[
+                    Pane[
+                    RawBoxes[
+                    StyleBox[
+                    "\"Number of bits per character\"", FontColor -> 
+                    GrayLevel[0.4]]], {{20, Full}, 15}], 
+                    Style[
+                    Pane[
+                    RawBoxes[
+                    StyleBox[
+                    "\"Number of bits per character\"", FontColor -> 
+                    RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], {{20, Full}, 15}], FontColor -> 
+                    RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], "LinkHand"], {"MouseClicked", 1} :> 
+                  TypeSystem`NestedGrid`PackagePrivate`updateState[
+                   TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$pos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    1046307739][{All, "Number of bits per character"}]], 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[
+                  All, "Number of bits per character"]], "Mouse"], Background -> 
+                GrayLevel[0.95], Alignment -> {Left, Baseline}], 
+               Item[
+                Annotation[
+                 EventHandler[
+                  MouseAppearance[
+                   Mouseover[
+                    Pane[
+                    RawBoxes[
+                    StyleBox[
+                    "\"Efficiency compared to raw binary\"", FontColor -> 
+                    GrayLevel[0.4]]], {{20, Full}, 15}], 
+                    Style[
+                    Pane[
+                    RawBoxes[
+                    StyleBox[
+                    "\"Efficiency compared to raw binary\"", FontColor -> 
+                    RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], {{20, Full}, 15}], FontColor -> 
+                    RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], "LinkHand"], {"MouseClicked", 1} :> 
+                  TypeSystem`NestedGrid`PackagePrivate`updateState[
+                   TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$pos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    1046307739][{All, "Efficiency compared to raw binary"}]], 
+                 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[
+                  All, "Efficiency compared to raw binary"]], "Mouse"], 
+                Background -> GrayLevel[0.95], 
+                Alignment -> {Left, Baseline}]}, {
+               Pane[
+                Annotation["raw binary", 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[1, 
+                   Key["Format"]]], "Mouse"], 
+                ImageSize -> {{432.00000000000006`, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation[
+                 RawBoxes["256"], 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[1, 
+                   Key["Number of characters"]]], "Mouse"], 
+                ImageSize -> {{34, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation[
+                 RawBoxes["8.0"], 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[1, 
+                   Key["Number of bits per character"]]], "Mouse"], 
+                ImageSize -> {{60, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation["100%", 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[1, 
+                   Key["Efficiency compared to raw binary"]]], "Mouse"], 
+                ImageSize -> {{57.60000000000001, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}]}, {
+               Pane[
+                Annotation["base64", 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[2, 
+                   Key["Format"]]], "Mouse"], 
+                ImageSize -> {{432.00000000000006`, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation[
+                 RawBoxes["64"], 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[2, 
+                   Key["Number of characters"]]], "Mouse"], 
+                ImageSize -> {{34, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation[
+                 RawBoxes["6.0"], 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[2, 
+                   Key["Number of bits per character"]]], "Mouse"], 
+                ImageSize -> {{60, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation["75%", 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[2, 
+                   Key["Efficiency compared to raw binary"]]], "Mouse"], 
+                ImageSize -> {{57.60000000000001, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}]}, {
+               Pane[
+                Annotation["base45 (QR Code alphanumeric)", 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[3, 
+                   Key["Format"]]], "Mouse"], 
+                ImageSize -> {{432.00000000000006`, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation[
+                 RawBoxes["45"], 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[3, 
+                   Key["Number of characters"]]], "Mouse"], 
+                ImageSize -> {{34, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation[
+                 RawBoxes["5.49185"], 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[3, 
+                   Key["Number of bits per character"]]], "Mouse"], 
+                ImageSize -> {{60, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation["68.65%", 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[3, 
+                   Key["Efficiency compared to raw binary"]]], "Mouse"], 
+                ImageSize -> {{57.60000000000001, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}]}, {
+               Pane[
+                Annotation["base32, bech32, BC32 (not including checksum)", 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[4, 
+                   Key["Format"]]], "Mouse"], 
+                ImageSize -> {{432.00000000000006`, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation[
+                 RawBoxes["32"], 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[4, 
+                   Key["Number of characters"]]], "Mouse"], 
+                ImageSize -> {{34, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation[
+                 RawBoxes["5.0"], 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[4, 
+                   Key["Number of bits per character"]]], "Mouse"], 
+                ImageSize -> {{60, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation["62.5%", 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[4, 
+                   Key["Efficiency compared to raw binary"]]], "Mouse"], 
+                ImageSize -> {{57.60000000000001, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}]}, {
+               Pane[
+                Annotation["hexadecimal", 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[5, 
+                   Key["Format"]]], "Mouse"], 
+                ImageSize -> {{432.00000000000006`, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation[
+                 RawBoxes["16"], 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[5, 
+                   Key["Number of characters"]]], "Mouse"], 
+                ImageSize -> {{34, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation[
+                 RawBoxes["4.0"], 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[5, 
+                   Key["Number of bits per character"]]], "Mouse"], 
+                ImageSize -> {{60, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}], 
+               Pane[
+                Annotation["50%", 
+                 TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+                  GeneralUtilities`Slice[5, 
+                   Key["Efficiency compared to raw binary"]]], "Mouse"], 
+                ImageSize -> {{57.60000000000001, Full}, Automatic}, 
+                Alignment -> {Left, Baseline}]}}, BaseStyle -> {ContextMenu -> {
+                 MenuItem["Copy position to clipboard", 
+                  KernelExecute[
+                   TypeSystem`NestedGrid`PackagePrivate`toCurrentPosition[
+                   TypeSystem`NestedGrid`PackagePrivate`copyClip]], 
+                  MenuEvaluator -> Automatic], 
+                 MenuItem["Copy data to clipboard", 
+                  KernelExecute[
+                   TypeSystem`NestedGrid`PackagePrivate`toCurrentData[
+                   TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`copyClip]], 
+                  MenuEvaluator -> Automatic], Delimiter, 
+                 MenuItem["Paste position in new cell", 
+                  KernelExecute[
+                   TypeSystem`NestedGrid`PackagePrivate`toCurrentPosition[
+                   TypeSystem`NestedGrid`PackagePrivate`cellPaste]], 
+                  MenuEvaluator -> Automatic], 
+                 MenuItem["Paste data in new cell", 
+                  KernelExecute[
+                   TypeSystem`NestedGrid`PackagePrivate`toCurrentData[
+                   TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`cellPaste]], 
+                  MenuEvaluator -> Automatic]}, FontFamily -> "Verdana", 
+               FontSize -> 12}, Alignment -> Left, RowMinHeight -> 1.5, 
+             Dividers -> All, FrameStyle -> GrayLevel[0.85], 
+             BaseStyle -> {FontFamily -> "Verdana", FontSize -> 12}], 
+            LineBreakWithin -> False, ContextMenu -> {}, NumberMarks -> False,
+             ShowAutoStyles -> False]], 
+         TypeSystem`NestedGrid`PackagePrivate`initialQ = True, 
+         TypeSystem`NestedGrid`PackagePrivate`self = $Failed}, 
+        Dynamic[
+         TypeSystem`NestedGrid`PackagePrivate`setupViewPath[
+         TypeSystem`NestedGrid`PackagePrivate`$path$$, If[
+            Not[TypeSystem`NestedGrid`PackagePrivate`initialQ], 
+            
+            Module[{TypeSystem`NestedGrid`PackagePrivate`tmpGrid$ = $Failed, 
+              TypeSystem`NestedGrid`PackagePrivate`tmpData$ = 
+              TypeSystem`NestedGrid`PackagePrivate`LookupCacheValue[
+                TypeSystem`NestedGrid`PackagePrivate`$state$$["Data"]]}, 
+             TypeSystem`NestedGrid`PackagePrivate`tmpGrid$ = 
+              If[TypeSystem`NestedGrid`PackagePrivate`tmpData$ === 
+                TypeSystem`NestedGrid`PackagePrivate`$NotCached, 
+                TypeSystem`NestedGrid`PackagePrivate`renderedGrid, 
+                TypeSystem`NestedGrid`PackagePrivate`renderGrid[
+                TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                 TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                 TypeSystem`NestedGrid`PackagePrivate`$pos$$, 
+                 TypeSystem`NestedGrid`PackagePrivate`$grid$$, 1046307739][
+                TypeSystem`NestedGrid`PackagePrivate`tmpData$]]; If[
+               Not[
+                FailureQ[TypeSystem`NestedGrid`PackagePrivate`tmpGrid$]], 
+               TypeSystem`NestedGrid`PackagePrivate`renderedGrid = 
+               TypeSystem`NestedGrid`PackagePrivate`tmpGrid$]; Null]]; 
+          TypeSystem`NestedGrid`PackagePrivate`initialQ = False; 
+          TypeSystem`NestedGrid`PackagePrivate`$pos$$; If[
+            FailureQ[TypeSystem`NestedGrid`PackagePrivate`renderedGrid], 
+            TypeSystem`SparseGrid[
+             TypeSystem`H["(data no longer present)"]], 
+            If[GeneralUtilities`$DebugMode, 
+             Row[{TypeSystem`NestedGrid`PackagePrivate`renderedGrid, "  ", 
+               TypeSystem`NestedGrid`PackagePrivate`formatState[
+               TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                TypeSystem`NestedGrid`PackagePrivate`$pos$$]}], 
+             TypeSystem`NestedGrid`PackagePrivate`renderedGrid]]], 
+         TrackedSymbols :> {TypeSystem`NestedGrid`PackagePrivate`$pos$$}], 
+        DynamicModuleValues :> {}], 
+      TypeSystem`NestedGrid`PackagePrivate`$posCell$$, 
+      TypeSystem`NestedGrid`PackagePrivate`$topBar$$ = Dynamic[
+        TypeSystem`NestedGrid`PackagePrivate`alignBar[
+        TypeSystem`NestedGrid`PackagePrivate`$state$$][
+         TypeSystem`NestedGrid`PackagePrivate`makeFramedBar[
+          TypeSystem`PackageScope`Pathbar[
+          TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+           TypeSystem`NestedGrid`PackagePrivate`updateState[
+           TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+            TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+            TypeSystem`NestedGrid`PackagePrivate`$pos$$, 
+            TypeSystem`NestedGrid`PackagePrivate`$grid$$, 1046307739]]]], 
+        TrackedSymbols :> {TypeSystem`NestedGrid`PackagePrivate`$path$$}], 
+      TypeSystem`NestedGrid`PackagePrivate`$bottomBar$$ = Framed[
+        Dynamic[
+         Replace[
+          MouseAnnotation[Null], {
+          TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][Null] -> 
+           "", TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[1046307739][
+             Pattern[TypeSystem`NestedGrid`PackagePrivate`path, 
+              Blank[]]] :> (
+            TypeSystem`NestedGrid`PackagePrivate`$lastPath = 
+             TypeSystem`NestedGrid`PackagePrivate`path; 
+            TypeSystem`NestedGrid`PackagePrivate`makePathTrail[
+             TypeSystem`NestedGrid`PackagePrivate`path, 
+              TypeSystem`NestedGrid`PackagePrivate`makePathElements]), Null :> 
+           Spacer[10], Blank[] :> Spacer[10]}], TrackedSymbols :> {}], 
+        FrameStyle -> None, ImageMargins -> 0, FrameMargins -> 0, Alignment -> 
+        Top, ImageSize -> {Automatic, 14}]}, 
+     DynamicBox[
+      ToBoxes[
+       Column[
+        If[TypeSystem`NestedGrid`PackagePrivate`$path$$ == {}, {
+          TypeSystem`NestedGrid`PackagePrivate`displayScrollBar[
+          TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+           TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+           TypeSystem`NestedGrid`PackagePrivate`$pos$$], 
+          TypeSystem`NestedGrid`PackagePrivate`onDesktopShow[
+           TypeSystem`NestedGrid`PackagePrivate`alignBar[
+           TypeSystem`NestedGrid`PackagePrivate`$state$$][
+           TypeSystem`NestedGrid`PackagePrivate`$bottomBar$$]]}, {
+         TypeSystem`NestedGrid`PackagePrivate`$topBar$$, 
+          TypeSystem`NestedGrid`PackagePrivate`displayScrollBar[
+          TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+           TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+           TypeSystem`NestedGrid`PackagePrivate`$pos$$], 
+          TypeSystem`NestedGrid`PackagePrivate`onDesktopShow[
+           TypeSystem`NestedGrid`PackagePrivate`alignBar[
+           TypeSystem`NestedGrid`PackagePrivate`$state$$][
+           TypeSystem`NestedGrid`PackagePrivate`$bottomBar$$]]}], Spacings -> 
+        If[TypeSystem`NestedGrid`PackagePrivate`$path$$ == {}, 
+          0, {{}, {0, 0.05, 0}}]], StandardForm], 
+      ImageSizeCache -> {982., {79.634033203125, 85.365966796875}}, 
+      TrackedSymbols :> {
+       TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+        TypeSystem`NestedGrid`PackagePrivate`$grid$$}], 
+     BaseStyle -> {LineBreakWithin -> False}, Deinitialization :> 
+     TypeSystem`NestedGrid`PackagePrivate`deleteState[
+      TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+     DynamicModuleValues :> {}, Initialization :> 
+     Block[{$ContextPath = $ContextPath}, 
+       Needs["TypeSystem`"]]], Deploy, DefaultBaseStyle -> "Deploy"]},
+  "CopyTag",
+  DisplayFunction->(#& ),
+  InterpretationFunction->("Dataset[<>]"& )]], "Output",
+ CellChangeTimes->{
+  3.797685794928424*^9, {3.7976862121084623`*^9, 3.7976862378737926`*^9}},
+ CellLabel->
+  "Out[275]=",ExpressionUUID->"25f09add-99ce-43df-9b2e-a8950fa39bc4"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1238, 945},
+WindowMargins->{{339, Automatic}, {29, Automatic}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 199, 3, 98, "Title",ExpressionUUID->"b8329b0c-9682-4aed-8cc6-b293ddfab6ee"],
+Cell[782, 27, 203, 6, 85, "Subtitle",ExpressionUUID->"a900776e-22d1-4695-b0d8-895c3ec2fa93"],
+Cell[988, 35, 1083, 25, 52, "Input",ExpressionUUID->"0e7d9d59-9e89-4229-9044-41eda866b6a6"],
+Cell[CellGroupData[{
+Cell[2096, 64, 893, 24, 52, "Input",ExpressionUUID->"e929bf96-8dfc-441a-84d1-0d179eea0fbe"],
+Cell[2992, 90, 23681, 457, 185, "Output",ExpressionUUID->"25f09add-99ce-43df-9b2e-a8950fa39bc4"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
