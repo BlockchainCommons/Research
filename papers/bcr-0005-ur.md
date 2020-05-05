@@ -126,7 +126,7 @@ header
 
 ### Types
 
-Each UR encoded object includes a `type` component as the first path component after the `UR` scheme. Types may consist only of characters from the English letters ignoring case and Arabic numerals.
+Each UR encoded object includes a `type` component as the first path component after the `UR` scheme. Types may consist only of characters from the English letters (ignoring case) and Arabic numerals.
 
 The only type this document specifies is `bytes` which represents an undifferentiated string of bytes of any length. It is intended that future specifications will register and document other types that will specify other forms of structured content intended to address various problem domains.
 
