@@ -7,6 +7,8 @@ This repository contains research and proposals of interest to the blockchain co
 * [BCR-0001: Uniformly Translating Entropy into Cryptographic Seeds](papers/bcr-0001-entropy-to-seed.md), Wolf McNally
 * [BCR-0002: Bech32 Encoding for Cryptographic Seeds](papers/bcr-0002-bech32-seed-format.md), Wolf McNally
 * [BCR-0003: Encoding Binary Compatibly with URI Reserved Characters](papers/bcr-0003-uri-binary-compatibility.md), Wolf McNally
+* [BCR-0004: The BC32 Data Encoding Format](papers/bcr-0004-bc32.md), Wolf McNally
+* [BCR-0005: Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes](papers/bcr-0005-qru.md), Wolf McNally
 
 ## Origin, Authors, Copyright & Licenses
 
