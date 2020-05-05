@@ -6,8 +6,8 @@ Encoding Structured Binary Data for Transport in URIs and QR Codes
 
 **© 2020 Blockchain Commons**
 
-Author: Wolf McNally<br/>
-Date: May 4, 2020
+Authors: Wolf McNally, Christopher Allen<br/>
+Date: May 5, 2020
 
 ---
 
