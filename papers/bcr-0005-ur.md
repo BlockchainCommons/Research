@@ -41,7 +41,7 @@ This proposed method has the following goals:
 * Use the alphanumeric QR code mode for efficiency.
 * Be case agnostic, allowing use of all upper case letters (for QR code transport) or all lower case letters (canonical for display and URIs.)
 * Include sequencing information so the receiver can be certain of arrival and order of all parts.
-* Include a cryptographic digest of the entire messsage in each part to tie them together, uniquely identify the whole message, and ensure the exact transmitted message has been reconstructed.
+* Include a cryptographic digest of the entire message in each part to tie them together, uniquely identify the whole message, and ensure the exact transmitted message has been reconstructed.
 * Each single part should also be a valid URI and not require escaping (e.g. percent-encoding) of any of its characters.
 * Combining a set of parts, which are separate URIs themselves, should involve simple textual manipulation, mostly concatenation, and should again result in a well-formed URI.
 * Support the addition of structure in the binary data. Initially specify how binary data representing undifferentiated byte strings should be encoded.
@@ -77,16 +77,16 @@ payload             checksum
 
 ### CBOR
 
-At the binary level, the goal of adding structure is accomplished by standardizing on the Concise Binary Object Representataion [CBOR]. All payloads encoded according to this specification MUST be well-formed CBOR.
+At the binary level, the goal of adding structure is accomplished by standardizing on the Concise Binary Object Representation [CBOR]. All payloads encoded according to this specification MUST be well-formed CBOR.
 
 By specifying a standard for binary structure, users of this format can begin to standardize structures that go beyond undifferentiated byte strings. CBOR has many desirable traits, including being self-describing, fast to encode and decode, and having minimal implementation complexity. Encoding binary strings as CBOR according to this specification adds a single byte of overhead for payloads of 23 or fewer bytes, two bytes for payloads up to 255 bytes, and three bytes for payloads up to 65535 bytes, and lays the groundwork for encoding more complex structures in the future.
 
 This specification does not require that a complete CBOR codec be used by implementors. It only specifies that a minimal canonical representation for encoding byte strings be used:
 
-* If the encoded byte string has 23 or fewer bytes, it is preceeded by the single byte (`0x40` + length).
-* If the encoded byte string has 24..255 bytes, it is preceeded by (`0x58`, length) where *length* is the length of the following byte string.
-* If the encoded byte string has 256..65535 bytes, it is preceeded by (`0x59`, h, l) where *h*, *l* is the big-endian two byte length of the following byte string.
-* If the encoded byte string has 65536..2^32-1 bytes, it is preceeded by (`0x60`, b1, b2, b3, b4) where *b(n)* is the big-endian four byte length of the following byte string.
+* If the encoded byte string has 23 or fewer bytes, it is preceded by the single byte (`0x40` + length).
+* If the encoded byte string has 24..255 bytes, it is preceded by (`0x58`, length) where *length* is the length of the following byte string.
+* If the encoded byte string has 256..65535 bytes, it is preceded by (`0x59`, h, l) where *h*, *l* is the big-endian two byte length of the following byte string.
+* If the encoded byte string has 65536..2^32-1 bytes, it is preceded by (`0x60`, b1, b2, b3, b4) where *b(n)* is the big-endian four byte length of the following byte string.
 
 Writers of this format MUST use the shortest encoding given the length of the payload. CBOR also supports an 8-byte length encoding for payloads longer than 2^32-1 bytes, and also encoding of "indefinite length" byte strings, but implementors of this specification MAY refuse to decode them. Implementors of this specification MAY also reject any other CBOR constructs.
 
