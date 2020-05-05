@@ -112,7 +112,7 @@ header
 A 32-byte cryptographic seed:
 
 ```
-ab1b5980595a6e13112c5739283ff5286379e0beac4f3427352a254c40a39ff
+3ab1b5980595a6e13112c5739283ff5286379e0beac4f3427352a254c40a39ff
 ```
 
 The seed encoded as CBOR. It includes a two-byte header, (0x58, 0x20), which is 0x58 to identify a single-byte length, and 0x20, which is the length of the string (32).
