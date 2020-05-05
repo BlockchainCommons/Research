@@ -275,7 +275,7 @@ Example decoding of the first QR code above:
 UR:BYTES/1OF7/JNVA0JANNRYMFKPU7L9Z0P9LDY3QYS7QHDAQK9E95EK68YW3SX3S2AKPKN/TYPJP2594NDRWZVHDR6SXVFSJP86MJLTNNE9QKZ7UYDN9UNK0A4D5KCVHAWEFX9YUVUAX5T7AV5U2RCX5GGPYCQ0VRTVVXLW38G96VZ8538Z25D66UGWKKEU7QSPX2SK6L54ATWK9TZG5NTNDHEKUXJEMD5UW62GAS3XEN58PHNYQ5WWF4CE99Q8SQN8NU4YLE70542A
 ```
 
-### Combining Fragments
+### Combining Parts
 
 Each individual UR part is a well-formed URI. UR parts can be combined into a single part that is also a well-formed URI by concatenating in-order the fragments of every part and preserving the overall syntactical structure:
 
