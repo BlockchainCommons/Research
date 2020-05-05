@@ -203,7 +203,7 @@ qrCodes = MakeQRCodes[parts];
 * Generate a random payload of 800 bytes.
 
 ```
-:= payload = RandomInteger[255, 800] // ByteArray;
+:= payload = RandomBytes[800];
 := payload // ToHex // Short
 590320daeabff1aa00f3b02bd84dbcf75ddaf124d0c6aabf4217c...6b8120d4eafdfc0da4e6c6522b6469b8eb3e359aea5c65c0f0905
 ```
