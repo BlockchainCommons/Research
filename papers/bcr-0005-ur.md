@@ -46,6 +46,21 @@ This proposed method has the following goals:
 * Combining a set of parts, which are separate URIs themselves, should involve simple textual manipulation, mostly concatenation, and should again result in a well-formed URI.
 * Support the addition of structure in the binary data. Initially specify how binary data representing undifferentiated byte strings should be encoded.
 
+### Requirements
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC2119].
+
+### Terminology
+
+fragment
+: Refers to the subsequence of BC32-encoded characters contained in each part
+
+part
+: Refers to a well-formed URI as specified herein
+
+payload
+: The original binary sequence to be encoded and recovered through decoding.
+
 ### BC32
 
 The method of encoding binary data as printable characters specified in this proposal is [BC32]. BC32 is a modification of [Bech32] that drops the prologue containing the "human readable part" and `1` numeral divider.
@@ -126,13 +141,11 @@ header
 
 ### Types
 
-Each UR encoded object includes a `type` component as the first path component after the `UR` scheme. Types may consist only of characters from the English letters (ignoring case) and Arabic numerals.
+Each UR encoded object includes a `type` component as the first path component after the `UR` scheme. Types MUST consist only of characters from the English letters (ignoring case), Arabic numerals, and the hyphen `-`.
 
 The only type this document specifies is `bytes` which represents an undifferentiated string of bytes of any length. It is intended that future specifications will register and document other types that will specify other forms of structured content intended to address various problem domains.
 
 ### Procedure for UR encoding
-
-**✳️ Note:** *In this document, "part" refers to a well-formed URI as specified herein, while "fragment" refers to the subsequence of BC32-encoded characters contained in each part.*
 
 Given `payload` is an array of bytes.
 
@@ -162,7 +175,7 @@ bc32Digest = BC32Encode[digest];
 
 #### 5. Partition the encoded payload into a sequence of fragments
 
-The number of characters in each fragment is `maximumFragmentCharacters` and depends on the desired density of the resultant QR Codes. There is no requirement that all the fragments be of equal size. In the simplest partitioning scheme, the last fragment may be shorter than the others. 1000 characters per fragment is suggested based on experimentation with smaller display sizes.
+The number of characters in each fragment is `maximumFragmentCharacters` and depends on the desired density of the resultant QR Codes. There is no requirement that all the fragments be of equal size. In the simplest partitioning scheme, the last fragment MAY be shorter than the others. 1000 characters per fragment is suggested based on experimentation with smaller display sizes.
 
 ```
 maximumFragmentCharacters = 1000;
@@ -195,7 +208,7 @@ This step includes transforming the parts to upper case to take advantage of the
 qrCodes = MakeQRCodes[parts];
 ```
  ---
- 
+
 ### Example of UR encoding
 
 **✳️ Note:** *The accompanying Wolfram Language (Mathematica) notebook includes a reference implementation of the methods needed to duplicate the example below.*
@@ -289,6 +302,7 @@ ur:type[/1of1][/digest]/concatenated-fragments
 * [QRCodeCapacity] [QRCode.com: Information Capacity and Versions of the QR Code](https://www.qrcode.com/en/about/version.html)
 * [QRBinaryProblems] [StackOverflow: Storing binary data in QR codes](https://stackoverflow.com/questions/37996101/storing-binary-data-in-qr-codes)
 * [RFC4648] [The Base16, Base32, and Base64 Data Encodings](https://tools.ietf.org/html/rfc4648)
+* [RFC2119] [Key words for use in RFCs to Indicate Requirement Levels](https://tools.ietf.org/html/rfc2119)
 * [BC32] [Blockchain Commons: The BC32 Data Encoding Format](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-0004-bc32.md)
 * [Bech32] [BIP-173: Base32 address format for native v0-16 witness outputs](https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki)
 * [URIBinary] [Blockchain Commons: Encoding Binary Compatibly with URI Reserved Characters](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-0003-uri-binary-compatibility.md)
