@@ -27,7 +27,7 @@ All types with the prefix `x-` are reserved for user-defined UR types.
 
 ### CBOR-Wrapped Types
 
-All types with the prefix `cbor-` are reserved for existing non-CBOR media types wrapped in a CBOR byte string. The only type currently specified in this registry is `cbor-png` for [PNG] images.
+All types with the prefix `cbor-` are reserved for existing non-CBOR media types wrapped in a CBOR byte string. The only types currently specified in this registry are `cbor-png` for [PNG] images and `cbor-svg` for [SVG] images.
 
 ### Registry
 
@@ -35,6 +35,7 @@ All types with the prefix `cbor-` are reserved for existing non-CBOR media types
 |------|-------------|------------|
 | `bytes` | Undifferentiated byte string | [[BCR-0005]](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-0005-ur.md) |
 | `cbor-png` | PNG image | [[PNG]](https://tools.ietf.org/html/rfc2083) |
+| `cbor-svg` | SVG image | [[SVG]](https://www.w3.org/TR/SVG11/) |
 | `cose-sign` | COSE_Sign: Signed message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
 | `cose-sign1` | COSE_Sign1: Signed message (single recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
 | `cose-encrypt` | COSE_Encrypt: Encrypted message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
@@ -447,6 +448,7 @@ ur:crypto-slip39/3of3/udl8vk6qgxxtxvpr662uvckjau86wyjdyk52xmrqsrymq2lpk6usufugcu
 * [CBOR-PLAYGROUND] [CBOR Playground](http://cbor.me)
 * [LANG] [List of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 * [PNG] [PNG (Portable Network Graphics) Specification](https://tools.ietf.org/html/rfc2083)
+* [SVG] [Scalable Vector Graphics (SVG) 1.1 (Second Edition)](https://www.w3.org/TR/SVG11/)
 
 ### Informative References
 
