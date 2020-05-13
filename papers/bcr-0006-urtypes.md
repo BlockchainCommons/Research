@@ -21,11 +21,11 @@ This document is a registry of UR types. Each entry in the registry records the 
 
 Types specified within this document are specified in [CDDL], the Concise Data Definition Language used as a human-readable notation for CBOR structures.
 
-### User-Defined Types
+### User-Defined Types `x-*`
 
 All types with the prefix `x-` are reserved for user-defined UR types.
 
-### CBOR-Wrapped Types
+### CBOR-Wrapped Types `cbor-*`
 
 All types with the prefix `cbor-` are reserved for existing non-CBOR media types wrapped in a CBOR byte string. The only types currently specified in this registry are `cbor-png` for [PNG] images and `cbor-svg` for [SVG] images.
 
@@ -146,7 +146,7 @@ ur:crypto-seed/5gq4p3cfskqpyh32kzvpy56x3vkmc5szmpjpj376py6zrs
 
 ![](bcr-0006/1.png)
 
-### BIP-39 Encoded Seed
+### BIP-39 Encoded Seed `crypto-bip39`
 
 The type `crypto-bip39` contains an array of BIP39 words and an optional language specifier [LANG], which if omitted is taken to be `en`.
 
@@ -233,7 +233,7 @@ ur:crypto-bip39/5gqccenndp5k2mryv4nhymm4wpjk2un0v3jk2cthv94k2ervda3kkemnv96hxct8
 
 ![](bcr-0006/3.png)
 
-### SLIP-39 Encoded Shares
+### SLIP-39 Encoded Shares `crypto-slip39`
 
 The type `crypto-slip39` contains an array of one or more SLIP39 shares, each of which contains one or more SLIP39 words, and an optional language specifier [LANG], which if omitted is taken to be `en`.
 
@@ -431,7 +431,7 @@ ur:crypto-slip39/3of3/udl8vk6qgxxtxvpr662uvckjau86wyjdyk52xmrqsrymq2lpk6usufugcu
 
 ![](bcr-0006/5.png)
 
-### COSE Structures
+### COSE Structures `cose-*`
 
 [COSE] specifies CBOR-encoded structures for transmitting signed and/or encrypted objects. This document specifies UR types starting with `cose-` for the various COSE messages in their untagged form.
 
