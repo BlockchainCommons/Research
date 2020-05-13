@@ -80,7 +80,7 @@ bip39Word = text
 
 The type `crypto-slip39` contains an array of one or more SLIP39 shares, each of which contains one or more SLIP39 words, and an optional language specifier, which if omitted is taken to be `en`.
 
-#### CDDL for `crypto-bip39`
+#### CDDL for `crypto-slip39`
 
 ```
 slip39 = {
