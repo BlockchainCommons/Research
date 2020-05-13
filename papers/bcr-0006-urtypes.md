@@ -21,6 +21,10 @@ This document is a registry of UR types. Each entry in the registry records the 
 
 Types specified within this document are specified in [CDDL], the Concise Data Definition Language used as a human-readable notation for CBOR structures.
 
+### User-Defined Types
+
+All types with the prefix `x-` are reserved for user-defined UR types.
+
 ### Registry
 
 | Type | Description | Definition |
