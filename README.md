@@ -10,6 +10,7 @@ This repository contains research and proposals of interest to the blockchain co
 * [BCR-0004: The BC32 Data Encoding Format](papers/bcr-0004-bc32.md)
 * [BCR-0005: Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes](papers/bcr-0005-ur.md)
 * [BCR-0006: Registry of Uniform Resource (UR) Types](papers/bcr-0006-urtypes.md)
+* [BCR-0007: UR Type Definition for Hierarchical Deterministic (HD) Keys](papers/bcr-0007-hdkey.md)
 
 ## Origin, Authors, Copyright & Licenses
 
