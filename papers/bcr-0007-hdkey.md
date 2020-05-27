@@ -98,7 +98,7 @@ path-info = (
 	derivation-path: path
 )
 
-; If `coin-type` an `path` are both present, then per [BIP44], the second path
+; If `coin-type` and `path` are both present, then per [BIP44], the second path
 ; component's `child-index` must match `coin-type`.
 
 is-master = 1
