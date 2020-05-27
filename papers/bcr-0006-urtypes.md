@@ -33,7 +33,7 @@ All types with the prefix `cbor-` are reserved for existing non-CBOR media types
 
 | Type | Description | Definition |
 |------|-------------|------------|
-| `bytes` | Undifferentiated byte string | [[BCR5]](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-0005-ur.md) |
+| `bytes` | Undifferentiated byte string | [[BCR5]](bcr-0005-ur.md) |
 | `cbor-png` | PNG image | [[PNG]](https://tools.ietf.org/html/rfc2083) |
 | `cbor-svg` | SVG image | [[SVG]](https://www.w3.org/TR/SVG11/) |
 | `cose-sign` | COSE_Sign: Signed message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
@@ -47,6 +47,7 @@ All types with the prefix `cbor-` are reserved for existing non-CBOR media types
 | `crypto-seed` | Cryptographic seed | This document |
 | `crypto-bip39` | BIP-39 encoded seed | This document |
 | `crypto-slip39` | One or more SLIP-39 shares | This document |
+| `crypto-hdkey` | Hierarchical Deterministic (HD) key | [[BCR7]](bcr-0007-hdkey.md) |
 
 ### Byte String `bytes`
 
