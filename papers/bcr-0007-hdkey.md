@@ -5,13 +5,16 @@
 **© 2020 Blockchain Commons**
 
 Authors: Wolf McNally, Christopher Allen<br/>
-Date: May 25, 2020
+Date: May 25, 2020<br/>
+Revised: June 5, 2020
 
 ---
 
 ### Introduction
 
-Hierarchical Deterministic Keys (HDKeys) [BIP32] allow an entire tree of keys to be derived from a single master key, which was originally derived from random entropy: a seed. Former specifications [BCR5] [BCR6] defined UR types such as `crypto-seed` for encoding and transmitting such seeds. This specification defines a UR type `crypto-hdkey` for encoding and transmitting HDKeys; either a master key or a derived key.
+Hierarchical Deterministic Keys (HDKeys) [BIP32] allow an entire tree of keys to be derived from a single master key, which was originally derived from random entropy: a seed. Former specifications [BCR5] [BCR6] defined UR types such as `crypto-seed` for encoding and transmitting such seeds. This specification defines a UR type `crypto-hdkey` (CBOR tag #6.303) for encoding and transmitting HDKeys; either a master key or a derived key.
+
+This specification also defines and incorporates a separate type `crypto-keypath` (CBOR tag #6.304) that specifies a key derivation path.
 
 ### HDKeys
 
@@ -34,9 +37,45 @@ This serialization is then [BASE58-CHECK] encoded, which adds four more bytes at
 
 The specification herein can be used in such a way that it is isomorphic with the serialization specified by BIP32. It also includes options that may break isomorphism.
 
-### CDDL
+### CDDL for Key Path
 
 The following specification is written in Concise Data Definition Language [CDDL].
+
+```
+; Metadata for the complete or partial derivation path of a key.
+;
+; `parent-fingerprint`, if present, is the [BIP32] fingerprint
+; of the parent key from which the associated key was derived.
+;
+; `depth`, if present, represents the number of derivation steps in
+; the path of the associated key, even if not present in the `path` element
+; of this structure.
+
+key-path = {
+	components: [1* path-component],
+	? parent-fingerint: uint32 .ne 0 ; parent fingerprint per [BIP32]
+	? depth: uint8 .gt 0
+}
+
+path-component = (
+	child-index,
+	is-hardened
+)
+
+uint32 = uint .size 4
+uint31 = uint32 .lt 0x80000000
+child-index = uint31
+
+is-hardened = bool
+
+components = 1
+parent-fingerprint = 2
+depth = 3
+```
+
+### CDDL for HDKey
+
+The following specification is written in Concise Data Definition Language [CDDL] and includes the `key-path` spec above.
 
 ```
 ; An hd-key is either a master key or a derived key.
@@ -65,7 +104,7 @@ derived-key = (
 	key-data: key-data-bytes,
 	? chain-code: chain-code-bytes    ; omit if no further keys may be derived from this key
 	use-info,                         ; metadata on how the key is to be used
-	derivation-info,                  ; metadata on how the key was derived
+	? path: key-path,                 ; metadata on how the key was derived
 )
 
 ; Metadata on how the key is to be used.
@@ -76,29 +115,7 @@ use-info = (
 	? is-testnet: bool .default false ; false if key is mainnet, true if testnet
 )
 
-; Metadata on how the key was derived.
-; To maintain isomorphism with [BIP32], `parent-fingerprint` must be present and
-; either `child-info` or `path-info` must be present.
-derivation-info = (
-	? parent-fingerprint: uint32 .ne 0,  ; parent fingerprint per [BIP32]
-	? child-info / path-info             ; only one of `child-info` or `path-info` may be provided
-)
-
-; Metadata on the derivation that derived this key, per [BIP32].
-child-info = (
-	child-number: [1 path-component],    ; an array of exactly 2 elements (child-index, is-hardened)
-	depth: uint8 .gt 0                   ; the number of derivations used to derive this key
-)
-
-; Metadata on the complete derivation path of this key.
-; This is a superset of the information provided in `child-info`:
-;   `child-number` is the `child-index` element of the last path component.
-;   `depth` is the number of elements in the path divided by two (each path component takes 2 elements.)
-path-info = (
-	derivation-path: path
-)
-
-; If `coin-type` an `path` are both present, then per [BIP44], the second path
+; If `coin-type` and `path` are both present, then per [BIP44], the second path
 ; component's `child-index` must match `coin-type`.
 
 is-master = 1
@@ -107,28 +124,14 @@ key-data = 3
 chain-code = 4
 coin-type = 5
 is-testnet = 6
-parent-fingerprint = 7
-child-number = 8
-depth = 9
-derivation-path = 10
+path = 7
 
 coin-type-btc = 0
 coin-type-eth = 0x3c
 
 uint8 = uint .size 1
-uint32 = uint .size 4
-uint31 = uint32 .lt 0x80000000
-child-index = uint31
 key-data-bytes = bytes .size 33
 chain-code-bytes = bytes .size 32
-
-path = [1* path-component]
-is-hardened = bool
-
-path-component = (
-	child-index,
-	is-hardened
-)
 ```
 
 Schematic for a master key:
@@ -150,9 +153,11 @@ Schematic for a derived public testnet Ethereum key that maintains isomorphism w
 	chain-code: bytes,
 	coin-type: coin-type-eth,
 	is-testnet: true,
-	parent-fingerprint: uint32,
-	child-number: [child-index, is-hardened],
-	depth: uint8
+	path: {
+		parent-fingerprint: uint32,
+		components: [child-index, is-hardened],
+		depth: uint8
+	}
 }
 ```
 
@@ -163,8 +168,10 @@ Schematic for a derived private mainnet Bitcoin key that maintains isomorphism w
 	is-public: false,
 	key-data: bytes,
 	chain-code: bytes,
-	parent-fingerprint: uint32,
-	derivation-path: [44, true, 0, true, account, true, change, false, address_index, false]
+	path: {
+		parent-fingerprint: uint32,
+		components: [44, true, 0, true, account, true, change, false, address_index, false]
+	}
 }
 ```
 
@@ -179,19 +186,19 @@ Schematic for a derived public mainnet Bitcoin key that includes only the key, e
 
 ### Example/Test Vector 1
 
-Test Vector 1 from [BIP32], a master key:
+* Test Vector 1 from [BIP32], a master key:
 
 ```
 xprv9s21ZrQH143K3QTDL4LXw2F7HEK3wJUD2nW2nRk4stbPy6cq3jPPqjiChkVvvNKmPGJxWUtg6LnF5kejMRNNU3TGtRBeJgk33yuGBxrMPHi
 ```
 
-Decoded from Base58 (82 bytes):
+* Decoded from Base58 (82 bytes):
 
 ```
 0488ade4000000000000000000873dff81c02f525623fd1fe5167eac3a55a049de3d314bb42ee227ffed37d50800e8f32e723decf4051aefac8e2c93c9c5b214313817cdb01a1494b917c8436b35e77e9d71
 ```
 
-Separated into fields specified in [BIP32]:
+* Separated into fields specified in [BIP32]:
 
 ```
 0488ade4 ; version `xprv`
@@ -203,7 +210,7 @@ Separated into fields specified in [BIP32]:
 e77e9d71 ; base58 checksum
 ```
 
-In the CBOR diagnostic notation:
+* In the CBOR diagnostic notation:
 
 ```
 {
@@ -245,19 +252,19 @@ ur:crypto-hdkey/5vql2q6cyyqw3uewwg77eaq9rth6er3vj0yutvs5xyup0ndsrg2ffwgheppkkdgy
 
 ### Example/Test Vector 2
 
-Test Vector 2 from [BIP32], a public key with derivation path `m/0/2147483647'/1/2147483646'/2`:
+* Test Vector 2 from [BIP32], a public key with derivation path `m/0/2147483647'/1/2147483646'/2`:
 
 ```
 xpub6FnCn6nSzZAw5Tw7cgR9bi15UV96gLZhjDstkXXxvCLsUXBGXPdSnLFbdpq8p9HmGsApME5hQTZ3emM2rnY5agb9rXpVGyy3bdW6EEgAtqt
 ```
 
-Decoded from Base58:
+* Decoded from Base58:
 
 ```
 0488b21e0531a507b8000000029452b549be8cea3ecb7a84bec10dcfd94afe4d129ebfd3b3cb58eedf394ed271024d902e1a2fc7a8755ab5b694c575fce742c48d9ff192e63df5193e4c7afe1f9ca2198df7
 ```
 
-Separated into fields specified in [BIP32]:
+* Separated into fields specified in [BIP32]:
 
 ```
 0488b21e ; version `xpub`
@@ -269,22 +276,24 @@ Separated into fields specified in [BIP32]:
 a2198df7 ; base58 checksum
 ```
 
-In the CBOR diagnostic notation:
+* In the CBOR diagnostic notation:
 
 ```
 {
 	2: true, ; is-public
 	3: h'024d902e1a2fc7a8755ab5b694c575fce742c48d9ff192e63df5193e4c7afe1f9c', ; key-data
 	4: h'9452b549be8cea3ecb7a84bec10dcfd94afe4d129ebfd3b3cb58eedf394ed271', ; chain-code
-	7: 832899000, ; parent-fingerprint
-	10: [0, false, 2147483647, true, 1, false, 2147483646, true, 2, false] ; derivation-path
+	7: 604({ ; path
+		1: [0, false, 2147483647, true, 1, false, 2147483646, true, 2, false], ; components
+		2: 832899000 ; parent-fingerprint
+	})
 }
 ```
 
 * Encoded as binary using [CBOR-PLAYGROUND]:
 
 ```
-A5                                      # map(5)
+A4                                      # map(4)
    02                                   # unsigned(2) is-public
    F5                                   # primitive(21) true
    03                                   # unsigned(3) key-data
@@ -293,32 +302,35 @@ A5                                      # map(5)
    04                                   # unsigned(4) chain-code
    58 20                                # bytes(32)
       9452B549BE8CEA3ECB7A84BEC10DCFD94AFE4D129EBFD3B3CB58EEDF394ED271
-   07                                   # unsigned(7) parent-fingerprint
-   1A 31A507B8                          # unsigned(832899000)
-   0A                                   # unsigned(10) derivation-path
-   8A                                   # array(10)
-      00                                # unsigned(0) child-index
-      F4                                # primitive(20) is-hardened
-      1A 7FFFFFFF                       # unsigned(2147483647) child-index
-      F5                                # primitive(21) is-hardened
-      01                                # unsigned(1) child-index
-      F4                                # primitive(20) is-hardened
-      1A 7FFFFFFE                       # unsigned(2147483646) child-index
-      F5                                # primitive(21) is-hardened
-      02                                # unsigned(2) child-index
-      F4                                # primitive(20) is-hardened
+   07                                   # unsigned(7) path
+   D9 025C                              # tag(604)
+      A2                                # map(2)
+         01                             # unsigned(1) path
+         8A                             # array(10)
+            00                          # unsigned(0) child-index
+            F4                          # primitive(20) is-hardened: false
+            1A 7FFFFFFF                 # unsigned(2147483647) child-index
+            F5                          # primitive(21) is-hardened: true
+            01                          # unsigned(1) child-index
+            F4                          # primitive(20) is-hardened: false
+            1A 7FFFFFFE                 # unsigned(2147483646) child-index
+            F5                          # primitive(21) is-hardened: true
+            02                          # unsigned(2) child-index
+            F4                          # primitive(20) is-hardened: false
+         02                             # unsigned(2) parent-fingerprint
+         1A 31A507B8                    # unsigned(832899000)
 ```
 
 * As a hex string:
 
 ```
-A502F5035821024D902E1A2FC7A8755AB5B694C575FCE742C48D9FF192E63DF5193E4C7AFE1F9C0458209452B549BE8CEA3ECB7A84BEC10DCFD94AFE4D129EBFD3B3CB58EEDF394ED271071A31A507B80A8A00F41A7FFFFFFFF501F41A7FFFFFFEF502F4
+A402F5035821024D902E1A2FC7A8755AB5B694C575FCE742C48D9FF192E63DF5193E4C7AFE1F9C0458209452B549BE8CEA3ECB7A84BEC10DCFD94AFE4D129EBFD3B3CB58EEDF394ED27107D9025CA2018A00F41A7FFFFFFFF501F41A7FFFFFFEF502F4021A31A507B8
 ```
 
 * As a UR:
 
 ```
-ur:crypto-hdkey/55p02q6cyypymypwrghu02r4t26md9x9wh7wwsky3k0lryhx8h63j0jv0tlpl8qytqsfg544fxlge637edagf0kpph8ajjh7f5ffa07nk0943mkl898dyug8rgc62pacp29qpaq60llllll4q86p5llllll02qh59t9khw
+ur:crypto-hdkey/5sp02q6cyypymypwrghu02r4t26md9x9wh7wwsky3k0lryhx8h63j0jv0tlpl8qytqsfg544fxlge637edagf0kpph8ajjh7f5ffa07nk0943mkl898dyug8myp9egsp3gq0gxnllllllagp7sd8lllllm6s9aqzrgc62pacp84y68
 ```
 
 * UR as QR Code:

@@ -29,25 +29,31 @@ All types with the prefix `x-` are reserved for user-defined UR types.
 
 All types with the prefix `cbor-` are reserved for existing non-CBOR media types wrapped in a CBOR byte string. The only types currently specified in this registry are `cbor-png` for [PNG] images and `cbor-svg` for [SVG] images.
 
+### Tags for Embedding
+
+Each UR type defines a CBOR encoding. When a UR type is suitable for embedding within another CBOR structure, it SHOULD be tagged with a CBOR tag defined for this purpose. This document also lists the tag, if any, defined for the particular CBOR strucure contained in the UR encoding.
+
 ### Registry
 
-| Type | Description | Definition |
-|------|-------------|------------|
-| `bytes` | Undifferentiated byte string | [[BCR5]](bcr-0005-ur.md) |
-| `cbor-png` | PNG image | [[PNG]](https://tools.ietf.org/html/rfc2083) |
-| `cbor-svg` | SVG image | [[SVG]](https://www.w3.org/TR/SVG11/) |
-| `cose-sign` | COSE_Sign: Signed message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
-| `cose-sign1` | COSE_Sign1: Signed message (single recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
-| `cose-encrypt` | COSE_Encrypt: Encrypted message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
-| `cose-encrypt0` | COSE_Encrypt0: Encrypted message (implied recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) |
-| `cose-mac` | COSE_Mac: Authenticated message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
-| `cose-mac0` | COSE_Mac0: Authenticated message (implied recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
-| `cose-key` | COSE_Key: An encryption key | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
-| `cose-keyset` | COSE_KeySet: A set of encryption keys | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
-| `crypto-seed` | Cryptographic seed | This document |
-| `crypto-bip39` | BIP-39 encoded seed | This document |
-| `crypto-slip39` | One or more SLIP-39 shares | This document |
-| `crypto-hdkey` | Hierarchical Deterministic (HD) key | [[BCR7]](bcr-0007-hdkey.md) |
+| Type | Tag | Description | Definition |
+|------|-----|-------------|------------|
+| `bytes` | | Undifferentiated byte string | [[BCR5]](bcr-0005-ur.md) |
+| `cbor-png` | | PNG image | [[PNG]](https://tools.ietf.org/html/rfc2083) |
+| `cbor-svg` | | SVG image | [[SVG]](https://www.w3.org/TR/SVG11/) |
+| `cose-sign` | 98 | COSE_Sign: Signed message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
+| `cose-sign1` | 18 | COSE_Sign1: Signed message (single recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
+| `cose-encrypt` | 96 | COSE_Encrypt: Encrypted message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
+| `cose-encrypt0` | 16 | COSE_Encrypt0: Encrypted message (implied recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) |
+| `cose-mac` | 97 | COSE_Mac: Authenticated message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
+| `cose-mac0` | 17 | COSE_Mac0: Authenticated message (implied recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
+| `cose-key` | | COSE_Key: An encryption key | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
+| `cose-keyset` | | COSE_KeySet: A set of encryption keys | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
+| `crypto-seed` | 300 | Cryptographic seed | This document |
+| `crypto-bip39` | 301 | BIP-39 encoded seed | This document |
+| `crypto-slip39` | 302 | One or more SLIP-39 shares | This document |
+| `crypto-hdkey` | 303 | Hierarchical Deterministic (HD) key | [[BCR7]](bcr-0007-hdkey.md) |
+| `crypto-keypath` | 304 | Key Derivation Path | [[BCR7]](bcr-0007-hdkey.md) |
+| `crypto-eckey` | 305 | Elliptic Curve (EC) key | [[BCR8]](bcr-0008-eckey.md) |
 
 ### Byte String `bytes`
 
