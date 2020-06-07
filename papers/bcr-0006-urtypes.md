@@ -53,7 +53,9 @@ Each UR type defines a CBOR encoding. When a UR type is suitable for embedding w
 | `crypto-slip39` | 302 | One or more SLIP-39 shares | This document |
 | `crypto-hdkey` | 303 | Hierarchical Deterministic (HD) key | [[BCR7]](bcr-0007-hdkey.md) |
 | `crypto-keypath` | 304 | Key Derivation Path | [[BCR7]](bcr-0007-hdkey.md) |
-| `crypto-eckey` | 305 | Elliptic Curve (EC) key | [[BCR8]](bcr-0008-eckey.md) |
+| `crypto-coin-info` | 305 | Cryptocurrency Coin Use | [[BCR7]](bcr-0007-hdkey.md) |
+| `crypto-eckey` | 306 | Elliptic Curve (EC) key | [[BCR8]](bcr-0008-eckey.md) |
+| `crypto-address` | 307 | Cryptocurrency Address | [[BCR9]](bcr-0009-address.md) |
 
 ### Byte String `bytes`
 

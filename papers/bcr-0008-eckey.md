@@ -15,7 +15,7 @@ Elliptical Curve Keys (ECKeys) have numerous uses in cryptocurrencies and elsewh
 
 The only other variable that needs to be determined to create an EC key is the elliptic curve parameters, with the parameters known as "secp256k1" being the most popular and the ones that Bitcoin is based on.
 
-This specification defines a UR type `crypto-eckey` (CBOR tag #6.305) for encoding and transmitting EC private and public keys.
+This specification defines a UR type `crypto-eckey` (CBOR tag #6.306) for encoding and transmitting EC private and public keys.
 
 ### EC Curve Selector
 

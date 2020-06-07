@@ -12,6 +12,7 @@ This repository contains research and proposals of interest to the blockchain co
 * [BCR-0006: Registry of Uniform Resource (UR) Types](papers/bcr-0006-urtypes.md)
 * [BCR-0007: UR Type Definition for Hierarchical Deterministic (HD) Keys](papers/bcr-0007-hdkey.md)
 * [BCR-0008: UR Type Definition for Elliptic Curve (EC) Keys](papers/bcr-0008-eckey.md)
+* [BCR-0009: UR Type Definition for Cryptocurrency Addresses](papers/bcr-0009-address.md)
 
 ## Origin, Authors, Copyright & Licenses
 
