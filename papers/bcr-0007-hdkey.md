@@ -16,6 +16,8 @@ Hierarchical Deterministic Keys (HDKeys) [BIP32] allow an entire tree of keys to
 
 This specification also defines and incorporates a separate type `crypto-keypath` (CBOR tag #6.304) that specifies a key derivation path.
 
+This specification also defines and incorporates a separate type `crypto-coininfo` (CBOR tag #6.305) that specifes cryptocurrency information.
+
 ### HDKeys
 
 HDKeys encoded according to [BIP32] are represented as a text string, e.g.:
@@ -41,6 +43,8 @@ The specification herein can be used in such a way that it is isomorphic with th
 
 The following specification is written in Concise Data Definition Language [CDDL].
 
+When used embedded in another CBOR structure, this structure should be tagged #6.304.
+
 ```
 ; Metadata for the complete or partial derivation path of a key.
 ;
@@ -51,7 +55,7 @@ The following specification is written in Concise Data Definition Language [CDDL
 ; the path of the associated key, even if not present in the `path` element
 ; of this structure.
 
-key-path = {
+crypto-keypath = {
 	components: [1* path-component],
 	? parent-fingerint: uint32 .ne 0 ; parent fingerprint per [BIP32]
 	? depth: uint8 .gt 0
@@ -73,9 +77,38 @@ parent-fingerprint = 2
 depth = 3
 ```
 
+### CDDL for Coin Info
+
+The following specification is written in Concise Data Definition Language [CDDL].
+
+When used embedded in another CBOR structure, this structure should be tagged #6.305.
+
+```
+; Metadata for the type and use of a cryptocurrency
+crypto-coininfo = {
+	? type: uint31 .default cointype-btc, ; values from [SLIP44] with high bit turned off
+	? network: int .default mainnet ; coin-specific identifier for testnet
+}
+
+type = 1
+network = 2
+
+cointype-btc = 0
+cointype-eth = 0x3c
+
+mainnet = 0;
+testnet-btc = 1;
+
+; from [ETH-TEST-NETWORKS]
+testnet-eth-ropsten = 1;
+testnet-eth-kovan = 2;
+testnet-eth-rinkeby = 3;
+testnet-eth-gorli = 4;
+```
+
 ### CDDL for HDKey
 
-The following specification is written in Concise Data Definition Language [CDDL] and includes the `key-path` spec above.
+The following specification is written in Concise Data Definition Language [CDDL] and includes the `crypto-keypath` spec above.
 
 ```
 ; An hd-key is either a master key or a derived key.
@@ -100,34 +133,23 @@ master-key = (
 ; To maintain isomorphism with [BIP32] and allow keys to be derived from
 ; this key, `chain-code` must be present.
 derived-key = (
-	is-public: bool,                  ; false if key is private, true if public
+	is-public: bool,                     ; false if key is private, true if public
 	key-data: key-data-bytes,
-	? chain-code: chain-code-bytes    ; omit if no further keys may be derived from this key
-	use-info,                         ; metadata on how the key is to be used
-	? path: key-path,                 ; metadata on how the key was derived
+	? chain-code: chain-code-bytes       ; omit if no further keys may be derived from this key
+	? use-info: #6.305(crypto-coininfo), ; metadata on how the key is to be used
+	? path: #6.304(crypto-keypath),      ; metadata on how the key was derived
 )
 
-; Metadata on how the key is to be used.
-; To maintain isomorphism with [BIP32], `is-testnet` must be present.
-; To maintain isomorphism with [BIP44], both fields must be present.
-use-info = (
-	? coin-type: uint31 .default coin-type-btc, ; values from [SLIP44] with high bit turned off
-	? is-testnet: bool .default false ; false if key is mainnet, true if testnet
-)
-
-; If `coin-type` and `path` are both present, then per [BIP44], the second path
-; component's `child-index` must match `coin-type`.
+; If the `use-info` field is omitted, defaults (mainnet BTC key) are assumed.
+; If `cointype` and `path` are both present, then per [BIP44], the second path
+; component's `child-index` must match `cointype`.
 
 is-master = 1
 is-public = 2
 key-data = 3
 chain-code = 4
-coin-type = 5
-is-testnet = 6
-path = 7
-
-coin-type-btc = 0
-coin-type-eth = 0x3c
+use-info = 5
+path = 6
 
 uint8 = uint .size 1
 key-data-bytes = bytes .size 33
@@ -151,8 +173,10 @@ Schematic for a derived public testnet Ethereum key that maintains isomorphism w
 	is-public: true,
 	key-data: bytes,
 	chain-code: bytes,
-	coin-type: coin-type-eth,
-	is-testnet: true,
+	use-info: {
+		type: cointype-eth,
+		network: testnet-eth-ropsten
+	},
 	path: {
 		parent-fingerprint: uint32,
 		components: [child-index, is-hardened],
@@ -201,8 +225,9 @@ xprv9s21ZrQH143K3QTDL4LXw2F7HEK3wJUD2nW2nRk4stbPy6cq3jPPqjiChkVvvNKmPGJxWUtg6LnF
 * Separated into fields specified in [BIP32]:
 
 ```
-0488ade4 ; version `xprv`
-00 ; depth 0 == master node
+04 ; version 4
+88ade4 ; `xprv`
+00 ; depth 0 == master key
 00000000 ; parent fingerprint
 00000000 ; child number
 873dff81c02f525623fd1fe5167eac3a55a049de3d314bb42ee227ffed37d508 ; chain code
@@ -252,28 +277,42 @@ ur:crypto-hdkey/5vql2q6cyyqw3uewwg77eaq9rth6er3vj0yutvs5xyup0ndsrg2ffwgheppkkdgy
 
 ### Example/Test Vector 2
 
-* Test Vector 2 from [BIP32], a public key with derivation path `m/0/2147483647'/1/2147483646'/2`:
+* Test Vector 2, a bitcoin testnet public key with derivation path `m/44'/1'/1'/0/1`:
 
 ```
-xpub6FnCn6nSzZAw5Tw7cgR9bi15UV96gLZhjDstkXXxvCLsUXBGXPdSnLFbdpq8p9HmGsApME5hQTZ3emM2rnY5agb9rXpVGyy3bdW6EEgAtqt
+$ SEED=`seedtool --count 32`
+$ echo $SEED
+d7074d5bdc46af55655244dd5a9d554d7779442d6f4b5a95c257878020188a64
+
+$ DERIVED_KEY=`bx hd-new $SEED |\
+  bx hd-private --index 44 --hard |\
+  bx hd-private --index 1 --hard |\
+  bx hd-private --index 1 --hard |\
+  bx hd-private --index 0 |\
+  bx hd-private --index 1 |\
+  bx hd-to-public -v 70617039`
+$ echo $DERIVED_KEY 
+tpubDHW3GtnVrTatx38EcygoSf9UhUd9Dx1rht7FAL8unrMo8r2NWhJuYNqDFS7cZFVbDaxJkV94MLZAr86XFPsAPYcoHWJ7sWYsrmHDw5sKQ2K
 ```
 
 * Decoded from Base58:
 
 ```
-0488b21e0531a507b8000000029452b549be8cea3ecb7a84bec10dcfd94afe4d129ebfd3b3cb58eedf394ed271024d902e1a2fc7a8755ab5b694c575fce742c48d9ff192e63df5193e4c7afe1f9ca2198df7
+$ bx base58-decode $DERIVED_KEY
+043587cf05e9181cf300000001ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85026fe2355745bb2db3630bbc80ef5d58951c963c841f54170ba6e5c12be7fc12a6951d4478
 ```
 
 * Separated into fields specified in [BIP32]:
 
 ```
-0488b21e ; version `xpub`
+04 ; version 4
+3587cf ; `tpub`
 05 ; depth 5
-31a507b8 ; parent fingerprint
-00000002 ; child number
-9452b549be8cea3ecb7a84bec10dcfd94afe4d129ebfd3b3cb58eedf394ed271 ; chain code
-024d902e1a2fc7a8755ab5b694c575fce742c48d9ff192e63df5193e4c7afe1f9c ; key data
-a2198df7 ; base58 checksum
+e9181cf3 ; parent fingerprint
+00000001 ; child number
+ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85 ; chain code
+026fe2355745bb2db3630bbc80ef5d58951c963c841f54170ba6e5c12be7fc12a6 ; key data
+951d4478 ; base58 checksum
 ```
 
 * In the CBOR diagnostic notation:
@@ -281,11 +320,14 @@ a2198df7 ; base58 checksum
 ```
 {
 	2: true, ; is-public
-	3: h'024d902e1a2fc7a8755ab5b694c575fce742c48d9ff192e63df5193e4c7afe1f9c', ; key-data
-	4: h'9452b549be8cea3ecb7a84bec10dcfd94afe4d129ebfd3b3cb58eedf394ed271', ; chain-code
-	7: 604({ ; path
-		1: [0, false, 2147483647, true, 1, false, 2147483646, true, 2, false], ; components
-		2: 832899000 ; parent-fingerprint
+	3: h'026fe2355745bb2db3630bbc80ef5d58951c963c841f54170ba6e5c12be7fc12a6', ; key-data
+	4: h'ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85', ; chain-code
+	5: 305({ ; use-info
+		2: 1 ; network: testnet-btc
+	}),
+	6: 304({ ; path
+		1: [44, true, 1, true, 1, true, 0, false, 1, false], ; components `m/44'/1'/1'/0/1`
+		2: 3910671603 ; parent-fingerprint
 	})
 }
 ```
@@ -293,44 +335,49 @@ a2198df7 ; base58 checksum
 * Encoded as binary using [CBOR-PLAYGROUND]:
 
 ```
-A4                                      # map(4)
+A5                                      # map(5)
    02                                   # unsigned(2) is-public
    F5                                   # primitive(21) true
    03                                   # unsigned(3) key-data
    58 21                                # bytes(33)
-      024D902E1A2FC7A8755AB5B694C575FCE742C48D9FF192E63DF5193E4C7AFE1F9C
+      026FE2355745BB2DB3630BBC80EF5D58951C963C841F54170BA6E5C12BE7FC12A6
    04                                   # unsigned(4) chain-code
    58 20                                # bytes(32)
-      9452B549BE8CEA3ECB7A84BEC10DCFD94AFE4D129EBFD3B3CB58EEDF394ED271
-   07                                   # unsigned(7) path
-   D9 025C                              # tag(604)
+      CED155C72456255881793514EDC5BD9447E7F74ABB88C6D6B6480FD016EE8C85
+   05                                   # unsigned(5) use-info
+   D9 0131                              # tag(305) crypto-coininfo
+      A1                                # map(1)
+         02                             # unsigned(2) network
+         01                             # unsigned(1) testnet-btc
+   06                                   # unsigned(6) path
+   D9 0130                              # tag(304) crypto-keypath
       A2                                # map(2)
-         01                             # unsigned(1) path
+         01                             # unsigned(1) components
          8A                             # array(10)
-            00                          # unsigned(0) child-index
-            F4                          # primitive(20) is-hardened: false
-            1A 7FFFFFFF                 # unsigned(2147483647) child-index
+            18 2C                       # unsigned(44) child-index
             F5                          # primitive(21) is-hardened: true
             01                          # unsigned(1) child-index
-            F4                          # primitive(20) is-hardened: false
-            1A 7FFFFFFE                 # unsigned(2147483646) child-index
             F5                          # primitive(21) is-hardened: true
-            02                          # unsigned(2) child-index
+            01                          # unsigned(1) child-index
+            F5                          # primitive(21) is-hardened: true
+            00                          # unsigned(0) child-index
+            F4                          # primitive(20) is-hardened: false
+            01                          # unsigned(1) child-index
             F4                          # primitive(20) is-hardened: false
          02                             # unsigned(2) parent-fingerprint
-         1A 31A507B8                    # unsigned(832899000)
+         1A E9181CF3                    # unsigned(3910671603)
 ```
 
 * As a hex string:
 
 ```
-A402F5035821024D902E1A2FC7A8755AB5B694C575FCE742C48D9FF192E63DF5193E4C7AFE1F9C0458209452B549BE8CEA3ECB7A84BEC10DCFD94AFE4D129EBFD3B3CB58EEDF394ED27107D9025CA2018A00F41A7FFFFFFFF501F41A7FFFFFFEF502F4021A31A507B8
+A502F5035821026FE2355745BB2DB3630BBC80EF5D58951C963C841F54170BA6E5C12BE7FC12A6045820CED155C72456255881793514EDC5BD9447E7F74ABB88C6D6B6480FD016EE8C8505D90131A1020106D90130A2018A182CF501F501F500F401F4021AE9181CF3
 ```
 
 * As a UR:
 
 ```
-ur:crypto-hdkey/5sp02q6cyypymypwrghu02r4t26md9x9wh7wwsky3k0lryhx8h63j0jv0tlpl8qytqsfg544fxlge637edagf0kpph8ajjh7f5ffa07nk0943mkl898dyug8myp9egsp3gq0gxnllllllagp7sd8lllllm6s9aqzrgc62pacp84y68
+ur:crypto-hdkey/55p02q6cyypxlc342azmktdnvv9meq80t4vf28yk8jzp74qhpwnwtsftul7p9fsytqsva524cuj9vf2cs9un298dck7eg3l87a9thzxx66mysr7szmhgepg9myqnrggzqyrdjqfs5gqc5xpv75ql2q04qr6qraqzrt53s88nudzdpz
 ```
 
 * UR as QR Code:
@@ -347,3 +394,4 @@ ur:crypto-hdkey/5sp02q6cyypymypwrghu02r4t26md9x9wh7wwsky3k0lryhx8h63j0jv0tlpl8qy
 * [SLIP44] [Registered coin types for BIP-0044](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
 * [CBOR-PLAYGROUND] [CBOR Playground](http://cbor.me)
 * [BASE58-CHECK] [Base58Check encoding](https://en.bitcoin.it/wiki/Base58Check_encoding)
+* [ETH-TESTNETS] [Ethereum Test Networks](https://docs.ethhub.io/using-ethereum/test-networks/)
