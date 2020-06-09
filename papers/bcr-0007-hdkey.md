@@ -52,23 +52,25 @@ When used embedded in another CBOR structure, this structure should be tagged #6
 ; of the parent key from which the associated key was derived.
 ;
 ; `depth`, if present, represents the number of derivation steps in
-; the path of the associated key, even if not present in the `path` element
+; the path of the associated key, even if not present in the `components` element
 ; of this structure.
 
 crypto-keypath = {
 	components: [1* path-component],
 	? parent-fingerint: uint32 .ne 0 ; parent fingerprint per [BIP32]
-	? depth: uint8 .gt 0
+	? depth: uint8 ; 0 if this is a public key derived directly from a master key
 }
 
 path-component = (
-	child-index,
+	child-index / child-index-range / child-index-wildcard-range,
 	is-hardened
 )
 
 uint32 = uint .size 4
 uint31 = uint32 .lt 0x80000000
 child-index = uint31
+child-index-range = [child-index, child-index] ; low, high
+child-index-wildcard = []
 
 is-hardened = bool
 
@@ -116,10 +118,6 @@ hd-key = {
 	master-key / derived-key
 }
 
-; Decoders can always expect that the first field in an hd-key will
-; be either `is-master` or `is-public`. The second field will
-; always be `key-data`.
-
 ; A master key is always private, has no use or derivation information,
 ; and always includes a chain code.
 master-key = (
@@ -133,23 +131,27 @@ master-key = (
 ; To maintain isomorphism with [BIP32] and allow keys to be derived from
 ; this key, `chain-code` must be present.
 derived-key = (
-	is-public: bool,                     ; false if key is private, true if public
+	? is-private: bool .default false,   ; true if key is private, false if public
 	key-data: key-data-bytes,
 	? chain-code: chain-code-bytes       ; omit if no further keys may be derived from this key
-	? use-info: #6.305(crypto-coininfo), ; metadata on how the key is to be used
-	? path: #6.304(crypto-keypath),      ; metadata on how the key was derived
+	? use-info: #6.305(crypto-coininfo), ; How the key is to be used
+	? origin: #6.304(crypto-keypath),    ; How the key was derived
+	? children: #6.304(crypto-keypath)   ; What children should/can be derived from this
 )
 
 ; If the `use-info` field is omitted, defaults (mainnet BTC key) are assumed.
-; If `cointype` and `path` are both present, then per [BIP44], the second path
+; If `cointype` and `origin` are both present, then per [BIP44], the second path
 ; component's `child-index` must match `cointype`.
 
+; The `children` field may be used to specify what set of child keys should or can be derived from this key. This may include `child-index-range` or `child-index-wildcard` as its last component. Any components that specify hardened derivation will require the key be private.
+
 is-master = 1
-is-public = 2
+is-private = 2
 key-data = 3
 chain-code = 4
 use-info = 5
-path = 6
+origin = 6
+children = 7
 
 uint8 = uint .size 1
 key-data-bytes = bytes .size 33
@@ -170,14 +172,13 @@ Schematic for a derived public testnet Ethereum key that maintains isomorphism w
 
 ```
 {
-	is-public: true,
 	key-data: bytes,
 	chain-code: bytes,
 	use-info: {
 		type: cointype-eth,
 		network: testnet-eth-ropsten
 	},
-	path: {
+	origin: {
 		parent-fingerprint: uint32,
 		components: [child-index, is-hardened],
 		depth: uint8
@@ -189,10 +190,10 @@ Schematic for a derived private mainnet Bitcoin key that maintains isomorphism w
 
 ```
 {
-	is-public: false,
+	is-private: true,
 	key-data: bytes,
 	chain-code: bytes,
-	path: {
+	origin: {
 		parent-fingerprint: uint32,
 		components: [44, true, 0, true, account, true, change, false, address_index, false]
 	}
@@ -203,7 +204,6 @@ Schematic for a derived public mainnet Bitcoin key that includes only the key, e
 
 ```
 {
-	is-public: true,
 	key-data: bytes
 }
 ```
@@ -319,13 +319,12 @@ ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85 ; chain code
 
 ```
 {
-	2: true, ; is-public
 	3: h'026fe2355745bb2db3630bbc80ef5d58951c963c841f54170ba6e5c12be7fc12a6', ; key-data
 	4: h'ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85', ; chain-code
 	5: 305({ ; use-info
 		2: 1 ; network: testnet-btc
 	}),
-	6: 304({ ; path
+	6: 304({ ; origin
 		1: [44, true, 1, true, 1, true, 0, false, 1, false], ; components `m/44'/1'/1'/0/1`
 		2: 3910671603 ; parent-fingerprint
 	})
@@ -335,9 +334,7 @@ ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85 ; chain code
 * Encoded as binary using [CBOR-PLAYGROUND]:
 
 ```
-A5                                      # map(5)
-   02                                   # unsigned(2) is-public
-   F5                                   # primitive(21) true
+A4                                      # map(5)
    03                                   # unsigned(3) key-data
    58 21                                # bytes(33)
       026FE2355745BB2DB3630BBC80EF5D58951C963C841F54170BA6E5C12BE7FC12A6
@@ -349,7 +346,7 @@ A5                                      # map(5)
       A1                                # map(1)
          02                             # unsigned(2) network
          01                             # unsigned(1) testnet-btc
-   06                                   # unsigned(6) path
+   06                                   # unsigned(6) origin
    D9 0130                              # tag(304) crypto-keypath
       A2                                # map(2)
          01                             # unsigned(1) components
@@ -371,13 +368,13 @@ A5                                      # map(5)
 * As a hex string:
 
 ```
-A502F5035821026FE2355745BB2DB3630BBC80EF5D58951C963C841F54170BA6E5C12BE7FC12A6045820CED155C72456255881793514EDC5BD9447E7F74ABB88C6D6B6480FD016EE8C8505D90131A1020106D90130A2018A182CF501F501F500F401F4021AE9181CF3
+A4035821026FE2355745BB2DB3630BBC80EF5D58951C963C841F54170BA6E5C12BE7FC12A6045820CED155C72456255881793514EDC5BD9447E7F74ABB88C6D6B6480FD016EE8C8505D90131A1020106D90130A2018A182CF501F501F500F401F4021AE9181CF3
 ```
 
 * As a UR:
 
 ```
-ur:crypto-hdkey/55p02q6cyypxlc342azmktdnvv9meq80t4vf28yk8jzp74qhpwnwtsftul7p9fsytqsva524cuj9vf2cs9un298dck7eg3l87a9thzxx66mysr7szmhgepg9myqnrggzqyrdjqfs5gqc5xpv75ql2q04qr6qraqzrt53s88nudzdpz
+ur:crypto-hdkey/5sp4sggzdl3r2469hvkmxccthjqw7h2cj5wfv0yyra2pwzaxuhqjheluz2nqgkpqemg4t3ey2cj43qtex52wm3daj3r70a62hwyvd44kfq8aq9hw3jzstkgpxxssyqgxmyqnpgsp3gvzeagp75ql2q85q86qyxhfrqw0xgzqh5h
 ```
 
 * UR as QR Code:

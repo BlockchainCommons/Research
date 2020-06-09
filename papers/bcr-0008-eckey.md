@@ -27,7 +27,7 @@ The required `data` field carries the key data. The length of this field will de
 
 For the `secp256k1` curve, the `data` field MUST contain exactly 32 bytes for a private key, or 64 bytes for an uncompressed public key, or 33 bytes (including the 1-byte prefix) for a compressed public key.
 
-The `curve` and `is-public` fields allow a decoder to determine the nature of the key and whether it is supported by the encoder, without having to parse the contents of the `data` field.
+The `curve` and `is-private` fields allow a decoder to determine the nature of the key and whether it is supported by the encoder, without having to parse the contents of the `data` field.
 
 ### CDDL
 
@@ -36,12 +36,12 @@ The following specification is written in Concise Data Definition Language [CDDL
 ```
 ec-key = {
   ? curve: uint .default 0,
-  ? is-public: bool .default false,
+  ? is-private: bool .default false,
   data: bytes
 }
 
 curve = 1
-is-public = 2
+is-private = 2
 data = 3
 ```
 
@@ -59,7 +59,7 @@ $ seedtool --count 32
 ```
 {
 	; `curve` is implied to be 0 (secp256k1)
-	; `is-public` is implied to be false (this is a private key)
+	2: true, ; is-private
 	3: h'8c05c4b4f3e88840a4f4b5f155cfd69473ea169f3d0431b7a6787a23777f08aa' ; data
 }
 ```
@@ -67,7 +67,9 @@ $ seedtool --count 32
 * Encoded as binary using [CBOR-PLAYGROUND]:
 
 ```
-A1                                      # map(1)
+A2                                      # map(2)
+   02                                   # unsigned(2) is-private
+   F5                                   # primitive(21) true
    03                                   # unsigned(3) data
    58 20                                # bytes(32)
       8C05C4B4F3E88840A4F4B5F155CFD69473EA169F3D0431B7A6787A23777F08AA
@@ -76,13 +78,13 @@ A1                                      # map(1)
 * As a hex string:
 
 ```
-A10358208C05C4B4F3E88840A4F4B5F155CFD69473EA169F3D0431B7A6787A23777F08AA
+A202F50358208C05C4B4F3E88840A4F4B5F155CFD69473EA169F3D0431B7A6787A23777F08AA
 ```
 
 * As a UR:
 
 ```
-ur:crypto-eckey/5yp4sgyvqhztfulg3pq2fa94792ul455w04pd8eaqscm0fnc0g3hwlcg4gv5mxeq
+ur:crypto-eckey/5gp02q6cyzxqt395705gss9y7j6lz4w0662886sknu7sgvdh5eu85gmh0uy25fnulch
 ```
 
 * UR as QR Code:
@@ -104,8 +106,6 @@ $ bx ec-to-public
 
 ```
 {
-	; `curve` is implied to be 0 (secp256k1)
-	2: true ; is-public
 	3: h'03bec5163df25d8703150c3a1804eac7d615bb212b7cc9d7ff937aa8bd1c494b7f' ; data
 }
 ```
@@ -113,10 +113,8 @@ $ bx ec-to-public
 * Encoded as binary using [CBOR-PLAYGROUND]:
 
 ```
-A2                                      # map(2)
-   02                                   # unsigned(2)
-   F5                                   # primitive(21)
-   03                                   # unsigned(3)
+A1                                      # map(1)
+   03                                   # unsigned(3) data
    58 21                                # bytes(33)
       03BEC5163DF25D8703150C3A1804EAC7D615BB212B7CC9D7FF937AA8BD1C494B7F
 ```
@@ -124,13 +122,13 @@ A2                                      # map(2)
 * As a hex string:
 
 ```
-A202F503582103BEC5163DF25D8703150C3A1804EAC7D615BB212B7CC9D7FF937AA8BD1C494B7F
+A103582103BEC5163DF25D8703150C3A1804EAC7D615BB212B7CC9D7FF937AA8BD1C494B7F
 ```
 
 * As a UR:
 
 ```
-ur:crypto-eckey/5gp02q6cyypma3gk8he9mpcrz5xr5xqyatrav9dmyy4hejwhl7fh429ar3y5klcccnynd
+ur:crypto-eckey/5yp4sggrhmz3v00jtkrsx9gv8gvqf6k86c2mkgft0nya0lun025t68zffdlslagfhl
 ```
 
 * UR as QR Code:

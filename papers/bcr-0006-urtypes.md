@@ -31,7 +31,7 @@ All types with the prefix `cbor-` are reserved for existing non-CBOR media types
 
 ### Tags for Embedding
 
-Each UR type defines a CBOR encoding. When a UR type is suitable for embedding within another CBOR structure, it SHOULD be tagged with a CBOR tag defined for this purpose. This document also lists the tag, if any, defined for the particular CBOR strucure contained in the UR encoding.
+Each UR type defines a CBOR encoding. When a UR type is suitable for embedding within another CBOR structure, it SHOULD be tagged with a CBOR tag defined for this purpose. This document also lists the tag, if any, defined for the particular CBOR strucure contained in the UR encoding. The tags listed here may or may not currently be listed in IANA's registry of CBOR tags [CBOR-TAGS] but the intent is that they will be registered as they come into us.
 
 ### Registry
 
@@ -56,6 +56,7 @@ Each UR type defines a CBOR encoding. When a UR type is suitable for embedding w
 | `crypto-coin-info` | 305 | Cryptocurrency Coin Use | [[BCR7]](bcr-0007-hdkey.md) |
 | `crypto-eckey` | 306 | Elliptic Curve (EC) key | [[BCR8]](bcr-0008-eckey.md) |
 | `crypto-address` | 307 | Cryptocurrency Address | [[BCR9]](bcr-0009-address.md) |
+| `crypto-output` | 308 | Bitcoin Output Descriptor | [[BCR10]](bcr-0010-output-desc.md) |
 
 ### Byte String `bytes`
 
@@ -458,6 +459,8 @@ ur:crypto-slip39/3of3/udl8vk6qgxxtxvpr662uvckjau86wyjdyk52xmrqsrymq2lpk6usufugcu
 * [LANG] [List of ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 * [PNG] [PNG (Portable Network Graphics) Specification](https://tools.ietf.org/html/rfc2083)
 * [SVG] [Scalable Vector Graphics (SVG) 1.1 (Second Edition)](https://www.w3.org/TR/SVG11/)
+* [CBOR-TAGS] [Concise Binary Object Representation (CBOR) Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml)
+* [UR] [Uniform Resources (UR)](bcr-0005-ur.md)
 
 ### Informative References
 

@@ -13,6 +13,7 @@ This repository contains research and proposals of interest to the blockchain co
 * [BCR-0007: UR Type Definition for Hierarchical Deterministic (HD) Keys](papers/bcr-0007-hdkey.md)
 * [BCR-0008: UR Type Definition for Elliptic Curve (EC) Keys](papers/bcr-0008-eckey.md)
 * [BCR-0009: UR Type Definition for Cryptocurrency Addresses](papers/bcr-0009-address.md)
+* [BCR-0010: UR Type Definition for Bitcoin Output Descriptors](papers/bcr-0010-output-desc.md)
 
 ## Origin, Authors, Copyright & Licenses
 
