@@ -1,5 +1,5 @@
 # Uniformly Translating Entropy into Cryptographic Seeds
-## BCR-0001
+## BCR-2020-001
 
 **© 2020 Blockchain Commons**
 
