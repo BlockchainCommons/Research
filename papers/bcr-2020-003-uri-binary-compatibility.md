@@ -1,5 +1,5 @@
 # Encoding Binary Compatibly with URI Reserved Characters
-## BCR-0003
+## BCR-2020-003
 
 **© 2020 Blockchain Commons**
 
@@ -22,7 +22,7 @@ The goal of this paper is to identify a method for encoding arbitrary binary blo
 
 In addition, the "%" character is use to introduce escape sequences allowing other characters to be encoded. This produces the URI reserved subset:
 
-![](bcr-0003/1.png)
+![](bcr-2020-003/1.png)
 
 [RFC3986] also defines another subset of printable ASCII as "unreserved characters" that are allowed in a URI but do not have a reserved purpose:
 
@@ -30,7 +30,7 @@ In addition, the "%" character is use to introduce escape sequences allowing oth
 ALPHA DIGIT -._~
 ```
 
-![](bcr-0003/2.png)
+![](bcr-2020-003/2.png)
 
 The remaining printable ASCII codepoints are neither "reserved" nor "unreserved" by [RFC3986] and the implication is that these codepoints should be avoided in URIs because they are often used in operating system commands and scripts.
 
@@ -38,11 +38,11 @@ The remaining printable ASCII codepoints are neither "reserved" nor "unreserved"
 SP "<>\^`{|}
 ```
 
-![](bcr-0003/3.png)
+![](bcr-2020-003/3.png)
 
 The union of all the reserved or to-be-avoided codepoints with the unreserved codepoints shows that every printable codepoint in the ASCII space is disposed.
 
-![](bcr-0003/4.png)
+![](bcr-2020-003/4.png)
 
 ### Base64 Characters
 
@@ -52,17 +52,17 @@ The union of all the reserved or to-be-avoided codepoints with the unreserved co
 +/=
 ```
 
-![](bcr-0003/5.png)
+![](bcr-2020-003/5.png)
 
 To allow binary data to be efficiently encoded in URIs, [RFC4648] also defines the Base64URL variant, which moves the "+" codepoint to "-", moves the "/" codepoint to "_", and drops the use of padding with "=". This removes all the collisions with the URI reserved subset.
 
-![](bcr-0003/6.png)
+![](bcr-2020-003/6.png)
 
 ### Hexadecimal
 
 Encoding binary payloads in hexadecimal is compatible with URIs, but only results in 50% efficiency as opposed to Base64URL, which achieves 75%, as described in [BinaryToText].
 
-![](bcr-0003/11.png)
+![](bcr-2020-003/11.png)
 
 ### Base58
 
@@ -70,7 +70,7 @@ Encoding binary payloads in hexadecimal is compatible with URIs, but only result
 
 Base58Check is a Base58 encoding format that unambiguously encodes the type of data in the first few characters and includes an error detection code in the last few characters. Base58Check also includes a leading metadata byte that is 0 for Bitcoin addresses.
  
-![](bcr-0003/12.png)
+![](bcr-2020-003/12.png)
 
 ### Bech32
 
@@ -80,21 +80,21 @@ The [Bech32] encoding standard encodes its payload using 32 alphanumeric charact
 1bio
 ```
 
-![](bcr-0003/7.png)
+![](bcr-2020-003/7.png)
 
 [Bech32] also defines "1" as the separator between the human-readable part (HRP) and the payload.
 
-![](bcr-0003/8.png)
+![](bcr-2020-003/8.png)
 
 So far, all of the characters that Bech32 use come from the "unreserved" subset of URI characters. Unfortunately, [Bech32] defines the HRP as consisting of 1-83 characters in the ASCII range 33-126, which heavily collides with the URI reserved subset.
 
-![](bcr-0003/9.png)
+![](bcr-2020-003/9.png)
 
 ### QR Code Alphanumeric Encoding
 
 The QR Code Alphanumeric Encoding Mode listed at [QRCodeAlphaNum] defines 45 codepoints that if used exclusively result in a lower-density QR code. Unfortunately these codepoints collide significantly with the URI reserved subset.
 
-![](bcr-0003/10.png)
+![](bcr-2020-003/10.png)
 
 ### Conclusions
 

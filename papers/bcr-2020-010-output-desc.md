@@ -1,6 +1,6 @@
 # UR Type Definition for Bitcoin Output Descriptors
 
-## BCR-0010
+## BCR-2020-010
 
 **© 2020 Blockchain Commons**
 

@@ -1,6 +1,6 @@
 # Registry of Uniform Resource (UR) Types
 
-## BCR-0006
+## BCR-2020-006
 
 **© 2020 Blockchain Commons**
 
@@ -97,7 +97,7 @@ ur:bytes/5qqpzg3ng32kvaugnx4thnxaamlsmzd8wc
 
 * UR as QR Code:
 
-![](bcr-0006/2.png)
+![](bcr-2020-006/2.png)
 
 ### Cryptographic Seed `crypto-seed`
 
@@ -154,7 +154,7 @@ ur:crypto-seed/5gq4p3cfskqpyh32kzvpy56x3vkmc5szmpjpj376py6zrs
 
 * UR as QR Code:
 
-![](bcr-0006/1.png)
+![](bcr-2020-006/1.png)
 
 ### BIP-39 Encoded Seed `crypto-bip39`
 
@@ -241,7 +241,7 @@ ur:crypto-bip39/5gqccenndp5k2mryv4nhymm4wpjk2un0v3jk2cthv94k2ervda3kkemnv96hxct8
 
 * UR as QR Code:
 
-![](bcr-0006/3.png)
+![](bcr-2020-006/3.png)
 
 ### SLIP-39 Encoded Shares `crypto-slip39`
 
@@ -427,7 +427,7 @@ ur:crypto-slip39/5yqc89r9wdcx2mnyv3ex7mtsdpskxctyv4kkjcmyv93kjerxvdkxjetww358qun
 
 * UR as QR Code:
 
-![](bcr-0006/4.png)
+![](bcr-2020-006/4.png)
 
 * As multi-part UR:
 
@@ -439,7 +439,7 @@ ur:crypto-slip39/3of3/udl8vk6qgxxtxvpr662uvckjau86wyjdyk52xmrqsrymq2lpk6usufugcu
 
 * Multi-part UR as multiple QR codes:
 
-![](bcr-0006/5.png)
+![](bcr-2020-006/5.png)
 
 ### COSE Structures `cose-*`
 

@@ -1,6 +1,6 @@
 # UR Type Definition for Cryptocurrency Addresses
 
-## BCR-0009
+## BCR-2020-009
 
 **© 2020 Blockchain Commons**
 
@@ -101,7 +101,7 @@ ur:crypto-address/5yp4gaal7gxxpefzm74rx5xrnvps5hgqf6pe57dgdnk
 
 * UR as QR Code:
 
-![](bcr-0009/1.png)
+![](bcr-2020-009/1.png)
 
 ### Example/Test Vector 2
 
@@ -153,7 +153,7 @@ ur:crypto-address/5gqajqf35gq3s0qzqyp4fqdhuz8kt004vjrqdjyenz5ueqty89mywpw6mtl
 
 * UR as QR Code:
 
-![](bcr-0009/2.png)
+![](bcr-2020-009/2.png)
 
 ### References
 

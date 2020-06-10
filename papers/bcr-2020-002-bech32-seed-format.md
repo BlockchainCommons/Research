@@ -1,5 +1,5 @@
 # Bech32 Encoding for Cryptographic Seeds
-## BCR-0002
+## BCR-2020-002
 
 **© 2020 Blockchain Commons**
 
