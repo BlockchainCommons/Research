@@ -4,17 +4,41 @@ This repository contains research and proposals of interest to the blockchain co
 
 ## Contents
 
-* [BCR-0001: Uniformly Translating Entropy into Cryptographic Seeds](papers/bcr-0001-entropy-to-seed.md)
-* [BCR-0002: Bech32 Encoding for Cryptographic Seeds](papers/bcr-0002-bech32-seed-format.md)
-* [BCR-0003: Encoding Binary Compatibly with URI Reserved Characters](papers/bcr-0003-uri-binary-compatibility.md)
-* [BCR-0004: The BC32 Data Encoding Format](papers/bcr-0004-bc32.md)
-* [BCR-0005: Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes](papers/bcr-0005-ur.md)
-* [BCR-0006: Registry of Uniform Resource (UR) Types](papers/bcr-0006-urtypes.md)
-* [BCR-0007: UR Type Definition for Hierarchical Deterministic (HD) Keys](papers/bcr-0007-hdkey.md)
-* [BCR-0008: UR Type Definition for Elliptic Curve (EC) Keys](papers/bcr-0008-eckey.md)
-* [BCR-0009: UR Type Definition for Cryptocurrency Addresses](papers/bcr-0009-address.md)
-* [BCR-0010: UR Type Definition for Bitcoin Output Descriptors](papers/bcr-0010-output-desc.md)
+| Number                    | Title         | Version | Owner                                                  | 
+|---------------------------|---------------|---------|----------------------------------------------|
+| [BCR-2020-001](papers/bcr-2020-001-entropy-to-seed.md) | Uniformly Translating Entropy into Cryptographic Seeds | 1.0.0 | Wolf McNally |
+| [BCR-2020-002](papers/bcr-2020-002-bech32-seed-format.md) | Bech32 Encoding for Cryptographic Seeds | 1.0.0 | Wolf McNally |
+| [BCR-2020-003](papers/bcr-2020-003-uri-binary-compatibility.md) | Encoding Binary Compatibly with URI Reserved Characters  | 1.0.0 | Wolf McNally |
+| [BCR-2020-004](papers/bcr-2020-004-bc32.md) | The BC32 Data Encoding Format  | 1.0.0 | Wolf McNally |
+| [BCR-2020-005](papers/bcr-2020-005-ur.md) | Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes  | 1.0.0 | Wolf McNally |
+| [BCR-2020-006](papers/bcr-2020-006-urtypes.md) | Registry of Uniform Resource (UR) Types  | 1.0.0 | Wolf McNally |
+| [BCR-2020-007](papers/bcr-2020-007-hdkey.md) | UR Type Definition for Hierarchical Deterministic (HD) Keys  | 1.0.0 | Wolf McNally |
+| [BCR-2020-008](papers/bcr-2020-008-eckey.md) | UR Type Definition for Elliptic Curve (EC) Keys  | 1.0.0 | Wolf McNally |
+| [BCR-2020-009](papers/bcr-2020-009-address.md) | UR Type Definition for Cryptocurrency Addresses  | 1.0.0 | Wolf McNally |
+| [BCR-2020-010](papers/bcr-2020-010-output-desc.md) | UR Type Definition for Bitcoin Output Descriptors  | 1.0.0 | Wolf McNally |
 
+### BCR Number
+
+Please number all Bitcoin Research BCRs with a four-digit number representing the current year (`YYYY`) followed by a three-digit sequence number for that year (`SSS`). For example: `bcr-2020-001` is the first BCR for 2020, `bcr-2020-017` is the 17th, and `bcr-2021-001` is the first BCR for 2021.
+
+_Note that the sequence number reverts to 001 at the start of each year._
+
+### BCR Title
+
+Please be sure that your title is concise, yet informative.
+
+### BCR Version
+
+When updating BCRs, please use [semantic versioning](https://semver.org/) for your version number.
+
+Most briefly: your version number should be of the form X.Y.Z, where `X` is the major number ("0" for a BCR in progress; "1" for a fully drafted BCR; and "2" or higher for a new version that has introduced a backward-incompatible change), `Y` is the minor number (for a backward-compatible new feature), and `Z` is the patch number (for fixing typos and making other clarifications that don't fundamentally change what the BCR means).
+
+But please consult the semantic versioning document for more information and adjust appropriately for the fact that these are textual BCRs, not software.
+
+### BCR Owner
+
+Please list the person primarily responsible for the BCR, and moving it forward, as the owner. If there are multiple authors, they should be listed on the BCR itself, not on this overview.
+   
 ## Origin, Authors, Copyright & Licenses
 
 Unless otherwise noted (either in this [/README.md](./README.md) or in the file's header comments) the contents of this repository are Copyright © 2020 by Blockchain Commons, LLC, and are [licensed](./LICENSE) under the [spdx:BSD-2-Clause Plus Patent License](https://spdx.org/licenses/BSD-2-Clause-Patent.html).
