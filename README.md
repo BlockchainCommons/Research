@@ -17,6 +17,8 @@ This repository contains research and proposals of interest to the blockchain co
 | [BCR-2020-009](papers/bcr-2020-009-address.md) | UR Type Definition for Cryptocurrency Addresses  | 1.0.0 | Wolf McNally |
 | [BCR-2020-010](papers/bcr-2020-010-output-desc.md) | UR Type Definition for Bitcoin Output Descriptors  | 1.0.0 | Wolf McNally |
 
+_Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Wallet Improvement Proposals](https://github.com/BlockchainCommons/wips/blob/master/README.md)._
+
 ### BCR Number
 
 Please number all Bitcoin Research BCRs with a four-digit number representing the current year (`YYYY`) followed by a three-digit sequence number for that year (`SSS`). For example: `bcr-2020-001` is the first BCR for 2020, `bcr-2020-017` is the 17th, and `bcr-2021-001` is the first BCR for 2021.
