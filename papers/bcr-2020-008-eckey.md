@@ -1,6 +1,6 @@
 # UR Type Definition for Elliptic Curve (EC) Keys
 
-## BCR-0008
+## BCR-2020-008
 
 **© 2020 Blockchain Commons**
 
@@ -89,7 +89,7 @@ ur:crypto-eckey/5gp02q6cyzxqt395705gss9y7j6lz4w0662886sknu7sgvdh5eu85gmh0uy25fnu
 
 * UR as QR Code:
 
-![](bcr-0008/1.png)
+![](bcr-2020-008/1.png)
 
 ### Example/Test Vector 2
 
@@ -133,7 +133,7 @@ ur:crypto-eckey/5yp4sggrhmz3v00jtkrsx9gv8gvqf6k86c2mkgft0nya0lun025t68zffdlslagf
 
 * UR as QR Code:
 
-![](bcr-0008/2.png)
+![](bcr-2020-008/2.png)
 
 ### References
 

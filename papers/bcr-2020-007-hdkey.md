@@ -1,6 +1,6 @@
 # UR Type Definition for Hierarchical Deterministic (HD) Keys
 
-## BCR-0007
+## BCR-2020-007
 
 **© 2020 Blockchain Commons**
 
@@ -273,7 +273,7 @@ ur:crypto-hdkey/5vql2q6cyyqw3uewwg77eaq9rth6er3vj0yutvs5xyup0ndsrg2ffwgheppkkdgy
 
 * UR as QR Code:
 
-![](bcr-0007/1.png)
+![](bcr-2020-007/1.png)
 
 ### Example/Test Vector 2
 
@@ -379,7 +379,7 @@ ur:crypto-hdkey/5sp4sggzdl3r2469hvkmxccthjqw7h2cj5wfv0yyra2pwzaxuhqjheluz2nqgkpq
 
 * UR as QR Code:
 
-![](bcr-0007/2.png)
+![](bcr-2020-007/2.png)
 
 ### Normative References
 
