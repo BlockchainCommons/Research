@@ -155,19 +155,28 @@ D9012CA20150C7098580125E2AB0981253468B2DBC5202D8641947DADFC6467C
 * Bytewords:
 
 ```
-tuna acid draw oboe acid good slot axis list lava brag holy door puff monk brag guru frog luau drop roof grim also trip idle chef fuel twin user skew frog kite
+tuna acid draw oboe acid good slot axis list lava
+brag holy door puff monk brag guru frog luau drop
+roof grim also trip idle chef fuel twin user skew
+frog kite
 ```
 
 * Bytewords (URI compatible):
 
 ```
-tuna-acid-draw-oboe-acid-good-slot-axis-list-lava-brag-holy-door-puff-monk-brag-guru-frog-luau-drop-roof-grim-also-trip-idle-chef-fuel-twin-user-skew-frog-kite
+tuna-acid-draw-oboe-acid-good-slot-axis-list-lava-
+brag-holy-door-puff-monk-brag-guru-frog-luau-drop-
+roof-grim-also-trip-idle-chef-fuel-twin-user-skew-
+frog-kite
 ```
 
 * Bytewords (no separator):
 
 ```
-tunaaciddrawoboeacidgoodslotaxislistlavabragholydoorpuffmonkbraggurufrogluaudroproofgrimalsotripidlecheffueltwinuserskewfrogkite
+tunaaciddrawoboeacidgoodslotaxislistlava
+bragholydoorpuffmonkbraggurufrogluaudrop
+roofgrimalsotripidlecheffueltwinuserskew
+frogkite
 ```
 
 * Bytewords (minimal encoding, only first and last letters of each word):
