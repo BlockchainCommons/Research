@@ -17,7 +17,7 @@ Schemes like [BIP39] and [SLIP39] (see Appendix) encode a binary string as a ser
 * Additionally, words can be uniquely identified by their first three letters or last three letters.
 * Representing each byte as a single word simplifies encoder and decoder architecture.
 * Minimizing the number of letters for each word simplifies transfer to permanent media such as stamped metal.
-* Using only ASCII characters (and one optional separator character, either space or hyphen) preserves compatibility with URI and QR code character sets.
+* Using only ASCII letters (and one optional separator character, either space or hyphen) preserves compatibility with URI and QR code character sets.
 * Provides a four-word sequence at the end as a checksum of the entire sequence.
 
 ### Word selection criteria
@@ -28,9 +28,9 @@ Schemes like [BIP39] and [SLIP39] (see Appendix) encode a binary string as a ser
 * Prefer words in common usage.
 * Avoid homophones and near homophones.
 * Prefer two-syllable words.
-* Each word's first three characters must be a unique sequence (XXX-).
-* Each word's last three characters must be a unique sequence (-XXX).
-* Each word's first and last characters must be a unique sequence (X--X).
+* Each word's first three letters must be a unique sequence (XXX-).
+* Each word's last three letters must be a unique sequence (-XXX).
+* Each word's first and last letters must be a unique sequence (X--X).
 * The Damerau-Levenshtein distance between any two words is at least 2.
 * Prefer words with positive connotations.
 * Prefer words which are "interesting" (strong emotional valence) even if connotation is neutral or slightly negative.
