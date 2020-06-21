@@ -4,7 +4,7 @@ This repository contains research and proposals of interest to the blockchain co
 
 ## Contents
 
-| Number                    | Title         | Version | Owner                                                  | 
+| Number                    | Title         | Version | Owner                                                  |
 |---------------------------|---------------|---------|----------------------------------------------|
 | [BCR-2020-001](papers/bcr-2020-001-entropy-to-seed.md) | Uniformly Translating Entropy into Cryptographic Seeds | 1.0.0 | Wolf McNally |
 | [BCR-2020-002](papers/bcr-2020-002-bech32-seed-format.md) | Bech32 Encoding for Cryptographic Seeds | 1.0.0 | Wolf McNally |
@@ -15,7 +15,9 @@ This repository contains research and proposals of interest to the blockchain co
 | [BCR-2020-007](papers/bcr-2020-007-hdkey.md) | UR Type Definition for Hierarchical Deterministic (HD) Keys  | 1.0.0 | Wolf McNally |
 | [BCR-2020-008](papers/bcr-2020-008-eckey.md) | UR Type Definition for Elliptic Curve (EC) Keys  | 1.0.0 | Wolf McNally |
 | [BCR-2020-009](papers/bcr-2020-009-address.md) | UR Type Definition for Cryptocurrency Addresses  | 1.0.0 | Wolf McNally |
-| [BCR-2020-010](papers/bcr-2020-010-output-desc.md) | UR Type Definition for Bitcoin Output Descriptors  | 1.0.0 | Wolf McNally |
+| [BCR-2020-010](papers/bcr-2020-010-output-desc.md) | UR Type Definition for Bitcoin Output Descriptors | 1.0.0 | Wolf McNally |
+| [BCR-2020-011](papers/bcr-2020-011-sskr.md) | UR Type Definition for Shamir Secret Key Recovery (SSKR) | 1.0.0 | Wolf McNally |
+| [BCR-2020-012](papers/bcr-2020-012-bytewords.md) | Bytewords: Encoding binary data as English words | 1.0.0 | Wolf McNally |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Wallet Improvement Proposals](https://github.com/BlockchainCommons/wips/blob/master/README.md)._
 
@@ -40,7 +42,7 @@ But please consult the semantic versioning document for more information and adj
 ### BCR Owner
 
 Please list the person primarily responsible for the BCR, and moving it forward, as the owner. If there are multiple authors, they should be listed on the BCR itself, not on this overview.
-   
+
 ## Origin, Authors, Copyright & Licenses
 
 Unless otherwise noted (either in this [/README.md](./README.md) or in the file's header comments) the contents of this repository are Copyright © 2020 by Blockchain Commons, LLC, and are [licensed](./LICENSE) under the [spdx:BSD-2-Clause Plus Patent License](https://spdx.org/licenses/BSD-2-Clause-Patent.html).
