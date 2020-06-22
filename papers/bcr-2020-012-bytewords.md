@@ -110,6 +110,8 @@ Schemes like [BIP39] and [SLIP39] (see Appendix) encode a binary string as a ser
 
 The CBOR body of an encoded Bytewords sequence is followed by a four-word (four byte, 32 bit) checksum. This is the first four bytes of a SHA-256 hash of the body.
 
+The choice to use the first four bytes of a SHA-256 hash of a Bytewords body is open for comment. This issue is being tracked [here](https://github.com/BlockchainCommons/Research/issues/23).
+
 ### Example/Test Vector
 
 * A 16 byte (128-bit) `crypto-seed` (tag #6.300) [BCR6] generated on May 13, 2020, in the CBOR diagnostic notation:
