@@ -6,6 +6,7 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: June 5, 2020<br/>
+Revised: June 25, 2020
 
 ---
 
@@ -84,7 +85,7 @@ A202F50358208C05C4B4F3E88840A4F4B5F155CFD69473EA169F3D0431B7A6787A23777F08AA
 * As a UR:
 
 ```
-ur:crypto-eckey/5gp02q6cyzxqt395705gss9y7j6lz4w0662886sknu7sgvdh5eu85gmh0uy25fnulch
+ur:crypto-eckey/oeaoykaxhdcxlkahssqzwfvslofzoxwkrewngotktbmwjkwdcmnefsaaehrlolkskncnktlbaypkrphsmyid
 ```
 
 * UR as QR Code:
@@ -128,7 +129,7 @@ A103582103BEC5163DF25D8703150C3A1804EAC7D615BB212B7CC9D7FF937AA8BD1C494B7F
 * As a UR:
 
 ```
-ur:crypto-eckey/5yp4sggrhmz3v00jtkrsx9gv8gvqf6k86c2mkgft0nya0lun025t68zffdlslagfhl
+ur:crypto-eckey/oyaxhdclaxrnskcmfswzhllnaxbzbnftcsaawdsttbbzrkcldnkesotszomuknpdrycegagrlbemdevtlt
 ```
 
 * UR as QR Code:

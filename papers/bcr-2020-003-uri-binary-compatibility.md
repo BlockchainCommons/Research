@@ -4,7 +4,8 @@
 **© 2020 Blockchain Commons**
 
 Author: Wolf McNally<br/>
-Date: April 23, 2020
+Date: April 23, 2020<br/>
+Revised: June 25, 2020
 
 ---
 
@@ -69,7 +70,7 @@ Encoding binary payloads in hexadecimal is compatible with URIs, but only result
 [Base58] is similar to Base64 but has been modified to avoid both non-alphanumeric characters and letters which might look ambiguous when printed. Base58 achieves 73% efficiency.
 
 Base58Check is a Base58 encoding format that unambiguously encodes the type of data in the first few characters and includes an error detection code in the last few characters. Base58Check also includes a leading metadata byte that is 0 for Bitcoin addresses.
- 
+
 ![](bcr-2020-003/12.png)
 
 ### Bech32
@@ -96,17 +97,50 @@ The QR Code Alphanumeric Encoding Mode listed at [QRCodeAlphaNum] defines 45 cod
 
 ![](bcr-2020-003/10.png)
 
-### Conclusions
+### BC32
 
-Base64URL, Base58, Base58Check, and Hexadecimal are the only binary to text encoding methods reviewed here that do not conflict with the URI reserved subset.
+The [BC32] encoding method uses the same character set as Bech32 and uses the same checksum, but drops the human readable part. This makes the BC32 encoding method compatible with both QR code alphanumeric encoding (when translated to upper case letters) and the URI non-reserved character set.
 
-We reject Hexadecimal due to its low efficiency.
+### Bytewords
+
+The Bytewords [BYTEWORDS] encoding method uses only ASCII letters, is not case sensitive, and encodes each byte as either a four-letter English word, or minimally as the first and last letters of that word. It also appends a 32-bit (4 byte, 4 word) checksum. Setting aside the checksum, from an efficiency perspective this it is the same as hexadecimal, using two ASCII characters to encode each byte. Unlike hexadecimal, where any pair of hexadecimal digits represents a valid byte, only 256 specific pairings of English letters represent valid bytes, making catching transcription error more likely. Bytewords also specifies two encoding modes: "normal" and "brutal." In standard encoding more the encoded data must be a self-describing CBOR structure and in brutal mode it can be any string of bytes. Both modes include the four-word checksum at the end.
+
+### Comparison
+
+| Method | Bits/char | URI-Friendly | QR-Friendly | Human-Friendly | Self-Describing | Checksum (bits) | Multi-Part |
+|-|-|-|-|-|-|--|--|
+| Base64 | 6
+| Base64URL | 6 |🟢
+| Base58 | 5.86 |🟢|🟢||🟢
+| Base58Check | 5.86 |🟢|🟢||🟢| 32
+| Bech32 | 5 ||||🟢| 30
+| BC32 | 5 |🟢|🟢||| 30
+| UR-BC32 | 5 |🟢|🟢||🟢| 30 |🟢
+| Hexadecimal | 4 |🟢|🟢
+| Bytewords | 4 |🟢|🟢|🟢|🟢| 32
+| Bytewords-brutal | 4 |🟢|🟢|🟢|| 32
+| UR-Bytewords | 4 |🟢|🟢|🟢|🟢| 32 |🟢 + Fountain Codes
+
+* **Method**: The name of the encoding method.
+* **Bits/char**: The number of bits encoded per encoding output character, without considering other structural elements.
+* **URI-Friendly**: Does this method output characters only in the URI unreserved character set?
+* **QR-Friendly**: Does this method output characters only in the QR Code alphanumeric encoding character set or translatable to that set via capitalization?
+* **Human-Friendly**: Does this method output English words or mnemonics that can be easily remembered or transcribed onto permanent media such as metal tags?
+* **Self-Describing**: Does this method include structural elements to allow a decoder to determine type or other structural aspects of the encoded data?
+* **Checksum**: How many bits of checksum are included in the encoded output?
+* **Multi-Part**: Does this method provide for the breaking of large amounts of data (too much to fit into a single QR code) into smaller parts?
+
+Base64URL, Base58, Base58Check, Hexadecimal, BC32, and Bytewords are binary to text encoding methods that do not conflict with the URI reserved subset.
+
+We reject Hexadecimal due to its lack of efficiency, lack of checksum, and lack of self-describing structure.
 
 We reject Base58 and Base58Check due to their lack of widespread adoption. In addition, Base58Check's addition of its own metadata byte may conflict with type information in the enclosing URI.
 
 We reject Bech32 due to its HRP conflicting with the URI reserved subset, and it's relatively low efficiency.
 
 We reject QR Code alphanumeric encoding due to its incompatibility with the URI reserved subset.
+
+We recommend that any scheme adopted be compatible with both QR code alphanumeric encoding (making transport in QR codes efficient) and URI non-reserved characters (making transport in URIs efficient).
 
 It is therefore recommended that any URI scheme definition that requires the encoding of arbitrary binary data choose to encode it exclusively in Base64URL format.
 
@@ -123,3 +157,6 @@ If error detection or correction is desired, it should be included as part of th
 * [QRCodeAlphaNum] [Table of Alphanumeric Values](https://www.thonky.com/qr-code-tutorial/alphanumeric-table)
 * [BinaryToText] [Binary-to-text Encoding](https://en.wikipedia.org/wiki/Binary-to-text_encoding)
 * [Base58] [Base58](https://en.wikipedia.org/wiki/Base58)
+* [BC32] [BCR-2020-004: The BC32 Data Encoding Format](bcr-2020-004-bc32.md)
+* [UR] [BCR-2020-005: Uniform Resources (UR)](bcr-2020-005-ur.md)
+* [BYTEWORDS] [BCR-2020-012: Bytewords: Encoding binary data as English words](bcr-2020-012-bytewords.md)
