@@ -130,24 +130,6 @@ The Bytewords [BYTEWORDS] encoding method uses only ASCII letters, is not case s
 * **Checksum**: How many bits of checksum are included in the encoded output?
 * **Multi-Part**: Does this method provide for the breaking of large amounts of data (too much to fit into a single QR code) into smaller parts?
 
-Base64URL, Base58, Base58Check, Hexadecimal, BC32, and Bytewords are binary to text encoding methods that do not conflict with the URI reserved subset.
-
-We reject Hexadecimal due to its lack of efficiency, lack of checksum, and lack of self-describing structure.
-
-We reject Base58 and Base58Check due to their lack of widespread adoption. In addition, Base58Check's addition of its own metadata byte may conflict with type information in the enclosing URI.
-
-We reject Bech32 due to its HRP conflicting with the URI reserved subset, and it's relatively low efficiency.
-
-We reject QR Code alphanumeric encoding due to its incompatibility with the URI reserved subset.
-
-We recommend that any scheme adopted be compatible with both QR code alphanumeric encoding (making transport in QR codes efficient) and URI non-reserved characters (making transport in URIs efficient).
-
-It is therefore recommended that any URI scheme definition that requires the encoding of arbitrary binary data choose to encode it exclusively in Base64URL format.
-
-If the payload must include data in other formats, it should be enclosed in a structured binary format such as [CBOR] and then subsequently encoded in Base64URL. Specifying this format is beyond the scope of this paper.
-
-If error detection or correction is desired, it should be included as part of the Base64URL encoded packet. Defining the format for this error detection is beyond the scope of this paper.
-
 ### References
 
 * [RFC3986] [Uniform Resource Identifier (URI): Generic Syntax](https://tools.ietf.org/html/rfc3986)
