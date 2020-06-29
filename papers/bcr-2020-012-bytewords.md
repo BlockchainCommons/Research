@@ -1,23 +1,24 @@
 # Bytewords: Encoding binary data as English words
 
-## BCR-0012
+## BCR-2020-012
 
 **© 2020 Blockchain Commons**
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: June 20, 2020<br/>
+Revised: June 25, 2020
 
 ### Introduction
 
 Schemes like [BIP39] and [SLIP39] (see Appendix) encode a binary string as a series of human-readable words. This proposal specifies a scheme "Bytewords" with similar ends but:
 
-* Encodes a [CBOR] structure tagged with the data type [BCR6], and is therefore self-describing.
+* Encodes a [CBOR] structure tagged with the data type [URTYPES], and is therefore self-describing.
 * Uses a dictionary of exactly 256 English words with a uniform word size of 4 letters.
 * Only two letters of each word (the first and last) are required to uniquely identify each byte value, making a minimal Bytewords encoding as efficient as hexadecimal (2 characters per byte) and yet less error prone.
 * Additionally, words can be uniquely identified by their first three letters or last three letters.
 * Representing each byte as a single word simplifies encoder and decoder architecture.
 * Minimizing the number of letters for each word simplifies transfer to permanent media such as stamped metal.
-* Using only ASCII letters (and one optional separator character, either space or hyphen) preserves compatibility with URI and QR code character sets.
+* Using only ASCII letters (and a separator character, either space or hyphen) preserves compatibility with URI and QR code character sets.
 * Provides a four-word sequence at the end as a checksum of the entire sequence.
 
 ### Word selection criteria
@@ -108,13 +109,13 @@ Schemes like [BIP39] and [SLIP39] (see Appendix) encode a binary string as a ser
 
 ### Checksum
 
-The CBOR body of an encoded Bytewords sequence is followed by a four-word (four byte, 32 bit) checksum. This is the first four bytes of a SHA-256 hash of the body.
+The CBOR body of an encoded Bytewords sequence is followed by a four-word (four byte, 32 bit) CRC32 checksum in network order (big-endian).
 
-The choice to use the first four bytes of a SHA-256 hash of a Bytewords body is open for comment. This issue is being tracked [here](https://github.com/BlockchainCommons/Research/issues/23).
+The choice to use a CRC32 hash of a Bytewords body is open for comment. This issue is being tracked [here](https://github.com/BlockchainCommons/Research/issues/23).
 
 ### Example/Test Vector
 
-* A 16 byte (128-bit) `crypto-seed` (tag #6.300) [BCR6] generated on May 13, 2020, in the CBOR diagnostic notation:
+* A 16 byte (128-bit) `crypto-seed` (tag #6.300) [URTYPES] generated on May 13, 2020, in the CBOR diagnostic notation:
 
 ```
 300({
@@ -139,19 +140,19 @@ D9 012C                                 # tag(300) crypto-seed
 * Body as a hex string:
 
 ```
-D9012CA20150C7098580125E2AB0981253468B2DBC5202D8641947DA
+d9012ca20150c7098580125e2ab0981253468b2dbc5202d8641947da
 ```
 
-* first four bytes of SHA256 Checksum:
+* CRC32 Checksum:
 
 ```
-DFC6467C
+d22c52b6
 ```
 
 * Body with checksum appended:
 
 ```
-D9012CA20150C7098580125E2AB0981253468B2DBC5202D8641947DADFC6467C
+d9012ca20150c7098580125e2ab0981253468b2dbc5202d8641947dad22c52b6
 ```
 
 * Bytewords:
@@ -159,8 +160,8 @@ D9012CA20150C7098580125E2AB0981253468B2DBC5202D8641947DADFC6467C
 ```
 tuna acid draw oboe acid good slot axis list lava
 brag holy door puff monk brag guru frog luau drop
-roof grim also trip idle chef fuel twin user skew
-frog kite
+roof grim also trip idle chef fuel twin tied draw
+grim ramp
 ```
 
 * Bytewords (URI compatible):
@@ -168,34 +169,74 @@ frog kite
 ```
 tuna-acid-draw-oboe-acid-good-slot-axis-list-lava-
 brag-holy-door-puff-monk-brag-guru-frog-luau-drop-
-roof-grim-also-trip-idle-chef-fuel-twin-user-skew-
-frog-kite
-```
-
-* Bytewords (no separator):
-
-```
-tunaaciddrawoboeacidgoodslotaxislistlava
-bragholydoorpuffmonkbraggurufrogluaudrop
-roofgrimalsotripidlecheffueltwinuserskew
-frogkite
+roof-grim-also-trip-idle-chef-fuel-twin-tied-draw-
+grim-ramp
 ```
 
 * Bytewords (minimal encoding, only first and last letters of each word):
 
 ```
-taaddwoeadgdstasltlabghydrpfmkbggufgludprfgmaotpiecffltnurswfgke
+taaddwoeadgdstasltlabghydrpfmkbggufgludprfgmaotpiecffltntddwgmrp
+```
+
+### Brutal Encoding
+
+Unlike the "standard" encoding described above, where the encoded message is CBOR and is therefore self-describing, Bytewords can also be used to encode arbitary byte sequences with no defined internal structure except for the last four words being the checksum. The advantage of this "brutal" encoding is brevity. The disadvantage is that it is up to the user to keep track of the type of information encoded and ensure that it is interpreted correctly.
+
+For example, the seed payload used in the example above:
+
+```
+c7098580125e2ab0981253468b2dbc52
+```
+
+can be concatenated with the four-byte checksum of the payload as described above:
+
+```
+e824467c
+```
+
+to yield:
+
+```
+c7098580125e2ab0981253468b2dbc52e824467c
+```
+
+And then encoded as Bytewords:
+
+```
+slot axis list lava brag holy door puff monk brag
+guru frog luau drop roof grim zoom plus belt wand
+```
+
+Or encoded as minimal Bytewords:
+
+```
+stasltlabghydrpfmkbggufgludprfgmzmpsbtwd
+```
+
+It is recommended that if Bytewords is used in the brutal encoding mode, that some other metadata, such as a URI scheme, be present to guide in interpreting the payload, e.g.:
+
+```
+seed:slot-axis-list-lava-brag-holy-door-puff-monk-brag-guru-frog-luau-drop-roof-grim-zoom-plus-belt-wand
+```
+
+or
+
+```
+seed:stasltlabghydrpfmkbggufgludprfgmzmpsbtwd
 ```
 
 ### References
 
-* [BCR6] [BCR-0006: Registry of Uniform Resource (UR) Types
+* [URTYPES] [BCR-0006: Registry of Uniform Resource (UR) Types
 ](bcr-0006-urtypes.md)
+* [BC32] [BCR-2020-004: The BC32 Data Encoding Format](bcr-2020-004-bc32.md)
 * [BIP39] [BIP-0039: Mnemonic code for generating deterministic keys](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki)
 * [BIP39WORDS] [BIP-0039 Multilingual Word Lists](https://github.com/bitcoin/bips/blob/master/bip-0039/bip-0039-wordlists.md)
 * [CBOR] [Concise Binary Object Representation (CBOR)](https://tools.ietf.org/html/rfc7049)
 * [CBOR-DATE] [Concise Binary Object Representation (CBOR) Tags for Date](https://datatracker.ietf.org/doc/draft-ietf-cbor-date-tag/)
 * [CBOR-PLAYGROUND] [CBOR Playground](http://cbor.me)
+* [CRC32] [MSDN: 32-Bit CRC Algorithm](https://docs.microsoft.com/en-us/openspecs/office_protocols/ms-abs/06966aa2-70da-4bf9-8448-3355f277cd77)
 * [SLIP39] [SLIP-0039: Shamir's Secret-Sharing for Mnemonic Codes](https://github.com/satoshilabs/slips/blob/master/slip-0039.md)
 * [SLIP39WORDS] [SLIP-0039: Word List](https://github.com/satoshilabs/slips/blob/master/slip-0039/wordlist.txt)
 
@@ -233,3 +274,7 @@ In the case of SLIP-39, the binary string is broken up into 10-bit words and enc
 >    * The wordlist contains only common English words (+ the word "satoshi").
 >    * The minimum Damerau-Levenshtein distance between any two words is at least 2.
 >    * The similarity between the pronunciation of any two words has been minimized.
+
+### Analysis of BC32
+
+In the case of [BC32], the binary string is broken up into 5-bit letters and encoded using a limited 32-character subset of ASCII that is compatible both with QR Code alphanumeric mode and URI unreserved characters. Six characters (30 bits) of checksum are added at the end.

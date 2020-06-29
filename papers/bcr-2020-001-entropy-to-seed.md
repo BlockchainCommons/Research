@@ -3,8 +3,9 @@
 
 **© 2020 Blockchain Commons**
 
-Author: Wolf McNally<br/>
-Date: April 8, 2020
+Authors: Wolf McNally, Christopher Allen<br/>
+Date: April 8, 2020<br/>
+Revised: June 25, 2020
 
 ---
 
@@ -34,6 +35,8 @@ After each input form unit is syntax-checked, it is transformed into a binary re
 	* Card values are case-insensitive and can be entered or displayed in any case. If they are stored as text, canonically they are stored in lower case.
 
 Once you have the byte array, perform SHA256 on it and use the resulting digest as a seed for a HKDF_SHA256-based RNG. Arbitrary amounts of random numbers can then be generated and used as seeds for other purposes like HD key derivation.
+
+**⚠️ Warning:** The authors note that the seed used as input to this RNG algorithm should be used only once.
 
 Benefits:
 

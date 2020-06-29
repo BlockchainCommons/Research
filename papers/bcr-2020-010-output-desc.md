@@ -6,6 +6,7 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: June 8, 2020<br/>
+Revised: June 25, 2020
 
 ---
 
@@ -96,7 +97,7 @@ d90193d90132a103582102c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c
 * As a UR:
 
 ```
-ur:crypto-output/myqe8kgpx2ssxkppqtrqglu5g8kh6mfsg4qxa9wq0nv9cauwfwxw70984wkqnw2uwz0w2g6nq5q
+ur:crypto-output/taadmutaadeyoyaxhdclaoswaalbmwfpwekijndyfefzjtmdrtketphhktmngrlkwsfnospypsasrhhhjonnvwtsqzwljy
 ```
 
 ### Example/Test Vector 2
@@ -142,7 +143,7 @@ d90190d90194d90132a103582103fff97bd5755eeea420453a14355235d382f6472f8568a18b2f05
 * As a UR:
 
 ```
-ur:crypto-output/myqepkgpjnvszv4pqdvzzqlll9aa2a27a6jzq3f6zs64ydwnstmywtu9dzscktc90g2xq2t42c3d38rg
+ur:crypto-output/taadmhtaadmwtaadeyoyaxhdclaxzoytkgtlkphywyoxcxfeftbbecgmectelfynfldlltisoyludlahknbbhndtkphfhlehmust
 ```
 
 ### Example/Test Vector 3
@@ -206,7 +207,7 @@ d90190d90196a201020282d90132a1035821022f01e5e15cca351daff3843fb70f3c2f0a1bdd05e5
 * As a UR:
 
 ```
-ur:crypto-output/myqepkgpj63qzqszstvszv4pqdvzzq30q8j7zhx2x5w6luuy87ms70p0pgda6p0947yg5emcfme7zz32q8vszv4pqdvzzqav6jzw9ux87efsntgh3204tx4auzted96v2ln3fs6lzyxlcf7vhccrqhfm
+ur:crypto-output/taadmhtaadmtoeadaoaolftaadeyoyaxhdclaodladvwvyhhsgeccapewflrfhrlbsfndlbkcwutahvwpeloleioksglwfvybkdradtaadeyoyaxhdclaxpstylrvowtstynguaspmchlenegonyryvtmsmtmsgshgvdbbsrhebybtzcdisfrnpfadremh
 ```
 
 ### Example/Test Vector 4
@@ -284,7 +285,7 @@ d90193d9012fa403582102d2b36900396c9282fa14628566582f206a5dd0bcc8d5e892611806cafb
 * As a UR:
 
 ```
-ur:crypto-output/myqe8kgp97jqxkppqtftx6gq89kf9qh6z33g2ejc9usx5hwshnydt6yjvyvqdjhmqvqlqpzcyp3hspcrp42aq8u6pje60qu4zhted0g8wp3cdfhdmurvc2dxtg8zjpkeqyc2yqvxrqk02q84qr6syxknfken7p7eqyc2zqvyq86gpaq0f7vet
+ur:crypto-output/taadmutaaddloxaxhdclaotdqdinaeesjzmolfzsbbidltiyhddlcximhltirfsptlvsmohscsamsgztaxadwtaahdcxiaksataxbtgotictnybnqdoslsmdbztsmtryatjoialpolweuramsfdtolhtbadtamtaaddyoeadlpcsdwykaeykaeykaocytegtqdfhattaaddyoyadlradwklawkonamhfjp
 ```
 
 ### Example/Test Vector 5
@@ -433,7 +434,7 @@ d90191d90196a201010282d9012fa403582103cbcaa9c98c877a26977d00825c956a238e8dddfbd3
 * As a UR:
 
 ```
-ur:crypto-output/myqerkgpj63qzqgzstvsztayqdvzzq7te25unry80gnfwlgqsfwf263r36xam77nytxwfa6tpddadt8y5uz9sgrqfx0cqxufdkp30xjrwjht0q3246kw4gxmr7z7u05sf3x7l0vk3yrdjqfs5ypsqp7eqyc2zqvxq86qpayq7nvsztayqdvzzqhuned0ptydnv7wel323z8zz9a685yfmpv93pkfeqntdv32nrgjagz9sg8sjzd0l2n7u747th2wzqze34xu20xhp826tsk2cs88gyhjxtmunsrdjqfs5gqcyq85qgdt6947u5rajqfs5yqcvq85qr6gpaqxptw60
+ur:crypto-output/taadmetaadmtoeadadaolftaaddloxaxhdclaxsbsgptsolklnkndsmskiaelfhhmdimcnmnlgutzttecpsfveylgrbdhptbpsveosaahdcxhnganelacwldjnlschnyfxjyplrllfdrplpswdnbuyctltwyfmmhgsgtwsrymtldamtaaddyoyaxaeattaaddyoyadlpadwkaewklawktaaddloxaxhdclaozcnnhtwtpslgndfnwpzmdrlomnclchrdfsayntltltlojznslfjejecpptlgbgwdaahdcxwtmhnyzopkkbvdpyvwutglbeahmktyuogusnjonththhdwpsfzvdfpdlcndlkensamtaaddyoeadlfaewkaocyrycmrnvwattaaddyoyadlpaewkaewklawkkkzcdlon
 ```
 
 ### References

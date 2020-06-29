@@ -6,7 +6,7 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: May 25, 2020<br/>
-Revised: June 5, 2020
+Revised: June 25, 2020
 
 ---
 
@@ -252,7 +252,7 @@ A3                                      # map(3)
    01                                   # unsigned(1) is-master
    F5                                   # primitive(21) true
    03                                   # unsigned(3) key-data
-   58 21                                # bytes(33) 
+   58 21                                # bytes(33)
       00E8F32E723DECF4051AEFAC8E2C93C9C5B214313817CDB01A1494B917C8436B35
    04                                   # unsigned(4) chain-code
    58 20                                # bytes(32)
@@ -268,7 +268,7 @@ A301F503582100E8F32E723DECF4051AEFAC8E2C93C9C5B214313817CDB01A1494B917C8436B3504
 * As a UR:
 
 ```
-ur:crypto-hdkey/5vql2q6cyyqw3uewwg77eaq9rth6er3vj0yutvs5xyup0ndsrg2ffwgheppkkdgytqsgw00ls8qz75jky073legk06kr54dqf80r6v2tkshwyflla5ma2zqwu4mr8
+ur:crypto-hdkey/otadykaxhdclaevswfdmjpfswpwkahcywspsmndwmusoskprbbehetchsnpfcybbmwrhchspfxjeecaahdcxlnfszolyrtdlgmhfcnzectvwcmkbpsftgonbgauefsehgrqzdmvodizoweemtlaybakiylat
 ```
 
 * UR as QR Code:
@@ -291,7 +291,7 @@ $ DERIVED_KEY=`bx hd-new $SEED |\
   bx hd-private --index 0 |\
   bx hd-private --index 1 |\
   bx hd-to-public -v 70617039`
-$ echo $DERIVED_KEY 
+$ echo $DERIVED_KEY
 tpubDHW3GtnVrTatx38EcygoSf9UhUd9Dx1rht7FAL8unrMo8r2NWhJuYNqDFS7cZFVbDaxJkV94MLZAr86XFPsAPYcoHWJ7sWYsrmHDw5sKQ2K
 ```
 
@@ -374,7 +374,7 @@ A4035821026FE2355745BB2DB3630BBC80EF5D58951C963C841F54170BA6E5C12BE7FC12A6045820
 * As a UR:
 
 ```
-ur:crypto-hdkey/5sp4sggzdl3r2469hvkmxccthjqw7h2cj5wfv0yyra2pwzaxuhqjheluz2nqgkpqemg4t3ey2cj43qtex52wm3daj3r70a62hwyvd44kfq8aq9hw3jzstkgpxxssyqgxmyqnpgsp3gvzeagp75ql2q85q86qyxhfrqw0xgzqh5h
+ur:crypto-hdkey/oxaxhdclaojlvoechgferkdpqdiabdrflawshlhdmdcemtfnlrctghchbdolvwsednvdzcbgolaahdcxtottgostdkhfdahdlykkecbbweskrymwflvdylgerkloswtbrpfdbsticmwylkltahtaadehoyaoadamtaaddyoeadlecsdwykadykadykaewkadwkaocywlcscewfiavorkat
 ```
 
 * UR as QR Code:

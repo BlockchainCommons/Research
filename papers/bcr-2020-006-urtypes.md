@@ -5,7 +5,8 @@
 **© 2020 Blockchain Commons**
 
 Authors: Wolf McNally, Christopher Allen<br/>
-Date: May 12, 2020
+Date: May 12, 2020<br/>
+Revised: June 25, 2020
 
 ---
 
@@ -40,23 +41,24 @@ Each UR type defines a CBOR encoding. When a UR type is suitable for embedding w
 | `bytes` | | Undifferentiated byte string | [[BCR5]](bcr-0005-ur.md) |
 | `cbor-png` | | PNG image | [[PNG]](https://tools.ietf.org/html/rfc2083) |
 | `cbor-svg` | | SVG image | [[SVG]](https://www.w3.org/TR/SVG11/) |
-| `cose-sign` | 98 | COSE_Sign: Signed message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
-| `cose-sign1` | 18 | COSE_Sign1: Signed message (single recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
-| `cose-encrypt` | 96 | COSE_Encrypt: Encrypted message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
+| `cose-sign` | 98 | COSE_Sign: Signed message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) |
+| `cose-sign1` | 18 | COSE_Sign1: Signed message (single recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) |
+| `cose-encrypt` | 96 | COSE_Encrypt: Encrypted message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) |
 | `cose-encrypt0` | 16 | COSE_Encrypt0: Encrypted message (implied recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) |
-| `cose-mac` | 97 | COSE_Mac: Authenticated message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
-| `cose-mac0` | 17 | COSE_Mac0: Authenticated message (implied recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
-| `cose-key` | | COSE_Key: An encryption key | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
-| `cose-keyset` | | COSE_KeySet: A set of encryption keys | [[COSE]](https://tools.ietf.org/html/rfc8152) | 
+| `cose-mac` | 97 | COSE_Mac: Authenticated message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) |
+| `cose-mac0` | 17 | COSE_Mac0: Authenticated message (implied recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) |
+| `cose-key` | | COSE_Key: An encryption key | [[COSE]](https://tools.ietf.org/html/rfc8152) |
+| `cose-keyset` | | COSE_KeySet: A set of encryption keys | [[COSE]](https://tools.ietf.org/html/rfc8152) |
 | `crypto-seed` | 300 | Cryptographic seed | This document |
 | `crypto-bip39` | 301 | BIP-39 encoded seed | This document |
 | `crypto-slip39` | 302 | One or more SLIP-39 shares | This document |
-| `crypto-hdkey` | 303 | Hierarchical Deterministic (HD) key | [[BCR7]](bcr-0007-hdkey.md) |
-| `crypto-keypath` | 304 | Key Derivation Path | [[BCR7]](bcr-0007-hdkey.md) |
-| `crypto-coin-info` | 305 | Cryptocurrency Coin Use | [[BCR7]](bcr-0007-hdkey.md) |
-| `crypto-eckey` | 306 | Elliptic Curve (EC) key | [[BCR8]](bcr-0008-eckey.md) |
-| `crypto-address` | 307 | Cryptocurrency Address | [[BCR9]](bcr-0009-address.md) |
-| `crypto-output` | 308 | Bitcoin Output Descriptor | [[BCR10]](bcr-0010-output-desc.md) |
+| `crypto-hdkey` | 303 | Hierarchical Deterministic (HD) key | [[BCR7]](bcr-2020-007-hdkey.md) |
+| `crypto-keypath` | 304 | Key Derivation Path | [[BCR7]](bcr-2020-007-hdkey.md) |
+| `crypto-coin-info` | 305 | Cryptocurrency Coin Use | [[BCR7]](bcr-2020-007-hdkey.md) |
+| `crypto-eckey` | 306 | Elliptic Curve (EC) key | [[BCR8]](bcr-2020-008-eckey.md) |
+| `crypto-address` | 307 | Cryptocurrency Address | [[BCR9]](bcr-2020-009-address.md) |
+| `crypto-output` | 308 | Bitcoin Output Descriptor | [[BCR10]](bcr-2020-010-output-desc.md) |
+| `crypto-sskr` | 309 | SSKR (Shamir Secret Key Recovery) shard | [[BCR11]](bcr-2020-011-sskr.md) |
 
 ### Byte String `bytes`
 
@@ -92,7 +94,7 @@ h'00112233445566778899aabbccddeeff'
 * As a UR:
 
 ```
-ur:bytes/5qqpzg3ng32kvaugnx4thnxaamlsmzd8wc
+ur:bytes/gdaebycpeofygoiyktlonlpkrksfutwyzowmfyeozs
 ```
 
 * UR as QR Code:
@@ -149,7 +151,7 @@ A20150C7098580125E2AB0981253468B2DBC5202D8641947DA
 * As a UR:
 
 ```
-ur:crypto-seed/5gq4p3cfskqpyh32kzvpy56x3vkmc5szmpjpj376py6zrs
+ur:crypto-seed/gdaebycpeofygoiyktlonloeadgdstasltlabghydrpfmkbggufgludprfgmaotpiecffltnsfhfdrrl
 ```
 
 * UR as QR Code:
@@ -236,7 +238,7 @@ A2018C66736869656C646567726F75706565726F6465656177616B65646C6F636B67736175736167
 * As a UR:
 
 ```
-ur:crypto-bip39/5gqccenndp5k2mryv4nhymm4wpjk2un0v3jk2cthv94k2ervda3kkemnv96hxct8v4jxxctndpjkwmrpwfjkgampwejkgcmjv4mk2envv9kk2et8d3hhvegzvfjkux28mg75t5m2
+ur:crypto-bip39/gdaebycpeofygoiyktlonloeadlkiyjkisinihjzieihiojpjlkpjoihihjpjlieihihhskthsjeihiejzjliajeiojkhskpjkhsioihieiahsjkisihiojzhsjpihiekthskoihieiajpihktihiyjzhsjnihihiojzjlkoihaoidihjtcffltnettactlu
 ```
 
 * UR as QR Code:
@@ -422,7 +424,7 @@ A1018394657370656E6464726F6D706861636164656D6963646163696466636C69656E7468707265
 * As a single-part UR:
 
 ```
-ur:crypto-slip39/5yqc89r9wdcx2mnyv3ex7mtsdpskxctyv4kkjcmyv93kjerxvdkxjetww358qun9v3shgmmjdpex2umsdah8xetyv9uxcetxvdsku7t0de5xxct5v4nk7unev3mkjmn9vemx2unfveukv6rp0fshyergv4kx2anpw3hhy6rzwf5k2enfdenkwempwf3xzem9vacx2unxv43hg6ryv96xzcnpwdjkserfwdshxar9wfnxyun0ddjka9r9wdcx2mnyv3ex7mtsdpskxctyv4kkjcmxv9nk2mnr09jxzcmwv4n8x6rjd9khq6rpd9exxunpve6xsumed43x7mrfvdjk6ctedaexgarjw4jkvumrv9ex2er9wd5xzunsvecxzar9de6x26tkdae8jenrv4h8getjv4nxzarpd3jhqunf0fjkwcmj09ehgctvvakx2cm5w4ex2ergv4exf9r9wdcx2mnyv3ex7mtsdpskxctyv4kkjcmxv9k8wctewdnxxun9v35hgetgv95hy7tywdkx7amxda38gctfdenhwetvvdhk6et8wpex2an9de6xgmr9v9nxwcm0d4cxzmnedpjxjum5v9hxxetxv3jhgetrw3jxwatdwdnkv6tndp5kuemxd9khqctrw3n8qunp09jhyetndphhyarxvehhymtpdsyvfrq3
+ur:crypto-slip39/oyadlsmwihjkjoihjtieiejpjljnjoishsiahsieihjniniaiehsiainieiyiajzinihjtjyisjojpihiehsjyjljpisjpihjkjojljtjkihiehsksjzihiyiahsjtkkjljtisiahsjyihiojljpkkiektinjtihiykoihjpiniykkiyishsknhsjpieisihjzihkohsjyjljpisidjpinihiyinjtioioiohsjpidhsioihiojoihjpiyihiajyisiehsjyhsidhsjkihisieinjkhsjkjyihjpiyidjpjljeihjtmwihjkjoihjtieiejpjljnjoishsiahsieihjniniaiyhsioihjtiakkiehsiajtihiyjkisjpinjnjoishsinjpiajphsiyjyisjkkkjnidjljziniaihjnhskkjljpiejyjpkpihiyjkiahsjpihieihjkishsjpjoiyjohsjyihjtjyihinkojljpkkiyiaihjtjyihjpihiyhsjyhsjzihjojpinknihioiajpkkjkjyhsjziojzihiajykpjpihieisihjpiemwihjkjoihjtieiejpjljnjoishsiahsieihjniniaiyhsjzkthskkjkiyiajpihieinjyihishsinjpkkiejkjzjlktiyjlidjyhsinjtioktihjziajljnihiojojpihkoihjtjyiejzihhsiyioiajljnjohsjtkkisieinjkjyhsjtiaihiyieihjyihiajyieiokpjnjkioiyinjkisinjtioiyinjnjohsiajyiyjojphskkihjpihjkisjljpjyiyiyjljpjnhsjzeymuptva
 ```
 
 * UR as QR Code:
@@ -432,9 +434,9 @@ ur:crypto-slip39/5yqc89r9wdcx2mnyv3ex7mtsdpskxctyv4kkjcmyv93kjerxvdkxjetww358qun
 * As multi-part UR:
 
 ```
-ur:crypto-slip39/1of3/udl8vk6qgxxtxvpr662uvckjau86wyjdyk52xmrqsrymq2lpk6usufugcu/5yqc89r9wdcx2mnyv3ex7mtsdpskxctyv4kkjcmyv93kjerxvdkxjetww358qun9v3shgmmjdpex2umsdah8xetyv9uxcetxvdsku7t0de5xxct5v4nk7unev3mkjmn9vemx2unfveukv6rp0fshyergv4kx2anpw3hhy6rzwf5k2enfdenkwempwf3xzem9vacx2unxv43hg6ryv96xzcnpwdjkserfwdshxa
-ur:crypto-slip39/2of3/udl8vk6qgxxtxvpr662uvckjau86wyjdyk52xmrqsrymq2lpk6usufugcu/r9wfnxyun0ddjka9r9wdcx2mnyv3ex7mtsdpskxctyv4kkjcmxv9nk2mnr09jxzcmwv4n8x6rjd9khq6rpd9exxunpve6xsumed43x7mrfvdjk6ctedaexgarjw4jkvumrv9ex2er9wd5xzunsvecxzar9de6x26tkdae8jenrv4h8getjv4nxzarpd3jhqunf0fjkwcmj09ehgctvvakx2cm5w4ex2ergv4ex
-ur:crypto-slip39/3of3/udl8vk6qgxxtxvpr662uvckjau86wyjdyk52xmrqsrymq2lpk6usufugcu/f9r9wdcx2mnyv3ex7mtsdpskxctyv4kkjcmxv9k8wctewdnxxun9v35hgetgv95hy7tywdkx7amxda38gctfdenhwetvvdhk6et8wpex2an9de6xgmr9v9nxwcm0d4cxzmnedpjxjum5v9hxxetxv3jhgetrw3jxwatdwdnkv6tndp5kuemxd9khqctrw3n8qunp09jhyetndphhyarxvehhymtpdsyvfrq3
+ur:crypto-slip39/1of3/vlkbkohpfzfplkqddycntbmdswidtdwsbsosbggtdapdotjzhnlasopfdnvyrprhguiskkmo/oyadlsmwihjkjoihjtieiejpjljnjoishsiahsieihjniniaiehsiainieiyiajzinihjtjyisjojpihiehsjyjljpisjpihjkjojljtjkihiehsksjzihiyiahsjtkkjljtisiahsjyihiojljpkkiektinjtihiykoihjpiniykkiyishsknhsjpieisihjzihkohsjyjljpisidjpinihiyinjtioioiohsjpidhsioihiojoihjpiyihiajyisiehsjyhsidhsjkihisieinjkhsjkjyihjpiyidjpjl
+ur:crypto-slip39/2of3/vlkbkohpfzfplkqddycntbmdswidtdwsbsosbggtdapdotjzhnlasopfdnvyrprhguiskkmo/jeihjtmwihjkjoihjtieiejpjljnjoishsiahsieihjniniaiyhsioihjtiakkiehsiajtihiyjkisjpinjnjoishsinjpiajphsiyjyisjkkkjnidjljziniaihjnhskkjljpiejyjpkpihiyjkiahsjpihieihjkishsjpjoiyjohsjyihjtjyihinkojljpkkiyiaihjtjyihjpihiyhsjyhsjzihjojpinknihioiajpkkjkjyhsjziojzihiajykpjpihieisihjpiemwihjkjoihjtieiejpjljnjo
+ur:crypto-slip39/3of3/vlkbkohpfzfplkqddycntbmdswidtdwsbsosbggtdapdotjzhnlasopfdnvyrprhguiskkmo/ishsiahsieihjniniaiyhsjzkthskkjkiyiajpihieinjyihishsinjpkkiejkjzjlktiyjlidjyhsinjtioktihjziajljnihiojojpihkoihjtjyiejzihhsiyioiajljnjohsjtkkisieinjkjyhsjtiaihiyieihjyihiajyieiokpjnjkioiyinjkisinjtioiyinjnjohsiajyiyjojphskkihjpihjkisjljpjyiyiyjljpjnhsjzeymuptva
 ```
 
 * Multi-part UR as multiple QR codes:
