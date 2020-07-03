@@ -24,7 +24,7 @@ Created: 2020-07-03
 
 ### Semantics
 
-A CRC-32 checksum is represented in the machine as an unsigned 32-bit integer. Memory layout may be little-endian or big-endian depending on the processor, and so the checksum must be translated to network byte order (big-endian) before being encoded as CBOR. In CBOR, a CRC-32 checksum has tag 19 and is encoded as an unsigned integer (major type 0).
+A CRC-32 checksum is represented in the machine as an unsigned 32-bit integer. Memory layout may be little-endian or big-endian depending on the processor, so the checksum must be translated to network byte order (big-endian) before being encoded as CBOR. In CBOR, a CRC-32 checksum has tag 19 and is encoded as an unsigned integer (major type 0).
 
 ### Example
 
