@@ -1,6 +1,6 @@
 # CRC-32 Checksums in CBOR
 
-## BCR-2020-012
+## BCR-2020-013
 
 **© 2020 Blockchain Commons**
 
