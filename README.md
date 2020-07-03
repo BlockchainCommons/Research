@@ -18,6 +18,7 @@ This repository contains research and proposals of interest to the blockchain co
 | [BCR-2020-010](papers/bcr-2020-010-output-desc.md) | UR Type Definition for Bitcoin Output Descriptors | 1.0.0 | Wolf McNally |
 | [BCR-2020-011](papers/bcr-2020-011-sskr.md) | UR Type Definition for Shamir Secret Key Recovery (SSKR) | 1.0.0 | Wolf McNally |
 | [BCR-2020-012](papers/bcr-2020-012-bytewords.md) | Bytewords: Encoding binary data as English words | 1.0.0 | Wolf McNally |
+| [BCR-2020-013](papers/bcr-2020-013-crc32-cbor-tag.md) | CRC-32 Checksums in CBOR | 1.0.0 | Wolf McNally |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Wallet Improvement Proposals](https://github.com/BlockchainCommons/wips/blob/master/README.md)._
 
