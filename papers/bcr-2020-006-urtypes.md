@@ -59,7 +59,7 @@ Each UR type defines a CBOR encoding. When a UR type is suitable for embedding w
 | `crypto-address` | 307 | Cryptocurrency Address | [[BCR9]](bcr-2020-009-address.md) |
 | `crypto-output` | 308 | Bitcoin Output Descriptor | [[BCR10]](bcr-2020-010-output-desc.md) |
 | `crypto-sskr` | 309 | SSKR (Shamir Secret Key Recovery) shard | [[BCR11]](bcr-2020-011-sskr.md) |
-
+| `crypto-psbt` | 310 | Partially Signed Bitcoin Transaction (PSBT) | This document |
 ### Byte String `bytes`
 
 The type `bytes` contains a single, deterministic length byte string having a length from 1 to 2^32-1 bytes. This specification places no semantic interpretation on the contents of the string. Because of this, its usefulness is generally limited to development and testing purposes. Actual applications of Uniform Resources SHOULD use a more specific type.
@@ -443,6 +443,47 @@ ur:crypto-slip39/3-3/ltaxaxcfadrecyvarfbtahhdmoiemwihjkjoihjtieiejpjljnjoishsiah
 
 ![](bcr-2020-006/5.png)
 
+### Partially Signed Bitcoin Transaction (PSBT) `crypto-psbt`
+
+The type `crypto-psbt` contains a single, deterministic length byte string of variable length up to 2^32-1 bytes. Semantically, this byte string MUST be a valid Partially Signed Bitcoin Transaction encoded in the binary format specified by [BIP174].
+
+#### CDDL
+
+```
+bytes
+```
+
+#### Example/Test Vector
+
+* CBOR diagnostic notation:
+
+```
+h'70736274ff01009a020000000258e87a21b56daf0c23be8e7070456c336f7cbaa5c8757924f545887bb2abdd750000000000ffffffff838d0427d0ec650a68aa46bb0b098aea4422c071b2ca78352a077959d07cea1d0100000000ffffffff0270aaf00800000000160014d85c2b71d0060b09c9886aeb815e50991dda124d00e1f5050000000016001400aea9a2e5f0f876a588df5546e8742d1d87008f000000000000000000'
+```
+
+* Encoded as binary using [CBOR-PLAYGROUND]:
+
+```
+58 A7                                   # bytes(167)
+70736274FF01009A020000000258E87A21B56DAF0C23BE8E7070456C336F7CBAA5C8757924F545887BB2ABDD750000000000FFFFFFFF838D0427D0EC650A68AA46BB0B098AEA4422C071B2CA78352A077959D07CEA1D0100000000FFFFFFFF0270AAF00800000000160014D85C2B71D0060B09C9886AEB815E50991DDA124D00E1F5050000000016001400AEA9A2E5F0F876A588DF5546E8742D1D87008F000000000000000000
+```
+
+* As a hex string:
+
+```
+58A770736274FF01009A020000000258E87A21B56DAF0C23BE8E7070456C336F7CBAA5C8757924F545887BB2ABDD750000000000FFFFFFFF838D0427D0EC650A68AA46BB0B098AEA4422C071B2CA78352A077959D07CEA1D0100000000FFFFFFFF0270AAF00800000000160014D85C2B71D0060B09C9886AEB815E50991DDA124D00E1F5050000000016001400AEA9A2E5F0F876A588DF5546E8742D1D87008F000000000000000000
+```
+
+* As a UR:
+
+```
+ur:crypto-psbt/hdosjojkidjyzoadaenyaoaeaeaeaohdvsknclrejnpebncnrnmnjojofejzeojlkerdonspkpkkdkykfelokgprpyutkpaeaeaeaeaezozozozolslgaaditiwpihbkispkfgrkbdaslewdfycprtjsprsgksecdratkkhktikewdcaadaeaeaeaezozozozoaojopkwtayaeaeaeaecmaebbtphhdnjstiambdassoloimwmlyhygdnlcatnbggtaevyykahaeaeaeaecmaebbaeplptoevwwtyakoonlourgofgvsjydpcalnaemyaeaeaeaeaeaeaeaeaebkgdcarh
+```
+
+* UR as QR Code:
+
+![](bcr-2020-006/6.png)
+
 ### COSE Structures `cose-*`
 
 [COSE] specifies CBOR-encoded structures for transmitting signed and/or encrypted objects. This document specifies UR types starting with `cose-` for the various COSE messages in their untagged form.
@@ -463,6 +504,7 @@ ur:crypto-slip39/3-3/ltaxaxcfadrecyvarfbtahhdmoiemwihjkjoihjtieiejpjljnjoishsiah
 * [SVG] [Scalable Vector Graphics (SVG) 1.1 (Second Edition)](https://www.w3.org/TR/SVG11/)
 * [CBOR-TAGS] [Concise Binary Object Representation (CBOR) Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml)
 * [UR] [Uniform Resources (UR)](bcr-0005-ur.md)
+* [BIP174] [BIP-174: Partially Signed Bitcoin Transaction Format](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki)
 
 ### Informative References
 
