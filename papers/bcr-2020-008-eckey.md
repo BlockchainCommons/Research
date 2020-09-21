@@ -139,8 +139,8 @@ ur:crypto-eckey/oyaxhdclaxrnskcmfswzhllnaxbzbnftcsaawdsttbbzrkcldnkesotszomuknpd
 ### References
 
 * [EC-Crypto] [Wikipedia: Elliptic-curve cryptography](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography)
-* [BCR5] [Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md)
-* [BCR6] [Registry of Uniform Resource (UR) Types](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-006-urtypes.md)
+* [BCR5] [Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes](bcr-2020-005-ur.md)
+* [BCR6] [Registry of Uniform Resource (UR) Types](bcr-2020-006-urtypes.md)
 * [CDDL] [RFC8610: Concise Data Definition Language (CDDL): A Notational Convention to Express Concise Binary Object Representation (CBOR) and JSON Data Structures](https://tools.ietf.org/html/rfc8610)
 * [CBOR-PLAYGROUND] [CBOR Playground](http://cbor.me)
 * [SEC2-ECPARMS] [Standards for EfficientCryptography 2 (SEC 2): Recommended Elliptic Curve Domain Parameters](http://www.secg.org/sec2-v2.pdf)

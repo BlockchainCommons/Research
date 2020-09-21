@@ -159,5 +159,5 @@ ur:crypto-address/oeadtaadehoeadcsfnaoadaxghlyrlvtmyihryykielpamspnlmkptsflyiees
 ### References
 
 * [BTC-ADDRESS] [Bitcoin Wiki: Address](https://en.bitcoin.it/wiki/Address)
-* [BCR7] [UR Type Definition for Hierarchical Deterministic (HD) Keys](bcr-0007-hdkey.md)
+* [BCR7] [UR Type Definition for Hierarchical Deterministic (HD) Keys](bcr-2020-007-hdkey.md)
 * [CDDL] [RFC8610: Concise Data Definition Language (CDDL): A Notational Convention to Express Concise Binary Object Representation (CBOR) and JSON Data Structures](https://tools.ietf.org/html/rfc8610)
