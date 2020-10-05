@@ -51,7 +51,7 @@ Each UR type defines a CBOR encoding. When a UR type is suitable for embedding w
 | `cose-keyset` | | COSE_KeySet: A set of encryption keys | [[COSE]](https://tools.ietf.org/html/rfc8152) |
 | `crypto-seed` | 300 | Cryptographic seed | This document |
 | `crypto-bip39` | 301 | BIP-39 encoded seed | This document |
-| `crypto-slip39` | 302 | One or more SLIP-39 shares | This document |
+| `crypto-slip39` | 302 | One or more SLIP-39 shares | deprecated, removed |
 | `crypto-hdkey` | 303 | Hierarchical Deterministic (HD) key | [[BCR7]](bcr-2020-007-hdkey.md) |
 | `crypto-keypath` | 304 | Key Derivation Path | [[BCR7]](bcr-2020-007-hdkey.md) |
 | `crypto-coin-info` | 305 | Cryptocurrency Coin Use | [[BCR7]](bcr-2020-007-hdkey.md) |
@@ -94,7 +94,7 @@ h'00112233445566778899aabbccddeeff'
 * As a UR:
 
 ```
-ur:bytes/gdaebycpeofygoiyktlonlpkrksfutwyzowmfyeozs
+ur:bytes/gdaebycpeofygoiyktlonlpkrksfutwyzmwmfyeozs
 ```
 
 * UR as QR Code:
@@ -151,7 +151,7 @@ A20150C7098580125E2AB0981253468B2DBC5202D8641947DA
 * As a UR:
 
 ```
-ur:crypto-seed/oeadgdstasltlabghydrpfmkbggufgludprfgmaotpiecffltnltqdenos
+ur:crypto-seed/oeadgdstaslplabghydrpfmkbggufgludprfgmaotpiecffltnlpqdenos
 ```
 
 * UR as QR Code:
@@ -245,204 +245,6 @@ ur:crypto-bip39/oeadlkiyjkisinihjzieihiojpjlkpjoihihjpjlieihihhskthsjeihiejzjlia
 
 ![](bcr-2020-006/3.png)
 
-### SLIP-39 Encoded Shares `crypto-slip39`
-
-The type `crypto-slip39` contains an array of one or more SLIP39 shares, each of which contains one or more SLIP39 words, and an optional language specifier [LANG], which if omitted is taken to be `en`.
-
-#### CDDL for `crypto-slip39`
-
-```
-slip39 = {
-	shares: [+ share],
-	? lang: text
-}
-shares = 1
-lang = 2
-share = [+ slip39Word]
-slip39Word = text
-```
-
-#### Example/Test Vector
-
-* A 16-byte (128-bit) seed, encoded as SLIP-39, single group, requires 2 of three shares:
-
-```
-spend romp academic acid client predator response axle canyon category wine verify hazard elevator briefing garbage perfect database disaster broken
-spend romp academic agency acne shrimp aircraft symbolic mayor true scared sharp patent ivory center fatal prize crystal lecture herd
-spend romp academic always credit hairy slow obtain welcome prevent leaf company distance detect gums fishing impact prayer short formal
-```
-
-* A 16 byte (128-bit) seed, encoded as BIP39, in CBOR diagnostic notation, `lang` field omitted.
-
-```
-{
-  1: [
-    ["spend", "romp", "academic", "acid", "client", "predator", "response", "axle", "canyon", "category", "wine", "verify", "hazard", "elevator", "briefing", "garbage", "perfect", "database", "disaster", "broken"],
-    ["spend", "romp", "academic", "agency", "acne", "shrimp", "aircraft", "symbolic", "mayor", "true", "scared", "sharp", "patent", "ivory", "center", "fatal", "prize", "crystal", "lecture", "herd"],
-    ["spend", "romp", "academic", "always", "credit", "hairy", "slow", "obtain", "welcome", "prevent", "leaf", "company", "distance", "detect", "gums", "fishing", "impact", "prayer", "short", "formal"]
-  ]
-}
-```
-
-* Encoded as binary using [CBOR-PLAYGROUND]:
-
-```
-A1                           # map(1)
-   01                        # unsigned(1) shares:
-   83                        # array(3)
-      94                     # array(20)
-         65                  # text(5)
-            7370656E64       # "spend"
-         64                  # text(4)
-            726F6D70         # "romp"
-         68                  # text(8)
-            61636164656D6963 # "academic"
-         64                  # text(4)
-            61636964         # "acid"
-         66                  # text(6)
-            636C69656E74     # "client"
-         68                  # text(8)
-            7072656461746F72 # "predator"
-         68                  # text(8)
-            726573706F6E7365 # "response"
-         64                  # text(4)
-            61786C65         # "axle"
-         66                  # text(6)
-            63616E796F6E     # "canyon"
-         68                  # text(8)
-            63617465676F7279 # "category"
-         64                  # text(4)
-            77696E65         # "wine"
-         66                  # text(6)
-            766572696679     # "verify"
-         66                  # text(6)
-            68617A617264     # "hazard"
-         68                  # text(8)
-            656C657661746F72 # "elevator"
-         68                  # text(8)
-            6272696566696E67 # "briefing"
-         67                  # text(7)
-            67617262616765   # "garbage"
-         67                  # text(7)
-            70657266656374   # "perfect"
-         68                  # text(8)
-            6461746162617365 # "database"
-         68                  # text(8)
-            6469736173746572 # "disaster"
-         66                  # text(6)
-            62726F6B656E     # "broken"
-      94                     # array(20)
-         65                  # text(5)
-            7370656E64       # "spend"
-         64                  # text(4)
-            726F6D70         # "romp"
-         68                  # text(8)
-            61636164656D6963 # "academic"
-         66                  # text(6)
-            6167656E6379     # "agency"
-         64                  # text(4)
-            61636E65         # "acne"
-         66                  # text(6)
-            736872696D70     # "shrimp"
-         68                  # text(8)
-            6169726372616674 # "aircraft"
-         68                  # text(8)
-            73796D626F6C6963 # "symbolic"
-         65                  # text(5)
-            6D61796F72       # "mayor"
-         64                  # text(4)
-            74727565         # "true"
-         66                  # text(6)
-            736361726564     # "scared"
-         65                  # text(5)
-            7368617270       # "sharp"
-         66                  # text(6)
-            706174656E74     # "patent"
-         65                  # text(5)
-            69766F7279       # "ivory"
-         66                  # text(6)
-            63656E746572     # "center"
-         65                  # text(5)
-            666174616C       # "fatal"
-         65                  # text(5)
-            7072697A65       # "prize"
-         67                  # text(7)
-            6372797374616C   # "crystal"
-         67                  # text(7)
-            6C656374757265   # "lecture"
-         64                  # text(4)
-            68657264         # "herd"
-      94                     # array(20)
-         65                  # text(5)
-            7370656E64       # "spend"
-         64                  # text(4)
-            726F6D70         # "romp"
-         68                  # text(8)
-            61636164656D6963 # "academic"
-         66                  # text(6)
-            616C77617973     # "always"
-         66                  # text(6)
-            637265646974     # "credit"
-         65                  # text(5)
-            6861697279       # "hairy"
-         64                  # text(4)
-            736C6F77         # "slow"
-         66                  # text(6)
-            6F627461696E     # "obtain"
-         67                  # text(7)
-            77656C636F6D65   # "welcome"
-         67                  # text(7)
-            70726576656E74   # "prevent"
-         64                  # text(4)
-            6C656166         # "leaf"
-         67                  # text(7)
-            636F6D70616E79   # "company"
-         68                  # text(8)
-            64697374616E6365 # "distance"
-         66                  # text(6)
-            646574656374     # "detect"
-         64                  # text(4)
-            67756D73         # "gums"
-         67                  # text(7)
-            66697368696E67   # "fishing"
-         66                  # text(6)
-            696D70616374     # "impact"
-         66                  # text(6)
-            707261796572     # "prayer"
-         65                  # text(5)
-            73686F7274       # "short"
-         66                  # text(6)
-            666F726D616C     # "formal"
-```
-
-* As a hex string:
-
-```
-A1018394657370656E6464726F6D706861636164656D6963646163696466636C69656E74687072656461746F7268726573706F6E73656461786C656663616E796F6E6863617465676F72796477696E65667665726966796668617A61726468656C657661746F72686272696566696E67676761726261676567706572666563746864617461626173656864697361737465726662726F6B656E94657370656E6464726F6D706861636164656D6963666167656E63796461636E6566736872696D706861697263726166746873796D626F6C6963656D61796F7264747275656673636172656465736861727066706174656E746569766F72796663656E74657265666174616C657072697A65676372797374616C676C656374757265646865726494657370656E6464726F6D706861636164656D696366616C776179736663726564697465686169727964736C6F77666F627461696E6777656C636F6D656770726576656E74646C65616667636F6D70616E796864697374616E6365666465746563746467756D736766697368696E6766696D70616374667072617965726573686F727466666F726D616C
-```
-
-* As a single-part UR:
-
-```
-ur:crypto-slip39/oyadlsmwihjkjoihjtieiejpjljnjoishsiahsieihjniniaiehsiainieiyiajzinihjtjyisjojpihiehsjyjljpisjpihjkjojljtjkihiehsksjzihiyiahsjtkkjljtisiahsjyihiojljpkkiektinjtihiykoihjpiniykkiyishsknhsjpieisihjzihkohsjyjljpisidjpinihiyinjtioioiohsjpidhsioihiojoihjpiyihiajyisiehsjyhsidhsjkihisieinjkhsjkjyihjpiyidjpjljeihjtmwihjkjoihjtieiejpjljnjoishsiahsieihjniniaiyhsioihjtiakkiehsiajtihiyjkisjpinjnjoishsinjpiajphsiyjyisjkkkjnidjljziniaihjnhskkjljpiejyjpkpihiyjkiahsjpihieihjkishsjpjoiyjohsjyihjtjyihinkojljpkkiyiaihjtjyihjpihiyhsjyhsjzihjojpinknihioiajpkkjkjyhsjziojzihiajykpjpihieisihjpiemwihjkjoihjtieiejpjljnjoishsiahsieihjniniaiyhsjzkthskkjkiyiajpihieinjyihishsinjpkkiejkjzjlktiyjlidjyhsinjtioktihjziajljnihiojojpihkoihjtjyiejzihhsiyioiajljnjohsjtkkisieinjkjyhsjtiaihiyieihjyihiajyieiokpjnjkioiyinjkisinjtioiyinjnjohsiajyiyjojphskkihjpihjkisjljpjyiyiyjljpjnhsjzeymuptva
-```
-
-* UR as QR Code:
-
-![](bcr-2020-006/4.png)
-
-* As multi-part UR:
-
-```
-ur:crypto-slip39/1-3/ltadaxcfadrecyvarfbtahhdmooeadhkadpkoyadlsmwihjkjoihjtieiejpjljnjoishsiahsieihjniniaiehsiainieiyiajzinihjtjyisjojpihiehsjyjljpisjpihjkjojljtjkihiehsksjzihiyiahsjtkkjljtisiahsjyihiojljpkkiektinjtihiykoihjpiniykkiyishsknhsjpieisihjzihkohsjyjljpisidjpinihiyinjtioioiohsjpidhsioihiojoihjpiyihiajyisiehsjyhsidhsjkihisieinjkbelpahpa
-ur:crypto-slip39/2-3/ltaoaxcfadrecyvarfbtahhdmohsjkjyihjpiyidjpjljeihjtmwihjkjoihjtieiejpjljnjoishsiahsieihjniniaiyhsioihjtiakkiehsiajtihiyjkisjpinjnjoishsinjpiajphsiyjyisjkkkjnidjljziniaihjnhskkjljpiejyjpkpihiyjkiahsjpihieihjkishsjpjoiyjohsjyihjtjyihinkojljpkkiyiaihjtjyihjpihiyhsjyhsjzihjojpinknihioiajpkkjkjyhsjziojzihiajykpjpihieisihjpyafprsws
-ur:crypto-slip39/3-3/ltaxaxcfadrecyvarfbtahhdmoiemwihjkjoihjtieiejpjljnjoishsiahsieihjniniaiyhsjzkthskkjkiyiajpihieinjyihishsinjpkkiejkjzjlktiyjlidjyhsinjtioktihjziajljnihiojojpihkoihjtjyiejzihhsiyioiajljnjohsjtkkisieinjkjyhsjtiaihiyieihjyihiajyieiokpjnjkioiyinjkisinjtioiyinjnjohsiajyiyjojphskkihjpihjkisjljpjyiyiyjljpjnhsjzaotpiecffdemaesteovlrh
-```
-
-* Multi-part UR as multiple QR codes:
-
-![](bcr-2020-006/5.png)
-
 ### Partially Signed Bitcoin Transaction (PSBT) `crypto-psbt`
 
 The type `crypto-psbt` contains a single, deterministic length byte string of variable length up to 2^32-1 bytes. Semantically, this byte string MUST be a valid Partially Signed Bitcoin Transaction encoded in the binary format specified by [BIP174].
@@ -477,7 +279,7 @@ h'70736274ff01009a020000000258e87a21b56daf0c23be8e7070456c336f7cbaa5c8757924f545
 * As a UR:
 
 ```
-ur:crypto-psbt/hdosjojkidjyzoadaenyaoaeaeaeaohdvsknclrejnpebncnrnmnjojofejzeojlkerdonspkpkkdkykfelokgprpyutkpaeaeaeaeaezozozozolslgaaditiwpihbkispkfgrkbdaslewdfycprtjsprsgksecdratkkhktikewdcaadaeaeaeaezozozozoaojopkwtayaeaeaeaecmaebbtphhdnjstiambdassoloimwmlyhygdnlcatnbggtaevyykahaeaeaeaecmaebbaeplptoevwwtyakoonlourgofgvsjydpcalnaemyaeaeaeaeaeaeaeaeaebkgdcarh
+ur:crypto-psbt/hdosjojkidjyzmadaenyaoaeaeaeaohdvsknclrejnpebncnrnmnjojofejzeojlkerdonspkpkkdkykfelokgprpyutkpaeaeaeaeaezmzmzmzmlslgaaditiwpihbkispkfgrkbdaslewdfycprtjsprsgksecdratkkhktikewdcaadaeaeaeaezmzmzmzmaojopkwtayaeaeaeaecmaebbtphhdnjstiambdassoloimwmlyhygdnlcatnbggtaevyykahaeaeaeaecmaebbaeplptoevwwtyakoonlourgofgvsjydpcaltaemyaeaeaeaeaeaeaeaeaebkgdcarh
 ```
 
 * UR as QR Code:

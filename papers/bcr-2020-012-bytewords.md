@@ -6,7 +6,7 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: June 20, 2020<br/>
-Revised: June 25, 2020
+Revised: October 4, 2020
 
 ### Introduction
 
@@ -58,7 +58,7 @@ Schemes like [BIP39] and [SLIP39] (see Appendix) encode a binary string as a ser
 0x68: iris iron item jade jazz join jolt jowl
 0x70: judo jugs jump junk jury keep keno kept
 0x78: keys kick kiln king kite kiwi knob lamb
-0x80: lava lazy leaf legs liar list limp lion
+0x80: lava lazy leaf legs liar limp lion list
 0x88: logo loud love luau luck lung main many
 0x90: math maze memo menu meow mild mint miss
 0x98: monk nail navy need news next noon note
@@ -73,7 +73,7 @@ Schemes like [BIP39] and [SLIP39] (see Appendix) encode a binary string as a ser
 0xe0: vast very veto vial vibe view visa void
 0xe8: vows wall wand warm wasp wave waxy webs
 0xf0: what when whiz wolf work yank yawn yell
-0xf8: yoga yurt zaps zest zinc zone zoom zero
+0xf8: yoga yurt zaps zero zest zinc zone zoom
 ```
 
 #### Distribution of initial letters
@@ -158,7 +158,7 @@ d9012ca20150c7098580125e2ab0981253468b2dbc5202d8641947dad22c52b6
 * Bytewords:
 
 ```
-tuna acid draw oboe acid good slot axis list lava
+tuna acid draw oboe acid good slot axis limp lava
 brag holy door puff monk brag guru frog luau drop
 roof grim also trip idle chef fuel twin tied draw
 grim ramp
@@ -167,7 +167,7 @@ grim ramp
 * Bytewords (URI compatible):
 
 ```
-tuna-acid-draw-oboe-acid-good-slot-axis-list-lava-
+tuna-acid-draw-oboe-acid-good-slot-axis-limp-lava-
 brag-holy-door-puff-monk-brag-guru-frog-luau-drop-
 roof-grim-also-trip-idle-chef-fuel-twin-tied-draw-
 grim-ramp
@@ -176,7 +176,7 @@ grim-ramp
 * Bytewords (minimal encoding, only first and last letters of each word):
 
 ```
-taaddwoeadgdstasltlabghydrpfmkbggufgludprfgmaotpiecffltntddwgmrp
+taaddwoeadgdstaslplabghydrpfmkbggufgludprfgmaotpiecffltntddwgmrp
 ```
 
 ### Brutal Encoding
@@ -204,26 +204,26 @@ c7098580125e2ab0981253468b2dbc52e824467c
 And then encoded as Bytewords:
 
 ```
-slot axis list lava brag holy door puff monk brag
-guru frog luau drop roof grim zoom plus belt wand
+slot axis limp lava brag holy door puff monk brag
+guru frog luau drop roof grim zone plus belt wand
 ```
 
 Or encoded as minimal Bytewords:
 
 ```
-stasltlabghydrpfmkbggufgludprfgmzmpsbtwd
+staslplabghydrpfmkbggufgludprfgmzepsbtwd
 ```
 
 It is recommended that if Bytewords is used in the brutal encoding mode, that some other metadata, such as a URI scheme, be present to guide in interpreting the payload, e.g.:
 
 ```
-seed:slot-axis-list-lava-brag-holy-door-puff-monk-brag-guru-frog-luau-drop-roof-grim-zoom-plus-belt-wand
+seed:slot-axis-limp-lava-brag-holy-door-puff-monk-brag-guru-frog-luau-drop-roof-grim-zone-plus-belt-wand
 ```
 
 or
 
 ```
-seed:stasltlabghydrpfmkbggufgludprfgmzmpsbtwd
+seed:staslplabghydrpfmkbggufgludprfgmzepsbtwd
 ```
 
 ### References
@@ -278,3 +278,9 @@ In the case of SLIP-39, the binary string is broken up into 10-bit words and enc
 ### Analysis of BC32
 
 In the case of [BC32], the binary string is broken up into 5-bit letters and encoded using a limited 32-character subset of ASCII that is compatible both with QR Code alphanumeric mode and URI unreserved characters. Six characters (30 bits) of checksum are added at the end.
+
+## Version History
+
+### October 4, 2020:
+
+* Fix for [https://github.com/BlockchainCommons/Research/issues/45](wordlist alphabetization error).

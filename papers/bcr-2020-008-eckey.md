@@ -129,7 +129,7 @@ A103582103BEC5163DF25D8703150C3A1804EAC7D615BB212B7CC9D7FF937AA8BD1C494B7F
 * As a UR:
 
 ```
-ur:crypto-eckey/oyaxhdclaxrnskcmfswzhllnaxbzbnftcsaawdsttbbzrkcldnkesotszomuknpdrycegagrlbemdevtlt
+ur:crypto-eckey/oyaxhdclaxrnskcmfswzhlltaxbzbnftcsaawdsttbbzrkcldnkesotszmmuknpdrycegagrlbemdevtlp
 ```
 
 * UR as QR Code:

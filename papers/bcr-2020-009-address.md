@@ -149,7 +149,7 @@ A201D90131A201183C0201035481B7E08F65BDF5648606C89998A9CC8164397647
 * As a UR:
 
 ```
-ur:crypto-address/oeadtaadehoeadcsfnaoadaxghlyrlvtmyihryykielpamspnlmkptsflyieeskofllosfeecf
+ur:crypto-address/oeadtaadehoeadcsfnaoadaxghlyrlvtmyihryykielnamspnlmkptsflyieeskofllosfeecf
 ```
 
 * UR as QR Code:
