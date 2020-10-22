@@ -60,6 +60,7 @@ Each UR type defines a CBOR encoding. When a UR type is suitable for embedding w
 | `crypto-output` | 308 | Bitcoin Output Descriptor | [[BCR10]](bcr-2020-010-output-desc.md) |
 | `crypto-sskr` | 309 | SSKR (Shamir Secret Key Recovery) shard | [[BCR11]](bcr-2020-011-sskr.md) |
 | `crypto-psbt` | 310 | Partially Signed Bitcoin Transaction (PSBT) | This document |
+| `crypto-account` | 311 | BIP44 Account | [[BCR15]](bcr-2020-015-account.md) |
 ### Byte String `bytes`
 
 The type `bytes` contains a single, deterministic length byte string having a length from 1 to 2^32-1 bytes. This specification places no semantic interpretation on the contents of the string. Because of this, its usefulness is generally limited to development and testing purposes. Actual applications of Uniform Resources SHOULD use a more specific type.
