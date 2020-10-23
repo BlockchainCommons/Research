@@ -9,6 +9,22 @@ Date: October 22, 2020<br/>
 
 ---
 
+### Abstract
+
+This BCR describes a data format that promotes standards-based sharing of [BIP44] account level xpubs and other information allowing devices to join wallets with little to no user interaction required.
+
+### Motivation
+
+A number of script types for both single and multisig have emerged, each with its own well known derivation path. 
+Devices (especially hardware wallets) need to share the xpub at the correct derivation path for a particular script type in order to be successfully represented in most wallet software.
+
+In the absence of a standard, the burden of selecting the script type on the device falls to the user, requiring technical knowledge and made more difficult by the often limited display and input capabilities. 
+For multisig wallets, this choice must be repeated correctly on each device.
+
+More commonly, a proprietary data format is used which bundles the information for several script types into a set, allowing the choice to be made once through the wallet software. 
+The wallet software can then select the appropriate type from the set provided by the device. 
+This BCR seeks to establish a standard format for creating this set using output descriptors [OD-IN-CORE] to share BIP44 account level data at standard derivations.
+
 ### Introduction
 
 [BIP44] "Multi-Account Hierarchy for Deterministic Wallets" is a widely used standard that defines a standardized hierarchy for deterministic wallets. 
