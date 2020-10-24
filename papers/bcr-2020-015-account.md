@@ -71,11 +71,12 @@ The following standardized script types may be present in a ``crypto-account`` e
 | P2PKH | ``m/44'/0'/0'`` |
 | P2SH-P2WPKH | ``m/49'/0'/0'`` |
 | P2WPKH | ``m/84'/0'/0'`` |
-| Multisig P2SH | ``m/45'/0'/0'`` |
+| Multisig P2SH | ``m/45'`` |
 | Multisig P2SH-P2WSH | ``m/48'/0'/0'/1'`` |
 | Multisig P2WSH | ``m/48'/0'/0'/2'`` |
 
-If the software creating the encoding does not support a particular script type it should be omitted.
+If the software creating the encoding does not support a particular script type it should be omitted. 
+Note that legacy multisig with P2SH does not support different networks or accounts - as per [BIP45] the hardened derivation path is only one level of `m/45'`. 
 
 ### CDDL
 
@@ -352,3 +353,4 @@ ur:crypto-account/oeadcyemrewytyaolntaadmutaaddlotaxhdclaxwmfmdeiamecsdsemgtvsjz
 * [BIP32] [Hierarchical Deterministic Wallets](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)
 * [OD-IN-CORE] [GitHub: Support for Output Descriptors in Bitcoin Core](https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md)
 * [BCR-2020-010] [UR Type Definition for Bitcoin Output Descriptors](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-010-output-desc.md)
+* [BIP45] [Structure for Deterministic P2SH Multisignature Wallets](https://github.com/bitcoin/bips/blob/master/bip-0045.mediawiki)
