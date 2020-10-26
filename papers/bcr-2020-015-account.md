@@ -147,13 +147,13 @@ shield group erode awake lock sausage cash glare wave crew flame glove
             ),
             400( ; script-hash
                 303({ ; crypto-hdkey
-                    3: h'03fd05e2404a079f5ba41baae32ce26a4dca86caeffaba40cc2c0d83cb754b5111', ; key-data
-                    4: h'82a7aafb63f5206e87c794ecf5f50483e8f3fdecb33832acb85b43c2cbc93f4f', ; chain-code
+                    3: h'035ccd58b63a2cdc23d0812710603592e7457573211880cb59b1ef012e168e059a', ; key-data
+                    4: h'88d3299b448f87215d96b0c226235afc027f9e7dc700284f3e912a34daeb1a23', ; chain-code
                     6: 304({ ; origin: crypto-keypath
                         1: [ ; components
-                            45, true, 0, true, 0, true ; 45'/0'/0'
+                            45, true ; 45'
                         ],
-                        2: 1836147603 ; parent fingerprint
+                        2: 934670036 ; parent fingerprint
                     })
                 })
             ),
@@ -267,23 +267,19 @@ A2                                      # map(2)
             A3                          # map(3)
                03                       # unsigned(3)
                58 21                    # bytes(33)
-                  03FD05E2404A079F5BA41BAAE32CE26A4DCA86CAEFFABA40CC2C0D83CB754B5111
+                  035CCD58B63A2CDC23D0812710603592E7457573211880CB59B1EF012E168E059A
                04                       # unsigned(4)
                58 20                    # bytes(32)
-                  82A7AAFB63F5206E87C794ECF5F50483E8F3FDECB33832ACB85B43C2CBC93F4F
+                  88D3299B448F87215D96B0C226235AFC027F9E7DC700284F3E912A34DAEB1A23
                06                       # unsigned(6)
                D9 0130                  # tag(304)
                   A2                    # map(2)
                      01                 # unsigned(1)
-                     86                 # array(6)
+                     82                 # array(2)
                         18 2D           # unsigned(45)
                         F5              # primitive(21)
-                        00              # unsigned(0)
-                        F5              # primitive(21)
-                        00              # unsigned(0)
-                        F5              # primitive(21)
                      02                 # unsigned(2)
-                     1A 6D716393        # unsigned(1836147603)
+                     1A 37B5EED4        # unsigned(934670036)
       D9 0190                           # tag(400)
          D9 0191                        # tag(401)
             D9 012F                     # tag(303)
@@ -333,19 +329,18 @@ A2                                      # map(2)
                         F5              # primitive(21)
                      02                 # unsigned(2)
                      1A 59B69B2A        # unsigned(1505139498)
-   
 ```
 
 * As a hex string:
 
 ```
-A2011A37B5EED40286D90193D9012FA303582103EB3E2863911826374DE86C231A4B76F0B89DFA174AFB78D7F478199884D9DD320458206456A5DF2DB0F6D9AF72B2A1AF4B25F45200ED6FCC29C3440B311D4796B70B5B06D90130A20186182CF500F500F5021A99F9CDF7D90190D90194D9012FA303582102C7E4823730F6EE2CF864E2C352060A88E60B51A84E89E4C8C75EC22590AD6B690458209D2F86043276F9251A4A4F577166A5ABEB16B6EC61E226B5B8FA11038BFDA42D06D90130A201861831F500F500F5021AA80F7CDBD90194D9012FA303582103FD433450B6924B4F7EFDD5D1ED017D364BE95AB2B592DC8BDDB3B00C1C24F63F04582072EDE7334D5ACF91C6FDA622C205199C595A31F9218ED30792D301D5EE9E3A8806D90130A201861854F500F500F5021A0D5DE1D7D90190D9012FA303582103FD05E2404A079F5BA41BAAE32CE26A4DCA86CAEFFABA40CC2C0D83CB754B511104582082A7AAFB63F5206E87C794ECF5F50483E8F3FDECB33832ACB85B43C2CBC93F4F06D90130A20186182DF500F500F5021A6D716393D90190D90191D9012FA3035821032C78EBFCABDAC6D735A0820EF8732F2821B4FB84CD5D6B26526938F90C0507110458207953EFE16A73E5D3F9F2D4C6E49BD88E22093BBD85BE5A7E862A4B98A16E0AB606D90130A201881830F500F500F501F5021A59B69B2AD90191D9012FA30358210260563EE80C26844621B06B74070BAF0E23FB76CE439D0237E87502EBBD3CA3460458202FA0E41C9DC43DC4518659BFCEF935BA8101B57DBC0812805DD983BC1D34B81306D90130A201881830F500F500F502F5021A59B69B2A
+A2011A37B5EED40286D90193D9012FA303582103EB3E2863911826374DE86C231A4B76F0B89DFA174AFB78D7F478199884D9DD320458206456A5DF2DB0F6D9AF72B2A1AF4B25F45200ED6FCC29C3440B311D4796B70B5B06D90130A20186182CF500F500F5021A99F9CDF7D90190D90194D9012FA303582102C7E4823730F6EE2CF864E2C352060A88E60B51A84E89E4C8C75EC22590AD6B690458209D2F86043276F9251A4A4F577166A5ABEB16B6EC61E226B5B8FA11038BFDA42D06D90130A201861831F500F500F5021AA80F7CDBD90194D9012FA303582103FD433450B6924B4F7EFDD5D1ED017D364BE95AB2B592DC8BDDB3B00C1C24F63F04582072EDE7334D5ACF91C6FDA622C205199C595A31F9218ED30792D301D5EE9E3A8806D90130A201861854F500F500F5021A0D5DE1D7D90190D9012FA3035821035CCD58B63A2CDC23D0812710603592E7457573211880CB59B1EF012E168E059A04582088D3299B448F87215D96B0C226235AFC027F9E7DC700284F3E912A34DAEB1A2306D90130A20182182DF5021A37B5EED4D90190D90191D9012FA3035821032C78EBFCABDAC6D735A0820EF8732F2821B4FB84CD5D6B26526938F90C0507110458207953EFE16A73E5D3F9F2D4C6E49BD88E22093BBD85BE5A7E862A4B98A16E0AB606D90130A201881830F500F500F501F5021A59B69B2AD90191D9012FA30358210260563EE80C26844621B06B74070BAF0E23FB76CE439D0237E87502EBBD3CA3460458202FA0E41C9DC43DC4518659BFCEF935BA8101B57DBC0812805DD983BC1D34B81306D90130A201881830F500F500F502F5021A59B69B2A
 ```
 
 * As a UR:
 
 ```
-ur:crypto-account/oeadcyemrewytyaolntaadmutaaddlotaxhdclaxwmfmdeiamecsdsemgtvsjzcncygrkowtrontzschgezokstswkkscfmklrtauteyaahdcxiehfonurdppfyntapejpproypegrdawkgmaewejlsfdtsrfybdehcaflmtrlbdhpamtaaddyoeadlncsdwykaeykaeykaocynlytsnyltaadmhtaadmwtaaddlotaxhdclaostvelfemdyynwydwyaievosrgmambklovabdgypdglldvespsthysadamhpmjeinaahdcxntdllnaaeykoytdacygegwhgjsiyonpywmcmrpwphsvodsrerozsbyaxluzcoxdpamtaaddyoeadlncsehykaeykaeykaocypdbskeuytaadmwtaaddlotaxhdclaxzcfxeegdrpmogrgwkbzctlttweadkiengrwlhtprremouoluutqdpfbncedkynfhaahdcxjpwevdeogthttkmeswzcolcpsaahcfnshkhtehytclmnteatmoteadtlwynnftloamtaaddyoeadlncsghykaeykaeykaocybthlvytstaadmhtaaddlotaxhdclaxzcahvofzgeatnehpoxcwpkvldwvoimgtsglnsgwszsrdfzsfdwbtlssbkpgrgybyaahdcxlfospkzoiaykcxjtltstmwwpykykaalsvswfzcwpqdeteypsrohpfxsasbsofhgwamtaaddyoeadlncsdpykaeykaeykaocyjnjsiamutaadmhtaadmetaaddlotaxhdclaxdwkswmztpytnswtsecnblfbayajkdldeclqzzolrsnhljedsgminetytbnahatbyaahdcxkkguwsvyimjkvwteytwztyswvendtpmncpasfrrylprnhtkblndrgrmkoyjtbkrpamtaaddyoeadlocsdyykaeykaeykadykaocyhkrpnddrtaadmetaaddlotaxhdclaohnhffmvsbndslrfgclpfjejyatbdpebacnzokotofxntaoemvskpaowmryfnotfgaahdcxdlnbvecentssfsssgylnhkrstoytecrdlyadrekirfaybglahltalsrfcaeerobwamtaaddyoeadlocsdyykaeykaeykaoykaocyhkrpnddrhngevsry
+ur:crypto-account/oeadcyemrewytyaolntaadmutaaddlotaxhdclaxwmfmdeiamecsdsemgtvsjzcncygrkowtrontzschgezokstswkkscfmklrtauteyaahdcxiehfonurdppfyntapejpproypegrdawkgmaewejlsfdtsrfybdehcaflmtrlbdhpamtaaddyoeadlncsdwykaeykaeykaocynlytsnyltaadmhtaadmwtaaddlotaxhdclaostvelfemdyynwydwyaievosrgmambklovabdgypdglldvespsthysadamhpmjeinaahdcxntdllnaaeykoytdacygegwhgjsiyonpywmcmrpwphsvodsrerozsbyaxluzcoxdpamtaaddyoeadlncsehykaeykaeykaocypdbskeuytaadmwtaaddlotaxhdclaxzcfxeegdrpmogrgwkbzctlttweadkiengrwlhtprremouoluutqdpfbncedkynfhaahdcxjpwevdeogthttkmeswzcolcpsaahcfnshkhtehytclmnteatmoteadtlwynnftloamtaaddyoeadlncsghykaeykaeykaocybthlvytstaadmhtaaddlotaxhdclaxhhsnhdrpftdwuocntilydibehnecmovdfekpjkclcslasbhkpawsaddmcmmnahnyaahdcxlotedtndfymyltclhlmtpfsadscnhtztaolbnnkistaedegwfmmedreetnwmcycnamtaaddyoeadlfcsdpykaocyemrewytytaadmhtaadmetaaddlotaxhdclaxdwkswmztpytnswtsecnblfbayajkdldeclqzzolrsnhljedsgminetytbnahatbyaahdcxkkguwsvyimjkvwteytwztyswvendtpmncpasfrrylprnhtkblndrgrmkoyjtbkrpamtaaddyoeadlocsdyykaeykaeykadykaocyhkrpnddrtaadmetaaddlotaxhdclaohnhffmvsbndslrfgclpfjejyatbdpebacnzokotofxntaoemvskpaowmryfnotfgaahdcxdlnbvecentssfsssgylnhkrstoytecrdlyadrekirfaybglahltalsrfcaeerobwamtaaddyoeadlocsdyykaeykaeykaoykaocyhkrpnddrasqdckhh
 ```
 
 ### References
