@@ -88,9 +88,12 @@ The following specification is written in Concise Data Definition Language [CDDL
 output_exp = #6.308(crypto-output)
 
 account = {
-    1: uint32, ; Master fingerprint (fingerprint for the master public key as per BIP32)
-    2: [+ output-exp] ; Output descriptors for various script types for this account
+    master-fingerprint: uint32, ; Master fingerprint (fingerprint for the master public key as per BIP32)
+    output-descriptors: [+ output-exp] ; Output descriptors for various script types for this account
 }
+
+master-fingerprint = 1
+output-descriptors = 2
 ```
 
 ### Example/Test Vector
