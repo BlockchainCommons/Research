@@ -20,6 +20,7 @@ This repository contains research and proposals of interest to the blockchain co
 | [BCR-2020-012](papers/bcr-2020-012-bytewords.md) | Bytewords: Encoding binary data as English words | 1.0.0 | Wolf McNally |
 | [BCR-2020-013](papers/bcr-2020-013-crc32-cbor-tag.md) | CRC-32 Checksums in CBOR | 1.0.0 | Wolf McNally |
 | [BCR-2020-014](papers/bcr-2020-014-urs-on-epaper.md) | URs on E-paper display | 1.0.0 | Gorazd Kovacic |
+| [BCR-2020-015](papers/bcr-2020-015-account.md) | UR Type Definition for BIP44 Accounts | 1.0.0 | Craig Raw |
 
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Wallet Improvement Proposals](https://github.com/BlockchainCommons/wips/blob/master/README.md)._
