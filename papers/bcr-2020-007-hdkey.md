@@ -48,8 +48,8 @@ When used embedded in another CBOR structure, this structure should be tagged #6
 ```
 ; Metadata for the complete or partial derivation path of a key.
 ;
-; `parent-fingerprint`, if present, is the [BIP32] fingerprint
-; of the parent key from which the associated key was derived.
+; `source-fingerprint`, if present, is the fingerprint of the
+; ancestor key from which the associated key was derived.
 ;
 ; `depth`, if present, represents the number of derivation steps in
 ; the path of the associated key, even if not present in the `components` element
@@ -57,7 +57,7 @@ When used embedded in another CBOR structure, this structure should be tagged #6
 
 crypto-keypath = {
 	components: [1* path-component],
-	? parent-fingerint: uint32 .ne 0 ; parent fingerprint per [BIP32]
+	? source-fingerprint: uint32 .ne 0 ; fingerprint of ancestor key
 	? depth: uint8 ; 0 if this is a public key derived directly from a master key
 }
 
@@ -75,7 +75,7 @@ child-index-wildcard = []
 is-hardened = bool
 
 components = 1
-parent-fingerprint = 2
+source-fingerprint = 2
 depth = 3
 ```
 
@@ -129,7 +129,9 @@ master-key = (
 ; A derived key may be private or public, has an optional chain code, and
 ; may carry additional metadata about its use and derivation.
 ; To maintain isomorphism with [BIP32] and allow keys to be derived from
-; this key, `chain-code` must be present.
+; this key `chain-code`, `origin`, and `parent-fingerprint` must be present.
+; If `origin` contains only a single derivation step and also contains `source-fingerprint`,
+; then `parent-fingerprint` MUST be identical to `source-fingerprint` or may be omitted.
 derived-key = (
 	? is-private: bool .default false,   ; true if key is private, false if public
 	key-data: key-data-bytes,
@@ -137,6 +139,7 @@ derived-key = (
 	? use-info: #6.305(crypto-coininfo), ; How the key is to be used
 	? origin: #6.304(crypto-keypath),    ; How the key was derived
 	? children: #6.304(crypto-keypath)   ; What children should/can be derived from this
+	? parent-fingerprint: uint32 .ne 0   ; The fingerprint of this key's direct ancestor, per [BIP32]
 )
 
 ; If the `use-info` field is omitted, defaults (mainnet BTC key) are assumed.
@@ -152,6 +155,7 @@ chain-code = 4
 use-info = 5
 origin = 6
 children = 7
+parent-fingerprint = 8
 
 uint8 = uint .size 1
 key-data-bytes = bytes .size 33
@@ -179,10 +183,11 @@ Schematic for a derived public testnet Ethereum key that maintains isomorphism w
 		network: testnet-eth-ropsten
 	},
 	origin: {
-		parent-fingerprint: uint32,
+		source-fingerprint: uint32,
 		components: [child-index, is-hardened],
 		depth: uint8
-	}
+	},
+	parent-fingerprint: uint32
 }
 ```
 
@@ -194,9 +199,10 @@ Schematic for a derived private mainnet Bitcoin key that maintains isomorphism w
 	key-data: bytes,
 	chain-code: bytes,
 	origin: {
-		parent-fingerprint: uint32,
+		source-fingerprint: uint32,
 		components: [44, true, 0, true, account, true, change, false, address_index, false]
-	}
+	},
+	parent-fingerprint: uint32
 }
 ```
 
@@ -284,13 +290,13 @@ $ SEED=`seedtool --count 32`
 $ echo $SEED
 d7074d5bdc46af55655244dd5a9d554d7779442d6f4b5a95c257878020188a64
 
-$ DERIVED_KEY=`bx hd-new $SEED |\
-  bx hd-private --index 44 --hard |\
-  bx hd-private --index 1 --hard |\
-  bx hd-private --index 1 --hard |\
-  bx hd-private --index 0 |\
-  bx hd-private --index 1 |\
-  bx hd-to-public -v 70617039`
+$ DERIVED_KEY=`bx hd-new $SEED \
+  | bx hd-private --index 44 --hard \
+  | bx hd-private --index 1 --hard \
+  | bx hd-private --index 1 --hard \
+  | bx hd-private --index 0 \
+  | bx hd-private --index 1 \
+  | bx hd-to-public -v 70617039`
 $ echo $DERIVED_KEY
 tpubDHW3GtnVrTatx38EcygoSf9UhUd9Dx1rht7FAL8unrMo8r2NWhJuYNqDFS7cZFVbDaxJkV94MLZAr86XFPsAPYcoHWJ7sWYsrmHDw5sKQ2K
 ```
@@ -325,16 +331,16 @@ ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85 ; chain code
 		2: 1 ; network: testnet-btc
 	}),
 	6: 304({ ; origin
-		1: [44, true, 1, true, 1, true, 0, false, 1, false], ; components `m/44'/1'/1'/0/1`
-		2: 3910671603 ; parent-fingerprint
-	})
+		1: [44, true, 1, true, 1, true, 0, false, 1, false] ; components `m/44'/1'/1'/0/1`
+	}),
+	8: 3910671603 ; parent-fingerprint
 }
 ```
 
 * Encoded as binary using [CBOR-PLAYGROUND]:
 
 ```
-A4                                      # map(5)
+A5                                      # map(5)
    03                                   # unsigned(3) key-data
    58 21                                # bytes(33)
       026FE2355745BB2DB3630BBC80EF5D58951C963C841F54170BA6E5C12BE7FC12A6
@@ -348,7 +354,7 @@ A4                                      # map(5)
          01                             # unsigned(1) testnet-btc
    06                                   # unsigned(6) origin
    D9 0130                              # tag(304) crypto-keypath
-      A2                                # map(2)
+      A1                                # map(1)
          01                             # unsigned(1) components
          8A                             # array(10)
             18 2C                       # unsigned(44) child-index
@@ -361,23 +367,29 @@ A4                                      # map(5)
             F4                          # primitive(20) is-hardened: false
             01                          # unsigned(1) child-index
             F4                          # primitive(20) is-hardened: false
-         02                             # unsigned(2) parent-fingerprint
-         1A E9181CF3                    # unsigned(3910671603)
+   08                                   # unsigned(8) parent-fingerprint
+   1A E9181CF3                          # unsigned(3910671603)
 ```
 
 * As a hex string:
 
 ```
-A4035821026FE2355745BB2DB3630BBC80EF5D58951C963C841F54170BA6E5C12BE7FC12A6045820CED155C72456255881793514EDC5BD9447E7F74ABB88C6D6B6480FD016EE8C8505D90131A1020106D90130A2018A182CF501F501F500F401F4021AE9181CF3
+A5035821026FE2355745BB2DB3630BBC80EF5D58951C963C841F54170BA6E5C12BE7FC12A6045820CED155C72456255881793514EDC5BD9447E7F74ABB88C6D6B6480FD016EE8C8505D90131A1020106D90130A1018A182CF501F501F500F401F4081AE9181CF3
 ```
 
 * As a UR:
 
 ```
-ur:crypto-hdkey/oxaxhdclaojlvoechgferkdpqdiabdrflawshlhdmdcemtfnlrctghchbdolvwsednvdztbgolaahdcxtottgostdkhfdahdlykkecbbweskrymwflvdylgerkloswtbrpfdbsticmwylklpahtaadehoyaoadamtaaddyoeadlecsdwykadykadykaewkadwkaocywlcscewfiavorkat
+ur:crypto-hdkey/onaxhdclaojlvoechgferkdpqdiabdrflawshlhdmdcemtfnlrctghchbdolvwsednvdztbgolaahdcxtottgostdkhfdahdlykkecbbweskrymwflvdylgerkloswtbrpfdbsticmwylklpahtaadehoyaoadamtaaddyoyadlecsdwykadykadykaewkadwkaycywlcscewfihbdaehn
 ```
 
 * UR as QR Code:
+
+```
+echo 'ur:crypto-hdkey/onaxhdclaojlvoechgferkdpqdiabdrflawshlhdmdcemtfnlrctghchbdolvwsednvdztbgolaahdcxtottgostdkhfdahdlykkecbbweskrymwflvdylgerkloswtbrpfdbsticmwylklpahtaadehoyaoadamtaaddyoyadlecsdwykadykadykaewkadwkaycywlcscewfihbdaehn' \
+  | tr '[:lower:]' '[:upper:]' \
+  | qrencode -o 2.png -l L
+```
 
 ![](bcr-2020-007/2.png)
 
