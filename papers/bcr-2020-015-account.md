@@ -117,9 +117,9 @@ shield group erode awake lock sausage cash glare wave crew flame glove
                     6: 304({ ; origin: crypto-keypath
                         1: [ ; components
                             44, true, 0, true, 0, true ; 44'/0'/0'
-                        ],
-                        2: 2583285239 ; parent fingerprint (for the immediate parent to this key in order to reconstruct the xpub)
-                    })
+                        ]
+                    }),
+                    8: 2583285239 ; parent fingerprint
                 })
             ),
             400( ; script-hash
@@ -130,9 +130,9 @@ shield group erode awake lock sausage cash glare wave crew flame glove
                         6: 304({ ; origin: crypto-keypath
                             1: [ ; components
                                 49, true, 0, true, 0, true ; 49'/0'/0'
-                            ],
-                            2: 2819587291 ; parent fingerprint
-                        })
+                            ]
+                        }),
+                        8: 2819587291 ; parent fingerprint
                     })
                 )
             ),
@@ -143,9 +143,9 @@ shield group erode awake lock sausage cash glare wave crew flame glove
                     6: 304({ ; origin: crypto-keypath
                         1: [ ; components
                             84, true, 0, true, 0, true ; 84'/0'/0'
-                        ],
-                        2: 224256471 ; parent fingerprint
-                    })
+                        ]
+                    }),
+                    8: 224256471 ; parent fingerprint
                 })
             ),
             400( ; script-hash
@@ -155,9 +155,9 @@ shield group erode awake lock sausage cash glare wave crew flame glove
                     6: 304({ ; origin: crypto-keypath
                         1: [ ; components
                             45, true ; 45'
-                        ],
-                        2: 934670036 ; parent fingerprint
-                    })
+                        ]
+                    }),
+                    8: 934670036 ; parent fingerprint
                 })
             ),
             400( ; script-hash
@@ -168,9 +168,9 @@ shield group erode awake lock sausage cash glare wave crew flame glove
                         6: 304({ ; origin: crypto-keypath
                             1: [ ; components
                                 48, true, 0, true, 0, true, 1, true ; 48'/0'/0'/1'
-                            ],
-                            2: 1505139498 ; parent fingerprint
-                        })
+                            ]
+                        }),
+                        8: 1505139498 ; parent fingerprint
                     })
                 )
             ),
@@ -181,9 +181,9 @@ shield group erode awake lock sausage cash glare wave crew flame glove
                     6: 304({ ; origin: crypto-keypath
                         1: [ ; components
                             48, true, 0, true, 0, true, 2, true ; 48'/0'/0'/2'
-                        ],
-                        2: 1505139498 ; parent fingerprint
-                    })
+                        ]
+                    }),
+                    8: 1505139498 ; parent fingerprint
                 })
             )
        ]
@@ -200,7 +200,7 @@ A2                                      # map(2)
    86                                   # array(6)
       D9 0193                           # tag(403)
          D9 012F                        # tag(303)
-            A3                          # map(3)
+            A4                          # map(4)
                03                       # unsigned(3)
                58 21                    # bytes(33)
                   03EB3E2863911826374DE86C231A4B76F0B89DFA174AFB78D7F478199884D9DD32
@@ -209,7 +209,7 @@ A2                                      # map(2)
                   6456A5DF2DB0F6D9AF72B2A1AF4B25F45200ED6FCC29C3440B311D4796B70B5B
                06                       # unsigned(6)
                D9 0130                  # tag(304)
-                  A2                    # map(2)
+                  A1                    # map(1)
                      01                 # unsigned(1)
                      86                 # array(6)
                         18 2C           # unsigned(44)
@@ -218,12 +218,12 @@ A2                                      # map(2)
                         F5              # primitive(21)
                         00              # unsigned(0)
                         F5              # primitive(21)
-                     02                 # unsigned(2)
-                     1A 99F9CDF7        # unsigned(2583285239)
+               08                       # unsigned(8)
+               1A 99F9CDF7              # unsigned(2583285239)
       D9 0190                           # tag(400)
          D9 0194                        # tag(404)
             D9 012F                     # tag(303)
-               A3                       # map(3)
+               A4                       # map(4)
                   03                    # unsigned(3)
                   58 21                 # bytes(33)
                      02C7E4823730F6EE2CF864E2C352060A88E60B51A84E89E4C8C75EC22590AD6B69
@@ -232,7 +232,7 @@ A2                                      # map(2)
                      9D2F86043276F9251A4A4F577166A5ABEB16B6EC61E226B5B8FA11038BFDA42D
                   06                    # unsigned(6)
                   D9 0130               # tag(304)
-                     A2                 # map(2)
+                     A1                 # map(1)
                         01              # unsigned(1)
                         86              # array(6)
                            18 31        # unsigned(49)
@@ -241,11 +241,11 @@ A2                                      # map(2)
                            F5           # primitive(21)
                            00           # unsigned(0)
                            F5           # primitive(21)
-                        02              # unsigned(2)
-                        1A A80F7CDB     # unsigned(2819587291)
+                  08                    # unsigned(8)
+                  1A A80F7CDB           # unsigned(2819587291)
       D9 0194                           # tag(404)
          D9 012F                        # tag(303)
-            A3                          # map(3)
+            A4                          # map(4)
                03                       # unsigned(3)
                58 21                    # bytes(33)
                   03FD433450B6924B4F7EFDD5D1ED017D364BE95AB2B592DC8BDDB3B00C1C24F63F
@@ -254,7 +254,7 @@ A2                                      # map(2)
                   72EDE7334D5ACF91C6FDA622C205199C595A31F9218ED30792D301D5EE9E3A88
                06                       # unsigned(6)
                D9 0130                  # tag(304)
-                  A2                    # map(2)
+                  A1                    # map(1)
                      01                 # unsigned(1)
                      86                 # array(6)
                         18 54           # unsigned(84)
@@ -263,11 +263,11 @@ A2                                      # map(2)
                         F5              # primitive(21)
                         00              # unsigned(0)
                         F5              # primitive(21)
-                     02                 # unsigned(2)
-                     1A 0D5DE1D7        # unsigned(224256471)
+               08                       # unsigned(8)
+               1A 0D5DE1D7              # unsigned(224256471)
       D9 0190                           # tag(400)
          D9 012F                        # tag(303)
-            A3                          # map(3)
+            A4                          # map(4)
                03                       # unsigned(3)
                58 21                    # bytes(33)
                   035CCD58B63A2CDC23D0812710603592E7457573211880CB59B1EF012E168E059A
@@ -276,17 +276,17 @@ A2                                      # map(2)
                   88D3299B448F87215D96B0C226235AFC027F9E7DC700284F3E912A34DAEB1A23
                06                       # unsigned(6)
                D9 0130                  # tag(304)
-                  A2                    # map(2)
+                  A1                    # map(1)
                      01                 # unsigned(1)
                      82                 # array(2)
                         18 2D           # unsigned(45)
                         F5              # primitive(21)
-                     02                 # unsigned(2)
-                     1A 37B5EED4        # unsigned(934670036)
+               08                       # unsigned(8)
+               1A 37B5EED4              # unsigned(934670036)
       D9 0190                           # tag(400)
          D9 0191                        # tag(401)
             D9 012F                     # tag(303)
-               A3                       # map(3)
+               A4                       # map(4)
                   03                    # unsigned(3)
                   58 21                 # bytes(33)
                      032C78EBFCABDAC6D735A0820EF8732F2821B4FB84CD5D6B26526938F90C050711
@@ -295,7 +295,7 @@ A2                                      # map(2)
                      7953EFE16A73E5D3F9F2D4C6E49BD88E22093BBD85BE5A7E862A4B98A16E0AB6
                   06                    # unsigned(6)
                   D9 0130               # tag(304)
-                     A2                 # map(2)
+                     A1                 # map(1)
                         01              # unsigned(1)
                         88              # array(8)
                            18 30        # unsigned(48)
@@ -306,11 +306,11 @@ A2                                      # map(2)
                            F5           # primitive(21)
                            01           # unsigned(1)
                            F5           # primitive(21)
-                        02              # unsigned(2)
-                        1A 59B69B2A     # unsigned(1505139498)
+                  08                    # unsigned(8)
+                  1A 59B69B2A           # unsigned(1505139498)
       D9 0191                           # tag(401)
          D9 012F                        # tag(303)
-            A3                          # map(3)
+            A4                          # map(4)
                03                       # unsigned(3)
                58 21                    # bytes(33)
                   0260563EE80C26844621B06B74070BAF0E23FB76CE439D0237E87502EBBD3CA346
@@ -319,7 +319,7 @@ A2                                      # map(2)
                   2FA0E41C9DC43DC4518659BFCEF935BA8101B57DBC0812805DD983BC1D34B813
                06                       # unsigned(6)
                D9 0130                  # tag(304)
-                  A2                    # map(2)
+                  A1                    # map(1)
                      01                 # unsigned(1)
                      88                 # array(8)
                         18 30           # unsigned(48)
@@ -330,20 +330,20 @@ A2                                      # map(2)
                         F5              # primitive(21)
                         02              # unsigned(2)
                         F5              # primitive(21)
-                     02                 # unsigned(2)
-                     1A 59B69B2A        # unsigned(1505139498)
+               08                       # unsigned(8)
+               1A 59B69B2A              # unsigned(1505139498)
 ```
 
 * As a hex string:
 
 ```
-A2011A37B5EED40286D90193D9012FA303582103EB3E2863911826374DE86C231A4B76F0B89DFA174AFB78D7F478199884D9DD320458206456A5DF2DB0F6D9AF72B2A1AF4B25F45200ED6FCC29C3440B311D4796B70B5B06D90130A20186182CF500F500F5021A99F9CDF7D90190D90194D9012FA303582102C7E4823730F6EE2CF864E2C352060A88E60B51A84E89E4C8C75EC22590AD6B690458209D2F86043276F9251A4A4F577166A5ABEB16B6EC61E226B5B8FA11038BFDA42D06D90130A201861831F500F500F5021AA80F7CDBD90194D9012FA303582103FD433450B6924B4F7EFDD5D1ED017D364BE95AB2B592DC8BDDB3B00C1C24F63F04582072EDE7334D5ACF91C6FDA622C205199C595A31F9218ED30792D301D5EE9E3A8806D90130A201861854F500F500F5021A0D5DE1D7D90190D9012FA3035821035CCD58B63A2CDC23D0812710603592E7457573211880CB59B1EF012E168E059A04582088D3299B448F87215D96B0C226235AFC027F9E7DC700284F3E912A34DAEB1A2306D90130A20182182DF5021A37B5EED4D90190D90191D9012FA3035821032C78EBFCABDAC6D735A0820EF8732F2821B4FB84CD5D6B26526938F90C0507110458207953EFE16A73E5D3F9F2D4C6E49BD88E22093BBD85BE5A7E862A4B98A16E0AB606D90130A201881830F500F500F501F5021A59B69B2AD90191D9012FA30358210260563EE80C26844621B06B74070BAF0E23FB76CE439D0237E87502EBBD3CA3460458202FA0E41C9DC43DC4518659BFCEF935BA8101B57DBC0812805DD983BC1D34B81306D90130A201881830F500F500F502F5021A59B69B2A
+A2011A37B5EED40286D90193D9012FA403582103EB3E2863911826374DE86C231A4B76F0B89DFA174AFB78D7F478199884D9DD320458206456A5DF2DB0F6D9AF72B2A1AF4B25F45200ED6FCC29C3440B311D4796B70B5B06D90130A10186182CF500F500F5081A99F9CDF7D90190D90194D9012FA403582102C7E4823730F6EE2CF864E2C352060A88E60B51A84E89E4C8C75EC22590AD6B690458209D2F86043276F9251A4A4F577166A5ABEB16B6EC61E226B5B8FA11038BFDA42D06D90130A101861831F500F500F5081AA80F7CDBD90194D9012FA403582103FD433450B6924B4F7EFDD5D1ED017D364BE95AB2B592DC8BDDB3B00C1C24F63F04582072EDE7334D5ACF91C6FDA622C205199C595A31F9218ED30792D301D5EE9E3A8806D90130A101861854F500F500F5081A0D5DE1D7D90190D9012FA4035821035CCD58B63A2CDC23D0812710603592E7457573211880CB59B1EF012E168E059A04582088D3299B448F87215D96B0C226235AFC027F9E7DC700284F3E912A34DAEB1A2306D90130A10182182DF5081A37B5EED4D90190D90191D9012FA4035821032C78EBFCABDAC6D735A0820EF8732F2821B4FB84CD5D6B26526938F90C0507110458207953EFE16A73E5D3F9F2D4C6E49BD88E22093BBD85BE5A7E862A4B98A16E0AB606D90130A101881830F500F500F501F5081A59B69B2AD90191D9012FA40358210260563EE80C26844621B06B74070BAF0E23FB76CE439D0237E87502EBBD3CA3460458202FA0E41C9DC43DC4518659BFCEF935BA8101B57DBC0812805DD983BC1D34B81306D90130A101881830F500F500F502F5081A59B69B2A
 ```
 
 * As a UR:
 
 ```
-ur:crypto-account/oeadcyemrewytyaolntaadmutaaddlotaxhdclaxwmfmdeiamecsdsemgtvsjzcncygrkowtrontzschgezokstswkkscfmklrtauteyaahdcxiehfonurdppfyntapejpproypegrdawkgmaewejlsfdtsrfybdehcaflmtrlbdhpamtaaddyoeadlncsdwykaeykaeykaocynlytsnyltaadmhtaadmwtaaddlotaxhdclaostvelfemdyynwydwyaievosrgmambklovabdgypdglldvespsthysadamhpmjeinaahdcxntdllnaaeykoytdacygegwhgjsiyonpywmcmrpwphsvodsrerozsbyaxluzcoxdpamtaaddyoeadlncsehykaeykaeykaocypdbskeuytaadmwtaaddlotaxhdclaxzcfxeegdrpmogrgwkbzctlttweadkiengrwlhtprremouoluutqdpfbncedkynfhaahdcxjpwevdeogthttkmeswzcolcpsaahcfnshkhtehytclmnteatmoteadtlwynnftloamtaaddyoeadlncsghykaeykaeykaocybthlvytstaadmhtaaddlotaxhdclaxhhsnhdrpftdwuocntilydibehnecmovdfekpjkclcslasbhkpawsaddmcmmnahnyaahdcxlotedtndfymyltclhlmtpfsadscnhtztaolbnnkistaedegwfmmedreetnwmcycnamtaaddyoeadlfcsdpykaocyemrewytytaadmhtaadmetaaddlotaxhdclaxdwkswmztpytnswtsecnblfbayajkdldeclqzzolrsnhljedsgminetytbnahatbyaahdcxkkguwsvyimjkvwteytwztyswvendtpmncpasfrrylprnhtkblndrgrmkoyjtbkrpamtaaddyoeadlocsdyykaeykaeykadykaocyhkrpnddrtaadmetaaddlotaxhdclaohnhffmvsbndslrfgclpfjejyatbdpebacnzokotofxntaoemvskpaowmryfnotfgaahdcxdlnbvecentssfsssgylnhkrstoytecrdlyadrekirfaybglahltalsrfcaeerobwamtaaddyoeadlocsdyykaeykaeykaoykaocyhkrpnddrasqdckhh
+ur:crypto-account/oeadcyemrewytyaolntaadmutaaddloxaxhdclaxwmfmdeiamecsdsemgtvsjzcncygrkowtrontzschgezokstswkkscfmklrtauteyaahdcxiehfonurdppfyntapejpproypegrdawkgmaewejlsfdtsrfybdehcaflmtrlbdhpamtaaddyoyadlncsdwykaeykaeykaycynlytsnyltaadmhtaadmwtaaddloxaxhdclaostvelfemdyynwydwyaievosrgmambklovabdgypdglldvespsthysadamhpmjeinaahdcxntdllnaaeykoytdacygegwhgjsiyonpywmcmrpwphsvodsrerozsbyaxluzcoxdpamtaaddyoyadlncsehykaeykaeykaycypdbskeuytaadmwtaaddloxaxhdclaxzcfxeegdrpmogrgwkbzctlttweadkiengrwlhtprremouoluutqdpfbncedkynfhaahdcxjpwevdeogthttkmeswzcolcpsaahcfnshkhtehytclmnteatmoteadtlwynnftloamtaaddyoyadlncsghykaeykaeykaycybthlvytstaadmhtaaddloxaxhdclaxhhsnhdrpftdwuocntilydibehnecmovdfekpjkclcslasbhkpawsaddmcmmnahnyaahdcxlotedtndfymyltclhlmtpfsadscnhtztaolbnnkistaedegwfmmedreetnwmcycnamtaaddyoyadlfcsdpykaycyemrewytytaadmhtaadmetaaddloxaxhdclaxdwkswmztpytnswtsecnblfbayajkdldeclqzzolrsnhljedsgminetytbnahatbyaahdcxkkguwsvyimjkvwteytwztyswvendtpmncpasfrrylprnhtkblndrgrmkoyjtbkrpamtaaddyoyadlocsdyykaeykaeykadykaycyhkrpnddrtaadmetaaddloxaxhdclaohnhffmvsbndslrfgclpfjejyatbdpebacnzokotofxntaoemvskpaowmryfnotfgaahdcxdlnbvecentssfsssgylnhkrstoytecrdlyadrekirfaybglahltalsrfcaeerobwamtaaddyoyadlocsdyykaeykaeykaoykaycyhkrpnddrgdaogykb
 ```
 
 ### References
