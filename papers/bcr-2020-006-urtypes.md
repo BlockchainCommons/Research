@@ -6,7 +6,7 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: May 12, 2020<br/>
-Revised: June 25, 2020
+Revised: December 11, 2020
 
 ---
 
@@ -61,6 +61,7 @@ Each UR type defines a CBOR encoding. When a UR type is suitable for embedding w
 | `crypto-sskr` | 309 | SSKR (Shamir Secret Key Recovery) shard | [[BCR11]](bcr-2020-011-sskr.md) |
 | `crypto-psbt` | 310 | Partially Signed Bitcoin Transaction (PSBT) | This document |
 | `crypto-account` | 311 | BIP44 Account | [[BCR15]](bcr-2020-015-account.md) |
+
 ### Byte String `bytes`
 
 The type `bytes` contains a single, deterministic length byte string having a length from 1 to 2^32-1 bytes. This specification places no semantic interpretation on the contents of the string. Because of this, its usefulness is generally limited to development and testing purposes. Actual applications of Uniform Resources SHOULD use a more specific type.
@@ -108,15 +109,21 @@ The type `crypto-seed` contains a single, deterministic length byte string havin
 
 The type may also include a `birthdate` attribute which is the number of days since the Unix epoch upon which this seed was generated. This attribute is tagged with #6.100 in accordance with [CBOR-DATE].
 
+The type may also include `name`, which is intended as a short name for the seed, and `note`, which is an arbitrary amount of text describing the seed.
+
 #### CDDL
 
 ```
 seed = {
 	payload: bytes,
-	? birthdate: date
+	? birthdate: date,
+	? name: text,
+	? note: text
 }
 payload = 1
 birthdate = 2
+name = 3
+note = 4
 date = #6.100(int) ; number of days since the Unix epoch
 ```
 
