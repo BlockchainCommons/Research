@@ -69,7 +69,7 @@ path-component = (
 uint32 = uint .size 4
 uint31 = uint32 .lt 0x80000000
 child-index = uint31
-child-index-range = [child-index, child-index] ; low, high
+child-index-range = [child-index, child-index] ; [low, high] where low < high
 child-index-wildcard = []
 
 is-hardened = bool
