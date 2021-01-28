@@ -1,5 +1,7 @@
 # Blockchain Commons Research
 
+![](images/logos/bcc-research-screen.jpg)
+
 This repository contains research and proposals of interest to the blockchain community.
 
 ## Contents
