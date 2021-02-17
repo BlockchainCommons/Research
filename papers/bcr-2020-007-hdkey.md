@@ -138,8 +138,10 @@ derived-key = (
 	? chain-code: chain-code-bytes       ; omit if no further keys may be derived from this key
 	? use-info: #6.305(crypto-coininfo), ; How the key is to be used
 	? origin: #6.304(crypto-keypath),    ; How the key was derived
-	? children: #6.304(crypto-keypath)   ; What children should/can be derived from this
-	? parent-fingerprint: uint32 .ne 0   ; The fingerprint of this key's direct ancestor, per [BIP32]
+	? children: #6.304(crypto-keypath),  ; What children should/can be derived from this
+	? parent-fingerprint: uint32 .ne 0,  ; The fingerprint of this key's direct ancestor, per [BIP32]
+	? name: text,                        ; A short name for this key.
+	? note: text                         ; An arbtrary amount of text describing the key.
 )
 
 ; If the `use-info` field is omitted, defaults (mainnet BTC key) are assumed.
@@ -156,6 +158,8 @@ use-info = 5
 origin = 6
 children = 7
 parent-fingerprint = 8
+name = 9
+note = 10
 
 uint8 = uint .size 1
 key-data-bytes = bytes .size 33
@@ -393,11 +397,65 @@ echo 'ur:crypto-hdkey/onaxhdclaojlvoechgferkdpqdiabdrflawshlhdmdcemtfnlrctghchbd
 
 ![](bcr-2020-007/2.png)
 
+#### HDKey Fingerprint Source
+
+The fingerprint source of a `crypto-hdkey` is the SHA-256 hash of the following CBOR structure:
+
+```
+hdkey-fingerprint-source = [
+	crypto-hdkey.key-data-bytes, ; key data
+	crypto-hdkey.chain-code-bytes / null, ; encode `null` if key has no chain code
+	crypto-coininfo.type ; coin type
+	crypto-coininfo.network ; network
+]
+```
+
+Example fingerprint source from Test Vector 2:
+
+```
+[
+	h'026fe2355745bb2db3630bbc80ef5d58951c963c841f54170ba6e5c12be7fc12a6', ; key data
+	h'ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85', ; chain code
+	0, ; cointype-btc
+	1  ; mainnet
+]
+```
+
+The fingerprint source as binary:
+
+```
+84                                      # array(4)
+   58 21                                # bytes(33)
+      026FE2355745BB2DB3630BBC80EF5D58951C963C841F54170BA6E5C12BE7FC12A6
+   58 20                                # bytes(32)
+      CED155C72456255881793514EDC5BD9447E7F74ABB88C6D6B6480FD016EE8C85
+   00                                   # unsigned(0)
+   01                                   # unsigned(1)
+```
+
+The fingerprint source as a hex string:
+
+```
+845821026FE2355745BB2DB3630BBC80EF5D58951C963C841F54170BA6E5C12BE7FC12A65820CED155C72456255881793514EDC5BD9447E7F74ABB88C6D6B6480FD016EE8C850001
+```
+
+The actual fingerprint is the SHA-256 of fingerprint source:
+
+```
+94a24a356df7cc52749a063404f3fb6f484103a1af5aadab893d76a2ce78ff73
+```
+
+Fingerprint encoded as CBOR field (diagnostic notation) is tagged with #6.400 per [BCR-2020-006](https://github.com/BlockchainCommons/Research/papers/bcr-2020-006-urtypes.md)#object-fingerprints
+
+```
+crypto-hdkey-fingerprint = 400(h'94a24a356df7cc52749a063404f3fb6f484103a1af5aadab893d76a2ce78ff73')
+```
+
 ### Normative References
 
 * [BIP32] [Hierarchical Deterministic Wallets](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)
-* [BCR5] [Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes](bcr-2020-005-ur.md)
-* [BCR6] [Registry of Uniform Resource (UR) Types](bcr-2020-006-urtypes.md)
+* [BCR-2020-005] [Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes](bcr-2020-005-ur.md)
+* [BCR-2020-006] [Registry of Uniform Resource (UR) Types](bcr-2020-006-urtypes.md)
 * [CDDL] [RFC8610: Concise Data Definition Language (CDDL): A Notational Convention to Express Concise Binary Object Representation (CBOR) and JSON Data Structures](https://tools.ietf.org/html/rfc8610)
 * [BIP44] [Multi-Account Hierarchy for Deterministic Wallets](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki)
 * [SLIP44] [Registered coin types for BIP-0044](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
