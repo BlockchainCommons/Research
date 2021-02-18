@@ -39,7 +39,7 @@ Responses to requests for seeds use the `crypto-seed` type defined in [BCR-2020-
 
 ### HDKeys
 
-Requests for HDKeys use the `crypto-keypath` type defined in [BCR-2020-007](https://github.com/BlockchainCommons/Research/papers/bcr-2020-007-hdkey.md). Responses for keys use the `crypto-hdkey` type from the same document.
+Requests for HDKeys use the `crypto-keypath` and `crypto-coininfo` types defined in [BCR-2020-007](https://github.com/BlockchainCommons/Research/papers/bcr-2020-007-hdkey.md). Responses for keys use the `crypto-hdkey` type from the same document.
 
 ### PSBTs
 
@@ -70,15 +70,17 @@ request-seed = #6.500({
 seed-fingerprint = 1
 
 ;
-; Returns the HDKey matching the provided keypath.
+; Returns the HDKey matching the provided keypath and use-info.
 ;
 request-hdkey-derivation = #6.501({
 	is-private: bool ; true if derived key is to be private, false if public
 	keypath: crypto-keypath ; MUST include `source-fingerprint`
+	? use-info: crypto-coininfo ; If omitted defaults to `btc` and `mainnet`
 })
 
 is-private = 1
 keypath = 2
+use-info = 3
 
 ;
 ; Returns the given PSBT with one or more outputs signed.
