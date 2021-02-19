@@ -1,4 +1,4 @@
-# UR Type Definition for Request to and Response from Airgapped Devices
+# UR Type Definitions for Transactions Between Airgapped Devices
 
 ## BCR-2021-001
 
