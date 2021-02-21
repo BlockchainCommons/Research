@@ -35,15 +35,15 @@ uuid = #6.37(bstr)
 
 ### Seeds
 
-Responses to requests for seeds use the `crypto-seed` type defined in [BCR-2020-006](https://github.com/BlockchainCommons/Research/papers/bcr-2020-006-urtypes.md)
+Responses to requests for seeds use the `crypto-seed` type defined in [BCR-2020-006](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-006-urtypes.md)
 
 ### HDKeys
 
-Requests for HDKeys use the `crypto-keypath` and `crypto-coininfo` types defined in [BCR-2020-007](https://github.com/BlockchainCommons/Research/papers/bcr-2020-007-hdkey.md). Responses for keys use the `crypto-hdkey` type from the same document.
+Requests for HDKeys use the `crypto-keypath` and `crypto-coininfo` types defined in [BCR-2020-007](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-007-hdkey.md). Responses for keys use the `crypto-hdkey` type from the same document.
 
 ### PSBTs
 
-Requests for PSBTs use the `crypto-psbt` type defined in [BCR-2020-006](https://github.com/BlockchainCommons/Research/papers/bcr-2020-006-urtypes.md). Responses use the same type.
+Requests for PSBTs use the `crypto-psbt` type defined in [BCR-2020-006](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-006-urtypes.md). Responses use the same type.
 
 ### CDDL for Request
 
