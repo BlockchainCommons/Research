@@ -51,13 +51,16 @@ When used embedded in another CBOR structure, this structure should be tagged #6
 ; `source-fingerprint`, if present, is the fingerprint of the
 ; ancestor key from which the associated key was derived.
 ;
+; If `components` is empty, then `source-fingerprint` MUST be a fingerprint of
+; a master key.
+;
 ; `depth`, if present, represents the number of derivation steps in
 ; the path of the associated key, even if not present in the `components` element
 ; of this structure.
 
 crypto-keypath = {
-	components: [1* path-component],
-	? source-fingerprint: uint32 .ne 0 ; fingerprint of ancestor key
+	components: [path-component], ; If empty, source-fingerprint MUST be present
+	? source-fingerprint: uint32 .ne 0 ; fingerprint of ancestor key, or master key if components is empty
 	? depth: uint8 ; 0 if this is a public key derived directly from a master key
 }
 
