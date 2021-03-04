@@ -12,7 +12,7 @@ This repository contains research and proposals of interest to the blockchain co
 | [BCR-2020-002](papers/bcr-2020-002-bech32-seed-format.md) | Bech32 Encoding for Cryptographic Seeds | 1.0.0 | Wolf McNally |
 | [BCR-2020-003](papers/bcr-2020-003-uri-binary-compatibility.md) | Encoding Binary Compatibly with URI Reserved Characters  | 1.0.0 | Wolf McNally |
 | [BCR-2020-004](papers/bcr-2020-004-bc32.md) | The BC32 Data Encoding Format  | 1.0.0 | Wolf McNally |
-| [BCR-2020-005](papers/bcr-2020-005-ur.md) | Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes  | 2.0.0 | Wolf McNally |
+| [BCR-2020-005](papers/bcr-2020-005-ur.md) | Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes  | 2.0.1 | Wolf McNally |
 | [BCR-2020-006](papers/bcr-2020-006-urtypes.md) | Registry of Uniform Resource (UR) Types  | 1.0.0 | Wolf McNally |
 | [BCR-2020-007](papers/bcr-2020-007-hdkey.md) | UR Type Definition for Hierarchical Deterministic (HD) Keys  | 1.0.0 | Wolf McNally |
 | [BCR-2020-008](papers/bcr-2020-008-eckey.md) | UR Type Definition for Elliptic Curve (EC) Keys  | 1.0.0 | Wolf McNally |
