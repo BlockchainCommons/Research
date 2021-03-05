@@ -58,7 +58,7 @@ Each UR type defines a CBOR encoding. When a UR type is suitable for embedding w
 | `crypto-eckey` | 306 | Elliptic Curve (EC) key | [[BCR-2020-008]](bcr-2020-008-eckey.md) |
 | `crypto-address` | 307 | Cryptocurrency Address | [[BCR-2020-009]](bcr-2020-009-address.md) |
 | `crypto-output` | 308 | Bitcoin Output Descriptor | [[BCR-2020-010]](bcr-2020-010-output-desc.md) |
-| `crypto-sskr` | 309 | SSKR (Shamir Secret Key Recovery) shard | [[BCR-2020-011]](bcr-2020-011-sskr.md) |
+| `crypto-sskr` | 309 | SSKR (Sharded Secret Key Reconstruction) shard | [[BCR-2020-011]](bcr-2020-011-sskr.md) |
 | `crypto-psbt` | 310 | Partially Signed Bitcoin Transaction (PSBT) | This document |
 | `crypto-account` | 311 | BIP44 Account | [[BCR-2020-015]](bcr-2020-015-account.md) |
 | `crypto-request` | 312 | Request to and Response from Airgapped Devices | [[BCR-2021-001]](bcr-2021-001-request.md) |
