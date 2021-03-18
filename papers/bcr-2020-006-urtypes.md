@@ -18,7 +18,7 @@ A limited, base-32 character set is required by Uniform Resources (UR) [BCR5] in
 
 Because this namespace intersects with but does not enclose existing type namespace definitions such as [MIME] and because defined types like MIME do not uniformly specify CBOR encoding (required by [BCR5]) a new namespace is necessary to easily identify the type of data encoded in a UR.
 
-This document is a registry of UR types. Each entry in the registry records the type string, a brief description of the type, and either a link to the type defintion or a reference to the type definition within this document. Additional types may be added by contacting this document's maintainers.
+This document is a registry of UR types and CBOR tags maintained by Blockchain Commons. Each entry in the registry records the type string, its associated CBOR tag, a brief description of the type, and either a link to the type defintion or a reference to the type definition within this document. Additional types may be added by contacting this document's maintainers.
 
 Types specified within this document are specified in [CDDL], the Concise Data Definition Language used as a human-readable notation for CBOR structures.
 
@@ -63,18 +63,20 @@ Each UR type defines a CBOR encoding. When a UR type is suitable for embedding w
 | `crypto-account` | 311 | BIP44 Account | [[BCR-2020-015]](bcr-2020-015-account.md) |
 | `crypto-request` | 312 | Request to and Response from Airgapped Devices | [[BCR-2021-001]](bcr-2021-001-request.md) |
 | `crypto-response` | 313 | Request to and Response from Airgapped Devices | [[BCR-2021-001]](bcr-2021-001-request.md) |
-| | 400 | Object Fingerprint | This document and as defined in each type |
+| | 400–405 | Used as descriptor types in [`crypto-output`](bcr-2020-010-output-desc.md). | |
+| | 500–502 | Used as request types in [`crypto-request`](bcr-2021-001-request.md). | |
+| | 600 | Object Fingerprint | This document and as defined in each type |
 
 ### Object Fingerprints
 
 It is sometimes desirable that a CBOR-encoded object refer to another object by its unique SHA-256 hash ("fingerprint".) The method of deriving a fingerprint for a particular type is unique to that type and MAY be defined by that type. The source data for the SHA-256 hash MUST only include data that uniquely and permanently identifies the object, and MUST NOT include data that may change over time, such as object's name or other incidental metadata. This document defines the method for fingerprinting `crypto-seed` below. [[BCR-2020-007]](bcr-2020-007-hdkey.md) describes the method for fingerprinting a `crypto-hdkey`.
 
-When UR types refer to other objects using a fingerprint, it MUST be tagged #6.400 and the byte string length MUST be exactly 32.
+When UR types refer to other objects using a fingerprint, it MUST be tagged #6.600 and the byte string length MUST be exactly 32.
 
 #### CDDL
 
 ```
-fingerprint = #6.400(bytes .size 32)
+fingerprint = #6.600(bytes .size 32)
 ```
 
 ### Byte String `bytes`
@@ -198,14 +200,14 @@ cc81869bcf9d7295098d03229f3e40fd1d2f42a7e6c4f6c4ec929fdf6eed2c6b
 When encoded as CBOR (diagnostic notiation):
 
 ```
-crypto-seed-fingerprint = 400(h'cc81869bcf9d7295098d03229f3e40fd1d2f42a7e6c4f6c4ec929fdf6eed2c6b')
+crypto-seed-fingerprint = 600(h'cc81869bcf9d7295098d03229f3e40fd1d2f42a7e6c4f6c4ec929fdf6eed2c6b')
 ```
 
 Encoded as binary:
 
 ```
-D9 0190   # tag(400)
-   58 20  # bytes(32)
+D9 0258                                 # tag(600)
+   58 20                                # bytes(32)
       CC81869BCF9D7295098D03229F3E40FD1D2F42A7E6C4F6C4EC929FDF6EED2C6B
 ```
 
