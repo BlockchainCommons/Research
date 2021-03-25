@@ -38,7 +38,7 @@ Each UR type defines a CBOR encoding. When a UR type is suitable for embedding w
 
 | Type | Tag | Description | Definition |
 |------|-----|-------------|------------|
-| `bytes` | | Undifferentiated byte string | [[BCR5]](bcr-0005-ur.md) |
+| `bytes` | | Undifferentiated byte string | [[BCR5]](bcr-2020-005-ur.md) |
 | `cbor-png` | | PNG image | [[PNG]](https://tools.ietf.org/html/rfc2083) |
 | `cbor-svg` | | SVG image | [[SVG]](https://www.w3.org/TR/SVG11/) |
 | `cose-sign` | 98 | COSE_Sign: Signed message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) |
