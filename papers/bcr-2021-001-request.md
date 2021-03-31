@@ -73,10 +73,14 @@ seed-fingerprint = 1
 ; Returns the HDKey matching the provided key path and use-info.
 ;
 request-hdkey-derivation = #6.501({
-	is-private: bool ; True if derived key is to be private, false if public
-	keypath: crypto-keypath ; MUST include `source-fingerprint`
-	? use-info: crypto-coininfo ; If omitted defaults to `btc` and `mainnet`
-	? is-derivable: bool ; True (default) if derived key should contain a chain code and can therefore be used to derive further keys. False if derived key needs no chain code.
+    is-private: bool ; True if derived key is to be private, false if public
+    keypath: crypto-keypath ; MUST include `source-fingerprint`
+    ? use-info: crypto-coininfo ; If omitted defaults to `btc` and `mainnet`
+    ? is-derivable: bool ; If true (default) derived key MUST contain a chain code 
+                         ; and can therefore be used to derive further keys. 
+                         ; If false derived key MAY contain no chain code. 
+                         ; The generator of the response must decide whether to 
+                         ; authorize a request for a key with a chain code.
 })
 
 is-private = 1
