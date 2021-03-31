@@ -17,7 +17,7 @@ This specification is intended to be extensible, with existing request types add
 
 ### Security Considerations
 
-The user(s) overseeing the transaction SHOULD be given the opportunity to review and approve the request on the offline device before the response is returned to the online device. Therefore as a best practice the offline device SHOULD display the contents of the `crypto-request`, including any correlated data such as seed name, visual hashes, or transactino amounts needed for the user to validate the request, and receive user approval (possibly including authentication) before displaying the QR code containing the `crypto-response` UR.
+The user(s) overseeing the transaction SHOULD be given the opportunity to review and approve the request on the offline device before the response is returned to the online device. Therefore as a best practice the offline device SHOULD display the contents of the `crypto-request`, including any correlated data such as seed name, visual hashes, or transaction amounts needed for the user to validate the request, and receive user approval (possibly including authentication) before displaying the QR code containing the `crypto-response` UR.
 
 `crypto-request` MAY include a `description` text field that the offline device SHOULD show the approving user along with data decoded from the request itself. Only the decoded request can be considered authoritative. Other than being displayed by the offline device, information in the `description` field MUST be ignored by the offline device and never used in the composition of the response.
 
@@ -70,17 +70,19 @@ request-seed = #6.500({
 seed-fingerprint = 1
 
 ;
-; Returns the HDKey matching the provided keypath and use-info.
+; Returns the HDKey matching the provided key path and use-info.
 ;
 request-hdkey-derivation = #6.501({
-	is-private: bool ; true if derived key is to be private, false if public
+	is-private: bool ; True if derived key is to be private, false if public
 	keypath: crypto-keypath ; MUST include `source-fingerprint`
 	? use-info: crypto-coininfo ; If omitted defaults to `btc` and `mainnet`
+	? is-derivable: bool ; True (default) if derived key should contain a chain code and can therefore be used to derive further keys. False if derived key needs no chain code.
 })
 
 is-private = 1
 keypath = 2
 use-info = 3
+is-derivable = 4
 
 ;
 ; Returns the given PSBT with one or more outputs signed.
