@@ -400,12 +400,14 @@ echo 'ur:crypto-hdkey/onaxhdclaojlvoechgferkdpqdiabdrflawshlhdmdcemtfnlrctghchbd
 
 ![](bcr-2020-007/2.png)
 
-#### HDKey Fingerprint Source
+#### HDKey Digest Source Specification
 
-The fingerprint source of a `crypto-hdkey` is the SHA-256 hash of the following CBOR structure:
+When a unique identifier to a `crypto-hdkey` is needed, an extract of its fields, called the *digest source* is created and then used as input to the SHA-256 hashing algorithm. The resulting digest can be compared to digests produced the same way to determine whether a key has a particular identity. See [BCR-2021-002: Digests for Digital Objects](bcr-2021-002-digest.md) for more information.
+
+The digest source of a `crypto-hdkey` has the following CBOR structure:
 
 ```
-hdkey-fingerprint-source = [
+hdkey-digest-source = [
 	crypto-hdkey.key-data-bytes, ; key data
 	crypto-hdkey.chain-code-bytes / null, ; encode `null` if key has no chain code
 	crypto-coininfo.type ; coin type
@@ -413,7 +415,7 @@ hdkey-fingerprint-source = [
 ]
 ```
 
-Example fingerprint source from Test Vector 2:
+Example digest source from Test Vector 2:
 
 ```
 [
@@ -424,7 +426,7 @@ Example fingerprint source from Test Vector 2:
 ]
 ```
 
-The fingerprint source as binary:
+The digest source as binary:
 
 ```
 84                                      # array(4)
@@ -436,22 +438,22 @@ The fingerprint source as binary:
    01                                   # unsigned(1)
 ```
 
-The fingerprint source as a hex string:
+The digest source as a hex string:
 
 ```
 845821026FE2355745BB2DB3630BBC80EF5D58951C963C841F54170BA6E5C12BE7FC12A65820CED155C72456255881793514EDC5BD9447E7F74ABB88C6D6B6480FD016EE8C850001
 ```
 
-The actual fingerprint is the SHA-256 of fingerprint source:
+The actual digest is the SHA-256 of the digest source:
 
 ```
 94a24a356df7cc52749a063404f3fb6f484103a1af5aadab893d76a2ce78ff73
 ```
 
-Fingerprint encoded as CBOR field (diagnostic notation) is tagged with #6.400 per [BCR-2020-006](https://github.com/BlockchainCommons/Research/papers/bcr-2020-006-urtypes.md)#object-fingerprints
+The digest is encoded as CBOR field (diagnostic notation) is tagged with #6.600 per [BCR-2020-006](https://github.com/BlockchainCommons/Research/papers/bcr-2020-006-urtypes.md)#object-fingerprints
 
 ```
-crypto-hdkey-fingerprint = 400(h'94a24a356df7cc52749a063404f3fb6f484103a1af5aadab893d76a2ce78ff73')
+crypto-hdkey-fingerprint = 600(h'94a24a356df7cc52749a063404f3fb6f484103a1af5aadab893d76a2ce78ff73')
 ```
 
 ### Normative References
