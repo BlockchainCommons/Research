@@ -65,18 +65,18 @@ Each UR type defines a CBOR encoding. When a UR type is suitable for embedding w
 | `crypto-response` | 313 | Request to and Response from Airgapped Devices | [[BCR-2021-001]](bcr-2021-001-request.md) |
 | | 400–405 | Used as descriptor types in [`crypto-output`](bcr-2020-010-output-desc.md). | |
 | | 500–502 | Used as request types in [`crypto-request`](bcr-2021-001-request.md). | |
-| | 600 | Object Fingerprint | This document and as defined in each type |
+| | 600 | Object Digest | This document and as defined in each type |
 
-### Object Fingerprints
+### Object Digests
 
-It is sometimes desirable that a CBOR-encoded object refer to another object by its unique SHA-256 hash ("fingerprint".) The method of deriving a fingerprint for a particular type is unique to that type and MAY be defined by that type. The source data for the SHA-256 hash MUST only include data that uniquely and permanently identifies the object, and MUST NOT include data that may change over time, such as object's name or other incidental metadata. This document defines the method for fingerprinting `crypto-seed` below. [[BCR-2020-007]](bcr-2020-007-hdkey.md) describes the method for fingerprinting a `crypto-hdkey`.
+It is sometimes desirable that a CBOR-encoded object refer to another object by its unique SHA-256 digest. The method of deriving a digest for a particular type is unique to that type and MAY be defined by that type. The hash algorithm input for the SHA-256 hash (called the *digest source*) MUST only include data that uniquely and permanently identifies the object, and MUST NOT include data that may change over time, such as object's name or other incidental metadata. This document defines the method for producing the digest source for `crypto-seed` below. [[BCR-2020-007]](bcr-2020-007-hdkey.md) describes the method for producing the digest source for a `crypto-hdkey`. See [BCR-2021-002: Digests for Digital Objects](bcr-2021-002-digest.md) for more information.
 
-When UR types refer to other objects using a fingerprint, it MUST be tagged #6.600 and the byte string length MUST be exactly 32.
+When UR types refer to other objects using a digest, it MUST be tagged #6.600 and the byte string length MUST be exactly 32.
 
 #### CDDL
 
 ```
-fingerprint = #6.600(bytes .size 32)
+digest = #6.600(bytes .size 32)
 ```
 
 ### Byte String `bytes`
@@ -183,15 +183,17 @@ ur:crypto-seed/oeadgdstaslplabghydrpfmkbggufgludprfgmaotpiecffltnlpqdenos
 
 ![](bcr-2020-006/1.png)
 
-#### Seed Fingerprint
+#### Seed Digest Source Specification
 
-The fingerprint of a `crypto-seed` is the SHA-256 hash of the `payload` byte string. For the example test vector above, the payload is:
+When a unique identifier to a `crypto-seed` is needed, an extract of its fields, called the *digest source* is created and then used as input to the SHA-256 hashing algorithm. The resulting digest can be compared to digests produced the same way to determine whether a seed has a particular identity. See [BCR-2021-002: Digests for Digital Objects](bcr-2021-002-digest.md) for more information.
+
+The digest source of a `crypto-seed` is just the `payload` byte string. All other fields are ignored. For the example test vector above, the payload is:
 
 ```
 c7098580125e2ab0981253468b2dbc52
 ```
 
-So the fingerprint would be the SHA-256 hash of those bytes:
+So the digest would be the SHA-256 hash of those bytes:
 
 ```
 cc81869bcf9d7295098d03229f3e40fd1d2f42a7e6c4f6c4ec929fdf6eed2c6b
@@ -200,7 +202,7 @@ cc81869bcf9d7295098d03229f3e40fd1d2f42a7e6c4f6c4ec929fdf6eed2c6b
 When encoded as CBOR (diagnostic notiation):
 
 ```
-crypto-seed-fingerprint = 600(h'cc81869bcf9d7295098d03229f3e40fd1d2f42a7e6c4f6c4ec929fdf6eed2c6b')
+crypto-seed-digest = 600(h'cc81869bcf9d7295098d03229f3e40fd1d2f42a7e6c4f6c4ec929fdf6eed2c6b')
 ```
 
 Encoded as binary:
