@@ -123,7 +123,7 @@ body = 2
 {
 	1: 37(h'3B5414375E3A450B8FE1251CBC2B3FB5') ; transaction-id: 3B541437-5E3A-450B-8FE1-251CBC2B3FB5
 	2: 500({ ; body: request-seed
-		1: 600(h'cc81869bcf9d7295098d03229f3e40fd1d2f42a7e6c4f6c4ec929fdf6eed2c6b') ; seed-digest
+		1: 600(h'e824467caffeaf3bbc3e0ca095e660a9bad80ddb6a919433a37161908b9a3986') ; seed-digest
 	}
 }
 ```
@@ -142,19 +142,19 @@ A2                                      # map(2)
          01                             # unsigned(1) seed-digest
          D9 0258                        # tag(600) crypto-seed-digest
             58 20                       # bytes(32)
-               CC81869BCF9D7295098D03229F3E40FD1D2F42A7E6C4F6C4EC929FDF6EED2C6B
+               E824467CAFFEAF3BBC3E0CA095E660A9BAD80DDB6A919433A37161908B9A3986
 ```
 
 * As hex string:
 
 ```
-A201D825503B5414375E3A450B8FE1251CBC2B3FB502D901F4A101D902585820CC81869BCF9D7295098D03229F3E40FD1D2F42A7E6C4F6C4EC929FDF6EED2C6B
+A201D825503B5414375E3A450B8FE1251CBC2B3FB502D901F4A101D902585820E824467CAFFEAF3BBC3E0CA095E660A9BAD80DDB6A919433A37161908B9A3986
 ```
 
 * As a UR:
 
 ```
-ur:crypto-request/oeadtpdagdfrghbbemhyftfebdmyvydacerfdnfhreaotaadwkoyadtaaohdhdcxsflylnndtkntjpmdaslgaxcpnefmfzzccadlfwosvassynsswpmoneurjtwedwjehlcxbnhh
+ur:crypto-request/oeadtpdagdfrghbbemhyftfebdmyvydacerfdnfhreaotaadwkoyadtaaohdhdcxvsdkfgkepezepefrrffmbnnbmdvahnptrdtpbtuyimmemweootjshsmhlunyeslnkiledlmo
 ```
 
 #### Response with Requested Seed
