@@ -196,13 +196,13 @@ c7098580125e2ab0981253468b2dbc52
 So the digest would be the SHA-256 hash of those bytes:
 
 ```
-cc81869bcf9d7295098d03229f3e40fd1d2f42a7e6c4f6c4ec929fdf6eed2c6b
+e824467caffeaf3bbc3e0ca095e660a9bad80ddb6a919433a37161908b9a3986
 ```
 
 When encoded as CBOR (diagnostic notiation):
 
 ```
-crypto-seed-digest = 600(h'cc81869bcf9d7295098d03229f3e40fd1d2f42a7e6c4f6c4ec929fdf6eed2c6b')
+crypto-seed-digest = 600(h'e824467caffeaf3bbc3e0ca095e660a9bad80ddb6a919433a37161908b9a3986')
 ```
 
 Encoded as binary:
@@ -210,7 +210,7 @@ Encoded as binary:
 ```
 D9 0258                                 # tag(600)
    58 20                                # bytes(32)
-      CC81869BCF9D7295098D03229F3E40FD1D2F42A7E6C4F6C4EC929FDF6EED2C6B
+      E824467CAFFEAF3BBC3E0CA095E660A9BAD80DDB6A919433A37161908B9A3986
 ```
 
 ### BIP-39 Encoded Seed `crypto-bip39`
