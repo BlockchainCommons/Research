@@ -64,10 +64,12 @@ description = 3
 ; Returns the seed matching the requested fingerprint
 ;
 request-seed = #6.500({
-	seed-fingerprint: crypto-seed-fingerprint
+	seed-digest: crypto-seed-digest
 })
 
-seed-fingerprint = 1
+crypto-seed-digest = #6.600(bytes .size 32); The SHA-256 of the seed.
+
+seed-digest = 1
 
 ;
 ; Returns the HDKey matching the provided key path and use-info.
@@ -121,7 +123,7 @@ body = 2
 {
 	1: 37(h'3B5414375E3A450B8FE1251CBC2B3FB5') ; transaction-id: 3B541437-5E3A-450B-8FE1-251CBC2B3FB5
 	2: 500({ ; body: request-seed
-		1: 400(h'cc81869bcf9d7295098d03229f3e40fd1d2f42a7e6c4f6c4ec929fdf6eed2c6b') ; seed-fingerprint
+		1: 600(h'cc81869bcf9d7295098d03229f3e40fd1d2f42a7e6c4f6c4ec929fdf6eed2c6b') ; seed-digest
 	}
 }
 ```
@@ -137,8 +139,8 @@ A2                                      # map(2)
    02                                   # unsigned(2) body
    D9 01F4                              # tag(500) request-seed
       A1                                # map(1) 
-         01                             # unsigned(1) seed-fingerprint
-         D9 0190                        # tag(400) crypto-seed-fingerprint
+         01                             # unsigned(1) seed-digest
+         D9 0258                        # tag(600) crypto-seed-digest
             58 20                       # bytes(32)
                CC81869BCF9D7295098D03229F3E40FD1D2F42A7E6C4F6C4EC929FDF6EED2C6B
 ```
@@ -146,13 +148,13 @@ A2                                      # map(2)
 * As hex string:
 
 ```
-A201D825503B5414375E3A450B8FE1251CBC2B3FB502D901F4A101D901905820CC81869BCF9D7295098D03229F3E40FD1D2F42A7E6C4F6C4EC929FDF6EED2C6B
+A201D825503B5414375E3A450B8FE1251CBC2B3FB502D901F4A101D902585820CC81869BCF9D7295098D03229F3E40FD1D2F42A7E6C4F6C4EC929FDF6EED2C6B
 ```
 
 * As a UR:
 
 ```
-ur:crypto-request/oeadtpdagdfrghbbemhyftfebdmyvydacerfdnfhreaotaadwkoyadtaadmhhdcxsflylnndtkntjpmdaslgaxcpnefmfzzccadlfwosvassynsswpmoneurjtwedwjeahhhwlgy
+ur:crypto-request/oeadtpdagdfrghbbemhyftfebdmyvydacerfdnfhreaotaadwkoyadtaaohdhdcxsflylnndtkntjpmdaslgaxcpnefmfzzccadlfwosvassynsswpmoneurjtwedwjehlcxbnhh
 ```
 
 #### Response with Requested Seed
