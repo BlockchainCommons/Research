@@ -344,6 +344,13 @@ ur:crypto-psbt/hdosjojkidjyzmadaenyaoaeaeaeaohdvsknclrejnpebncnrnmnjojofejzeojlk
 
 [COSE] specifies CBOR-encoded structures for transmitting signed and/or encrypted objects. This document specifies UR types starting with `cose-` for the various COSE messages in their untagged form.
 
+### Implementations
+
+Typescript/Javascript Implementation: [ur-registry](https://github.com/KeystoneHQ/ur-registry)
+
+Java Implementation: [hummingbird](https://github.com/sparrowwallet/hummingbird)
+
+
 ### Normative References
 
 * [RFC3986] [Uniform Resource Identifier (URI): Generic Syntax](https://tools.ietf.org/html/rfc3986)
