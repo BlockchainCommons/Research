@@ -146,7 +146,7 @@ date = #6.1(int / float) ; epoch-based date/time
 
 #### Example/Test Vector
 
-* For a 16 byte (128-bit) seed generated on May 13, 2020, in the CBOR diagnostic notation:
+* For a 16 byte (128-bit) seed generated on May 11, 2020, in the CBOR diagnostic notation:
 
 ```
 {
