@@ -78,10 +78,10 @@ request-hdkey-derivation = #6.501({
     is-private: bool ; True if derived key is to be private, false if public
     keypath: crypto-keypath ; MUST include `source-fingerprint`
     ? use-info: crypto-coininfo ; If omitted defaults to `btc` and `mainnet`
-    ? is-derivable: bool ; If true (default) derived key MUST contain a chain code 
-                         ; and can therefore be used to derive further keys. 
-                         ; If false derived key MAY contain no chain code. 
-                         ; The generator of the response must decide whether to 
+    ? is-derivable: bool ; If true (default) derived key MUST contain a chain code
+                         ; and can therefore be used to derive further keys.
+                         ; If false derived key MAY contain no chain code.
+                         ; The generator of the response must decide whether to
                          ; authorize a request for a key with a chain code.
 })
 
@@ -96,6 +96,8 @@ is-derivable = 4
 request-psbt-signature = #6.502({
 	psbt: crypto-psbt
 })
+
+psbt = 1
 
 ```
 
@@ -138,7 +140,7 @@ A2                                      # map(2)
          3B5414375E3A450B8FE1251CBC2B3FB5
    02                                   # unsigned(2) body
    D9 01F4                              # tag(500) request-seed
-      A1                                # map(1) 
+      A1                                # map(1)
          01                             # unsigned(1) seed-digest
          D9 0258                        # tag(600) crypto-seed-digest
             58 20                       # bytes(32)
