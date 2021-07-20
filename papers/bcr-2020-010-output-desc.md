@@ -242,7 +242,8 @@ fffffffe ; child number
 			1: [ ; components
 				44, true, 0, true, 0, true ; 44'/0'/0'
 			],
-			2: 3545084735 ; origin-fingerprint
+			2: 3545084735, ; source-fingerprint
+			3: 4 ; depth
 		}),
 		7: 304({ ; children: crypto-keypath
 			1: [ ; components
@@ -262,13 +263,13 @@ D9 0193                                 # tag(403) public-key-hash
       A5                                # map(5)
          03                             # unsigned(3) key-data
          58 21                          # bytes(33)
-            02D2B36900396C9282FA14628566582F206A5DD0BCC8D5E892611806CAFB0301F0
+            02D2B36900396C9282FA14628566582F206A5DD0BCC8D5E892611806CAFB0301F0 
          04                             # unsigned(4) chain-code
          58 20                          # bytes(32)
-            637807030D55D01F9A0CB3A7839515D796BD07706386A6EDDF06CC29A65A0E29
+            637807030D55D01F9A0CB3A7839515D796BD07706386A6EDDF06CC29A65A0E29 
          06                             # unsigned(6) origin
          D9 0130                        # tag(304) crypto-keypath
-            A2                          # map(2)
+            A3                          # map(3)
                01                       # unsigned(1) components
                86                       # array(6)
                   18 2C                 # unsigned(44) child-index
@@ -277,8 +278,10 @@ D9 0193                                 # tag(403) public-key-hash
                   F5                    # primitive(21) is-hardened true
                   00                    # unsigned(0) child-index
                   F5                    # primitive(21) is-hardened true
-               02                       # unsigned(2) origin-fingerprint
-               1A D34DB33F              # unsigned(3545084735)
+               02                       # unsigned(2) source-fingerprint
+               1A D34DB33F              # unsigned(3545084735) 
+               03                       # unsigned(3) depth
+               04                       # unsigned(4)
          07                             # unsigned(7) children
          D9 0130                        # tag(304) crypto-keypath
             A1                          # map(1)
@@ -288,20 +291,20 @@ D9 0193                                 # tag(403) public-key-hash
                   F4                    # primitive(20) is-hardened false
                   80                    # array(0) child-index-wildcard
                   F4                    # primitive(20) is-hardened false
-         08                             # unsigned(8) parent-fingerprint
+         08                             # unsigned(8) parent-fingerprint 
          1A 78412E3A                    # unsigned(2017537594)
 ```
 
 * As a hex string:
 
 ```
-D90193D9012FA503582102D2B36900396C9282FA14628566582F206A5DD0BCC8D5E892611806CAFB0301F0045820637807030D55D01F9A0CB3A7839515D796BD07706386A6EDDF06CC29A65A0E2906D90130A20186182CF500F500F5021AD34DB33F07D90130A1018401F480F4081A78412E3A
+D90193D9012FA503582102D2B36900396C9282FA14628566582F206A5DD0BCC8D5E892611806CAFB0301F0045820637807030D55D01F9A0CB3A7839515D796BD07706386A6EDDF06CC29A65A0E2906D90130A30186182CF500F500F5021AD34DB33F030407D90130A1018401F480F4081A78412E3A
 ```
 
 * As a UR:
 
 ```
-ur:crypto-output/taadmutaaddlonaxhdclaotdqdinaeesjzmolfzsbbidlpiyhddlcximhltirfsptlvsmohscsamsgzoaxadwtaahdcxiaksataxbtgotictnybnqdoslsmdbztsmtryatjoialnolweuramsfdtolhtbadtamtaaddyoeadlncsdwykaeykaeykaocytegtqdfhattaaddyoyadlradwklawkaycyksfpdmftpyaaeelb
+ur:crypto-output/taadmutaaddlonaxhdclaotdqdinaeesjzmolfzsbbidlpiyhddlcximhltirfsptlvsmohscsamsgzoaxadwtaahdcxiaksataxbtgotictnybnqdoslsmdbztsmtryatjoialnolweuramsfdtolhtbadtamtaaddyotadlncsdwykaeykaeykaocytegtqdfhaxaaattaaddyoyadlradwklawkaycyksfpdmftkiiozsfd
 ```
 
 ### Example/Test Vector 5
