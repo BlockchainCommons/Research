@@ -55,7 +55,7 @@ When used embedded in another CBOR structure, this structure should be tagged #6
 ; a master key.
 ;
 ; `depth`, if present, represents the number of derivation steps in
-; the path of the associated key, even if not present in the `components` element
+; the path of the associated key, regardless of whether steps are present in the `components` element
 ; of this structure.
 
 crypto-keypath = {
