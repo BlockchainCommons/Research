@@ -59,7 +59,8 @@ In addition, this would promote standardization in derivation paths between diff
 This document specifies a native CBOR encoding for a number of standardized script types along with their common derivations to the account level. 
 This encoding can be shared as a Uniform Resource [UR] type `crypto-account` (CBOR tag #6.311) for transmitting account level data.
 
-In the encoding, each script type is represented in an output descriptor. 
+In the encoding, each script type is represented in an output descriptor, which describes the script type and its associated public key information.
+In the case of multisig script types, a partial output descriptor is used, which contains the public key information for a single cosigner.
 These output descriptors are then packaged into an array. 
 Note that in order to include the parent fingerprint for each ``crypto-hdkey``, the master fingerprint (which is common to all accounts) is included separately.
 The top level packaging is a map of the master fingerprint, and the array of output descriptors.
