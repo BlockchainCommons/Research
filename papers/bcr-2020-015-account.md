@@ -387,3 +387,5 @@ ur:crypto-account/oeadcyemrewytyaolttaadmutaaddloxaxhdclaxwmfmdeiamecsdsemgtvsjz
 * [OD-IN-CORE] [GitHub: Support for Output Descriptors in Bitcoin Core](https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md)
 * [BCR-2020-010] [UR Type Definition for Bitcoin Output Descriptors](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-010-output-desc.md)
 * [BIP45] [Structure for Deterministic P2SH Multisignature Wallets](https://github.com/bitcoin/bips/blob/master/bip-0045.mediawiki)
+* [BIP48] [Multi-Script Hierarchy for Multi-Sig Wallets](https://github.com/bitcoin/bips/blob/master/bip-0048.mediawiki)
+* [BIP86] [Key Derivation for Single Key P2TR Outputs](https://github.com/bitcoin/bips/blob/master/bip-0086.mediawiki)
