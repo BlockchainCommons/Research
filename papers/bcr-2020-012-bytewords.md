@@ -192,7 +192,7 @@ c7098580125e2ab0981253468b2dbc52
 can be concatenated with the four-byte checksum of the payload as described above:
 
 ```
-e824467c
+feac0dea
 ```
 
 to yield:
