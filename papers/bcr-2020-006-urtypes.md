@@ -63,7 +63,7 @@ Each UR type defines a CBOR encoding. When a UR type is suitable for embedding w
 | `crypto-account` | 311 | BIP44 Account | [[BCR-2020-015]](bcr-2020-015-account.md) |
 | `crypto-request` | 312 | Request to and Response from Airgapped Devices | [[BCR-2021-001]](bcr-2021-001-request.md) |
 | `crypto-response` | 313 | Request to and Response from Airgapped Devices | [[BCR-2021-001]](bcr-2021-001-request.md) |
-| | 400–405 | Used as descriptor types in [`crypto-output`](bcr-2020-010-output-desc.md). | |
+| | 400–409 | Used as descriptor types in [`crypto-output`](bcr-2020-010-output-desc.md). | |
 | | 500–502 | Used as request types in [`crypto-request`](bcr-2021-001-request.md). | |
 | | 600 | Object Digest | This document and as defined in each type |
 
