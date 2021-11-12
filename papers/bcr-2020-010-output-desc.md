@@ -6,7 +6,7 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: June 8, 2020<br/>
-Revised: June 25, 2020
+Revised: November 8, 2021
 
 ---
 
@@ -33,7 +33,8 @@ script_exp = (
   multisig /                  ; multi
   sorted-multisig /           ; sortedmulti
   address /                   ; addr
-  raw-script                  ; raw
+  raw-script /                ; raw
+  taproot                     ; tr
 )
 
 script-hash = #6.400(script_exp)
@@ -50,6 +51,7 @@ multisig = #6.406(multikey)
 sorted-multisig = #6.407(multi-key)
 address = #6.307(crypto-address)
 raw-script = #6.408(script-bytes)
+taproot = #6.409(script_exp)
 
 threshold = 1
 keys = 2
