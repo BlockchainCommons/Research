@@ -48,7 +48,7 @@ multikey = {
 	keys: [1* key_exp]
 }
 multisig = #6.406(multikey)
-sorted-multisig = #6.407(multi-key)
+sorted-multisig = #6.407(multikey)
 address = #6.307(crypto-address)
 raw-script = #6.408(script-bytes)
 taproot = #6.409(script_exp)
@@ -265,10 +265,10 @@ D9 0193                                 # tag(403) public-key-hash
       A5                                # map(5)
          03                             # unsigned(3) key-data
          58 21                          # bytes(33)
-            02D2B36900396C9282FA14628566582F206A5DD0BCC8D5E892611806CAFB0301F0 
+            02D2B36900396C9282FA14628566582F206A5DD0BCC8D5E892611806CAFB0301F0
          04                             # unsigned(4) chain-code
          58 20                          # bytes(32)
-            637807030D55D01F9A0CB3A7839515D796BD07706386A6EDDF06CC29A65A0E29 
+            637807030D55D01F9A0CB3A7839515D796BD07706386A6EDDF06CC29A65A0E29
          06                             # unsigned(6) origin
          D9 0130                        # tag(304) crypto-keypath
             A3                          # map(3)
@@ -281,7 +281,7 @@ D9 0193                                 # tag(403) public-key-hash
                   00                    # unsigned(0) child-index
                   F5                    # primitive(21) is-hardened true
                02                       # unsigned(2) source-fingerprint
-               1A D34DB33F              # unsigned(3545084735) 
+               1A D34DB33F              # unsigned(3545084735)
                03                       # unsigned(3) depth
                04                       # unsigned(4)
          07                             # unsigned(7) children
@@ -293,7 +293,7 @@ D9 0193                                 # tag(403) public-key-hash
                   F4                    # primitive(20) is-hardened false
                   80                    # array(0) child-index-wildcard
                   F4                    # primitive(20) is-hardened false
-         08                             # unsigned(8) parent-fingerprint 
+         08                             # unsigned(8) parent-fingerprint
          1A 78412E3A                    # unsigned(2017537594)
 ```
 
