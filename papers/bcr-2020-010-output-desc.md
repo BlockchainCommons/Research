@@ -18,7 +18,9 @@ This document specifies a native CBOR encoding for output descriptors, as well a
 
 ### CDDL
 
-The following specification is written in Concise Data Definition Language [CDDL]. The semantics and allowable nesting syntax is as described in [OD-IN-CORE].
+The following specification is written in Concise Data Definition Language [CDDL]. The semantics and allowable nesting syntax is as described in [OD-IN-CORE] except for the extension described below.
+
+This specification introduces an extension to [OD-IN-CORE], adding a new descriptor function `cosigner(KEY)`, which can be accepted by the `sh` and `wsh` script functions defined in [OD-IN-CORE]. The `cosigner(KEY)` is not used to derive ScriptPubKeys directly, but is used as a placeholder to be used when transmitting a single public key representing an account to be used by a party in a multisig transaction. This document defines a corresponding CBOR tag #6.410 to be used when encoding the `cosigner(KEY)` function.
 
 ```
 key_exp = #6.306(crypto-eckey) / #6.303(crypto-hdkey)
@@ -34,7 +36,8 @@ script_exp = (
   sorted-multisig /           ; sortedmulti
   address /                   ; addr
   raw-script /                ; raw
-  taproot                     ; tr
+  taproot /                   ; tr
+  cosigner                    ; cosigner
 )
 
 script-hash = #6.400(script_exp)
@@ -52,6 +55,7 @@ sorted-multisig = #6.407(multikey)
 address = #6.307(crypto-address)
 raw-script = #6.408(script-bytes)
 taproot = #6.409(script_exp)
+cosigner = #6.410(key_exp)
 
 threshold = 1
 keys = 2
