@@ -75,9 +75,9 @@ The following standardized script types may be present in a `crypto-account` enc
 | P2PKH | `m/44'/0'/0'` |
 | P2SH-P2WPKH | `m/49'/0'/0'` |
 | P2WPKH | `m/84'/0'/0'` |
-| Multisig P2SH | `m/45'` |
-| Multisig P2SH-P2WSH | `m/48'/0'/0'/1'` |
-| Multisig P2WSH | `m/48'/0'/0'/2'` |
+| Multisig cosigner P2SH | `m/45'` |
+| Multisig cosigner P2SH-P2WSH | `m/48'/0'/0'/1'` |
+| Multisig cosigner P2WSH | `m/48'/0'/0'/2'` |
 | Single key P2TR | `m/86'/0'/0'` |
 
 If the software creating the encoding does not support a particular script type it should be omitted.
