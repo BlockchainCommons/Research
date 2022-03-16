@@ -32,7 +32,9 @@ All types with the prefix `cbor-` are reserved for existing non-CBOR media types
 
 ### Tags for Embedding
 
-Each UR type defines a CBOR encoding. When a UR type is suitable for embedding within another CBOR structure, it SHOULD be tagged with a CBOR tag defined for this purpose. This document also lists the tag, if any, defined for the particular CBOR strucure contained in the UR encoding. The tags listed here may or may not currently be listed in IANA's registry of CBOR tags [CBOR-TAGS] but the intent is that they will be registered as they come into us.
+Each UR type defines a CBOR encoding. When a UR type is suitable for embedding within another CBOR structure, it MUST be tagged with a CBOR tag defined for this purpose. When a UR type is used as the top-level CBOR object encoded into a UR, the object MUST NOT be tagged, as this information is provided by the UR type component.
+
+This document also lists the tag, if any, defined for the particular CBOR strucure contained in the UR encoding. The tags listed here may or may not currently be listed in IANA's registry of CBOR tags [CBOR-TAGS] but the intent is that they will be registered as they come into us.
 
 ### Registry
 
@@ -49,6 +51,7 @@ Each UR type defines a CBOR encoding. When a UR type is suitable for embedding w
 | `cose-mac0` | 17 | COSE_Mac0: Authenticated message (implied recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) |
 | `cose-key` | | COSE_Key: An encryption key | [[COSE]](https://tools.ietf.org/html/rfc8152) |
 | `cose-keyset` | | COSE_KeySet: A set of encryption keys | [[COSE]](https://tools.ietf.org/html/rfc8152) |
+| `crypto-msg` | 48 | Secure message | [[BCR-2022-001]](bcr-2022-001-secure-message.md) |
 | `crypto-seed` | 300 | Cryptographic seed | This document |
 | `crypto-bip39` | 301 | BIP-39 encoded seed | This document |
 | `crypto-slip39` | 302 | One or more SLIP-39 shares | deprecated, removed |
