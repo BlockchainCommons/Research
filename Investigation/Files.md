@@ -45,7 +45,7 @@ If SSKR shares are instead exported to individual files, per share, the format i
 * **Group #** — Number of Share Group (usually "group1").
 * **Share #** — Share number "of" total shares in group.
 * **Checksum Words** — Bytewords for the final four words, which are checksums in the SSKR share. Space separated.
-* * **Type** — The type of object, in this case "SSKR" for the shares of a Seed. 
+* **Type** — The type of object, in this case "SSKR" for the shares of a Seed. 
 * **Format** — Output format, including ""ByteWords" or "UR". Note that URs can be encoded as plain text (with a ".txt" suffix) or a QR code (with a ".jpg" suffix.
 
 **Examples:**
