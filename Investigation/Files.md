@@ -67,7 +67,7 @@ The general format for a key file name is:
 
 * **Seed ID** — The first 7 digits of the SHA256 digest of the object.
 * **Key ID** — The first 7 digits of the SHA256 digest of the object.
-* **HDKey from Seed Name** — The prefix "HDKey from" prepended to randomly created or user-selected name for object. Space separated.
+* **HDKey from Seed Name** — The prefix "HDKey from" prepended to randomly created or user-selected name for seed. Space separated.
 * **Request or Response** (optional) — Whether the file is a `ur:crypto-request` or `ur:crypto-response`.
 * **Type** — The type of object, in this case "PrivateHDKey" or "PublicHDKey".
 * **Derivation Path** — [Master Fingerprint (optionally) _ Path] _ (optionally) Fingerprint
@@ -114,7 +114,7 @@ The general format for an address file name is:
 
 * **Seed ID** — The first 7 digits of the SHA256 digest of the object.
 * **Key ID** — The first 7 digits of the SHA256 digest of the object.
-* **Address from Seed Name** — The prefix "Address from" prepended to randomly created or user-selected name for object. Space separated.
+* **Address from Seed Name** — The prefix "Address from" prepended to randomly created or user-selected name for seed. Space separated.
 * **Type** — The type of object, in this case "Address".
 * **Derivation Path** — [Master Fingerprint (optionally) _ Path] _ (optionally) Fingerprint
    * **Master Fingerprint** — The Hash 160 of the master public key.
@@ -137,10 +137,49 @@ ffa11a8-dc0c061-Address from Yinmn Blue Puff-Address-[604b93f2_48h_0h_0h_2h]_9ff
 ffa11a8-dc0c061-Address from Yinmn Blue Puff-Address-[604b93f2_48h_0h_0h_2h]_9ff1237f-Name.txt
 ffa11a8-dc0c061-Address from Yinmn Blue Puff-Address-[604b93f2_48h_0h_0h_2h]_9ff1237f.txt
 ```
+### Output Data Files
+
+Output data files contain a descriptor for a specific key derivation. They are derived from the master key. The general format for output file names is:
+
+`Seed Id - Key ID - HDKey from Seed Name - Type - [Master Fingprint _ Descriptor Type _ Account # _ Output Type _ Descriptor Checksum] - Format.filetype`
+
+* **Seed ID** — The first 7 digits of the SHA256 digest of the object.
+* **Key ID** — The first 7 digits of the SHA256 digest of the object.
+* **HDKey from Seed Name** — The prefix "HDKey from" prepended to randomly created or user-selected name for seed. Space separated.
+* **Type** — The type of object, in this case "Output".
+* **Master Fingerprint** — The Hash 160 of the master public key.
+* **Account #** — The number of the account.
+* **Output Type — A textual descriptor of the derivation path, currently: "legacy", "legacymultisig", "nested", "nestedmultisig", "segwit", "segwitmultisig", or "taproot".
+* **Descriptor Checksum** — A [checksum for the descriptor](https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md#checksums), as can also be described by `bitcoin-cli getdescriptorinfo`.
+* **Format** — Output format, which is "UR". Formatted as textual UR (in a .txt file) or as a QR (in a .png file).
+
+**Examples:**
+```
+ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Output-[604b93f2_legacy_0_frs22d0f]-UR.txt
+ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Output-[604b93f2_legacymultisig_0_vwnxudyw]-UR.txt
+ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Output-[604b93f2_nested_0_cmyxclfa]-UR.txt
+ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Output-[604b93f2_nestedmultisig_0_ycs6cu6j]-UR.txt
+ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Output-[604b93f2_segwit_0_ncwysjuk]-UR.png
+ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Output-[604b93f2_segwit_0_ncwysjuk]-UR.txt
+ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Output-[604b93f2_segwitmultisig_0_wmsu2266]-UR.txt
+ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Output-[604b93f2_taproot_0_nay7kr6q]-UR.txt
+```
 
 ### Account Data Files
 
-### Output Data Files
+Account data files contain several popular output descriptors. The general format for account file names is:
 
+`Seed Id - Key ID - HDKey from Seed Name - Type - Account # - Format.filetype`
 
+* **Seed ID** — The first 7 digits of the SHA256 digest of the object.
+* **Key ID** — The first 7 digits of the SHA256 digest of the object.
+* **HDKey from Seed Name** — The prefix "HDKey from" prepended to randomly created or user-selected name for seed. Space separated.
+* **Type** — The type of object, in this case "Account".
+* **Account #** — The number of the account.
+* **Format** — Output format, which is "UR". Formatted as textual UR inas a .txt file) or as a QR (in a .png file).
+
+**Examples:**
+```
+ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Account-0-UR.txt
+ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Account-1-UR.txt
 ```
