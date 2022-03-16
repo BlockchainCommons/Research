@@ -17,6 +17,10 @@ This specification defines a type `crypto-msg` (CBOR tag `#6.48`).
 
 ⚠️ WARNING: As of the date of this publication the tag `#6.48` is unallocated in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml). Blockchain Commons is applying for this number to be assigned to the CBOR specification herein, but because it is in a range that is open to other applications, it may change. So for now, the `#6.48` tag MUST be understood as provisional and subject to change by all implementors.
 
+### Related Work
+
+The [COSE specification](https://datatracker.ietf.org/doc/draft-ietf-cose-rfc8152bis-struct/) specifies a highly general structure for the encryption and signing of messages in CBOR. There is also a need for an alternative that is simpler, more specific, more compact, and more opinionated about best practices, while still allowing for extensibility and able to serve as a component of larger structures.
+
 ## The ChaCha20-Poly1305-IETF Cipher
 
 The [IETF variant of the ChaCha20-Poly1305](https://datatracker.ietf.org/doc/html/rfc8439) construction can encrypt a practically unlimited number of messages, but individual messages cannot exceed 64*(2^32)-64 bytes (approximatively 256 GiB).
@@ -117,3 +121,7 @@ NOTE: URs do not use CBOR tags for the top-level object. The type of the object 
 ```
 ur:crypto-msg/lpadgsataeaeaefzfpfwfxfyfefgflgdcyvybdhkgwasvoimkbmhdmsbtihnammegsgdgygmgurtsesasrssskswsthdjptecylgeeiemnhnuykglnperfguwskbsaoxpmwegydtjtayzeptvoreosenwyidtbfsrnoxhylkptiobglfzszointnmojplucyjsuebknnambddtahtbonrpkbsnfrenmoutrylbdpktlulkmkaxplvldeascwhdzsqddkvezstbkpmwgolplalufdehtsrffhwkuewtmngrknntvwkotdihlntoswgrhscmpmdpasgm
 ```
+
+### Security Considerations
+
+The security considerations for this type are the same as that for the cryptographic construction defined in [RFC-8439](https://datatracker.ietf.org/doc/html/rfc8439).
