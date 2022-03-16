@@ -1,8 +1,30 @@
 # Crypto Files
 The following is a discussion of files used with cryptography, covering both file names and file formats. It's not intended as a specification, but instead a survey of current methodologies. We are seeking discussion of this and other elements related to crypto-files, to create a community specification at some point in the future.
+
 ## File Names
 
-### Data Files
+### Colcard: Backup Files
+
+[pending]
+
+### Passport: Backup Files
+
+[Passport](https://foundationdevices.com/passport/) Backup Files have file name format of:
+
+`Master Fingerprint - backup - Backup #.7z`
+
+* **Master Fingerprint** — The Hash 160 of the master public key.
+* **Backup #** — The incrementing number of the backup.
+
+**Example:**
+```
+604b93f2-backup-1.7z
+```
+
+Passport Backup Files uncompress to:
+``passport-backup.txt``
+
+### Gordian Seed Tool: Data Files
 
 [Gordian Seed Tool](https://github.com/BlockchainCommons/GordianSeedTool-iOS) outputs a variety of individual text and image data. They follow a consistent name scheme to allow easy sorting and lookup of data.
 
@@ -183,3 +205,54 @@ Account data files contain several popular output descriptors. The general forma
 ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Account-0-UR.txt
 ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Account-1-UR.txt
 ```
+
+## Encryption
+
+### Coldcard: Backup Files
+
+[pending]
+
+### Passport: Backup Files
+
+Passport backup files are 7zipped and encrypted with six space-separated Bytewords.
+
+## Contents
+
+### Coldcard: Backup Files
+
+[pending]
+
+### Passport: Backup Files
+
+Passport backup files contains a variety of key-value information in a plain text format:
+```
+# Passport backup file! DO NOT CHANGE.
+
+# Private Key Details: Bitcoin
+mnemonic = "fly mule excess resource treat plunge nose soda reflect adult ramp planet"
+chain = "BTC"
+xfp = "604B93F2"
+xprv = "xprv9s21ZrQH143K4Mnjc7E8rpSMf8JB1XWmojYf7Ndk6zcNSbUYBsvTqJcdzTok1XwYcgytn5CRxtwhHu93NNXNQwGUbBqL3AHHZZrtKpEvmww"
+xpub = "xpub661MyMwAqRbcGqsCi8m9DxP6DA8fQzEdAxUFum3MfL9MKPogjREiP6w7qjaeHuDUGuVmgCFf5iMntcyVoHsEFMKoxo7UxMpmafjeQofQezj"
+raw_secret = "8059f2293a5bce7d4de59e71b4207ac5d2"
+
+# Firmware Version (informational):
+fw_version = "1.0.8"
+fw_date = "December 29, 2021"
+
+# User Preferences:
+setting.backup_num = 4
+setting.backup_quiz = true
+setting.chain = "BTC"
+setting.next_addrs = {"0/None": 0, "0/7": 1}
+setting.terms_ok = 1
+setting.validated_ok = 1
+setting.wallet_prog = {"deriv_path": "m/84'/0'/0'", "export_mode": "qr", "acct_info": [{"acct": 0, "deriv": "m/84'/0'/0'", "fmt": 7}], "sig_type": "single-sig", "exported": true, "addr_type": 7, "verified": false, "multisig_id": null, "acct_num": 0, "next_addr": 0, "sw_wallet": "BlueWallet"}
+setting.words = true
+
+# EOF
+```
+
+### Gordian Seed Tool: Data Files
+
+Gordian Seed Tool contents are simple datums with data Type and Format specified in the filename. UR format content is in addition self-identifying, whether saved as a `ur:` text string or a QR code.
