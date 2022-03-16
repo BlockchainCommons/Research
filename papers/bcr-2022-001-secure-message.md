@@ -13,9 +13,9 @@ Date: Mar 15, 2022
 
 This paper addresses the need for a way to encrypt messages using best practices and encode them using [CBOR](https://cbor.io/) and [URs](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md). It specifies a general "secure message" structure and a specific encoding based on ChaCha20-Poly1305 Authenticated Encryption as specified in [RFC-8439](https://datatracker.ietf.org/doc/html/rfc8439).
 
-This specification defines a type `crypto-msg` (CBOR tag #6.48).
+This specification defines a type `crypto-msg` (CBOR tag `#6.48`).
 
-⚠️ WARNING: As of the date of this publication the tag #6.48 is unallocated in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml). Blockchain Commons is applying for this number to be assigned to the CBOR specification herein, but because it is in a range that is open to other applications, it may change. So for now, the #6.48 tag MUST be understood as provisional and subject to change by all implementors.
+⚠️ WARNING: As of the date of this publication the tag `#6.48` is unallocated in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml). Blockchain Commons is applying for this number to be assigned to the CBOR specification herein, but because it is in a range that is open to other applications, it may change. So for now, the `#6.48` tag MUST be understood as provisional and subject to change by all implementors.
 
 ## The ChaCha20-Poly1305-IETF Cipher
 
@@ -34,7 +34,7 @@ To encrypt a message, the sender provides a 32-byte symmetric key and a 12-byte 
 
 The following specification is written in [Concise Data Definition Language (CDDL)](https://tools.ietf.org/html/rfc8610).
 
-When used embedded in another CBOR structure, this structure MUST be tagged #6.48 (SEE WARNING ABOVE). When used as the top-level object of a UR, it MUST NOT be tagged.
+When used embedded in another CBOR structure, this structure MUST be tagged `#6.48` (SEE WARNING ABOVE). When used as the top-level object of a UR, it MUST NOT be tagged.
 
 The general format for a Secure Message is a CBOR array. The first element is always an integer that specifies the semantics of the remaining elements. Currently this specification only defines the semantics of the type integer `1` as being followed by fields that implement the IETF variant of the ChaCha20-Poly1305 construction.
 
@@ -64,7 +64,7 @@ nonce: `070000004041424344454647`
 
 ciphertext: `d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b6116`
 
-* In the CBOR diagnostic notation, with #6.48 tag:
+* In the CBOR diagnostic notation, with `#6.48` tag:
 
 ```
 48( # crypto-msg
