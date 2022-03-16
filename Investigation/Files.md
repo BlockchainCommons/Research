@@ -107,20 +107,40 @@ ffa11a8-dc0c061-HDKey from Yinmn Blue Puff-PrivateHDKey-[604b93f2_48h_0h_0h_2h]_
 ffa11a8-dc0c061-HDKey from Yinmn Blue Puff-PrivateHDKey-[604b93f2_48h_0h_0h_2h]_9ff1237f-Lifehash.png
 ```
 
-Derivation-Request-PublicHDKey-[48h_0h_0h_2h]-UR.txt
+### Address Data Files
 
-ffa11a8-5db8946-Address from Yinmn Blue Acid Exam-Address-[604b93f2]-Lifehash.png
-ffa11a8-5db8946-Address from Yinmn Blue Acid Exam-Address-[604b93f2]-Name.txt
-ffa11a8-5db8946-Address from Yinmn Blue Acid Exam-Address-[604b93f2].png
+The general format for an address file name is:
+`Seed Id - Key ID - Address from Seed Name - Type - [Derivation Path] - (optionally)Format.filetype`
 
-Notes from Wolf:
+* **Seed ID** — The first 7 digits of the SHA256 digest of the object.
+* **Key ID** — The first 7 digits of the SHA256 digest of the object.
+* **Address from Seed Name** — The prefix "Address from" prepended to randomly created or user-selected name for object. Space separated.
+* **Type** — The type of object, in this case "Address".
+* **Derivation Path** — [Master Fingerprint (optionally) _ Path] _ (optionally) Fingerprint
+   * **Master Fingerprint** — The Hash 160 of the master public key.
+   * **Path** — The derivation path, using "h" for hardened. Underscore separated. Not used for Master Key.
+   * **Fingerprint** — The Hash 160 of the derived key. Not used for Master Key.
+* **Format** — Output format, including "Lifehash" or "Name". If there is no Format, this is a plain address, either formatted in hex (as a .txt file) or in a QR (as a .png file).
+
+**Examples of Master Key Addresses:**
 ```
-An Address derived from the seed:
-1c907cb-07bc595-Address from TestSeed-Address-[94b193eb_48h_0h_0h_2h]-3fb97f42.txt
-(seedID-keyID-name-type-[masterFingerprint_path]-fingerprint)
-A ur:crypto-response returning the same seed:
-1c907cb-TestSeed-Response-Seed-UR.txt
-(seedID-name-type-format)
-A printed PDF of an exported key:
-1c907cb-c04e2df-HDKey from TestSeed-PrivateHDKey-[94b193eb_84h_0h_0h]-f168af3e.pdf
+ffa11a8-5db8946-Address from Yinmn Blue Puff-Address-[604b93f2]-Lifehash.png
+ffa11a8-5db8946-Address from Yinmn Blue Puff-Address-[604b93f2]-Name.txt
+ffa11a8-5db8946-Address from Yinmn Blue Puff-Address-[604b93f2].png
+ffa11a8-5db8946-Address from Yinmn Blue Puff-Address-[604b93f2].txt
+```
+
+**Examples of Other Addresses:**
+```
+ffa11a8-8183ac1-Address from Yinmn Blue Puff-Address-[604b93f2_84h_0h_0h]_fac272cd.txt
+ffa11a8-dc0c061-Address from Yinmn Blue Puff-Address-[604b93f2_48h_0h_0h_2h]_9ff1237f-Lifehash.png
+ffa11a8-dc0c061-Address from Yinmn Blue Puff-Address-[604b93f2_48h_0h_0h_2h]_9ff1237f-Name.txt
+ffa11a8-dc0c061-Address from Yinmn Blue Puff-Address-[604b93f2_48h_0h_0h_2h]_9ff1237f.txt
+```
+
+### Account Data Files
+
+### Output Data Files
+
+
 ```
