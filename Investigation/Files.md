@@ -1,5 +1,5 @@
 # Crypto Files
-The following is a discussion of files used with cryptography, covering both file names and file formats. It's not intended as a specification, but instead a survey of current methodologies. We are seeking discussion of this and other elements related to crypto-files, to create a community specification at some point in the future.
+The following is a discussion of files used with cryptography, covering file names, encryption security, and file formats. It's not intended as a specification, but instead a survey of current methodologies. We are seeking discussion of this and other elements related to crypto-files, to create a community specification at some point in the future.
 
 ## File Names
 
@@ -11,7 +11,7 @@ The following is a discussion of files used with cryptography, covering both fil
 
 [Passport](https://foundationdevices.com/passport/) Backup Files have file name format of:
 
-`Master Fingerprint - backup - Backup #.7z`
+`Master Fingerprint - "backup" - Backup #.7z`
 
 * **Master Fingerprint** — The Hash 160 of the master public key.
 * **Backup #** — The incrementing number of the backup.
@@ -33,7 +33,7 @@ The general format for a seed file name is:
 
 `Seed Id - Seed Name - (optionally) Request or Response - Type - Format.filetype`
 
-* **Seed ID** — The first 7 digits of the SHA256 digest of the object.
+* **Seed ID** — The first 7 digits of the SHA256 digest of the seed.
 * **Seed Name** — Randomly created or user-selected name for object. Space separated.
 * **Request or Response** (optional) — Whether the file is a `ur:crypto-request` or `ur:crypto-response`.
 * **Type** — The type of object, in this case, "Seed" for a Seed or "SSKR" for the shares of a Seed. 
@@ -59,14 +59,14 @@ ffa11a8-Yinmn Blue Acid Exam-SSKR-UR.txt
 
 ### SSKR Share Files
 
-If SSKR shares are instead exported to individual files, per share, the format is:
+See above for SSKRs for a seed exported as a group. If SSKR shares are instead exported to individual files, per share, the format is:
 
 `Seed Id - [Group # _ Share #] - Checksum Words - Type - Format.filetype`
 
-* **Seed ID** — The first 7 digits of the SHA256 digest of the object.
-* **Group #** — Number of Share Group (usually "group1").
+* **Seed ID** — The first 7 digits of the SHA256 digest of the seed.
+* **Group #** — The "group" plus the number of the share group (usually "group1").
 * **Share #** — Share number "of" total shares in group.
-* **Checksum Words** — Bytewords for the final four words, which are checksums in the SSKR share. Space separated.
+* **Checksum Words** — Bytewords of the final four words in the share, which are checksums. Space separated.
 * **Type** — The type of object, in this case "SSKR" for the shares of a Seed. 
 * **Format** — Output format, including ""ByteWords" or "UR". Note that URs can be encoded as plain text (with a ".txt" suffix) or a QR code (with a ".jpg" suffix.
 
@@ -87,8 +87,8 @@ ffa11a8-[group1_3of3]-ZERO CATS IRIS ROCK-SSKR-UR.txt
 The general format for a key file name is:
 `Seed Id - Key ID - HDKey from Seed Name - (optionally) Request or Response - Type - [Derivation Path] - Format.filetype`
 
-* **Seed ID** — The first 7 digits of the SHA256 digest of the object.
-* **Key ID** — The first 7 digits of the SHA256 digest of the object.
+* **Seed ID** — The first 7 digits of the SHA256 digest of the seed.
+* **Key ID** — The first 7 digits of the SHA256 digest of the key.
 * **HDKey from Seed Name** — The prefix "HDKey from" prepended to randomly created or user-selected name for seed. Space separated.
 * **Request or Response** (optional) — Whether the file is a `ur:crypto-request` or `ur:crypto-response`.
 * **Type** — The type of object, in this case "PrivateHDKey" or "PublicHDKey".
@@ -96,7 +96,7 @@ The general format for a key file name is:
    * **Master Fingerprint** — The Hash 160 of the master public key.
    * **Path** — The derivation path, using "h" for hardened. Underscore separated. Not used for Master Key.
    * **Fingerprint** — The Hash 160 of the derived key. Not used for Master Key.
-* **Format** — Output format, including "Base58", "Detail", "Identifier-Hex", "Lifehash", "Name" "UR". Note that URs can be encoded as plain text (with a ".txt" suffix) or a QR code (with a ".jpg" suffix). 
+* **Format** — Output format, including "Base58", "Detail", "Identifier-Hex", "Lifehash", "Name", or "UR". Note that URs can be encoded as plain text (with a ".txt" suffix) or a QR code (with a ".jpg" suffix). 
 
 **Examples of Master Keys:**
 ```
@@ -134,8 +134,8 @@ ffa11a8-dc0c061-HDKey from Yinmn Blue Puff-PrivateHDKey-[604b93f2_48h_0h_0h_2h]_
 The general format for an address file name is:
 `Seed Id - Key ID - Address from Seed Name - Type - [Derivation Path] - (optionally)Format.filetype`
 
-* **Seed ID** — The first 7 digits of the SHA256 digest of the object.
-* **Key ID** — The first 7 digits of the SHA256 digest of the object.
+* **Seed ID** — The first 7 digits of the SHA256 digest of the seed.
+* **Key ID** — The first 7 digits of the SHA256 digest of the key.
 * **Address from Seed Name** — The prefix "Address from" prepended to randomly created or user-selected name for seed. Space separated.
 * **Type** — The type of object, in this case "Address".
 * **Derivation Path** — [Master Fingerprint (optionally) _ Path] _ (optionally) Fingerprint
@@ -165,14 +165,14 @@ Output data files contain a descriptor for a specific key derivation. They are d
 
 `Seed Id - Key ID - HDKey from Seed Name - Type - [Master Fingprint _ Descriptor Type _ Account # _ Output Type _ Descriptor Checksum] - Format.filetype`
 
-* **Seed ID** — The first 7 digits of the SHA256 digest of the object.
-* **Key ID** — The first 7 digits of the SHA256 digest of the object.
+* **Seed ID** — The first 7 digits of the SHA256 digest of the seed.
+* **Key ID** — The first 7 digits of the SHA256 digest of the key.
 * **HDKey from Seed Name** — The prefix "HDKey from" prepended to randomly created or user-selected name for seed. Space separated.
 * **Type** — The type of object, in this case "Output".
 * **Master Fingerprint** — The Hash 160 of the master public key.
 * **Account #** — The number of the account.
-* **Output Type — A textual descriptor of the derivation path, currently: "legacy", "legacymultisig", "nested", "nestedmultisig", "segwit", "segwitmultisig", or "taproot".
-* **Descriptor Checksum** — A [checksum for the descriptor](https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md#checksums), as can also be described by `bitcoin-cli getdescriptorinfo`.
+* **Output Type** — A textual descriptor of the derivation path, currently: "legacy", "legacymultisig", "nested", "nestedmultisig", "segwit", "segwitmultisig", or "taproot".
+* **Descriptor Checksum** — A [checksum for the descriptor](https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md#checksums), as can also be retrieved by `bitcoin-cli getdescriptorinfo`.
 * **Format** — Output format, which is "UR". Formatted as textual UR (in a .txt file) or as a QR (in a .png file).
 
 **Examples:**
@@ -189,23 +189,22 @@ ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Output-[604b93f2_taproot_0_nay7kr6q]-
 
 ### Account Data Files
 
-Account data files contain several popular output descriptors. The general format for account file names is:
+Account data files each contain several popular output descriptors. The general format for account file names is:
 
 `Seed Id - Key ID - HDKey from Seed Name - Type - Account # - Format.filetype`
 
-* **Seed ID** — The first 7 digits of the SHA256 digest of the object.
-* **Key ID** — The first 7 digits of the SHA256 digest of the object.
+* **Seed ID** — The first 7 digits of the SHA256 digest of the seed.
+* **Key ID** — The first 7 digits of the SHA256 digest of the key.
 * **HDKey from Seed Name** — The prefix "HDKey from" prepended to randomly created or user-selected name for seed. Space separated.
 * **Type** — The type of object, in this case "Account".
 * **Account #** — The number of the account.
-* **Format** — Output format, which is "UR". Formatted as textual UR inas a .txt file) or as a QR (in a .png file).
+* **Format** — Output format, which is "UR". Formatted as textual UR (in a .txt file) or as a QR (in a .png file).
 
 **Examples:**
 ```
 ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Account-0-UR.txt
 ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Account-1-UR.txt
 ```
-
 ## Encryption
 
 ### Coldcard: Backup Files
@@ -215,6 +214,10 @@ ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Account-1-UR.txt
 ### Passport: Backup Files
 
 Passport backup files are 7zipped and encrypted with six space-separated Bytewords.
+
+### Gordian Seed Tool: Data Files
+
+Gordian Seed Tool files are not encrypted.
 
 ## Contents
 
