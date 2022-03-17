@@ -3,9 +3,17 @@ The following is a discussion of files used with cryptography, covering file nam
 
 ## File Names
 
-### Colcard: Backup Files
+### Coldcard: Backup Files
 
-[pending]
+[Coldcard](https://coldcard.com/) Backup Files have file name format of:
+
+```
+backup.7z
+```
+Coldcard Backup Files uncompress to:
+```
+ckcc-backup.txt
+```
 
 ### Passport: Backup Files
 
@@ -209,7 +217,8 @@ ffa11a8-5db8946-HDKey from Yinmn Blue Puff-Account-1-UR.txt
 
 ### Coldcard: Backup Files
 
-[pending]
+Coldcard backup files are 7zipped and encrypted with twelve space-separated BIP-39 words.
+
 
 ### Passport: Backup Files
 
@@ -223,11 +232,36 @@ Gordian Seed Tool files are not encrypted.
 
 ### Coldcard: Backup Files
 
-[pending]
+Coldcard backup files contain a variety of key-value information in a plain text format:
+```
+# Coldcard backup file! DO NOT CHANGE.
+
+# Private key details: Bitcoin
+mnemonic = "fly mule excess resource treat plunge nose soda reflect adult ramp planet"
+chain = "BTC"
+xprv = "xprv9s21ZrQH143K4Mnjc7E8rpSMf8JB1XWmojYf7Ndk6zcNSbUYBsvTqJcdzTok1XwYcgytn5CRxtwhHu93NNXNQwGUbBqL3AHHZZrtKpEvmww"
+xpub = "xpub661MyMwAqRbcGqsCi8m9DxP6DA8fQzEdAxUFum3MfL9MKPogjREiP6w7qjaeHuDUGuVmgCFf5iMntcyVoHsEFMKoxo7UxMpmafjeQofQezj"
+raw_secret = "8059f2293a5bce7d4de59e71b4207ac5d2"
+long_secret = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+
+# Firmware version (informational)
+fw_date = "2020-08-06"
+fw_version = "3.1.9"
+fw_timestamp = "200806172219"
+serial = "205C33613252"
+
+# User preferences
+setting.chain = "BTC"
+setting.tested = true
+setting.terms_ok = 1
+setting.words = true
+
+# EOF
+```
 
 ### Passport: Backup Files
 
-Passport backup files contains a variety of key-value information in a plain text format:
+Passport backup files contain a variety of key-value information in a plain text format:
 ```
 # Passport backup file! DO NOT CHANGE.
 
