@@ -1,6 +1,14 @@
 # Crypto Files
 The following is a discussion of files used with cryptography, covering file names, encryption security, and file formats. It's not intended as a specification, but instead a survey of current methodologies. We are seeking discussion of this and other elements related to crypto-files, to create a community specification at some point in the future.
 
+**Table of Contents:**
+
+* [File Names](https://github.com/BlockchainCommons/Research/blob/master/Investigation/Files.md#file-names)
+* [Encryption](https://github.com/BlockchainCommons/Research/blob/master/Investigation/Files.md#encryption)
+* [Contents](https://github.com/BlockchainCommons/Research/blob/master/Investigation/Files.md#contents)
+
+_Currently Documented:_ Coldcard, Passport, Gordian Seed Tool
+
 ## File Names
 
 ### Coldcard: Backup Files
