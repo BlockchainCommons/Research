@@ -40,15 +40,15 @@ The following specification is written in [Concise Data Definition Language (CDD
 
 When used embedded in another CBOR structure, this structure MUST be tagged `#6.48` (SEE WARNING ABOVE). When used as the top-level object of a UR, it MUST NOT be tagged.
 
-The general format for a Secure Message is a CBOR array.
+The general format for a Secure Message is a CBOR array with either 3 or 4 elements. The `aad` element is optional, but if it is present it MUST NOT be empty.
 
 ```
-crypto-msg = [ ciphertext, aad, nonce, auth ];
+crypto-msg = [ ciphertext, nonce, auth, ? aad ];
 
 ciphertext: bytes
-aad: bytes
 nonce: bytes .size 12
 auth: bytes .size 16
+aad: bytes
 ```
 
 ### Example/Test Vector
@@ -76,9 +76,9 @@ ciphertext: `d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63db
         3dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b36
         92ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc
         3ff4def08e4b7a9de576d26586cec64b6116', # ciphertext
-      h'50515253c0c1c2c3c4c5c6c7', # aad
       h'070000004041424344454647', # nonce
-      h'1ae10b594f09e26a7e902ecbd0600691' # auth
+      h'1ae10b594f09e26a7e902ecbd0600691', # auth
+      h'50515253c0c1c2c3c4c5c6c7' # aad
    ]
 )
 ```
@@ -90,18 +90,18 @@ d8 30                                    # tag(48) crypto-msg
    84                                    # array(4)
       5872                               # bytes(114) ciphertext
          d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b6116
-      4c                                 # bytes(12) aad
-         50515253c0c1c2c3c4c5c6c7
       4c                                 # bytes(12) nonce
          070000004041424344454647
       50                                 # bytes(16) auth
          1ae10b594f09e26a7e902ecbd0600691
+      4c                                 # bytes(12) aad
+         50515253c0c1c2c3c4c5c6c7
 ```
 
 * As a hex string:
 
 ```
-d830845872d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b61164c50515253c0c1c2c3c4c5c6c74c070000004041424344454647501ae10b594f09e26a7e902ecbd0600691
+d830845872d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b61164c070000004041424344454647501ae10b594f09e26a7e902ecbd06006914c50515253c0c1c2c3c4c5c6c7
 ```
 
 * The structure above, as a UR:
@@ -109,7 +109,7 @@ d830845872d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea4
 NOTE: URs do not use CBOR tags for the top-level object. The type of the object is provided by the type field of the UR schema, in this case `crypto-msg`:
 
 ```
-ur:crypto-msg/lrhdjptecylgeeiemnhnuykglnperfguwskbsaoxpmwegydtjtayzeptvoreosenwyidtbfsrnoxhylkptiobglfzszointnmojplucyjsuebknnambddtahtbonrpkbsnfrenmoutrylbdpktlulkmkaxplvldeascwhdzsqddkvezstbkpmwgolplalufdehtsrffhwkuewtmngrknntvwkotdihlntoswgrhscmgsgdgygmgurtsesasrssskswstgsataeaeaefzfpfwfxfyfefgflgdcyvybdhkgwasvoimkbmhdmsbtihnammeecgwksyl
+ur:crypto-msg/lrhdjptecylgeeiemnhnuykglnperfguwskbsaoxpmwegydtjtayzeptvoreosenwyidtbfsrnoxhylkptiobglfzszointnmojplucyjsuebknnambddtahtbonrpkbsnfrenmoutrylbdpktlulkmkaxplvldeascwhdzsqddkvezstbkpmwgolplalufdehtsrffhwkuewtmngrknntvwkotdihlntoswgrhscmgsataeaeaefzfpfwfxfyfefgflgdcyvybdhkgwasvoimkbmhdmsbtihnammegsgdgygmgurtsesasrssskswstcfnbpdct
 ```
 
 ### Security Considerations
