@@ -40,12 +40,11 @@ The following specification is written in [Concise Data Definition Language (CDD
 
 When used embedded in another CBOR structure, this structure MUST be tagged `#6.48` (SEE WARNING ABOVE). When used as the top-level object of a UR, it MUST NOT be tagged.
 
-The general format for a Secure Message is a CBOR array. The first element is always an integer that specifies the semantics of the remaining elements. Currently this specification only defines the semantics of the type integer `1` as being followed by fields that implement the IETF variant of the ChaCha20-Poly1305 construction.
+The general format for a Secure Message is a CBOR array.
 
 ```
-crypto-msg = [ type, ciphertext, aad, nonce, auth ];
+crypto-msg = [ ciphertext, aad, nonce, auth ];
 
-type: uint = 1
 ciphertext: bytes
 aad: bytes
 nonce: bytes .size 12
@@ -72,42 +71,37 @@ ciphertext: `d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63db
 
 ```
 48( # crypto-msg
-  [
-    1, # type
-    h'D31A8D34648E60DB7B86AFBC53EF7EC2A4ADED51296E08FEA9E2B5A736EE62D6
-      3DBEA45E8CA9671282FAFB69DA92728B1A71DE0A9E060B2905D6A5B67ECD3B36
-      92DDBD7F2D778B8C9803AEE328091B58FAB324E4FAD675945585808B4831D7BC
-      3FF4DEF08E4B7A9DE576D26586CEC64B6116', # ciphertext
-    h'50515253C0C1C2C3C4C5C6C7', # aad
-    h'070000004041424344454647', # nonce
-    h'1AE10B594F09E26A7E902ECBD0600691' # auth
-  ]
+   [
+      h'd31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d6
+        3dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b36
+        92ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc
+        3ff4def08e4b7a9de576d26586cec64b6116', # ciphertext
+      h'50515253c0c1c2c3c4c5c6c7', # aad
+      h'070000004041424344454647', # nonce
+      h'1ae10b594f09e26a7e902ecbd0600691' # auth
+   ]
 )
 ```
 
 * Encoded as binary using [CBOR Playground](https://cbor.me):
 
 ```
-D8 30                                   # tag(48) crypto-msg
-   85                                   # array(5)
-      01                                # unsigned(1) type
-      58 72                             # bytes(114) ciphertext
-         D31A8D34648E60DB7B86AFBC53EF7EC2A4ADED51296E08FEA9E2B5A736EE62D6
-         3DBEA45E8CA9671282FAFB69DA92728B1A71DE0A9E060B2905D6A5B67ECD3B36
-         92DDBD7F2D778B8C9803AEE328091B58FAB324E4FAD675945585808B4831D7BC
-         3FF4DEF08E4B7A9DE576D26586CEC64B6116
-      4C                                # bytes(12) aad
-         50515253C0C1C2C3C4C5C6C7
-      4C                                # bytes(12) nonce
+d8 30                                    # tag(48) crypto-msg
+   84                                    # array(4)
+      5872                               # bytes(114) ciphertext
+         d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b6116
+      4c                                 # bytes(12) aad
+         50515253c0c1c2c3c4c5c6c7
+      4c                                 # bytes(12) nonce
          070000004041424344454647
-      50                                # bytes(16) auth
-         1AE10B594F09E26A7E902ECBD0600691
+      50                                 # bytes(16) auth
+         1ae10b594f09e26a7e902ecbd0600691
 ```
 
 * As a hex string:
 
 ```
-d83085015872d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b61164c50515253c0c1c2c3c4c5c6c74c070000004041424344454647501ae10b594f09e26a7e902ecbd0600691
+d830845872d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b61164c50515253c0c1c2c3c4c5c6c74c070000004041424344454647501ae10b594f09e26a7e902ecbd0600691
 ```
 
 * The structure above, as a UR:
@@ -115,7 +109,7 @@ d83085015872d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbe
 NOTE: URs do not use CBOR tags for the top-level object. The type of the object is provided by the type field of the UR schema, in this case `crypto-msg`:
 
 ```
-ur:crypto-msg/lpadhdjptecylgeeiemnhnuykglnperfguwskbsaoxpmwegydtjtayzeptvoreosenwyidtbfsrnoxhylkptiobglfzszointnmojplucyjsuebknnambddtahtbonrpkbsnfrenmoutrylbdpktlulkmkaxplvldeascwhdzsqddkvezstbkpmwgolplalufdehtsrffhwkuewtmngrknntvwkotdihlntoswgrhscmgsgdgygmgurtsesasrssskswstgsataeaeaefzfpfwfxfyfefgflgdcyvybdhkgwasvoimkbmhdmsbtihnammeihgudrjp
+ur:crypto-msg/lrhdjptecylgeeiemnhnuykglnperfguwskbsaoxpmwegydtjtayzeptvoreosenwyidtbfsrnoxhylkptiobglfzszointnmojplucyjsuebknnambddtahtbonrpkbsnfrenmoutrylbdpktlulkmkaxplvldeascwhdzsqddkvezstbkpmwgolplalufdehtsrffhwkuewtmngrknntvwkotdihlntoswgrhscmgsgdgygmgurtsesasrssskswstgsataeaeaefzfpfwfxfyfefgflgdcyvybdhkgwasvoimkbmhdmsbtihnammeecgwksyl
 ```
 
 ### Security Considerations
