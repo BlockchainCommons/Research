@@ -23,6 +23,15 @@ The user(s) overseeing the transaction SHOULD be given the opportunity to review
 
 Both `crypto-request` and `crypto-response` objects contain a `transaction-id` field containing a UUID that uniquely identifies the transaction. The online device MUST reject any offered `crypto-response` that does not contain the same `transaction-id` as the `crypto-request` contained.
 
+**Currently Specified Requests:**
+
+Though the `crypto-request` specification is extensible, the following request types are the ones defined in the current CDDL descriptions:
+
+| Type | Tag | Description | Docs | Test Vectors |
+| Seed | 500 | Request a seed from a digest | [Guide](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/ur-99-request-response.md#request--response-crypto-seed) | [Seed](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/crypto-request-test-vectors.md#sample-seed-yinmn-blue), [Digest](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/crypto-request-test-vectors.md#seed-digest-request-for-yinmn-blue), [Comments](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/crypto-request-test-vectors.md#seed-digest-request-for-yinmn-blue-with-comment) |
+| HDKey | 501 | Request a key from a fingerprint and/or keypath | [Guide](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/ur-99-request-response.md#request--response-crypto-hdkey) | [Keypath](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/crypto-request-test-vectors.md#requests-for-key-derivations-from-any-seed), [Comments](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/crypto-request-test-vectors.md#requests-for-key-derivations-from-any-seed-with-comment) |
+| PSBT | 502 | Request signature of a PSBT | | [Double Signing](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/crypto-request-test-vectors.md#crypto-psbt-requests) |
+
 The following data type specifications are written in Concise Data Definition Language [CDDL](https://tools.ietf.org/html/rfc8610).
 
 ### UUIDs
