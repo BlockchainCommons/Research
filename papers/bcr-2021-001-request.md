@@ -5,7 +5,7 @@
 **© 2021 Blockchain Commons**
 
 Authors: Wolf McNally, Christopher Allen<br/>
-Date: Feb 16, 2021
+Date: Jul 12, 2022
 
 ---
 
@@ -62,17 +62,25 @@ When used embedded in another CBOR structure, this structure SHOULD be tagged #6
 ```
 crypto-request = {
 	transaction-id: uuid,
-	body: request-seed / request-hdkey-derivation / request-psbt-signature,
+	body: request-body,
 	? description: text        ; Text to be displayed to the approving user.
 }
+
+request-body = (
+    request-seed /
+    request-hdkey-derivation /
+    request-psbt-signature /
+    request-output-descriptor
+)
 
 transaction-id = 1
 body = 2
 description = 3
+```
 
-;
-; Returns the seed matching the requested fingerprint
-;
+#### Request a seed matching the requested fingerprint
+
+```
 request-seed = #6.500({
 	seed-digest: crypto-seed-digest
 })
@@ -80,10 +88,11 @@ request-seed = #6.500({
 crypto-seed-digest = #6.600(bytes .size 32); The SHA-256 of the seed.
 
 seed-digest = 1
+```
 
-;
-; Returns the HDKey matching the provided key path and use-info.
-;
+#### Request the HDKey matching the provided key path and use-info
+
+```
 request-hdkey-derivation = #6.501({
     is-private: bool ; True if derived key is to be private, false if public
     keypath: crypto-keypath ; MUST include `source-fingerprint`
@@ -99,15 +108,37 @@ is-private = 1
 keypath = 2
 use-info = 3
 is-derivable = 4
+```
 
-;
-; Returns the given PSBT with one or more outputs signed.
-;
+#### Request the given PSBT with one or more outputs signed
+
+```
 request-psbt-signature = #6.502({
 	psbt: crypto-psbt
 })
 
 psbt = 1
+```
+
+### Request a Bitcoin output descriptor
+
+* Bitcoin output descriptors are described [here](https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md).
+* The `slot-name` is an optional human-readable name of the purpose for the output descriptor. May be combined with the `description` field above, and carries the same caveats about security.
+* `challenge` is exactly 16 bytes of random data that the responder will need to ECDSA sign with a private key corresponding to a public key derived according to the output descriptor.
+  * The private (public) key for signing (verifying) the challenge needs to be derived from the base key and the child derivation path, replacing the `chain` component with `0` (external chain) and the `address-index` component with `0`.
+  * For example, if the output descriptor is: `wpkh([55016b2f/84'/1'/0']tpubDC8LiEDg3kCFJgZHhBSs6gY8WtpR1K3Y9rP3beDnR14tM5waXvgjYveW1Dmi6kr2LVdj8nPCu5myATRydoRFN2hGSwZ518rRg7KJirdAWmg/<0;1>/*)#eagzwgf6`
+  * Then the signing key must be derived by `[m/84'/1'/0']` then `[0/0]`,
+  * And the verification key must be derived from the public key in the output descriptor, then `[0/0]`
+```
+request-output-descriptor = #6.503({
+    ? slot-name: text
+    ? use-info: crypto-coininfo ; If omitted defaults to `btc` and `mainnet`
+    challenge: bytes .size 16
+})
+
+slot-name = 1
+use-info = 2
+challenge = 3
 
 ```
 
@@ -118,11 +149,31 @@ When used embedded in another CBOR structure, this structure SHOULD be tagged #6
 ```
 crypto-response = {
 	transaction-id: uuid,
-	body: crypto-seed / crypto-hdkey / crypto-psbt ; the returned object MUST be tagged correctly according its type
+	body: response-body
 }
 
 transaction-id = 1
 body = 2
+
+response-body = (
+    response-seed /
+    response-hdkey-derivation /
+    response-psbt-signature /
+    response-output-descriptor
+)
+
+; The returned object MUST be tagged correctly according its type
+response-seed = crypto-seed
+response-hdkey-derivation = crypto-hdkey
+response-psbt-signature = crypto-psbt
+
+response-output-descriptor = #6.504({
+    output-descriptor-source: text
+    challenge-signature: bytes .size 64
+})
+
+output-descriptor-source = 1
+challenge-signature = 2
 ```
 
 ### Example Request and Response
