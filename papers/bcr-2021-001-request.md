@@ -32,6 +32,15 @@ Though the `crypto-request` specification is extensible, the following request t
 | Seed | 500 | Request a seed from a digest | [Guide](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/ur-99-request-response.md#request--response-crypto-seed) | [Seed](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/crypto-request-test-vectors.md#sample-seed-yinmn-blue), [Digest](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/crypto-request-test-vectors.md#seed-digest-request-for-yinmn-blue), [Comments](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/crypto-request-test-vectors.md#seed-digest-request-for-yinmn-blue-with-comment) |
 | HDKey | 501 | Request a key from a fingerprint and/or keypath | [Guide](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/ur-99-request-response.md#request--response-crypto-hdkey) | [Keypath](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/crypto-request-test-vectors.md#requests-for-key-derivations-from-any-seed), [Comments](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/crypto-request-test-vectors.md#requests-for-key-derivations-from-any-seed-with-comment) |
 | PSBT | 502 | Request signature of a PSBT | | [Double Signing](https://github.com/BlockchainCommons/crypto-commons/blob/master/Docs/crypto-request-test-vectors.md#crypto-psbt-requests) |
+| Descriptor | 503 | Request an output descriptor | | |
+
+**Currently Specified Responses:**
+
+This document also defines the following response types:
+
+| Type | Tag | Description | Docs | Test Vectors |
+| --- | --- | --- | --- | --- |
+| Descriptor | 504 | Response with an output descriptor | | |
 
 The following data type specifications are written in Concise Data Definition Language [CDDL](https://tools.ietf.org/html/rfc8610).
 
@@ -54,6 +63,10 @@ Requests for HDKeys use the `crypto-keypath` and `crypto-coininfo` types defined
 ### PSBTs
 
 Requests for PSBTs use the `crypto-psbt` type defined in [BCR-2020-006](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-006-urtypes.md). Responses use the same type.
+
+### Output Descriptors
+
+Output descriptor source is plain text as defined in [Support for Output Descriptors in Bitcoin Core](https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md) with the enhancement for multipath descriptors described [here](https://github.com/bitcoin/bitcoin/pull/22838).
 
 ### CDDL for Request
 
@@ -122,7 +135,7 @@ psbt = 1
 
 ### Request a Bitcoin output descriptor
 
-* Bitcoin output descriptors are described [here](https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md).
+* Output descriptor source is plain text as defined in [Support for Output Descriptors in Bitcoin Core](https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md) with the enhancement for multipath descriptors described [here](https://github.com/bitcoin/bitcoin/pull/22838).
 * The `slot-name` is an optional human-readable name of the purpose for the output descriptor. May be combined with the `description` field above, and carries the same caveats about security.
 * `challenge` is exactly 16 bytes of random data that the responder will need to ECDSA sign with a private key corresponding to a public key derived according to the output descriptor.
   * The private (public) key for signing (verifying) the challenge needs to be derived from the base key and the child derivation path, replacing the `chain` component with `0` (external chain) and the `address-index` component with `0`.
