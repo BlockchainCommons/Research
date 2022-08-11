@@ -61,20 +61,20 @@ As mentioned above, *any* method of generating a CID is allowed as long as it fu
 
 ### Minimum Strength
 
-CIDs must be a minimum of 256 (32 bytes) in length. At this time, there is no perceived need for CIDs to be longer, and thus conformant processes that receive CIDs MAY reject CIDs that are longer or shorter than 256 bits, while processes that generate CIDs SHOULD only generate CIDs that are exactly 256 bits in length.
+CIDs must be a minimum of 256 bits (32 bytes) in length. At this time, there is no perceived need for CIDs to be longer, and thus conformant processes that receive CIDs MAY reject CIDs that are longer or shorter than 256 bits, while processes that generate CIDs SHOULD only generate CIDs that are exactly 256 bits in length.
 
 ### Cryptographic suitability
 
 The foregoing notwithstanding, CIDs MAY be used as inputs to cryptographic constructs such as a ratcheting key algorithms, or used as additional entropy for random number generators, or salt for hashing algorithms, as long as the output of such algorithms is necessarily related to the CID's referent.
 
-For example in the distributed call scenario, a caller might transmit a structure including `request(CID(A))`, where A is a CID generated from an iteration of a ratcheting key algorithm. The receiver compares `A` to its own internal state, rejecting the call if it does not match, and advancing the state of its rachet if it does. The receiver computes the result of the call and returns a structure including `response(CID(B))`, where B is generated from the new state of the ratchet. The caller receives the response and uses the algorithm to correlate `B` in the response to its call `A`, and if further exchanges are needed, uusing the ratched to produce the next expected transaction ID, `C`. Third parties viewing the exchange cannot correlate `A`, `B`, or `C`, and in particular, they cannot correlate a specific response to its call.
+For example in the distributed call scenario, a caller might transmit a structure including `request(CID(A))`, where A is a CID generated from an iteration of a ratcheting key algorithm. The receiver compares `A` to its own internal state, rejecting the call if it does not match, and advancing the state of its rachet if it does. The receiver computes the result of the call and returns a structure including `response(CID(B))`, where B is generated from the new state of the ratchet. The caller receives the response and uses the algorithm to correlate `B` in the response to its call `A`, and if further exchanges are needed, uses the ratchet to produce the next expected transaction ID, `C`. Third parties viewing the exchange cannot correlate `A`, `B`, or `C`, and in particular, they cannot correlate a specific response to its call.
 
 ## Not to be Confused With
 
 CIDs MUST NOT be confused with any other sort of identifier or sequence of random or apparently random numbers.
 
 * CIDs MUST NOT be cast to or from other identifier types such as UUIDs, nor should they be considered isomorphic to any other type.
-* CIDs MUST NOT be created from digests (hashes) of other stuctures.
+* CIDs MUST NOT be cast from digests (hashes) or similar structures.
 * CIDs are not [nonces](https://en.wikipedia.org/wiki/Cryptographic_nonce). Unlike nonces, CIDs always have a referent. CIDs MUST NOT be used as nonces, and MUST NOT be created by casting from a nonce used anywhere else.
 * CIDs are not keys and MUST NOT be used as keys.
 * CIDs are not cryptographic seeds. They are generally not considered secret, and MUST NOT be used as secret key material from which keys or other secret constructs are derived.
