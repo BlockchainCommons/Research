@@ -15,11 +15,19 @@ Information systems use many kinds of identifiers for many purposes. The main pu
 
 ## Survey
 
-Universally unique identifers have precedent in (for example) [UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier) and [URIs](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier).
+Universally unique identifers have precedent in (for example) [UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier), [URIs](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier), and cryptographic digests.
 
-UUIDs are 128 bits in length, and come in several different versions, each of which specifies several bitfields, and how those bitfields are to be assigned. Version 4 is specified to be random, but is still not completely random because it does not specify that cryptographically strong randoness is always be used, and it reserves a 7 bits to identify it *as* a version 4 UUID, leaving 121 bits of actual randomness.
+### UUIDs
+
+UUIDs are 128 bits in length and come in several different versions. Each version specifies several bitfields and their semantics. Version 4 is specified to be random, but is still not completely random because it does not specify that cryptographically strong randoness is always be used, and it reserves a 7 bits to identify it *as* a version 4 UUID, leaving 121 bits of actual randomness.
+
+### URIs
 
 URIs are (more or less) human readable text, and the specification of URIs usually focuses on human understandable semantics and are frequently hierarchical, starting with the `scheme` field, which describes a namespace within which the remainder of the URI is considered to point to a referent.
+
+### Digests
+
+A cryptographic hash algorithm such as SHA256 or BLAKE3 maps a block of data of arbitrary size to a fixed-length "digest." This digest reveals nothing about the source image by itself, but can only be computed by applying the same algorithm to the same image. A digest can thereby be considered a "pointer" to a particular binary referent.
 
 ## Introducing the CID
 
