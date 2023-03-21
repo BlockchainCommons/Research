@@ -6,6 +6,7 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: Mar 15, 2022
+Revised: Mar 21, 2023
 
 ---
 
@@ -13,9 +14,9 @@ Date: Mar 15, 2022
 
 This paper addresses the need for a way to encrypt messages using best practices and encode them using [CBOR](https://cbor.io/) and [URs](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md). It specifies a general "secure message" structure and a specific encoding based on ChaCha20-Poly1305 Authenticated Encryption as specified in [RFC-8439](https://datatracker.ietf.org/doc/html/rfc8439).
 
-This specification defines a type `crypto-msg` (CBOR tag `#6.201`).
+This specification defines a type `encrypted` (CBOR tag `#6.205`).
 
-⚠️ WARNING: As of the date of this publication the tag `#6.201` is unallocated in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml). Blockchain Commons is applying for this number to be assigned to the CBOR specification herein, but because it is in a range that is open to other applications, it may change. So for now, the `#6.201` tag MUST be understood as provisional and subject to change by all implementors.
+⚠️ WARNING: As of the date of this publication the tag `#6.205` is unallocated in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml). Blockchain Commons is applying for this number to be assigned to the CBOR specification herein, but because it is in a range that is open to other applications, it may change. So for now, the `#6.205` tag MUST be understood as provisional and subject to change by all implementors.
 
 ### Related Work
 
@@ -38,12 +39,12 @@ To encrypt a message, the sender provides a 32-byte symmetric key and a 12-byte 
 
 The following specification is written in [Concise Data Definition Language (CDDL)](https://tools.ietf.org/html/rfc8610).
 
-When used embedded in another CBOR structure, this structure MUST be tagged `#6.201` (SEE WARNING ABOVE). When used as the top-level object of a UR, it MUST NOT be tagged.
+When used embedded in another CBOR structure, this structure MUST be tagged `#6.205` (SEE WARNING ABOVE). When used as the top-level object of a UR, it MUST NOT be tagged.
 
 The general format for a Secure Message is a CBOR array with either 3 or 4 elements. The `aad` element is optional, but if it is present it MUST NOT be empty.
 
 ```
-crypto-msg = [ ciphertext, nonce, auth, ? aad ];
+encrypted = [ ciphertext, nonce, auth, ? aad ];
 
 ciphertext = bytes
 nonce = bytes .size 12
@@ -67,10 +68,10 @@ nonce: `070000004041424344454647`
 
 ciphertext: `d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b6116`
 
-* In the CBOR diagnostic notation, with `#6.201` tag:
+* In the CBOR diagnostic notation, with `#6.205` tag:
 
 ```
-201( # crypto-msg
+205( # encrypted
    [
       h'd31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d6
         3dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b36
@@ -86,7 +87,7 @@ ciphertext: `d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63db
 * Encoded as binary using [CBOR Playground](https://cbor.me):
 
 ```
-d8 c9                                    # tag(201)   ; crypto-msg
+d8 cd                                    # tag(205)   ; encrypted
    84                                    # array(4)
       5872                               # bytes(114) ; ciphertext
          d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b6116
@@ -101,15 +102,15 @@ d8 c9                                    # tag(201)   ; crypto-msg
 * As a hex string:
 
 ```
-d8c9845872d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b61164c070000004041424344454647501ae10b594f09e26a7e902ecbd06006914c50515253c0c1c2c3c4c5c6c7
+d8cd845872d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b61164c070000004041424344454647501ae10b594f09e26a7e902ecbd06006914c50515253c0c1c2c3c4c5c6c7
 ```
 
 * The structure above, as a UR:
 
-NOTE: URs do not use CBOR tags for the top-level object. The type of the object is provided by the type field of the UR schema, in this case `crypto-msg`:
+NOTE: URs do not use CBOR tags for the top-level object. The type of the object is provided by the type field of the UR schema, in this case `encrypted`:
 
 ```
-ur:crypto-msg/lrhdjptecylgeeiemnhnuykglnperfguwskbsaoxpmwegydtjtayzeptvoreosenwyidtbfsrnoxhylkptiobglfzszointnmojplucyjsuebknnambddtahtbonrpkbsnfrenmoutrylbdpktlulkmkaxplvldeascwhdzsqddkvezstbkpmwgolplalufdehtsrffhwkuewtmngrknntvwkotdihlntoswgrhscmgsataeaeaefzfpfwfxfyfefgflgdcyvybdhkgwasvoimkbmhdmsbtihnammegsgdgygmgurtsesasrssskswstcfnbpdct
+ur:encrypted/lrhdjptecylgeeiemnhnuykglnperfguwskbsaoxpmwegydtjtayzeptvoreosenwyidtbfsrnoxhylkptiobglfzszointnmojplucyjsuebknnambddtahtbonrpkbsnfrenmoutrylbdpktlulkmkaxplvldeascwhdzsqddkvezstbkpmwgolplalufdehtsrffhwkuewtmngrknntvwkotdihlntoswgrhscmgsataeaeaefzfpfwfxfyfefgflgdcyvybdhkgwasvoimkbmhdmsbtihnammegsgdgygmgurtsesasrssskswstcfnbpdct
 ```
 
 ### Security Considerations

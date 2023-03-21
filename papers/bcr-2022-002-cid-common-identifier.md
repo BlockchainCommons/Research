@@ -55,7 +55,7 @@ Existing identifers frequently contain inherent type information (UUID version 4
 
 CIDs (as such) contain no type information. Statistically, they are uniformly random sequences of bits. If you merely encoded a CID as a sequence of binary or hexadecimal digits, it would appear to be a randon sequence.
 
-Type information can be added at higher levels. When encoded as [CBOR](https://cbor.io/), a CID is tagged with #6.58. Tagged this way, the receiver of a CID can still only determine that it *is* a CID, and nothing about the type or nature of its referent.
+Type information can be added at higher levels. When encoded as [CBOR](https://cbor.io/), a CID is tagged with #6.312. Tagged this way, the receiver of a CID can still only determine that it *is* a CID, and nothing about the type or nature of its referent.
 
 In particular, this construct provides no information about the lifetime of the referent. The referent could exist persistently for all time, such as in a blockchain, or it could exist for milliseconds, as in a distributed function call.
 

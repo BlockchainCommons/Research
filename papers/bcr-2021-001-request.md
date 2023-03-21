@@ -6,8 +6,13 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: Jul 12, 2022
+Revised: Mar 21, 2023
 
 ---
+
+### DEPRECATED: Superceded by Envelope-Based Requests and Responses
+
+This document has been superceded by requests and responses composed using Gordian Envelopes. The content below is now deprecated and of historical interest only.
 
 ### Introduction
 
@@ -70,7 +75,7 @@ Output descriptor source is plain text as defined in [Support for Output Descrip
 
 ### CDDL for Request
 
-When used embedded in another CBOR structure, this structure SHOULD be tagged #6.312.
+When used embedded in another CBOR structure, this structure MUST be tagged #6.207.
 
 ```
 crypto-request = {
@@ -157,7 +162,7 @@ challenge = 3
 
 ### CDDL for Response
 
-When used embedded in another CBOR structure, this structure SHOULD be tagged #6.313. The body of the response is the requested or transformed object.
+When used embedded in another CBOR structure, this structure SHOULD be tagged #6.208. The body of the response is the requested or transformed object.
 
 ```
 crypto-response = {
