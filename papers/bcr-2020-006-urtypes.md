@@ -6,7 +6,7 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: May 12, 2020<br/>
-Revised: December 11, 2020
+Revised: March 21, 2023
 
 ---
 
@@ -40,7 +40,8 @@ This document also lists the tag, if any, defined for the particular CBOR strucu
 
 | Type | Tag | Description | Definition |
 |------|-----|-------------|------------|
-| `bytes` | | Undifferentiated byte string | [[BCR5]](bcr-2020-005-ur.md) |
+| `cbor` | 24 | Wrapped cbor | [[CBOR]](https://www.rfc-editor.org/rfc/rfc8949.html#name-tagging-of-items) |
+| `bytes` | | Undifferentiated byte string (for testing only) | [[BCR5]](bcr-2020-005-ur.md) |
 | `cbor-png` | | PNG image | [[PNG]](https://tools.ietf.org/html/rfc2083) |
 | `cbor-svg` | | SVG image | [[SVG]](https://www.w3.org/TR/SVG11/) |
 | `cose-sign` | 98 | COSE_Sign: Signed message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) |
@@ -51,10 +52,22 @@ This document also lists the tag, if any, defined for the particular CBOR strucu
 | `cose-mac0` | 17 | COSE_Mac0: Authenticated message (implied recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) |
 | `cose-key` | | COSE_Key: An encryption key | [[COSE]](https://tools.ietf.org/html/rfc8152) |
 | `cose-keyset` | | COSE_KeySet: A set of encryption keys | [[COSE]](https://tools.ietf.org/html/rfc8152) |
-| `crypto-msg` | 48 | Secure message | [[BCR-2022-001]](bcr-2022-001-secure-message.md) |
+| `envelope` | 200 | Gordian Envelope | [Envelope] |
+| `assertion` | 201 | Envelope assertion | [Envelope] |
+| `known-value` | 202 | Envelope known value | [Envelope] |
+| `wrapped-envelope` | 203 | Wrapped envelope | [Envelope] |
+| `digest` | 204 | Cryptographic digest | [SecureComponents] |
+| `encrypted` | 205 | Secure message | [[BCR-2022-001]](bcr-2022-001-secure-message.md) |
+| `compressed` | 206 | Compressed data | [SecureComponents] |
+| `request` | 207 | Distributed request | [Envelope] |
+| `response` | 208 | Distributed response | [Envelope] |
+| `function` | 209 | Function identifier | [Envelope] |
+| `parameter` | 210 | Parameter identifier | [Envelope] |
+| `placeholder` | 211 | Function placeholder | [Envelope] |
+| `replacement` | 212 | Function replacement | [Envelope] |
 | `crypto-seed` | 300 | Cryptographic seed | This document |
-| `crypto-bip39` | 301 | BIP-39 encoded seed | This document |
-| `crypto-slip39` | 302 | One or more SLIP-39 shares | deprecated, removed |
+| `agreement-private-key` | 301 | Agreement private key | [SecureComponents] |
+| `agreement-public-key` | 302 | Agreement private key | [SecureComponents] |
 | `crypto-hdkey` | 303 | Hierarchical Deterministic (HD) key | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
 | `crypto-keypath` | 304 | Key Derivation Path | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
 | `crypto-coin-info` | 305 | Cryptocurrency Coin Use | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
@@ -64,10 +77,20 @@ This document also lists the tag, if any, defined for the particular CBOR strucu
 | `crypto-sskr` | 309 | SSKR (Sharded Secret Key Reconstruction) shard | [[BCR-2020-011]](bcr-2020-011-sskr.md) |
 | `crypto-psbt` | 310 | Partially Signed Bitcoin Transaction (PSBT) | This document |
 | `crypto-account` | 311 | BIP44 Account | [[BCR-2020-015]](bcr-2020-015-account.md) |
-| `crypto-request` | 312 | Request to and Response from Airgapped Devices | [[BCR-2021-001]](bcr-2021-001-request.md) |
-| `crypto-response` | 313 | Request to and Response from Airgapped Devices | [[BCR-2021-001]](bcr-2021-001-request.md) |
-| | 400–409 | Used as descriptor types in [`crypto-output`](bcr-2020-010-output-desc.md). | |
-| | 500–502 | Used as request types in [`crypto-request`](bcr-2021-001-request.md). | |
+| `cid` | 312 | Common Identifier | [[BCR-2022-002]](bcr-2022-002-cid-common-identifier.md) | |
+| `seed-digest` | 313 | Seed digest | [BCFoundation] |
+| `nonce` | 314 | Cryptographic nonce | [SecureComponents] |
+| `password` | 315 | Hashed password (e.g., Scrypt) | [SecureComponents] |
+| `crypto-prvkeys` | 316 | Private key base | [SecureComponents] |
+| `crypto-pubkeys` | 317 | Public key base | [SecureComponents] |
+| `salt` | 318 | Salt | [SecureComponents] |
+| `crypto-sealed` | 319 | Sealed message | [SecureComponents] |
+| `signature` | 320 | Signature | [SecureComponents] |
+| `signing-private-key` | 321 | Signing private key | [SecureComponents] |
+| `signing-public-key` | 322 | Signing public key | [SecureComponents] |
+| `crypto-key` | 323 | Symmetric Key | [SecureComponents] |
+| | 400–410 | Used as descriptor types in [`crypto-output`](bcr-2020-010-output-desc.md). | |
+| | 500 | Used as response type for `OutputDescriptorResponse` | |
 | | 600 | Object Digest | This document and as defined in each type |
 
 ### Object Digests
@@ -215,92 +238,6 @@ D9 0258                                 # tag(600)
    58 20                                # bytes(32)
       E824467CAFFEAF3BBC3E0CA095E660A9BAD80DDB6A919433A37161908B9A3986
 ```
-
-### BIP-39 Encoded Seed `crypto-bip39`
-
-The type `crypto-bip39` contains an array of BIP39 words and an optional language specifier [LANG], which if omitted is taken to be `en`.
-
-The authors also considered possibly encoding a BIP39 seed as an array of indexes into the BIP39 dictionary, but this would be redundant with simply sending the seed itself using the `crypto-seed` type above. The purpose of BIP39 is to create a mnemonic sequence, and simply encoding the sequence as a series of indexes adds no value over simply sending the seed itself.
-
-#### CDDL
-
-```
-bip39 = {
-	words: [+ bip39Word],
-	? lang: text
-}
-words = 1
-lang = 2
-bip39Word = text
-```
-
-#### Example/Test Vector
-
-* A 16 byte (128-bit) seed, encoded as BIP39:
-
-```
-shield group erode awake lock sausage cash glare wave crew flame glove
-```
-
-* In CBOR diagnostic notation:
-
-```
-{
-  1: ["shield", "group", "erode", "awake", "lock", "sausage", "cash", "glare", "wave", "crew", "flame", "glove"],
-  2: "en"
-}
-```
-
-* Encoded as binary using [CBOR-PLAYGROUND]:
-
-```
-A2                      # map(2)
-   01                   # unsigned(1) words:
-   8C                   # array(12)
-      66                # text(6)
-         736869656C64   # "shield"
-      65                # text(5)
-         67726F7570     # "group"
-      65                # text(5)
-         65726F6465     # "erode"
-      65                # text(5)
-         6177616B65     # "awake"
-      64                # text(4)
-         6C6F636B       # "lock"
-      67                # text(7)
-         73617573616765 # "sausage"
-      64                # text(4)
-         63617368       # "cash"
-      65                # text(5)
-         676C617265     # "glare"
-      64                # text(4)
-         77617665       # "wave"
-      64                # text(4)
-         63726577       # "crew"
-      65                # text(5)
-         666C616D65     # "flame"
-      65                # text(5)
-         676C6F7665     # "glove"
-   02                   # unsigned(2) lang:
-   62                   # text(2)
-      656E              # "en"
-```
-
-* As a hex string:
-
-```
-A2018C66736869656C646567726F75706565726F6465656177616B65646C6F636B6773617573616765646361736865676C6172656477617665646372657765666C616D6565676C6F76650262656E
-```
-
-* As a UR:
-
-```
-ur:crypto-bip39/oeadlkiyjkisinihjzieihiojpjlkpjoihihjpjlieihihhskthsjeihiejzjliajeiojkhskpjkhsioihieiahsjkisihiojzhsjpihiekthskoihieiajpihktihiyjzhsjnihihiojzjlkoihaoidihjtrkkndede
-```
-
-* UR as QR Code:
-
-![](bcr-2020-006/3.png)
 
 ### Partially Signed Bitcoin Transaction (PSBT) `crypto-psbt`
 
