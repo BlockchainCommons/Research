@@ -117,17 +117,15 @@ The following specification is written in Concise Data Definition Language [CDDL
 
 ```
 ; An hd-key is either a master key or a derived key.
-hd-key = {
-	master-key / derived-key
-}
+hd-key = master-key / derived-key
 
 ; A master key is always private, has no use or derivation information,
 ; and always includes a chain code.
-master-key = (
+master-key = {
 	is-master: true,
 	key-data: key-data-bytes,
 	chain-code: chain-code-bytes
-)
+}
 
 ; A derived key may be private or public, has an optional chain code, and
 ; may carry additional metadata about its use and derivation.
@@ -135,7 +133,7 @@ master-key = (
 ; this key `chain-code`, `origin`, and `parent-fingerprint` must be present.
 ; If `origin` contains only a single derivation step and also contains `source-fingerprint`,
 ; then `parent-fingerprint` MUST be identical to `source-fingerprint` or may be omitted.
-derived-key = (
+derived-key = {
 	? is-private: bool .default false,   ; true if key is private, false if public
 	key-data: key-data-bytes,
 	? chain-code: chain-code-bytes       ; omit if no further keys may be derived from this key
@@ -145,7 +143,7 @@ derived-key = (
 	? parent-fingerprint: uint32 .ne 0,  ; The fingerprint of this key's direct ancestor, per [BIP32]
 	? name: text,                        ; A short name for this key.
 	? note: text                         ; An arbtrary amount of text describing the key.
-)
+}
 
 ; If the `use-info` field is omitted, defaults (mainnet BTC key) are assumed.
 ; If `cointype` and `origin` are both present, then per [BIP44], the second path
