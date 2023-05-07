@@ -59,14 +59,14 @@ When used embedded in another CBOR structure, this structure should be tagged #6
 ; of this structure.
 
 crypto-keypath = {
-	components: [path-component], ; If empty, source-fingerprint MUST be present
-	? source-fingerprint: uint32 .ne 0 ; fingerprint of ancestor key, or master key if components is empty
-	? depth: uint8 ; 0 if this is a public key derived directly from a master key
+    components: [path-component], ; If empty, source-fingerprint MUST be present
+    ? source-fingerprint: uint32 .ne 0 ; fingerprint of ancestor key, or master key if components is empty
+    ? depth: uint8 ; 0 if this is a public key derived directly from a master key
 }
 
 path-component = (
-	child-index / child-index-range / child-index-wildcard-range,
-	is-hardened
+    child-index / child-index-range / child-index-wildcard-range,
+    is-hardened
 )
 
 uint32 = uint .size 4
@@ -91,8 +91,8 @@ When used embedded in another CBOR structure, this structure should be tagged #6
 ```
 ; Metadata for the type and use of a cryptocurrency
 crypto-coininfo = {
-	? type: uint31 .default cointype-btc, ; values from [SLIP44] with high bit turned off
-	? network: int .default mainnet ; coin-specific identifier for testnet
+    ? type: uint31 .default cointype-btc, ; values from [SLIP44] with high bit turned off
+    ? network: int .default mainnet ; coin-specific identifier for testnet
 }
 
 type = 1
@@ -118,15 +118,15 @@ The following specification is written in Concise Data Definition Language [CDDL
 ```
 ; An hd-key is either a master key or a derived key.
 hd-key = {
-	master-key / derived-key
+    master-key / derived-key
 }
 
 ; A master key is always private, has no use or derivation information,
 ; and always includes a chain code.
 master-key = (
-	is-master: true,
-	key-data: key-data-bytes,
-	chain-code: chain-code-bytes
+    is-master: true,
+    key-data: key-data-bytes,
+    chain-code: chain-code-bytes
 )
 
 ; A derived key may be private or public, has an optional chain code, and
@@ -136,15 +136,15 @@ master-key = (
 ; If `origin` contains only a single derivation step and also contains `source-fingerprint`,
 ; then `parent-fingerprint` MUST be identical to `source-fingerprint` or may be omitted.
 derived-key = (
-	? is-private: bool .default false,   ; true if key is private, false if public
-	key-data: key-data-bytes,
-	? chain-code: chain-code-bytes       ; omit if no further keys may be derived from this key
-	? use-info: #6.305(crypto-coininfo), ; How the key is to be used
-	? origin: #6.304(crypto-keypath),    ; How the key was derived
-	? children: #6.304(crypto-keypath),  ; What children should/can be derived from this
-	? parent-fingerprint: uint32 .ne 0,  ; The fingerprint of this key's direct ancestor, per [BIP32]
-	? name: text,                        ; A short name for this key.
-	? note: text                         ; An arbtrary amount of text describing the key.
+    ? is-private: bool .default false,   ; true if key is private, false if public
+    key-data: key-data-bytes,
+    ? chain-code: chain-code-bytes       ; omit if no further keys may be derived from this key
+    ? use-info: #6.305(crypto-coininfo), ; How the key is to be used
+    ? origin: #6.304(crypto-keypath),    ; How the key was derived
+    ? children: #6.304(crypto-keypath),  ; What children should/can be derived from this
+    ? parent-fingerprint: uint32 .ne 0,  ; The fingerprint of this key's direct ancestor, per [BIP32]
+    ? name: text,                        ; A short name for this key.
+    ? note: text                         ; An arbtrary amount of text describing the key.
 )
 
 ; If the `use-info` field is omitted, defaults (mainnet BTC key) are assumed.
@@ -173,9 +173,9 @@ Schematic for a master key:
 
 ```
 {
-	is-master: true,
-	key-data: bytes,
-	chain-code: bytes
+    is-master: true,
+    key-data: bytes,
+    chain-code: bytes
 }
 ```
 
@@ -183,18 +183,18 @@ Schematic for a derived public testnet Ethereum key that maintains isomorphism w
 
 ```
 {
-	key-data: bytes,
-	chain-code: bytes,
-	use-info: {
-		type: cointype-eth,
-		network: testnet-eth-ropsten
-	},
-	origin: {
-		source-fingerprint: uint32,
-		components: [child-index, is-hardened],
-		depth: uint8
-	},
-	parent-fingerprint: uint32
+    key-data: bytes,
+    chain-code: bytes,
+    use-info: {
+        type: cointype-eth,
+        network: testnet-eth-ropsten
+    },
+    origin: {
+        source-fingerprint: uint32,
+        components: [child-index, is-hardened],
+        depth: uint8
+    },
+    parent-fingerprint: uint32
 }
 ```
 
@@ -202,14 +202,14 @@ Schematic for a derived private mainnet Bitcoin key that maintains isomorphism w
 
 ```
 {
-	is-private: true,
-	key-data: bytes,
-	chain-code: bytes,
-	origin: {
-		source-fingerprint: uint32,
-		components: [44, true, 0, true, account, true, change, false, address_index, false]
-	},
-	parent-fingerprint: uint32
+    is-private: true,
+    key-data: bytes,
+    chain-code: bytes,
+    origin: {
+        source-fingerprint: uint32,
+        components: [44, true, 0, true, account, true, change, false, address_index, false]
+    },
+    parent-fingerprint: uint32
 }
 ```
 
@@ -217,7 +217,7 @@ Schematic for a derived public mainnet Bitcoin key that includes only the key, e
 
 ```
 {
-	key-data: bytes
+    key-data: bytes
 }
 ```
 
@@ -252,9 +252,9 @@ e77e9d71 ; base58 checksum
 
 ```
 {
-	1: true, ; is-master
-	3: h'00e8f32e723decf4051aefac8e2c93c9c5b214313817cdb01a1494b917c8436b35', ; key-data
-	4: h'873dff81c02f525623fd1fe5167eac3a55a049de3d314bb42ee227ffed37d508' ; chain-code
+    1: true, ; is-master
+    3: h'00e8f32e723decf4051aefac8e2c93c9c5b214313817cdb01a1494b917c8436b35', ; key-data
+    4: h'873dff81c02f525623fd1fe5167eac3a55a049de3d314bb42ee227ffed37d508' ; chain-code
 }
 ```
 
@@ -332,15 +332,15 @@ ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85 ; chain code
 
 ```
 {
-	3: h'026fe2355745bb2db3630bbc80ef5d58951c963c841f54170ba6e5c12be7fc12a6', ; key-data
-	4: h'ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85', ; chain-code
-	5: 305({ ; use-info
-		2: 1 ; network: testnet-btc
-	}),
-	6: 304({ ; origin
-		1: [44, true, 1, true, 1, true, 0, false, 1, false] ; components `m/44'/1'/1'/0/1`
-	}),
-	8: 3910671603 ; parent-fingerprint
+    3: h'026fe2355745bb2db3630bbc80ef5d58951c963c841f54170ba6e5c12be7fc12a6', ; key-data
+    4: h'ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85', ; chain-code
+    5: 305({ ; use-info
+        2: 1 ; network: testnet-btc
+    }),
+    6: 304({ ; origin
+        1: [44, true, 1, true, 1, true, 0, false, 1, false] ; components `m/44'/1'/1'/0/1`
+    }),
+    8: 3910671603 ; parent-fingerprint
 }
 ```
 
@@ -408,10 +408,10 @@ The digest source of a `crypto-hdkey` has the following CBOR structure:
 
 ```
 hdkey-digest-source = [
-	crypto-hdkey.key-data-bytes, ; key data
-	crypto-hdkey.chain-code-bytes / null, ; encode `null` if key has no chain code
-	crypto-coininfo.type ; coin type
-	crypto-coininfo.network ; network
+    crypto-hdkey.key-data-bytes, ; key data
+    crypto-hdkey.chain-code-bytes / null, ; encode `null` if key has no chain code
+    crypto-coininfo.type ; coin type
+    crypto-coininfo.network ; network
 ]
 ```
 
@@ -419,10 +419,10 @@ Example digest source from Test Vector 2:
 
 ```
 [
-	h'026fe2355745bb2db3630bbc80ef5d58951c963c841f54170ba6e5c12be7fc12a6', ; key data
-	h'ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85', ; chain code
-	0, ; cointype-btc
-	1  ; mainnet
+    h'026fe2355745bb2db3630bbc80ef5d58951c963c841f54170ba6e5c12be7fc12a6', ; key data
+    h'ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85', ; chain code
+    0, ; cointype-btc
+    1  ; mainnet
 ]
 ```
 
