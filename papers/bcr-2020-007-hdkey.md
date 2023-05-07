@@ -65,16 +65,24 @@ crypto-keypath = {
 }
 
 path-component = (
-    child-index / child-index-range / child-index-wildcard-range,
-    is-hardened
+    child-index-component /     ; A single child, possibly hardened
+    child-range-component /		; A specific range of children, all possibly hardened
+    child-wildcard-component /  ; An inspecific range of children, all possibly hardened
+    child-pair-component        ; Used in output descriptors,
+                                ; see https://github.com/bitcoin/bitcoin/pull/22838
 )
 
 uint32 = uint .size 4
 uint31 = uint32 .lt 0x80000000
-child-index = uint31
-child-index-range = [child-index, child-index] ; [low, high] where low < high
-child-index-wildcard = []
+child-index-component = (child-index, is-hardened)
+child-range-component = ([child-index, child-index], is-hardened) ; [low, high] where low < high
+child-wildcard-component = ([], is-hardened)
+child-pair-component = [
+    child-index-component,	; Child to use for external addresses, possibly hardened
+    child-index-component	; Child to use for internal addresses, possibly hardened
+]
 
+child-index = uint31
 is-hardened = bool
 
 components = 1
