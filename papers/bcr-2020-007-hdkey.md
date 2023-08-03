@@ -455,13 +455,13 @@ The digest source as a hex string:
 The actual digest is the SHA-256 of the digest source:
 
 ```
-94a24a356df7cc52749a063404f3fb6f484103a1af5aadab893d76a2ce78ff73
+362af3038da7600ad1581c19161c8594aafafc24e5acf1aefc8f7a0bbe366df2
 ```
 
 The digest is encoded as CBOR field (diagnostic notation) is tagged with #6.600 per [BCR-2020-006](https://github.com/BlockchainCommons/Research/papers/bcr-2020-006-urtypes.md)#object-fingerprints
 
 ```
-crypto-hdkey-fingerprint = 600(h'94a24a356df7cc52749a063404f3fb6f484103a1af5aadab893d76a2ce78ff73')
+crypto-hdkey-fingerprint = 600(h'362af3038da7600ad1581c19161c8594aafafc24e5acf1aefc8f7a0bbe366df2')
 ```
 
 ### Normative References
