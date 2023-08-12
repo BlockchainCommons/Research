@@ -1,4 +1,4 @@
-# UR Type Definition for Secure Messages
+# UR Type Definition for Encrypted Messages
 
 ## BCR-2022-001
 
@@ -6,17 +6,17 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: Mar 15, 2022
-Revised: Mar 21, 2023
+Revised: Aug 12, 2023
 
 ---
 
 ## Introduction
 
-This paper addresses the need for a way to encrypt messages using best practices and encode them using [CBOR](https://cbor.io/) and [URs](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md). It specifies a general "secure message" structure and a specific encoding based on ChaCha20-Poly1305 Authenticated Encryption as specified in [RFC-8439](https://datatracker.ietf.org/doc/html/rfc8439).
+This paper addresses the need for a way to encrypt messages using best practices and encode them using [CBOR](https://cbor.io/) and [URs](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md). It specifies a general "encrypted message" structure and a specific encoding based on ChaCha20-Poly1305 Authenticated Encryption as specified in [RFC-8439](https://datatracker.ietf.org/doc/html/rfc8439).
 
-This specification defines a type `encrypted` (CBOR tag `#6.205`).
+This specification defines a type `encrypted` (CBOR tag `#6.40002`).
 
-⚠️ WARNING: As of the date of this publication the tag `#6.205` is unallocated in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml). Blockchain Commons is applying for this number to be assigned to the CBOR specification herein, but because it is in a range that is open to other applications, it may change. So for now, the `#6.205` tag MUST be understood as provisional and subject to change by all implementors.
+⚠️ WARNING: As of the date of this publication the tag `#6.40002` is unallocated in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml). Blockchain Commons is applying for this number to be assigned to the CBOR specification herein, but because it is in a range that is open to other applications, it may change. So for now, the `#6.40002` tag MUST be understood as provisional and subject to change by all implementors.
 
 ### Related Work
 
@@ -24,7 +24,7 @@ The [COSE specification](https://datatracker.ietf.org/doc/draft-ietf-cose-rfc815
 
 ## The ChaCha20-Poly1305-IETF Cipher
 
-The [IETF variant of the ChaCha20-Poly1305](https://datatracker.ietf.org/doc/html/rfc8439) construction can encrypt a practically unlimited number of messages, but individual messages cannot exceed 64*(2^32)-64 bytes (approximatively 256 GiB).
+The [IETF variant of the ChaCha20-Poly1305](https://datatracker.ietf.org/doc/html/rfc8439) construction can encrypt a practically unlimited number of messages, but individual messages cannot exceed 64*(2^32)-64 bytes (approximately 256 GiB).
 
 To encrypt a message, the sender provides a 32-byte symmetric key and a 12-byte nonce. The nonce is sent as part of the message, but the key is kept secret between the sender and recipient. The ChaCha20 stream cipher is used for encryption and decryption, and as part of the construction, a 16-byte authentication tag is generated using Poly1305, and is used to verify message integrity. An "additional authenticated data" field can also be provided, which is not encrypted, but it is included in the message authentication step. This field is often used to send metadata about the encrypted portion of the message. In all, the fields used and the names this document refers to them by are:
 
@@ -35,13 +35,13 @@ To encrypt a message, the sender provides a 32-byte symmetric key and a 12-byte 
 * `nonce` [12 bytes] The nonce, which must not be repeated for the same key.
 * `auth` [16 bytes] The authentication tag.
 
-## CDDL for Secure Message
+## CDDL for Encrypted Message
 
 The following specification is written in [Concise Data Definition Language (CDDL)](https://tools.ietf.org/html/rfc8610).
 
-When used embedded in another CBOR structure, this structure MUST be tagged `#6.205` (SEE WARNING ABOVE). When used as the top-level object of a UR, it MUST NOT be tagged.
+When used embedded in another CBOR structure, this structure MUST be tagged `#6.40002`. When used as the top-level object of a UR, it MUST NOT be tagged.
 
-The general format for a Secure Message is a CBOR array with either 3 or 4 elements. The `aad` element is optional, but if it is present it MUST NOT be empty.
+The general format for a Encrypted Message is a CBOR array with either 3 or 4 elements. The `aad` element is optional, but if it is present it MUST NOT be empty.
 
 ```
 encrypted = [ ciphertext, nonce, auth, ? aad ];
@@ -68,10 +68,10 @@ nonce: `070000004041424344454647`
 
 ciphertext: `d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b6116`
 
-* In the CBOR diagnostic notation, with `#6.205` tag:
+* In the CBOR diagnostic notation, with `#6.40002` tag:
 
 ```
-205( # encrypted
+40002( # encrypted
    [
       h'd31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d6
         3dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b36
@@ -87,22 +87,22 @@ ciphertext: `d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63db
 * Encoded as binary using [CBOR Playground](https://cbor.me):
 
 ```
-d8 cd                                    # tag(205)   ; encrypted
-   84                                    # array(4)
-      5872                               # bytes(114) ; ciphertext
+d9 9c42                                 # tag(40002)   ; encrypted
+   84                                   # array(4)
+      58 72                             # bytes(114) ; ciphertext
          d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b6116
-      4c                                 # bytes(12) ; nonce
-         070000004041424344454647        # "....@ABCDEFG"
-      50                                 # bytes(16) ; auth
+      4c                                # bytes(12)
+         070000004041424344454647       # "....@ABCDEFG"
+      50                                # bytes(16) ; auth
          1ae10b594f09e26a7e902ecbd0600691
-      4c                                 # bytes(12) ; aad
-         50515253c0c1c2c3c4c5c6c7
+      4c                                # bytes(12) ; aad
+         50515253c0c1c2c3c4c5c6c7       #
 ```
 
 * As a hex string:
 
 ```
-d8cd845872d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b61164c070000004041424344454647501ae10b594f09e26a7e902ecbd06006914c50515253c0c1c2c3c4c5c6c7
+d99c42845872d31a8d34648e60db7b86afbc53ef7ec2a4aded51296e08fea9e2b5a736ee62d63dbea45e8ca9671282fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fab324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b61164c070000004041424344454647501ae10b594f09e26a7e902ecbd06006914c50515253c0c1c2c3c4c5c6c7
 ```
 
 * The structure above, as a UR:
@@ -116,3 +116,11 @@ ur:encrypted/lrhdjptecylgeeiemnhnuykglnperfguwskbsaoxpmwegydtjtayzeptvoreosenwyi
 ### Security Considerations
 
 The security considerations for this type are the same as that for the cryptographic construction defined in [RFC-8439](https://datatracker.ietf.org/doc/html/rfc8439).
+
+### IANA Considerations
+
+This document requests that [IANA](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml) reserve the following tag:
+
+| Tag | Data Item | Semantics |
+|:----|:-----|:-----|
+| 40002 | array | Encrypted Message |

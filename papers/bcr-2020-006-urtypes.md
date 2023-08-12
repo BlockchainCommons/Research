@@ -53,21 +53,19 @@ This document also lists the tag, if any, defined for the particular CBOR strucu
 | `cose-key` | | COSE_Key: An encryption key | [[COSE]](https://tools.ietf.org/html/rfc8152) |
 | `cose-keyset` | | COSE_KeySet: A set of encryption keys | [[COSE]](https://tools.ietf.org/html/rfc8152) |
 | `envelope` | 200 | Gordian Envelope | [Envelope] |
-| `assertion` | 201 | Envelope assertion | [Envelope] |
-| `known-value` | 202 | Envelope known value | [Envelope] |
-| `wrapped-envelope` | 203 | Wrapped envelope | [Envelope] |
-| `digest` | 204 | Cryptographic digest | [SecureComponents] |
-| `encrypted` | 205 | Secure message | [[BCR-2022-001]](bcr-2022-001-secure-message.md) |
-| `compressed` | 206 | Compressed data | [SecureComponents] |
-| `request` | 207 | Distributed request | [Envelope] |
-| `response` | 208 | Distributed response | [Envelope] |
-| `function` | 209 | Function identifier | [Envelope] |
-| `parameter` | 210 | Parameter identifier | [Envelope] |
-| `placeholder` | 211 | Function placeholder | [Envelope] |
-| `replacement` | 212 | Function replacement | [Envelope] |
+| `known-value` | 40000 | Envelope known value | [Envelope] |
+| `digest` | 40001 | Cryptographic digest | [SecureComponents] |
+| `encrypted` | 40002 | Encrypted message | [[BCR-2022-001]](bcr-2022-001-encrypted-message.md) |
+| `compressed` | 40003 | Compressed data | [SecureComponents] |
+| `request` | 40004 | Distributed request | [Envelope] |
+| `response` | 40005 | Distributed response | [Envelope] |
+| `function` | 40006 | Function identifier | [Envelope] |
+| `parameter` | 40007 | Parameter identifier | [Envelope] |
+| `placeholder` | 40008 | Function placeholder | [Envelope] |
+| `replacement` | 40009 | Function replacement | [Envelope] |
 | `crypto-seed` | 300 | Cryptographic seed | This document |
-| `agreement-private-key` | 301 | Agreement private key | [SecureComponents] |
-| `agreement-public-key` | 302 | Agreement private key | [SecureComponents] |
+| `agreement-private-key` | 40010 | Agreement private key | [SecureComponents] |
+| `agreement-public-key` | 40011 | Agreement private key | [SecureComponents] |
 | `crypto-hdkey` | 303 | Hierarchical Deterministic (HD) key | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
 | `crypto-keypath` | 304 | Key Derivation Path | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
 | `crypto-coin-info` | 305 | Cryptocurrency Coin Use | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
@@ -77,18 +75,18 @@ This document also lists the tag, if any, defined for the particular CBOR strucu
 | `crypto-sskr` | 309 | SSKR (Sharded Secret Key Reconstruction) shard | [[BCR-2020-011]](bcr-2020-011-sskr.md) |
 | `crypto-psbt` | 310 | Partially Signed Bitcoin Transaction (PSBT) | This document |
 | `crypto-account` | 311 | BIP44 Account | [[BCR-2020-015]](bcr-2020-015-account.md) |
-| `cid` | 312 | Common Identifier | [[BCR-2022-002]](bcr-2022-002-cid-common-identifier.md) | |
-| `seed-digest` | 313 | Seed digest | [BCFoundation] |
-| `nonce` | 314 | Cryptographic nonce | [SecureComponents] |
-| `password` | 315 | Hashed password (e.g., Scrypt) | [SecureComponents] |
-| `crypto-prvkeys` | 316 | Private key base | [SecureComponents] |
-| `crypto-pubkeys` | 317 | Public key base | [SecureComponents] |
-| `salt` | 318 | Salt | [SecureComponents] |
-| `crypto-sealed` | 319 | Sealed message | [SecureComponents] |
-| `signature` | 320 | Signature | [SecureComponents] |
-| `signing-private-key` | 321 | Signing private key | [SecureComponents] |
-| `signing-public-key` | 322 | Signing public key | [SecureComponents] |
-| `crypto-key` | 323 | Symmetric Key | [SecureComponents] |
+| `cid` | 40012 | Common Identifier | [[BCR-2022-002]](bcr-2022-002-cid-common-identifier.md) | |
+| `seed-digest` | 40013 | Seed digest | [BCFoundation] |
+| `nonce` | 40014 | Cryptographic nonce | [SecureComponents] |
+| `password` | 40015 | Hashed password (e.g., Scrypt) | [SecureComponents] |
+| `crypto-prvkeys` | 40016 | Private key base | [SecureComponents] |
+| `crypto-pubkeys` | 40017 | Public key base | [SecureComponents] |
+| `salt` | 40018 | Salt | [SecureComponents] |
+| `crypto-sealed` | 40019 | Sealed message | [SecureComponents] |
+| `signature` | 40020 | Signature | [SecureComponents] |
+| `signing-private-key` | 40021 | Signing private key | [SecureComponents] |
+| `signing-public-key` | 40022 | Signing public key | [SecureComponents] |
+| `crypto-key` | 40023 | Symmetric Key | [SecureComponents] |
 | | 400–410 | Used as descriptor types in [`crypto-output`](bcr-2020-010-output-desc.md). | |
 | | 500 | Used as response type for `OutputDescriptorResponse` | |
 | | 600 | Object Digest | This document and as defined in each type |

@@ -25,7 +25,7 @@ This repository contains research and proposals of interest to the blockchain co
 | [BCR-2020-015](papers/bcr-2020-015-account.md) | UR Type Definition for BIP44 Accounts | 1.0.0 | Craig Raw |
 | [BCR-2021-001](papers/bcr-2021-001-request.md) | UR Type Definitions for Transactions Between Airgapped Devices | 1.0.0 | Wolf McNally |
 | [BCR-2021-002](papers/bcr-2021-002-digest.md) | Digests for Digital Objects | 1.0.0 | Wolf McNally |
-| [BCR-2022-001](papers/bcr-2022-001-secure-message.md) | Secure Messages | 1.0.0 | Wolf McNally |
+| [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | 1.0.0 | Wolf McNally |
 | [BCR-2022-002](papers/bcr-2022-002-cid-common-identifier.md) | CID: Common Identifier | 0.1.0 | Wolf McNally |
 
 
