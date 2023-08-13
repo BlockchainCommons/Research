@@ -10,7 +10,7 @@ Date: October 1, 2020
 
 ## Abstract
 
-This paper investigates running QR animations standardised in [bcr-2020-005-ur](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md) and [bc-ur](https://github.com/BlockchainCommons/bc-ur/) on ATSAMD51J20 ([bc-lethekit](https://github.com/BlockchainCommons/bc-lethekit)) on an e-paper display [1.54inch-e-Paper-Module Rev. 2.1](https://www.waveshare.net/w/upload/e/e5/1.54inch_e-paper_V2_Datasheet.pdf) (200x200).
+This paper investigates running QR animations standardized in [bcr-2020-005-ur](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md) and [bc-ur](https://github.com/BlockchainCommons/bc-ur/) on ATSAMD51J20 ([bc-lethekit](https://github.com/BlockchainCommons/bc-lethekit)) on an e-paper display [1.54inch-e-Paper-Module Rev. 2.1](https://www.waveshare.net/w/upload/e/e5/1.54inch_e-paper_V2_Datasheet.pdf) (200x200).
 
 The results suggest we can animate 1 QR code per second or up to 2 if the QR parts are very small.
 Another finding is that *UREncoder* gets very slow (4 seconds) for messages of size around 5kB and 100 byte QR parts.
@@ -44,7 +44,7 @@ src/epd/GxEPD2_154_D67.h:    static const uint16_t partial_refresh_time = 500; /
 
 In this section the code is introduced used to measure the rate of QR animations with different parameters.
 We are conveying a message (*message_size*) split into qr parts (*CHUNK_SIZE*) by the *UR encoder*. The QR code can fully fit
-onto screen (*scale* = 200) or we can make it smaller. 
+onto screen (*scale* = 200) or we can make it smaller.
 
 *Note:* scale is not a reliable parameter. Scale of 200 means display the QR code over the whole screen if possible. The actually depicted code may
 be smaller.
@@ -153,9 +153,9 @@ Msg size [byte]| make_message_ur() [ms]| UREncoder() [ms]
 1000 | 23 | 42
 2000 | 72 | 278
 5000 | 384 | 3869
-	
 
-*Note:* printing strings over serial (`Serial.println`) is negligible (<1ms) whereas `encoder.next_part()` takes 2-3ms 
+
+*Note:* printing strings over serial (`Serial.println`) is negligible (<1ms) whereas `encoder.next_part()` takes 2-3ms
 
 We can see that the difference between refresh rate and QR generation is about **560 ms** which is close (delta=60ms) to what the refresh rate
 specified for this display is.
@@ -174,6 +174,3 @@ display controller.
 * [bc-lethekit](https://github.com/BlockchainCommons/bc-lethekit)
 * [GxEPD2 Arduino library](https://github.com/ZinggJM/GxEPD2)
 * [datasheet_1.54V2](https://www.waveshare.net/w/upload/e/e5/1.54inch_e-paper_V2_Datasheet.pdf)
-
-
-

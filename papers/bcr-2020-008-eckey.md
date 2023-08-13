@@ -20,7 +20,7 @@ This specification defines a UR type `crypto-eckey` (CBOR tag #6.306) for encodi
 
 ### EC Curve Selector
 
-[SEC2-ECPARMS] lists 20 sets of parameters for elliptic curve cryptography, and a current invocation of `openssl ecparam -list_curves | wc -l` shows that OpenSSL currently supports 87. The `curve` field below selects which curve is used by the repreented key. However, the only value specified in the current version of this document is `0` which represents the curve `secp256k1`.
+[SEC2-ECPARMS] lists 20 sets of parameters for elliptic curve cryptography, and a current invocation of `openssl ecparam -list_curves | wc -l` shows that OpenSSL currently supports 87. The `curve` field below selects which curve is used by the represented key. However, the only value specified in the current version of this document is `0` which represents the curve `secp256k1`.
 
 ### Key Data
 

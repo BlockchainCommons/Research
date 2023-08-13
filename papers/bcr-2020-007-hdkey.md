@@ -152,7 +152,7 @@ derived-key = (
     ? children: #6.304(crypto-keypath),  ; What children should/can be derived from this
     ? parent-fingerprint: uint32 .ne 0,  ; The fingerprint of this key's direct ancestor, per [BIP32]
     ? name: text,                        ; A short name for this key.
-    ? note: text                         ; An arbtrary amount of text describing the key.
+    ? note: text                         ; An arbitrary amount of text describing the key.
 )
 
 ; If the `use-info` field is omitted, defaults (mainnet BTC key) are assumed.

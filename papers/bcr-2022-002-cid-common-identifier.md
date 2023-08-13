@@ -15,11 +15,11 @@ Information systems use many kinds of identifiers for many purposes. The main pu
 
 ## Survey
 
-Universally unique identifers have precedent in (for example) [UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier), [URIs](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier), and cryptographic digests.
+Universally unique identifiers have precedent in (for example) [UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier), [URIs](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier), and cryptographic digests.
 
 ### UUIDs
 
-UUIDs are 128 bits in length and come in several different versions. Each version specifies several bitfields and their semantics. Version 4 is specified to be random, but is still not completely random because it does not specify that cryptographically strong randoness is always be used, and it reserves a 7 bits to identify it *as* a version 4 UUID, leaving 121 bits of actual randomness.
+UUIDs are 128 bits in length and come in several different versions. Each version specifies several bitfields and their semantics. Version 4 is specified to be random, but is still not completely random because it does not specify that cryptographically strong randomness is always be used, and it reserves a 7 bits to identify it *as* a version 4 UUID, leaving 121 bits of actual randomness.
 
 ### URIs
 
@@ -31,7 +31,7 @@ A cryptographic hash algorithm such as SHA256 or BLAKE3 maps a block of data of 
 
 ## Introducing the CID
 
-We propose herein a standard for a cryptographically strong, univerally unique identifier known as a Common Identifier, or CID.
+We propose herein a standard for a cryptographically strong, universally unique identifier known as a Common Identifier, or CID.
 
 The goals for this form of identifier are:
 
@@ -51,11 +51,11 @@ However, the source of entropy for a CID does not itself have to actually be ran
 
 ## Neutral Semantics
 
-Existing identifers frequently contain inherent type information (UUID version 4 identifies itself as such) and frequently specify the type of referent (URIs specify the `scheme` and often specify a referent type (such as `.jpg` in their path.)
+Existing identifiers frequently contain inherent type information (UUID version 4 identifies itself as such) and frequently specify the type of referent (URIs specify the `scheme` and often specify a referent type (such as `.jpg` in their path.)
 
-CIDs (as such) contain no type information. Statistically, they are uniformly random sequences of bits. If you merely encoded a CID as a sequence of binary or hexadecimal digits, it would appear to be a randon sequence.
+CIDs (as such) contain no type information. Statistically, they are uniformly random sequences of bits. If you merely encoded a CID as a sequence of binary or hexadecimal digits, it would appear to be a random sequence.
 
-Type information can be added at higher levels. When encoded as [CBOR](https://cbor.io/), a CID is tagged with #6.312. Tagged this way, the receiver of a CID can still only determine that it *is* a CID, and nothing about the type or nature of its referent.
+Type information can be added at higher levels. When encoded as [CBOR](https://cbor.io/), a CID is tagged with #6.40012. Tagged this way, the receiver of a CID can still only determine that it *is* a CID, and nothing about the type or nature of its referent.
 
 In particular, this construct provides no information about the lifetime of the referent. The referent could exist persistently for all time, such as in a blockchain, or it could exist for milliseconds, as in a distributed function call.
 
@@ -75,7 +75,7 @@ CIDs must be a minimum of 256 bits (32 bytes) in length. At this time, there is 
 
 The foregoing notwithstanding, CIDs MAY be used as inputs to cryptographic constructs such as a ratcheting key algorithms, or used as additional entropy for random number generators, or salt for hashing algorithms, as long as the output of such algorithms is necessarily related to the CID's referent.
 
-For example in the distributed call scenario, a caller might transmit a structure including `request(CID(A))`, where A is a CID generated from an iteration of a ratcheting key algorithm. The receiver compares `A` to its own internal state, rejecting the call if it does not match, and advancing the state of its rachet if it does. The receiver computes the result of the call and returns a structure including `response(CID(B))`, where B is generated from the new state of the ratchet. The caller receives the response and uses the algorithm to correlate `B` in the response to its call `A`, and if further exchanges are needed, uses the ratchet to produce the next expected transaction ID, `C`. Third parties viewing the exchange cannot correlate `A`, `B`, or `C`, and in particular, they cannot correlate a specific response to its call.
+For example in the distributed call scenario, a caller might transmit a structure including `request(CID(A))`, where A is a CID generated from an iteration of a ratcheting key algorithm. The receiver compares `A` to its own internal state, rejecting the call if it does not match, and advancing the state of its ratchet if it does. The receiver computes the result of the call and returns a structure including `response(CID(B))`, where B is generated from the new state of the ratchet. The caller receives the response and uses the algorithm to correlate `B` in the response to its call `A`, and if further exchanges are needed, uses the ratchet to produce the next expected transaction ID, `C`. Third parties viewing the exchange cannot correlate `A`, `B`, or `C`, and in particular, they cannot correlate a specific response to its call.
 
 ## Not to be Confused With
 

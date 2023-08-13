@@ -42,7 +42,7 @@ p2pkh = 0
 p2sh = 1
 p2wpkh = 2
 
-; The `type` field MAY be included for Bitcoin (and similar cryptocurrency) addresses, and MUST be ommitted for non-applicable types.
+; The `type` field MAY be included for Bitcoin (and similar cryptocurrency) addresses, and MUST be omitted for non-applicable types.
 
 ; `data` contains:
 ;   For addresses of type `p2pkh`, the hash160 of the public key (20 bytes).
