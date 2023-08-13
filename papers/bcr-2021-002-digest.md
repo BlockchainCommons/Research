@@ -11,7 +11,7 @@ Date: Apr 20, 2021
 
 ## Introduction
 
-There is often a need to uniquely identify a digital object without having the complete object at hand. Digital hashing algorithms take as input any binary data and output a distinct, deterministic, fixed-sized output. The output, called a *digest*, is contstructed from every bit of the input (the *digest source*) such that, if even one bit of the source changes, *every* bit of the output is likely to change. A good hashing algorithm will produce a digest that is statistically random, with the digest bits having an equal probability of being zero or one. Yet, the result is deterministic such that a specific digest source will *always* yield the exact same output.
+There is often a need to uniquely identify a digital object without having the complete object at hand. Digital hashing algorithms take as input any binary data and output a distinct, deterministic, fixed-sized output. The output, called a *digest*, is constructed from every bit of the input (the *digest source*) such that, if even one bit of the source changes, *every* bit of the output is likely to change. A good hashing algorithm will produce a digest that is statistically random, with the digest bits having an equal probability of being zero or one. Yet, the result is deterministic such that a specific digest source will *always* yield the exact same output.
 
 Hash algorithms are also *one-way* in that there is no possible way to reconstruct the original message from the digest, and yet any object can be hashed and the resulting digest compared to another digest: if the two digests are exactly equal, then it can be trusted to a high degree of certainty that they were produced from the same source.
 
@@ -166,11 +166,17 @@ Identifying a digital object requires producing a digest of the object. The inpu
 
 Some fields of a structured digital object may be integral to the object's identity and should be included in its digest, while others may not, and must be omitted from the digest. This ensures that all parties will produce the same digest of the same object. For instance, in a `ur:crypto-seed`, the seed `payload` itself is integral, but the `name`, `notes`, and `creation-date` fields can all be changed without changing the seed's essential identity, and are therefore not integral.
 
-When a digest of another object is included in a CBOR object, it is tagged #6.600 per the [Registry of Uniform Resource (UR) Types](bcr-2020-006-urtypes.md).
-
 The method to produce the digest source for a particular object type SHOULD be specified by that type; this is its *Digest Source Specification* (DSS).
 
 Examples of object types that include Digest Source Specifications:
 
 * [ur:crypto-seed](bcr-2020-006-urtypes.md#seed-digest-source-specification)
 * [ur:crypto-hdkey](bcr-2020-007-hdkey.md#hdkey-digest-source-specification)
+
+## IANA Considerations
+
+When a digest of another object is encoded as tagged CBOR, it is tagged #6.40001. This document requests registration of the following CBOR tag:
+
+* Tag: 6.40001
+* Data Item: byte string
+* Semantics: 32-byte SHA-256 digest
