@@ -15,7 +15,7 @@ The goal of this paper is to identify a method for encoding arbitrary binary blo
 
 ### URI Reserved and Unreserved Characters
 
-[RFC3986] defines a subset of printable ASCII as "reserved characters" whose purpose is to "provide a set of delimiting characters that are distinguishable from other data within a URI." Characters in the reserved set are protected from normalization and are therefore safe to be used by scheme-specific and producer-specific algorithms for delimiting data subcomponents within a URI:
+[RFC3986] defines a subset of printable ASCII as "reserved characters" whose purpose is to "provide a set of delimiting characters that are distinguishable from other data within a URI." Characters in the reserved set are protected from normalization and are therefore safe to be used by scheme-specific and producer-specific algorithms for delimiting data sub-components within a URI:
 
 ```
 :/?#[]@!$&'()*+,;=

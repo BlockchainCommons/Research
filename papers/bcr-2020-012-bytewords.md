@@ -181,7 +181,7 @@ taaddwoeadgdstaslplabghydrpfmkbggufgludprfgmaotpiecffltntddwgmrp
 
 ### Brutal Encoding
 
-Unlike the "standard" encoding described above, where the encoded message is CBOR and is therefore self-describing, Bytewords can also be used to encode arbitary byte sequences with no defined internal structure except for the last four words being the checksum. The advantage of this "brutal" encoding is brevity. The disadvantage is that it is up to the user to keep track of the type of information encoded and ensure that it is interpreted correctly.
+Unlike the "standard" encoding described above, where the encoded message is CBOR and is therefore self-describing, Bytewords can also be used to encode arbitrary byte sequences with no defined internal structure except for the last four words being the checksum. The advantage of this "brutal" encoding is brevity. The disadvantage is that it is up to the user to keep track of the type of information encoded and ensure that it is interpreted correctly.
 
 For example, the seed payload used in the example above:
 

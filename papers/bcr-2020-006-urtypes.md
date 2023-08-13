@@ -18,7 +18,7 @@ A limited, base-32 character set is required by Uniform Resources (UR) [BCR5] in
 
 Because this namespace intersects with but does not enclose existing type namespace definitions such as [MIME] and because defined types like MIME do not uniformly specify CBOR encoding (required by [BCR5]) a new namespace is necessary to easily identify the type of data encoded in a UR.
 
-This document is a registry of UR types and CBOR tags maintained by Blockchain Commons. Each entry in the registry records the type string, its associated CBOR tag, a brief description of the type, and either a link to the type defintion or a reference to the type definition within this document. Additional types may be added by contacting this document's maintainers.
+This document is a registry of UR types and CBOR tags maintained by Blockchain Commons. Each entry in the registry records the type string, its associated CBOR tag, a brief description of the type, and either a link to the type definition or a reference to the type definition within this document. Additional types may be added by contacting this document's maintainers.
 
 Types specified within this document are specified in [CDDL], the Concise Data Definition Language used as a human-readable notation for CBOR structures.
 
@@ -34,7 +34,7 @@ All types with the prefix `cbor-` are reserved for existing non-CBOR media types
 
 Each UR type defines a CBOR encoding. When a UR type is suitable for embedding within another CBOR structure, it MUST be tagged with a CBOR tag defined for this purpose. When a UR type is used as the top-level CBOR object encoded into a UR, the object MUST NOT be tagged, as this information is provided by the UR type component.
 
-This document also lists the tag, if any, defined for the particular CBOR strucure contained in the UR encoding. The tags listed here may or may not currently be listed in IANA's registry of CBOR tags [CBOR-TAGS] but the intent is that they will be registered as they come into us.
+This document also lists the tag, if any, defined for the particular CBOR structure contained in the UR encoding. The tags listed here may or may not currently be listed in IANA's registry of CBOR tags [CBOR-TAGS] but the intent is that they will be registered as they come into us.
 
 ### Registry
 
@@ -223,7 +223,7 @@ So the digest would be the SHA-256 hash of those bytes:
 e824467caffeaf3bbc3e0ca095e660a9bad80ddb6a919433a37161908b9a3986
 ```
 
-When encoded as CBOR (diagnostic notiation):
+When encoded as CBOR (diagnostic notation):
 
 ```
 crypto-seed-digest = 600(h'e824467caffeaf3bbc3e0ca095e660a9bad80ddb6a919433a37161908b9a3986')
