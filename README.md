@@ -27,6 +27,7 @@ This repository contains research and proposals of interest to the blockchain co
 | [BCR-2021-002](papers/bcr-2021-002-digest.md) | Digests for Digital Objects | 1.0.0 | Wolf McNally |
 | [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | 1.0.0 | Wolf McNally |
 | [BCR-2022-002](papers/bcr-2022-002-cid-common-identifier.md) | CID: Common Identifier | 0.1.0 | Wolf McNally |
+| [BCR-2023-001](papers/bcr-2023-001-compressed-message.md) | Compressed Message | 0.1.0 | Wolf McNally |
 
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Wallet Improvement Proposals](https://github.com/BlockchainCommons/wips/blob/master/README.md)._

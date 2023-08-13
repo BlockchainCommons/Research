@@ -56,7 +56,7 @@ This document also lists the tag, if any, defined for the particular CBOR struct
 | `known-value` | 40000 | Envelope known value | [Envelope] |
 | `digest` | 40001 | Cryptographic digest | [SecureComponents] |
 | `encrypted` | 40002 | Encrypted message | [[BCR-2022-001]](bcr-2022-001-encrypted-message.md) |
-| `compressed` | 40003 | Compressed data | [SecureComponents] |
+| `compressed` | 40003 | Compressed message | [[BCR-2023-001]](bcr-2023-001-compressed.md) |
 | `request` | 40004 | Distributed request | [Envelope] |
 | `response` | 40005 | Distributed response | [Envelope] |
 | `function` | 40006 | Function identifier | [Envelope] |
