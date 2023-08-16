@@ -117,6 +117,10 @@ ur:encrypted/lrhdjptecylgeeiemnhnuykglnperfguwskbsaoxpmwegydtjtayzeptvoreosenwyi
 
 The security considerations for this type are the same as that for the cryptographic construction defined in [RFC-8439](https://datatracker.ietf.org/doc/html/rfc8439).
 
+## Future Proofing
+
+The `#6.40002` tag is intended to be extensible to other encryption constructs, if and when the need arises. The only requirement is that later constructs are distinguishable from the one defined herein, for example by inserting a distinguishing integer as the first element of the array.
+
 ### IANA Considerations
 
 This document requests that [IANA](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml) reserve the following tag:
