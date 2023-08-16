@@ -1,4 +1,4 @@
-# Gordian Envelope Extension: Encryption
+# Gordian Envelope Extension: Symmetric Encryption
 
 ## BCR-2023-004
 
