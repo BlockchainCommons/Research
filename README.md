@@ -6,29 +6,29 @@ This repository contains research and proposals of interest to the blockchain co
 
 ## Contents
 
-| Number                    | Title         | Version | Owner                                                  |
-|---------------------------|---------------|---------|----------------------------------------------|
-| [BCR-2020-001](papers/bcr-2020-001-entropy-to-seed.md) | Uniformly Translating Entropy into Cryptographic Seeds | 1.0.0 | Wolf McNally |
-| [BCR-2020-002](papers/bcr-2020-002-bech32-seed-format.md) | Bech32 Encoding for Cryptographic Seeds | 1.0.0 | Wolf McNally |
-| [BCR-2020-003](papers/bcr-2020-003-uri-binary-compatibility.md) | Encoding Binary Compatibly with URI Reserved Characters  | 1.0.0 | Wolf McNally |
-| [BCR-2020-004](papers/bcr-2020-004-bc32.md) | The BC32 Data Encoding Format  | 1.0.0 | Wolf McNally |
-| [BCR-2020-005](papers/bcr-2020-005-ur.md) | Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes  | 2.0.1 | Wolf McNally |
-| [BCR-2020-006](papers/bcr-2020-006-urtypes.md) | Registry of Uniform Resource (UR) Types  | 1.0.0 | Wolf McNally |
-| [BCR-2020-007](papers/bcr-2020-007-hdkey.md) | UR Type Definition for Hierarchical Deterministic (HD) Keys  | 1.0.0 | Wolf McNally |
-| [BCR-2020-008](papers/bcr-2020-008-eckey.md) | UR Type Definition for Elliptic Curve (EC) Keys  | 1.0.0 | Wolf McNally |
-| [BCR-2020-009](papers/bcr-2020-009-address.md) | UR Type Definition for Cryptocurrency Addresses  | 1.0.0 | Wolf McNally |
-| [BCR-2020-010](papers/bcr-2020-010-output-desc.md) | UR Type Definition for Bitcoin Output Descriptors | 1.0.0 | Wolf McNally |
-| [BCR-2020-011](papers/bcr-2020-011-sskr.md) | UR Type Definition for Sharded Secret Key Reconstruction (SSKR) | 1.0.1 | Wolf McNally |
-| [BCR-2020-012](papers/bcr-2020-012-bytewords.md) | Bytewords: Encoding binary data as English words | 1.0.0 | Wolf McNally |
-| [BCR-2020-013](papers/bcr-2020-013-crc32-cbor-tag.md) | CRC-32 Checksums in CBOR | 1.0.0 | Wolf McNally |
-| [BCR-2020-014](papers/bcr-2020-014-urs-on-epaper.md) | URs on E-paper display | 1.0.0 | Gorazd Kovacic |
-| [BCR-2020-015](papers/bcr-2020-015-account.md) | UR Type Definition for BIP44 Accounts | 1.0.0 | Craig Raw |
-| [BCR-2021-001](papers/bcr-2021-001-request.md) | UR Type Definitions for Transactions Between Airgapped Devices | 1.0.0 | Wolf McNally |
-| [BCR-2021-002](papers/bcr-2021-002-digest.md) | Digests for Digital Objects | 1.0.0 | Wolf McNally |
-| [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | 1.0.0 | Wolf McNally |
-| [BCR-2022-002](papers/bcr-2022-002-cid-common-identifier.md) | CID: Common Identifier | 0.1.0 | Wolf McNally |
-| [BCR-2023-001](papers/bcr-2023-001-compressed-message.md) | Compressed Message | 0.1.0 | Wolf McNally |
-| [BCR-2023-001](papers/bcr-2023-002-known-value.md) | Known Values: A Compact, Deterministic Representation for Ontological Concepts | 0.1.0 | Wolf McNally |
+| Number                    | Title         | Owner                                                  |
+|---------------------------|----------------|----------------------------------------------|
+| [BCR-2020-001](papers/bcr-2020-001-entropy-to-seed.md) | Uniformly Translating Entropy into Cryptographic Seeds | Wolf McNally |
+| [BCR-2020-002](papers/bcr-2020-002-bech32-seed-format.md) | Bech32 Encoding for Cryptographic Seeds | Wolf McNally |
+| [BCR-2020-003](papers/bcr-2020-003-uri-binary-compatibility.md) | Encoding Binary Compatibly with URI Reserved Characters  | Wolf McNally |
+| [BCR-2020-004](papers/bcr-2020-004-bc32.md) | The BC32 Data Encoding Format  | Wolf McNally |
+| [BCR-2020-005](papers/bcr-2020-005-ur.md) | Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes (Version 2) | Wolf McNally |
+| [BCR-2020-006](papers/bcr-2020-006-urtypes.md) | Registry of Uniform Resource (UR) Types  | Wolf McNally |
+| [BCR-2020-007](papers/bcr-2020-007-hdkey.md) | UR Type Definition for Hierarchical Deterministic (HD) Keys  | Wolf McNally |
+| [BCR-2020-008](papers/bcr-2020-008-eckey.md) | UR Type Definition for Elliptic Curve (EC) Keys  | Wolf McNally |
+| [BCR-2020-009](papers/bcr-2020-009-address.md) | UR Type Definition for Cryptocurrency Addresses  | Wolf McNally |
+| [BCR-2020-010](papers/bcr-2020-010-output-desc.md) | UR Type Definition for Bitcoin Output Descriptors | Wolf McNally |
+| [BCR-2020-011](papers/bcr-2020-011-sskr.md) | UR Type Definition for Sharded Secret Key Reconstruction (SSKR) | Wolf McNally |
+| [BCR-2020-012](papers/bcr-2020-012-bytewords.md) | Bytewords: Encoding binary data as English words | Wolf McNally |
+| [BCR-2020-013](papers/bcr-2020-013-crc32-cbor-tag.md) | CRC-32 Checksums in CBOR | Wolf McNally |
+| [BCR-2020-014](papers/bcr-2020-014-urs-on-epaper.md) | URs on E-paper display | Gorazd Kovacic |
+| [BCR-2020-015](papers/bcr-2020-015-account.md) | UR Type Definition for BIP44 Accounts | Craig Raw |
+| [BCR-2021-001](papers/bcr-2021-001-request.md) | UR Type Definitions for Transactions Between Airgapped Devices | Wolf McNally |
+| [BCR-2021-002](papers/bcr-2021-002-digest.md) | Digests for Digital Objects | Wolf McNally |
+| [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | Wolf McNally |
+| [BCR-2022-002](papers/bcr-2022-002-cid-common-identifier.md) | CID: Common Identifier | Wolf McNally |
+| [BCR-2023-001](papers/bcr-2023-001-compressed-message.md) | Compressed Message | Wolf McNally |
+| [BCR-2023-001](papers/bcr-2023-002-known-value.md) | Known Values: A Compact, Deterministic Representation for Ontological Concepts | Wolf McNally |
 
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Wallet Improvement Proposals](https://github.com/BlockchainCommons/wips/blob/master/README.md)._
