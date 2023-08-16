@@ -51,7 +51,7 @@ The `encrypted` case can be discriminated from other Envelope case arms by the f
 
 This section is normative.
 
-The `encrypted` case directly declares the encrypted envelope's digest as the fourth element of its array, `aad`. The `tagged-digest` encoded therein MUST match the actual digest of the Envelope that has been encrypted. Decrypting an envelope MUST be validated by matching the decrypted Envelope's actual digest to the one declared, and the decryption operation MUST reject the result if the digests do not match.
+The `encrypted` case directly declares the encrypted envelope's digest as the fourth element of its array, `aad`. The `tagged-digest` encoded therein MUST match the actual digest of the Envelope that has been encrypted. Decrypting an envelope MUST be validated by matching the decrypted Envelope's actual computed digest to the one declared, and the decryption operation MUST reject the result if the digests do not match.
 
 **Example**
 
