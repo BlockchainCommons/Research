@@ -62,6 +62,10 @@ If the payload is too small to compress using DEFLATE, the uncompressed payload 
 
 Due to fixed overhead, the compressed form of very small messages may be somewhat larger than their uncompressed form.
 
+## Future Proofing
+
+The `#6.40003` tag is intended to be extensible to other compression constructs, if and when the need arises. The only requirement is that later constructs are distinguishable from the one defined herein, for example by inserting a distinguishing integer as the first element of the array.
+
 ## IANA Considerations
 
 When a digest of another object is encoded as tagged CBOR, it is tagged #6.40001. This document requests registration of the following CBOR tag:

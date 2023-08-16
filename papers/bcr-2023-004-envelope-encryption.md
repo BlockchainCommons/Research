@@ -102,7 +102,7 @@ Both the [Swift Gordian Envelope Reference Implementation](https://github.com/Bl
 
 ## Future Proofing
 
-To support this extension, future extensions the encrypted message used herein and defined in [UR Type Definition for Encrypted Messages](bcr-2022-001-secure-message.md) may support other encryption constructs. To work with this specification, they MUST support an equivalent of the `aad` field afforded by the original IETF-ChaCha20-Poly1305 construct so that the digest of the encrypted Envelope can be declared.
+To support this extension, future extensions to the encrypted message used herein and defined in [UR Type Definition for Encrypted Messages](bcr-2022-001-secure-message.md) may support other encryption constructs. To work with this specification, they MUST support an equivalent of the `aad` field afforded by the original IETF-ChaCha20-Poly1305 construct so that the digest of the encrypted Envelope can be declared.
 
 ## Security Considerations
 

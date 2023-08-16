@@ -20,7 +20,7 @@ Like elision, which is supported by the Envelope Base Specification, compression
 
 ## Format Specification
 
-This section is normative, and specifies an additional case arm for the `envelope` type: `compressed`. The formal language used is the Concise Data Definition Language (CDDL) [RFC8610]. The top-level specification of Gordian Envelope with this extension added is:
+This section is normative, and specifies an additional case arm for the `envelope` type: `compressed`. The formal language used is the [Concise Data Definition Language (CDDL)](https://datatracker.ietf.org/doc/html/rfc8610). The top-level specification of Gordian Envelope with this extension added is:
 
 ~~~
 envelope = #6.200(
@@ -97,6 +97,10 @@ Notice that the digest of the unencrypted and encrypted Envelopes both match. Th
 This section is informative.
 
 Both the [Swift Gordian Envelope Reference Implementation](https://github.com/BlockchainCommons/BCSwiftEnvelope) and the [Rust Gordian Envelope Reference Implementation](https://github.com/BlockchainCommons/bc-envelope-rust) support this extension.
+
+## Future Proofing
+
+To support this extension, future extensions to the compressed message used herein and defined in [UR Type Definition for Compressed Messages](bcr-2023-001-compressed-message.md) may support other compression constructs. To work with this specification, they MUST support an equivalent of the `digest` field so that the digest of the encrypted Envelope can be declared.
 
 ## Security Considerations
 
