@@ -48,23 +48,23 @@ A Known Value is an unsigned integer in the range 0..2<sup>64</sup> - 1. When th
 
 When serialized as a tagged CBOR structure it uses tag `#6.40000`. The formal language used is the Concise Data Definition Language (CDDL) [RFC8610].
 
-~~~
+```
 known-value = uint
 
 tagged-known-value = #6.40000(known-value)
-~~~
+```
 
 So the `tagged-known-value` for `isA` in CBOR diagnostic notation would be:
 
-~~~
+```
 40000(1)
-~~~
+```
 
 Since CBOR encodes integers using variable length encoding, the actual bytes encoded would be:
 
-~~~
-D99C4001
-~~~
+```
+d99c4001
+```
 
 ## Registry Structure
 
