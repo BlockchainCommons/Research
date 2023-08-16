@@ -28,8 +28,8 @@ This repository contains research and proposals of interest to the blockchain co
 | [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | Wolf McNally |
 | [BCR-2022-002](papers/bcr-2022-002-cid-common-identifier.md) | CID: Common Identifier | Wolf McNally |
 | [BCR-2023-001](papers/bcr-2023-001-compressed-message.md) | Compressed Message | Wolf McNally |
-| [BCR-2023-001](papers/bcr-2023-002-known-value.md) | Known Values: A Compact, Deterministic Representation for Ontological Concepts | Wolf McNally |
-
+| [BCR-2023-002](papers/bcr-2023-002-known-value.md) | Known Values: A Compact, Deterministic Representation for Ontological Concepts | Wolf McNally |
+| [BCR-2023-003](papers/bcr-2023-003-envelope-known-value.md) | Gordian Envelope Extension: Known Values | Wolf McNally |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Wallet Improvement Proposals](https://github.com/BlockchainCommons/wips/blob/master/README.md)._
 
