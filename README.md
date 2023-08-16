@@ -28,7 +28,7 @@ This repository contains research and proposals of interest to the blockchain co
 | [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | 1.0.0 | Wolf McNally |
 | [BCR-2022-002](papers/bcr-2022-002-cid-common-identifier.md) | CID: Common Identifier | 0.1.0 | Wolf McNally |
 | [BCR-2023-001](papers/bcr-2023-001-compressed-message.md) | Compressed Message | 0.1.0 | Wolf McNally |
-| [BCR-2023-001](papers/bcr-2023-002-known-value.md) | Known Values | 0.1.0 | Wolf McNally |
+| [BCR-2023-001](papers/bcr-2023-002-known-value.md) | Known Values: A Compact, Deterministic Representation for Ontological Concepts | 0.1.0 | Wolf McNally |
 
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Wallet Improvement Proposals](https://github.com/BlockchainCommons/wips/blob/master/README.md)._
@@ -75,7 +75,7 @@ The best place to talk about Blockchain Commons and its projects is in our GitHu
 
 [**Gordian Developer Community**](https://github.com/BlockchainCommons/Gordian-Developer-Community/discussions). For standards and open-source developers who want to talk about interoperable wallet specifications, please use the Discussions area of the [Gordian Developer Community repo](https://github.com/BlockchainCommons/Gordian-Developer-Community/discussions). This is where you talk about Gordian specifications such as [Gordian Envelope](https://github.com/BlockchainCommons/Gordian/tree/master/Envelope#articles), [bc-shamir](https://github.com/BlockchainCommons/bc-shamir), [Sharded Secret Key Reconstruction](https://github.com/BlockchainCommons/bc-sskr), and [bc-ur](https://github.com/BlockchainCommons/bc-ur) as well as the larger [Gordian Architecture](https://github.com/BlockchainCommons/Gordian/blob/master/Docs/Overview-Architecture.md), its [Principles](https://github.com/BlockchainCommons/Gordian#gordian-principles) of independence, privacy, resilience, and openness, and its macro-architectural ideas such as functional partition (including airgapping, the original name of this community).
 
-[**Blockchain Commons Discussions**](https://github.com/BlockchainCommons/Community/discussions). For developers, interns, and patrons of Blockchain Commons, please use the discussions area of the [Community repo](https://github.com/BlockchainCommons/Community) to talk about general Blockchain Commons issues, the intern program, or topics other than those covered by the [Gordian Developer Community](https://github.com/BlockchainCommons/Gordian-Developer-Community/discussions) or the 
+[**Blockchain Commons Discussions**](https://github.com/BlockchainCommons/Community/discussions). For developers, interns, and patrons of Blockchain Commons, please use the discussions area of the [Community repo](https://github.com/BlockchainCommons/Community) to talk about general Blockchain Commons issues, the intern program, or topics other than those covered by the [Gordian Developer Community](https://github.com/BlockchainCommons/Gordian-Developer-Community/discussions) or the
 [Gordian User Community](https://github.com/BlockchainCommons/Gordian/discussions).
 ### Other Questions & Problems
 
