@@ -22,13 +22,22 @@ This basic encryption can be further extended to support public key encryption (
 
 ## Format Specification
 
-This section is normative, and specifies an additional case arm for the `envelope` type: `encrypted`. The formal language used is the [Concise Data Definition Language (CDDL)](https://datatracker.ietf.org/doc/html/rfc8610). The top-level specification of Gordian Envelope with this extension added is:
+This section is normative, and specifies an additional case arm for the `envelope` type: `encrypted`. It also specifies that assertions may be encrypted by adding the `encrypted-assertion` case to Envelope's `assertion-element` type.
+
+The formal language used is the [Concise Data Definition Language (CDDL)](https://datatracker.ietf.org/doc/html/rfc8610). The top-level specification of Gordian Envelope with this extension added is:
 
 ~~~
 envelope = #6.200(
     leaf / elided / node / assertion / wrapped /
     encrypted
 )
+
+assertion-element = (
+    assertion / elided-assertion /
+    encrypted-assertion
+)
+
+encrypted-assertion = encrypted     ; MUST represent an assertion
 ~~~
 
 The format for `encrypted` is defined by [UR Type Definition for Encrypted Messages](bcr-2022-001-encrypted-message.md), including the CBOR tag `#6.40002`. In this specification, the optional fourth array element `aad` is REQUIRED, and MUST contain the CBOR-encoded tagged digest of the envelope. The digest tag `#6.40001` is defined in [Digests for Digital Objects](bcr-2021-002-digest.md).

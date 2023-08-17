@@ -20,13 +20,22 @@ Like elision, which is supported by the Envelope Base Specification, compression
 
 ## Format Specification
 
-This section is normative, and specifies an additional case arm for the `envelope` type: `compressed`. The formal language used is the [Concise Data Definition Language (CDDL)](https://datatracker.ietf.org/doc/html/rfc8610). The top-level specification of Gordian Envelope with this extension added is:
+This section is normative, and specifies an additional case arm for the `envelope` type: `compressed`. It also specifies that assertions may be compressed by adding the `compressed-assertion` case to Envelope's `assertion-element` type.
+
+The formal language used is the [Concise Data Definition Language (CDDL)](https://datatracker.ietf.org/doc/html/rfc8610). The top-level specification of Gordian Envelope with this extension added is:
 
 ~~~
 envelope = #6.200(
     leaf / elided / node / assertion / wrapped /
     compressed
 )
+
+assertion-element = (
+    assertion / elided-assertion /
+    compressed-assertion
+)
+
+compressed-assertion = compressed     ; MUST represent an assertion
 ~~~
 
 The format for `compressed` is defined in [UR Type Definition for Compressed Messages](bcr-2023-001-compressed-message.md), including the CBOR tag `#6.40003`. In this specification, the optional fourth array element `digest` is REQUIRED, and MUST contain the CBOR-encoded tagged digest of the envelope:
