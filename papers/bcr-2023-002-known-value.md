@@ -5,7 +5,7 @@
 **© 2023 Blockchain Commons**
 
 Authors: Wolf McNally, Christopher Allen<br/>
-Date: Aug 15, 2022
+Date: Aug 15, 2022<br/>
 Revised: Aug 15, 2023
 
 ## Abstract
