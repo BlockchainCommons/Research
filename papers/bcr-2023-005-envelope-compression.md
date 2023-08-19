@@ -25,7 +25,8 @@ This section is normative, and specifies an additional case arm for the `envelop
 The formal language used is the [Concise Data Definition Language (CDDL)](https://datatracker.ietf.org/doc/html/rfc8610). The top-level specification of Gordian Envelope with this extension added is:
 
 ~~~
-envelope = #6.200(
+envelope = #6.200(envelope-content)
+envelope-content = (
     leaf / elided / node / assertion / wrapped /
     compressed
 )
@@ -70,8 +71,8 @@ $ ENVELOPE=`envelope subject "Hello"`
 
 $ envelope format --diag $ENVELOPE
 
-200(   ; envelope
-   24("Hello")   ; leaf
+200(   / envelope /
+   24("Hello")   / leaf /
 )
 
 $ envelope digest --hex $ENVELOPE
@@ -81,13 +82,13 @@ $ envelope digest --hex $ENVELOPE
 $ COMPRESSED_ENVELOPE=`envelope compress $ENVELOPE`
 $ envelope format --diag $COMPRESSED_ENVELOPE
 
-200(   ; envelope
-   40003(   ; compressed
+200(   / envelope /
+   40003(   / compressed /
       [
          1146116589,
          10,
          h'd8c8d8186548656c6c6f',
-         40001(   ; digest
+         40001(   / digest /
             h'4d303dac9eed63573f6190e9c4191be619e03a7b3c21e9bb3d27ac1a55971e6b'
          )
       ]

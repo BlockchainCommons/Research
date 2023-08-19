@@ -6,6 +6,10 @@
 Author: Wolf McNally<br/>
 Date: April 22, 2020
 
+### DEPRECATED
+
+The content below is now deprecated and of historical interest only.
+
 ---
 
 ### Introduction

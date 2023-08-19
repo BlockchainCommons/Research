@@ -27,7 +27,8 @@ This document extends the [Gordian Envelope Base Specification](https://datatrac
 This section is normative, and specifies an additional case arm for the `envelope` type: `known-value`. The formal language used is the [Concise Data Definition Language (CDDL)](https://datatracker.ietf.org/doc/html/rfc8610). The top-level specification of Gordian Envelope with this extension added is:
 
 ```
-envelope = #6.200(
+envelope = #6.200(envelope-content)
+envelope-content = (
     leaf / elided / node / assertion / wrapped /
     known-value
 )

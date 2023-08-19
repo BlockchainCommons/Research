@@ -7,6 +7,10 @@
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: July 3, 2020
 
+### DEPRECATED
+
+The content below is now deprecated and of historical interest only.
+
 ### Introduction
 
 This document registers a tag for serializing CRC-32 checksums in Concise Binary Object Representation (CBOR).
