@@ -78,7 +78,9 @@ The registry consists of rows, with each row containing the following fields:
 
 * **Codepoint:** A unique 64-bit unsigned integer assigned to an ontological concept.
 * **Canonical Name:** The standardized name for the ontological concept.
-* **Synonymous URIs:** One or more URIs that are synonymous with the concept. These URIs can be linked to various ontologies and standards.
+* **Type:** The type of ontological concept, e.g. class, property, relationship, etc. By convention, classes and enumerated values are `CapitalizedCamelCase`, while properties and relationships are `uncapitalizedCamelCase`.
+* **Description:** A human-readable description of the concept.
+* **URI:** A URI that defines the concept. This may be a URI for an existing ontology, or a URI that is specific to another specification.
 
 ### Access Controls
 
@@ -135,7 +137,7 @@ This document requests the assignment of CBOR tag #6.40000:
 |:----|:-----|:-----|
 | 40000 | uint | Known Value |
 
-### Appendix A: Registry
+## Appendix A: Registry
 
 When encoded as CBOR, the amount of storage required for integer values varies, so ideally more commonly used Known Values would be assigned codepoints requiring less storage.
 
@@ -149,23 +151,73 @@ When encoded as CBOR, the amount of storage required for integer values varies, 
 
 This table documents the Known Value codepoints currently assigned, but is currently subject to change. It should probably be brought into line with one or more of the foundational ontology vocabularies such as RDF or OWL.
 
-| Codepoint | Canonical Name | Description/URI
-|--|--|--|
-| 1   | isA            | Predicate declaring the subject is of a type identified by the object.<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#type
-| 2   | id             | Predicate declaring the subject is known by the identifier object.
-| 3   | verifiedBy     | Predicate declaring the subject is signed by the `Signature` object.
-| 4   | note           | Predicate declaring the subject is accompanied by a human-readable note object.<br/>http://www.w3.org/2000/01/rdf-schema#comment
-| 5   | hasRecipient   | Predicate declaring the subject can be decrypted by the ephemeral key contained in the `SealedMessage` object.
-| 6   | sskrShare      | Predicate declaring the subject can be decrypted by a quorum of `SSKRShare`s including the one in the object.
-| 7   | controller     | Predicate declaring that the document is controlled by the party identified by the object.<br/>https://www.w3.org/ns/solid/terms#owner
-| 8   | publicKeys     | Predicate declaring that the party identified by the subject holds the private keys to the `PublicKeyBase` object.
-| 9   | dereferenceVia | Predicate declaring that the content referenced by the subject can be dereferenced using the information in the object.
-| 10  | entity         | Predicate declaring that the entity referenced by the subject is specified in the object.
-| 11  | hasName        | Predicate declaring that the entity referenced by the subject is known by the name in the object.<br/>http://xmlns.com/foaf/0.1/name
-| 12  | language       | Predicate declaring the the subject `String` is written in the language of the ISO language code object.<br/>http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
-| 13  | issuer         | Predicate declaring that the issuer of the object referenced in the subject is the entity referenced in the object.
-| 14  | holder         | Predicate declaring that the holder of the credential or certificate referenced in the subject is the entity referenced in the object.
-| 15  | salt           | Predicate declaring that the object is random salt used to decorrelate the digest of the subject.
-| 16  | date           | Predicate declaring a primary datestamp on the envelope.<br/>http://purl.org/dc/terms/date
-| 17  | unknown        | Placeholder for an unknown value.
-| 20  | edits          | Predicate declaring that the object is a set of edits using by the `Envelope.transform(edits:)` method to transform a `source` envelope into a `target` envelope.
+### General
+
+| Codepoint | Canonical Name | Type | Description | URI
+|--|--|--|--|--|
+| 1   | isA            | property | Declares a class of the object. | http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+| 2   | id             | property | Declares the primary identifier of the subject.
+| 3   | verifiedBy     | property | Declares a `Signature` on the subject.
+| 4   | note           | property | Declares a human-readable note about the subject. | http://www.w3.org/2000/01/rdf-schema#comment
+| 5   | hasRecipient   | property | Declares the subject can be decrypted by the ephemeral key contained in the `SealedMessage` object.
+| 6   | sskrShare      | property | Declares the subject can be decrypted by a quorum of `SSKRShare`s including the one in the object.
+| 7   | controller     | property | Declares the subject's controlling entity. | https://www.w3.org/ns/solid/terms#owner
+| 8   | publicKeys     | property | Declares the entity identified by the subject holds the private keys to the `PublicKeyBase` object.
+| 9   | dereferenceVia | property | Declares the content referenced by the subject can be dereferenced using the object.
+| 10  | entity         | property | Declares the entity referenced by the subject is specified in the object.
+| 11  | hasName        | property | Declares the the subject is known by the name in the object. | http://xmlns.com/foaf/0.1/name
+| 12  | language       | property | Declares the subject `String` is written in the language of the ISO language code object. | http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
+| 13  | issuer         | property | Declares the issuer of the object referenced in the subject is the entity referenced in the object.
+| 14  | holder         | property | Declares that the holder of the credential or certificate referenced in the subject is the entity referenced in the object.
+| 15  | salt           | property | Declares that the object is random salt used to decorrelate the digest of the subject.
+| 16  | date           | property | Declares a primary datestamp on the envelope. | http://purl.org/dc/terms/date
+| 17  | Unknown        | value    | Placeholder for an unknown value.
+| 20  | edits          | property | Declares that the object is a set of edits using by the `Envelope.transform(edits:)` method to transform a `source` envelope into a `target` envelope.
+
+### Expressions and Function Calls
+
+| Codepoint | Canonical Name | Type | Description | URI
+|--|--|--|--|--|
+| 100 | body       | property | Property declaring that the object is the body (parameters of) a distributed request identified by the subject.
+| 101 | result     | property | Property declaring that the object is the success result of the request identified by the subject.
+| 102 | error      | property | Property declaring that the object is the failure result of the request identified by the subject.
+| 103 | OK         | value    | Instance providing the success result of a request that has no other return value.
+| 104 | Processing | value    | Instance providing the "in processing" result of a request.
+
+### Cryptography
+
+| Codepoint | Canonical Name | Type | Description | URI
+|--|--|--|--|--|
+| 200 | Seed       | class | A cryptographic seed.
+| 201 | PrivateKey | class | A cryptographic private key.
+| 202 | PublicKey  | class | A cryptographic public key.
+| 203 | MasterKey  | class | A cryptographic master key.
+
+### Cryptocurrency Assets
+
+| Codepoint | Canonical Name | Type | Description | URI
+|--|--|--|--|--|
+| 300 | asset    | property | Declares a cryptocurrency asset specifier, e.g. "Bitcoin", "Ethereum"
+| 301 | Bitcoin  | value | The Bitcoin cryptocurrency ("BTC")
+| 302 | Ethereum | value | The Ethereum cryptocurrency ("ETH")
+
+### Cryptocurrency Networks
+
+| Codepoint | Canonical Name | Type | Description | URI
+|--|--|--|--|--|
+| 400 | network | property | Declares a cryptocurrency network, e.g. "MainNet", "TestNet"
+| 401 | MainNet | value | A cryptocurrency main network
+| 402 | TestNet | value | A cryptocurrency test network
+
+### Bitcoin
+
+| Codepoint | Canonical Name | Type | Description | URI
+|--|--|--|--|--|
+| 500 | BIP32Key          | class    | A BIP-32 HD key
+| 501 | chainCode         | property | Declares the chain code of a BIP-32 HD key
+| 502 | DerivationPath    | class    |A BIP-32 derivation path
+| 503 | parentPath        | property | Declares the derivation path for a BIP-32 key
+| 504 | childrenPath      | property | Declares the allowable derivation paths from a BIP-32 key
+| 505 | parentFingerprint | property | Declares the parent fingerprint of a BIP-32 key
+| 506 | PSBT              | class    | A Partially-Signed Bitcoin Transaction (PSBT)
+| 507 | OutputDescriptor  | class    | A Bitcoin output descriptor
