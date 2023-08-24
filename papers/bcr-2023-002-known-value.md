@@ -155,24 +155,32 @@ This table documents the Known Value codepoints currently assigned, but is curre
 
 | Codepoint | Canonical Name | Type | Description | URI
 |--|--|--|--|--|
-| 1   | isA            | property | Declares a class of the object. | http://www.w3.org/1999/02/22-rdf-syntax-ns#type
-| 2   | id             | property | Declares the primary identifier of the subject.
-| 3   | verifiedBy     | property | Declares a `Signature` on the subject.
-| 4   | note           | property | Declares a human-readable note about the subject. | http://www.w3.org/2000/01/rdf-schema#comment
-| 5   | hasRecipient   | property | Declares the subject can be decrypted by the ephemeral key contained in the `SealedMessage` object.
-| 6   | sskrShare      | property | Declares the subject can be decrypted by a quorum of `SSKRShare`s including the one in the object.
-| 7   | controller     | property | Declares the subject's controlling entity. | https://www.w3.org/ns/solid/terms#owner
-| 8   | publicKeys     | property | Declares the entity identified by the subject holds the private keys to the `PublicKeyBase` object.
-| 9   | dereferenceVia | property | Declares the content referenced by the subject can be dereferenced using the object.
-| 10  | entity         | property | Declares the entity referenced by the subject is specified in the object.
-| 11  | hasName        | property | Declares the the subject is known by the name in the object. | http://xmlns.com/foaf/0.1/name
-| 12  | language       | property | Declares the subject `String` is written in the language of the ISO language code object. | http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
-| 13  | issuer         | property | Declares the issuer of the object referenced in the subject is the entity referenced in the object.
-| 14  | holder         | property | Declares that the holder of the credential or certificate referenced in the subject is the entity referenced in the object.
-| 15  | salt           | property | Declares that the object is random salt used to decorrelate the digest of the subject.
-| 16  | date           | property | Declares a primary datestamp on the envelope. | http://purl.org/dc/terms/date
-| 17  | Unknown        | value    | Placeholder for an unknown value.
-| 20  | edits          | property | Declares that the object is a set of edits using by the `Envelope.transform(edits:)` method to transform a `source` envelope into a `target` envelope.
+| 1  | isA            | property | Declares that the subject is an instance of the class identified by the object. | http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+| 2  | id             | property | Declares an unambiguous reference to the subject within a given context. | http://purl.org/dc/terms/identifier
+| 3  | verifiedBy     | property | Declares a cryptographic signature of the subject.
+| 4  | note           | property | Declares a human-readable note about the subject. | http://www.w3.org/2000/01/rdf-schema#comment
+| 5  | hasRecipient   | property | Declares the subject can be decrypted by the ephemeral key contained in the object.
+| 6  | sskrShare      | property | Declares the subject can be decrypted by a quorum of SSKR shares including the one in the object.
+| 7  | controller     | property | Declares the subject's controlling entity. | https://www.w3.org/ns/solid/terms#owner
+| 8  | publicKeys     | property | Declares the entity identified by the subject holds the private keys in the object.
+| 9  | dereferenceVia | property | Declares the content referenced by the subject can be dereferenced using the object.
+| 10 | entity         | property | Declares the entity referenced by the subject is specified in the object.
+| 11 | hasName        | property | Declares the the subject is known by the name in the object. | http://xmlns.com/foaf/0.1/name
+| 12 | language       | property | Declares the subject is written in the language of the ISO language code object. | http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
+| 13 | issuer         | property | Declares the subject's issuing entity.
+| 14 | holder         | property | Declares the entity to which the subject has been issued.
+| 15 | salt           | property | Declares that the object is random salt used to decorrelate the digest of the subject.
+| 16 | date           | property | Declares a primary datestamp of the subject. | http://purl.org/dc/terms/date
+| 17 | Unknown        | value    | Placeholder for an unknown value. | https://en.wikipedia.org/wiki/Blank_node
+| 20 | edits          | property | Declares that the object is a set of edits using by the `Envelope.transform(edits:)` method to transform a `source` envelope into a `target` envelope.
+
+### Vendor Extensions
+
+| Codepoint | Canonical Name | Type | Description | URI
+|--|--|--|--|--|
+| 50 | attachment | property | Declares that the object is a vendor-defined attachment to the envelope. | [BCR-2023-006](bcr-2023-006-envelope-attachment.md)
+| 51 | vendor     | property | Declares the vendor of the subject. | [BCR-2023-006](bcr-2023-006-envelope-attachment.md)
+| 52 | conformsTo | property | An established standard to which the subject conforms. | http://purl.org/dc/terms/conformsTo
 
 ### Expressions and Function Calls
 
