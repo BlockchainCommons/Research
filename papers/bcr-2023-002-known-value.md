@@ -229,3 +229,4 @@ This table documents the Known Value codepoints currently assigned, but is curre
 | 505 | parentFingerprint | property | Declares the parent fingerprint of a BIP-32 key
 | 506 | PSBT              | class    | A Partially-Signed Bitcoin Transaction (PSBT)
 | 507 | OutputDescriptor  | class    | A Bitcoin output descriptor
+| 508 | outputDescriptor  | property | Declares a Bitcoin output descriptor associated with the subject

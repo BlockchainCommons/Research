@@ -26,13 +26,15 @@ This repository contains research and proposals of interest to the blockchain co
 | [BCR-2021-001](papers/bcr-2021-001-request.md) | UR Type Definitions for Transactions Between Airgapped Devices | Wolf McNally |
 | [BCR-2021-002](papers/bcr-2021-002-digest.md) | Digests for Digital Objects | Wolf McNally |
 | [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | Wolf McNally |
-| [BCR-2022-002](papers/bcr-2022-002-cid-common-identifier.md) | CID: Common Identifier | Wolf McNally |
+| [BCR-2022-002](papers/bcr-2022-002-arid.md) | ARID: Apparently Random Identifier | Wolf McNally |
 | [BCR-2023-001](papers/bcr-2023-001-compressed-message.md) | Compressed Message | Wolf McNally |
 | [BCR-2023-002](papers/bcr-2023-002-known-value.md) | Known Values: A Compact, Deterministic Representation for Ontological Concepts | Wolf McNally |
 | [BCR-2023-003](papers/bcr-2023-003-envelope-known-value.md) | Gordian Envelope Extension: Known Values | Wolf McNally |
 | [BCR-2023-004](papers/bcr-2023-004-envelope-symmetric-encryption.md) | Gordian Envelope Extension: Symmetric Encryption | Wolf McNally |
 | [BCR-2023-005](papers/bcr-2023-005-envelope-compression.md) | Gordian Envelope Extension: Compression | Wolf McNally |
 | [BCR-2023-006](papers/bcr-2023-006-envelope-attachment.md) | Gordian Envelope Extension: Attachments | Wolf McNally |
+| [BCR-2023-007](papers/bcr-2023-007-envelope-output-desc.md) | Bitcoin Output Descriptors in Gordian Envelopes | Wolf McNally |
+| [BCR-2023-008](papers/bcr-2023-008-dcbor-date.md) | Preferred Encoding of Dates in dCBOR | Wolf McNally |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Wallet Improvement Proposals](https://github.com/BlockchainCommons/wips/blob/master/README.md)._
 

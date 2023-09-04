@@ -10,6 +10,12 @@ Revised: November 8, 2021
 
 ---
 
+### DEPRECATED: Superceded by Envelope-Based Output Descriptors
+
+This document has been superceded by textual [Bitcoin output descriptors enclosed in Gordian Envelopes](bcr-2023-007-envelope-output-desc.md).
+
+The content below is now deprecated and of historical interest only.
+
 ### Introduction
 
 Output descriptors [OD-IN-CORE] [OSD], also called output script descriptors, are a way of specifying Bitcoin payment outputs that can range from a simple address to multisig and segwit using a simple domain-specific language. For more on the motivation for output descriptors, see [WHY-OD].

@@ -14,11 +14,17 @@ This document defines a method for adding vendor-specific information ("attachme
 
 ## Introduction
 
-This document defines a protocol for specifying vendor-specific additional data ("attachments") to a Gordian Envelope. The three Known Values this protocol uses are defined in the [Known Values Registry](bcr-2023-002-known-value.md#appendix-a-registry):
+This document defines a protocol for specifying vendor-specific additional data ("attachments") to a Gordian Envelope.
+
+## Known Values
+
+The three Known Values this protocol uses are defined in the [Known Values Registry](bcr-2023-002-known-value.md#appendix-a-registry):
 
 * `attachment`
 * `vendor`
 * `conformsTo`
+
+## Format Specification
 
 A Gordian Envelope is specified by the format of its subject and the assertions it MUST or MAY include. For security, Envelope definitions SHOULD reject as invalid any unexpected assertions that are not defined for the Envelope type.
 

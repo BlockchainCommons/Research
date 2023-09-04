@@ -75,7 +75,7 @@ This document also lists the tag, if any, defined for the particular CBOR struct
 | `crypto-sskr` | 309 | SSKR (Sharded Secret Key Reconstruction) shard | [[BCR-2020-011]](bcr-2020-011-sskr.md) |
 | `crypto-psbt` | 310 | Partially Signed Bitcoin Transaction (PSBT) | This document |
 | `crypto-account` | 311 | BIP44 Account | [[BCR-2020-015]](bcr-2020-015-account.md) |
-| `cid` | 40012 | Common Identifier | [[BCR-2022-002]](bcr-2022-002-cid-common-identifier.md) | |
+| `arid` | 40012 | Apparently Random Identifier | [[BCR-2022-002]](bcr-2022-002-arid.md) | |
 | `seed-digest` | 40013 | Seed digest | [BCFoundation] |
 | `nonce` | 40014 | Cryptographic nonce | [SecureComponents] |
 | `password` | 40015 | Hashed password (e.g., Scrypt) | [SecureComponents] |

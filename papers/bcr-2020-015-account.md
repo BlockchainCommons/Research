@@ -10,6 +10,12 @@ Revised: December 6, 2021<br/>
 
 ---
 
+### DEPRECATED: To be superceded by Envelope-Based BIP44 Accounts
+
+This document will soon be superceded by a format using Gordian Envelope, which will be based on [Bitcoin output descriptors enclosed in Gordian Envelopes](bcr-2023-007-envelope-output-desc.md).
+
+The content below is now deprecated and of historical interest only.
+
 ### Abstract
 
 This BCR describes a data format that promotes standards-based sharing of [BIP44] account level xpubs and other information, allowing devices to join wallets with little to no user interaction required.
