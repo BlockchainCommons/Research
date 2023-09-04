@@ -1,4 +1,4 @@
-# Gordian Envelope Extension: Attachments
+# Gordian Envelope: Attachments
 
 ## BCR-2023-006
 

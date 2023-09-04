@@ -1,4 +1,4 @@
-# Preferred Encoding of Dates in dCBOR
+# dCBOR: Preferred Encoding of Dates
 
 ## BCR-2023-008
 
@@ -6,13 +6,13 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: Sep 2, 2022<br/>
-Revised: Sep 2, 2023
+Revised: Sep 4, 2023
 
 ## Abstract
 
 This document defines a preferred format for dates in Gordian Deterministic CBOR (dCBOR).
 
-## Introduction
+## Format Specification
 
 CBOR already has a well-defined date format using the tag #6.1 defined in [RFC 8949 §3.4.2 Epoch-Based Date Type](https://www.rfc-editor.org/rfc/rfc8949.html#section-3.4.2).
 

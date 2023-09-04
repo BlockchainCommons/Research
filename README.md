@@ -32,9 +32,10 @@ This repository contains research and proposals of interest to the blockchain co
 | [BCR-2023-003](papers/bcr-2023-003-envelope-known-value.md) | Gordian Envelope Extension: Known Values | Wolf McNally |
 | [BCR-2023-004](papers/bcr-2023-004-envelope-symmetric-encryption.md) | Gordian Envelope Extension: Symmetric Encryption | Wolf McNally |
 | [BCR-2023-005](papers/bcr-2023-005-envelope-compression.md) | Gordian Envelope Extension: Compression | Wolf McNally |
-| [BCR-2023-006](papers/bcr-2023-006-envelope-attachment.md) | Gordian Envelope Extension: Attachments | Wolf McNally |
-| [BCR-2023-007](papers/bcr-2023-007-envelope-output-desc.md) | Bitcoin Output Descriptors in Gordian Envelopes | Wolf McNally |
-| [BCR-2023-008](papers/bcr-2023-008-dcbor-date.md) | Preferred Encoding of Dates in dCBOR | Wolf McNally |
+| [BCR-2023-006](papers/bcr-2023-006-envelope-attachment.md) | Gordian Envelope: Attachments | Wolf McNally |
+| [BCR-2023-007](papers/bcr-2023-007-envelope-output-desc.md) | Gordian Envelope: Bitcoin Output Descriptors | Wolf McNally |
+| [BCR-2023-008](papers/bcr-2023-008-dcbor-date.md) | dCBOR: Preferred Encoding of Dates | Wolf McNally |
+| [BCR-2023-009](papers/bcr-2023-009-envelope-seed.md) | Gordian Envelope: Cryptographic Seeds | Wolf McNally |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Wallet Improvement Proposals](https://github.com/BlockchainCommons/wips/blob/master/README.md)._
 
