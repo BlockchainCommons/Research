@@ -34,8 +34,8 @@ Note the difference in case of the two known values: `OutputDescriptor` is a typ
 The subject of a Bitcoin Output Descriptor Envelope is a text string containing a Bitcoin output descriptor.
 
 * It MUST include an `isA: OutputDescriptor` assertion to declare its type conforming to this document.
-* It MAY include a `hasName` assertion, where the object is a string.
-* It MAY include a `note` assertion, where the object is a string.
+* It MAY include a `hasName` assertion, where the object MUST be a non-empty string.
+* It MAY include a `note` assertion, where the object MUST be a non-empty string.
 
 **Example:**
 

@@ -32,10 +32,10 @@ The Known Values this protocol uses are defined in the [Known Values Registry](b
 An Envelope containing a cryptographic seed has a subject that is a byte string containing the seed.
 
 * It MUST include an `isA: Seed` assertion to declare its type conforming to this document.
-* It MAY include a single `hasName` assertion, where the object is a string.
-* It MAY include a single `note` assertion, where the object is a string.
-* It MAY include a single `date` assertion, where the object is a date conforming to [BCR-2023-008](bcr-2023-008-dcbor-date.md).
-* It MAY include a single `outputDescriptor` assertion, where the object is a Bitcoin output descriptor conforming to [BCR-2023-007](bcr-2023-007-envelope-output-desc.md).
+* It MAY include a single `hasName` assertion, where the object MUST be a non-empty string.
+* It MAY include a single `note` assertion, where the object MUST be a non-empty string.
+* It MAY include a single `date` assertion, where the object MUST be a date conforming to [BCR-2023-008](bcr-2023-008-dcbor-date.md).
+* It MAY include a single `outputDescriptor` assertion, where the object MUST be a Bitcoin output descriptor conforming to [BCR-2023-007](bcr-2023-007-envelope-output-desc.md).
 * It MAY include one or more `attachment` assertions conforming to [BCR-2023-006](bcr-2023-006-envelope-attachment.md).
 
 **Example:**
