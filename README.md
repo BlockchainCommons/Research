@@ -47,6 +47,8 @@ _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/ma
 
 Please feel free to submit your own _Drafts_ of BCRs for specifications that support the creation of open, interoperable, secure & compassionate digital infrastructure to this repo as PRs, as follows.
 
+_All contributions to this repo require a [Signed Contributor License Agreement](CLA.md) (which will be needed if we submit to other organizations like IETF, W3C, Linux Foundation, etc.)._
+
 ### BCR Number
 
 Please number all Bitcoin Research BCRs with a four-digit number representing the current year (`YYYY`) followed by a three-digit sequence number for that year (`SSS`). For example: `bcr-2020-001` is the first BCR for 2020, `bcr-2020-017` is the 17th, and `bcr-2021-001` is the first BCR for 2021.
