@@ -4,6 +4,10 @@
 
 This repository contains research and proposals of interest to the blockchain community.
 
+Blockchain Commons Research papers (BCRs) are _not_ standards. They are fluid specifications, typically based on our own libraries or other coding. Because of their fluidity, specifications might chance without notice. If you decide to adopt a Blockchain Commons Research paper, you are becoming a Research Partner, examining how the specification might work in the real work. 
+
+If you are working with a Blockchain Commons Research paper, [please let us know](mailto:team@blockchaincommons.com). Having a Research Paper in usage by at least two parties other than Blockchain Commons is one of our criteria for advancing a BCR to a [Blockchain Commons Proposal (BCP)](https://github.com/BlockchainCommons/bcps/blob/master/README.md). If you can only use a specification if it is advanced to the BCP stage, let us know that, as we sometimes advance BCRs on our own if they have achieved sufficient maturity.
+
 ## Contents
 
 | Number                    | Title         | Owner                                                  |
@@ -37,7 +41,7 @@ This repository contains research and proposals of interest to the blockchain co
 | [BCR-2023-008](papers/bcr-2023-008-dcbor-date.md) | dCBOR: Preferred Encoding of Dates | Wolf McNally |
 | [BCR-2023-009](papers/bcr-2023-009-envelope-seed.md) | Gordian Envelope: Cryptographic Seeds | Wolf McNally |
 
-_Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Wallet Improvement Proposals](https://github.com/BlockchainCommons/wips/blob/master/README.md)._
+_Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Blockchain Commons Proposals](https://github.com/BlockchainCommons/bcps/blob/master/README.md)._
 
 ### BCR Number
 
