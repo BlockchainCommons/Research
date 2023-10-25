@@ -45,6 +45,8 @@ Generally, it's only if a BCR advances to the BCP stage that we more deeply invo
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Blockchain Commons Proposals](https://github.com/BlockchainCommons/bcps/blob/master/README.md)._
 
+Please feel free to submit your own _Drafts_ of BCRs for interoperable specifications to this repo as PRs, as follows.
+
 ### BCR Number
 
 Please number all Bitcoin Research BCRs with a four-digit number representing the current year (`YYYY`) followed by a three-digit sequence number for that year (`SSS`). For example: `bcr-2020-001` is the first BCR for 2020, `bcr-2020-017` is the 17th, and `bcr-2021-001` is the first BCR for 2021.
@@ -66,6 +68,13 @@ But please consult the semantic versioning document for more information and adj
 ### BCR Owner
 
 Please list the person primarily responsible for the BCR, and moving it forward, as the owner. If there are multiple authors, they should be listed on the BCR itself, not on this overview.
+
+### BCR Status
+
+   * *Draft* — The initial draft of a BCR. Contributors may work on a BCR as they see fit when it remains version 0.Y.Z. When they increment to 1.0.0, they are requested BC review.
+   * *Accepted* — A major BCR or BCP draft that has been accepted by BC for further work.
+   * *Promoted* — A BCR draft that has been promoted to a BCP.
+   * *Deprecated* — A BCR or BCP draft that has been superseded by another specification.
 
 ## Origin, Authors, Copyright & Licenses
 
