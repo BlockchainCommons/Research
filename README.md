@@ -4,9 +4,9 @@
 
 This repository contains early-stage research of interest to the blockchain community.
 
-Blockchain Commons Research papers (BCRs) are _not_ standards. They are fluid specifications, typically based on our own libraries or other coding. Because of their fluidity, specifications might change without notice. If you decide to adopt a Blockchain Commons Research paper, you are becoming a Research Partner, examining how the specification might work in the real world. 
+Blockchain Commons Research papers (BCRs) are _not_ standards. They are fluid specifications, typically based on our own libraries or other coding. Because of their fluidity, BCRs might change without notice. If you decide to adopt a Blockchain Commons Research paper, you are becoming a Research Partner, examining how the specification might work in the real world. We look forward to working with you!
 
-If you are working with a Blockchain Commons Research paper, [please let us know](mailto:team@blockchaincommons.com). Having a Research Paper in usage by at least two parties other than Blockchain Commons is one of our criteria for advancing a BCR to a [Blockchain Commons Proposal (BCP)](https://github.com/BlockchainCommons/bcps/blob/master/README.md). If you can only use a specification if it is advanced to the BCP stage, let us know that, as we sometimes advance BCRs on our own if they have achieved sufficient maturity.
+If you are using the specifications from a BCR, [please let us know](mailto:team@blockchaincommons.com). Having a BCR in usage by at least two parties other than Blockchain Commons is one of our criteria for advancing a BCR to a [Blockchain Commons Proposal (BCP)](https://github.com/BlockchainCommons/bcps/blob/master/README.md), increasing its stability. If you can only use a specification if it is advanced to the BCP stage, sldo let us know that, as we sometimes advance BCRs on our own if they have achieved sufficient maturity.
 
 Generally, it's only if a BCR advances to the BCP stage that we more deeply involve community in its continued maturation and focus on it becoming an actual standard.
 
@@ -45,7 +45,7 @@ Generally, it's only if a BCR advances to the BCP stage that we more deeply invo
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Blockchain Commons Proposals](https://github.com/BlockchainCommons/bcps/blob/master/README.md)._
 
-Please feel free to submit your own _Drafts_ of BCRs for interoperable specifications to this repo as PRs, as follows.
+Please feel free to submit your own _Drafts_ of BCRs for specifications that support the creation of open, interoperable, secure & compassionate digital infrastructure to this repo as PRs, as follows.
 
 ### BCR Number
 
@@ -61,7 +61,7 @@ Please be sure that your title is concise, yet informative.
 
 When updating BCRs, please use [semantic versioning](https://semver.org/) for your version number.
 
-Most briefly: your version number should be of the form X.Y.Z, where `X` is the major number ("0" for a BCR in progress; "1" for a fully drafted BCR; and "2" or higher for a new version that has introduced a backward-incompatible change), `Y` is the minor number (for a backward-compatible new feature), and `Z` is the patch number (for fixing typos and making other clarifications that don't fundamentally change what the BCR means).
+Most briefly: your version number should be of the form X.Y.Z, where `X` is the major number ("0" for a BCR _Draft_; "1" for something ready to become a BCR _Work Product_; and "2" or higher for a new version that has introduced a backward-incompatible change), `Y` is the minor number (for a backward-compatible new feature), and `Z` is the patch number (for fixing typos and making other clarifications that don't fundamentally change what the BCR means).
 
 But please consult the semantic versioning document for more information and adjust appropriately for the fact that these are textual BCRs, not software.
 
@@ -72,13 +72,13 @@ Please list the person primarily responsible for the BCR, and moving it forward,
 ### BCR Status
 
    * *Draft* — The initial draft of a BCR. Contributors may work on a BCR as they see fit when it remains version 0.Y.Z. When they increment to 1.0.0, they are requested BC review.
-   * *Accepted* — A major BCR or BCP draft that has been accepted by BC for further work.
+   * *Work Product* — A major BCR or BCP draft that has been accepted by BC for further work.
    * *Promoted* — A BCR draft that has been promoted to a BCP.
    * *Deprecated* — A BCR or BCP draft that has been superseded by another specification.
 
 ## Origin, Authors, Copyright & Licenses
 
-Unless otherwise noted (either in this [/README.md](./README.md) or in the file's header comments) the contents of this repository are Copyright © 2020 by Blockchain Commons, LLC, and are [licensed](./LICENSE) under the [spdx:BSD-2-Clause Plus Patent License](https://spdx.org/licenses/BSD-2-Clause-Patent.html).
+Unless otherwise noted (either in this [/README.md](./README.md) or in the file's header comments) the contents of this repository are Copyright © by Blockchain Commons, LLC, and are [licensed](./LICENSE) under the [spdx:BSD-2-Clause Plus Patent License](https://spdx.org/licenses/BSD-2-Clause-Patent.html).
 
 ## Financial Support
 
