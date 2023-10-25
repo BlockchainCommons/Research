@@ -2,9 +2,9 @@
 
 ![](images/logos/bcc-research-screen.jpg)
 
-This repository contains research and proposals of interest to the blockchain community.
+This repository contains early-stage research of interest to the blockchain community.
 
-Blockchain Commons Research papers (BCRs) are _not_ standards. They are fluid specifications, typically based on our own libraries or other coding. Because of their fluidity, specifications might chance without notice. If you decide to adopt a Blockchain Commons Research paper, you are becoming a Research Partner, examining how the specification might work in the real work. 
+Blockchain Commons Research papers (BCRs) are _not_ standards. They are fluid specifications, typically based on our own libraries or other coding. Because of their fluidity, specifications might change without notice. If you decide to adopt a Blockchain Commons Research paper, you are becoming a Research Partner, examining how the specification might work in the real world. 
 
 If you are working with a Blockchain Commons Research paper, [please let us know](mailto:team@blockchaincommons.com). Having a Research Paper in usage by at least two parties other than Blockchain Commons is one of our criteria for advancing a BCR to a [Blockchain Commons Proposal (BCP)](https://github.com/BlockchainCommons/bcps/blob/master/README.md). If you can only use a specification if it is advanced to the BCP stage, let us know that, as we sometimes advance BCRs on our own if they have achieved sufficient maturity.
 
