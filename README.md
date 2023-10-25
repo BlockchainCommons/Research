@@ -8,6 +8,8 @@ Blockchain Commons Research papers (BCRs) are _not_ standards. They are fluid sp
 
 If you are working with a Blockchain Commons Research paper, [please let us know](mailto:team@blockchaincommons.com). Having a Research Paper in usage by at least two parties other than Blockchain Commons is one of our criteria for advancing a BCR to a [Blockchain Commons Proposal (BCP)](https://github.com/BlockchainCommons/bcps/blob/master/README.md). If you can only use a specification if it is advanced to the BCP stage, let us know that, as we sometimes advance BCRs on our own if they have achieved sufficient maturity.
 
+Generally, it's only if a BCR advances to the BCP stage that we more deeply involve community in its continued maturation and focus on it becoming an actual standard.
+
 ## Contents
 
 | Number                    | Title         | Owner                                                  |
