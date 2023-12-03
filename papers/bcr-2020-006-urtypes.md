@@ -6,7 +6,7 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: May 12, 2020<br/>
-Revised: March 21, 2023
+Revised: November 25, 2023
 
 ---
 
@@ -36,6 +36,8 @@ Each UR type defines a CBOR encoding. When a UR type is suitable for embedding w
 
 This document also lists the tag, if any, defined for the particular CBOR structure contained in the UR encoding. The tags listed here may or may not currently be listed in IANA's registry of CBOR tags [CBOR-TAGS] but the intent is that they will be registered as they come into us.
 
+Some of the UR types and their corresponding CBOR tags below have been deprecated. There may be existing software that still uses these "version 1" types and tags however, so it is RECOMMENDED that such software only read the deprecated types and tags and not write them, preferring the version 2 types and tags instead. Deprecated types and tags below are denoted using ~~strikethrough~~.
+
 ### Registry
 
 | Type | Tag | Description | Definition |
@@ -63,18 +65,18 @@ This document also lists the tag, if any, defined for the particular CBOR struct
 | `parameter` | 40007 | Parameter identifier | [Envelope] |
 | `placeholder` | 40008 | Function placeholder | [Envelope] |
 | `replacement` | 40009 | Function replacement | [Envelope] |
-| `crypto-seed` | 300 | Cryptographic seed | This document |
+| `seed` ~~`crypto-seed`~~ | 40300 ~~300~~ | Cryptographic seed | This document |
 | `agreement-private-key` | 40010 | Agreement private key | [SecureComponents] |
 | `agreement-public-key` | 40011 | Agreement private key | [SecureComponents] |
-| `crypto-hdkey` | 303 | Hierarchical Deterministic (HD) key | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
-| `crypto-keypath` | 304 | Key Derivation Path | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
-| `crypto-coin-info` | 305 | Cryptocurrency Coin Use | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
-| `crypto-eckey` | 306 | Elliptic Curve (EC) key | [[BCR-2020-008]](bcr-2020-008-eckey.md) |
-| `crypto-address` | 307 | Cryptocurrency Address | [[BCR-2020-009]](bcr-2020-009-address.md) |
-| `crypto-output` | 308 | Bitcoin Output Descriptor | [[BCR-2020-010]](bcr-2020-010-output-desc.md) |
-| `crypto-sskr` | 309 | SSKR (Sharded Secret Key Reconstruction) shard | [[BCR-2020-011]](bcr-2020-011-sskr.md) |
-| `crypto-psbt` | 310 | Partially Signed Bitcoin Transaction (PSBT) | This document |
-| `crypto-account` | 311 | BIP44 Account | [[BCR-2020-015]](bcr-2020-015-account.md) |
+| `hdkey` ~~`crypto-hdkey`~~ | 40303 ~~303~~ | Hierarchical Deterministic (HD) key | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
+| `keypath` ~~`crypto-keypath`~~ | 40304 ~~304~~ | Key Derivation Path | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
+| `coin-info` ~~`crypto-coin-info`~~ | 40305 ~~305~~ | Cryptocurrency Coin Use | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
+| `eckey` ~~`crypto-eckey`~~ | 40306 ~~306~~ | Elliptic Curve (EC) key | [[BCR-2020-008]](bcr-2020-008-eckey.md) |
+| `address` ~~`crypto-address`~~ | 40307 ~~307~~ | Cryptocurrency Address | [[BCR-2020-009]](bcr-2020-009-address.md) |
+| `output-descriptor` ~~`crypto-output`~~ | 40308 ~~308~~ | Bitcoin Output Descriptor | [[BCR-2020-010]](bcr-2020-010-output-desc.md) |
+| `sskr` ~~`crypto-sskr`~~ | 40309 ~~309~~ | SSKR (Sharded Secret Key Reconstruction) shard | [[BCR-2020-011]](bcr-2020-011-sskr.md) |
+| `psbt` ~~`crypto-psbt`~~ | 40310 ~~310~~ | Partially Signed Bitcoin Transaction (PSBT) | This document |
+| `account` ~~`crypto-account`~~ | 40311 ~~311~~ | BIP44 Account | [[BCR-2020-015]](bcr-2020-015-account.md) |
 | `arid` | 40012 | Apparently Random Identifier | [[BCR-2022-002]](bcr-2022-002-arid.md) | |
 | `seed-digest` | 40013 | Seed digest | [BCFoundation] |
 | `nonce` | 40014 | Cryptographic nonce | [SecureComponents] |
@@ -87,20 +89,19 @@ This document also lists the tag, if any, defined for the particular CBOR struct
 | `signing-private-key` | 40021 | Signing private key | [SecureComponents] |
 | `signing-public-key` | 40022 | Signing public key | [SecureComponents] |
 | `crypto-key` | 40023 | Symmetric Key | [SecureComponents] |
-| | 400–410 | Used as descriptor types in [`crypto-output`](bcr-2020-010-output-desc.md). | |
-| | 500 | Used as response type for `OutputDescriptorResponse` | |
-| | 600 | Object Digest | This document and as defined in each type |
+| | 400–410 | Used internally as descriptor types in [`crypto-output`](bcr-2020-010-output-desc.md). | |
+| | 40600 ~~600~~ | Object Digest | This document and as defined in each type |
 
 ### Object Digests
 
 It is sometimes desirable that a CBOR-encoded object refer to another object by its unique SHA-256 digest. The method of deriving a digest for a particular type is unique to that type and MAY be defined by that type. The hash algorithm input for the SHA-256 hash (called the *digest source*) MUST only include data that uniquely and permanently identifies the object, and MUST NOT include data that may change over time, such as object's name or other incidental metadata. This document defines the method for producing the digest source for `crypto-seed` below. [[BCR-2020-007]](bcr-2020-007-hdkey.md) describes the method for producing the digest source for a `crypto-hdkey`. See [BCR-2021-002: Digests for Digital Objects](bcr-2021-002-digest.md) for more information.
 
-When UR types refer to other objects using a digest, it MUST be tagged #6.600 and the byte string length MUST be exactly 32.
+When UR types refer to other objects using a digest, it MUST be tagged #6.40600 and the byte string length MUST be exactly 32.
 
 #### CDDL
 
 ```
-digest = #6.600(bytes .size 32)
+digest = #6.40600(bytes .size 32)
 ```
 
 ### Byte String `bytes`

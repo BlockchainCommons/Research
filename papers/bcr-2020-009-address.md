@@ -6,29 +6,31 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: June 6, 2020<br/>
-Revised: June 25, 2020
+Revised: November 25, 2023
 
 ---
 
 ### Introduction
 
-Bitcoin, Ethereum, and other cryptocurrencies use addresses as destinations for funds. Addresses are generated from public keys, which were in turn generated from private keys. Ultimately an address is just a string of bytes, but to facilitate recognition and handling by humans they are encoded as base58 (Bitcoin), bech32 (Bitcoin) or base16 (Ethereum). Encodings such as Bitcoin's include one or more tag characters at the front to help identify the string as an address, e.g., `1` for a Bitcoin P2PKH address or `m` for a Bitcoin testnet address, or `bc1` for a Bitcoin Bech32-encoded address.
+Bitcoin, Ethereum, and other cryptocurrencies use [addresses](https://en.bitcoin.it/wiki/Address) as destinations for funds. Addresses are generated from public keys, which were in turn generated from private keys. Ultimately an address is just a string of bytes, but to facilitate recognition and handling by humans they are encoded as base58 (Bitcoin), bech32 (Bitcoin) or base16 (Ethereum). Encodings such as Bitcoin's include one or more tag characters at the front to help identify the string as an address, e.g., `1` for a Bitcoin P2PKH address or `m` for a Bitcoin testnet address, or `bc1` for a Bitcoin Bech32-encoded address.
 
-This specification defines a UR type `crypto-address` (CBOR tag #6.307) for encoding and transmitting cryptocurrency addresses.
+This specification defines a UR type `address` (CBOR tag #6.40307) for encoding and transmitting cryptocurrency addresses.
 
-The `info` field of the CBOR type defined herein references the `crypto-coininfo` type defined in [BCR7]. This structure encodes both the type of coin and the network (main or test) the address is to be used with. If the optional `info` field is omitted, its defaults (mainnet Bitcoin address) are assumed.
+The `info` field of the CBOR type defined herein references the `coininfo` type defined in [BCR-2020-007](bcr-2020-007-hdkey.md). This structure encodes both the type of coin and the network (main or test) the address is to be used with. If the optional `info` field is omitted, its defaults (mainnet Bitcoin address) are assumed.
 
 The `data` field encodes the raw byte string comprising the address.
 
+**Note:** This specification describes version 2 `address` (#6.40307), which differs from version 1 `crypto-address` (#6.307) only in the UR type and CBOR tag it uses. Version 1 `crypto-address` is deprecated, but may still be supported for backwards compatibility.
+
 ### CDDL
 
-The following specification is written in Concise Data Definition Language [CDDL].
+The following specification is written in Concise Data Definition Language [CDDL](https://tools.ietf.org/html/rfc8610).
 
-When used embedded in another CBOR structure, this structure should be tagged #6.307.
+When used embedded in another CBOR structure, this structure should be tagged #6.40307.
 
 ```
-crypto-address = {
-	? info: #6.305(crypto-coininfo),
+address = {
+	? info: #6.40305(coininfo),
 	? type: address-type,
 	data: bytes
 }
@@ -82,22 +84,22 @@ wrapper
 * Encoded as binary using [CBOR-PLAYGROUND]:
 
 ```
-A1                                      # map(1)
+a1                                      # map(1)
    03                                   # unsigned(3) ; data
    54                                   # bytes(20)
-      77BFF20C60E522DFAA3350C39B030A5D004E839A
+      77bff20c60e522dfaa3350c39b030a5d004e839a
 ```
 
 * As a hex string:
 
 ```
-A1035477BFF20C60E522DFAA3350C39B030A5D004E839A
+a1035477bff20c60e522dfaa3350c39b030a5d004e839a
 ```
 
 * As a UR:
 
 ```
-ur:crypto-address/oyaxghktrswzbnhnvwcpurpkeogdsrndaxbkhlaegllsnyolrsemgu
+ur:address/oyaxghktrswzbnhnvwcpurpkeogdsrndaxbkhlaegllsnyolrsemgu
 ```
 
 * UR as QR Code:
@@ -116,48 +118,42 @@ ur:crypto-address/oyaxghktrswzbnhnvwcpurpkeogdsrndaxbkhlaegllsnyolrsemgu
 
 ```
 {
-	1: 305({ ; info: crypto-coininfo [BCR7]
-		1: 60, ; type: coin-type-eth (0x3c) [BCR7]
-		2: 1 ; network: testnet-eth-ropsten [BCR7]
+	1: 40305({ / info: coininfo [BCR-2020-007] /
+		1: 60, / type: coin-type-eth (0x3c) [BCR-2020-007] /
+		2: 1 / network: testnet-eth-ropsten [BCR-2020-007] /
 	}),
-	3: h'81b7e08f65bdf5648606c89998a9cc8164397647' ; data
+	3: h'81b7e08f65bdf5648606c89998a9cc8164397647' / data /
 }
 ```
 
 * Encoded as binary using [CBOR-PLAYGROUND]:
 
 ```
-A2                                      # map(2)
+a2                                      # map(2)
    01                                   # unsigned(1) info
-   D9 0131                              # tag(305) crypto-coininfo
-      A2                                # map(2)
+   d9 9d71                              # tag(40305) coininfo
+      a2                                # map(2)
          01                             # unsigned(1) type
-         18 3C                          # unsigned(60) coin-type-eth
+         18 3c                          # unsigned(60) coin-type-eth
          02                             # unsigned(2) network
          01                             # unsigned(1) testnet-eth-ropsten
    03                                   # unsigned(3) data
    54                                   # bytes(20)
-      81B7E08F65BDF5648606C89998A9CC8164397647
+      81b7e08f65bdf5648606c89998a9cc8164397647
 ```
 
 * As a hex string:
 
 ```
-A201D90131A201183C0201035481B7E08F65BDF5648606C89998A9CC8164397647
+a201d99d71a201183c0201035481b7e08f65bdf5648606c89998a9cc8164397647
 ```
 
 * As a UR:
 
 ```
-ur:crypto-address/oeadtaadehoeadcsfnaoadaxghlyrlvtmyihryykielnamspnlmkptsflyieeskofllosfeecf
+ur:address/oeadtantjsoeadcsfnaoadaxghlyrlvtmyihryykielnamspnlmkptsflyieeskoflkovdfdlb
 ```
 
 * UR as QR Code:
 
 ![](bcr-2020-009/2.png)
-
-### References
-
-* [BTC-ADDRESS] [Bitcoin Wiki: Address](https://en.bitcoin.it/wiki/Address)
-* [BCR7] [UR Type Definition for Hierarchical Deterministic (HD) Keys](bcr-2020-007-hdkey.md)
-* [CDDL] [RFC8610: Concise Data Definition Language (CDDL): A Notational Convention to Express Concise Binary Object Representation (CBOR) and JSON Data Structures](https://tools.ietf.org/html/rfc8610)

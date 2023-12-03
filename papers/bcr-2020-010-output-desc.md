@@ -1,4 +1,4 @@
-# UR Type Definition for Bitcoin Output Descriptors
+# UR Type Definition for Bitcoin Output Descriptors (Version 1)
 
 ## BCR-2020-010
 
@@ -14,7 +14,7 @@ Revised: November 8, 2021
 
 This document has been superceded by textual [Bitcoin output descriptors enclosed in Gordian Envelopes](bcr-2023-007-envelope-output-desc.md).
 
-The content below is now deprecated and of historical interest only.
+The content below is now deprecated and of historical interest only, but may still be supported for backwards compatibility.
 
 ### Introduction
 

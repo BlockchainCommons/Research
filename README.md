@@ -23,7 +23,7 @@ Generally, it's only if a BCR advances to the BCP stage that we more deeply invo
 | [BCR-2020-007](papers/bcr-2020-007-hdkey.md) | UR Type Definition for Hierarchical Deterministic (HD) Keys  | Wolf McNally |
 | [BCR-2020-008](papers/bcr-2020-008-eckey.md) | UR Type Definition for Elliptic Curve (EC) Keys  | Wolf McNally |
 | [BCR-2020-009](papers/bcr-2020-009-address.md) | UR Type Definition for Cryptocurrency Addresses  | Wolf McNally |
-| [BCR-2020-010](papers/bcr-2020-010-output-desc.md) | UR Type Definition for Bitcoin Output Descriptors | Wolf McNally |
+| [BCR-2020-010](papers/bcr-2020-010-output-desc.md) | UR Type Definition for Bitcoin Output Descriptors (Version 1) | Wolf McNally |
 | [BCR-2020-011](papers/bcr-2020-011-sskr.md) | UR Type Definition for Sharded Secret Key Reconstruction (SSKR) | Wolf McNally |
 | [BCR-2020-012](papers/bcr-2020-012-bytewords.md) | Bytewords: Encoding binary data as English words | Wolf McNally |
 | [BCR-2020-013](papers/bcr-2020-013-crc32-cbor-tag.md) | CRC-32 Checksums in CBOR | Wolf McNally |
@@ -39,9 +39,10 @@ Generally, it's only if a BCR advances to the BCP stage that we more deeply invo
 | [BCR-2023-004](papers/bcr-2023-004-envelope-symmetric-encryption.md) | Gordian Envelope Extension: Symmetric Encryption | Wolf McNally |
 | [BCR-2023-005](papers/bcr-2023-005-envelope-compression.md) | Gordian Envelope Extension: Compression | Wolf McNally |
 | [BCR-2023-006](papers/bcr-2023-006-envelope-attachment.md) | Gordian Envelope: Attachments | Wolf McNally |
-| [BCR-2023-007](papers/bcr-2023-007-envelope-output-desc.md) | Gordian Envelope: Bitcoin Output Descriptors | Wolf McNally |
+| [BCR-2023-007](papers/bcr-2023-007-envelope-output-desc.md) | Gordian Envelope: Bitcoin Output Descriptors (Version 2) | Wolf McNally |
 | [BCR-2023-008](papers/bcr-2023-008-dcbor-date.md) | dCBOR: Preferred Encoding of Dates | Wolf McNally |
 | [BCR-2023-009](papers/bcr-2023-009-envelope-seed.md) | Gordian Envelope: Cryptographic Seeds | Wolf McNally |
+| [BCR-2023-010](papers/bcr-2023-010-output-descriptor.md) | Bitcoin Output Descriptor (Version 3) | Wolf McNally |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Blockchain Commons Proposals](https://github.com/BlockchainCommons/bcps/blob/master/README.md)._
 

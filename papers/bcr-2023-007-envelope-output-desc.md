@@ -1,4 +1,4 @@
-# Gordian Envelope: Bitcoin Output Descriptors
+# Gordian Envelope: Bitcoin Output Descriptors (Version 2)
 
 ## BCR-2023-007
 

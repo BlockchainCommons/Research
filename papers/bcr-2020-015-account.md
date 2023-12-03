@@ -14,7 +14,7 @@ Revised: December 6, 2021<br/>
 
 This document will soon be superceded by a format using Gordian Envelope, which will be based on [Bitcoin output descriptors enclosed in Gordian Envelopes](bcr-2023-007-envelope-output-desc.md).
 
-The content below is now deprecated and of historical interest only.
+The content below is now deprecated but may still be supported for backwards compatibility.
 
 ### Abstract
 

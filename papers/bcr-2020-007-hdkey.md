@@ -6,27 +6,29 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: May 25, 2020<br/>
-Revised: June 25, 2020
+Revised: November 25, 2023
 
 ---
 
 ### Introduction
 
-Hierarchical Deterministic Keys (HDKeys) [BIP32] allow an entire tree of keys to be derived from a single master key, which was originally derived from random entropy: a seed. Former specifications [BCR5] [BCR6] defined UR types such as `crypto-seed` for encoding and transmitting such seeds. This specification defines a UR type `crypto-hdkey` (CBOR tag #6.303) for encoding and transmitting HDKeys; either a master key or a derived key.
+Hierarchical Deterministic Keys (HDKeys) [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) allow an entire tree of keys to be derived from a single master key, which was originally derived from random entropy: a seed. Former specifications [BCR-2020-005](bcr-2020-005-ur.md) [BCR-2020-006](bcr-2020-006-urtypes.md) defined UR types such as `seed` for encoding and transmitting such seeds. This specification defines a UR type `hdkey` (CBOR tag #6.40303) for encoding and transmitting HDKeys; either a master key or a derived key.
 
-This specification also defines and incorporates a separate type `crypto-keypath` (CBOR tag #6.304) that specifies a key derivation path.
+This specification also defines and incorporates a separate type `keypath` (CBOR tag #6.40304) that specifies a key derivation path.
 
-This specification also defines and incorporates a separate type `crypto-coininfo` (CBOR tag #6.305) that specifes cryptocurrency information.
+This specification also defines and incorporates a separate type `coininfo` (CBOR tag #6.40305) that specifes cryptocurrency information.
+
+**Note:** This specification describes version 2 `hdkey` (#6.40304), which differs from version 1 `crypto-hdkey` (#6.304) only in the UR types and CBOR tags it uses. Version 1 `crypto-hdkey` is deprecated, but may still be supported for backwards compatibility.
 
 ### HDKeys
 
-HDKeys encoded according to [BIP32] are represented as a text string, e.g.:
+HDKeys encoded according to [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) are represented as a text string, e.g.:
 
 ```
 xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8YtGqsefD265TMg7usUDFdp6W1EGMcet8
 ```
 
-[BIP32] specifies that this result is the serialization of these fields:
+[BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) specifies that this result is the serialization of these fields:
 
 > 4 byte: version bytes (mainnet: 0x0488B21E public, 0x0488ADE4 private; testnet: 0x043587CF public, 0x04358394 private)<br/>
 > 1 byte: depth: 0x00 for master nodes, 0x01 for level-1 derived keys, ....<br/>
@@ -35,15 +37,15 @@ xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ29ESFjqJoCu1Rupje8Y
 > 32 bytes: the chain code<br/>
 > 33 bytes: the public key or private key data (serP(K) for public keys, 0x00 || ser256(k) for private keys)
 
-This serialization is then [BASE58-CHECK] encoded, which adds four more bytes at the end as a checksum.
+This serialization is then [BASE58-CHECK](https://en.bitcoin.it/wiki/Base58Check_encoding) encoded, which adds four more bytes at the end as a checksum.
 
 The specification herein can be used in such a way that it is isomorphic with the serialization specified by BIP32. It also includes options that may break isomorphism.
 
 ### CDDL for Key Path
 
-The following specification is written in Concise Data Definition Language [CDDL].
+The following specification is written in Concise Data Definition Language [CDDL](https://tools.ietf.org/html/rfc8610).
 
-When used embedded in another CBOR structure, this structure should be tagged #6.304.
+When used embedded in another CBOR structure, this structure should be tagged #6.40304.
 
 ```
 ; Metadata for the complete or partial derivation path of a key.
@@ -58,7 +60,7 @@ When used embedded in another CBOR structure, this structure should be tagged #6
 ; the path of the associated key, regardless of whether steps are present in the `components` element
 ; of this structure.
 
-crypto-keypath = {
+keypath = {
     components: [path-component], ; If empty, source-fingerprint MUST be present
     ? source-fingerprint: uint32 .ne 0 ; fingerprint of ancestor key, or master key if components is empty
     ? depth: uint8 ; 0 if this is a public key derived directly from a master key
@@ -92,14 +94,14 @@ depth = 3
 
 ### CDDL for Coin Info
 
-The following specification is written in Concise Data Definition Language [CDDL].
+The following specification is written in Concise Data Definition Language [CDDL](https://tools.ietf.org/html/rfc8610).
 
-When used embedded in another CBOR structure, this structure should be tagged #6.305.
+When used embedded in another CBOR structure, this structure should be tagged #6.40305.
 
 ```
 ; Metadata for the type and use of a cryptocurrency
-crypto-coininfo = {
-    ? type: uint31 .default cointype-btc, ; values from [SLIP44] with high bit turned off
+coininfo = {
+    ? type: uint31 .default cointype-btc, ; values from [SLIP44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) with high bit turned off
     ? network: int .default mainnet ; coin-specific identifier for testnet
 }
 
@@ -121,7 +123,7 @@ testnet-eth-gorli = 4;
 
 ### CDDL for HDKey
 
-The following specification is written in Concise Data Definition Language [CDDL] and includes the `crypto-keypath` spec above.
+The following specification is written in Concise Data Definition Language [CDDL](https://tools.ietf.org/html/rfc8610) and includes the `keypath` spec above.
 
 ```
 ; An hd-key is either a master key or a derived key.
@@ -144,15 +146,15 @@ master-key = (
 ; If `origin` contains only a single derivation step and also contains `source-fingerprint`,
 ; then `parent-fingerprint` MUST be identical to `source-fingerprint` or may be omitted.
 derived-key = (
-    ? is-private: bool .default false,   ; true if key is private, false if public
+    ? is-private: bool .default false,     ; true if key is private, false if public
     key-data: key-data-bytes,
-    ? chain-code: chain-code-bytes       ; omit if no further keys may be derived from this key
-    ? use-info: #6.305(crypto-coininfo), ; How the key is to be used
-    ? origin: #6.304(crypto-keypath),    ; How the key was derived
-    ? children: #6.304(crypto-keypath),  ; What children should/can be derived from this
-    ? parent-fingerprint: uint32 .ne 0,  ; The fingerprint of this key's direct ancestor, per [BIP32]
-    ? name: text,                        ; A short name for this key.
-    ? note: text                         ; An arbitrary amount of text describing the key.
+    ? chain-code: chain-code-bytes         ; omit if no further keys may be derived from this key
+    ? use-info: #6.40305(coininfo), ; How the key is to be used
+    ? origin: #6.40304(keypath),    ; How the key was derived
+    ? children: #6.40304(keypath),  ; What children should/can be derived from this
+    ? parent-fingerprint: uint32 .ne 0,    ; The fingerprint of this key's direct ancestor, per [BIP32]
+    ? name: text,                          ; A short name for this key.
+    ? note: text                           ; An arbitrary amount of text describing the key.
 )
 
 ; If the `use-info` field is omitted, defaults (mainnet BTC key) are assumed.
@@ -187,7 +189,7 @@ Schematic for a master key:
 }
 ```
 
-Schematic for a derived public testnet Ethereum key that maintains isomorphism with [BIP32] and [BIP44]:
+Schematic for a derived public testnet Ethereum key that maintains isomorphism with [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) and [BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki):
 
 ```
 {
@@ -206,7 +208,7 @@ Schematic for a derived public testnet Ethereum key that maintains isomorphism w
 }
 ```
 
-Schematic for a derived private mainnet Bitcoin key that maintains isomorphism with [BIP32] and [BIP44], and that includes the full derivation path of the key per [BIP44]: `m / purpose' / coin_type' / account' / change / address_index`
+Schematic for a derived private mainnet Bitcoin key that maintains isomorphism with [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) and [BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki), and that includes the full derivation path of the key per [BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki): `m / purpose' / coin_type' / account' / change / address_index`
 
 ```
 {
@@ -221,7 +223,7 @@ Schematic for a derived private mainnet Bitcoin key that maintains isomorphism w
 }
 ```
 
-Schematic for a derived public mainnet Bitcoin key that includes only the key, excludes derivation of child keys, and is NOT isomorphic with [BIP32].
+Schematic for a derived public mainnet Bitcoin key that includes only the key, excludes derivation of child keys, and is NOT isomorphic with [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki).
 
 ```
 {
@@ -231,7 +233,7 @@ Schematic for a derived public mainnet Bitcoin key that includes only the key, e
 
 ### Example/Test Vector 1
 
-* Test Vector 1 from [BIP32], a master key:
+* Test Vector 1 from [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki), a master key:
 
 ```
 xprv9s21ZrQH143K3QTDL4LXw2F7HEK3wJUD2nW2nRk4stbPy6cq3jPPqjiChkVvvNKmPGJxWUtg6LnF5kejMRNNU3TGtRBeJgk33yuGBxrMPHi
@@ -243,7 +245,7 @@ xprv9s21ZrQH143K3QTDL4LXw2F7HEK3wJUD2nW2nRk4stbPy6cq3jPPqjiChkVvvNKmPGJxWUtg6LnF
 0488ade4000000000000000000873dff81c02f525623fd1fe5167eac3a55a049de3d314bb42ee227ffed37d50800e8f32e723decf4051aefac8e2c93c9c5b214313817cdb01a1494b917c8436b35e77e9d71
 ```
 
-* Separated into fields specified in [BIP32]:
+* Separated into fields specified in [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki):
 
 ```
 04 ; version 4
@@ -260,36 +262,36 @@ e77e9d71 ; base58 checksum
 
 ```
 {
-    1: true, ; is-master
-    3: h'00e8f32e723decf4051aefac8e2c93c9c5b214313817cdb01a1494b917c8436b35', ; key-data
-    4: h'873dff81c02f525623fd1fe5167eac3a55a049de3d314bb42ee227ffed37d508' ; chain-code
+    1: true, / is-master /
+    3: h'00e8f32e723decf4051aefac8e2c93c9c5b214313817cdb01a1494b917c8436b35', / key-data /
+    4: h'873dff81c02f525623fd1fe5167eac3a55a049de3d314bb42ee227ffed37d508' / chain-code /
 }
 ```
 
-* Encoded as binary using [CBOR-PLAYGROUND]:
+* Encoded as binary using [CBOR-PLAYGROUND](http://cbor.me):
 
 ```
-A3                                      # map(3)
+a3                                      # map(3)
    01                                   # unsigned(1) is-master
-   F5                                   # primitive(21) true
+   f5                                   # primitive(21) true
    03                                   # unsigned(3) key-data
    58 21                                # bytes(33)
-      00E8F32E723DECF4051AEFAC8E2C93C9C5B214313817CDB01A1494B917C8436B35
+      00e8f32e723decf4051aefac8e2c93c9c5b214313817cdb01a1494b917c8436b35
    04                                   # unsigned(4) chain-code
    58 20                                # bytes(32)
-      873DFF81C02F525623FD1FE5167EAC3A55A049DE3D314BB42EE227FFED37D508
+      873dff81c02f525623fd1fe5167eac3a55a049de3d314bb42ee227ffed37d508
 ```
 
 * As a hex string (74 bytes):
 
 ```
-A301F503582100E8F32E723DECF4051AEFAC8E2C93C9C5B214313817CDB01A1494B917C8436B35045820873DFF81C02F525623FD1FE5167EAC3A55A049DE3D314BB42EE227FFED37D508
+a301f503582100e8f32e723decf4051aefac8e2c93c9c5b214313817cdb01a1494b917c8436b35045820873dff81c02f525623fd1fe5167eac3a55a049de3d314bb42ee227ffed37d508
 ```
 
 * As a UR:
 
 ```
-ur:crypto-hdkey/otadykaxhdclaevswfdmjpfswpwkahcywspsmndwmusoskprbbehetchsnpfcybbmwrhchspfxjeecaahdcxltfszmlyrtdlgmhfcnzcctvwcmkbpsftgonbgauefsehgrqzdmvodizmweemtlaybakiylat
+ur:hdkey/otadykaxhdclaevswfdmjpfswpwkahcywspsmndwmusoskprbbehetchsnpfcybbmwrhchspfxjeecaahdcxltfszmlyrtdlgmhfcnzcctvwcmkbpsftgonbgauefsehgrqzdmvodizmweemtlaybakiylat
 ```
 
 * UR as QR Code:
@@ -323,7 +325,7 @@ $ bx base58-decode $DERIVED_KEY
 043587cf05e9181cf300000001ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85026fe2355745bb2db3630bbc80ef5d58951c963c841f54170ba6e5c12be7fc12a6951d4478
 ```
 
-* Separated into fields specified in [BIP32]:
+* Separated into fields specified in [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki):
 
 ```
 04 ; version 4
@@ -340,19 +342,19 @@ ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85 ; chain code
 
 ```
 {
-    3: h'026fe2355745bb2db3630bbc80ef5d58951c963c841f54170ba6e5c12be7fc12a6', ; key-data
-    4: h'ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85', ; chain-code
-    5: 305({ ; use-info
-        2: 1 ; network: testnet-btc
+    3: h'026fe2355745bb2db3630bbc80ef5d58951c963c841f54170ba6e5c12be7fc12a6', / key-data /
+    4: h'ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c85', / chain-code /
+    5: 40305({ / use-info /
+        2: 1 / network: testnet-btc /
     }),
-    6: 304({ ; origin
-        1: [44, true, 1, true, 1, true, 0, false, 1, false] ; components `m/44'/1'/1'/0/1`
+    6: 40304({ / origin /
+        1: [44, true, 1, true, 1, true, 0, false, 1, false] / components `m/44'/1'/1'/0/1` /
     }),
-    8: 3910671603 ; parent-fingerprint
+    8: 3910671603 / parent-fingerprint /
 }
 ```
 
-* Encoded as binary using [CBOR-PLAYGROUND]:
+* Encoded as binary using [CBOR-PLAYGROUND](http://cbor.me):
 
 ```
 A5                                      # map(5)
@@ -363,12 +365,12 @@ A5                                      # map(5)
    58 20                                # bytes(32)
       CED155C72456255881793514EDC5BD9447E7F74ABB88C6D6B6480FD016EE8C85
    05                                   # unsigned(5) use-info
-   D9 0131                              # tag(305) crypto-coininfo
+   D9 9D71                              # tag(40305) coininfo
       A1                                # map(1)
          02                             # unsigned(2) network
          01                             # unsigned(1) testnet-btc
    06                                   # unsigned(6) origin
-   D9 0130                              # tag(304) crypto-keypath
+   D9 9D70                              # tag(40304) keypath
       A1                                # map(1)
          01                             # unsigned(1) components
          8A                             # array(10)
@@ -389,19 +391,19 @@ A5                                      # map(5)
 * As a hex string:
 
 ```
-A5035821026FE2355745BB2DB3630BBC80EF5D58951C963C841F54170BA6E5C12BE7FC12A6045820CED155C72456255881793514EDC5BD9447E7F74ABB88C6D6B6480FD016EE8C8505D90131A1020106D90130A1018A182CF501F501F500F401F4081AE9181CF3
+a5035821026fe2355745bb2db3630bbc80ef5d58951c963c841f54170ba6e5c12be7fc12a6045820ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c8505d99d71a1020106d99d70a1018a182cf501f501f500f401f4081ae9181cf3
 ```
 
 * As a UR:
 
 ```
-ur:crypto-hdkey/onaxhdclaojlvoechgferkdpqdiabdrflawshlhdmdcemtfnlrctghchbdolvwsednvdztbgolaahdcxtottgostdkhfdahdlykkecbbweskrymwflvdylgerkloswtbrpfdbsticmwylklpahtaadehoyaoadamtaaddyoyadlecsdwykadykadykaewkadwkaycywlcscewfihbdaehn
+ur:hdkey/onaxhdclaojlvoechgferkdpqdiabdrflawshlhdmdcemtfnlrctghchbdolvwsednvdztbgolaahdcxtottgostdkhfdahdlykkecbbweskrymwflvdylgerkloswtbrpfdbsticmwylklpahtantjsoyaoadamtantjooyadlecsdwykadykadykaewkadwkaycywlcscewfjnkpvllt
 ```
 
 * UR as QR Code:
 
 ```
-echo 'ur:crypto-hdkey/onaxhdclaojlvoechgferkdpqdiabdrflawshlhdmdcemtfnlrctghchbdolvwsednvdztbgolaahdcxtottgostdkhfdahdlykkecbbweskrymwflvdylgerkloswtbrpfdbsticmwylklpahtaadehoyaoadamtaaddyoyadlecsdwykadykadykaewkadwkaycywlcscewfihbdaehn' \
+echo 'ur:hdkey/onaxhdclaojlvoechgferkdpqdiabdrflawshlhdmdcemtfnlrctghchbdolvwsednvdztbgolaahdcxtottgostdkhfdahdlykkecbbweskrymwflvdylgerkloswtbrpfdbsticmwylklpahtantjsoyaoadamtantjooyadlecsdwykadykadykaewkadwkaycywlcscewfjnkpvllt' \
   | tr '[:lower:]' '[:upper:]' \
   | qrencode -o 2.png -l L
 ```
@@ -410,16 +412,16 @@ echo 'ur:crypto-hdkey/onaxhdclaojlvoechgferkdpqdiabdrflawshlhdmdcemtfnlrctghchbd
 
 #### HDKey Digest Source Specification
 
-When a unique identifier to a `crypto-hdkey` is needed, an extract of its fields, called the *digest source* is created and then used as input to the SHA-256 hashing algorithm. The resulting digest can be compared to digests produced the same way to determine whether a key has a particular identity. See [BCR-2021-002: Digests for Digital Objects](bcr-2021-002-digest.md) for more information.
+When a unique identifier to a `hdkey` is needed, an extract of its fields, called the *digest source* is created and then used as input to the SHA-256 hashing algorithm. The resulting digest can be compared to digests produced the same way to determine whether a key has a particular identity. See [BCR-2021-002: Digests for Digital Objects](bcr-2021-002-digest.md) for more information.
 
-The digest source of a `crypto-hdkey` has the following CBOR structure:
+The digest source of a `hdkey` has the following CBOR structure:
 
 ```
 hdkey-digest-source = [
-    crypto-hdkey.key-data-bytes, ; key data
-    crypto-hdkey.chain-code-bytes / null, ; encode `null` if key has no chain code
-    crypto-coininfo.type ; coin type
-    crypto-coininfo.network ; network
+    hdkey.key-data-bytes, ; key data
+    hdkey.chain-code-bytes / null, ; encode `null` if key has no chain code
+    coininfo.type ; coin type
+    coininfo.network ; network
 ]
 ```
 
@@ -449,7 +451,7 @@ The digest source as binary:
 The digest source as a hex string:
 
 ```
-845821026FE2355745BB2DB3630BBC80EF5D58951C963C841F54170BA6E5C12BE7FC12A65820CED155C72456255881793514EDC5BD9447E7F74ABB88C6D6B6480FD016EE8C850001
+845821026fe2355745bb2db3630bbc80ef5d58951c963c841f54170ba6e5c12be7fc12a65820ced155c72456255881793514edc5bd9447e7f74abb88c6d6b6480fd016ee8c850001
 ```
 
 The actual digest is the SHA-256 of the digest source:
@@ -458,20 +460,8 @@ The actual digest is the SHA-256 of the digest source:
 362af3038da7600ad1581c19161c8594aafafc24e5acf1aefc8f7a0bbe366df2
 ```
 
-The digest is encoded as CBOR field (diagnostic notation) is tagged with #6.600 per [BCR-2020-006](https://github.com/BlockchainCommons/Research/papers/bcr-2020-006-urtypes.md)#object-fingerprints
+The digest is encoded as CBOR field (diagnostic notation) is tagged with #6.40600 per [BCR-2020-006](https://github.com/BlockchainCommons/Research/papers/bcr-2020-006-urtypes.md)#object-fingerprints
 
 ```
-crypto-hdkey-fingerprint = 600(h'362af3038da7600ad1581c19161c8594aafafc24e5acf1aefc8f7a0bbe366df2')
+hdkey-fingerprint = 40600(h'362af3038da7600ad1581c19161c8594aafafc24e5acf1aefc8f7a0bbe366df2')
 ```
-
-### Normative References
-
-* [BIP32] [Hierarchical Deterministic Wallets](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)
-* [BCR-2020-005] [Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes](bcr-2020-005-ur.md)
-* [BCR-2020-006] [Registry of Uniform Resource (UR) Types](bcr-2020-006-urtypes.md)
-* [CDDL] [RFC8610: Concise Data Definition Language (CDDL): A Notational Convention to Express Concise Binary Object Representation (CBOR) and JSON Data Structures](https://tools.ietf.org/html/rfc8610)
-* [BIP44] [Multi-Account Hierarchy for Deterministic Wallets](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki)
-* [SLIP44] [Registered coin types for BIP-0044](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
-* [CBOR-PLAYGROUND] [CBOR Playground](http://cbor.me)
-* [BASE58-CHECK] [Base58Check encoding](https://en.bitcoin.it/wiki/Base58Check_encoding)
-* [ETH-TESTNETS] [Ethereum Test Networks](https://docs.ethhub.io/using-ethereum/test-networks/)

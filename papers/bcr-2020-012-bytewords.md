@@ -115,68 +115,68 @@ The choice to use a CRC32 hash of a Bytewords body is open for comment. This iss
 
 ### Example/Test Vector
 
-* A 16 byte (128-bit) `crypto-seed` (tag #6.300) [URTYPES] generated on May 13, 2020, in the CBOR diagnostic notation:
+* A 16 byte (128-bit) cryptographic seed (`seed`) (tag #6.40300) [URTYPES] generated on May 13, 2020, in the CBOR diagnostic notation:
 
 ```
-300({
-  1: h'c7098580125e2ab0981253468b2dbc52', ; payload
-  2: 100(18394) ; birthdate
+40300({
+  1: h'c7098580125e2ab0981253468b2dbc52', / payload /
+  2: 1(18394) / birthdate /
 })
 ```
 
 * Encoded as binary using [CBOR-PLAYGROUND]:
 
 ```
-D9 012C                                 # tag(300) crypto-seed
+D9 9D6C                                 # tag(40300) seed
    A2                                   # map(2)
       01                                # unsigned(1) payload:
       50                                # bytes(16)
          C7098580125E2AB0981253468B2DBC52
       02                                # unsigned(2) birthdate:
-      D8 64                             # tag(100) [CBOR-DATE]
+      C1                                # tag(1) [CBOR-DATE]
          19 47DA                        # unsigned(18394)
 ```
 
 * Body as a hex string:
 
 ```
-d9012ca20150c7098580125e2ab0981253468b2dbc5202d8641947da
+d99d6ca20150c7098580125e2ab0981253468b2dbc5202c11947da
 ```
 
 * CRC32 Checksum:
 
 ```
-d22c52b6
+c904f40b
 ```
 
 * Body with checksum appended:
 
 ```
-d9012ca20150c7098580125e2ab0981253468b2dbc5202d8641947dad22c52b6
+d99d6ca20150c7098580125e2ab0981253468b2dbc5202c11947dac904f40b
 ```
 
 * Bytewords:
 
 ```
-tuna acid draw oboe acid good slot axis limp lava
+tuna next jazz oboe acid good slot axis limp lava
 brag holy door puff monk brag guru frog luau drop
-roof grim also trip idle chef fuel twin tied draw
-grim ramp
+roof grim also safe chef fuel twin solo aqua work
+bald
 ```
 
 * Bytewords (URI compatible):
 
 ```
-tuna-acid-draw-oboe-acid-good-slot-axis-limp-lava-
+tuna-next-jazz-oboe-acid-good-slot-axis-limp-lava-
 brag-holy-door-puff-monk-brag-guru-frog-luau-drop-
-roof-grim-also-trip-idle-chef-fuel-twin-tied-draw-
-grim-ramp
+roof-grim-also-safe-chef-fuel-twin-solo-aqua-work-
+bald
 ```
 
 * Bytewords (minimal encoding, only first and last letters of each word):
 
 ```
-taaddwoeadgdstaslplabghydrpfmkbggufgludprfgmaotpiecffltntddwgmrp
+tantjzoeadgdstaslplabghydrpfmkbggufgludprfgmaosecffltnsoaawkbd
 ```
 
 ### Brutal Encoding
@@ -217,13 +217,13 @@ staslplabghydrpfmkbggufgludprfgmzepsbtwd
 It is recommended that if Bytewords is used in the brutal encoding mode, that some other metadata, such as a URI scheme, be present to guide in interpreting the payload, e.g.:
 
 ```
-seed:slot-axis-limp-lava-brag-holy-door-puff-monk-brag-guru-frog-luau-drop-roof-grim-zone-plus-belt-wand
+my-seed:slot-axis-limp-lava-brag-holy-door-puff-monk-brag-guru-frog-luau-drop-roof-grim-zone-plus-belt-wand
 ```
 
 or
 
 ```
-seed:staslplabghydrpfmkbggufgludprfgmzepsbtwd
+my-seed:staslplabghydrpfmkbggufgludprfgmzepsbtwd
 ```
 
 ### References
