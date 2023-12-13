@@ -14,6 +14,16 @@ Revised: November 25, 2023
 
 Bitcoin, Ethereum, and other cryptocurrencies use [addresses](https://en.bitcoin.it/wiki/Address) as destinations for funds. Addresses are generated from public keys, which were in turn generated from private keys. Ultimately an address is just a string of bytes, but to facilitate recognition and handling by humans they are encoded as base58 (Bitcoin), bech32 (Bitcoin) or base16 (Ethereum). Encodings such as Bitcoin's include one or more tag characters at the front to help identify the string as an address, e.g., `1` for a Bitcoin P2PKH address or `m` for a Bitcoin testnet address, or `bc1` for a Bitcoin Bech32-encoded address.
 
+## UR Types and CBOR Tags
+
+This document defines the following UR types along with their corresponding CBOR tags:
+
+| UR type    | CBOR Tag |
+| :--------- | :------- |
+| ur:address | #6.40307 |
+
+These tags have been registered in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml).
+
 This specification defines a UR type `address` (CBOR tag #6.40307) for encoding and transmitting cryptocurrency addresses.
 
 The `info` field of the CBOR type defined herein references the `coininfo` type defined in [BCR-2020-007](bcr-2020-007-hdkey.md). This structure encodes both the type of coin and the network (main or test) the address is to be used with. If the optional `info` field is omitted, its defaults (mainnet Bitcoin address) are assumed.
@@ -29,8 +39,10 @@ The following specification is written in Concise Data Definition Language [CDDL
 When used embedded in another CBOR structure, this structure should be tagged #6.40307.
 
 ```
+tagged-address = #6.40307(address)
+
 address = {
-	? info: #6.40305(coininfo),
+	? info: tagged-coininfo,
 	? type: address-type,
 	data: bytes
 }

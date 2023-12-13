@@ -19,3 +19,10 @@ CBOR already has a well-defined date format using the tag #6.1 defined in [RFC 8
 This document specifies this method, which MUST include its tag-based type declaration, as the preferred format to specify dates when using [Gordian dCBOR](https://datatracker.ietf.org/doc/draft-mcnally-deterministic-cbor/).
 
 RFC 8949 says the tagged value may be either an integer or a float, but dCBOR's numeric reduction rules apply and MUST be used to determine the encoded numeric type.
+
+## CDDL
+
+```
+tagged-date = #6.1(date)
+date = int / float
+```

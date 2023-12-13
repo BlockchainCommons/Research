@@ -26,7 +26,7 @@ This section is normative, and specifies an additional case arm for the `envelop
 
 The formal language used is the [Concise Data Definition Language (CDDL)](https://datatracker.ietf.org/doc/html/rfc8610). The top-level specification of Gordian Envelope with this extension added is:
 
-~~~
+```
 envelope = #6.200(envelope-content)
 envelope-content = (
     leaf / elided / node / assertion / wrapped /
@@ -39,11 +39,11 @@ assertion-element = (
 )
 
 encrypted-assertion = encrypted     ; MUST represent an assertion
-~~~
+```
 
-The format for `encrypted` is defined by [UR Type Definition for Encrypted Messages](bcr-2022-001-encrypted-message.md), including the CBOR tag `#6.40002`. In this specification, the optional fourth array element `aad` is REQUIRED, and MUST contain the CBOR-encoded tagged digest of the envelope. The digest tag `#6.40001` is defined in [Digests for Digital Objects](bcr-2021-002-digest.md).
+The format for `encrypted` is defined by [UR Type Definition for Encrypted Messages](bcr-2022-001-encrypted-message.md), including the CBOR tag `#6.40002`. In this specification, the optional fourth array element `aad` is REQUIRED, and MUST contain the CBOR-encoded tagged digest of the envelope. `tagged-digest` is defined in [BCR-2021-002](bcr-2021-002-digest.md).
 
-~~~
+```
 encrypted = #6.40002([ ciphertext, nonce, auth, aad ])
 
 ciphertext = bytes
@@ -51,9 +51,7 @@ nonce = bytes .size 12
 auth = bytes .size 16
 
 aad = tagged-digest
-tagged-digest = bytes ; MUST be #6.40001(sha256-digest)
-sha256-digest = bytes .size 32
-~~~
+```
 
 The `encrypted` case can be discriminated from other Envelope case arms by the fact that it is the only one that is tagged using `#6.40002`.
 
@@ -65,7 +63,7 @@ The `encrypted` case directly declares the encrypted envelope's digest as the fo
 
 **Example**
 
-~~~
+```
 $ KEY=`envelope generate key`
 $ ENVELOPE=`envelope subject "Hello"`
 
@@ -96,13 +94,13 @@ $ envelope format --diag $ENCRYPTED_ENVELOPE
 $ envelope digest --hex $ENCRYPTED_ENVELOPE
 
 4d303dac9eed63573f6190e9c4191be619e03a7b3c21e9bb3d27ac1a55971e6b
-~~~
+```
 
 Notice that the digest of the unencrypted and encrypted Envelopes both match. This is because the fourth array element of the encrypted Envelope is the encoded CBOR for `tagged-digest`:
 
-~~~
+```
 40001(h'4d303dac9eed63573f6190e9c4191be619e03a7b3c21e9bb3d27ac1a55971e6b')
-~~~
+```
 
 ## Reference Implementations
 

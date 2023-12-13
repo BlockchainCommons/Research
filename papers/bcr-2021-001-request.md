@@ -10,9 +10,9 @@ Revised: Mar 21, 2023
 
 ---
 
-### DEPRECATED: Superceded by Envelope-Based Requests and Responses
+### DEPRECATED: Superseded by Envelope-Based Requests and Responses
 
-This document has been superceded by requests and responses composed using Gordian Envelopes. The content below is now deprecated and of historical interest only.
+This document has been superseded by requests and responses composed using Gordian Envelopes. The content below is now deprecated and of historical interest only.
 
 ### Introduction
 

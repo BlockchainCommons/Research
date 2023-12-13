@@ -36,24 +36,23 @@ The following specification is written in [Concise Data Definition Language (CDD
 
 When used embedded in another CBOR structure, this structure MUST be tagged `#6.40003`. When used as the top-level object of a UR, it MUST NOT be tagged.
 
+`tagged-digest` is defined in [BCR-2021-002](bcr-2021-002-digest.md).
+
 ```
+tagged-compressed = #6.40003(compressed)
+
 compressed = [
     checksum,           ; CRC-32 checksum of the uncompressed data
     uncompressed-size,
     compressed-data,
-    ? digest            ; Optional user-defined SHA-256 digest
+    ? tagged-digest    ; Optional user-defined SHA-256 digest
 ]
-
-tagged-compressed = #6.40003(compressed)
 
 checksum = crc32
 uncompressed-size = uint
 compressed-data = bytes
 
 crc32 = uint
-
-digest = #6.40001(sha-256-digest)
-sha-256-digest = bytes .size 32
 ```
 
 The `checksum` field is a standard feature of most DEFLATE implementations, and MUST be validated by the decoder. The `digest` field is optional and is not validated by the decoder, but may be used by the application to validate the integrity of the uncompressed data in ways that are beyond the scope of this specification. It's format is as defined in "Digests for Digital Objects" [BCR-2021-002](bcr-2021-002-digest.md).

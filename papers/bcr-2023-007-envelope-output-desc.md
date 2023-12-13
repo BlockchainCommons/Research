@@ -8,9 +8,9 @@ Authors: Wolf McNally, Christopher Allen<br/>
 Date: Aug 30, 2022<br/>
 Revised: Aug 30, 2023
 
-### DEPRECATED: Superceded by Version 3 Output Descriptors
+### DEPRECATED: Superseded by Version 3 Output Descriptors
 
-This document has been superceded by [Bitcoin Output Descriptors (Version 3)](bcr-2023-010-output-descriptor.md).
+This document has been superseded by [Bitcoin Output Descriptors (Version 3)](bcr-2023-010-output-descriptor.md).
 
 The content below is now deprecated and of historical interest only. It is not deployed anywhere of which we are aware.
 

@@ -16,6 +16,16 @@ Elliptical Curve Keys (ECKeys) have numerous uses in cryptocurrencies and elsewh
 
 The only other variable that needs to be determined to create an EC key is the elliptic curve parameters, with the parameters known as "secp256k1" being the most popular and the ones that Bitcoin is based on.
 
+## UR Types and CBOR Tags
+
+This document defines the following UR types along with their corresponding CBOR tags:
+
+| UR type      | CBOR Tag |
+| :----------- | :------- |
+| ur:eckey     | #6.40306 |
+
+These tags have been registered in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml).
+
 This specification defines a UR type `eckey` (CBOR tag #6.40306) for encoding and transmitting EC private and public keys.
 
 **Note:** This specification describes version 2 `eckey` (#6.40306), which differs from version 1 `crypto-eckey` (#6.306) only in the UR type and CBOR tag it uses. Version 1 `crypto-eckey` is deprecated, but may still be supported for backwards compatibility.
@@ -37,7 +47,9 @@ The `curve` and `is-private` fields allow a decoder to determine the nature of t
 The following specification is written in Concise Data Definition Language [CDDL](https://tools.ietf.org/html/rfc8610).
 
 ```
-ec-key = {
+tagged-eckey = #6.40306(eckey)
+
+eckey = {
   ? curve: uint .default 0,
   ? is-private: bool .default false,
   data: bytes

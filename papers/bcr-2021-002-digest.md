@@ -33,6 +33,23 @@ The [Blockchain Commons ByteWords](bcr-2020-012-bytewords.md) specification uses
 
 The [SHA-256](https://en.wikipedia.org/wiki/SHA-2) algorithm produces a digest of 256 bits (32 bytes). A digest of this length provides for 2^256 (1.16x10^77) possibilities, which is close to the estimated number of atoms in the known universe. This low level of probability for collisions is considered to be safe for most cryptographic algorithms where digests are compared to guarantee that two input objects are identical.
 
+## UR Types and CBOR Tags
+
+This document defines the following UR types along with their corresponding CBOR tags:
+
+| UR type      | CBOR Tag |
+| :----------- | :------- |
+| ur:digest    | #6.40001 |
+
+These tags have been registered in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml).
+
+## CDDL
+
+```
+tagged-digest = #6.40001(digest)
+digest = bytes .size 32
+```
+
 ### Example SHA-256 digests
 
 The example below shows three SHA-256 digests produced from input typed into the terminal using the standard `shasum` utility. In the Unix shell, CTRL-D (`^d`) is pressed twice (`^d^d`) at the end of non-empty input strings to avoid adding an end-of-line character to the digest source of the hash algorithm.
@@ -172,11 +189,3 @@ Examples of object types that include Digest Source Specifications:
 
 * [ur:crypto-seed](bcr-2020-006-urtypes.md#seed-digest-source-specification)
 * [ur:crypto-hdkey](bcr-2020-007-hdkey.md#hdkey-digest-source-specification)
-
-## IANA Considerations
-
-When a digest of another object is encoded as tagged CBOR, it is tagged #6.40001. This document requests registration of the following CBOR tag:
-
-* Tag: 6.40001
-* Data Item: byte string
-* Semantics: 32-byte SHA-256 digest

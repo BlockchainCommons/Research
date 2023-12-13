@@ -40,10 +40,48 @@ Some of the UR types and their corresponding CBOR tags below have been deprecate
 
 ### Registry
 
-| Type | Tag | Description | Definition |
+| UR Type | CBOR Tag | Description | Definition |
+|------|-----|-------------|------------|
+| `envelope` | 200 | Gordian Envelope | [[Envelope]](https://datatracker.ietf.org/doc/draft-mcnally-envelope/) |
+| `known-value` | 40000 | Envelope known value | [[BCR-2023-002]](bcr-2023-002-known-value.md) |
+| `digest` | 40001 | Cryptographic digest | [[BCR-2021-002]](bcr-2021-002-digest.md) |
+| `encrypted` | 40002 | Encrypted message | [[BCR-2022-001]](bcr-2022-001-encrypted-message.md) |
+| `compressed` | 40003 | Compressed message | [[BCR-2023-001]](bcr-2023-001-compressed.md) |
+| `request` | 40004 | GSTP request | [[BCR-2023-014]](bcr-2023-014-gstp.md) |
+| `response` | 40005 | GSTP response | [[BCR-2023-014]](bcr-2023-014-gstp.md) |
+| `function` | 40006 | Function identifier | [[BCR-2023-012]](bcr-2023-012-envelope-expression.md) |
+| `parameter` | 40007 | Parameter identifier | [[BCR-2023-012]](bcr-2023-012-envelope-expression.md) |
+| `placeholder` | 40008 | Function placeholder | [[BCR-2023-012]](bcr-2023-012-envelope-expression.md) |
+| `replacement` | 40009 | Function replacement | [[BCR-2023-012]](bcr-2023-012-envelope-expression.md) |
+| `seed` ~~`crypto-seed`~~ | 40300 ~~300~~ | Cryptographic seed | This document |
+| `agreement-private-key` | 40010 | Agreement private key | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
+| `agreement-public-key` | 40011 | Agreement private key | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
+| `hdkey` ~~`crypto-hdkey`~~ | 40303 ~~303~~ | Hierarchical Deterministic (HD) key | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
+| `keypath` ~~`crypto-keypath`~~ | 40304 ~~304~~ | Key Derivation Path | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
+| `coin-info` ~~`crypto-coin-info`~~ | 40305 ~~305~~ | Cryptocurrency Coin Use | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
+| `eckey` ~~`crypto-eckey`~~ | 40306 ~~306~~ | Elliptic Curve (EC) key | [[BCR-2020-008]](bcr-2020-008-eckey.md) |
+| `address` ~~`crypto-address`~~ | 40307 ~~307~~ | Cryptocurrency Address | [[BCR-2020-009]](bcr-2020-009-address.md) |
+| `output-descriptor` ~~`crypto-output`~~ | 40308 ~~308~~ | Bitcoin Output Descriptor | [[BCR-2020-010]](bcr-2020-010-output-desc.md) |
+| `sskr` ~~`crypto-sskr`~~ | 40309 ~~309~~ | SSKR (Sharded Secret Key Reconstruction) shard | [[BCR-2020-011]](bcr-2020-011-sskr.md) |
+| `psbt` ~~`crypto-psbt`~~ | 40310 ~~310~~ | Partially Signed Bitcoin Transaction (PSBT) | This document |
+| `account` ~~`crypto-account`~~ | 40311 ~~311~~ | BIP44 Account | [[BCR-2020-015]](bcr-2020-015-account.md) |
+| `arid` | 40012 | Apparently Random Identifier | [[BCR-2022-002]](bcr-2022-002-arid.md) |
+| `nonce` | 40014 | Cryptographic nonce | [[BCR-2023-015]](bcr-2023-015-nonce.md) |
+| `password` | 40015 | Hashed password (e.g., Scrypt) | [[BCR-2023-016]](bcr-2023-016-password.md) |
+| `crypto-prvkeys` | 40016 | Private key base | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
+| `crypto-pubkeys` | 40017 | Public key base | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
+| `salt` | 40018 | Salt | [[BCR-2023-017]](bcr-2023-017-salt.md) |
+| `crypto-sealed` | 40019 | Sealed message | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
+| `signature` | 40020 | Signature | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
+| `signing-private-key` | 40021 | Signing private key | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
+| `signing-public-key` | 40022 | Signing public key | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
+| `crypto-key` | 40023 | Symmetric Key | [[BCR-2022-001]](bcr-2022-001-encrypted-message.md) |
+
+### Notable Tags
+
+| UR Type | CBOR Tag | Description | Definition |
 |------|-----|-------------|------------|
 | `cbor` | 24 | Wrapped cbor | [[CBOR]](https://www.rfc-editor.org/rfc/rfc8949.html#name-tagging-of-items) |
-| `bytes` | | Undifferentiated byte string (for testing only) | [[BCR5]](bcr-2020-005-ur.md) |
 | `cbor-png` | | PNG image | [[PNG]](https://tools.ietf.org/html/rfc2083) |
 | `cbor-svg` | | SVG image | [[SVG]](https://www.w3.org/TR/SVG11/) |
 | `cose-sign` | 98 | COSE_Sign: Signed message (multiple recipients) | [[COSE]](https://tools.ietf.org/html/rfc8152) |
@@ -54,111 +92,33 @@ Some of the UR types and their corresponding CBOR tags below have been deprecate
 | `cose-mac0` | 17 | COSE_Mac0: Authenticated message (implied recipient) | [[COSE]](https://tools.ietf.org/html/rfc8152) |
 | `cose-key` | | COSE_Key: An encryption key | [[COSE]](https://tools.ietf.org/html/rfc8152) |
 | `cose-keyset` | | COSE_KeySet: A set of encryption keys | [[COSE]](https://tools.ietf.org/html/rfc8152) |
-| `envelope` | 200 | Gordian Envelope | [Envelope] |
-| `known-value` | 40000 | Envelope known value | [Envelope] |
-| `digest` | 40001 | Cryptographic digest | [SecureComponents] |
-| `encrypted` | 40002 | Encrypted message | [[BCR-2022-001]](bcr-2022-001-encrypted-message.md) |
-| `compressed` | 40003 | Compressed message | [[BCR-2023-001]](bcr-2023-001-compressed.md) |
-| `request` | 40004 | Distributed request | [Envelope] |
-| `response` | 40005 | Distributed response | [Envelope] |
-| `function` | 40006 | Function identifier | [Envelope] |
-| `parameter` | 40007 | Parameter identifier | [Envelope] |
-| `placeholder` | 40008 | Function placeholder | [Envelope] |
-| `replacement` | 40009 | Function replacement | [Envelope] |
-| `seed` ~~`crypto-seed`~~ | 40300 ~~300~~ | Cryptographic seed | This document |
-| `agreement-private-key` | 40010 | Agreement private key | [SecureComponents] |
-| `agreement-public-key` | 40011 | Agreement private key | [SecureComponents] |
-| `hdkey` ~~`crypto-hdkey`~~ | 40303 ~~303~~ | Hierarchical Deterministic (HD) key | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
-| `keypath` ~~`crypto-keypath`~~ | 40304 ~~304~~ | Key Derivation Path | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
-| `coin-info` ~~`crypto-coin-info`~~ | 40305 ~~305~~ | Cryptocurrency Coin Use | [[BCR-2020-007]](bcr-2020-007-hdkey.md) |
-| `eckey` ~~`crypto-eckey`~~ | 40306 ~~306~~ | Elliptic Curve (EC) key | [[BCR-2020-008]](bcr-2020-008-eckey.md) |
-| `address` ~~`crypto-address`~~ | 40307 ~~307~~ | Cryptocurrency Address | [[BCR-2020-009]](bcr-2020-009-address.md) |
-| `output-descriptor` ~~`crypto-output`~~ | 40308 ~~308~~ | Bitcoin Output Descriptor | [[BCR-2020-010]](bcr-2020-010-output-desc.md) |
-| `sskr` ~~`crypto-sskr`~~ | 40309 ~~309~~ | SSKR (Sharded Secret Key Reconstruction) shard | [[BCR-2020-011]](bcr-2020-011-sskr.md) |
-| `psbt` ~~`crypto-psbt`~~ | 40310 ~~310~~ | Partially Signed Bitcoin Transaction (PSBT) | This document |
-| `account` ~~`crypto-account`~~ | 40311 ~~311~~ | BIP44 Account | [[BCR-2020-015]](bcr-2020-015-account.md) |
-| `arid` | 40012 | Apparently Random Identifier | [[BCR-2022-002]](bcr-2022-002-arid.md) | |
-| `seed-digest` | 40013 | Seed digest | [BCFoundation] |
-| `nonce` | 40014 | Cryptographic nonce | [SecureComponents] |
-| `password` | 40015 | Hashed password (e.g., Scrypt) | [SecureComponents] |
-| `crypto-prvkeys` | 40016 | Private key base | [SecureComponents] |
-| `crypto-pubkeys` | 40017 | Public key base | [SecureComponents] |
-| `salt` | 40018 | Salt | [SecureComponents] |
-| `crypto-sealed` | 40019 | Sealed message | [SecureComponents] |
-| `signature` | 40020 | Signature | [SecureComponents] |
-| `signing-private-key` | 40021 | Signing private key | [SecureComponents] |
-| `signing-public-key` | 40022 | Signing public key | [SecureComponents] |
-| `crypto-key` | 40023 | Symmetric Key | [SecureComponents] |
-| | 400–410 | Used internally as descriptor types in [`crypto-output`](bcr-2020-010-output-desc.md). | |
-| | 40600 ~~600~~ | Object Digest | This document and as defined in each type |
 
-### Object Digests
+## UR Types and CBOR Tags
 
-It is sometimes desirable that a CBOR-encoded object refer to another object by its unique SHA-256 digest. The method of deriving a digest for a particular type is unique to that type and MAY be defined by that type. The hash algorithm input for the SHA-256 hash (called the *digest source*) MUST only include data that uniquely and permanently identifies the object, and MUST NOT include data that may change over time, such as object's name or other incidental metadata. This document defines the method for producing the digest source for `crypto-seed` below. [[BCR-2020-007]](bcr-2020-007-hdkey.md) describes the method for producing the digest source for a `crypto-hdkey`. See [BCR-2021-002: Digests for Digital Objects](bcr-2021-002-digest.md) for more information.
+This document defines the following UR types along with their corresponding CBOR tags:
 
-When UR types refer to other objects using a digest, it MUST be tagged #6.40600 and the byte string length MUST be exactly 32.
+| UR type  | CBOR Tag |
+| :------- | :------- |
+| ur:seed  | #6.40300 |
 
-#### CDDL
+These tags have been registered in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml).
 
-```
-digest = #6.40600(bytes .size 32)
-```
+### Cryptographic Seed `seed`
 
-### Byte String `bytes`
+The type `seed` contains a single, byte string having a length from 1 to 64 bytes. Semantically, this byte string SHOULD be a random or pseudorandom sequence generated by a cryptographically-strong algorithm.
 
-The type `bytes` contains a single, deterministic length byte string having a length from 1 to 2^32-1 bytes. This specification places no semantic interpretation on the contents of the string. Because of this, its usefulness is generally limited to development and testing purposes. Actual applications of Uniform Resources SHOULD use a more specific type.
-
-#### CDDL
-
-```
-bytes
-```
-
-#### Example/Test Vector
-
-* CBOR diagnostic notation:
-
-```
-h'00112233445566778899aabbccddeeff'
-```
-
-* Encoded as binary using [CBOR-PLAYGROUND]:
-
-```
-50                                  # bytes(16)
-   00112233445566778899AABBCCDDEEFF
-```
-
-* As a hex string:
-
-```
-5000112233445566778899AABBCCDDEEFF
-```
-
-* As a UR:
-
-```
-ur:bytes/gdaebycpeofygoiyktlonlpkrksfutwyzmwmfyeozs
-```
-
-* UR as QR Code:
-
-![](bcr-2020-006/2.png)
-
-### Cryptographic Seed `crypto-seed`
-
-The type `crypto-seed` contains a single, deterministic length byte string having a length from 1 to 64 bytes. Semantically, this byte string SHOULD be a random or pseudorandom sequence generated by a cryptographically-strong algorithm.
-
-The type may also include a `creation-date` attribute which is the number of days since the Unix epoch upon which this seed was generated. This attribute is tagged with #6.1 in accordance with [CBOR-TAGS].
+The type may also include a `creation-date` attribute which is the number of days since the Unix epoch upon which this seed was generated. See [BCR-2023-008](bcr-2023-008-dcbor-date.md) for more information.
 
 The type may also include `name`, which SHOULD be a short name for the seed, and `note`, which is an arbitrary amount of text describing the seed.
 
 #### CDDL
 
 ```
+tagged-seed = #6.40300(seed)
+
 seed = {
 	payload: bytes,
-	? creation-date: date,
+	? creation-date: tagged-date,
 	? name: text,
 	? note: text
 }
@@ -166,7 +126,6 @@ payload = 1
 creation-date = 2
 name = 3
 note = 4
-date = #6.1(int / float) ; epoch-based date/time
 ```
 
 #### Example/Test Vector
@@ -201,7 +160,7 @@ A20150C7098580125E2AB0981253468B2DBC5202D8641947DA
 * As a UR:
 
 ```
-ur:crypto-seed/oeadgdstaslplabghydrpfmkbggufgludprfgmaotpiecffltnlpqdenos
+ur:seed/oeadgdstaslplabghydrpfmkbggufgludprfgmaotpiecffltnlpqdenos
 ```
 
 * UR as QR Code:
@@ -210,9 +169,9 @@ ur:crypto-seed/oeadgdstaslplabghydrpfmkbggufgludprfgmaotpiecffltnlpqdenos
 
 #### Seed Digest Source Specification
 
-When a unique identifier to a `crypto-seed` is needed, an extract of its fields, called the *digest source* is created and then used as input to the SHA-256 hashing algorithm. The resulting digest can be compared to digests produced the same way to determine whether a seed has a particular identity. See [BCR-2021-002: Digests for Digital Objects](bcr-2021-002-digest.md) for more information.
+When a unique identifier to a `seed` is needed, an extract of its fields, called the *digest source* is created and then used as input to the SHA-256 hashing algorithm. The resulting digest can be compared to digests produced the same way to determine whether a seed has a particular identity. See [BCR-2021-002: Digests for Digital Objects](bcr-2021-002-digest.md) for more information.
 
-The digest source of a `crypto-seed` is just the `payload` byte string. All other fields are ignored. For the example test vector above, the payload is:
+The digest source of a `seed` is just the `payload` byte string. All other fields are ignored. For the example test vector above, the payload is:
 
 ```
 c7098580125e2ab0981253468b2dbc52
@@ -227,7 +186,7 @@ e824467caffeaf3bbc3e0ca095e660a9bad80ddb6a919433a37161908b9a3986
 When encoded as CBOR (diagnostic notation):
 
 ```
-crypto-seed-digest = 600(h'e824467caffeaf3bbc3e0ca095e660a9bad80ddb6a919433a37161908b9a3986')
+seed-digest = #6.40600(h'e824467caffeaf3bbc3e0ca095e660a9bad80ddb6a919433a37161908b9a3986')
 ```
 
 Encoded as binary:

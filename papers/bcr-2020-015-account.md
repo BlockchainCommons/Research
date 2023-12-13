@@ -10,9 +10,7 @@ Revised: December 6, 2021<br/>
 
 ---
 
-### DEPRECATED: To be superceded by Envelope-Based BIP44 Accounts
-
-This document will soon be superceded by a format using Gordian Envelope, which will be based on [Bitcoin output descriptors enclosed in Gordian Envelopes](bcr-2023-007-envelope-output-desc.md).
+### DEPRECATED
 
 The content below is now deprecated but may still be supported for backwards compatibility.
 

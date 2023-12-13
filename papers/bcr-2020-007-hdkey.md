@@ -18,7 +18,19 @@ This specification also defines and incorporates a separate type `keypath` (CBOR
 
 This specification also defines and incorporates a separate type `coininfo` (CBOR tag #6.40305) that specifes cryptocurrency information.
 
-**Note:** This specification describes version 2 `hdkey` (#6.40304), which differs from version 1 `crypto-hdkey` (#6.304) only in the UR types and CBOR tags it uses. Version 1 `crypto-hdkey` is deprecated, but may still be supported for backwards compatibility.
+## UR Types and CBOR Tags
+
+This document defines the following UR types along with their corresponding CBOR tags:
+
+| UR type      | CBOR Tag |
+| :----------- | :------- |
+| ur:hdkey     | #6.40303 |
+| ur:keypath   | #6.40304 |
+| ur:coin-info | #6.40305 |
+
+These tags have been registered in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml).
+
+**Note:** This specification describes version 2 `hdkey` (#6.40303), which differs from version 1 `crypto-hdkey` (#6.303) only in the UR types and CBOR tags it uses. Version 1 `crypto-hdkey` is deprecated, but may still be supported for backwards compatibility.
 
 ### HDKeys
 
@@ -60,6 +72,8 @@ When used embedded in another CBOR structure, this structure should be tagged #6
 ; the path of the associated key, regardless of whether steps are present in the `components` element
 ; of this structure.
 
+tagged-keypath = #6.40304(keypath)
+
 keypath = {
     components: [path-component], ; If empty, source-fingerprint MUST be present
     ? source-fingerprint: uint32 .ne 0 ; fingerprint of ancestor key, or master key if components is empty
@@ -100,6 +114,9 @@ When used embedded in another CBOR structure, this structure should be tagged #6
 
 ```
 ; Metadata for the type and use of a cryptocurrency
+
+tagged-coininfo = #6.40305(coininfo)
+
 coininfo = {
     ? type: uint31 .default cointype-btc, ; values from [SLIP44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) with high bit turned off
     ? network: int .default mainnet ; coin-specific identifier for testnet
@@ -126,8 +143,11 @@ testnet-eth-gorli = 4;
 The following specification is written in Concise Data Definition Language [CDDL](https://tools.ietf.org/html/rfc8610) and includes the `keypath` spec above.
 
 ```
-; An hd-key is either a master key or a derived key.
-hd-key = {
+tagged-hdkey = #6.40303(hdkey)
+
+; An HD key is either a master key or a derived key.
+
+hdkey = {
     master-key / derived-key
 }
 
@@ -149,9 +169,9 @@ derived-key = (
     ? is-private: bool .default false,     ; true if key is private, false if public
     key-data: key-data-bytes,
     ? chain-code: chain-code-bytes         ; omit if no further keys may be derived from this key
-    ? use-info: #6.40305(coininfo), ; How the key is to be used
-    ? origin: #6.40304(keypath),    ; How the key was derived
-    ? children: #6.40304(keypath),  ; What children should/can be derived from this
+    ? use-info: tagged-coininfo, ; How the key is to be used
+    ? origin: tagged-keypath,    ; How the key was derived
+    ? children: tagged-keypath,  ; What children should/can be derived from this
     ? parent-fingerprint: uint32 .ne 0,    ; The fingerprint of this key's direct ancestor, per [BIP32]
     ? name: text,                          ; A short name for this key.
     ? note: text                           ; An arbitrary amount of text describing the key.

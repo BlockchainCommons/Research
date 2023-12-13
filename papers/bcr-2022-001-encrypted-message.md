@@ -14,9 +14,16 @@ Revised: Aug 12, 2023
 
 This paper addresses the need for a way to encrypt messages using best practices and encode them using [CBOR](https://cbor.io/) and [URs](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2020-005-ur.md). It specifies a general "encrypted message" structure and a specific encoding based on ChaCha20-Poly1305 Authenticated Encryption as specified in [RFC-8439](https://datatracker.ietf.org/doc/html/rfc8439).
 
-This specification defines a type `encrypted` (CBOR tag `#6.40002`).
+## UR Types and CBOR Tags
 
-⚠️ WARNING: As of the date of this publication the tag `#6.40002` is unallocated in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml). Blockchain Commons is applying for this number to be assigned to the CBOR specification herein, but because it is in a range that is open to other applications, it may change. So for now, the `#6.40002` tag MUST be understood as provisional and subject to change by all implementors.
+This document defines the following UR types along with their corresponding CBOR tags:
+
+| UR type        | CBOR Tag |
+| :------------- | :------- |
+| ur:encrypted   | #6.40002 |
+| ur:crypto-key  | #6.40023 |
+
+These tags have been registered in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml).
 
 ### Related Work
 
