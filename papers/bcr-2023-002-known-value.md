@@ -210,6 +210,7 @@ This table documents the Known Value codepoints currently assigned, but is curre
 | 300 | asset    | property | Declares a cryptocurrency asset specifier, e.g. "Bitcoin", "Ethereum"
 | 301 | Bitcoin  | value | The Bitcoin cryptocurrency ("BTC")
 | 302 | Ethereum | value | The Ethereum cryptocurrency ("ETH")
+| 303 | Tezos    | value | The Tezos cryptocurrency ("XTZ")
 
 ### Cryptocurrency Networks
 
