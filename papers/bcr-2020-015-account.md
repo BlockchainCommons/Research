@@ -12,7 +12,7 @@ Revised: December 6, 2021<br/>
 
 ### DEPRECATED
 
-The content below is now deprecated but may still be supported for backwards compatibility.
+The content below is now deprecated but may still be supported for backwards compatibility. It has been superseded by [BCR-2023-019](bcr-2023-019-account-descriptor.md).
 
 ### Abstract
 
