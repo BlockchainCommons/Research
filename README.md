@@ -51,7 +51,7 @@ Generally, it's only if a BCR advances to the BCP stage that we more deeply invo
 | [BCR-2023-016](papers/bcr-2023-016-password.md) | UR Type Definition for Scrypt-Hashed Password | Wolf McNally |
 | [BCR-2023-017](papers/bcr-2023-017-salt.md) | UR Type Definition for Random Salt | Wolf McNally |
 | [BCR-2023-018](papers/bcr-2023-018-depo-api.md) | Gordian Depository API | Wolf McNally |
-| [BCR-2020-019](papers/bcr-2020-019-account-descriptor.md) | UR Type Definition for BIP44 Accounts (Version 2) | Craig Raw |
+| [BCR-2020-019](papers/bcr-2023-019-account-descriptor.md) | UR Type Definition for BIP44 Accounts (Version 2) | Craig Raw |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Blockchain Commons Proposals](https://github.com/BlockchainCommons/bcps/blob/master/README.md)._
 
