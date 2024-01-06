@@ -64,7 +64,7 @@ Some of the UR types and their corresponding CBOR tags below have been deprecate
 | `output-descriptor` ~~`crypto-output`~~ | 40308 ~~308~~ | Bitcoin Output Descriptor | [[BCR-2020-010]](bcr-2020-010-output-desc.md) |
 | `sskr` ~~`crypto-sskr`~~ | 40309 ~~309~~ | SSKR (Sharded Secret Key Reconstruction) shard | [[BCR-2020-011]](bcr-2020-011-sskr.md) |
 | `psbt` ~~`crypto-psbt`~~ | 40310 ~~310~~ | Partially Signed Bitcoin Transaction (PSBT) | This document |
-| `account` ~~`crypto-account`~~ | 40311 ~~311~~ | BIP44 Account | [[BCR-2020-015]](bcr-2020-015-account.md) |
+| `account-descriptor` ~~`crypto-account`~~ | 40311 ~~311~~ | BIP44 Account | [[BCR-2023-019]](bcr-2023-019-account-descriptor.md) |
 | `arid` | 40012 | Apparently Random Identifier | [[BCR-2022-002]](bcr-2022-002-arid.md) |
 | `nonce` | 40014 | Cryptographic nonce | [[BCR-2023-015]](bcr-2023-015-nonce.md) |
 | `password` | 40015 | Hashed password (e.g., Scrypt) | [[BCR-2023-016]](bcr-2023-016-password.md) |
