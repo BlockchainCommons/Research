@@ -12,6 +12,7 @@ Generally, it's only if a BCR advances to the BCP stage that we more deeply invo
 
 ## Status
 
+| Status | Description |
 |--|---|
 | ❌❌ | withdrawn |
 | ❌ | superceded |
