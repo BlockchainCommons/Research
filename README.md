@@ -12,13 +12,14 @@ Generally, it's only if a BCR advances to the BCP stage that we more deeply invo
 
 ## Status
 
-❌❌ withdrawn
-❌ superceded
-📙 research
-⭐️ reference implementation
-⭐️⭐️ multiple implementations
-⭐️⭐️⭐️ standards track
-⭐️⭐️⭐️⭐️ standardized
+|--|---|
+| ❌❌ | withdrawn |
+| ❌ | superceded |
+| 📙 | research |
+| ⭐️ | reference implementation |
+| ⭐️⭐️ | multiple implementations |
+| ⭐️⭐️⭐️ | standards track |
+| ⭐️⭐️⭐️⭐️ | standardized |
 
 See [our status descriptions](status-info.md) for more on what these mean.
 
