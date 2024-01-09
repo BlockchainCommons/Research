@@ -10,6 +10,18 @@ If you are using the specifications from a BCR, [please let us know](mailto:team
 
 Generally, it's only if a BCR advances to the BCP stage that we more deeply involve community in its continued maturation and focus on it becoming an actual standard.
 
+## Status
+
+❌❌ withdrawn
+❌ superceded
+📙 research
+⭐️ reference implementation
+⭐️⭐️ multiple implementations
+⭐️⭐️⭐️ standards track
+⭐️⭐️⭐️⭐️ standardized
+
+See [our status descriptions](status-info.md) for more on what these mean.
+
 ## Contents
 
 | Number                    | Title         | Owner                                                  | Status |
