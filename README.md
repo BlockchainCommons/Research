@@ -12,7 +12,7 @@ Generally, it's only if a BCR advances to the BCP stage that we more deeply invo
 
 ## Status
 
-Each BCR has a status, which is indicated by a symbol in the first column of the table below. The following table describes the status symbols.
+Each BCR has a status, which is indicated by a symbol.
 
 | Symbol | Title | Description |
 |:--|:--|:--|
