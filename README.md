@@ -16,15 +16,15 @@ Each BCR has a status which is indicated by a symbol.
 
 | Symbol | Title | Description |
 |:--|:--|:--|
-| ❌❌ | Withdrawn | Of historic interest only. Withdrawn either because it never came into use or because it proved sufficiently problematic that we do not recommend its usage in any way.
-| ❌ | Superseded | Superseded by a newer BCR. We do not suggest implementing it as an output format, but you may still wish to implement it as an input format to maintain backward compatibility.
+| ❌❌ | Withdrawn | Of historic interest only. Withdrawn either because never came into use or proved sufficiently problematic that we do not recommend its usage in any way.
+| ❌ | Superseded | Superseded by a newer BCR. We do not suggest implementing as an output format, but you may still wish to implement as an input format to maintain backward compatibility.
 | 📙 | Research | Contains original research or proposes specifications that have not yet been implemented by us. Offered to the community for consideration.
 | ⭐️ | Reference Implementation | At least one reference implementation has been released, usually as a library, and may include demos or other supporting tools. This specification still remains very open to change because it has not yet (to our knowledge) been implemented by additional parties.
 | ⭐️⭐️ | Multiple Implementations | At least two (known) implementations exist, at least one not by the owner of the reference implementation. Has demonstrable community support. May still change due to the needs of the community, but community feedback will be sought.
-| ⭐️⭐️⭐️ | Standards Track | Typically at least two implementations, and is considered stable and ready for standardization. It is being proposed as a BIP, IETF Internet Draft, or some other standardization draft format. It will typically be moved to the [BCP repo](https://github.com/BlockchainCommons/bcps). Though changes may still be made to the specification, these changes will exclusively be to allow for standardization, and will be conducted with community feedback.
+| ⭐️⭐️⭐️ | Standards Track | Typically at least two implementations, and is considered stable and ready for standardization. Being proposed as a BIP, IETF Internet Draft, or some other standardization draft format. Will typically be moved to the [BCP repo](https://github.com/BlockchainCommons/bcps). Though changes may still be made to the specification, these changes will exclusively be to allow for standardization, and will be conducted with community feedback.
 | ⭐️⭐️⭐️⭐️ | Standardized | A specification has been standardized as a an IETF RFC, BIP, or approved by some other standards body.
 
-❌❌ after another status symbol is read, "...but withdrawn" and ❌ is read, "...but superseded"
+❌❌ after another status symbol is read, "...but withdrawn" and ❌ is read, "...but superseded".
 
 ## Contents
 
