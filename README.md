@@ -45,9 +45,9 @@ See [our status descriptions](status-info.md) for more on what these mean.
 | [BCR-2020-015](papers/bcr-2020-015-account.md) | UR Type Definition for BIP44 Accounts (version 1) | Craig Raw | ⭐️⭐️❌ |
 | [BCR-2021-001](papers/bcr-2021-001-request.md) | UR Type Definitions for Transactions Between Airgapped Devices (DEPRECATED) | Wolf McNally | ❌ |
 | [BCR-2021-002](papers/bcr-2021-002-digest.md) | Digests for Digital Objects | Wolf McNally | ⭐️ |
-| [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | Wolf McNally |
-| [BCR-2022-002](papers/bcr-2022-002-arid.md) | ARID: Apparently Random Identifier | Wolf McNally |
-| [BCR-2023-001](papers/bcr-2023-001-compressed-message.md) | Compressed Message | Wolf McNally |
+| [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | Wolf McNally | ⭐️ | 
+| [BCR-2022-002](papers/bcr-2022-002-arid.md) | ARID: Apparently Random Identifier | Wolf McNally | ⭐️ |
+| [BCR-2023-001](papers/bcr-2023-001-compressed-message.md) | Compressed Message | Wolf McNally | ⭐️ |
 | [BCR-2023-002](papers/bcr-2023-002-known-value.md) | Known Values: A Compact, Deterministic Representation for Ontological Concepts | Wolf McNally | ⭐️ |
 | [BCR-2023-003](papers/bcr-2023-003-envelope-known-value.md) | Gordian Envelope Extension: Known Values | Wolf McNally | ⭐️ |
 | [BCR-2023-004](papers/bcr-2023-004-envelope-symmetric-encryption.md) | Gordian Envelope Extension: Symmetric Encryption | Wolf McNally | ⭐️ |
