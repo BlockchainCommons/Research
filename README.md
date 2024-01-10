@@ -28,8 +28,8 @@ Each BCR has a status, which is indicated by a symbol in the first column of the
 
 ## Contents
 
-| Number                    | Title         | Owner                                                  | Status |
-|---------------------------|----------------|----------------------------------------------|---|
+| Number | Title | Owner | Status |
+|:--|:--|:--|:--|
 | [BCR-2020-001](papers/bcr-2020-001-entropy-to-seed.md) | Uniformly Translating Entropy into Cryptographic Seeds | Wolf McNally | 📙 |
 | [BCR-2020-002](papers/bcr-2020-002-bech32-seed-format.md) | Bech32 Encoding for Cryptographic Seeds | Wolf McNally | ❌❌ |
 | [BCR-2020-003](papers/bcr-2020-003-uri-binary-compatibility.md) | Encoding Binary Compatibly with URI Reserved Characters  | Wolf McNally | 📙 |
