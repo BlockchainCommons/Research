@@ -42,8 +42,8 @@ See [our status descriptions](status-info.md) for more on what these mean.
 | [BCR-2020-012](papers/bcr-2020-012-bytewords.md) | Bytewords: Encoding binary data as English words | Wolf McNally | ⭐️⭐️ |
 | [BCR-2020-013](papers/bcr-2020-013-crc32-cbor-tag.md) | CRC-32 Checksums in CBOR | Wolf McNally | ❌❌ |
 | [BCR-2020-014](papers/bcr-2020-014-urs-on-epaper.md) | URs on E-paper display | Gorazd Kovacic |
-| [BCR-2020-015](papers/bcr-2020-015-account.md) | ~~UR Type Definition for BIP44 Accounts (version 1) | Craig Raw | ⭐️⭐️❌ |
-| [BCR-2021-001](papers/bcr-2021-001-request.md) | ~~UR Type Definitions for Transactions Between Airgapped Devices (DEPRECATED) | Wolf McNally | ❌ |
+| [BCR-2020-015](papers/bcr-2020-015-account.md) | UR Type Definition for BIP44 Accounts (version 1) | Craig Raw | ⭐️⭐️❌ |
+| [BCR-2021-001](papers/bcr-2021-001-request.md) | UR Type Definitions for Transactions Between Airgapped Devices (DEPRECATED) | Wolf McNally | ❌ |
 | [BCR-2021-002](papers/bcr-2021-002-digest.md) | Digests for Digital Objects | Wolf McNally | ⭐️ |
 | [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | Wolf McNally |
 | [BCR-2022-002](papers/bcr-2022-002-arid.md) | ARID: Apparently Random Identifier | Wolf McNally |
