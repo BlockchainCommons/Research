@@ -40,10 +40,10 @@ See [our status descriptions](status-info.md) for more on what these mean.
 | [BCR-2020-010](papers/bcr-2020-010-output-desc.md)| UR Type Definition for Bitcoin Output Descriptors (Version 1) | Wolf McNally | ❌ |
 | [BCR-2020-011](papers/bcr-2020-011-sskr.md) | UR Type Definition for Sharded Secret Key Reconstruction (SSKR) | Wolf McNally |
 | [BCR-2020-012](papers/bcr-2020-012-bytewords.md) | Bytewords: Encoding binary data as English words | Wolf McNally |
-| [BCR-2020-013](papers/bcr-2020-013-crc32-cbor-tag.md) | ~~CRC-32 Checksums in CBOR (DEPRECATED)~~ | Wolf McNally | ❌❌ |
+| [BCR-2020-013](papers/bcr-2020-013-crc32-cbor-tag.md) | CRC-32 Checksums in CBOR | Wolf McNally | ❌❌ |
 | [BCR-2020-014](papers/bcr-2020-014-urs-on-epaper.md) | URs on E-paper display | Gorazd Kovacic |
 | [BCR-2020-015](papers/bcr-2020-015-account.md) | ~~UR Type Definition for BIP44 Accounts (version 1) | Craig Raw | ❌ |
-| ~~[BCR-2021-001](papers/bcr-2021-001-request.md)~~ | ~~UR Type Definitions for Transactions Between Airgapped Devices (DEPRECATED)~~ | Wolf McNally |
+| [BCR-2021-001](papers/bcr-2021-001-request.md) | ~~UR Type Definitions for Transactions Between Airgapped Devices (DEPRECATED) | Wolf McNally | ❌❌ |
 | [BCR-2021-002](papers/bcr-2021-002-digest.md) | Digests for Digital Objects | Wolf McNally |
 | [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | Wolf McNally |
 | [BCR-2022-002](papers/bcr-2022-002-arid.md) | ARID: Apparently Random Identifier | Wolf McNally |
@@ -53,7 +53,7 @@ See [our status descriptions](status-info.md) for more on what these mean.
 | [BCR-2023-004](papers/bcr-2023-004-envelope-symmetric-encryption.md) | Gordian Envelope Extension: Symmetric Encryption | Wolf McNally |
 | [BCR-2023-005](papers/bcr-2023-005-envelope-compression.md) | Gordian Envelope Extension: Compression | Wolf McNally |
 | [BCR-2023-006](papers/bcr-2023-006-envelope-attachment.md) | Gordian Envelope: Attachments | Wolf McNally |
-| ~~[BCR-2023-007](papers/bcr-2023-007-envelope-output-desc.md)~~ | ~~Gordian Envelope: Bitcoin Output Descriptors (Version 2 DEPRECATED)~~ | Wolf McNally |
+| [BCR-2023-007](papers/bcr-2023-007-envelope-output-desc.md) | Gordian Envelope: Bitcoin Output Descriptors (Version 2) | Wolf McNally | ❌❌ |
 | [BCR-2023-008](papers/bcr-2023-008-dcbor-date.md) | dCBOR: Preferred Encoding of Dates | Wolf McNally |
 | [BCR-2023-009](papers/bcr-2023-009-envelope-seed.md) | Gordian Envelope: Cryptographic Seeds | Wolf McNally |
 | [BCR-2023-010](papers/bcr-2023-010-output-descriptor.md) | Bitcoin Output Descriptor (Version 3) | Wolf McNally |
