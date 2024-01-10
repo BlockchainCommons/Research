@@ -52,6 +52,7 @@ Generally, it's only if a BCR advances to the BCP stage that we more deeply invo
 | [BCR-2023-017](papers/bcr-2023-017-salt.md) | UR Type Definition for Random Salt | Wolf McNally |
 | [BCR-2023-018](papers/bcr-2023-018-depo-api.md) | Gordian Depository API | Wolf McNally |
 | [BCR-2023-019](papers/bcr-2023-019-account-descriptor.md) | UR Type Definition for BIP44 Accounts (Version 2) | Craig Raw |
+| [BCR-2024-001](papers/bcr-2024-001-multipart-ur.md) | Multipart UR (MUR) Implementation Guide | Wolf McNally |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Blockchain Commons Proposals](https://github.com/BlockchainCommons/bcps/blob/master/README.md)._
 
