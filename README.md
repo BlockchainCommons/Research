@@ -12,40 +12,42 @@ Generally, it's only if a BCR advances to the BCP stage that we more deeply invo
 
 ## Status
 
-| Status | Description |
-|--|---|
-| ❌❌ | withdrawn |
-| ❌ | superceded |
-| 📙 | research |
-| ⭐️ | reference implementation |
-| ⭐️⭐️ | multiple implementations |
-| ⭐️⭐️⭐️ | standards track |
-| ⭐️⭐️⭐️⭐️ | standardized |
+Each BCR has a status, which is indicated by a symbol in the first column of the table below. The following table describes the status symbols.
 
-See [our status descriptions](status-info.md) for more on what these mean.
+| Symbol | Title | Description |
+|--|--|--|
+| ❌❌ | Withdrawn | Of historic interest only. Withdrawn either because it never came into use or because it proved sufficiently problematic that we do not recommend its usage in any way.
+| ❌ | Superseded | Replaced with a newer BCR. We do not suggest implementing it as an output format, but you may still wish to implement it as an input format to maintain backward compatibility.
+| 📙 | Research | Contains original research or proposes specifications that have not yet been implemented by us. Offered to the community for consideration.
+| ⭐️ | Reference Implementation | At least one reference implementation has been released, usually as a library, and may include demos or other supporting tools. This specification still remains very open to change because it has not yet (to our knowledge) been implemented by additional parties.
+| ⭐️⭐️ | Multiple Implementations | At least two (known) implementations exist, at least one not by the owner of the reference implementation. Has demonstrable community support. May still change due to the needs of the community, but community feedback will be sought.
+| ⭐️⭐️⭐️ | Standards Track | Typically at least two implementations, and is considered stable and ready for standardization. It is being proposed as a BIP, IETF Internet Draft, or some other standardization draft format. It will typically be moved to the [BCP repo](https://github.com/BlockchainCommons/bcps). Though changes may still be made to the specification, these changes will exclusively be to allow for standardization, and will be conducted with community feedback.
+| ⭐️⭐️⭐️⭐️ | Standardized | A specification has been standardized as a an IETF RFC, BIP, or approved by some other standards body.
+
+❌❌ after another status symbol is read, "...but withdrawn" and ❌ is read, "...but superseded"
 
 ## Contents
 
 | Number                    | Title         | Owner                                                  | Status |
 |---------------------------|----------------|----------------------------------------------|---|
-| [BCR-2020-001](papers/bcr-2020-001-entropy-to-seed.md) | Uniformly Translating Entropy into Cryptographic Seeds | Wolf McNally |
+| [BCR-2020-001](papers/bcr-2020-001-entropy-to-seed.md) | Uniformly Translating Entropy into Cryptographic Seeds | Wolf McNally | 📙 |
 | [BCR-2020-002](papers/bcr-2020-002-bech32-seed-format.md) | Bech32 Encoding for Cryptographic Seeds | Wolf McNally | ❌❌ |
-| [BCR-2020-003](papers/bcr-2020-003-uri-binary-compatibility.md) | Encoding Binary Compatibly with URI Reserved Characters  | Wolf McNally |
-| [BCR-2020-004](papers/bcr-2020-004-bc32.md) | The BC32 Data Encoding Format | Wolf McNally | ❌❌ |
+| [BCR-2020-003](papers/bcr-2020-003-uri-binary-compatibility.md) | Encoding Binary Compatibly with URI Reserved Characters  | Wolf McNally | 📙 |
+| [BCR-2020-004](papers/bcr-2020-004-bc32.md) | The BC32 Data Encoding Format | Wolf McNally | ⭐️❌❌ |
 | [BCR-2020-005](papers/bcr-2020-005-ur.md) | Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes (Version 2) | Wolf McNally | ⭐️⭐️ |
 | [BCR-2020-006](papers/bcr-2020-006-urtypes.md) | Registry of Uniform Resource (UR) Types  | Wolf McNally | ⭐️⭐️ |
 | [BCR-2020-007](papers/bcr-2020-007-hdkey.md) | UR Type Definition for Hierarchical Deterministic (HD) Keys  | Wolf McNally | ⭐️⭐️ |
-| [BCR-2020-008](papers/bcr-2020-008-eckey.md) | UR Type Definition for Elliptic Curve (EC) Keys  | Wolf McNally | ⭐️ |
-| [BCR-2020-009](papers/bcr-2020-009-address.md) | UR Type Definition for Cryptocurrency Addresses  | Wolf McNally | ⭐️⭐️ |
-| [BCR-2020-010](papers/bcr-2020-010-output-desc.md)| UR Type Definition for Bitcoin Output Descriptors (Version 1) | Wolf McNally | ❌ |
+| [BCR-2020-008](papers/bcr-2020-008-eckey.md) | UR Type Definition for Elliptic Curve (EC) Keys | Wolf McNally | ⭐️ |
+| [BCR-2020-009](papers/bcr-2020-009-address.md) | UR Type Definition for Cryptocurrency Addresses | Wolf McNally | ⭐️⭐️ |
+| [BCR-2020-010](papers/bcr-2020-010-output-desc.md)| UR Type Definition for Bitcoin Output Descriptors (Version 1) | Wolf McNally | ⭐️⭐️❌ |
 | [BCR-2020-011](papers/bcr-2020-011-sskr.md) | UR Type Definition for Sharded Secret Key Reconstruction (SSKR) | Wolf McNally | ⭐️ |
 | [BCR-2020-012](papers/bcr-2020-012-bytewords.md) | Bytewords: Encoding binary data as English words | Wolf McNally | ⭐️⭐️ |
 | [BCR-2020-013](papers/bcr-2020-013-crc32-cbor-tag.md) | CRC-32 Checksums in CBOR | Wolf McNally | ❌❌ |
 | [BCR-2020-014](papers/bcr-2020-014-urs-on-epaper.md) | URs on E-paper display | Gorazd Kovacic | ⭐️ |
 | [BCR-2020-015](papers/bcr-2020-015-account.md) | UR Type Definition for BIP44 Accounts (version 1) | Craig Raw | ⭐️⭐️❌ |
-| [BCR-2021-001](papers/bcr-2021-001-request.md) | UR Type Definitions for Transactions Between Airgapped Devices (DEPRECATED) | Wolf McNally | ❌ |
+| [BCR-2021-001](papers/bcr-2021-001-request.md) | UR Type Definitions for Transactions Between Airgapped Devices | Wolf McNally | ⭐️❌ |
 | [BCR-2021-002](papers/bcr-2021-002-digest.md) | Digests for Digital Objects | Wolf McNally | ⭐️ |
-| [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | Wolf McNally | ⭐️ | 
+| [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | Wolf McNally | ⭐️ |
 | [BCR-2022-002](papers/bcr-2022-002-arid.md) | ARID: Apparently Random Identifier | Wolf McNally | ⭐️ |
 | [BCR-2023-001](papers/bcr-2023-001-compressed-message.md) | Compressed Message | Wolf McNally | ⭐️ |
 | [BCR-2023-002](papers/bcr-2023-002-known-value.md) | Known Values: A Compact, Deterministic Representation for Ontological Concepts | Wolf McNally | ⭐️ |
@@ -53,9 +55,9 @@ See [our status descriptions](status-info.md) for more on what these mean.
 | [BCR-2023-004](papers/bcr-2023-004-envelope-symmetric-encryption.md) | Gordian Envelope Extension: Symmetric Encryption | Wolf McNally | ⭐️ |
 | [BCR-2023-005](papers/bcr-2023-005-envelope-compression.md) | Gordian Envelope Extension: Compression | Wolf McNally | ⭐️ |
 | [BCR-2023-006](papers/bcr-2023-006-envelope-attachment.md) | Gordian Envelope: Attachments | Wolf McNally | ⭐️ |
-| [BCR-2023-007](papers/bcr-2023-007-envelope-output-desc.md) | Gordian Envelope: Bitcoin Output Descriptors (Version 2) | Wolf McNally | ❌❌ |
-| [BCR-2023-008](papers/bcr-2023-008-dcbor-date.md) | dCBOR: Preferred Encoding of Dates | Wolf McNally |
-| [BCR-2023-009](papers/bcr-2023-009-envelope-seed.md) | Gordian Envelope: Cryptographic Seeds | Wolf McNally | ⭐️ | 
+| [BCR-2023-007](papers/bcr-2023-007-envelope-output-desc.md) | Gordian Envelope: Bitcoin Output Descriptors (Version 2) | Wolf McNally | ⭐️❌❌ |
+| [BCR-2023-008](papers/bcr-2023-008-dcbor-date.md) | dCBOR: Preferred Encoding of Dates | Wolf McNally | ⭐️ |
+| [BCR-2023-009](papers/bcr-2023-009-envelope-seed.md) | Gordian Envelope: Cryptographic Seeds | Wolf McNally | ⭐️ |
 | [BCR-2023-010](papers/bcr-2023-010-output-descriptor.md) | Bitcoin Output Descriptor (Version 3) | Wolf McNally | ⭐️ |
 | [BCR-2023-011](papers/bcr-2023-011-public-key-crypto.md) | UR Type Definitions for Public Key Cryptography | Wolf McNally | ⭐️ |
 | [BCR-2023-012](papers/bcr-2023-012-envelope-expression.md) | Gordian Envelope Expressions | Wolf McNally | ⭐️ |
@@ -65,8 +67,10 @@ See [our status descriptions](status-info.md) for more on what these mean.
 | [BCR-2023-016](papers/bcr-2023-016-password.md) | UR Type Definition for Scrypt-Hashed Password | Wolf McNally | ⭐️ |
 | [BCR-2023-017](papers/bcr-2023-017-salt.md) | UR Type Definition for Random Salt | Wolf McNally | ⭐️ |
 | [BCR-2023-018](papers/bcr-2023-018-depo-api.md) | Gordian Depository API | Wolf McNally | ⭐️ |
-| [BCR-2023-019](papers/bcr-2023-019-account-descriptor.md) | UR Type Definition for BIP44 Accounts (Version 2) | Craig Raw |
-| [BCR-2024-001](papers/bcr-2024-001-multipart-ur.md) | Multipart UR (MUR) Implementation Guide | Wolf McNally |
+| [BCR-2023-019](papers/bcr-2023-019-account-descriptor.md) | UR Type Definition for BIP44 Accounts (Version 2) | Craig Raw | ⭐️ |
+| [BCR-2024-001](papers/bcr-2024-001-multipart-ur.md) | Multipart UR (MUR) Implementation Guide | Wolf McNally | ⭐️⭐️ |
+| [BCR-2024-002](papers/bcr-2024-002-dcbor.md) | dCBOR: A Deterministic CBOR Application Profile | Wolf McNally | ⭐️⭐️⭐️ |
+| [BCR-2024-003](papers/bcr-2024-003-envelope.md) | The Gordian Envelope Structured Data Format | Wolf McNally | ⭐️ |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Blockchain Commons Proposals](https://github.com/BlockchainCommons/bcps/blob/master/README.md)._
 
@@ -95,13 +99,6 @@ But please consult the semantic versioning document for more information and adj
 ### BCR Owner
 
 Please list the person primarily responsible for the BCR, and moving it forward, as the owner. If there are multiple authors, they should be listed on the BCR itself, not on this overview.
-
-### BCR Status
-
-   * *Draft* — The initial draft of a BCR. Contributors may work on a BCR as they see fit when it remains version 0.Y.Z. When they increment to 1.0.0, they are requested BC review.
-   * *Work Product* — A major BCR or BCP draft that has been accepted by BC for further work.
-   * *Promoted* — A BCR draft that has been promoted to a BCP.
-   * *Deprecated* — A BCR or BCP draft that has been superseded by another specification.
 
 ## Origin, Authors, Copyright & Licenses
 
