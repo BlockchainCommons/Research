@@ -58,7 +58,7 @@ Each BCR has a status which is indicated by a symbol.
 | [BCR-2023-007](papers/bcr-2023-007-envelope-output-desc.md) | Gordian Envelope: Bitcoin Output Descriptors (Version 2) | Wolf McNally | ⭐️❌❌ |
 | [BCR-2023-008](papers/bcr-2023-008-dcbor-date.md) | dCBOR: Preferred Encoding of Dates | Wolf McNally | ⭐️ |
 | [BCR-2023-009](papers/bcr-2023-009-envelope-seed.md) | Gordian Envelope: Cryptographic Seeds | Wolf McNally | ⭐️ |
-| [BCR-2023-010](papers/bcr-2023-010-output-descriptor.md) | Bitcoin Output Descriptor (Version 3) | Wolf McNally | ⭐️ |
+| [BCR-2023-010](papers/bcr-2023-010-output-descriptor.md) | Bitcoin Output Descriptor (Version 3) | Wolf McNally | ⭐️⭐️ |
 | [BCR-2023-011](papers/bcr-2023-011-public-key-crypto.md) | UR Type Definitions for Public Key Cryptography | Wolf McNally | ⭐️ |
 | [BCR-2023-012](papers/bcr-2023-012-envelope-expression.md) | Gordian Envelope Expressions | Wolf McNally | ⭐️ |
 | [BCR-2023-013](papers/bcr-2023-013-envelope-crypto.md) | Gordian Envelope Cryptography | Wolf McNally | ⭐️ |
@@ -67,7 +67,7 @@ Each BCR has a status which is indicated by a symbol.
 | [BCR-2023-016](papers/bcr-2023-016-password.md) | UR Type Definition for Scrypt-Hashed Password | Wolf McNally | ⭐️ |
 | [BCR-2023-017](papers/bcr-2023-017-salt.md) | UR Type Definition for Random Salt | Wolf McNally | ⭐️ |
 | [BCR-2023-018](papers/bcr-2023-018-depo-api.md) | Gordian Depository API | Wolf McNally | ⭐️ |
-| [BCR-2023-019](papers/bcr-2023-019-account-descriptor.md) | UR Type Definition for BIP44 Accounts (Version 2) | Craig Raw | ⭐️ |
+| [BCR-2023-019](papers/bcr-2023-019-account-descriptor.md) | UR Type Definition for BIP44 Accounts (Version 2) | Craig Raw | ⭐️⭐️ |
 | [BCR-2024-001](papers/bcr-2024-001-multipart-ur.md) | Multipart UR (MUR) Implementation Guide | Wolf McNally | ⭐️⭐️ |
 | [BCR-2024-002](papers/bcr-2024-002-dcbor.md) | dCBOR: A Deterministic CBOR Application Profile | Wolf McNally | ⭐️⭐️⭐️ |
 | [BCR-2024-003](papers/bcr-2024-003-envelope.md) | The Gordian Envelope Structured Data Format | Wolf McNally | ⭐️ |
