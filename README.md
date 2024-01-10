@@ -57,13 +57,13 @@ See [our status descriptions](status-info.md) for more on what these mean.
 | [BCR-2023-008](papers/bcr-2023-008-dcbor-date.md) | dCBOR: Preferred Encoding of Dates | Wolf McNally |
 | [BCR-2023-009](papers/bcr-2023-009-envelope-seed.md) | Gordian Envelope: Cryptographic Seeds | Wolf McNally | ⭐️ | 
 | [BCR-2023-010](papers/bcr-2023-010-output-descriptor.md) | Bitcoin Output Descriptor (Version 3) | Wolf McNally | ⭐️ |
-| [BCR-2023-011](papers/bcr-2023-011-public-key-crypto.md) | UR Type Definitions for Public Key Cryptography | Wolf McNally |
+| [BCR-2023-011](papers/bcr-2023-011-public-key-crypto.md) | UR Type Definitions for Public Key Cryptography | Wolf McNally | ⭐️ |
 | [BCR-2023-012](papers/bcr-2023-012-envelope-expression.md) | Gordian Envelope Expressions | Wolf McNally | ⭐️ |
 | [BCR-2023-013](papers/bcr-2023-013-envelope-crypto.md) | Gordian Envelope Cryptography | Wolf McNally | ⭐️ |
 | [BCR-2023-014](papers/bcr-2023-014-gstp.md) | Gordian Sealed Transaction Protocol (GSTP) | Wolf McNally | ⭐️ |
-| [BCR-2023-015](papers/bcr-2023-015-nonce.md) | UR Type Definition for Cryptographic Nonce | Wolf McNally |
-| [BCR-2023-016](papers/bcr-2023-016-password.md) | UR Type Definition for Scrypt-Hashed Password | Wolf McNally |
-| [BCR-2023-017](papers/bcr-2023-017-salt.md) | UR Type Definition for Random Salt | Wolf McNally |
+| [BCR-2023-015](papers/bcr-2023-015-nonce.md) | UR Type Definition for Cryptographic Nonce | Wolf McNally | ⭐️ |
+| [BCR-2023-016](papers/bcr-2023-016-password.md) | UR Type Definition for Scrypt-Hashed Password | Wolf McNally | ⭐️ |
+| [BCR-2023-017](papers/bcr-2023-017-salt.md) | UR Type Definition for Random Salt | Wolf McNally | ⭐️ |
 | [BCR-2023-018](papers/bcr-2023-018-depo-api.md) | Gordian Depository API | Wolf McNally | ⭐️ |
 | [BCR-2023-019](papers/bcr-2023-019-account-descriptor.md) | UR Type Definition for BIP44 Accounts (Version 2) | Craig Raw |
 
