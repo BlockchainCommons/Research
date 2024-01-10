@@ -12,12 +12,12 @@ Generally, it's only if a BCR advances to the BCP stage that we more deeply invo
 
 ## Status
 
-Each BCR has a status, which is indicated by a symbol.
+Each BCR has a status which is indicated by a symbol.
 
 | Symbol | Title | Description |
 |:--|:--|:--|
 | ❌❌ | Withdrawn | Of historic interest only. Withdrawn either because it never came into use or because it proved sufficiently problematic that we do not recommend its usage in any way.
-| ❌ | Superseded | Replaced with a newer BCR. We do not suggest implementing it as an output format, but you may still wish to implement it as an input format to maintain backward compatibility.
+| ❌ | Superseded | Superseded by a newer BCR. We do not suggest implementing it as an output format, but you may still wish to implement it as an input format to maintain backward compatibility.
 | 📙 | Research | Contains original research or proposes specifications that have not yet been implemented by us. Offered to the community for consideration.
 | ⭐️ | Reference Implementation | At least one reference implementation has been released, usually as a library, and may include demos or other supporting tools. This specification still remains very open to change because it has not yet (to our knowledge) been implemented by additional parties.
 | ⭐️⭐️ | Multiple Implementations | At least two (known) implementations exist, at least one not by the owner of the reference implementation. Has demonstrable community support. May still change due to the needs of the community, but community feedback will be sought.
