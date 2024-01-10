@@ -32,7 +32,7 @@ See [our status descriptions](status-info.md) for more on what these mean.
 | [BCR-2020-002](papers/bcr-2020-002-bech32-seed-format.md) | Bech32 Encoding for Cryptographic Seeds | Wolf McNally | ❌❌ |
 | [BCR-2020-003](papers/bcr-2020-003-uri-binary-compatibility.md) | Encoding Binary Compatibly with URI Reserved Characters  | Wolf McNally |
 | [BCR-2020-004](papers/bcr-2020-004-bc32.md) | The BC32 Data Encoding Format | Wolf McNally | ❌❌ |
-| [BCR-2020-005](papers/bcr-2020-005-ur.md) | Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes (Version 2) | Wolf McNally |
+| [BCR-2020-005](papers/bcr-2020-005-ur.md) | Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes (Version 2) | Wolf McNally | ⭐️⭐️ |
 | [BCR-2020-006](papers/bcr-2020-006-urtypes.md) | Registry of Uniform Resource (UR) Types  | Wolf McNally |
 | [BCR-2020-007](papers/bcr-2020-007-hdkey.md) | UR Type Definition for Hierarchical Deterministic (HD) Keys  | Wolf McNally |
 | [BCR-2020-008](papers/bcr-2020-008-eckey.md) | UR Type Definition for Elliptic Curve (EC) Keys  | Wolf McNally |
@@ -48,23 +48,23 @@ See [our status descriptions](status-info.md) for more on what these mean.
 | [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | Wolf McNally |
 | [BCR-2022-002](papers/bcr-2022-002-arid.md) | ARID: Apparently Random Identifier | Wolf McNally |
 | [BCR-2023-001](papers/bcr-2023-001-compressed-message.md) | Compressed Message | Wolf McNally |
-| [BCR-2023-002](papers/bcr-2023-002-known-value.md) | Known Values: A Compact, Deterministic Representation for Ontological Concepts | Wolf McNally |
-| [BCR-2023-003](papers/bcr-2023-003-envelope-known-value.md) | Gordian Envelope Extension: Known Values | Wolf McNally |
-| [BCR-2023-004](papers/bcr-2023-004-envelope-symmetric-encryption.md) | Gordian Envelope Extension: Symmetric Encryption | Wolf McNally |
-| [BCR-2023-005](papers/bcr-2023-005-envelope-compression.md) | Gordian Envelope Extension: Compression | Wolf McNally |
-| [BCR-2023-006](papers/bcr-2023-006-envelope-attachment.md) | Gordian Envelope: Attachments | Wolf McNally |
+| [BCR-2023-002](papers/bcr-2023-002-known-value.md) | Known Values: A Compact, Deterministic Representation for Ontological Concepts | Wolf McNally | ⭐️ |
+| [BCR-2023-003](papers/bcr-2023-003-envelope-known-value.md) | Gordian Envelope Extension: Known Values | Wolf McNally | ⭐️ |
+| [BCR-2023-004](papers/bcr-2023-004-envelope-symmetric-encryption.md) | Gordian Envelope Extension: Symmetric Encryption | Wolf McNally | ⭐️ |
+| [BCR-2023-005](papers/bcr-2023-005-envelope-compression.md) | Gordian Envelope Extension: Compression | Wolf McNally | ⭐️ |
+| [BCR-2023-006](papers/bcr-2023-006-envelope-attachment.md) | Gordian Envelope: Attachments | Wolf McNally | ⭐️ |
 | [BCR-2023-007](papers/bcr-2023-007-envelope-output-desc.md) | Gordian Envelope: Bitcoin Output Descriptors (Version 2) | Wolf McNally | ❌❌ |
 | [BCR-2023-008](papers/bcr-2023-008-dcbor-date.md) | dCBOR: Preferred Encoding of Dates | Wolf McNally |
-| [BCR-2023-009](papers/bcr-2023-009-envelope-seed.md) | Gordian Envelope: Cryptographic Seeds | Wolf McNally |
-| [BCR-2023-010](papers/bcr-2023-010-output-descriptor.md) | Bitcoin Output Descriptor (Version 3) | Wolf McNally |
+| [BCR-2023-009](papers/bcr-2023-009-envelope-seed.md) | Gordian Envelope: Cryptographic Seeds | Wolf McNally | ⭐️ | 
+| [BCR-2023-010](papers/bcr-2023-010-output-descriptor.md) | Bitcoin Output Descriptor (Version 3) | Wolf McNally | ⭐️ |
 | [BCR-2023-011](papers/bcr-2023-011-public-key-crypto.md) | UR Type Definitions for Public Key Cryptography | Wolf McNally |
-| [BCR-2023-012](papers/bcr-2023-012-envelope-expression.md) | Gordian Envelope Expressions | Wolf McNally |
-| [BCR-2023-013](papers/bcr-2023-013-envelope-crypto.md) | Gordian Envelope Cryptography | Wolf McNally |
-| [BCR-2023-014](papers/bcr-2023-014-gstp.md) | Gordian Sealed Transaction Protocol (GSTP) | Wolf McNally |
+| [BCR-2023-012](papers/bcr-2023-012-envelope-expression.md) | Gordian Envelope Expressions | Wolf McNally | ⭐️ |
+| [BCR-2023-013](papers/bcr-2023-013-envelope-crypto.md) | Gordian Envelope Cryptography | Wolf McNally | ⭐️ |
+| [BCR-2023-014](papers/bcr-2023-014-gstp.md) | Gordian Sealed Transaction Protocol (GSTP) | Wolf McNally | ⭐️ |
 | [BCR-2023-015](papers/bcr-2023-015-nonce.md) | UR Type Definition for Cryptographic Nonce | Wolf McNally |
 | [BCR-2023-016](papers/bcr-2023-016-password.md) | UR Type Definition for Scrypt-Hashed Password | Wolf McNally |
 | [BCR-2023-017](papers/bcr-2023-017-salt.md) | UR Type Definition for Random Salt | Wolf McNally |
-| [BCR-2023-018](papers/bcr-2023-018-depo-api.md) | Gordian Depository API | Wolf McNally |
+| [BCR-2023-018](papers/bcr-2023-018-depo-api.md) | Gordian Depository API | Wolf McNally | ⭐️ |
 | [BCR-2023-019](papers/bcr-2023-019-account-descriptor.md) | UR Type Definition for BIP44 Accounts (Version 2) | Craig Raw |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Blockchain Commons Proposals](https://github.com/BlockchainCommons/bcps/blob/master/README.md)._
