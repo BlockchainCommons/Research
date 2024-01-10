@@ -29,7 +29,7 @@ See [our status descriptions](status-info.md) for more on what these mean.
 | Number                    | Title         | Owner                                                  | Status |
 |---------------------------|----------------|----------------------------------------------|---|
 | [BCR-2020-001](papers/bcr-2020-001-entropy-to-seed.md) | Uniformly Translating Entropy into Cryptographic Seeds | Wolf McNally |
-| ~~[BCR-2020-002](papers/bcr-2020-002-bech32-seed-format.md)~~ | ~~Bech32 Encoding for Cryptographic Seeds (DEPRECATED)~~ | Wolf McNally |
+| [BCR-2020-002](papers/bcr-2020-002-bech32-seed-format.md) | Bech32 Encoding for Cryptographic Seeds | Wolf McNally | ❌❌ |
 | [BCR-2020-003](papers/bcr-2020-003-uri-binary-compatibility.md) | Encoding Binary Compatibly with URI Reserved Characters  | Wolf McNally |
 | ~~[BCR-2020-004](papers/bcr-2020-004-bc32.md)~~ | ~~The BC32 Data Encoding Format (DEPRECATED)~~  | Wolf McNally |
 | [BCR-2020-005](papers/bcr-2020-005-ur.md) | Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes (Version 2) | Wolf McNally |
