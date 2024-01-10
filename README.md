@@ -15,7 +15,7 @@ Generally, it's only if a BCR advances to the BCP stage that we more deeply invo
 Each BCR has a status, which is indicated by a symbol in the first column of the table below. The following table describes the status symbols.
 
 | Symbol | Title | Description |
-|--|--|--|
+|:--|:--|:--|
 | ❌❌ | Withdrawn | Of historic interest only. Withdrawn either because it never came into use or because it proved sufficiently problematic that we do not recommend its usage in any way.
 | ❌ | Superseded | Replaced with a newer BCR. We do not suggest implementing it as an output format, but you may still wish to implement it as an input format to maintain backward compatibility.
 | 📙 | Research | Contains original research or proposes specifications that have not yet been implemented by us. Offered to the community for consideration.
