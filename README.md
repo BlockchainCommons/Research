@@ -31,18 +31,18 @@ See [our status descriptions](status-info.md) for more on what these mean.
 | [BCR-2020-001](papers/bcr-2020-001-entropy-to-seed.md) | Uniformly Translating Entropy into Cryptographic Seeds | Wolf McNally |
 | [BCR-2020-002](papers/bcr-2020-002-bech32-seed-format.md) | Bech32 Encoding for Cryptographic Seeds | Wolf McNally | ❌❌ |
 | [BCR-2020-003](papers/bcr-2020-003-uri-binary-compatibility.md) | Encoding Binary Compatibly with URI Reserved Characters  | Wolf McNally |
-| ~~[BCR-2020-004](papers/bcr-2020-004-bc32.md)~~ | ~~The BC32 Data Encoding Format (DEPRECATED)~~  | Wolf McNally |
+| [BCR-2020-004](papers/bcr-2020-004-bc32.md) | The BC32 Data Encoding Format | Wolf McNally | ❌❌ |
 | [BCR-2020-005](papers/bcr-2020-005-ur.md) | Uniform Resources (UR): Encoding Structured Binary Data for Transport in URIs and QR Codes (Version 2) | Wolf McNally |
 | [BCR-2020-006](papers/bcr-2020-006-urtypes.md) | Registry of Uniform Resource (UR) Types  | Wolf McNally |
 | [BCR-2020-007](papers/bcr-2020-007-hdkey.md) | UR Type Definition for Hierarchical Deterministic (HD) Keys  | Wolf McNally |
 | [BCR-2020-008](papers/bcr-2020-008-eckey.md) | UR Type Definition for Elliptic Curve (EC) Keys  | Wolf McNally |
 | [BCR-2020-009](papers/bcr-2020-009-address.md) | UR Type Definition for Cryptocurrency Addresses  | Wolf McNally |
-| ~~[BCR-2020-010](papers/bcr-2020-010-output-desc.md)~~| ~~UR Type Definition for Bitcoin Output Descriptors (Version 1 DEPRECATED)~~ | Wolf McNally |
+| [BCR-2020-010](papers/bcr-2020-010-output-desc.md)| UR Type Definition for Bitcoin Output Descriptors (Version 1) | Wolf McNally | ❌ |
 | [BCR-2020-011](papers/bcr-2020-011-sskr.md) | UR Type Definition for Sharded Secret Key Reconstruction (SSKR) | Wolf McNally |
 | [BCR-2020-012](papers/bcr-2020-012-bytewords.md) | Bytewords: Encoding binary data as English words | Wolf McNally |
-| ~~[BCR-2020-013](papers/bcr-2020-013-crc32-cbor-tag.md)~~ | ~~CRC-32 Checksums in CBOR (DEPRECATED)~~ | Wolf McNally |
+| [BCR-2020-013](papers/bcr-2020-013-crc32-cbor-tag.md) | ~~CRC-32 Checksums in CBOR (DEPRECATED)~~ | Wolf McNally | ❌❌ |
 | [BCR-2020-014](papers/bcr-2020-014-urs-on-epaper.md) | URs on E-paper display | Gorazd Kovacic |
-| ~~[BCR-2020-015](papers/bcr-2020-015-account.md)~~ | ~~UR Type Definition for BIP44 Accounts (version 1 DEPRECATED)~~ | Craig Raw |
+| [BCR-2020-015](papers/bcr-2020-015-account.md) | ~~UR Type Definition for BIP44 Accounts (version 1) | Craig Raw | ❌ |
 | ~~[BCR-2021-001](papers/bcr-2021-001-request.md)~~ | ~~UR Type Definitions for Transactions Between Airgapped Devices (DEPRECATED)~~ | Wolf McNally |
 | [BCR-2021-002](papers/bcr-2021-002-digest.md) | Digests for Digital Objects | Wolf McNally |
 | [BCR-2022-001](papers/bcr-2022-001-encrypted-message.md) | Encrypted Message | Wolf McNally |
