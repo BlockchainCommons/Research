@@ -553,11 +553,11 @@ MUR uses the Fisher-Yates shuffle algorithm to pseudo-randomly choose which frag
 
 ```swift
 // Fisher-Yates shuffle
-func shuffled<T>(_ items: [T], rng: Xoshiro256) -> [T] {
+func shuffled<T>(_ items: [T], rng: Xoshiro256, count: Int) -> [T] {
     var remaining = items
     var result: [T] = []
     result.reserveCapacity(remaining.count)
-    while !remaining.isEmpty {
+    while result.count != count {
         let index = rng.nextInt(in: 0 ..< remaining.count)
         let item = remaining.remove(at: index)
         result.append(item)
