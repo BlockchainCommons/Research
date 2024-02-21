@@ -1,4 +1,4 @@
-# Envelope Request & Response Implementation Guide
+# Envelope Request & Response Implementation Guide 📖
 
 Implementer's guide for the Request & Response Expressions in Gordian Envelope.
 
@@ -16,6 +16,7 @@ Date: February 20, 2024
 1. [Introduction](#1-introduction)
 2. [Expressions](#2-expressions--the-foundation-of-request--response)
 3. [GSTP](#3-gordiansecure-transport-protocol--wrapping-a-request)
+4. [Putting It Together](#4-putting-it-together)
 
 ## 1. Introduction
 
@@ -255,14 +256,16 @@ Here's a more detailed look at the CBOR for this `request`:
 ```
 ### Responses to GSTP Requests
 
-To respond to a GSTP request:
+To respond to a GSTP Request:
 
-1. Create a subject with the _same_ ARID as the subject.
+1. Create a subject with the _same_ ARID as the Request.
 2. Tag it as `ur:arid` (CBOR tag #40012).
 3. Tag that as `response` (CBOR tag #40005).
 4. Create an object with a 'result' subject (known value #101).
-5.  and with an object that is the envelope that's the response the functional `request`.
-
+5. Add an object to the 'result' subject containing the Requested data.
+6. Create an assertion under the 'result' assertions that contains 'isA:' and the appropriate data type.
+7. Add additional assertions with any other metadata desired.
+   
 The response to the above request thus look as follows:
 
 ```
@@ -286,9 +289,9 @@ response(ARID(7b33b86e)) [
 ]
 ```
 
-### Putting It Together
+### 4. Putting It Together
 
-Here's the complete `request` and `response`
+Here's the complete `request` and `response` examples from above.
 
 ```
 request(ARID(7b33b86e)) [
@@ -309,4 +312,4 @@ response(ARID(7b33b86e)) [
 ]
 ```
 
-Complete test vectors can be found at [Envelope Request & Response Test Vectors](./vectors/).
+Complete test vectors can be found at [Envelope Request & Response Test Vectors](https://developer.blockchaincommons/com/envelope/request/vectors/).
