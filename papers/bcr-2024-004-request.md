@@ -14,8 +14,8 @@ Date: February 20, 2024
 ## Table of Contents
 
 1. [Introduction](#1-introduction)
-2. [Expressions](#2-expressions--the-foundation-of-request--response)
-3. [GSTP](#3-gordiansecure-transport-protocol--wrapping-a-request)
+2. [Expressions](#2-expressions-the-foundation-of-request--response)
+3. [GSTP](#3-gordiansecure-transport-protocol-wrapping-a-request)
 4. [Putting It Together](#4-putting-it-together)
 
 ## 1. Introduction
