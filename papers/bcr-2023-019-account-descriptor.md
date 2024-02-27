@@ -93,7 +93,9 @@ The following specification is written in Concise Data Definition Language [CDDL
 ```
 ; Output descriptors here are restricted to HD keys at account level key derivations only (no 0/* or 1/* children keypaths)
 
-output_exp = #6.40308(output-descriptor)
+output-exp = #6.40308(output-descriptor)
+
+tagged-account = #6.40311(account)
 
 account = {
     master-fingerprint: uint32, ; Master fingerprint (fingerprint for the master public key as per BIP32)

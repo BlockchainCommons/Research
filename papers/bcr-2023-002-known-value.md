@@ -35,7 +35,7 @@ Appendix A is a list of currently assigned Known Values.
 
 ## Terminology
 
-* **Known Value:** A unique 64-bit integer assigned to an ontological concept.
+* **Known Value:** A unique 64-bit unsigned integer assigned to an ontological concept.
 * **Codepoint:** The specific integer representing a Known Value.
 * **Canonical Name:** The unique name for the ontological concept.
 * **Registry:** A centralized table or database containing the mapping between codepoints, canonical names, and synonymous URIs.
