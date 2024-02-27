@@ -83,13 +83,13 @@ A reference implementation in Swift is a work in progress.
 
 | Capability | Definition |
 |---|---|
-| agreement | Private keys of this type afford producing a shared secret with another public key. |
-| auth      | Public keys of this type afford authenticating an entity. |
-| derive    | Private keys of this type afford deriving a range of other keys. |
-| encrypt   | Private and symmetric keys of this type afford encryption. Public and symmetric keys of this type afford decryption. |
-| public    | Private keys of this type afford deriving a characteristic public key. |
-| sign      | Private keys of this type afford signing. Public keys of this type afford verification. |
-| wrap      | Private and symmetric keys of this type afford wrapping other keys, typically symmetric keys for key exchange. Public and symmetric keys of this type afford unwrapping other keys. |
+| `agreement` | Private keys of this type afford producing a shared secret with another public key. |
+| `auth`      | Public keys of this type afford authenticating an entity. |
+| `derive`    | Private keys of this type afford deriving a range of other keys. |
+| `encrypt`   | Private and symmetric keys of this type afford encryption. Public and symmetric keys of this type afford decryption. |
+| `public`    | Private keys of this type afford deriving a characteristic public key. |
+| `sign`      | Private keys of this type afford signing. Public keys of this type afford verification. |
+| `wrap`      | Private and symmetric keys of this type afford wrapping other keys, typically symmetric keys for key exchange. Public and symmetric keys of this type afford unwrapping other keys. |
 
 ## CBOR Tags
 
@@ -97,110 +97,110 @@ These tags will be registered in the [IANA Registry of CBOR Tags](https://www.ia
 
 Symmetric keys are in the 404xx range.
 
-| UR type                  | CBOR Tag | Capabilities                |
-| :----------------------- | :------- | :-------------------------- |
-| ur:chacha20poly1305-key  | #6.40400 | encrypt, wrap               |
-| ur:aes128-key            | #6.40401 | encrypt, wrap               |
-| ur:aes256-key            | #6.40402 | encrypt, wrap               |
+| UR type                   | CBOR Tag | Capabilities                |
+| :------------------------ | :------- | :-------------------------- |
+| `ur:chacha20poly1305-key` | #6.40400 | encrypt, wrap               |
+| `ur:aes128-key`           | #6.40401 | encrypt, wrap               |
+| `ur:aes256-key`           | #6.40402 | encrypt, wrap               |
 
 Asymmetric private keys are in the 405xx range and are even.
 
-| UR type                       | CBOR Tag | Capabilities                           |
-| :---------------------------- | :------- | :--------------------------------------|
-| ur:rsa2048-private            | #6.40500 | public, encrypt, sign, auth, wrap      |
-| ur:rsa4096-private            | #6.40502 | public, encrypt, sign, auth, wrap      |
-| ur:secp256k1-private          | #6.40504 | public, sign, auth, derive             |
-| ur:secp256k1-schnorr-private  | #6.40506 | public, sign, auth                     |
-| ur:p256-private               | #6.40508 | public, sign, auth, agreement, derive  |
-| ur:p384-private               | #6.40510 | public, sign, auth, agreement, derive  |
-| ur:p521-private               | #6.40512 | public, sign, auth, agreement, derive  |
-| ur:curve25519-private         | #6.40514 | public, agreement                      |
-| ur:ed25519-private            | #6.40516 | public, sign, auth                     |
-| ur:ristretto255-private       | #6.40518 | public, sign, auth, agreement          |
-| ur:x25519-private             | #6.40520 | public, agreement                      |
-| ur:x448-private               | #6.40522 | public, agreement                      |
-| ur:ed448-private              | #6.40524 | public, sign, agreement                |
-| ur:ntru-hrss701-private       | #6.40536 | public, encrypt, auth, wrap            |
-| ur:ntru-hps2048509-private    | #6.40538 | public, encrypt, auth, wrap            |
-| ur:ntru-hps2048677-private    | #6.40540 | public, encrypt, auth, wrap            |
-| ur:ntru-hps4096821-private    | #6.40542 | public, encrypt, auth, wrap            |
-| ur:kyber512-private           | #6.40544 | public, encrypt, agreement, wrap       |
-| ur:kyber768-private           | #6.40546 | public, encrypt, agreement, wrap       |
-| ur:kyber1024-private          | #6.40548 | public, encrypt, agreement, wrap       |
-| ur:sike-p434-private          | #6.40550 | public, agreement                      |
-| ur:sike-p503-private          | #6.40552 | public, agreement                      |
-| ur:sike-p610-private          | #6.40554 | public, agreement                      |
-| ur:sike-p751-private          | #6.40556 | public, agreement                      |
-| ur:dilithium2-private         | #6.40558 | public, sign, auth                     |
-| ur:dilithium3-private         | #6.40560 | public, sign, auth                     |
-| ur:dilithium5-private         | #6.40562 | public, sign, auth                     |
-| ur:falcon512-private          | #6.40564 | public, sign, auth                     |
-| ur:falcon1024-private         | #6.40566 | public, sign, auth                     |
-| ur:pq3-private                | #6.40568 | public, sign, auth, agreement          |
+| UR type                           | CBOR Tag | Capabilities                           |
+| :-------------------------------- | :------- | :--------------------------------------|
+| `ur:rsa2048-private`              | #6.40500 | public, encrypt, sign, auth, wrap      |
+| `ur:rsa4096-private`              | #6.40502 | public, encrypt, sign, auth, wrap      |
+| `ur:secp256k1-private`            | #6.40504 | public, sign, auth, derive             |
+| `ur:secp256k1-schnorr-private`    | #6.40506 | public, sign, auth                     |
+| `ur:p256-private`                 | #6.40508 | public, sign, auth, agreement, derive  |
+| `ur:p384-private`                 | #6.40510 | public, sign, auth, agreement, derive  |
+| `ur:p521-private`                 | #6.40512 | public, sign, auth, agreement, derive  |
+| `ur:curve25519-private`           | #6.40514 | public, agreement                      |
+| `ur:ed25519-private`              | #6.40516 | public, sign, auth                     |
+| `ur:ristretto255-private`         | #6.40518 | public, sign, auth, agreement          |
+| `ur:x25519-private`               | #6.40520 | public, agreement                      |
+| `ur:x448-private`                 | #6.40522 | public, agreement                      |
+| `ur:ed448-private`                | #6.40524 | public, sign, agreement                |
+| `ur:ntru-hrss701-private`         | #6.40536 | public, encrypt, auth, wrap            |
+| `ur:ntru-hps2048509-private`      | #6.40538 | public, encrypt, auth, wrap            |
+| `ur:ntru-hps2048677-private`      | #6.40540 | public, encrypt, auth, wrap            |
+| `ur:ntru-hps4096821-private`      | #6.40542 | public, encrypt, auth, wrap            |
+| `ur:kyber512-private`             | #6.40544 | public, encrypt, agreement, wrap       |
+| `ur:kyber768-private`             | #6.40546 | public, encrypt, agreement, wrap       |
+| `ur:kyber1024-private`            | #6.40548 | public, encrypt, agreement, wrap       |
+| `ur:sike-p434-private`            | #6.40550 | public, agreement                      |
+| `ur:sike-p503-private`            | #6.40552 | public, agreement                      |
+| `ur:sike-p610-private`            | #6.40554 | public, agreement                      |
+| `ur:sike-p751-private`            | #6.40556 | public, agreement                      |
+| `ur:dilithium2-private`           | #6.40558 | public, sign, auth                     |
+| `ur:dilithium3-private`           | #6.40560 | public, sign, auth                     |
+| `ur:dilithium5-private`           | #6.40562 | public, sign, auth                     |
+| `ur:falcon512-private`            | #6.40564 | public, sign, auth                     |
+| `ur:falcon1024-private`           | #6.40566 | public, sign, auth                     |
+| `ur:pq3-private`                  | #6.40568 | public, sign, auth, agreement          |
 
 Asymmetric public keys are in the 405xx range and are odd, being one greater than the corresponding private key.
 
 | UR type                       | CBOR Tag |
 | :---------------------------- | :------- |
-| ur:rsa2048-public             | #6.40501 |
-| ur:rsa4096-public             | #6.40503 |
-| ur:secp256k1-public           | #6.40505 |
-| ur:secp256k1-schnorr-public   | #6.40507 |
-| ur:p256-public                | #6.40509 |
-| ur:p384-public                | #6.40511 |
-| ur:p521-public                | #6.40513 |
-| ur:curve25519-public          | #6.40515 |
-| ur:ed25519-public             | #6.40517 |
-| ur:ristretto255-public        | #6.40519 |
-| ur:x25519-public              | #6.40521 |
-| ur:x448-public                | #6.40523 |
-| ur:ed448-public               | #6.40525 |
-| ur:ntru-hrss701-public        | #6.40537 |
-| ur:ntru-hps2048509-public     | #6.40539 |
-| ur:ntru-hps2048677-public     | #6.40541 |
-| ur:ntru-hps4096821-public     | #6.40543 |
-| ur:kyber512-public            | #6.40545 |
-| ur:kyber768-public            | #6.40547 |
-| ur:kyber1024-public           | #6.40549 |
-| ur:sike-p434-public           | #6.40551 |
-| ur:sike-p503-public           | #6.40553 |
-| ur:sike-p610-public           | #6.40555 |
-| ur:sike-p751-public           | #6.40557 |
-| ur:dilithium2-public          | #6.40559 |
-| ur:dilithium3-public          | #6.40561 |
-| ur:dilithium5-public          | #6.40563 |
-| ur:falcon512-public           | #6.40565 |
-| ur:falcon1024-public          | #6.40567 |
-| ur:pq3-public                 | #6.40569 |
+| `ur:rsa2048-public`           | #6.40501 |
+| `ur:rsa4096-public`           | #6.40503 |
+| `ur:secp256k1-public`         | #6.40505 |
+| `ur:secp256k1-schnorr-public` | #6.40507 |
+| `ur:p256-public`              | #6.40509 |
+| `ur:p384-public`              | #6.40511 |
+| `ur:p521-public`              | #6.40513 |
+| `ur:curve25519-public`        | #6.40515 |
+| `ur:ed25519-public`           | #6.40517 |
+| `ur:ristretto255-public`      | #6.40519 |
+| `ur:x25519-public`            | #6.40521 |
+| `ur:x448-public`              | #6.40523 |
+| `ur:ed448-public`             | #6.40525 |
+| `ur:ntru-hrss701-public`      | #6.40537 |
+| `ur:ntru-hps2048509-public`   | #6.40539 |
+| `ur:ntru-hps2048677-public`   | #6.40541 |
+| `ur:ntru-hps4096821-public`   | #6.40543 |
+| `ur:kyber512-public`          | #6.40545 |
+| `ur:kyber768-public`          | #6.40547 |
+| `ur:kyber1024-public`         | #6.40549 |
+| `ur:sike-p434-public`         | #6.40551 |
+| `ur:sike-p503-public`         | #6.40553 |
+| `ur:sike-p610-public`         | #6.40555 |
+| `ur:sike-p751-public`         | #6.40557 |
+| `ur:dilithium2-public`        | #6.40559 |
+| `ur:dilithium3-public`        | #6.40561 |
+| `ur:dilithium5-public`        | #6.40563 |
+| `ur:falcon512-public`         | #6.40565 |
+| `ur:falcon1024-public`        | #6.40567 |
+| `ur:pq3-public`               | #6.40569 |
 
 Signatures are in the 406xx range.
 
 | UR type                           | CBOR Tag |
 | :-------------------------------- | :------- |
-| ur:secp256k1-signature            | #6.40601 |
-| ur:secp256k1-schnorr-signature    | #6.40602 |
-| ur:rsa2048-signature              | #6.40603 |
-| ur:rsa4096-signature              | #6.40604 |
-| ur:p256-signature                 | #6.40605 |
-| ur:p384-signature                 | #6.40606 |
-| ur:p521-signature                 | #6.40607 |
-| ur:ed25519-signature              | #6.40608 |
-| ur:ristretto255-signature         | #6.40609 |
-| ur:ed448-signature                | #6.40610 |
-| ur:dilithium2-signature           | #6.40611 |
-| ur:dilithium3-signature           | #6.40612 |
-| ur:dilithium5-signature           | #6.40613 |
-| ur:falcon512-signature            | #6.40614 |
-| ur:falcon1024-signature           | #6.40615 |
-| ur:pq3-signature                  | #6.40616 |
+| `ur:secp256k1-signature`          | #6.40601 |
+| `ur:secp256k1-schnorr-signature`  | #6.40602 |
+| `ur:rsa2048-signature`            | #6.40603 |
+| `ur:rsa4096-signature`            | #6.40604 |
+| `ur:p256-signature`               | #6.40605 |
+| `ur:p384-signature`               | #6.40606 |
+| `ur:p521-signature`               | #6.40607 |
+| `ur:ed25519-signature`            | #6.40608 |
+| `ur:ristretto255-signature`       | #6.40609 |
+| `ur:ed448-signature`              | #6.40610 |
+| `ur:dilithium2-signature`         | #6.40611 |
+| `ur:dilithium3-signature`         | #6.40612 |
+| `ur:dilithium5-signature`         | #6.40613 |
+| `ur:falcon512-signature`          | #6.40614 |
+| `ur:falcon1024-signature`         | #6.40615 |
+| `ur:pq3-signature`                | #6.40616 |
 
 HMAC secrets are in the 407xx range.
 
 | UR type                   | CBOR Tag |
 | :------------------------ | :------- |
-| hmac-sha1-secret          | #6.40700 |
-| hmac-sha256-secret        | #6.40701 |
-| hmac-sha512-secret        | #6.40702 |
+| `hmac-sha1-secret`        | #6.40700 |
+| `hmac-sha256-secret`      | #6.40701 |
+| `hmac-sha512-secret`      | #6.40702 |
 
 ## CDDL Definitions
 
