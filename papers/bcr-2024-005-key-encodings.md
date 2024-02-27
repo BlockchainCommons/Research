@@ -86,7 +86,7 @@ A reference implementation in Swift is a work in progress.
 | `agreement` | Private keys of this type afford producing a shared secret with another public key. |
 | `auth`      | Public keys of this type afford authenticating an entity. |
 | `derive`    | Private keys of this type afford deriving a range of other keys. |
-| `encrypt`   | Private and symmetric keys of this type afford encryption. Public and symmetric keys of this type afford decryption. |
+| `encrypt`   | Public and symmetric keys of this type afford encryption. Private and symmetric keys of this type afford decryption. |
 | `public`    | Private keys of this type afford deriving a characteristic public key. |
 | `sign`      | Private keys of this type afford signing. Public keys of this type afford verification. |
 | `wrap`      | Private and symmetric keys of this type afford wrapping other keys, typically symmetric keys for key exchange. Public and symmetric keys of this type afford unwrapping other keys. |
