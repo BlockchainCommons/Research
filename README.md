@@ -23,6 +23,7 @@ Each BCR has a status which is indicated by a symbol.
 | ⭐️⭐️ | Multiple Implementations | At least two (known) implementations exist, at least one not by the owner of the reference implementation. Has demonstrable community support. May still change due to the needs of the community, but community feedback will be sought.
 | ⭐️⭐️⭐️ | Standards Track | Typically at least two implementations, and is considered stable and ready for standardization. Being proposed as a BIP, IETF Internet Draft, or some other standardization draft format. Will typically be moved to the [BCP repo](https://github.com/BlockchainCommons/bcps). Though changes may still be made to the specification, these changes will exclusively be to allow for standardization, and will be conducted with community feedback.
 | ⭐️⭐️⭐️⭐️ | Standardized | A specification has been standardized as a an IETF RFC, BIP, or approved by some other standards body.
+| 📖 | Implementation Guide | A developer's guide to implementating a specification that may also double as the specification itself. |
 
 ❌❌ after another status symbol is read, "...but withdrawn" and ❌ is read, "...but superseded".
 
@@ -68,9 +69,10 @@ Each BCR has a status which is indicated by a symbol.
 | [BCR-2023-017](papers/bcr-2023-017-salt.md) | UR Type Definition for Random Salt | Wolf McNally | ⭐️ |
 | [BCR-2023-018](papers/bcr-2023-018-depo-api.md) | Gordian Depository API | Wolf McNally | ⭐️ |
 | [BCR-2023-019](papers/bcr-2023-019-account-descriptor.md) | UR Type Definition for BIP44 Accounts (Version 2) | Craig Raw | ⭐️⭐️ |
-| [BCR-2024-001](papers/bcr-2024-001-multipart-ur.md) | Multipart UR (MUR) Implementation Guide | Wolf McNally | ⭐️⭐️ |
+| [BCR-2024-001](papers/bcr-2024-001-multipart-ur.md) | Multipart UR (MUR) Implementation Guide | Wolf McNally | 📖⭐️⭐️ |
 | [BCR-2024-002](papers/bcr-2024-002-dcbor.md) | dCBOR: A Deterministic CBOR Application Profile | Wolf McNally | ⭐️⭐️⭐️ |
 | [BCR-2024-003](papers/bcr-2024-003-envelope.md) | The Gordian Envelope Structured Data Format | Wolf McNally | ⭐️ |
+| [BCR-2024-004](papers/bcr-2024-004-request.md) | Envelope Request & Response Implementation Guide | Shannon Appelcline | 📖⭐️ |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Blockchain Commons Proposals](https://github.com/BlockchainCommons/bcps/blob/master/README.md)._
 
