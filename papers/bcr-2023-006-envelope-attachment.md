@@ -56,13 +56,13 @@ Bytes(16) [
 ]
 ```
 
-The object-subject of the `attachment` assertion is its "payload", which in the above example is the string `"Attachment Data"`. The payload may be an Envelope of arbitrary complexity. The contents of the payload are defined by the vendor.
+The object-subject of the `'attachment'` assertion is its "payload", which in the above example is the string `"Attachment Data"`. The payload may be an Envelope of arbitrary complexity. The contents of the payload are defined by the vendor.
 
-The payload is wrapped, and to this wrapped envelope is added one REQUIRED assertion: `vendor`, and optionally one RECOMMENDED assertion: `conformsTo`. No other assertions are permitted.
+The payload is wrapped, and to this wrapped envelope is added one REQUIRED assertion: `'vendor'`, and optionally one RECOMMENDED assertion: `'conformsTo'`. No other assertions are permitted.
 
-* The `vendor` assertion is REQUIRED and MUST be a string that uniquely identifies the entity that added the attachment data. It is RECOMMENDED that it be a reverse domain name. It MAY NOT be an empty string. It MAY NOT be any other data type have additional assertions.
-* The `conformsTo` assertion is RECOMMENDED and MUST be a string that identifies the format of the attachment data. It is RECOMMENDED that it be a URL that points to a document that defines the format of the attachment data including version number. It MAY NOT be any other data type or have additional assertions.
-* The source of the `conformsTo` URI does not have to be from the same vendor as the `vendor` assertion. In other words, the `conformsTo` URI MAY be from a third party that defines a standard format for the attachment data.
+* The `'vendor'` assertion is REQUIRED and MUST be a string that uniquely identifies the entity that added the attachment data. It is RECOMMENDED that it be a reverse domain name. It MAY NOT be an empty string. It MAY NOT be any other data type have additional assertions.
+* The `'conformsTo'` assertion is RECOMMENDED and MUST be a string that identifies the format of the attachment data. It is RECOMMENDED that it be a URL that points to a document that defines the format of the attachment data including version number. It MAY NOT be any other data type or have additional assertions.
+* The source of the `'conformsTo'` URI does not have to be from the same vendor as the `'vendor'` assertion. In other words, the `'conformsTo'` URI MAY be from a third party that defines a standard format for the attachment data.
 
 Multiple attachments MAY be added to an Envelope that accepts them. For example:
 
