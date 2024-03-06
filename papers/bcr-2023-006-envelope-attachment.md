@@ -22,9 +22,9 @@ This document uses the following [Known Values](bcr-2023-002-known-value.md):
 
 | Codepoint | Canonical Name | Type | Description | URI
 |--|--|--|--|--|
-| 50 | attachment | property | Declares that the object is a vendor-defined attachment to the envelope. | [BCR-2023-006](bcr-2023-006-envelope-attachment.md)
-| 51 | vendor     | property | Declares the vendor of the subject. | [BCR-2023-006](bcr-2023-006-envelope-attachment.md)
-| 52 | conformsTo | property | An established standard to which the subject conforms. | http://purl.org/dc/terms/conformsTo
+| 50 | `attachment` | property | Declares that the object is a vendor-defined attachment to the envelope. | [BCR-2023-006](bcr-2023-006-envelope-attachment.md)
+| 51 | `vendor`     | property | Declares the vendor of the subject. | [BCR-2023-006](bcr-2023-006-envelope-attachment.md)
+| 52 | `conformsTo` | property | An established standard to which the subject conforms. | http://purl.org/dc/terms/conformsTo
 
 ## Format Specification
 
