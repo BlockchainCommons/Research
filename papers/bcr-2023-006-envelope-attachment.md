@@ -30,7 +30,7 @@ This document uses the following [Known Values](bcr-2023-002-known-value.md):
 
 A Gordian Envelope is specified by the format of its subject and the assertions it MUST or MAY include. For security, Envelope definitions SHOULD reject as invalid any unexpected assertions that are not defined for the Envelope type.
 
-As an example, an Envelope containing a cryptographic seed has a subject that is a byte string containing the seed. It MUST include an `isA: Seed` assertion to declare its type. A Seed Envelope MAY also include an optional `hasName` assertion, an optional `note` assertion, and an optional `date` assertion:
+As an example, an Envelope containing a cryptographic seed has a subject that is a byte string containing the seed. It MUST include an `'isA': Seed` assertion to declare its type. A Seed Envelope MAY also include an optional `'hasName'` assertion, an optional `'note'` assertion, and an optional `'date'` assertion:
 
 ```
 Bytes(16) [
