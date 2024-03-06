@@ -6,7 +6,7 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: Aug 23, 2022<br/>
-Revised: Aug 23, 2023
+Revised: Mar 6, 2024
 
 ## Abstract
 
@@ -34,9 +34,9 @@ As an example, an Envelope containing a cryptographic seed has a subject that is
 
 ```
 Bytes(16) [
-    isA: Seed
-    hasName: "Dark Purple Aqua Love"
-    note: "This is the note."
+    'isA': Seed
+    'hasName': "Dark Purple Aqua Love"
+    'note': "This is the note."
 ]
 ```
 
@@ -44,15 +44,15 @@ If an Envelope specification allows attachments, they are added by using one or 
 
 ```
 Bytes(16) [
-    isA: Seed
-    attachment: {
+    'isA': Seed
+    'attachment': {
         "Attachment Data"
     } [
-        conformsTo: "https://example.com/seed-envelope-attachment/v1"
-        vendor: "com.example"
+        'conformsTo': "https://example.com/seed-envelope-attachment/v1"
+        'vendor': "com.example"
     ]
-    hasName: "Dark Purple Aqua Love"
-    note: "This is the note."
+    'hasName': "Dark Purple Aqua Love"
+    'note': "This is the note."
 ]
 ```
 
@@ -68,21 +68,21 @@ Multiple attachments MAY be added to an Envelope that accepts them. For example:
 
 ```
 Bytes(16) [
-    isA: Seed
-    attachment: {
+    'isA': Seed
+    'attachment': {
         "Attachment Data Version 1"
     } [
-        conformsTo: "https://example.com/seed-envelope-attachment/v1"
-        vendor: "com.example"
+        'conformsTo': "https://example.com/seed-envelope-attachment/v1"
+        'vendor': "com.example"
     ]
-    attachment: {
+    'attachment': {
         "Attachment Data Version 2"
     } [
-        conformsTo: "https://example.com/seed-envelope-attachment/v2"
-        vendor: "com.example"
+        'conformsTo': "https://example.com/seed-envelope-attachment/v2"
+        'vendor': "com.example"
     ]
-    hasName: "Dark Purple Aqua Love"
-    note: "This is the note."
+    'hasName': "Dark Purple Aqua Love"
+    'note': "This is the note."
 ]
 ```
 

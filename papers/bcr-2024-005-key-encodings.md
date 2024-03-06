@@ -23,8 +23,10 @@ This document specifies the Concise Data Definition Language (CDDL) representati
 - [CBOR Tags](#cbor-tags)
 - [CDDL Definitions](#cddl-definitions)
     - [Symmetric Keys](#symmetric-keys)
-        - [chacha20poly1305-key](#chacha20poly1305-key)
+        - [ietfchacha20poly1305-key](#ietfchacha20poly1305-key)
         - [AES Keys](#aes-keys)
+        - [Serpent](#serpent)
+        - [Twofish](#twofish)
     - [Asymmetric Keys](#asymmetric-keys)
         - [RSA Keys](#rsa-keys)
         - [SecP256k1 Keys](#secp256k1-keys)
@@ -95,13 +97,15 @@ A reference implementation in Swift is a work in progress.
 
 These tags will be registered in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml).
 
-Symmetric keys are in the 404xx range.
+Symmetric keys are in the 404xx range, except for legacy tag assignments.
 
-| UR type                   | CBOR Tag | Capabilities                |
-| :------------------------ | :------- | :-------------------------- |
-| `ur:chacha20poly1305-key` | #6.40400 | encrypt, wrap               |
-| `ur:aes128-key`           | #6.40401 | encrypt, wrap               |
-| `ur:aes256-key`           | #6.40402 | encrypt, wrap               |
+| UR type(s)                                    | CBOR Tag | Capabilities    | Notes                    |
+| :-------------------------------------------- | :------- | :-------------- | :----------------------- |
+| `ur:ietfchacha20poly1305-key`, `crypto-key`   | #6.40023 | encrypt, wrap   | Legacy tag assignment    |
+| `ur:aes128-key`                               | #6.40400 | encrypt, wrap   |                          |
+| `ur:aes256-key`                               | #6.40401 | encrypt, wrap   |                          |
+| `ur:serpent`                                  | #6.40402 | encrypt, wrap   |                          |
+| `ur:twofish`                                  | #6.40403 | encrypt, wrap   |                          |
 
 Asymmetric private keys are in the 405xx range and are even.
 
@@ -109,11 +113,11 @@ Asymmetric private keys are in the 405xx range and are even.
 | :-------------------------------- | :------- | :--------------------------------------|
 | `ur:rsa2048-private`              | #6.40500 | public, encrypt, sign, auth, wrap      |
 | `ur:rsa4096-private`              | #6.40502 | public, encrypt, sign, auth, wrap      |
-| `ur:secp256k1-private`            | #6.40504 | public, sign, auth, derive             |
+| `ur:secp256k1-ecdsa-private`      | #6.40504 | public, sign, auth, derive             |
 | `ur:secp256k1-schnorr-private`    | #6.40506 | public, sign, auth                     |
-| `ur:p256-private`                 | #6.40508 | public, sign, auth, agreement, derive  |
-| `ur:p384-private`                 | #6.40510 | public, sign, auth, agreement, derive  |
-| `ur:p521-private`                 | #6.40512 | public, sign, auth, agreement, derive  |
+| `ur:ecdsa_nistp256-private`       | #6.40508 | public, sign, auth, agreement, derive  |
+| `ur:ecdsa_nistp384-private`       | #6.40510 | public, sign, auth, agreement, derive  |
+| `ur:ecdsa_nistp521-private`       | #6.40512 | public, sign, auth, agreement, derive  |
 | `ur:curve25519-private`           | #6.40514 | public, agreement                      |
 | `ur:ed25519-private`              | #6.40516 | public, sign, auth                     |
 | `ur:ristretto255-private`         | #6.40518 | public, sign, auth, agreement          |
@@ -144,11 +148,11 @@ Asymmetric public keys are in the 405xx range and are odd, being one greater tha
 | :---------------------------- | :------- |
 | `ur:rsa2048-public`           | #6.40501 |
 | `ur:rsa4096-public`           | #6.40503 |
-| `ur:secp256k1-public`         | #6.40505 |
+| `ur:secp256k1-ecdsa-public`   | #6.40505 |
 | `ur:secp256k1-schnorr-public` | #6.40507 |
-| `ur:p256-public`              | #6.40509 |
-| `ur:p384-public`              | #6.40511 |
-| `ur:p521-public`              | #6.40513 |
+| `ur:ecdsa_nistp256-public`    | #6.40509 |
+| `ur:ecdsa_nistp384-public`    | #6.40511 |
+| `ur:ecdsa_nistp521-public`    | #6.40513 |
 | `ur:curve25519-public`        | #6.40515 |
 | `ur:ed25519-public`           | #6.40517 |
 | `ur:ristretto255-public`      | #6.40519 |
@@ -181,9 +185,9 @@ Signatures are in the 406xx range.
 | `ur:secp256k1-schnorr-signature`  | #6.40602 |
 | `ur:rsa2048-signature`            | #6.40603 |
 | `ur:rsa4096-signature`            | #6.40604 |
-| `ur:p256-signature`               | #6.40605 |
-| `ur:p384-signature`               | #6.40606 |
-| `ur:p521-signature`               | #6.40607 |
+| `ur:ecdsa_nistp256-signature`     | #6.40605 |
+| `ur:ecdsa_nistp384-signature`     | #6.40606 |
+| `ur:ecdsa_nistp521-signature`     | #6.40607 |
 | `ur:ed25519-signature`            | #6.40608 |
 | `ur:ristretto255-signature`       | #6.40609 |
 | `ur:ed448-signature`              | #6.40610 |
@@ -207,7 +211,7 @@ HMAC secrets are in the 407xx range.
 The CBOR tags defined above correspond to the following CDDL constant definitions each prefixed by `tag-`, e.g.:
 
 ```cddl
-tag-chacha20poly1305-key = #6.40400
+tag-ietfchacha20poly1305-key = #6.40400
 ; ...
 ```
 
@@ -292,12 +296,12 @@ Keys that do not specify a `permissions` field are understood to have the same p
 
 ### Symmetric Keys
 
-#### chacha20poly1305-key
+#### ietfchacha20poly1305-key
 
-The `chacha20poly1305-key` consists only of the key material, which is the essential component for cryptographic operations. It is defined as a byte string (`bstr`) and must have a size of 32 bytes, matching the size requirement for ChaCha20-Poly1305 keys.
+The `ietfchacha20poly1305-key` consists only of the key material, which is the essential component for cryptographic operations. It is defined as a byte string (`bstr`) and must have a size of 32 bytes, matching the size requirement for ChaCha20-Poly1305 keys.
 
 ```cddl
-chacha20poly1305-key = tag-chacha20poly1305-key({
+ietfchacha20poly1305-key = tag-ietfchacha20poly1305-key({
     key: bstr .size 32,
     ? key-metadata
 })
@@ -307,7 +311,7 @@ chacha20poly1305-key = tag-chacha20poly1305-key({
 
 ##### aes128-key
 
-The `aes128-key` represents a symmetric key used in AES-128 encryption. This key must be exactly 16 bytes in length, as this is the requirement for AES-128.
+The `aes128-key` represents a symmetric key used in AES-128 encryption. This key must be exactly 16 bytes in length.
 
 ```cddl
 aes128-key = tag-aes128-key({
@@ -318,10 +322,32 @@ aes128-key = tag-aes128-key({
 
 ##### aes256-key
 
-The `aes256-key` represents a symmetric key for AES-256 encryption. This key must be exactly 32 bytes in length, as this is the requirement for AES-256.
+The `aes256-key` represents a symmetric key for AES-256 encryption. This key must be exactly 32 bytes in length.
 
 ```cddl
 aes256-key = tag-aes256-key({
+    key: bstr .size 32,
+    ? key-metadata
+})
+```
+
+#### Serpent
+
+The `serpent` key type is used for the Serpent block cipher. The key must be exactly 32 bytes in length.
+
+```cddl
+serpent-key = tag-serpent-key({
+    key: bstr .size 32,
+    ? key-metadata
+})
+```
+
+#### Twofish
+
+The `twofish` key type is used for the Twofish block cipher. The key must be exactly 32 bytes in length.
+
+```cddl
+twofish-key = tag-twofish-key({
     key: bstr .size 32,
     ? key-metadata
 })
@@ -413,29 +439,29 @@ rsa4096-signature = tag-rsa4096-signature({
 
 #### SecP256k1 Keys
 
-##### secp256k1-private
+##### secp256k1-ecdsa-private
 
-A `secp256k1-private` is defined as a 32-byte string, which represents the private key data in the secp256k1 elliptic curve cryptography. This key is used for signing transactions and messages.
+A `secp256k1-ecdsa-private` is defined as a 32-byte string, which represents the private key data in the secp256k1 elliptic curve cryptography. This key is used for signing transactions and messages.
 
 ```cddl
-secp256k1-private = secp256k1-private({
+secp256k1-ecdsa-private = secp256k1-ecdsa-private({
     key: bstr .size 32,
     ? key-metadata-private
 })
 ```
 
-##### secp256k1-public
+##### secp256k1-ecdsa-public
 
-A `secp256k1-public` can be represented in both compressed (33 bytes) and uncompressed (65 bytes) forms. The first byte indicates whether the key is compressed or uncompressed: `0x02` or `0x03` for compressed keys, and `0x04` for uncompressed keys. The remaining bytes represent the coordinate(s) of the public key on the secp256k1 curve.
+A `secp256k1-ecdsa-public` can be represented in both compressed (33 bytes) and uncompressed (65 bytes) forms. The first byte indicates whether the key is compressed or uncompressed: `0x02` or `0x03` for compressed keys, and `0x04` for uncompressed keys. The remaining bytes represent the coordinate(s) of the public key on the secp256k1 curve.
 
 ```cddl
-secp256k1-public = tag-secp256k1-public({
-    key: secp256k1-public-compressed / secp256k1-public-uncompressed,
+secp256k1-ecdsa-public = tag-secp256k1-ecdsa-public({
+    key: secp256k1-ecdsa-public-compressed / secp256k1-ecdsa-public-uncompressed,
     ? key-metadata-public
 })
 
-secp256k1-public-compressed = bstr .size 33
-secp256k1-public-uncompressed = bstr .size 65
+secp256k1-ecdsa-public-compressed = bstr .size 33
+secp256k1-ecdsa-public-uncompressed = bstr .size 65
 ```
 
 ##### secp256k1-signature
@@ -482,103 +508,103 @@ secp256k1-schnorr-signature = tag-secp256k1-schnorr-signature({
 
 The following keys are used in the NIST elliptic curve digital signature algorithm (ECDSA) with the P-256, P-384, and P-521 curves.
 
-##### p256-private
+##### ecdsa_nistp256-private
 
-A `p256-private` is defined as a 32-byte string, which represents the private key data in the P-256 elliptic curve cryptography. This key is used for signing transactions and messages.
+A `ecdsa_nistp256-private` is defined as a 32-byte string, which represents the private key data in the P-256 elliptic curve cryptography. This key is used for signing transactions and messages.
 
 ```cddl
-p256-private = tag-p256-private({
+ecdsa_nistp256-private = tag-ecdsa_nistp256-private({
     key: bstr .size 32,
     ? key-metadata-private
 })
 ```
 
-##### p256-public
+##### ecdsa_nistp256-public
 
-A `p256-public` can be represented in both compressed (33 bytes) and uncompressed (65 bytes) forms. The first byte indicates whether the key is compressed or uncompressed: `0x02` or `0x03` for compressed keys, and `0x04` for uncompressed keys. The remaining bytes represent the coordinate(s) of the public key on the P-256 curve.
+A `ecdsa_nistp256-public` can be represented in both compressed (33 bytes) and uncompressed (65 bytes) forms. The first byte indicates whether the key is compressed or uncompressed: `0x02` or `0x03` for compressed keys, and `0x04` for uncompressed keys. The remaining bytes represent the coordinate(s) of the public key on the P-256 curve.
 
 ```cddl
-p256-public = tag-p256-public({
-    key: p256-public-compressed / p256-public-uncompressed,
+ecdsa_nistp256-public = tag-ecdsa_nistp256-public({
+    key: ecdsa_nistp256-public-compressed / ecdsa_nistp256-public-uncompressed,
     ? key-metadata-public
 })
 
-p256-public-compressed = bstr .size 33
-p256-public-uncompressed = bstr .size 65
+ecdsa_nistp256-public-compressed = bstr .size 33
+ecdsa_nistp256-public-uncompressed = bstr .size 65
 ```
 
-##### p256-signature
+##### ecdsa_nistp256-signature
 
 ```cddl
-p256-signature = tag-p256-signature({
+ecdsa_nistp256-signature = tag-ecdsa_nistp256-signature({
     signature: bstr .size 64,
     ? signature-metadata
 })
 ```
 
-##### p384-private
+##### ecdsa_nistp384-private
 
-A `p384-private` is defined as a 48-byte string, which represents the private key data in the P-384 elliptic curve cryptography. This key is used for signing transactions and messages.
+A `ecdsa_nistp384-private` is defined as a 48-byte string, which represents the private key data in the P-384 elliptic curve cryptography. This key is used for signing transactions and messages.
 
 ```cddl
-p384-private = tag-p384-private({
+ecdsa_nistp384-private = tag-ecdsa_nistp384-private({
     key: bstr .size 48,
     ? key-metadata-private
 })
 ```
 
-##### p384-public
+##### ecdsa_nistp384-public
 
-A `p384-public` can be represented in both compressed and uncompressed forms. The first byte indicates whether the key is compressed or uncompressed: `0x02` or `0x03` for compressed keys, and `0x04` for uncompressed keys. The remaining bytes represent the coordinate(s) of the public key on the P-384 curve.
+A `ecdsa_nistp384-public` can be represented in both compressed and uncompressed forms. The first byte indicates whether the key is compressed or uncompressed: `0x02` or `0x03` for compressed keys, and `0x04` for uncompressed keys. The remaining bytes represent the coordinate(s) of the public key on the P-384 curve.
 
 ```cddl
-p384-public = tag-p384-public({
-    key: p384-public-compressed / p384-public-uncompressed,
+ecdsa_nistp384-public = tag-ecdsa_nistp384-public({
+    key: ecdsa_nistp384-public-compressed / ecdsa_nistp384-public-uncompressed,
     ? key-metadata-public
 })
 
-p384-public-compressed = bstr .size 49
-p384-public-uncompressed = bstr .size 97
+ecdsa_nistp384-public-compressed = bstr .size 49
+ecdsa_nistp384-public-uncompressed = bstr .size 97
 ```
 
-##### p384-signature
+##### ecdsa_nistp384-signature
 
 ```cddl
-p384-signature = tag-p384-signature({
+ecdsa_nistp384-signature = tag-ecdsa_nistp384-signature({
     signature: bstr .size 96,
     ? signature-metadata
 })
 ```
 
-##### p521-private
+##### ecdsa_nistp521-private
 
-A `p521-private` is defined as a 66-byte string, which represents the private key data in the P-521 elliptic curve cryptography. This key is used for signing transactions and messages.
+A `ecdsa_nistp521-private` is defined as a 66-byte string, which represents the private key data in the P-521 elliptic curve cryptography. This key is used for signing transactions and messages.
 
 ```cddl
-p521-private = tag-p521-private({
+ecdsa_nistp521-private = tag-ecdsa_nistp521-private({
     key: bstr .size 66,
     ? key-metadata-private
 })
 ```
 
-##### p521-public
+##### ecdsa_nistp521-public
 
-A `p521-public` can be represented in both compressed and uncompressed forms. The first byte indicates whether the key is compressed or uncompressed: `0x02` or `0x03` for compressed keys, and `0x04` for uncompressed keys. The remaining bytes represent the coordinate(s) of the public key on the P-521 curve.
+A `ecdsa_nistp521-public` can be represented in both compressed and uncompressed forms. The first byte indicates whether the key is compressed or uncompressed: `0x02` or `0x03` for compressed keys, and `0x04` for uncompressed keys. The remaining bytes represent the coordinate(s) of the public key on the P-521 curve.
 
 ```cddl
-p521-public = tag-p521-public({
-    key: p521-public-compressed / p521-public-uncompressed,
+ecdsa_nistp521-public = tag-ecdsa_nistp521-public({
+    key: ecdsa_nistp521-public-compressed / ecdsa_nistp521-public-uncompressed,
     ? key-metadata-public
 })
 
-p521-public-compressed = bstr .size 67
-p521-public-uncompressed = bstr .size 133
+ecdsa_nistp521-public-compressed = bstr .size 67
+ecdsa_nistp521-public-uncompressed = bstr .size 133
 ```
 
-##### p521-signature
+##### ecdsa_nistp521-signature
 
 ```cddl
-p521-signature = tag-p521-signature({
+ecdsa_nistp521-signature = tag-ecdsa_nistp521-signature({
     signature: bstr .size 132,
     ? signature-metadata
 })
@@ -1150,7 +1176,7 @@ This format is speculative.
 pq3-private = tag-pq3-private({
     key: [
         kyber1024-private,
-        p256-private
+        ecdsa_nistp256-private
     ],
     ? key-metadata-private
 })
@@ -1162,7 +1188,7 @@ pq3-private = tag-pq3-private({
 pq3-public = tag-pq3-public({
     key: [
         kyber1024-public,
-        p256-public
+        ecdsa_nistp256-public
     ],
     ? key-metadata-public
 })
