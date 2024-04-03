@@ -76,6 +76,10 @@ Some of the UR types and their corresponding CBOR tags below have been deprecate
 | `signing-private-key` | 40021 | Signing private key | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
 | `signing-public-key` | 40022 | Signing public key | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
 | `crypto-key` | 40023 | Symmetric Key | [[BCR-2022-001]](bcr-2022-001-encrypted-message.md) |
+| `ssh-private` | 40800 | Text format SSH private key | [[BCR-2024-005]](bcr-2024-005-key-encodings.md) |
+| `ssh-public` | 40801 | Text format SSH public key | [[BCR-2024-005]](bcr-2024-005-key-encodings.md) |
+| `ssh-signature`| 40802 | Text format SSH signature | [[BCR-2024-005]](bcr-2024-005-key-encodings.md) |
+| `ssh-certificate` | 40803 | Text format SSH certificate | [[BCR-2024-005]](bcr-2024-005-key-encodings.md) |
 
 ### Notable Tags
 

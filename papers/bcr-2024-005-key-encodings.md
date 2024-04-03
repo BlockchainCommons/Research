@@ -206,6 +206,15 @@ HMAC secrets are in the 407xx range.
 | `hmac-sha256-secret`      | #6.40701 |
 | `hmac-sha512-secret`      | #6.40702 |
 
+SSH text keys are in the 408xx range.
+
+| UR type                   | CBOR Tag |
+| :------------------------ | :------- |
+| `ssh-private`             | #6.40800 |
+| `ssh-public`              | #6.40801 |
+| `ssh-signature`           | #6.40802 |
+| `ssh-certificate`         | #6.40803 |
+
 ## CDDL Definitions
 
 The CBOR tags defined above correspond to the following CDDL constant definitions each prefixed by `tag-`, e.g.:
