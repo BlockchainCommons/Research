@@ -13,9 +13,9 @@ Date: April 16, 2024
 
 ## Introduction
 
-[Graphs](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)) are mathematical structures that consist of a set of vertices (also known as nodes) and a set of edges connecting these vertices. Formally, a graph $G$ is represented as an ordered pair $(V, E)$, where $V$ is the set of vertices and $E$ is the set of edges. Each edge is a pair $\lbrace u, v \rbrace$ (for undirected graphs) or an ordered pair $(u, v)$ (for directed graphs) representing a connection between vertices $u$ and $v$.
+[Graphs](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)) are mathematical structures that consist of a set of vertices (also known as nodes) and a set of edges connecting these vertices. Formally, a graph $G$ is represented as an ordered pair $(V, E)$, where $V$ is the set of vertices and $E$ is the set of edges. Each edge is a pair $\left\{ u, v \right\}$ (for undirected graphs) or an ordered pair $(u, v)$ (for directed graphs) representing a connection between vertices $u$ and $v$.
 
-The following example graph contains three vertices $V = \lbrace A, B, C \rbrace$ and three directed edges $E = \lbrace (A, B), (B, C), (C, A) \rbrace$ arranged in a "cycle":
+The following example graph contains three vertices $V = \left\{ A, B, C \right\}$ and three directed edges $E = \left\{ (A, B), (B, C), (C, A) \right\}$ arranged in a "cycle":
 
 ```mermaid
 graph LR
