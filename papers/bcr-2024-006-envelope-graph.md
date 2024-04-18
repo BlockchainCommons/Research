@@ -232,27 +232,27 @@ Gordian Envelope is a binary format, and not designed to be easy for machines to
     'isA': 'Digraph'
     'node': "node_john" [
         'isA': 'foaf:person'
-        'foaf:name' : "John Doe"
-        'ex:birthdate' : 1990-01-01
-        'foaf:based_near' : "New York"
+        'foaf:name': "John Doe"
+        'ex:birthdate': 1990-01-01
+        'foaf:based_near': "New York"
     ]
     'node': "node_jane" [
         'isA': 'foaf:person'
-        'foaf:name' : "Jane Smith"
-        'ex:birthdate' : 1995-01-01
-        'foaf:based_near' : "Los Angeles"
+        'foaf:name': "Jane Smith"
+        'ex:birthdate': 1995-01-01
+        'foaf:based_near': "Los Angeles"
     ]
     'edge': "edge_john_knows_jane": [
         'isA': 'foaf:knows'
-        'source' : "node_john"
-        'target' : "node_jane"
-        'ex:since' : 2020-04-16
+        'source': "node_john"
+        'target': "node_jane"
+        'ex:since': 2020-04-16
     ]
     'edge': "edge_jane_knows_john": [
         'isA': 'foaf:knows'
-        'source' : "node_jane"
-        'target' : "node_john"
-        'ex:since' : 2020-04-16
+        'source': "node_jane"
+        'target': "node_john"
+        'ex:since': 2020-04-16
     ]
 ]
 ```
@@ -277,9 +277,9 @@ Things to note about this representation:
 ```envelope
 "node_john" [
     'isA': 'foaf:person'
-    'foaf:name' : "John Doe"
-    'ex:birthdate' : 1990-01-01
-    'foaf:based_near' : "New York"
+    'foaf:name': "John Doe"
+    'ex:birthdate': 1990-01-01
+    'foaf:based_near': "New York"
 ]
 ```
 
@@ -293,24 +293,24 @@ One key advantage of representing graphs using Gordian Envelope is the opportuni
         'isA': 'Digraph'
         'node': "node_john" [
             'isA': 'foaf:person'
-            'foaf:name' : "John Doe"
+            'foaf:name': "John Doe"
             ELIDED (2)
         ]
         'node': "node_jane" [
             'isA': 'foaf:person'
-            'foaf:name' : "Jane Smith"
+            'foaf:name': "Jane Smith"
             ELIDED (2)
         ]
         'edge': "edge_john_knows_jane": [
             'isA': 'foaf:knows'
-            'source' : "node_john"
-            'target' : "node_jane"
+            'source': "node_john"
+            'target': "node_jane"
             ELIDED
         ]
         'edge': "edge_jane_knows_john": [
             'isA': 'foaf:knows'
-            'source' : "node_jane"
-            'target' : "node_john"
+            'source': "node_jane"
+            'target': "node_john"
             ELIDED
         ]
     ]
@@ -327,12 +327,12 @@ You an also elide entire graph edges, for example the relationships:
         'isA': 'Digraph'
         'node': "node_john" [
             'isA': 'foaf:person'
-            'foaf:name' : "John Doe"
+            'foaf:name': "John Doe"
             ELIDED (2)
         ]
         'node': "node_jane" [
             'isA': 'foaf:person'
-            'foaf:name' : "Jane Smith"
+            'foaf:name': "Jane Smith"
             ELIDED (2)
         ]
         ELIDED (2)
@@ -350,12 +350,12 @@ Of course, if you just wanted to represent the structure of the graph without an
     'node': "node_john"
     'node': "node_jane"
     'edge': "edge_john_knows_jane": [
-        'source' : "node_john"
-        'target' : "node_jane"
+        'source': "node_john"
+        'target': "node_jane"
     ]
     'edge': "edge_jane_knows_john": [
-        'source' : "node_jane"
-        'target' : "node_john"
+        'source': "node_jane"
+        'target': "node_john"
     ]
 ]
 ```
@@ -406,12 +406,12 @@ Assuming we're not going to be adding any additional information to the nodes, w
 "ex:graph_people" [
     'isA': 'Digraph'
     'edge': "edge_john_knows_jane" [
-        'source' : "node_john"
-        'target' : "node_jane"
+        'source': "node_john"
+        'target': "node_jane"
     ]
     'edge': "edge_jane_knows_john" [
-        'source' : "node_jane"
-        'target' : "node_john"
+        'source': "node_jane"
+        'target': "node_john"
     ]
 ]
 ```
