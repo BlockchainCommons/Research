@@ -223,13 +223,13 @@ We now have a fully-featured general graph representation in RDF, with nodes, ed
 
 ## Representing Graphs in Gordian Envelope
 
-In the parlance of Gordian Envelope, each person in the example above is a "subject" and each property is an "assertion" about the subject. Each person in the RDF graph has four assertions on it, including its type (a person), name, birthdate, and location. Each edge in the RDF graph has five assertions on it, including its type (a statement), subject (the source of the edge), predicate (the type of the edge), and object (the target of the edge).
+In the parlance of Gordian Envelope, each person in the example above is a "subject" and each property is an "assertion" about the subject. Each person in the RDF graph has four assertions on it, including its type (a person), name, birthdate, location. Each edge in the RDF graph has five assertions on it, including its type (a statement), subject (the source of the edge), predicate (the type of the edge), object (the target of the edge), and a "since" date as additional data.
 
-Gordian Envelope is a binary format, and not designed to be easy for machines to process but not human readable. Our Gordian Envelope examples in this document are written in "Envelope Notation," which is human readable and concise, but not (at this time) round-trippable to the binary Envelope format. As envelopes always have a subject and a set of assertions about that subject, we use the graph identifier as the top-level subject, and express the graph's nodes and edges as assertions on that subject:
+Gordian Envelope is a binary format, and not designed to be easy for machines to process but not human readable. Our Gordian Envelope examples in this document are written in "Envelope Notation," which is human readable and concise, but not (at this time) round-trippable to the binary Envelope format. As envelopes always have a subject and a set of assertions about that subject, we use the graph identifier as the top-level subject, and express the graph's nodes and edges as assertions on that subject. As such, unlike RDF Envelope does not require a separate "subject" statement to declare a subject, and each predicate and object are positional pairs:
 
 ```envelope
 "ex:graph_people" [
-    'isA': 'DiGraph'
+    'isA': 'Digraph'
     'node': "node_john" [
         'isA': 'foaf:person'
         'foaf:name' : "John Doe"
@@ -257,7 +257,7 @@ Gordian Envelope is a binary format, and not designed to be easy for machines to
 ]
 ```
 
-This may be considered the "canonical" format for representing graphs in Gordian Envelope, where each node and edge is a single assertion about the graph identifier.
+This may be considered the proposed "canonical" format for representing graphs in Gordian Envelope, where each node and edge is a single assertion about the graph identifier.
 
 Things to note about this representation:
 
@@ -266,7 +266,7 @@ Things to note about this representation:
 - Unquoted dates, e.g., `2020-04-16` are tagged CBOR date values converted to ISO-8601 format for display.
 - Gordian Envelope is a tree-based, recursively defined structure. Therefore the graph, each of its nodes, and each of its edges, are themselves envelopes, all having subjects with strings as their identifiers. These node and edge identifiers must at least be unique within the graph, but could be universally unique if desired. And although we are using strings in our example, they could be binary identifiers such as [ARIDs](bcr-2022-002-arid.md).
 - The graph, its nodes, and its edges, all have an `'isA'` assertion (equivalent to `rdf:type`) that specifies the type of the subject.
-- There are several defined graph types, which restrict or enhance the allowable structure of the graph. In this example, we have used the `'DiGraph'` type, which implies that the graph is directed and has distinct source and target nodes for each edge.
+- There are several defined graph types, which restrict or enhance the allowable structure of the graph. In this example, we have used the `'Digraph'` type, which implies that the graph is directed and has distinct source and target nodes for each edge.
 - Becuse the document is typed as a graph, the only other assertions allowed are those with `'node'` or `'edge'` predicates, which are used to define the nodes and edges of the graph.
 - The nodes in the example graph are typed `'foaf:person'`.
 - The edges in the example graph are typed `'foaf:knows'`.
@@ -290,7 +290,7 @@ One key advantage of representing graphs using Gordian Envelope is the opportuni
 ```envelope
 {
     "ex:graph_people" [
-        'isA': 'DiGraph'
+        'isA': 'Digraph'
         'node': "node_john" [
             'isA': 'foaf:person'
             'foaf:name' : "John Doe"
@@ -324,7 +324,7 @@ You an also elide entire graph edges, for example the relationships:
 ```envelope
 {
     "ex:graph_people" [
-        'isA': 'DiGraph'
+        'isA': 'Digraph'
         'node': "node_john" [
             'isA': 'foaf:person'
             'foaf:name' : "John Doe"
@@ -346,7 +346,7 @@ Of course, if you just wanted to represent the structure of the graph without an
 
 ```envelope
 "ex:graph_people" [
-    'isA': 'DiGraph'
+    'isA': 'Digraph'
     'node': "node_john"
     'node': "node_jane"
     'edge': "edge_john_knows_jane": [
@@ -366,7 +366,7 @@ How can we use Envelope to model our example graph more like the original, conci
 
 ```envelope
 "ex:graph_people" [
-    'isA': 'DiGraph'
+    'isA': 'Digraph'
     'node': "node_john" [
         'isA': 'foaf:person'
         'foaf:knows': "node_jane"
@@ -384,7 +384,7 @@ Isomorphism is easily restored by using Envelope's capability for rich metadata 
 
 ```envelope
 "ex:graph_people" [
-    'isA': 'DiGraph'
+    'isA': 'Digraph'
     'node': "node_john" [
         'isA': 'foaf:person'
         'foaf:knows' [
@@ -404,7 +404,7 @@ Assuming we're not going to be adding any additional information to the nodes, w
 
 ```envelope
 "ex:graph_people" [
-    'isA': 'DiGraph'
+    'isA': 'Digraph'
     'edge': "edge_john_knows_jane" [
         'source' : "node_john"
         'target' : "node_jane"
