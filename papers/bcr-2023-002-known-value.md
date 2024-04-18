@@ -184,6 +184,10 @@ This table documents the Known Value codepoints currently assigned, but is curre
 | 51 | vendor     | property | Declares the vendor of the subject. | [BCR-2023-006](bcr-2023-006-envelope-attachment.md)
 | 52 | conformsTo | property | An established standard to which the subject conforms. | http://purl.org/dc/terms/conformsTo
 
+### Graphs
+
+Codepoints 60-89 are reserved for graph types. See [BCR-2024-006](bcr-2024-006-envelope-graph.md) for specific assignments.
+
 ### Expressions and Function Calls
 
 | Codepoint | Canonical Name | Type | Description | URI
