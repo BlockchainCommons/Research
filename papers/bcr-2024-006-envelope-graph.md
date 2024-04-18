@@ -270,9 +270,9 @@ Things to note about this representation:
 - Becuse the document is typed as a graph, the only other assertions allowed are those with `'node'` or `'edge'` predicates, which are used to define the nodes and edges of the graph.
 - The nodes in the example graph are typed `'foaf:person'`.
 - The edges in the example graph are typed `'foaf:knows'`.
-- The subject of the object of each `'node`' and `'edge'` assertion is the identifier of the node or edge being defined, itself holding a set of assertions about the node or edge.
+- The subject of the object of each `'node'` and `'edge'` assertion is the identifier of the node or edge being defined, itself holding a set of assertions about the node or edge.
 - The object of each `'edge'` assertion includes `'source'` and `'target'` assertions that specify the nodes at either end of the edge.
-- The object of each `'node`' and `'edge'` assertion is a complete Envelope that can be extracted and processed independently of the graph, for example:
+- The object of each `'node'` and `'edge'` assertion is a complete Envelope that can be extracted and processed independently of the graph, for example:
 
 ```envelope
 "node_john" [
@@ -400,7 +400,7 @@ Isomorphism is easily restored by using Envelope's capability for rich metadata 
 ]
 ```
 
-Assuming we're not going to be adding any additional information to the nodes, we could also just provide the list of edges, which would be a more concise representation:
+Assuming we're not going to be adding any additional information to the nodes, we could also just provide the list of edges, which would be an even more concise representation:
 
 ```envelope
 "ex:graph_people" [
