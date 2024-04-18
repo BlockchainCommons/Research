@@ -103,7 +103,7 @@ Key concepts of RDF:
 
 RDF can be serialized using different formats, such as [RDF/XML](https://en.wikipedia.org/wiki/RDF/XML), [TriG](https://en.wikipedia.org/wiki/TriG_(syntax)), [N-Triples](https://en.wikipedia.org/wiki/N-Triples), or [JSON-LD](https://en.wikipedia.org/wiki/JSON-LD). Here's a simple example of an RDF graph in TriG format, which is an extension of Turtle that also allows the naming of graphs, and which we use throughout this document for RDF examples:
 
-```trig
+```turtle
 @prefix ex: <http://example.com/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -155,7 +155,7 @@ ex:node_jane a foaf:Person ;
 
 While compact, the above format does not allow for the representation of data about the edges (the relationships between John and Jane). RDF provides a capability called *reification* that allows for the explicit representation of statements as resources, which can be used to add data to the edges:
 
-```trig
+```turtle
 @prefix ex: <http://example.com/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -188,7 +188,7 @@ In the above example, we have added two reified statements `ex:edge_john_knows_j
 
 One further generalization we can make is to group all these statements together into a single named graph, which is expressible in TriG format:
 
-```trig
+```turtle
 @prefix ex: <http://example.com/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
