@@ -1024,7 +1024,7 @@ Taking part `3: D` from the queue, it now discovers that it can reduce part `2: 
 * Simple: `2: C`, `3: D`
 * Queue: `2: C`
 
-Taking `2: C` from the queue, it discovers that it can reduce part `1: A ⊕ B ⊕ C` by part `2: C`, yielding the simple part `1: A ⊕ B`. This reduced part is still mixed, so it stays in the same list, and it is put into the queue:
+Taking `2: C` from the queue, it discovers that it can reduce part `1: A ⊕ B ⊕ C` by part `2: C`, yielding `1: A ⊕ B`. This reduced part is still mixed, so it stays in the same list, and it is put into the queue:
 
 * Mixed: `1: A ⊕ B`
 * Simple: `2: C`, `3: D`
@@ -1094,7 +1094,7 @@ The decoder keeps track of the `simpleParts` and `mixedParts` it has received. T
 
 The `FountainDecoder` is initialized with no arguments, so all the state is initialized to empty. The `enqueue` method is used to add a part to the queue.
 
-The `result` attribute is used to return the result of decoding. It is set to `nil` until the message is complete, at which point it is set to the reconstructed message. Parts submitted to the decoder after `result` is not be processed. The `result` is a `Result<Data, Error>` type, where the `Data` is the reconstructed message, and the `Error` is a `FountainDecoderError` type that indicates the reason for failure. Invalid parts are discarded, and so do not end the decode process. However, at the end of the decode process, if the checksum calculated from the reconstructed message does not match the checksum in the first part, then the decode process fails with an invalid checksum error.
+The `result` attribute is used to return the result of decoding. It is set to `nil` until the message is complete, at which point it is set to the reconstructed message. Parts submitted to the decoder after `result` is set are not processed. The `result` is a `Result<Data, Error>` type, where the `Data` is the reconstructed message, and the `Error` is a `FountainDecoderError` type that indicates the reason for failure. Invalid parts are discarded, and so do not end the decode process. However, at the end of the decode process, if the checksum calculated from the reconstructed message does not match the checksum in the first part, then the decode process fails with an invalid checksum error.
 
 Several other `public` attributes are are tracked and can be used for debugging or UI feedback. The `expectedFragmentCount` is the number of fragments in the message. The `receivedFragmentIndexes` is the set of fragments that have been received so far. The `lastFragmentIndexes` is the set of fragments in the last part received. The `processedPartsCount` is the number of parts that have been processed so far.
 
