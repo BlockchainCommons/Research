@@ -2,7 +2,7 @@
 
 This document explores the representation of graphs using Gordian Envelope.
 
-## BCR-2024-004
+## BCR-2024-006
 
 **© 2024 Blockchain Commons**
 
