@@ -175,6 +175,8 @@ This table documents the Known Value codepoints currently assigned, but is curre
 | 16 | date           | property | Declares a primary datestamp of the subject. | http://purl.org/dc/terms/date
 | 17 | Unknown        | value    | Placeholder for an unknown value. | https://en.wikipedia.org/wiki/Blank_node
 | 20 | edits          | property | Declares that the object is a set of edits using by the `Envelope.transform(edits:)` method to transform a `source` envelope into a `target` envelope.
+| 21 | validFrom      | property | Declares the subject is valid from the date in the object. | http://purl.org/dc/terms/valid
+| 22 | validUntil     | property | Declares the subject is valid until the date in the object. | http://purl.org/dc/terms/valid
 
 ### Vendor Extensions
 
@@ -192,11 +194,14 @@ Codepoints 60-89 are reserved for graph types. See [BCR-2024-006](bcr-2024-006-e
 
 | Codepoint | Canonical Name | Type | Description | URI
 |--|--|--|--|--|
-| 100 | body       | property | Property declaring that the object is the body (parameters of) a distributed request identified by the subject.
-| 101 | result     | property | Property declaring that the object is the success result of the request identified by the subject.
-| 102 | error      | property | Property declaring that the object is the failure result of the request identified by the subject.
-| 103 | OK         | value    | Instance providing the success result of a request that has no other return value.
-| 104 | Processing | value    | Instance providing the "in processing" result of a request.
+| 100 | body                  | property | Property declaring that the object is the body (parameters of) a distributed request identified by the subject.
+| 101 | result                | property | Property declaring that the object is the success result of the request identified by the subject.
+| 102 | error                 | property | Property declaring that the object is the failure result of the request identified by the subject.
+| 103 | OK                    | value    | Instance providing the success result of a request that has no other return value.
+| 104 | Processing            | value    | Instance providing the "in processing" result of a request.
+| 105 | senderPublicKey       | property | Property declaring that the object is the public key of the sender of the request identified by the subject.
+| 106 | senderContinuation    | property | Property declaring that the object is a continuation owned by the sender.
+| 107 | recipientContinuation | property | Property declaring that the object is a continuation owned by the recipient.
 
 ### Cryptography
 
