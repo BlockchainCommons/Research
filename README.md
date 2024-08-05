@@ -75,6 +75,7 @@ Each BCR has a status which is indicated by a symbol.
 | [BCR-2024-004](papers/bcr-2024-004-request.md) | Gordian Transport Protocol Implementation Guide<br>Envelope Request & Response Implementation Guide | Shannon Appelcline | 📖⭐️ |
 | [BCR-2024-005](papers/bcr-2024-005-key-encodings.md) | CBOR Encodings for Cryptographic Keys and Signatures | Wolf McNally | 📙 |
 | [BCR-2024-006](papers/bcr-2024-006-envelope-graph.md) | Representing Graphs using Gordian Envelope | Wolf McNally | 📙 |
+| [BCR-2024-007](papers/bcr-2024-007-envelope-decorrelation.md) | Decorrelation of Gordian Envelopes | Wolf McNally | ⭐️ |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Blockchain Commons Proposals](https://github.com/BlockchainCommons/bcps/blob/master/README.md)._
 
