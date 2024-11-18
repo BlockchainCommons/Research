@@ -202,7 +202,7 @@ Codepoints 60-89 are reserved for graph types. See [BCR-2024-006](bcr-2024-006-e
 | 102 | error                 | property | Property declaring that the object is the failure result of the request identified by the subject.
 | 103 | OK                    | value    | Instance providing the success result of a request that has no other return value.
 | 104 | Processing            | value    | Instance providing the "in processing" result of a request.
-| 105 | senderPublicKey       | property | Property declaring that the object is the public key of the sender of the request identified by the subject.
+| 105 | sender                | property | Property declaring that the object identifies the sender, including a way to verify messages from the sender (e.g. public key).
 | 106 | senderContinuation    | property | Property declaring that the object is a continuation owned by the sender.
 | 107 | recipientContinuation | property | Property declaring that the object is a continuation owned by the recipient.
 
