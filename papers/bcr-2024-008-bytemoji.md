@@ -56,7 +56,7 @@ The byte sequences that encode emojis can become quite long and complex:
 
 👁️‍🗨️
 
-- Some emojis are rendered as sequences of multiple glyphs, for example *"family: man, woman, girl, boy with various skin tones"* take 28 bytes. Note that this is a *single* emoji!
+- Some emojis are rendered as sequences of multiple glyphs, for example *"family: man, woman, girl, boy with various skin tones"* takes 28 UTF-8 bytes. Note that this is a *single* emoji!
 
 👨🏿‍👩🏾‍👧🏽‍👦🏼
 
