@@ -44,7 +44,7 @@ JUGS DELI GIFT WHEN
 71 27 4d f1
 ```
 
-This mix of modalities further decreases the risk of confusion and increases the likelihood of accurate recognition. It is also useful for accessibility, as it provides multiple ways to present the information via assistive technologies.
+This mix of modalities further increases the likelihood of accurate recognition and decreases the risk of confusion. It is also useful for accessibility, as it provides multiple ways to present the information via assistive technologies.
 
 See our previous work on the [Object Identity Block (OIB)](bcr-2021-002-digest.md#object-identity-block) for more information on identifying digital objects.
 
