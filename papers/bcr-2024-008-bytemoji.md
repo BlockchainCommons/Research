@@ -34,7 +34,7 @@ Each line below represents a combination of four bytes, represented as Bytemojis
 
 Although Bytemoji are chosen partly for their visual distinctness, they are not intended to be individually identifiable. Bytemoji should never be displayed in isolation: they should always displayed in clusters of four or more to represent cryptographic hashes. In addition, they should be clustered with other indicators of the digital object's unique identity, such as hex codes, ByteWords, or a LifeHash.
 
-This clustering ensures sufficient visual distinction and reduces the risk of ambiguity, even if individual emojis may share some similar features. In this example, the ByteWords, and the raw hex representation are shown together, under the user's chosen name of the object:
+This clustering ensures sufficient visual distinction and reduces the risk of ambiguity, even if individual emojis may share some similar features. In this example, the Bytemojis, the ByteWords, and the raw hex representation are shown together, under the user's chosen name of the object:
 
 ```
 **My First Cryptographic Seed**
@@ -60,14 +60,15 @@ The byte sequences that encode emojis can become quite long and complex:
 
 👨🏿‍👩🏾‍👧🏽‍👦🏼
 
-So to keep things simple while still providing a wide range of visual objects, we select a set of 256 emojis that are:
+So to keep things simple while still providing a wide range of visual objects, we selected a set of 256 emojis that are:
 
-- All single glyphs.
-- All code points are 3 or 4 UTF-8 bytes.
+- All render as single glyphs.
+- All have code points that serialize as 3 or 4 UTF-8 bytes.
 
 In addition, we used these other selection criteria:
 
 - All emojis are visually distinct, with maximally unique shapes and designs.
+- All emojis must render on a wide range of platforms.
 - Avoid emojis that are highly similar or could be easily confused.
 - Avoid emojis that depend solely on color differences to be distinguished.
 - Prefer emojis that read well at smaller sizes.
