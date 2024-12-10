@@ -113,4 +113,4 @@ The following line contains all 256 Bytemojis in order, which may be used for te
 
 ### Note on Emoji Rendering
 
-The rendering of emojis can vary significantly between platforms, and some emojis may not be available on all platforms. The Bytemoji set was chosen to be as platform-independent as possible and the entire set should be universally supported where emojis are supported, but some variation in appearance is to be expected.
+The rendering of emojis can vary significantly between platforms. The Bytemoji set was chosen to be as platform-independent as possible and the entire set should be universally supported where emojis are supported, but some variation in appearance is to be expected.
