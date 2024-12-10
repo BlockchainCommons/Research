@@ -52,15 +52,15 @@ See our previous work on the [Object Identity Block (OIB)](bcr-2021-002-digest.m
 
 The byte sequences that encode emojis can become quite long and complex:
 
-- Some emojis, like (“I am a witness”) are 17 UTF-8 bytes!
+- Some emojis that render as a single glyph use several combining forms. For example, *“I am a witness”* takes 17 UTF-8 bytes!
 
 👁️‍🗨️
 
-- Some emojis are sequences, like ("family: man, woman, girl, boy with various skin tones") in 28 bytes. Note this is a *single* emoji!
+- Some emojis are rendered as sequences of multiple glyphs, for example *"family: man, woman, girl, boy with various skin tones"* take 28 bytes. Note that this is a *single* emoji!
 
 👨🏿‍👩🏾‍👧🏽‍👦🏼
 
-So to keep things simple while still providing a wide range of visual objects, we selected a set of 256 emojis that are:
+So to keep things simple while still providing a wide range of visual objects, we selected a set of 256 emojis that:
 
 - All render as single glyphs.
 - All have code points that serialize as 3 or 4 UTF-8 bytes.
