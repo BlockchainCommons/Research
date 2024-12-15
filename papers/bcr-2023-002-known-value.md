@@ -167,7 +167,7 @@ This table documents the Known Value codepoints currently assigned, but is curre
 | 8  | key            | property | Declares the entity identified by the subject holds the private half of the public keys(s) in the object.
 | 9  | dereferenceVia | property | Declares the content referenced by the subject can be dereferenced using the object.
 | 10 | entity         | property | Declares the entity referenced by the subject is specified in the object.
-| 11 | hasName        | property | Declares the the subject is known by the name in the object. | http://xmlns.com/foaf/0.1/name
+| 11 | name        | property | Declares the the subject is known by the name in the object. | http://xmlns.com/foaf/0.1/name
 | 12 | language       | property | Declares the subject is written in the language of the ISO language code object. | http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
 | 13 | issuer         | property | Declares the subject's issuing entity.
 | 14 | holder         | property | Declares the entity to which the subject has been issued.
