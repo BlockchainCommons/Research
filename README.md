@@ -80,6 +80,7 @@ Each BCR has a status which is indicated by a symbol.
 | [BCR-2024-009](papers/bcr-2024-009-signature-metadata.md) | Signatures with Metadata in Gordian Envelope | Wolf McNally | ⭐️ |
 | [BCR-2024-010](papers/bcr-2024-010-xid.md) | XID: Extensible Identifiers | Wolf McNally | ⭐️ |
 | [BCR-2024-011](papers/bcr-2024-011-reference.md) | Digital Object References | Wolf McNally | ⭐️ |
+| [BCR-2025-001](papers/bcr-2025-001-provenance-mark.md) | Provenance Marks: An Innovative Approach for Authenticity Verification | Wolf McNally | ⭐️ |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Blockchain Commons Proposals](https://github.com/BlockchainCommons/bcps/blob/master/README.md)._
 
