@@ -17,19 +17,13 @@ Revised: Jan 9, 2025
 
 ---
 
-<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; margin-bottom: 20px;">
-    <div style="font-size:1.4em;">
-        <a href="https://gist.github.com/wolfmcnally/86bce635a34fd991dce38e54869368e8#urprovenancelfaohdftdpkeiontynhpfljzfnntcxfzgoiakoryeheyimdirfesvttptikiolwshnpakobgeofgdnmnuraydmgrwfpfiewpvodawelrrydefgaelukelrrtgstovszcbzdm" target="_blank">
-            PROVENANCE MARK:<br/>Click here to verify this document's authenticity
-        </a>
-    </div>
-    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-right: 10px; flex: 0 0.2 150px;">
-        <img src="./bcr-2025-001/provenance-mark-symbol-white.svg" width="80em">
-        <div style="text-align: center; margin-top: 0.5em;">
-            <small><code>OVAL GAME HARD YURT</code></small>
-        </div>
-    </div>
-</div>
+[PROVENANCE MARK:\
+Click here to verify this document's authenticity](https://gist.github.com/wolfmcnally/86bce635a34fd991dce38e54869368e8#urprovenancelfaohdftrttdfdmntbsftttlecbwaetseepsamtkwlhsgdwmvywndkrochsggusolnynsfmwrewpatimqdwmolzojlsrtpcxlbwzftvagwbbhfrklbbtfxpljsztolaaptgs)
+
+<img src="./bcr-2025-001/provenance-mark-symbol-white.svg" width="60em">
+
+[🅟 KNOB BETA AQUA NOON](https://gist.github.com/wolfmcnally/86bce635a34fd991dce38e54869368e8#%F0%9F%85%9F-knob-beta-aqua-noon)\
+🅟 🪐 🤨 🙄 🔔
 
 ---
 
