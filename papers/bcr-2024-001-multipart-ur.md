@@ -570,23 +570,24 @@ Test vector:
 
 ```swift
 func testShuffle() {
-    let rng = Xoshiro256(string: "Wolf")
     let indexes = 1...10
     let values = Array(indexes)
-    let result = indexes.map { count in
-        shuffled(values, rng: rng, count: count)
+    let result: [[Int]] = indexes.map { count in
+        let rng = Xoshiro256(string: "Wolf")
+        return shuffled(values, rng: rng, count: count)
     }
+
     let expectedResult = [
         [6],
-        [5, 8],
-        [4, 10, 5],
-        [7, 10, 3, 8],
-        [10, 8, 6, 5, 1],
-        [1, 3, 9, 8, 4, 6],
-        [4, 6, 8, 9, 3, 2, 1],
-        [3, 9, 7, 4, 5, 1, 10, 8],
-        [3, 10, 2, 6, 8, 5, 7, 9, 1],
-        [1, 5, 3, 8, 2, 6, 7, 9, 4, 10]
+        [6, 4],
+        [6, 4, 9],
+        [6, 4, 9, 3],
+        [6, 4, 9, 3, 10],
+        [6, 4, 9, 3, 10, 5],
+        [6, 4, 9, 3, 10, 5, 7],
+        [6, 4, 9, 3, 10, 5, 7, 8],
+        [6, 4, 9, 3, 10, 5, 7, 8, 1],
+        [6, 4, 9, 3, 10, 5, 7, 8, 1, 2]
     ]
     XCTAssertEqual(result, expectedResult)
 }
