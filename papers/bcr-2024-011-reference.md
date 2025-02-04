@@ -87,13 +87,13 @@ TINY BETA ATOM ALSO
 🧦 🤨 😎 😆
 ```
 
-Similarly, if the display form of a `PublicKeyBase` is:
+Similarly, if the display form of a `PublicKeys` is:
 
 ```
-PublicKeyBase(c9ede672)
+PublicKeys(c9ede672)
 ```
 
-then a `Reference` to that `PublicKeyBase` would be:
+then a `Reference` to that `PublicKeys` would be:
 
 ```
 Reference(c9ede672)

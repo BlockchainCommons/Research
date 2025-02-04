@@ -63,7 +63,7 @@ A "sealed message" (`crypto-sealed`) as described in [BCR-2023-011](bcr-2023-011
 
 3. **Discard the Ephemeral Private Key:** The ephemeral private key is discarded after its one-time use, enhancing security by ensuring that even the sender cannot decrypt the message once it's sent.
 
-Gordian Envelope supports multi-recipient public key encryption by adding one or more `hasRecipient: SealedMessage` assertions to the envelope. Only a single content key is used, but that key is separately encrypted to each recipient's public key base, one per recipient. For example, a message encrypted to two recipients would look like this:
+Gordian Envelope supports multi-recipient public key encryption by adding one or more `hasRecipient: SealedMessage` assertions to the envelope. Only a single content key is used, but that key is separately encrypted to each recipient's `PublicKeys`, one per recipient. For example, a message encrypted to two recipients would look like this:
 
 ```
 ENCRYPTED [
