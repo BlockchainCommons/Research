@@ -43,6 +43,7 @@ Some of the UR types and their corresponding CBOR tags below have been deprecate
 | UR Type | CBOR Tag | Description | Definition |
 |------|-----|-------------|------------|
 | `envelope` | 200 | Gordian Envelope | [[Envelope]](https://datatracker.ietf.org/doc/draft-mcnally-envelope/) |
+| `envelope` leaf | 201 | Encapsulated dCBOR | [[Envelope]](https://datatracker.ietf.org/doc/draft-mcnally-envelope/) |
 | `known-value` | 40000 | Envelope known value | [[BCR-2023-002]](bcr-2023-002-known-value.md) |
 | `digest` | 40001 | Cryptographic digest | [[BCR-2021-002]](bcr-2021-002-digest.md) |
 | `encrypted` | 40002 | Encrypted message | [[BCR-2022-001]](bcr-2022-001-encrypted-message.md) |
