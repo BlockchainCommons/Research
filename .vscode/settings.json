@@ -216,5 +216,14 @@
         "zstream",
         "zutwflk"
     ],
-    "cSpell.enabled": true
+    "cSpell.enabled": true,
+    "spellright.language": [
+        "en"
+    ],
+    "spellright.documentTypes": [
+        "rust",
+        "json",
+        "latex",
+        "plaintext"
+    ]
 }
