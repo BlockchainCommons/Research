@@ -22,7 +22,7 @@ This document defines the following UR types along with their corresponding CBOR
 | :----------------------- | :------- |
 | ur:agreement-private-key | #6.40010 |
 | ur:agreement-public-key  | #6.40011 |
-| ur:crypto-prvkeys        | #6.40016 |
+| ur:crypto-prvkey-base    | #6.40016 |
 | ur:crypto-pubkeys        | #6.40017 |
 | ur:crypto-sealed         | #6.40019 |
 | ur:signature             | #6.40020 |
@@ -51,14 +51,14 @@ A Curve25519 public key used for [X25519 key agreement](https://datatracker.ietf
 agreement-public-key = #6.40011(bytes .size 32)
 ```
 
-## Private Key Base `ur:crypto-prvkeys`
+## Private Key Base `ur:crypto-prvkey-base`
 
 Holds cryptographic key material that may be of any length, but it is RECOMMENDED that it be at least 32 bytes in length. It can produce all the private and public keys needed to use this suite. It is usually only serialized for purposes of backup.
 
 ### CDDL
 
 ```
-crypto-prvkeys = #6.40016(key-material)
+crypto-prvkey-base = #6.40016(key-material)
 key-material = bytes
 ```
 
@@ -71,7 +71,7 @@ key-material = bytes
     * [BIP-340 Schnorr](https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki) x-only public key, or
     * [ECDSA-25519-doublesha256](https://en.bitcoin.it/wiki/BIP_0137) public key.
 
-## Public Key Base `ur:crypto-pubkeys`
+## PublicKeys `ur:crypto-pubkeys`
 
 Holds the public keys of an identifiable entity, and can be made public. It is not simply called a "public key" because it holds at least _two_ public keys: one for signing and another for encryption. The `signing-public-key` may specifically be for verifying Schnorr or ECDSA signatures.
 

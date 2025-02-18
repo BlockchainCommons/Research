@@ -30,7 +30,7 @@ The two Known Values this protocol uses are defined in the [Known Values Registr
 
 * `OutputDescriptor` (class)
 * `outputDescriptor` (property)
-* `hasName` (property)
+* `name` (property)
 * `note` (property)
 
 Note the difference in case of the two known values: `OutputDescriptor` is a type (class), and `outputDescriptor`, is a predicate (property).
@@ -40,16 +40,16 @@ Note the difference in case of the two known values: `OutputDescriptor` is a typ
 The subject of a Bitcoin Output Descriptor Envelope is a text string containing a Bitcoin output descriptor.
 
 * It MUST include an `isA: OutputDescriptor` assertion to declare its type conforming to this document.
-* It MAY include a `hasName` assertion, where the object MUST be a non-empty string.
+* It MAY include a `name` assertion, where the object MUST be a non-empty string.
 * It MAY include a `note` assertion, where the object MUST be a non-empty string.
 
 **Example:**
 
 ```
 "wpkh([37b5eed4/84'/0'/0']xpub6BkU445MSEBXbPjD3g2c2ch6mn8yy1SXXQUM7EwjgYiq6Wt1NDwDZ45npqWcV8uQC5oi2gHuVukoCoZZyT4HKq8EpotPMqGqxdZRuapCQ23/<0;1>/*)" [
-    isA: OutputDescriptor
-    hasName: "Example"
-    note: "This is the note."
+    'isA': OutputDescriptor
+    'name': "Example"
+    'note': "This is the note."
 ]
 ```
 
@@ -61,10 +61,10 @@ A Bitcoin Output Descriptor Envelope MAY be used as the object of an assertion w
 
 ```
 "Example" [
-    outputDescriptor: "wpkh([37b5eed4/84'/0'/0']xpub6BkU445MSEBXbPjD3g2c2ch6mn8yy1SXXQUM7EwjgYiq6Wt1NDwDZ45npqWcV8uQC5oi2gHuVukoCoZZyT4HKq8EpotPMqGqxdZRuapCQ23/<0;1>/*)" [
-        isA: OutputDescriptor
-        hasName: "Example"
-        note: "This is the note."
+    'outputDescriptor': "wpkh([37b5eed4/84'/0'/0']xpub6BkU445MSEBXbPjD3g2c2ch6mn8yy1SXXQUM7EwjgYiq6Wt1NDwDZ45npqWcV8uQC5oi2gHuVukoCoZZyT4HKq8EpotPMqGqxdZRuapCQ23/<0;1>/*)" [
+        'isA': OutputDescriptor
+        'name': "Example"
+        'note': "This is the note."
     ]
 ]
 ```

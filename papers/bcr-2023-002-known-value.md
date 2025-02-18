@@ -159,15 +159,15 @@ This table documents the Known Value codepoints currently assigned, but is curre
 |--|--|--|--|--|
 | 1  | isA            | property | Declares that the subject is an instance of the class identified by the object. | http://www.w3.org/1999/02/22-rdf-syntax-ns#type
 | 2  | id             | property | Declares an unambiguous reference to the subject within a given context. | http://purl.org/dc/terms/identifier
-| 3  | verifiedBy     | property | Declares a cryptographic signature of the subject.
+| 3  | signed         | property | Declares a cryptographic signature of the subject.
 | 4  | note           | property | Declares a human-readable note about the subject. | http://www.w3.org/2000/01/rdf-schema#comment
 | 5  | hasRecipient   | property | Declares the subject can be decrypted by the ephemeral key contained in the object.
 | 6  | sskrShare      | property | Declares the subject can be decrypted by a quorum of SSKR shares including the one in the object.
 | 7  | controller     | property | Declares the subject's controlling entity. | https://www.w3.org/ns/solid/terms#owner
-| 8  | publicKeys     | property | Declares the entity identified by the subject holds the private keys in the object.
+| 8  | key            | property | Declares the entity identified by the subject holds the private half of the public keys(s) in the object.
 | 9  | dereferenceVia | property | Declares the content referenced by the subject can be dereferenced using the object.
 | 10 | entity         | property | Declares the entity referenced by the subject is specified in the object.
-| 11 | hasName        | property | Declares the the subject is known by the name in the object. | http://xmlns.com/foaf/0.1/name
+| 11 | name        | property | Declares the the subject is known by the name in the object. | http://xmlns.com/foaf/0.1/name
 | 12 | language       | property | Declares the subject is written in the language of the ISO language code object. | http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
 | 13 | issuer         | property | Declares the subject's issuing entity.
 | 14 | holder         | property | Declares the entity to which the subject has been issued.
@@ -177,6 +177,9 @@ This table documents the Known Value codepoints currently assigned, but is curre
 | 20 | edits          | property | Declares that the object is a set of edits using by the `Envelope.transform(edits:)` method to transform a `source` envelope into a `target` envelope.
 | 21 | validFrom      | property | Declares the subject is valid from the date in the object. | http://purl.org/dc/terms/valid
 | 22 | validUntil     | property | Declares the subject is valid until the date in the object. | http://purl.org/dc/terms/valid
+| 23 | allow          | property | Declares that the object is a set of permissions that allow the subject to perform the actions specified in the object.
+| 24 | deny           | property | Declares that the object is a set of permissions that deny the subject from performing the actions specified in the object.
+| 25 | all            | value    | Represents the set of all allowed values.
 
 ### Vendor Extensions
 
@@ -199,7 +202,7 @@ Codepoints 60-89 are reserved for graph types. See [BCR-2024-006](bcr-2024-006-e
 | 102 | error                 | property | Property declaring that the object is the failure result of the request identified by the subject.
 | 103 | OK                    | value    | Instance providing the success result of a request that has no other return value.
 | 104 | Processing            | value    | Instance providing the "in processing" result of a request.
-| 105 | senderPublicKey       | property | Property declaring that the object is the public key of the sender of the request identified by the subject.
+| 105 | sender                | property | Property declaring that the object identifies the sender, including a way to verify messages from the sender (e.g. public key).
 | 106 | senderContinuation    | property | Property declaring that the object is a continuation owned by the sender.
 | 107 | recipientContinuation | property | Property declaring that the object is a continuation owned by the recipient.
 

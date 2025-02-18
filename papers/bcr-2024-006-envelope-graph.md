@@ -315,7 +315,7 @@ One key advantage of representing graphs using Gordian Envelope is the opportuni
         ]
     ]
 } [
-    'verifiedBy': Signature
+    'signed': Signature
 ]
 ```
 
@@ -338,7 +338,7 @@ You an also elide entire graph edges, for example the relationships:
         ELIDED (2)
     ]
 } [
-    'verifiedBy': Signature
+    'signed': Signature
 ]
 ```
 

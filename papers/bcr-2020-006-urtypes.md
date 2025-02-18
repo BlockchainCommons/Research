@@ -68,8 +68,8 @@ Some of the UR types and their corresponding CBOR tags below have been deprecate
 | `arid` | 40012 | Apparently Random Identifier | [[BCR-2022-002]](bcr-2022-002-arid.md) |
 | `nonce` | 40014 | Cryptographic nonce | [[BCR-2023-015]](bcr-2023-015-nonce.md) |
 | `password` | 40015 | Hashed password (e.g., Scrypt) | [[BCR-2023-016]](bcr-2023-016-password.md) |
-| `crypto-prvkeys` | 40016 | Private key base | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
-| `crypto-pubkeys` | 40017 | Public key base | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
+| `crypto-prvkey-base` | 40016 | Private key base | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
+| `crypto-pubkeys` | 40017 | `PublicKeys` | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
 | `salt` | 40018 | Salt | [[BCR-2023-017]](bcr-2023-017-salt.md) |
 | `crypto-sealed` | 40019 | Sealed message | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |
 | `signature` | 40020 | Signature | [[BCR-2023-011]](bcr-2023-011-public-key-crypto.md) |

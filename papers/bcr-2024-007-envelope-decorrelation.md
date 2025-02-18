@@ -94,14 +94,14 @@ On the other hand, envelopes containing only elements that are noncorrelatable, 
 
 ```
 ENCRYPTED [
-    'verifiedBy': Signature
+    'signed': Signature
 ]
 ```
 
 In the above:
 
 * the `EncryptedMessage` subject is quasicorrelatable, because it was constructed with entropy, but the ciphertext is the same length as the plaintext,
-* the `verifiedBy` known value predicate is correlatable, because it is a well-known value, and
+* the `signed` known value predicate is correlatable, because it is a well-known value, and
 * the `Signature` is noncorrelatable, because it is fixed size and constructed with entropy.
 
 If the assertion is elided, we get:

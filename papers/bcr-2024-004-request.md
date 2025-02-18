@@ -43,7 +43,7 @@ The Gordian Transport Protocol is crucial for enabling interoperability and thus
   * **SS Response:** Specific Share
 * **SV Request:** Shares
   * **SS Response:** All Shares
- 
+
 A Request/Response system helps to reduce the complexity of these digital tasks. A user may not be able to find a specific seed or to generate a key along an appropriate derivation path without guidance. A Request/Response system provides that guidance to minimize errors and user frustration alike.
 
 A Request/Response system becomes even more important as tasks are combined together for more complex projects. The [multisig self-sovereign scenario](https://github.com/BlockchainCommons/SmartCustody/blob/master/Docs/Scenario-Multisig.md) is one such example. It demonstrates how to safely secure digital assets using keys on two closely held devices. However, it is too complex for more users. A system built on Requests and Responses that told users what to do as part of an interactive process would be more likely to be successful, as is described in [Improving Multisigs with Request/Response](https://github.com/BlockchainCommons/SmartCustody/blob/master/Docs/Scenario-Multisig-RR.md).
@@ -68,7 +68,7 @@ A function to retrieve a seed looks as follows:
 ]
 ```
 
-The numbers refer to specific functions and specific parameters. They are essentially "known values" for Envelope Expressions. These values are defined in [Format.swift](https://github.com/BlockchainCommons/BCSwiftEnvelope/blob/master/Sources/Envelope/Base/Format.swift) in the [Envelope base code](https://github.com/BlockchainCommons/BCSwiftEnvelope/tree/master/Sources/Envelope/Base). 
+The numbers refer to specific functions and specific parameters. They are essentially "known values" for Envelope Expressions. These values are defined in [Format.swift](https://github.com/BlockchainCommons/BCSwiftEnvelope/blob/master/Sources/Envelope/Base/Format.swift) in the [Envelope base code](https://github.com/BlockchainCommons/BCSwiftEnvelope/tree/master/Sources/Envelope/Base).
 
 The function call is tagged with CBOR tag #40006, which defines it as a `ur:function` and the parameter is defined with CBOR tag #40007, which defines it as a `ur:parameter`. This is represented in `envelope-cli` (and in the examples here) with "«»" for `ur:function` and "❰❱" for `ur:parameter`.
 
@@ -122,18 +122,18 @@ The subject is the seed, while the three assertions describe the seed. The subje
 ```
 Bytes(16) [
         'isA': 'Seed'
-        'hasName': "Dark Purple Peck Vial"
+        'name': "Dark Purple Peck Vial"
         'outputDescriptor': output-descriptor(Map)
 ]
 ```
 
-The `isA` assertion is the required one. The others are optional. 
+The `isA` assertion is the required one. The others are optional.
 
 The output descriptor contains a map structure as described in [BCR-2023-010](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2023-010-output-descriptor.md).
 
 ## 3. Gordian Transport Protocol: Wrapping a Request
 
-To turn a inquiry for information into a Request requires wrapping the Expression with a `ur:request` subject. 
+To turn a inquiry for information into a Request requires wrapping the Expression with a `ur:request` subject.
 
 Creating the subject for a Request requires the following steps:
 
@@ -184,15 +184,15 @@ request(ARID(7b33b86e)) [
 Digging down instead, here's what the lower-level CBOR of that Request looks like:
 ```
 [
- 
+
  24(40004(40012(
      h'7b33b86e604e3cb5ef9d1675d59c70b6ea7d1f625d062e4d14c4310f2e616cd9'
-   ))), 
-  
- {4: 24("Seed requested by GeneraWallet with note 'Joe wants a copy of the seed'.")}, 
-        
+   ))),
+
+ {4: 24("Seed requested by GeneraWallet with note 'Joe wants a copy of the seed'.")},
+
  {100: [
-        24(40006(100)), 
+        24(40006(100)),
         {24(40007(200)): 24(40001(
           h'ffa11a8b90954fc89ae625779ca11b8f0227573a2f8b4ed85d96ddf901a72cea'
         ))}
@@ -206,46 +206,46 @@ Here's a more detailed look at the CBOR for this `request`:
 /* Array of 3 */
 
 [
- 
+
  /* #1: request(ARID(7b33b86e)) */
 
      /* CBOR tag #24 = byte string */
      /* CBOR tag #40004 = request */
      /* CBOR tag #40012 = ur:arid */
- 
+
  24(40004(40012(
      h'7b33b86e604e3cb5ef9d1675d59c70b6ea7d1f625d062e4d14c4310f2e616cd9'
-   ))), 
+   ))),
 
- 
+
   /* #2: note */
-  
+
      /* map */
      /* Known Value #4 = note */
      /* CBOR tag #24 = byte string */
-  
- {4: 24("Seed requested by GeneraWallet with note 'Joe wants a copy of the seed'.")}, 
- 
+
+ {4: 24("Seed requested by GeneraWallet with note 'Joe wants a copy of the seed'.")},
+
  /* #3: 'body': «getSeed» */
- 
+
      /* map */
      /* Known Value #100 = body */
-     
+
      /* array of 2 */
-       
+
        /* CBOR tag #24 = bytestring */
        /* CBOR tag #40006 = ur:function */
        /* Function #100 = getSeed */
-       
+
        /* CBOR tag #24 = bytestring */
        /* CBOR tag #40007 = ur:parameter */
        /* Parameter #200 = seedDigest */
-       
+
        /* CBOR tag #24 = bytestring */
        /* CBOR tag #40001 = ur:digest */
-       
+
  {100: [
-        24(40006(100)), 
+        24(40006(100)),
         {24(40007(200)): 24(40001(
           h'ffa11a8b90954fc89ae625779ca11b8f0227573a2f8b4ed85d96ddf901a72cea'
         ))}
@@ -267,7 +267,7 @@ To respond to a GTP Request:
 5. Add an object to the 'result' subject containing the Requested data.
 6. Create an assertion under the 'result' assertion that contains 'isA:' and the appropriate data type.
 7. Add additional assertions with any other metadata desired.
-   
+
 The response to the above request thus look as follows:
 
 ```
@@ -285,7 +285,7 @@ Or:
 response(ARID(7b33b86e)) [
     'result': Bytes(16) [
         'isA': 'Seed'
-        'hasName': "Dark Purple Peck Vial"
+        'name': "Dark Purple Peck Vial"
         'outputDescriptor': output-descriptor(Map)
     ]
 ]
@@ -308,7 +308,7 @@ request(ARID(7b33b86e)) [
 response(ARID(7b33b86e)) [
     'result': Bytes(16) [
         'isA': 'Seed'
-        'hasName': "Dark Purple Peck Vial"
+        'name': "Dark Purple Peck Vial"
         'outputDescriptor': output-descriptor(Map)
     ]
 ]
