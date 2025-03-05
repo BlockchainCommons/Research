@@ -167,19 +167,22 @@ This table documents the Known Value codepoints currently assigned, but is curre
 | 8  | key            | property | Declares the entity identified by the subject holds the private half of the public keys(s) in the object.
 | 9  | dereferenceVia | property | Declares the content referenced by the subject can be dereferenced using the object.
 | 10 | entity         | property | Declares the entity referenced by the subject is specified in the object.
-| 11 | name        | property | Declares the the subject is known by the name in the object. | http://xmlns.com/foaf/0.1/name
+| 11 | name           | property | Declares the subject is known by the name in the object. | http://xmlns.com/foaf/0.1/name
 | 12 | language       | property | Declares the subject is written in the language of the ISO language code object. | http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
 | 13 | issuer         | property | Declares the subject's issuing entity.
 | 14 | holder         | property | Declares the entity to which the subject has been issued.
 | 15 | salt           | property | Declares that the object is random salt used to decorrelate the digest of the subject.
 | 16 | date           | property | Declares a primary datestamp of the subject. | http://purl.org/dc/terms/date
 | 17 | Unknown        | value    | Placeholder for an unknown value. | https://en.wikipedia.org/wiki/Blank_node
+| 18 | version        | property | Declares the version of the subject. | http://purl.org/dc/terms/hasVersion
+| 19 | *unassigned* | |
 | 20 | edits          | property | Declares that the object is a set of edits using by the `Envelope.transform(edits:)` method to transform a `source` envelope into a `target` envelope.
 | 21 | validFrom      | property | Declares the subject is valid from the date in the object. | http://purl.org/dc/terms/valid
 | 22 | validUntil     | property | Declares the subject is valid until the date in the object. | http://purl.org/dc/terms/valid
 | 23 | allow          | property | Declares that the object is a set of permissions that allow the subject to perform the actions specified in the object.
 | 24 | deny           | property | Declares that the object is a set of permissions that deny the subject from performing the actions specified in the object.
 | 25 | all            | value    | Represents the set of all allowed values.
+| 26-49 | *unassigned* | |
 
 ### Vendor Extensions
 
@@ -188,10 +191,16 @@ This table documents the Known Value codepoints currently assigned, but is curre
 | 50 | attachment | property | Declares that the object is a vendor-defined attachment to the envelope. | [BCR-2023-006](bcr-2023-006-envelope-attachment.md)
 | 51 | vendor     | property | Declares the vendor of the subject. | [BCR-2023-006](bcr-2023-006-envelope-attachment.md)
 | 52 | conformsTo | property | An established standard to which the subject conforms. | http://purl.org/dc/terms/conformsTo
+| 53-59 | *unassigned* | |
 
 ### Graphs
 
 Codepoints 60-89 are reserved for graph types. See [BCR-2024-006](bcr-2024-006-envelope-graph.md) for specific assignments.
+
+| Codepoint | Canonical Name | Type | Description | URI
+|--|--|--|--|--|
+| 60-89 | reserved | |
+| 90-99 | *unassigned* | |
 
 ### Expressions and Function Calls
 
@@ -205,6 +214,7 @@ Codepoints 60-89 are reserved for graph types. See [BCR-2024-006](bcr-2024-006-e
 | 105 | sender                | property | Property declaring that the object identifies the sender, including a way to verify messages from the sender (e.g. public key).
 | 106 | senderContinuation    | property | Property declaring that the object is a continuation owned by the sender.
 | 107 | recipientContinuation | property | Property declaring that the object is a continuation owned by the recipient.
+| 108-199 | *unassigned* | |
 
 ### Cryptography
 
@@ -214,6 +224,7 @@ Codepoints 60-89 are reserved for graph types. See [BCR-2024-006](bcr-2024-006-e
 | 201 | PrivateKey | class | A cryptographic private key.
 | 202 | PublicKey  | class | A cryptographic public key.
 | 203 | MasterKey  | class | A cryptographic master key.
+| 204-299 | *unassigned* | |
 
 ### Cryptocurrency Assets
 
@@ -223,6 +234,7 @@ Codepoints 60-89 are reserved for graph types. See [BCR-2024-006](bcr-2024-006-e
 | 301 | Bitcoin  | value | The Bitcoin cryptocurrency ("BTC")
 | 302 | Ethereum | value | The Ethereum cryptocurrency ("ETH")
 | 303 | Tezos    | value | The Tezos cryptocurrency ("XTZ")
+| 304-399 | *unassigned* | |
 
 ### Cryptocurrency Networks
 
@@ -231,6 +243,7 @@ Codepoints 60-89 are reserved for graph types. See [BCR-2024-006](bcr-2024-006-e
 | 400 | network | property | Declares a cryptocurrency network, e.g. "MainNet", "TestNet"
 | 401 | MainNet | value | A cryptocurrency main network
 | 402 | TestNet | value | A cryptocurrency test network
+| 403-499 | *unassigned* | |
 
 ### Bitcoin
 
@@ -245,3 +258,4 @@ Codepoints 60-89 are reserved for graph types. See [BCR-2024-006](bcr-2024-006-e
 | 506 | PSBT              | class    | A Partially-Signed Bitcoin Transaction (PSBT)
 | 507 | OutputDescriptor  | class    | A Bitcoin output descriptor
 | 508 | outputDescriptor  | property | Declares a Bitcoin output descriptor associated with the subject
+| 509-... | *unassigned* | |
