@@ -162,7 +162,7 @@ This table documents the Known Value codepoints currently assigned, but is curre
 
 | Codepoint | Canonical Name | Type     | Description                                                                                      | URI                                                   |
 | --------- | -------------- | -------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
-| 0         | *unassigned*   |
+| 0         | unit           | value    | The unit value `()`, conveying no information.                                                   |                                                       |
 | 1         | isA            | property | The subject is an instance of the class identified by the object.                                | http://www.w3.org/1999/02/22-rdf-syntax-ns#type       |
 | 2         | id             | property | The object is an unambiguous identifier of the subject within a given context.                   | http://purl.org/dc/terms/identifier                   |
 | 3         | signed         | property | The object is a cryptographic signature of the subject.                                          |
