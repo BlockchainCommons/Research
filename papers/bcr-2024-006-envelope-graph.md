@@ -34,46 +34,7 @@ A number of graph representation languages exist, and Gordian Envelope is not in
 
 ## Known Value Assignments
 
-This document assigns the following known values. See [BCR-2023-002: Known Values](bcr-2023-002-known-value.md) for more information.
-
-The known value codepoints 60-89 are reserved for graph types, elements, and relationships.
-
-### Graph Types
-
-All graph types imply the `Graph` type. This document does not deeply explore most of these defined types, but it is the author's opinion that they are all readily supportable in Envelope using the general schema described in this document.
-
-| Codepoint | Canonical Name | Type | Description
-|--|--|--|--|
-| 60 | Graph             | class    | A graph. All other assertions in the envelope must be either `node` or `edge`.
-| 61 | SourceTargetGraph | class    | A graph with edges that have `source` and `target` assertions.
-| 62 | ParentChildGraph  | class    | A graph with edges that have `parent` and `child` assertions.
-| 63 | Digraph           | class    | A directed graph. Implies `SourceTargetGraph`. `source` and `target` are distinct. Without this type, edges are undirected (symmetric) and `source` and `target` are interchangable.
-| 64 | AcyclicGraph      | class    | A graph that does not admit cycles. Implies `SourceTargetGraph`. If `Digraph`, does not admit directed cycles.
-| 65 | Multigraph        | class    | A multigraph (admits parallel edges). Implies `SourceTargetGraph`. Without this type, edges may not be parallel (i.e., there is at most one edge between any pair of nodes, in a directed graph, connecting the same `source` and `target` nodes.)
-| 66 | Pseudograph       | class    | A pseudograph (admits self-loops and parallel edges). Implies `Multigraph`. Without this type, edges may not be self-loops (i.e., `source` and `target` are the same).
-| 67 | GraphFragment     | class    | A fragment of a graph. May have references to external nodes and edges that are not resolvable in the fragment. As such, validation of a `GraphFragment` may be weaker. Without this type, all nodes and edges must be resolvable within the graph.
-| 68 | DAG               | class    | A directed acyclic graph. Implies `Digraph` and `AcyclicGraph`.
-| 69 | Tree              | class    | A tree. Implies `ParentChildGraph`. Exactly one node must have no `parent`. All other nodes must have exactly one `parent`.
-| 70 | Forest            | class    | A forest (set of trees). Implies `ParentChildGraph`. Edges use `parent` and `child` to define tree relationships. All nodes must have either no `parent` or exactly one `parent`.
-| 71 | CompoundGraph     | class    | A compound graph (a graph with subgraphs). Implies `Forest` and `SourceTargetGraph`. Uses `source` and `target` to define graph relationships, and `parent` and `child` to define tree relationships.
-| 72 | Hypergraph        | class    | An undirected hypergraph (edges may connect more than two nodes). There may be multiple `source` and `target` assertions in a hyperedge. Source and Target sets must be disjoint. `source` and `target` are interchangeable.
-| 73 | Dihypergraph      | class    | A directed hypergraph (edges may connect more than two nodes and have a direction). There may be multiple `source` and `target` assertions in a hyperedge. Source and Target sets must be disjoint. Implies `Hypergraph` and `Digraph`.
-
-### Graph Elements
-
-| Codepoint | Canonical Name | Type | Description
-|--|--|--|--|
-| 80 | node | property | A node in a graph.
-| 81 | edge | property | An edge in a graph. Defines the edge's endpoints using either (`source` and `target`) assertions for `SourceTargetGraph`s or (`parent` and `child`) assertions for `ParentChildGraph`s.
-
-### Graph Relationships
-
-| Codepoint | Canonical Name | Type | Description
-|--|--|--|--|
-| 82 | source | property | Identifies the source node of the subject edge of a `SourceTargetGraph`. Required. May not be repeated, except in a hyperedge.
-| 83 | target | property | Identifies the target node of the subject edge of a `SourceTargetGraph`. Required. May not be repeated, except in a hyperedge.
-| 84 | parent | property | Identifies the parent node of the subject edge of a `ParentChildGraph`. Omitted only for a root node, required for all other nodes. May not be repeated.
-| 85 | child  | property | Identifies a child node of the subject edge of a `ParentChildGraph`. Required. May not be repeated.
+The known value codepoints 260-289 are reserved for graph types, elements, and relationships. See [BCR-2023-002](bcr-2023-002-known-value.md#graphs) for specific assignments.
 
 ## A Simple Example
 

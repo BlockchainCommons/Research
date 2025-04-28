@@ -22,6 +22,7 @@ This document defines the following UR types along with their corresponding CBOR
 | :----------------------- | :------- |
 | ur:agreement-private-key | #6.40010 |
 | ur:agreement-public-key  | #6.40011 |
+| ur:crypto-prvkeys        | #6.40013 |
 | ur:crypto-prvkey-base    | #6.40016 |
 | ur:crypto-pubkeys        | #6.40017 |
 | ur:crypto-sealed         | #6.40019 |

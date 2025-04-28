@@ -81,6 +81,8 @@ Each BCR has a status which is indicated by a symbol.
 | [BCR-2024-010](papers/bcr-2024-010-xid.md) | XID: Extensible Identifiers | Wolf McNally | ⭐️ |
 | [BCR-2024-011](papers/bcr-2024-011-reference.md) | Digital Object References | Wolf McNally | ⭐️ |
 | [BCR-2025-001](papers/bcr-2025-001-provenance-mark.md) | Provenance Marks: An Innovative Approach for Authenticity Verification | Wolf McNally | ⭐️ |
+| [BCR-2025-002](papers/bcr-2025-002-negative-zero.md) | Negative Zero: An Unstable Phantom Across System Boundaries | Wolf McNally | 📙 |
+| [BCR-2025-003](papers/bcr-2025-003-post-quantum.md) | UR Type Definition for Post-Quantum Cryptographic Structures | Wolf McNally | ⭐️ |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Blockchain Commons Proposals](https://github.com/BlockchainCommons/bcps/blob/master/README.md)._
 

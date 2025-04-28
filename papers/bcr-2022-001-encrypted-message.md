@@ -22,6 +22,7 @@ This document defines the following UR types along with their corresponding CBOR
 | :------------- | :------- |
 | ur:encrypted   | #6.40002 |
 | ur:crypto-key  | #6.40023 |
+| ur:encrypted-key | #6.40027 |
 
 These tags have been registered in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml).
 
@@ -135,3 +136,4 @@ This document requests that [IANA](https://www.iana.org/assignments/cbor-tags/cb
 | Tag | Data Item | Semantics |
 |:----|:-----|:-----|
 | 40002 | array | Encrypted Message |
+| 40027 | tagged array | Encrypted Key |

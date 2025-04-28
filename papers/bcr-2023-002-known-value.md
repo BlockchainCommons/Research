@@ -6,7 +6,7 @@
 
 Authors: Wolf McNally, Christopher Allen<br/>
 Date: Aug 15, 2022<br/>
-Revised: Aug 15, 2023
+Revised: April 26, 2025
 
 ## Abstract
 
@@ -135,127 +135,185 @@ The registry should include versioning and maintain a history of changes to allo
 
 This document requests the assignment of CBOR tag #6.40000:
 
-| Tag | Data Item | Semantics |
-|:----|:-----|:-----|
-| 40000 | uint | Known Value |
+| Tag   | Data Item | Semantics   |
+| ----- | --------- | ----------- |
+| 40000 | uint      | Known Value |
+
+## Implementations
+
+The [known-values](https://github.com/BlockchainCommons/known-values-rust) library provides a Rust registry of Known Values, including the ability to encode and decode them in CBOR.
 
 ## Appendix A: Registry
 
 When encoded as CBOR, the amount of storage required for integer values varies, so ideally more commonly used Known Values would be assigned codepoints requiring less storage.
 
-| Range | Bytes
-|--|--|
-| 0..23 | 1+0 = 1
-| 24..255 | 1+1 = 2
-| 256..65535 | 1+2 = 3
-| 65536..4294967295 | 1+4 = 5
-| 4294967296..18446744073709551615| 1+8 = 9
+| Range                            | Bytes   |
+| -------------------------------- | ------- |
+| 0..23                            | 1+0 = 1 |
+| 24..255                          | 1+1 = 2 |
+| 256..65535                       | 1+2 = 3 |
+| 65536..4294967295                | 1+4 = 5 |
+| 4294967296..18446744073709551615 | 1+8 = 9 |
 
 This table documents the Known Value codepoints currently assigned, but is currently subject to change. It should probably be brought into line with one or more of the foundational ontology vocabularies such as RDF or OWL.
 
+
 ### General
 
-| Codepoint | Canonical Name | Type | Description | URI
-|--|--|--|--|--|
-| 1  | isA            | property | Declares that the subject is an instance of the class identified by the object. | http://www.w3.org/1999/02/22-rdf-syntax-ns#type
-| 2  | id             | property | Declares an unambiguous reference to the subject within a given context. | http://purl.org/dc/terms/identifier
-| 3  | signed         | property | Declares a cryptographic signature of the subject.
-| 4  | note           | property | Declares a human-readable note about the subject. | http://www.w3.org/2000/01/rdf-schema#comment
-| 5  | hasRecipient   | property | Declares the subject can be decrypted by the ephemeral key contained in the object.
-| 6  | sskrShare      | property | Declares the subject can be decrypted by a quorum of SSKR shares including the one in the object.
-| 7  | controller     | property | Declares the subject's controlling entity. | https://www.w3.org/ns/solid/terms#owner
-| 8  | key            | property | Declares the entity identified by the subject holds the private half of the public keys(s) in the object.
-| 9  | dereferenceVia | property | Declares the content referenced by the subject can be dereferenced using the object.
-| 10 | entity         | property | Declares the entity referenced by the subject is specified in the object.
-| 11 | name           | property | Declares the subject is known by the name in the object. | http://xmlns.com/foaf/0.1/name
-| 12 | language       | property | Declares the subject is written in the language of the ISO language code object. | http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
-| 13 | issuer         | property | Declares the subject's issuing entity.
-| 14 | holder         | property | Declares the entity to which the subject has been issued.
-| 15 | salt           | property | Declares that the object is random salt used to decorrelate the digest of the subject.
-| 16 | date           | property | Declares a primary datestamp of the subject. | http://purl.org/dc/terms/date
-| 17 | Unknown        | value    | Placeholder for an unknown value. | https://en.wikipedia.org/wiki/Blank_node
-| 18 | version        | property | Declares the version of the subject. | http://purl.org/dc/terms/hasVersion
-| 19 | *unassigned* | |
-| 20 | edits          | property | Declares that the object is a set of edits using by the `Envelope.transform(edits:)` method to transform a `source` envelope into a `target` envelope.
-| 21 | validFrom      | property | Declares the subject is valid from the date in the object. | http://purl.org/dc/terms/valid
-| 22 | validUntil     | property | Declares the subject is valid until the date in the object. | http://purl.org/dc/terms/valid
-| 23 | allow          | property | Declares that the object is a set of permissions that allow the subject to perform the actions specified in the object.
-| 24 | deny           | property | Declares that the object is a set of permissions that deny the subject from performing the actions specified in the object.
-| 25 | all            | value    | Represents the set of all allowed values.
-| 26-49 | *unassigned* | |
+| Codepoint | Canonical Name | Type     | Description                                                                                      | URI                                                   |
+| --------- | -------------- | -------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| 0         | *unassigned*   |
+| 1         | isA            | property | The subject is an instance of the class identified by the object.                                | http://www.w3.org/1999/02/22-rdf-syntax-ns#type       |
+| 2         | id             | property | The object is an unambiguous identifier of the subject within a given context.                   | http://purl.org/dc/terms/identifier                   |
+| 3         | signed         | property | The object is a cryptographic signature of the subject.                                          |
+| 4         | note           | property | The object is a human-readable note about the subject.                                           | http://www.w3.org/2000/01/rdf-schema#comment          |
+| 5         | hasRecipient   | property | The subject can be decrypted using the private key that decrypts the content key in the object.  |
+| 6         | sskrShare      | property | The subject can be decrypted by a quorum of SSKR shares including the one in the object.         |
+| 7         | controller     | property | The object is the subject's controlling entity.                                                  | https://www.w3.org/ns/solid/terms#owner               |
+| 8         | key            | property | The entity identified by the subject holds the private half of the public keys(s) in the object. |
+| 9         | dereferenceVia | property | The content referenced by the subject can be dereferenced using the object.                      |
+| 10        | entity         | property | The entity referenced by the subject is specified in the object.                                 |
+| 11        | name           | property | The subject is known by the name in the object.                                                  | http://xmlns.com/foaf/0.1/name                        |
+| 12        | language       | property | The subject is written in the language of the ISO language code object.                          | http://www.w3.org/1999/02/22-rdf-syntax-ns#langString |
+| 13        | issuer         | property | The object is the subject's issuing entity.                                                      |
+| 14        | holder         | property | The object identifies the entity to which the subject has been issued.                           |
+| 15        | salt           | property | The object is random salt used to decorrelate the digest of the subject.                         |
+| 16        | date           | property | The object is a primary datestamp of the subject.                                                | http://purl.org/dc/terms/date                         |
+| 17        | Unknown        | value    | Placeholder for an unknown value.                                                                | https://en.wikipedia.org/wiki/Blank_node              |
+| 18        | version        | property | The object is the version of the subject.                                                        | http://purl.org/dc/terms/hasVersion                   |
+| 19        | hasSecret      | property | The subject can be decrypted using the secret that decrypts the content key in the object.       |
+| 20        | edits          | property | The object is a set of edits used by the `Envelope.transform(edits:)` method.                    |
+| 21        | validFrom      | property | The subject is valid from the date in the object.                                                | http://purl.org/dc/terms/valid                        |
+| 22        | validUntil     | property | The subject is valid until the date in the object.                                               | http://purl.org/dc/terms/valid                        |
+| 23-49     | *unassigned*   |
 
-### Vendor Extensions
+### Attachments
 
-| Codepoint | Canonical Name | Type | Description | URI
-|--|--|--|--|--|
-| 50 | attachment | property | Declares that the object is a vendor-defined attachment to the envelope. | [BCR-2023-006](bcr-2023-006-envelope-attachment.md)
-| 51 | vendor     | property | Declares the vendor of the subject. | [BCR-2023-006](bcr-2023-006-envelope-attachment.md)
-| 52 | conformsTo | property | An established standard to which the subject conforms. | http://purl.org/dc/terms/conformsTo
-| 53-59 | *unassigned* | |
+| Codepoint | Canonical Name | Type     | Description                                                              | URI                                                 |
+| --------- | -------------- | -------- | ------------------------------------------------------------------------ | --------------------------------------------------- |
+| 50        | attachment     | property | Declares that the object is a vendor-defined attachment to the envelope. | [BCR-2023-006](bcr-2023-006-envelope-attachment.md) |
+| 51        | vendor         | property | Declares the vendor of the subject.                                      | [BCR-2023-006](bcr-2023-006-envelope-attachment.md) |
+| 52        | conformsTo     | property | An established standard to which the subject conforms.                   | http://purl.org/dc/terms/conformsTo                 |
+| 53-59     | *unassigned*   |
 
-### Graphs
+### XID Documents
 
-Codepoints 60-89 are reserved for graph types. See [BCR-2024-006](bcr-2024-006-envelope-graph.md) for specific assignments.
+| Codepoint | Canonical Name | Type     | Description                                                                                                   | URI |
+| --------- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------- | --- |
+| 60        | allow          | property | The object is a set of permissions that allow the subject to perform the actions specified in the object.     |
+| 61        | deny           | property | The object is a set of permissions that deny the subject from performing the actions specified in the object. |
+| 62        | endpoint       | property |
+| 63        | delegate       | property |
+| 64        | provenance     | property |
+| 65        | privateKey     | property |
+| 66        | service        | property |
+| 67        | capability     | property |
+| 68-69     | *unassigned*   |
 
-| Codepoint | Canonical Name | Type | Description | URI
-|--|--|--|--|--|
-| 60-89 | reserved | |
-| 90-99 | *unassigned* | |
+#### XID Privileges
 
-### Expressions and Function Calls
+| Codepoint | Canonical Name | Type  | Description                                                                                       | URI |
+| --------- | -------------- | ----- | ------------------------------------------------------------------------------------------------- | --- |
+| 70        | All            | value | The set of all allowed privileges.                                                                |
+| 71        | Authorize      | value | Operational privilege: authorize actions on behalf of the subject.                                |
+| 72        | Sign           | value | Operational privilege: sign documents on behalf of the subject.                                   |
+| 73        | Encrypt        | value | Operational privilege: encrypt messages from the subject and decrypt messages to the subject.     |
+| 74        | Elide          | value | Operational privilege: elide the subject's documents.                                             |
+| 75        | Issue          | value | Operational privilege: issue documents on behalf of the subject.                                  |
+| 76        | Access         | value | Operational privilege: access resources on behalf of the subject.                                 |
+| 77-79     | *unassigned*   |
+| 80        | Delegate       | value | Management privilege: delegate the privileges of the subject to another entity.                   |
+| 81        | Verify         | value | Management privilege: update the subject's documents, including the ability to reduce privileges. |
+| 82        | Update         | value | Management privilege: update the subject's service endpoints.                                     |
+| 83        | Transfer       | value | Management privilege: remove the inception key from the XID document.                             |
+| 84        | Elect          | value | Management privilege: add or remove other verifiers (rotate keys).                                |
+| 85        | Burn           | value | Management privilege: transition to a new provenance mark chain.                                  |
+| 86        | Revoke         | value | Management privilege: revoke the XID entirely.                                                    |
+| 87-99     | *unassigned*   |
 
-| Codepoint | Canonical Name | Type | Description | URI
-|--|--|--|--|--|
-| 100 | body                  | property | Property declaring that the object is the body (parameters of) a distributed request identified by the subject.
-| 101 | result                | property | Property declaring that the object is the success result of the request identified by the subject.
-| 102 | error                 | property | Property declaring that the object is the failure result of the request identified by the subject.
-| 103 | OK                    | value    | Instance providing the success result of a request that has no other return value.
-| 104 | Processing            | value    | Instance providing the "in processing" result of a request.
-| 105 | sender                | property | Property declaring that the object identifies the sender, including a way to verify messages from the sender (e.g. public key).
-| 106 | senderContinuation    | property | Property declaring that the object is a continuation owned by the sender.
-| 107 | recipientContinuation | property | Property declaring that the object is a continuation owned by the recipient.
-| 108-199 | *unassigned* | |
+### Expression and Function Calls
+
+| Codepoint | Canonical Name        | Type     | Description                                                                                             | URI |
+| --------- | --------------------- | -------- | ------------------------------------------------------------------------------------------------------- | --- |
+| 101       | result                | property | The object is the success result of the request identified by the subject.                              |
+| 102       | error                 | property | The object is the failure result of the request identified by the subject.                              |
+| 103       | OK                    | value    | The success result of a request that has no other return value.                                         |
+| 104       | Processing            | value    | The "in processing" result of a request.                                                                |
+| 105       | sender                | property | The object identifies the sender, including a way to verify messages from the sender (e.g. public key). |
+| 106       | senderContinuation    | property | The object is a continuation owned by the sender.                                                       |
+| 107       | recipientContinuation | property | The object is a continuation owned by the recipient.                                                    |
+| 108       | content               | property | The object is the content of the event.                                                                 |
+| 109-199   | *unassigned*          |
 
 ### Cryptography
 
-| Codepoint | Canonical Name | Type | Description | URI
-|--|--|--|--|--|
-| 200 | Seed       | class | A cryptographic seed.
-| 201 | PrivateKey | class | A cryptographic private key.
-| 202 | PublicKey  | class | A cryptographic public key.
-| 203 | MasterKey  | class | A cryptographic master key.
-| 204-299 | *unassigned* | |
+| Codepoint | Canonical Name | Type  | Description                  | URI |
+| --------- | -------------- | ----- | ---------------------------- | --- |
+| 200       | Seed           | class | A cryptographic seed.        |
+| 201       | PrivateKey     | class | A cryptographic private key. |
+| 202       | PublicKey      | class | A cryptographic public key.  |
+| 203       | MasterKey      | class | A cryptographic master key.  |
+| 204-259   | *unassigned*   |
 
 ### Cryptocurrency Assets
 
-| Codepoint | Canonical Name | Type | Description | URI
-|--|--|--|--|--|
-| 300 | asset    | property | Declares a cryptocurrency asset specifier, e.g. "Bitcoin", "Ethereum"
-| 301 | Bitcoin  | value | The Bitcoin cryptocurrency ("BTC")
-| 302 | Ethereum | value | The Ethereum cryptocurrency ("ETH")
-| 303 | Tezos    | value | The Tezos cryptocurrency ("XTZ")
-| 304-399 | *unassigned* | |
+| Codepoint | Canonical Name | Type     | Description                                                           | URI |
+| --------- | -------------- | -------- | --------------------------------------------------------------------- | --- |
+| 300       | asset          | property | Declares a cryptocurrency asset specifier, e.g. "Bitcoin", "Ethereum" |
+| 301       | Bitcoin        | value    | The Bitcoin cryptocurrency ("BTC")                                    |
+| 302       | Ethereum       | value    | The Ethereum cryptocurrency ("ETH")                                   |
+| 303       | Tezos          | value    | The Tezos cryptocurrency ("XTZ")                                      |
+| 304-399   | *unassigned*   |
+
 
 ### Cryptocurrency Networks
 
-| Codepoint | Canonical Name | Type | Description | URI
-|--|--|--|--|--|
-| 400 | network | property | Declares a cryptocurrency network, e.g. "MainNet", "TestNet"
-| 401 | MainNet | value | A cryptocurrency main network
-| 402 | TestNet | value | A cryptocurrency test network
-| 403-499 | *unassigned* | |
+| Codepoint | Canonical Name | Type     | Description                                                  | URI |
+| --------- | -------------- | -------- | ------------------------------------------------------------ | --- |
+| 400       | network        | property | Declares a cryptocurrency network, e.g. "MainNet", "TestNet" |
+| 401       | MainNet        | value    | A cryptocurrency main network                                |
+| 402       | TestNet        | value    | A cryptocurrency test network                                |
+| 403-499   | *unassigned*   |
+
 
 ### Bitcoin
 
-| Codepoint | Canonical Name | Type | Description | URI
-|--|--|--|--|--|
-| 500 | BIP32Key          | class    | A BIP-32 HD key
-| 501 | chainCode         | property | Declares the chain code of a BIP-32 HD key
-| 502 | DerivationPath    | class    |A BIP-32 derivation path
-| 503 | parentPath        | property | Declares the derivation path for a BIP-32 key
-| 504 | childrenPath      | property | Declares the allowable derivation paths from a BIP-32 key
-| 505 | parentFingerprint | property | Declares the parent fingerprint of a BIP-32 key
-| 506 | PSBT              | class    | A Partially-Signed Bitcoin Transaction (PSBT)
-| 507 | OutputDescriptor  | class    | A Bitcoin output descriptor
-| 508 | outputDescriptor  | property | Declares a Bitcoin output descriptor associated with the subject
-| 509-... | *unassigned* | |
+| Codepoint | Canonical Name    | Type     | Description                                                      | URI |
+| --------- | ----------------- | -------- | ---------------------------------------------------------------- | --- |
+| 500       | BIP32Key          | class    | A BIP-32 HD key                                                  |
+| 501       | chainCode         | property | Declares the chain code of a BIP-32 HD key                       |
+| 502       | DerivationPath    | class    | A BIP-32 derivation path                                         |
+| 503       | parentPath        | property | Declares the derivation path for a BIP-32 key                    |
+| 504       | childrenPath      | property | Declares the allowable derivation paths from a BIP-32 key        |
+| 505       | parentFingerprint | property | Declares the parent fingerprint of a BIP-32 key                  |
+| 506       | PSBT              | class    | A Partially-Signed Bitcoin Transaction (PSBT)                    |
+| 507       | OutputDescriptor  | class    | A Bitcoin output descriptor                                      |
+| 508       | outputDescriptor  | property | Declares a Bitcoin output descriptor associated with the subject |
+| 509-599   | *unassigned*      |
+
+### Graphs
+
+| Codepoint | Canonical Name    | Type     | Description                                                                                                                                                                                                                                         | URI |
+| --------- | ----------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| 600       | Graph             | class    | A graph. All other assertions in the envelope must be either `node` or `edge`.                                                                                                                                                                      |
+| 601       | SourceTargetGraph | class    | A graph with edges that have `source` and `target` assertions.                                                                                                                                                                                      |
+| 602       | ParentChildGraph  | class    | A graph with edges that have `parent` and `child` assertions.                                                                                                                                                                                       |
+| 603       | Digraph           | class    | A directed graph. Implies `SourceTargetGraph`. `source` and `target` are distinct. Without this type, edges are undirected (symmetric) and `source` and `target` are interchangable.                                                                |
+| 604       | AcyclicGraph      | class    | A graph that does not admit cycles. Implies `SourceTargetGraph`. If `Digraph`, does not admit directed cycles.                                                                                                                                      |
+| 605       | Multigraph        | class    | A multigraph (admits parallel edges). Implies `SourceTargetGraph`. Without this type, edges may not be parallel (i.e., there is at most one edge between any pair of nodes, in a directed graph, connecting the same `source` and `target` nodes.)  |
+| 606       | Pseudograph       | class    | A pseudograph (admits self-loops and parallel edges). Implies `Multigraph`. Without this type, edges may not be self-loops (i.e., `source` and `target` are the same).                                                                              |
+| 607       | GraphFragment     | class    | A fragment of a graph. May have references to external nodes and edges that are not resolvable in the fragment. As such, validation of a `GraphFragment` may be weaker. Without this type, all nodes and edges must be resolvable within the graph. |
+| 608       | DAG               | class    | A directed acyclic graph. Implies `Digraph` and `AcyclicGraph`.                                                                                                                                                                                     |
+| 609       | Tree              | class    | A tree. Implies `ParentChildGraph`. Exactly one node must have no `parent`. All other nodes must have exactly one `parent`.                                                                                                                         |
+| 610       | Forest            | class    | A forest (set of trees). Implies `ParentChildGraph`. Edges use `parent` and `child` to define tree relationships. All nodes must have either no `parent` or exactly one `parent`.                                                                   |
+| 611       | CompoundGraph     | class    | A compound graph (a graph with subgraphs). Implies `Forest` and `SourceTargetGraph`. Uses `source` and `target` to define graph relationships, and `parent` and `child` to define tree relationships.                                               |
+| 612       | Hypergraph        | class    | An undirected hypergraph (edges may connect more than two nodes). There may be multiple `source` and `target` assertions in a hyperedge. Source and Target sets must be disjoint. `source` and `target` are interchangeable.                        |
+| 613       | Dihypergraph      | class    | A directed hypergraph (edges may connect more than two nodes and have a direction). There may be multiple `source` and `target` assertions in a hyperedge. Source and Target sets must be disjoint. Implies `Hypergraph` and `Digraph`.             |
+| 614-699   | *unassigned*      |
+| 700       | node              | property | A node in a graph.                                                                                                                                                                                                                                  |
+| 701       | edge              | property | An edge in a graph. Defines the edge's endpoints using either (`source` and `target`) assertions for `SourceTargetGraph`s or (`parent` and `child`) assertions for `ParentChildGraph`s.                                                             |
+| 702       | source            | property | Identifies the source node of the subject edge of a `SourceTargetGraph`. Required. May not be repeated, except in a hyperedge.                                                                                                                      |
+| 703       | target            | property | Identifies the target node of the subject edge of a `SourceTargetGraph`. Required. May not be repeated, except in a hyperedge.                                                                                                                      |
+| 704       | parent            | property | Identifies the parent node of the subject edge of a `ParentChildGraph`. Omitted only for a root node, required for all other nodes. May not be repeated.                                                                                            |
+| 705       | child             | property | Identifies a child node of the subject edge of a `ParentChildGraph`. Required. May not be repeated.                                                                                                                                                 |
+| 706-...   | *unassigned*      |
