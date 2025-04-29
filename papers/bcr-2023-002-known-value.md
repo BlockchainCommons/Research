@@ -187,7 +187,8 @@ This table documents the Known Value codepoints currently assigned, but is curre
 | 20        | `edits`          | property | The object is a set of edits used by the `Envelope.transform(edits:)` method.                    |
 | 21        | `validFrom`      | property | The subject is valid from the date in the object.                                                | http://purl.org/dc/terms/valid                        |
 | 22        | `validUntil`     | property | The subject is valid until the date in the object.                                               | http://purl.org/dc/terms/valid                        |
-| 23-49     | *unassigned*     |
+| 23        | `position`       | property | The position of an item in a series or sequence of items.                                        | https://schema.org/position                           |
+| 24-49     | *unassigned*     |
 
 > **✅ NOTE:** Code-point 0 denotes **Unit**—a special entry that is
 > *simultaneously* a class **and** its single inhabitant `''`.
