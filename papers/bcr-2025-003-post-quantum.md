@@ -9,9 +9,9 @@ Date: April 25, 2024
 
 ## Introduction
 
-This document defines a set of CBOR tags and [Uniform Resource (UR) types](./bcr-2020-005-ur.md) for post-quantum cryptographic structures. These tags and types are intended to be used in conjunction with the Concise Binary Object Representation (CBOR) format, which is a data serialization format designed for small code size and small message size.
+This document defines a set of CBOR tags and [Uniform Resource (UR) types](./bcr-2020-005-ur.md) for post-quantum cryptographic structures implementing ML-KEM and ML-DSA. These tags and types are intended to be used in conjunction with the Concise Binary Object Representation (CBOR) format, which is a data serialization format designed for small code size and small message size.
 
-## About MLKEM and MLDSA
+## About ML-KEM and ML-DSA
 
 ML‑KEM (“Module‑Lattice Key‑Encapsulation Mechanism”) and ML‑DSA (“Module‑Lattice Digital Signature Algorithm”) are NIST’s post‑quantum standards for key exchange and signatures. Both descend from the CRYSTALS competition winners—Kyber and Dilithium respectively—but they are *not drop‑in replacements* for those schemes.
 
