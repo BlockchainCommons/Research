@@ -223,7 +223,6 @@
     "spellright.documentTypes": [
         "rust",
         "json",
-        "latex",
-        "plaintext"
+        "latex"
     ]
 }
