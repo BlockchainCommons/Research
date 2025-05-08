@@ -36,6 +36,8 @@ Our reference for the key sizes and other parameters is the [`pqcrypto-mlkem`](h
 
 Our general architecture is for the CBOR tag to identify the type of object, and then the first element of the tuple to identify the level of security. The second element of the tuple is a binary string of a fixed size, which contains the actual key, ciphertext, or signature.
 
+The [bc-components](https://crates.io/crates/bc-components) crate contains reference implementations of these schemas.
+
 ```cddl
 mlkem-level = 512 / 768 / 1024
 
