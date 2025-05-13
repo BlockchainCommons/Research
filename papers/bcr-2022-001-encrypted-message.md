@@ -18,10 +18,10 @@ This paper addresses the need for a way to encrypt messages using best practices
 
 This document defines the following UR types along with their corresponding CBOR tags:
 
-| UR type        | CBOR Tag |
-| :------------- | :------- |
-| ur:encrypted   | #6.40002 |
-| ur:crypto-key  | #6.40023 |
+| UR type          | CBOR Tag |
+| :--------------- | :------- |
+| ur:encrypted     | #6.40002 |
+| ur:crypto-key    | #6.40023 |
 | ur:encrypted-key | #6.40027 |
 
 These tags have been registered in the [IANA Registry of CBOR Tags](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml).
@@ -127,13 +127,79 @@ The security considerations for this type are the same as that for the cryptogra
 
 ## Future Proofing
 
-The `#6.40002` tag is intended to be extensible to other encryption constructs, if and when the need arises. The only requirement is that later constructs are distinguishable from the one defined herein, for example by inserting a distinguishing integer as the first element of the array.
+The `#6.40002` tag is intended to be extensible to other symmetric encryption constructs, if and when the need arises. The only requirement is that later constructs are distinguishable from the one defined herein, for example by inserting a distinguishing integer as the first element of the array.
+
+## Symmetric Encryption Key
+
+The `#6.40023` tag is used to represent a symmetric encryption key. It is a byte string of 32 bytes, which is the size of the key used in the ChaCha20-Poly1305-IETF cipher.
+
+```cddl
+crypto-key = bytes .size 32
+```
+
+## Encrypted Key
+
+The `#6.40027` tag is used to represent a key that has been encrypted using a derivation function. It is a profile of `EncryptedMessage` which MUST contain the CBOR serialization of a `KeyDerivation` structure in the message's Additional Authenticated Data (AAD) field:
+
+```cddl
+EncryptedKey = #6.40027(EncryptedMessage)   ; TAG_ENCRYPTED_KEY
+
+EncryptedMessage =
+    #6.40002([                              ; TAG_ENCRYPTED
+        ciphertext: bstr,
+        nonce: bstr,
+        auth: bstr,
+        aad: bstr .cbor KeyDerivation       ; This MUST be present in an `EncryptedKey`
+    ])
+```
+
+So the full serialization will have two nested tags: the outer one representing `EncryptedKey` and the inner one representing `EncryptedMessage`:
+
+```cddl
+#6.40027( #6.40002( ... ) )
+```
+
+Currently four key derivation methods are supported:
+
+```cddl
+KeyDerivationMethod = HKDF / PBKDF2 / Scrypt / Argon2id
+
+HKDF = 0
+PBKDF2 = 1
+Scrypt = 2
+Argon2id = 3
+```
+
+The above constants are used to identify the key derivation method in the `KeyDerivation` structure, which is an array of the form:
+
+```cddl
+[<KeyDerivationMethod>, Salt, <other parameters>]
+```
+
+The actual parameter arrays being:
+
+```cddl
+KeyDerivation = HKDFParams / PBKDF2Params / ScryptParams / Argon2idParams
+
+HKDFParams = [HKDF, Salt, HashType]
+PBKDF2Params = [PBKDF2, Salt, iterations: uint, HashType]
+ScryptParams = [Scrypt, Salt, log_n: uint, r: uint, p: uint]
+Argon2idParams = [Argon2id, Salt]
+
+HashType = SHA256 / SHA512
+
+SHA256 = 0
+SHA512 = 1
+```
+
+The `Salt` type is defined in [BCR-2023-017](bcr-2023-017-salt.md).
 
 ### IANA Considerations
 
 This document requests that [IANA](https://www.iana.org/assignments/cbor-tags/cbor-tags.xhtml) reserve the following tag:
 
-| Tag | Data Item | Semantics |
-|:----|:-----|:-----|
-| 40002 | array | Encrypted Message |
-| 40027 | tagged array | Encrypted Key |
+| Tag   | Data Item    | Semantics                                                          |
+| :---- | :----------- | :----------------------------------------------------------------- |
+| 40002 | array        | ur:encrypted, IETF ChaCha20-Poly1305 (RFC8439) encrypted message   |
+| 40023 | byte string  | ur:crypto-key, Cryptographic key used for symmetric encryption     |
+| 40027 | tagged array | ur:encrypted-key, Content key encrypted with a derivation function |

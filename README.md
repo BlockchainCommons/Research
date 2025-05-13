@@ -6,7 +6,7 @@ This repository contains early-stage research of interest to the blockchain comm
 
 Blockchain Commons Research papers (BCRs) are _not_ standards. They are fluid specifications, typically based on our own libraries or other coding. Because of their fluidity, BCRs might change without notice. If you decide to adopt a Blockchain Commons Research paper, you are becoming a Research Partner, examining how the specification might work in the real world. We look forward to working with you!
 
-If you are using the specifications from a BCR, [please let us know](mailto:team@blockchaincommons.com). Having a BCR in usage by at least two parties other than Blockchain Commons is one of our criteria for advancing a BCR to a [Blockchain Commons Proposal (BCP)](https://github.com/BlockchainCommons/bcps/blob/master/README.md), increasing its stability. If you can only use a specification if it is advanced to the BCP stage, sldo let us know that, as we sometimes advance BCRs on our own if they have achieved sufficient maturity.
+If you are using the specifications from a BCR, [please let us know](mailto:team@blockchaincommons.com). Having a BCR in usage by at least two parties other than Blockchain Commons is one of our criteria for advancing a BCR to a [Blockchain Commons Proposal (BCP)](https://github.com/BlockchainCommons/bcps/blob/master/README.md), increasing its stability. If you can only use a specification if it is advanced to the BCP stage, please let us know that, as we sometimes advance BCRs on our own if they have achieved sufficient maturity.
 
 Generally, it's only if a BCR advances to the BCP stage that we more deeply involve community in its continued maturation and focus on it becoming an actual standard.
 
@@ -23,7 +23,7 @@ Each BCR has a status which is indicated by a symbol.
 | ⭐️⭐️ | Multiple Implementations | At least two (known) implementations exist, at least one not by the owner of the reference implementation. Has demonstrable community support. May still change due to the needs of the community, but community feedback will be sought.
 | ⭐️⭐️⭐️ | Standards Track | Typically at least two implementations, and is considered stable and ready for standardization. Being proposed as a BIP, IETF Internet Draft, or some other standardization draft format. Will typically be moved to the [BCP repo](https://github.com/BlockchainCommons/bcps). Though changes may still be made to the specification, these changes will exclusively be to allow for standardization, and will be conducted with community feedback.
 | ⭐️⭐️⭐️⭐️ | Standardized | A specification has been standardized as a an IETF RFC, BIP, or approved by some other standards body.
-| 📖 | Implementation Guide | A developer's guide to implementating a specification that may also double as the specification itself. |
+| 📖 | Implementation Guide | A developer's guide to implementing a specification that may also double as the specification itself. |
 
 ❌❌ after another status symbol is read, "...but withdrawn" and ❌ is read, "...but superseded".
 
@@ -83,6 +83,7 @@ Each BCR has a status which is indicated by a symbol.
 | [BCR-2025-001](papers/bcr-2025-001-provenance-mark.md) | Provenance Marks: An Innovative Approach for Authenticity Verification | Wolf McNally | ⭐️ |
 | [BCR-2025-002](papers/bcr-2025-002-negative-zero.md) | Negative Zero: An Unstable Phantom Across System Boundaries | Wolf McNally | 📙 |
 | [BCR-2025-003](papers/bcr-2025-003-post-quantum.md) | UR Type Definition for Post-Quantum Cryptographic Structures | Wolf McNally | ⭐️ |
+| [BCR-2025-004](papers/bcr-2025-004-permit.md) | Permits in Gordian Envelope | Wolf McNally | ⭐️ |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Blockchain Commons Proposals](https://github.com/BlockchainCommons/bcps/blob/master/README.md)._
 
