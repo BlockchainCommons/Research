@@ -175,7 +175,7 @@ This table documents the Known Value codepoints currently assigned, but is curre
 | 8         | `key`            | property | The entity identified by the subject holds the private half of the public keys(s) in the object. |
 | 9         | `dereferenceVia` | property | The content referenced by the subject can be dereferenced using the object.                      |
 | 10        | `entity`         | property | The entity referenced by the subject is specified in the object.                                 |
-| 11        | `name`           | property | The subject is known by the name in the object.                                                  | http://xmlns.com/foaf/0.1/name                        |
+| 11        | `name`           | property | The subject is known by the name in the object.                                                  | http://xmlns.com/foaf/spec/#term_name                 |
 | 12        | `language`       | property | The subject is written in the language of the ISO language code object.                          | http://www.w3.org/1999/02/22-rdf-syntax-ns#langString |
 | 13        | `issuer`         | property | The object is the subject's issuing entity.                                                      |
 | 14        | `holder`         | property | The object identifies the entity to which the subject has been issued.                           |
@@ -188,7 +188,8 @@ This table documents the Known Value codepoints currently assigned, but is curre
 | 21        | `validFrom`      | property | The subject is valid from the date in the object.                                                | http://purl.org/dc/terms/valid                        |
 | 22        | `validUntil`     | property | The subject is valid until the date in the object.                                               | http://purl.org/dc/terms/valid                        |
 | 23        | `position`       | property | The position of an item in a series or sequence of items.                                        | https://schema.org/position                           |
-| 24-49     | *unassigned*     |
+| 24        | `nick`           | property | The subject is a nickname for the object.                                                        | http://xmlns.com/foaf/spec/#term_nick                 |
+| 25-49     | *unassigned*     |
 
 > **✅ NOTE:** Code-point 0 denotes **Unit**—a special entry that is
 > *simultaneously* a class **and** its single inhabitant `''`.
@@ -199,7 +200,7 @@ This table documents the Known Value codepoints currently assigned, but is curre
 > **Unit** you are saying, *precisely*, that this position carries zero
 > informational content.
 >
-> Contrast this with `'Unknown'` (code-point 17), which indicates that *some*
+> Contrast this with `'Unknown'` (codepoint 17), which indicates that *some*
 > value exists but is not known, and with explicit null constructs (e.g.,
 > JavaScript or CBOR `null`), which signify *absence* rather than *deliberate
 > emptiness.*
@@ -323,7 +324,7 @@ This table documents the Known Value codepoints currently assigned, but is curre
 | 600       | `Graph`             | class    | A graph. All other assertions in the envelope must be either `node` or `edge`.                                                                                                                                                                      |
 | 601       | `SourceTargetGraph` | class    | A graph with edges that have `source` and `target` assertions.                                                                                                                                                                                      |
 | 602       | `ParentChildGraph`  | class    | A graph with edges that have `parent` and `child` assertions.                                                                                                                                                                                       |
-| 603       | `Digraph`           | class    | A directed graph. Implies `SourceTargetGraph`. `source` and `target` are distinct. Without this type, edges are undirected (symmetric) and `source` and `target` are interchangable.                                                                |
+| 603       | `Digraph`           | class    | A directed graph. Implies `SourceTargetGraph`. `source` and `target` are distinct. Without this type, edges are undirected (symmetric) and `source` and `target` are interchangeable.                                                               |
 | 604       | `AcyclicGraph`      | class    | A graph that does not admit cycles. Implies `SourceTargetGraph`. If `Digraph`, does not admit directed cycles.                                                                                                                                      |
 | 605       | `Multigraph`        | class    | A multigraph (admits parallel edges). Implies `SourceTargetGraph`. Without this type, edges may not be parallel (i.e., there is at most one edge between any pair of nodes, in a directed graph, connecting the same `source` and `target` nodes.)  |
 | 606       | `Pseudograph`       | class    | A pseudograph (admits self-loops and parallel edges). Implies `Multigraph`. Without this type, edges may not be self-loops (i.e., `source` and `target` are the same).                                                                              |
