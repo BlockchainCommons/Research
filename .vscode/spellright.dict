@@ -18,3 +18,12 @@ datestamp
 pseudograph
 hypergraph
 hyperedge
+rs
+Xoshiro256
+preimage
+auditability
+seqLen
+trunc
+seq
+non-repudiable
+byteword

@@ -33,15 +33,19 @@ In this nascent era of rampant AI-powered digital manipulation and plagiarism, b
 
 ## Contents
 
-- [Implementations](#implementations)
-- [Introduction](#introduction)
-- [Historical Methods of Verifying Provenance](#historical-methods-of-verifying-provenance)
+- [Provenance Marks: An Innovative Approach for Authenticity Verification](#provenance-marks-an-innovative-approach-for-authenticity-verification)
+  - [BCR-2025-001](#bcr-2025-001)
+  - [Abstract](#abstract)
+  - [Contents](#contents)
+  - [Implementations](#implementations)
+  - [Introduction](#introduction)
+  - [Historical Methods of Verifying Provenance](#historical-methods-of-verifying-provenance)
     - [Artist Signatures and Monograms](#artist-signatures-and-monograms)
     - [Seals and Stamps](#seals-and-stamps)
     - [Documentation and Pedigree](#documentation-and-pedigree)
     - [Expert Authentication](#expert-authentication)
     - [Scientific and Technical Analysis](#scientific-and-technical-analysis)
-- [Method](#method)
+  - [Method](#method)
     - [The Seed](#the-seed)
     - [Pseudorandom Number Generator (PRNG)](#pseudorandom-number-generator-prng)
     - [Cryptographic Hash Function](#cryptographic-hash-function)
@@ -52,41 +56,42 @@ In this nascent era of rampant AI-powered digital manipulation and plagiarism, b
     - [Human Identification](#human-identification)
     - [Provenance Mark Resolution](#provenance-mark-resolution)
     - [Provenance Mark Structure](#provenance-mark-structure)
-        - [Payload Obfuscation](#payload-obfuscation)
-        - [The `key` Field](#the-key-field)
-        - [The `hash` Field](#the-hash-field)
-        - [The `id` Field](#the-id-field)
-        - [The `seq` Field](#the-seq-field)
-        - [The `date` Field](#the-date-field)
-            - [`low` resolution date encoding](#low-resolution-date-encoding)
-            - [`medium` resolution date encoding](#medium-resolution-date-encoding)
-            - [`quartile` and `high` resolution date encoding](#quartile-and-high-resolution-date-encoding)
-        - [The `info` Field](#the-info-field)
+      - [Payload Obfuscation](#payload-obfuscation)
+      - [Initialization](#initialization)
+      - [The `key` Field](#the-key-field)
+      - [The `hash` field](#the-hash-field)
+      - [The `id` field](#the-id-field)
+      - [The `seq` field](#the-seq-field)
+      - [The `date` field](#the-date-field)
+        - [`low` resolution date encoding](#low-resolution-date-encoding)
+        - [`medium` resolution date encoding](#medium-resolution-date-encoding)
+        - [`quartile` and `high` resolution date encoding](#quartile-and-high-resolution-date-encoding)
+      - [The `info` field](#the-info-field)
     - [Security Analysis of the Four Resolutions](#security-analysis-of-the-four-resolutions)
     - [Other Output Formats](#other-output-formats)
-        - [CBOR](#cbor)
-        - [URs](#urs)
-        - [QR Codes](#qr-codes)
-        - [URLs](#urls)
-- [Extension: Periodic "Heartbeat" Marks](#extension-periodic-heartbeat-marks)
+      - [CBOR](#cbor)
+      - [URs](#urs)
+      - [QR Codes](#qr-codes)
+      - [URLs](#urls)
+  - [Extension: Periodic "Heartbeat" Marks](#extension-periodic-heartbeat-marks)
     - [Temporal Synchronization](#temporal-synchronization)
     - [Preventing Future Date Forgery](#preventing-future-date-forgery)
-- [Extension: Chain Rotation](#extension-chain-rotation)
+  - [Extension: Chain Rotation](#extension-chain-rotation)
     - [Motivations for Chain Rotation](#motivations-for-chain-rotation)
     - [Implementing Chain Rotation](#implementing-chain-rotation)
-- [Strengths, Weaknesses, and Implications](#strengths-weaknesses-and-implications)
+  - [Strengths, Weaknesses, and Implications](#strengths-weaknesses-and-implications)
     - [Strengths](#strengths)
     - [Weaknesses](#weaknesses)
     - [Implications](#implications)
-- [Comparison with Existing Digital Systems](#comparison-with-existing-digital-systems)
+  - [Comparison with Existing Digital Systems](#comparison-with-existing-digital-systems)
     - [Digital Signatures and Watermarking](#digital-signatures-and-watermarking)
     - [Public Key Infrastructure (PKI) Systems](#public-key-infrastructure-pki-systems)
     - [Blockchain-Based Provenance Systems](#blockchain-based-provenance-systems)
-- [Improving the Robustness of the Provenance Marking Method](#improving-the-robustness-of-the-provenance-marking-method)
+  - [Improving the Robustness of the Provenance Marking Method](#improving-the-robustness-of-the-provenance-marking-method)
     - [Public Registries](#public-registries)
     - [Independent Verification Services](#independent-verification-services)
     - [Backup and Recovery](#backup-and-recovery)
-- [Potential Fields of Application](#potential-fields-of-application)
+  - [Potential Fields of Application](#potential-fields-of-application)
     - [Chains of Custody](#chains-of-custody)
     - [Supply Chain Management](#supply-chain-management)
     - [Document Verification](#document-verification)
@@ -308,7 +313,7 @@ legs quiz draw work onyx
 
 It doesn't matter whether these twenty words are formatted as a single line of text, or as four rows of five words, or five rows of four words, etc., as long as the order of the words is clear.
 
-This small size is easy to handle, for example by writing it on a physical work of art, or displaying it in a video work. Unlike the four Bytewords used for human identification, thse are the full Bytewords of the mark.
+This small size is easy to handle, for example by writing it on a physical work of art, or displaying it in a video work. Unlike the four Bytewords used for human identification, these are the full Bytewords of the mark.
 
 ### Provenance Mark Structure
 
@@ -375,7 +380,7 @@ func obfuscate(key: Data, message: Data) -> Data {
 
 #### Initialization
 
-In the reference implementations, to prevent the `id` or any saved PRNG state from exposing part or all of the seed, in the reference implementations, given a seed $s$, the `id` for the chain is generated by:
+In the reference implementations, to prevent the `id` or any saved PRNG state from exposing part or all of the seed, given a seed $s$, the `id` for the chain is generated by:
 
 $$digest = H(s)$$
 $$id = trunc(digest, linkLen)$$
@@ -426,7 +431,7 @@ In general, it is acceptable for sequential marks to have the same `date`, as th
 
 The `low` resolution provenance mark uses 2 bytes (16 bits) to encode the date, with single-day resolution: marks produced on the same calendar day will have the same `date`.
 
-The packed bit format of `low` resolution encoded dates is produced from the gregorian (year - 2023), month, and day of the encoded date/time in the GMT time zone:
+The packed bit format of `low` resolution encoded dates is produced from the Gregorian (year - 2023), month, and day of the encoded date/time in the GMT time zone:
 
 ```
 fedcba98 76543210
@@ -579,7 +584,7 @@ Adding a heartbeat of blank marks to the provenance mark sequence provides a str
 ## Extension: Chain Rotation
 
 *Chain rotation* enables creators to transition between cryptographic seeds, ensuring the ongoing integrity and security of their provenance chains.
-To facilitate this, the mechanism of *Rotation Statements* is introduced. Rotation Statements allow for the simltaneous termination of an existing provenance chain and its seed, and the initiation of a new chain using a new seed, linking the two chains together.
+To facilitate this, the mechanism of *Rotation Statements* is introduced. Rotation Statements allow for the simultaneous termination of an existing provenance chain and its seed, and the initiation of a new chain using a new seed, linking the two chains together.
 
 The new chain must have the *same or higher* resolution as the old chain, allowing for upgrading (but never downgrading) the security of the chain if desired.
 

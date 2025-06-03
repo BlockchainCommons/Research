@@ -188,7 +188,7 @@ This table documents the Known Value codepoints currently assigned, but is curre
 | 21        | `validFrom`      | property | The subject is valid from the date in the object.                                                | http://purl.org/dc/terms/valid                        |
 | 22        | `validUntil`     | property | The subject is valid until the date in the object.                                               | http://purl.org/dc/terms/valid                        |
 | 23        | `position`       | property | The position of an item in a series or sequence of items.                                        | https://schema.org/position                           |
-| 24        | `nick`           | property | The subject is a nickname for the object.                                                        | http://xmlns.com/foaf/spec/#term_nick                 |
+| 24        | `nickname`       | property | The subject is a nickname for the object.                                                        | http://xmlns.com/foaf/spec/#term_nick                 |
 | 25-49     | *unassigned*     |
 
 > **✅ NOTE:** Code-point 0 denotes **Unit**—a special entry that is
