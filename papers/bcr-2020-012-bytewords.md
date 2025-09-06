@@ -111,8 +111,6 @@ Schemes like [BIP39] and [SLIP39] (see Appendix) encode a binary string as a ser
 
 The CBOR body of an encoded Bytewords sequence is followed by a four-word (four byte, 32 bit) CRC32 checksum in network order (big-endian).
 
-The choice to use a CRC32 hash of a Bytewords body is open for comment. This issue is being tracked [here](https://github.com/BlockchainCommons/Research/issues/23).
-
 ### Example/Test Vector
 
 * A 16 byte (128-bit) cryptographic seed (`seed`) (tag #6.40300) [URTYPES] generated on May 13, 2020, in the CBOR diagnostic notation:
