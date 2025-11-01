@@ -224,17 +224,18 @@ This table documents the Known Value codepoints currently assigned, but is curre
 
 ### XID Documents
 
-| Codepoint | Canonical Name | Type     | Description                                                                                                   | URI |
-| --------- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------- | --- |
-| 60        | `allow`        | property | The object is a set of permissions that allow the subject to perform the actions specified in the object.     |
-| 61        | `deny`         | property | The object is a set of permissions that deny the subject from performing the actions specified in the object. |
-| 62        | `endpoint`     | property |
-| 63        | `delegate`     | property |
-| 64        | `provenance`   | property |
-| 65        | `privateKey`   | property |
-| 66        | `service`      | property |
-| 67        | `capability`   | property |
-| 68-69     | *unassigned*   |
+| Codepoint | Canonical Name        | Type     | Description                                                                                                   | URI |
+| --------- | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------- | --- |
+| 60        | `allow`               | property | The object is a set of permissions that allow the subject to perform the actions specified in the object.     |
+| 61        | `deny`                | property | The object is a set of permissions that deny the subject from performing the actions specified in the object. |
+| 62        | `endpoint`            | property | The object is a service endpoint associated with the subject.                                                 |
+| 63        | `delegate`            | property | The object is a delegate authorized by the subject.                                                           |
+| 64        | `provenance`          | property | The object is a provenance mark associated with the subject.                                                  |
+| 65        | `privateKey`          | property | The object is a private key associated with the subject.                                                      |
+| 66        | `service`             | property | The object is a service associated with the subject.                                                          |
+| 67        | `capability`          | property | The object is a capability associated with the subject.                                                       |
+| 68        | `provenanceGenerator` | property | The object is a provenance mark generator associated with the subject.                                        |
+| 69        | *unassigned*          |
 
 #### XID Privileges
 
