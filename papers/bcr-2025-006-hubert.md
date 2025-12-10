@@ -135,7 +135,7 @@ sequenceDiagram
 
 ## 2. Design Principles
 
-Hubert's design emerges from six core principles that inform every aspect of the protocol. These principles align with the broader [Gordian Principles](https://github.com/BlockchainCommons/Gordian#gordian-principles) of independence, privacy, resilience, and openness.
+Hubert's design emerges from four core principles that inform every aspect of the protocol. These principles align with the broader [Gordian Principles](https://github.com/BlockchainCommons/Gordian#gordian-principles) of independence, privacy, resilience, and openness.
 
 ### 2.1 Write-Once Semantics
 
