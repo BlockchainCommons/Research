@@ -275,4 +275,85 @@ Hubert messages are inherently short-lived. DHT entries expire after approximate
 
 ## 4. Reference Implementation
 
-*Rust crate: `hubert`. CLI tool. API overview. Storage backend selection. Error handling.*
+The reference implementation is the [`hubert`](https://crates.io/crates/hubert) Rust crate, which provides both a library for embedding in applications and a command-line tool for scripting and exploration.
+
+**Crate documentation:** [docs.rs/hubert](https://docs.rs/hubert)
+
+**Source repository:** [github.com/BlockchainCommons/hubert-rust](https://github.com/BlockchainCommons/hubert-rust)
+
+### Library API
+
+The library exposes a single `KvStore` trait that abstracts over all storage backends:
+
+```rust
+pub trait KvStore: Send + Sync {
+    async fn put(&self, arid: &ARID, envelope: &Envelope, ttl: Option<u64>, pin: bool) -> Result<()>;
+    async fn get(&self, arid: &ARID, timeout: Duration) -> Result<Envelope>;
+    async fn exists(&self, arid: &ARID) -> Result<bool>;
+    async fn check_available(&self) -> Result<()>;
+}
+```
+
+Four implementations are provided:
+
+| Type                    | Module             | Use Case                              |
+|:------------------------|:-------------------|:--------------------------------------|
+| `MainlineDhtKv`         | `hubert::mainline` | Fast, lightweight DHT storage (≤1 KB) |
+| `IpfsKv`                | `hubert::ipfs`     | Large capacity storage (up to ~10 MB) |
+| `HybridKv`              | `hubert::hybrid`   | Automatic size-based routing          |
+| `MemoryKv` / `SqliteKv` | `hubert::server`   | Local server backends for testing     |
+
+All backends enforce write-once semantics: `put` fails with `Error::AlreadyExists` if the ARID has already been written. The `get` method polls until the value appears or the timeout expires. The `ttl` parameter controls IPNS record lifetime or server-side retention; `pin` requests IPFS pinning for persistence.
+
+### Command-Line Tool
+
+The `hubert` binary provides subcommands for all storage operations:
+
+```
+hubert generate arid              # Generate a fresh ARID
+hubert generate envelope <SIZE>   # Generate a test envelope with random data
+
+hubert put [OPTIONS] <ARID> <ENVELOPE>
+hubert get [OPTIONS] <ARID>
+hubert check [OPTIONS]            # Verify backend availability
+
+hubert server [OPTIONS]           # Start the local HTTP server
+```
+
+Storage backend selection via `--storage`:
+
+- `mainline` (default): BitTorrent Mainline DHT
+- `ipfs`: IPFS via local Kubo daemon
+- `hybrid`: Automatic size-based routing
+- `server`: Local HTTP server
+
+Examples:
+
+```bash
+# Store a small envelope in the DHT
+hubert put "$ARID" "$ENVELOPE"
+
+# Store a large envelope in IPFS with pinning
+hubert put --storage ipfs --pin "$ARID" "$ENVELOPE"
+
+# Retrieve with 60-second timeout
+hubert get --timeout 60 "$ARID"
+
+# Start a persistent local server
+hubert server --sqlite ./hubert.sqlite --port 45678
+```
+
+All ARID and Envelope arguments use [UR encoding](https://github.com/BlockchainCommons/research/blob/master/papers/bcr-2020-005-ur.md) (`ur:arid/...` and `ur:envelope/...`).
+
+### Error Handling
+
+The library uses a single `Error` enum covering all failure modes:
+
+- `AlreadyExists`: Write-once constraint violated
+- `NotFound`: Value not present (after timeout)
+- `ValueTooLarge`: Exceeds backend capacity
+- `StorageBackendUnavailable`: Cannot reach DHT, IPFS, or server
+- `InvalidEnvelope`: Deobfuscated data is not a valid Envelope
+- `Timeout`: Operation exceeded time limit
+
+The CLI exits with non-zero status on errors and prints diagnostics to stderr. Use `--verbose` for detailed logging of network operations.
