@@ -1,6 +1,6 @@
 # Hubert: Distributed Key-Value Store for Secure Multiparty Coordination
 
-## BCR-2025-006
+**BCR-2025-006**
 
 **© 2025 Blockchain Commons**
 
@@ -25,10 +25,30 @@ Key design properties include:
 
 ## Table of Contents
 
-1. [Introduction](#1-introduction)
-2. [Design Principles](#2-design-principles)
-3. [Security Considerations](#3-security-considerations)
-4. [Reference Implementation](#4-reference-implementation)
+- [Hubert: Distributed Key-Value Store for Secure Multiparty Coordination](#hubert-distributed-key-value-store-for-secure-multiparty-coordination)
+  - [Abstract](#abstract)
+  - [Table of Contents](#table-of-contents)
+  - [1. Introduction](#1-introduction)
+  - [2. Design Principles](#2-design-principles)
+    - [2.1 Write-Once Semantics](#21-write-once-semantics)
+    - [2.2 Envelope-Based Values](#22-envelope-based-values)
+    - [2.3 Capability-Based Access Control](#23-capability-based-access-control)
+    - [2.4 Transport Agnosticism](#24-transport-agnosticism)
+  - [3. Security Considerations](#3-security-considerations)
+    - [3.1 What Hubert Protects](#31-what-hubert-protects)
+    - [3.2 What Hubert Does Not Protect](#32-what-hubert-does-not-protect)
+    - [3.3 Ephemeral Messages](#33-ephemeral-messages)
+  - [4. Reference Implementation](#4-reference-implementation)
+    - [4.1 Library API](#41-library-api)
+    - [4.2 Command-Line Tool](#42-command-line-tool)
+    - [4.3 Error Handling](#43-error-handling)
+  - [5. Use Case: FROST Threshold Signing](#5-use-case-frost-threshold-signing)
+    - [5.1 Overview](#51-overview)
+    - [Phase 1: Registry Setup](#phase-1-registry-setup)
+    - [Phase 2: Distributed Key Generation](#phase-2-distributed-key-generation)
+    - [Phase 3: Signing](#phase-3-signing)
+    - [Message Structure](#message-structure)
+    - [Operational Considerations](#operational-considerations)
 
 ---
 
@@ -221,7 +241,7 @@ This agnosticism allows Hubert to adapt as new distributed storage systems emerg
 
 Hubert provides defense in depth through layered protections, but operates within inherent constraints of public distributed networks.
 
-### What Hubert Protects
+### 3.1 What Hubert Protects
 
 **Content opacity.** All data stored via Hubert is obfuscated using ChaCha20 with an ARID-derived key. The stored bytes are indistinguishable from uniform random data. Without the ARID, observers cannot determine whether stored data is a Hubert message, random noise, or any other binary content. Pattern analysis, magic-byte detection, and content scanning all fail.
 
@@ -233,7 +253,7 @@ Hubert provides defense in depth through layered protections, but operates withi
 
 **Write-once integrity.** Once published, a message cannot be modified or replaced. The BEP-44 sequence number mechanism and Hubert's IPNS policy layer enforce this at the protocol level.
 
-### What Hubert Does Not Protect
+### 3.2 What Hubert Does Not Protect
 
 **IP address exposure.** Participating in DHT or IPFS networks exposes your IP address to peers you interact with. During a Kademlia lookup, you contact roughly 60 distinct nodes (approximately $\alpha \cdot \log_2 N$ with typical parameters). Any of these nodes can log your IP, the storage key you queried or announced, and the timestamp. The Mainline DHT has tens of millions of concurrent nodes; even a well-resourced attacker can only operate a small fraction. The probability that at least one of the ~60 nodes you contact is logging depends on the attacker's coverage:
 
@@ -267,7 +287,7 @@ For random (untargeted) surveillance, observation probability is low. A targeted
 
 > **Future mitigation.** Protocol obfuscation techniques (such as those used by Tor's pluggable transports) could disguise DHT and IPFS traffic as innocuous HTTPS connections to CDN endpoints. Domain fronting, where traffic appears to connect to an allowed domain while actually reaching a blocked service, may help in some jurisdictions—though major cloud providers have increasingly disabled this capability. Hubert's local server backend provides a fallback for controlled environments, but sacrifices decentralization. Ultimately, circumventing nation-state network controls is a hard problem that Hubert inherits rather than solves.
 
-### Ephemeral Messages
+### 3.3 Ephemeral Messages
 
 Hubert messages are inherently short-lived. DHT entries expire after approximately 2 hours without re-announcement; IPNS records expire after 48 hours. This ephemerality limits the window during which stored data can be retrieved, reducing long-term exposure. However, this is not forward secrecy in the cryptographic sense: if an attacker records the obfuscated blob and later obtains the ARID and a recipient's private key, they can decrypt the message. True forward secrecy would require session keys that are not derivable from long-term keys, which XID documents do not currently provide.
 
@@ -281,7 +301,7 @@ The reference implementation is the [`hubert`](https://crates.io/crates/hubert) 
 
 **Source repository:** [github.com/BlockchainCommons/hubert-rust](https://github.com/BlockchainCommons/hubert-rust)
 
-### Library API
+### 4.1 Library API
 
 The library exposes a single `KvStore` trait that abstracts over all storage backends:
 
@@ -297,7 +317,7 @@ pub trait KvStore: Send + Sync {
 Four implementations are provided:
 
 | Type                    | Module             | Use Case                              |
-|:------------------------|:-------------------|:--------------------------------------|
+| :---------------------- | :----------------- | :------------------------------------ |
 | `MainlineDhtKv`         | `hubert::mainline` | Fast, lightweight DHT storage (≤1 KB) |
 | `IpfsKv`                | `hubert::ipfs`     | Large capacity storage (up to ~10 MB) |
 | `HybridKv`              | `hubert::hybrid`   | Automatic size-based routing          |
@@ -305,7 +325,7 @@ Four implementations are provided:
 
 All backends enforce write-once semantics: `put` fails with `Error::AlreadyExists` if the ARID has already been written. The `get` method polls until the value appears or the timeout expires. The `ttl` parameter controls IPNS record lifetime or server-side retention; `pin` requests IPFS pinning for persistence.
 
-### Command-Line Tool
+### 4.2 Command-Line Tool
 
 The `hubert` binary provides subcommands for all storage operations:
 
@@ -345,7 +365,7 @@ hubert server --sqlite ./hubert.sqlite --port 45678
 
 All ARID and Envelope arguments use [UR encoding](https://github.com/BlockchainCommons/research/blob/master/papers/bcr-2020-005-ur.md) (`ur:arid/...` and `ur:envelope/...`).
 
-### Error Handling
+### 4.3 Error Handling
 
 The library uses a single `Error` enum covering all failure modes:
 
@@ -357,3 +377,247 @@ The library uses a single `Error` enum covering all failure modes:
 - `Timeout`: Operation exceeded time limit
 
 The CLI exits with non-zero status on errors and prints diagnostics to stderr. Use `--verbose` for detailed logging of network operations.
+
+## 5. Use Case: FROST Threshold Signing
+
+The [`frost-hubert`](https://github.com/BlockchainCommons/frost-hubert-rust) crate demonstrates Hubert's capabilities in a real-world application: coordinating FROST threshold signature ceremonies without a centralized server. This section walks through the three phases of a FROST signing group's lifecycle: registry setup, distributed key generation (DKG), and signing.
+
+### 5.1 Overview
+
+FROST (Flexible Round-Optimized Schnorr Threshold signatures) allows a group of $n$ participants to generate a shared public key such that any $t$ of them (where $t \leq n$) can collaboratively produce a valid Schnorr signature. The resulting signature is indistinguishable from one produced by a single signer. No participant ever possesses the complete private key.
+
+The protocol requires multiple rounds of message exchange:
+
+- **Distributed Key Generation (DKG)**: Three rounds to establish key shares
+- **Signing**: Two rounds plus finalization to produce a threshold signature
+
+Hubert provides the coordination substrate: participants publish encrypted messages to ARID-addressed dead-drops, allowing asynchronous, serverless communication. The `frost-hubert` CLI tool (`frost`) orchestrates the protocol, managing local state and Hubert interactions.
+
+**Crate documentation:** [docs.rs/frost-hubert](https://docs.rs/frost-hubert)
+
+**Source repository:** [github.com/BlockchainCommons/frost-hubert-rust](https://github.com/BlockchainCommons/frost-hubert-rust)
+
+### Phase 1: Registry Setup
+
+Before any cryptographic ceremony, participants must establish mutual knowledge of each other's identities. Each participant generates a XID Document containing their public signing and encryption keys, then exchanges these documents through an out-of-band secure channel (e.g., Signal, in-person QR code exchange).
+
+Each participant maintains a local *registry* that maps XID identifiers to pet names and stores group membership. The registry holds:
+
+- **Owner record**: The participant's own private XID document (containing private keys)
+- **Participant records**: Other parties' signed public XID documents
+- **Group records**: Metadata for FROST groups (threshold, charter, key material)
+
+```mermaid
+sequenceDiagram
+    participant S as Signal
+    actor A as Alice
+    actor B as Bob
+    actor C as Carol
+    actor D as Dan
+
+    A->>S: XIDDocument(A)
+    B->>S: XIDDocument(B)
+    C->>S: XIDDocument(C)
+    D->>S: XIDDocument(D)
+
+    S->>A: XIDDocument(B)<br/>XIDDocument(C)<br/>XIDDocument(D)
+    S->>B: XIDDocument(A)<br/>XIDDocument(C)<br/>XIDDocument(D)
+    S->>C: XIDDocument(A)<br/>XIDDocument(B)<br/>XIDDocument(D)
+    S->>D: XIDDocument(A)<br/>XIDDocument(B)<br/>XIDDocument(C)
+```
+
+After this exchange, each participant's registry contains the public keys of all others. The registry is purely local; Hubert is not involved in this phase. Trust is established through the out-of-band channel's security properties.
+
+### Phase 2: Distributed Key Generation
+
+DKG establishes a 2-of-3 (or $t$-of-$n$) threshold signing group. One participant acts as *coordinator* (Alice in this example), orchestrating the ceremony. The coordinator role is administrative, not privileged: the coordinator never gains access to other participants' private key shares. Although in our examples Alice is exclusively the coordinator, technically nothing prevents her from also simultaneously participating as a regular member of the group.
+
+The DKG protocol proceeds in three rounds, each using Hubert dead-drops for message exchange:
+
+**Round 1 — Commitment**: The coordinator creates a multicast `dkgInvite` containing the group parameters (threshold, charter, participant list) and posts it to a single ARID. Each invite entry includes a per-participant encrypted response ARID, ensuring that the invited participants can only see their own response ARID and not those belonging to other participants. The coordinator shares the invite ARID out-of-band. Participants fetch the invite, generate their Round 1 commitments (hiding and binding values with proof of knowledge), and post responses to their assigned response ARIDs. This is the only multicast message, and allows all participants to receive and approve the same initial information, including a string describing the groups charter, and the XID documents of the other invited participants, which should all already exist in the participant's registries.
+
+**Round 2 — Secret Sharing**: The coordinator collects Round 1 responses, aggregates all commitments, and sends each participant a `dkgRound2` request containing the full commitment set. Participants verify the commitments, compute their Round 2 secret shares for each other participant, and post responses. In this phase, each participant receives shares from all others via the coordinator.
+
+**Finalize — Key Package Generation**: The coordinator collects Round 2 responses and sends `dkgFinalize` packages containing each participant's received shares. Participants run FROST's `part3` to derive their key package (private signing share) and the public key package (group verifying key). All participants independently arrive at the same group public key.
+
+```mermaid
+sequenceDiagram
+    participant S as Signal
+    participant H as Hubert<br/>(Dead Drop)
+    actor A as Alice<br/>(Coordinator)
+    actor B as Bob
+    actor C as Carol
+    actor D as Dan
+
+    note over A: dkg coordinator invite
+    A->>H: dkgInvite(B, C, D)
+    A->>S: invite ARID
+    S->>B: invite ARID
+    S->>C: invite ARID
+    S->>D: invite ARID
+
+    note over B: dkg participant receive
+    H->>B: dkgInvite(B, C, D)
+
+    note over C: dkg participant receive
+    H->>C: dkgInvite(B, C, D)
+
+    note over D: dkg participant receive
+    H->>D: dkgInvite(B, C, D)
+
+    note over B: dkg participant round1
+    B->>H: dkgRound1Response(B)
+
+    note over C: dkg participant round1
+    C->>H: dkgRound1Response(C)
+
+    note over D: dkg participant round1
+    D->>H: dkgRound1Response(D)
+
+    note over A: dkg coordinator round1
+    H->>A: dkgRound1Response(B)<br/>dkgRound1Response(C)<br/>dkgRound1Response(D)
+    A->>H: dkgRound2(B)<br/>dkgRound2(C)<br/>dkgRound2(D)
+
+    note over B: dkg participant round2
+    H->>B: dkgRound2(B)
+    B->>H: dkgRound2Response(B)
+
+    note over C: dkg participant round2
+    H->>C: dkgRound2(C)
+    C->>H: dkgRound2Response(C)
+
+    note over D: dkg participant round2
+    H->>D: dkgRound2(D)
+    D->>H: dkgRound2Response(D)
+
+    note over A: dkg coordinator round2
+    H->>A: dkgRound2Response(B)<br/>dkgRound2Response(C)<br/>dkgRound2Response(D)
+    A->>H: dkgFinalize(B)<br/>dkgFinalize(C)<br/>dkgFinalize(D)
+
+    note over B: dkg participant finalize
+    H->>B: dkgFinalize(B)
+    B->>H: dkgFinalizeResponse(B)
+
+    note over C: dkg participant finalize
+    H->>C: dkgFinalize(C)
+    C->>H: dkgFinalizeResponse(C)
+
+    note over D: dkg participant finalize
+    H->>D: dkgFinalize(D)
+    D->>H: dkgFinalizeResponse(D)
+
+    note over A: dkg coordinator finalize
+    H->>A: dkgFinalizeResponse(B)<br/>dkgFinalizeResponse(C)<br/>dkgFinalizeResponse(D)
+```
+
+At completion, each participant holds:
+
+- A **key package** containing their private signing share and the group's threshold
+- A **public key package** containing the group verifying key and each participant's verifying share
+
+The group verifying key can be published; signatures made by any $t$ participants will verify against it. The private signing shares never leave individual participants' devices.
+
+### Phase 3: Signing
+
+To sign a target envelope, the coordinator initiates a signing session. The target is typically a wrapped Gordian Envelope containing the message or transaction to be authorized.
+
+**Round 1 — Commitments**: The coordinator posts a `signInvite` containing the target envelope, session ID, and participant list. Participants fetch the invite, generate signing commitments (hiding and binding nonces), and post `signRound1Response` messages. Like the DKG phase, this multicast message ensures all participants receive and approve the same initial information, including the envelope to be signed.
+
+**Round 2 — Signature Shares**: The coordinator collects commitments and sends each participant a `signRound2` request containing all commitments. Participants compute their signature shares using their key package and the commitment set, then post `signRound2Response` messages.
+
+**Finalize — Aggregation**: The coordinator collects signature shares, aggregates them into the final Schnorr signature, verifies it against the group public key, and sends `signFinalize` packages to all participants. Each participant can independently verify and attach the signature to their copy of the target envelope.
+
+```mermaid
+sequenceDiagram
+    participant S as Signal
+    participant H as Hubert<br/>(Dead Drop)
+    actor A as Alice<br/>(Coordinator)
+    actor B as Bob
+    actor C as Carol
+    actor D as Dan
+
+    note over A: sign coordinator invite
+    A->>H: signInvite(B, C, D)
+    A->>S: invite ARID
+    S->>B: invite ARID
+    S->>C: invite ARID
+    S->>D: invite ARID
+
+    note over B: sign participant receive
+    H->>B: signInvite(B, C, D)
+
+    note over C: sign participant receive
+    H->>C: signInvite(B, C, D)
+
+    note over D: sign participant receive
+    H->>D: signInvite(B, C, D)
+
+    note over B: sign participant round1
+    B->>H: signRound1Response(B)
+
+    note over C: sign participant round1
+    C->>H: signRound1Response(C)
+
+    note over D: sign participant round1
+    D->>H: signRound1Response(D)
+
+    note over A: sign coordinator round1
+    H->>A: signRound1Response(B)<br/>signRound1Response(C)<br/>signRound1Response(D)
+    A->>H: signRound2(B)<br/>signRound2(C)<br/>signRound2(D)
+
+    note over B: sign participant round2
+    H->>B: signRound2(B)
+    B->>H: signRound2Response(B)
+
+    note over C: sign participant round2
+    H->>C: signRound2(C)
+    C->>H: signRound2Response(C)
+
+    note over D: sign participant round2
+    H->>D: signRound2(D)
+    D->>H: signRound2Response(D)
+
+    note over A: sign coordinator round2
+    H->>A: signRound2Response(B)<br/>signRound2Response(C)<br/>signRound2Response(D)
+    A->>H: signFinalize(B)<br/>signFinalize(C)<br/>signFinalize(D)
+
+    note over B: sign participant finalize
+    H->>B: signFinalize(B)
+
+    note over C: sign participant finalize
+    H->>C: signFinalize(C)
+
+    note over D: sign participant finalize
+    H->>D: signFinalize(D)
+```
+
+The final signature is a standard Ed25519 Schnorr signature. Verifiers need only the group public key; they cannot distinguish a threshold signature from a single-party signature, nor can they determine which subset of participants contributed.
+
+### Message Structure
+
+All messages in the FROST protocol are GSTP (Gordian Sealed Transaction Protocol) envelopes:
+
+- **Requests** from the coordinator are encrypted to each recipient's public key and signed by the coordinator
+- **Responses** from participants are encrypted to the coordinator and signed by the participant
+- **Events** (specifically `signFinalize`) are one-way notifications that do not require a response; they are encrypted and signed like requests but use GSTP's `SealedEvent` type
+- **ARIDs** for response collection are generated fresh for each message and encrypted to the intended recipient
+
+This layering provides:
+
+1. **Confidentiality**: Only the intended recipient can decrypt the message. Only intended responders can see their own response ARIDs.
+2. **Authenticity**: Signatures prove message origin
+3. **Unlinkability**: Each ARID is used once; observers cannot correlate messages across rounds
+
+Hubert adds the obfuscation layer: stored blobs appear as uniform random bytes, and storage locations are derived from secret ARIDs rather than content hashes.
+
+### Operational Considerations
+
+**Asynchrony**: Participants need not be online simultaneously. The coordinator posts messages and waits (polling) for responses. Participants fetch requests whenever convenient and post responses. DHT entries persist for approximately 2 hours; longer ceremonies should use IPFS with pinning enabled, or the local server backend.
+
+> **Future work.** Automatic DHT re-announcement (republishing entries before they expire) would extend persistence for ceremonies spanning many hours. For IPFS, pinning already provides indefinite persistence; pinning could be the default for protocols where messages must remain retrievable.
+
+**Coordinator rotation**: The coordinator role can transfer between sessions. Any participant with a complete registry can coordinate a signing ceremony.
+
+**Partial participation**: Only $t$ of $n$ participants need respond for a signing ceremony to complete. The coordinator can proceed once the threshold is met, though `frost-hubert` currently waits for all invited participants.
+
+**State persistence**: The `frost` CLI maintains per-group state in JSON files under `group-state/`. This includes collected packages, pending ARIDs, and generated key material. State survives process restarts, enabling long-running ceremonies across disconnected sessions.
