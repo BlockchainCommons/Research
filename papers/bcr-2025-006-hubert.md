@@ -44,11 +44,20 @@ Key design properties include:
     - [4.3 Error Handling](#43-error-handling)
   - [5. Use Case: FROST Threshold Signing](#5-use-case-frost-threshold-signing)
     - [5.1 Overview](#51-overview)
-    - [Phase 1: Registry Setup](#phase-1-registry-setup)
-    - [Phase 2: Distributed Key Generation](#phase-2-distributed-key-generation)
-    - [Phase 3: Signing](#phase-3-signing)
-    - [Message Structure](#message-structure)
-    - [Operational Considerations](#operational-considerations)
+    - [5.2: Phase 1: Registry Setup](#52-phase-1-registry-setup)
+    - [5.3: Phase 2: Distributed Key Generation](#53-phase-2-distributed-key-generation)
+    - [5.3: Phase 3: Signing](#53-phase-3-signing)
+    - [5.4: Message Structure](#54-message-structure)
+    - [5.5: Operational Considerations](#55-operational-considerations)
+  - [6. Future Backends](#6-future-backends)
+    - [6.1 Backend Models](#61-backend-models)
+    - [6.2 Candidate Technologies](#62-candidate-technologies)
+      - [6.2.1 Public Blockchain Inscriptions](#621-public-blockchain-inscriptions)
+      - [6.2.2 Satellite Broadcast](#622-satellite-broadcast)
+      - [6.2.3 LoRa Mesh Networks](#623-lora-mesh-networks)
+      - [6.2.4 HF Radio](#624-hf-radio)
+      - [6.2.5 Sneakernet and Physical Media](#625-sneakernet-and-physical-media)
+      - [6.2.6 LEO Satellite Services](#626-leo-satellite-services)
 
 ---
 
@@ -257,6 +266,10 @@ Hubert provides defense in depth through layered protections, but operates withi
 
 **Write-once integrity.** Once published, a message cannot be modified or replaced. The BEP-44 sequence number mechanism and Hubert's IPNS policy layer enforce this at the protocol level.
 
+**Local State Minimization.** GSTP implements Encrypted State Continuations (ESC) to minimize local state storage. When a sender needs to preserve private context across a request-response cycle, they encrypt this state to their own public key and embed it as a *sender continuation* in the outgoing message. The recipient cannot decrypt this continuation and must return it unaltered in their response. When the sender receives the response, they decrypt their own continuation to recover the original context. Continuations may include an expiration timestamp and, for requests, the request ID—allowing the sender to detect replay attacks and expired sessions without maintaining any local state. This pattern is particularly valuable for horizontally-scaled services and resource-constrained devices: the sender's state "travels with the message" rather than accumulating in local storage or database backends. For multi-step protocols like FROST DKG, ESC allows coordinators to track pending participants and collected packages without persisting session state locally between rounds.
+
+Note that in the current `frost-hubert` implementation described later in this paper, we do not currently use ESC except for storing a date beyond which a response is considered invalid and the expected response ID. These are built-in features of the GSTP implementation.
+
 ### 3.2 What Hubert Does Not Protect
 
 **IP address exposure.** Participating in DHT or IPFS networks exposes your IP address to peers you interact with. During a Kademlia lookup, you contact roughly 60 distinct nodes (approximately $\alpha \cdot \log_2 N$ with typical parameters). Any of these nodes can log your IP, the storage key you queried or announced, and the timestamp. The Mainline DHT has tens of millions of concurrent nodes; even a well-resourced attacker can only operate a small fraction. The probability that at least one of the ~60 nodes you contact is logging depends on the attacker's coverage:
@@ -401,7 +414,7 @@ Hubert provides the coordination substrate: participants publish encrypted messa
 
 **Source repository:** [github.com/BlockchainCommons/frost-hubert-rust](https://github.com/BlockchainCommons/frost-hubert-rust)
 
-### Phase 1: Registry Setup
+### 5.2: Phase 1: Registry Setup
 
 Before any cryptographic ceremony, participants must establish mutual knowledge of each other's identities. Each participant generates a XID Document containing their public signing and encryption keys, then exchanges these documents through an out-of-band secure channel (e.g., Signal, in-person QR code exchange).
 
@@ -432,7 +445,7 @@ sequenceDiagram
 
 After this exchange, each participant's registry contains the public keys of all others. The registry is purely local; Hubert is not involved in this phase. Trust is established through the out-of-band channel's security properties.
 
-### Phase 2: Distributed Key Generation
+### 5.3: Phase 2: Distributed Key Generation
 
 DKG establishes a $t$ of $n$ threshold signing group. One participant acts as *coordinator* (Alice in this example), orchestrating the ceremony. The coordinator role is administrative, not privileged: the coordinator never gains access to other participants' private key shares. Although in our examples Alice is exclusively the coordinator, technically nothing prevents her from also simultaneously participating as a regular member of the group.
 
@@ -521,7 +534,7 @@ At completion, each participant holds:
 
 The group verifying key can be published; signatures made by any $t$ participants will verify against it. The private signing shares never leave individual participants' devices.
 
-### Phase 3: Signing
+### 5.3: Phase 3: Signing
 
 To sign a target envelope, the coordinator initiates a signing session. The target is typically a wrapped Gordian Envelope containing the message or transaction to be authorized.
 
@@ -597,7 +610,7 @@ sequenceDiagram
 
 The final signature is a standard Ed25519 Schnorr signature. Verifiers need only the group public key; they cannot distinguish a threshold signature from a single-party signature, nor can they determine which subset of participants contributed.
 
-### Message Structure
+### 5.4: Message Structure
 
 All messages in the FROST protocol are GSTP (Gordian Sealed Transaction Protocol) envelopes:
 
@@ -614,7 +627,7 @@ This layering provides:
 
 Hubert adds the obfuscation layer: stored blobs appear as uniform random bytes, and storage locations are derived from secret ARIDs rather than content hashes.
 
-### Operational Considerations
+### 5.5: Operational Considerations
 
 **Asynchrony**: Participants need not be online simultaneously. The coordinator posts messages and waits (polling) for responses. Participants fetch requests whenever convenient and post responses. DHT entries persist for approximately 2 hours; longer ceremonies should use IPFS with pinning enabled, or the local server backend.
 
@@ -625,3 +638,83 @@ Hubert adds the obfuscation layer: stored blobs appear as uniform random bytes, 
 **Partial participation**: Only $t$ of $n$ participants need respond for a signing ceremony to complete. The coordinator can proceed once the threshold is met, though `frost-hubert` currently waits for all invited participants.
 
 **State persistence**: The `frost` CLI maintains per-group state in JSON files under `group-state/`. This includes collected packages, pending ARIDs, and generated key material. State survives process restarts, enabling long-running ceremonies across disconnected sessions.
+
+## 6. Future Backends
+
+Hubert's abstraction layer is intentionally agnostic to the underlying transport, enabling future deployments to integrate additional channels as modular backends. This section examines candidate technologies and the architectural constraints they must satisfy.
+
+### 6.1 Backend Models
+
+Hubert's current backends (DHT, IPFS, local server) share a common operational model:
+
+1. Sender generates an ARID and derives a storage location
+2. Sender writes the message to that location
+3. Recipient queries: "give me the value at location X"
+4. Network returns the stored value
+
+The ARID functions as an *address*. Recipients can query at any time after publication, and the network handles storage and retrieval. This is the **query-addressable** model. DHT, IPFS, blockchain inscriptions, and any key-value store fit this model and support Hubert's current API directly.
+
+Many promising communication substrates operate differently. Satellite broadcasts, mesh radio networks, and HF transmissions flood messages to all participants; there is no "location" to query. Recipients must monitor the stream and filter for messages obfuscated by keys derived from their ARIDs. If a recipient is not listening when the message transmits, it is lost unless someone archives the stream. This is the **broadcast-filter** model.
+
+Both models are valid dead-drop architectures, but they have fundamentally different operational semantics:
+
+| Property           | Query-Addressable                           | Broadcast-Filter                                                              |
+| :----------------- | :------------------------------------------ | :---------------------------------------------------------------------------- |
+| Recipient liveness | Query at any time within persistence window | Must be online during transmission (or use proxy)                             |
+| Sender cost        | Single write; network handles storage       | Repeated transmissions until TTL expires                                      |
+| Persistence        | Stored on distributed nodes                 | "Persistence" means repeated broadcast                                        |
+| Bandwidth          | Higher on receiver (active polling)         | Higher on sender (repeated transmission) and receiver (continuous monitoring) |
+
+Hubert's API could be extended to accommodate broadcast-filter backends:
+
+```rust
+// Query-addressable (current)
+put(arid, envelope, ttl, pin)       // Write once to derived location
+get(arid, timeout)                  // Poll until found or timeout
+
+// Broadcast-filter (extended)
+put(arid, envelope, interval, ttl)  // Transmit every `interval` for `ttl` duration
+get(arid, timeout)                  // Filter incoming stream until match or timeout
+```
+
+Both categories preserve the ARID-as-capability model. The security properties (obfuscation to uniform random bytes, GSTP encryption and signing) apply identically. The difference lies in persistence and liveness assumptions: query-addressable backends store data on behalf of the sender, while broadcast-filter backends require the sender to keep transmitting and the recipient to be listening.
+
+### 6.2 Candidate Technologies
+
+#### 6.2.1 Public Blockchain Inscriptions
+
+Blockchain inscriptions fit the query-addressable model natively. The ARID derives a Bitcoin address (via HKDF, following the same pattern as DHT key derivation); the sender creates a transaction with the payload in OP_RETURN data attached to that address. Recipients query any blockchain indexer for transactions involving the derived address. The chain itself is the storage; the address is the lookup key. Write-once semantics are inherent (blockchain is append-only). Persistence is perpetual. The derived address has no corresponding private key (the ARID-derived bytes are not a valid keypair), so any value sent to it is permanently unspendable—effectively burned. For OP_RETURN outputs this is moot (they carry zero value by design), but implementations should use OP_RETURN rather than pay-to-address patterns to avoid unnecessary coin burning.
+
+Capacity is severely constrained: OP_RETURN allows approximately 80 bytes, sufficient only for an ARID (32 bytes) plus minimal metadata. For larger payloads, a blockchain backend could use indirection: the on-chain transaction stores a reference ARID pointing to the actual envelope stored elsewhere. However, permanence creates a tension here. Blockchain data is immutable and perpetually persistent, but the referenced backend may be ephemeral—DHT entries expire in hours, IPNS records in days. A permanent on-chain pointer to ephemeral off-chain storage produces a dangling reference once the off-chain data expires. This limits the indirection pattern to backends with comparable persistence guarantees (e.g., pinned IPFS content with long-term hosting commitments). For truly permanent archival, the payload should be stored on-chain directly via Ordinals or similar inscription protocols, which can store larger payloads (up to ~400 KB split across multiple transactions) at proportionally higher cost.
+
+Additional constraints include fee volatility and 10+ minute confirmation latency. This backend suits high-value, low-frequency coordination where persistence and tamper-evidence outweigh cost and latency concerns, such as anchoring the final output of a FROST signing ceremony as an immutable public record.
+
+> **Ordinals:** A Bitcoin protocol that assigns serial numbers to individual satoshis based on their order of creation, enabling tracking of specific satoshis across transactions. The Ordinals ecosystem includes *inscriptions*, which embed arbitrary data (images, text, code) into Bitcoin transactions by storing content in witness data. Unlike OP_RETURN, inscriptions can span multiple transactions and store hundreds of kilobytes, though at significant fee cost. The data becomes permanently part of the blockchain, retrievable by any node that indexes inscription content.
+
+#### 6.2.2 Satellite Broadcast
+
+Satellite broadcasts fit the broadcast-filter model. Senders pay to inject messages into the broadcast stream; recipients monitor and filter for messages matching their ARIDs. The operational model inverts typical assumptions: transmission is costly and one-way, but reception is free, anonymous, and requires no return path. This architecture suits scenarios where recipients must remain entirely passive, unable or unwilling to emit any RF signature. The main limitation is that Blockstream does not archive transmissions; "persistence" requires repeated paid broadcasts or a trusted recording proxy.
+
+> **Blockstream Satellite:** A service that broadcasts the Bitcoin blockchain and user-submitted messages via geostationary satellites covering most of the world's population. The broadcast uses DVB-S2 modulation on Ku-band and C-band frequencies. Anyone with a small satellite dish (~45–100 cm) and an inexpensive SDR receiver can receive the stream without internet connectivity and without revealing their location or interest to any network. Users can pay (in Bitcoin via Lightning) to have arbitrary messages up to several kilobytes included in the broadcast. The service provides censorship-resistant, globally accessible one-way communication.
+
+#### 6.2.3 LoRa Mesh Networks
+
+LoRa networks fit the broadcast-filter model. Messages flood across ad-hoc mesh topologies; nodes do not provide query-by-key semantics. A Hubert backend would interpret `put` as injecting a message with hop-limited flooding and `get` as filtering local mesh traffic for a matching ARID. Persistence depends on mesh node buffers; messages may expire after hours. This backend excels in disaster-recovery, rural, or maritime scenarios where participants must coordinate without infrastructure.
+
+> **LoRa: Long Range—** a spread-spectrum radio modulation technique designed for low-power, long-distance communication in unlicensed ISM bands (typically 868 MHz in Europe, 915 MHz in North America). LoRa trades bandwidth for range: data rates are extremely limited (0.3–50 kbps depending on spreading factor and regulatory constraints), but transmissions can reach 10+ km line-of-sight with milliwatt-level power. LoRa is the physical layer; higher-level protocols like LoRaWAN (for IoT sensor networks) and Meshtastic (for mesh messaging) build on top of it.
+
+> **Meshtastic:** An open-source project that implements encrypted mesh messaging over LoRa radios. Inexpensive hardware (typically $20–50 per node) forms ad-hoc networks where messages propagate via store-and-forward flooding. Nodes can operate for days on battery power. The protocol supports text messaging, GPS location sharing, and telemetry. Meshtastic networks require no Internet connectivity and no central infrastructure—any node can relay messages for any other node within radio range.
+
+#### 6.2.4 HF Radio
+
+HF radio fits the broadcast-filter model with no storage whatsoever. If the recipient is not listening when the message transmits, it is gone. Coordination would require scheduled transmission windows and recipient discipline. HF provides truly global reach, but the operational demands are significant.
+
+> **HF (High Frequency) Radio:** Radio transmissions in the 3–30 MHz band, also called shortwave. Unlike VHF/UHF signals that travel line-of-sight, HF signals reflect off the ionosphere (*skywave propagation*), enabling communication over thousands of kilometers without satellites or internet infrastructure. HF is used by amateur radio operators, military communications, aviation, and maritime services. Propagation conditions vary with solar activity, time of day, and frequency selection; reliable communication requires operator skill. Modern digital modes (FT8, JS8Call, Winlink) enable low-bandwidth data transfer over HF with error correction.
+
+#### 6.2.5 Sneakernet and Physical Media
+
+Physical storage media (USB drives, NFC tags) fit the query-addressable model: the filesystem or tag stores files named by ARID-derived identifiers, and recipients can read at any time. QR codes fit the broadcast-filter model: they must be displayed when the recipient is present to scan them. Both require physical-layer protocols outside Hubert's network abstraction—dead-drops, live-drops, or in-person exchange—with out-of-band coordination about *where the medium is located*. The ARID tells the recipient which file to read or which QR code to accept; it does not tell them which USB drive to find or which wall to scan.
+
+#### 6.2.6 LEO Satellite Services
+
+LEO satellite services (Iridium SBD, Starlink, etc.) are point-to-point messaging systems, not broadcast or storage networks. Using them as a Hubert backend would require a relay server that receives messages and stores them in an addressable way, at which point you have simply built a local server backend with a satellite uplink. This adds latency and cost without adding decentralization.
