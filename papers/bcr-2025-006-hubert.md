@@ -15,13 +15,13 @@ Hubert is a distributed key-value storage protocol designed to facilitate secure
 
 The protocol addresses the centralization vulnerability inherent in traditional secure messaging: even with end-to-end encryption, centralized servers observe the social graph of who communicates with whom. Hubert hardens this visibility by implementing a "cryptographic dead-drop" architecture where decentralized storage networks processes only encrypted binary blobs and derived keys, gaining no insight into the sender, receiver, or content. All stored data is obfuscated and appears uniform random bytes to network observers.
 
-Key design properties include:
+Design properties include:
 
-- **Serverless Operation**: No single entity controls message flow or retains user logs.
-- **Asynchronous Communication**: Participants need not be online simultaneously.
-- **Network Opacity**: Storage networks see only random data blobs, never metadata.
-- **Write-Once Semantics**: Each storage location is written exactly once, ensuring message immutability and eliminating race conditions.
-- **Automatic Size Routing**: Hubert supports the BitTorrent Mainline Distributed Hash Table (DHT) and the Interplanetary File System (IPFS). These storage layers can be used independently or together via a hybrid storage that routes small messages (≤1 KB) through DHT for speed, and large messages through IPFS.
+- Serverless Operation: No single entity controls message flow or retains user logs.
+- Asynchronous Communication: Participants need not be online simultaneously.
+- Network Opacity: Storage networks see only random data blobs, never metadata.
+- Write-Once Semantics: Each storage location is written exactly once, ensuring message immutability and eliminating race conditions.
+- Automatic Size Routing: Supports a hybrid storage that routes small messages (≤1 KB) through DHT for speed, and large messages through IPFS.
 
 ## Table of Contents
 
@@ -150,17 +150,17 @@ Hubert's design emerges from four core principles that inform every aspect of th
 
 Each ARID maps to exactly one storage location that can be written exactly once. Subsequent attempts to write to the same ARID fail with an error. This design avoids an entire class of problems:
 
-- **No race conditions**: Two parties cannot simultaneously write conflicting values.
-- **No versioning complexity**: There are no sequence numbers to track, no conflict resolution to implement, no "last write wins" ambiguity.
-- **Immutability guarantees**: Once published, a message cannot be modified or replaced by anyone, including the original author.
-- **Simplified security model**: The capability to write is exercised once and consumed.
+- No race conditions: Two parties cannot simultaneously write conflicting values.
+- No versioning complexity: There are no sequence numbers to track, no conflict resolution to implement, no "last write wins" ambiguity.
+- Immutability guarantees: Once published, a message cannot be modified or replaced by anyone, including the original author.
+- Simplified security model: The capability to write is exercised once and consumed.
 
 At their core, both the BitTorrent Mainline DHT and IPFS are *content-addressed* systems. In BitTorrent, files are identified by their *infohash*: a SHA-1 hash of the torrent's metadata. In IPFS, content is identified by its *CID* (Content IDentifier): a hash of the content itself. These identifiers are immutable by construction, so if the content changes the hash must also change, producing an entirely different address. This property makes content-addressed storage ideal for verifiable, tamper-evident data, but it binds the *key* to the *value* the key points to. This creates a challenge for coordination: how do you tell someone where to find a message (the *key*) before you know what the message (the *value*) will be?
 
 Both systems solve this by offering a *mutable* layer built atop the immutable foundation:
 
-- **BEP-44 mutable items** for DHT: content addressed by a cryptographic public key rather than content hash
-- **IPNS** for IPFS: content addressed by a peer ID derived from a key pair, which can point to different CIDs over time
+- BEP-44 mutable items for DHT: content addressed by a cryptographic public key rather than content hash
+- IPNS for IPFS: content addressed by a peer ID derived from a key pair, which can point to different CIDs over time
 
 These are designed to allow content at a fixed address to be updated over time. Hubert repurposes these mutable features to create *immutable* write-once storage by constraining how they are used:
 
@@ -203,10 +203,10 @@ For DHT, Hubert derives an Ed25519 signing key; its public half becomes the stor
 
 All stored values are Gordian Envelopes, not arbitrary byte sequences. This constraint provides structural guarantees:
 
-- **Deterministic serialization**: Envelopes use dCBOR (deterministic CBOR), ensuring identical byte representations for identical semantics across implementations.
-- **Intrinsic integrity**: Every envelope contains a Merkle-like digest tree, allowing recipients to verify structural integrity without external metadata.
-- **Composable security**: Envelopes natively support encryption, compression, signatures, and holder-based elision.
-- **Semantic structure**: Envelopes can represent assertions, hierarchies, and typed data rather than opaque blobs.
+- Deterministic serialization: Envelopes use dCBOR (deterministic CBOR), ensuring identical byte representations for identical semantics across implementations.
+- Intrinsic integrity: Every envelope contains a Merkle-like digest tree, allowing recipients to verify structural integrity without external metadata.
+- Composable security: Envelopes natively support encryption, compression, signatures, and holder-based elision.
+- Semantic structure: Envelopes can represent assertions, hierarchies, and typed data rather than opaque blobs.
 
 By requiring Envelope values, Hubert inherits these properties without reimplementing them.
 
@@ -214,9 +214,9 @@ By requiring Envelope values, Hubert inherits these properties without reimpleme
 
 The ARID model inverts traditional access control. Rather than "who are you and what are you allowed to do?", Hubert asks "what capability token do you hold?" The ARID itself is the authorization, a bearer token that grants access to whoever possesses it:
 
-- **No accounts or identity**: The storage network never learns who you are. Authorization is possession of the ARID, not authentication against an identity provider.
-- **Delegable**: Sharing an ARID grants the recipient the same capabilities you have.
-- **Ephemeral**: Each ARID is used once; there is no long-lived identity to track or compromise.
+- No accounts or identity: The storage network never learns who you are. Authorization is possession of the ARID, not authentication against an identity provider.
+- Delegable: Sharing an ARID grants the recipient the same capabilities you have.
+- Ephemeral: Each ARID is used once; there is no long-lived identity to track or compromise.
 
 ### 2.4 Transport Agnosticism
 
@@ -266,7 +266,7 @@ Hubert provides defense in depth through layered protections, but operates withi
 
 **Write-once integrity.** Once published, a message cannot be modified or replaced. The BEP-44 sequence number mechanism and Hubert's IPNS policy layer enforce this at the protocol level.
 
-**Local State Minimization.** GSTP implements Encrypted State Continuations (ESC) to minimize local state storage. When a sender needs to preserve private context across a request-response cycle, they encrypt this state to their own public key and embed it as a *sender continuation* in the outgoing message. The recipient cannot decrypt this continuation and must return it unaltered in their response. When the sender receives the response, they decrypt their own continuation to recover the original context. Continuations may include an expiration timestamp and, for requests, the request ID—allowing the sender to detect replay attacks and expired sessions without maintaining any local state. This pattern is particularly valuable for horizontally-scaled services and resource-constrained devices: the sender's state "travels with the message" rather than accumulating in local storage or database backends. For multi-step protocols like FROST DKG, ESC allows coordinators to track pending participants and collected packages without persisting session state locally between rounds.
+**Local State Minimization.** GSTP implements Encrypted State Continuations (ESC) to minimize local state storage. When a sender needs to preserve private context across a request-response cycle, they encrypt this state to their own public key and embed it as a *sender continuation* in the outgoing message. The recipient cannot decrypt this continuation and must return it unaltered in their response. When the sender receives the response, they decrypt their own continuation to recover the original context. Continuations may include an expiration timestamp and, for requests, the request ID. This allows the sender to detect replay attacks and expired sessions without maintaining any local state. This pattern is particularly valuable for horizontally-scaled services and resource-constrained devices: the sender's state "travels with the message" rather than accumulating in local storage or database backends. For multi-step protocols like FROST DKG, ESC allows coordinators to track pending participants and collected packages without persisting session state locally between rounds.
 
 Note that in the current `frost-hubert` implementation described later in this paper, we do not currently use ESC except for storing a date beyond which a response is considered invalid and the expected response ID. These are built-in features of the GSTP implementation.
 
@@ -405,8 +405,8 @@ FROST (Flexible Round-Optimized Schnorr Threshold signatures) allows a group of 
 
 The protocol requires multiple rounds of message exchange:
 
-- **Distributed Key Generation (DKG)**: Three rounds to establish key shares
-- **Signing**: Two rounds plus finalization to produce a threshold signature
+- Distributed Key Generation (DKG): Three rounds to establish key shares
+- Signing: Two rounds plus finalization to produce a threshold signature
 
 Hubert provides the coordination substrate: participants publish encrypted messages to ARID-addressed dead-drops, allowing asynchronous, serverless communication. The `frost-hubert` CLI tool (`frost`) orchestrates the protocol, managing local state and Hubert interactions.
 
@@ -420,9 +420,9 @@ Before any cryptographic ceremony, participants must establish mutual knowledge 
 
 Each participant maintains a local *registry* that maps XID identifiers to pet names and stores group membership. The registry holds:
 
-- **Owner record**: The participant's own private XID document (containing private keys)
-- **Participant records**: Other parties' signed public XID documents
-- **Group records**: Metadata for FROST groups (threshold, charter, key material)
+- Owner record: The participant's own private XID document (containing private keys)
+- Participant records: Other parties' signed public XID documents
+- Group records: Metadata for FROST groups (threshold, charter, key material)
 
 ```mermaid
 sequenceDiagram
@@ -683,9 +683,9 @@ Both categories preserve the ARID-as-capability model. The security properties (
 
 #### 6.2.1 Public Blockchain Inscriptions
 
-Blockchain inscriptions fit the query-addressable model natively. The ARID derives a Bitcoin address (via HKDF, following the same pattern as DHT key derivation); the sender creates a transaction with the payload in OP_RETURN data attached to that address. Recipients query any blockchain indexer for transactions involving the derived address. The chain itself is the storage; the address is the lookup key. Write-once semantics are inherent (blockchain is append-only). Persistence is perpetual. The derived address has no corresponding private key (the ARID-derived bytes are not a valid keypair), so any value sent to it is permanently unspendable—effectively burned. For OP_RETURN outputs this is moot (they carry zero value by design), but implementations should use OP_RETURN rather than pay-to-address patterns to avoid unnecessary coin burning.
+Blockchain inscriptions fit the query-addressable model natively. The ARID derives a Bitcoin address (via HKDF, following the same pattern as DHT key derivation); the sender creates a transaction with the payload in OP_RETURN data attached to that address. Recipients query any blockchain indexer for transactions involving the derived address. The chain itself is the storage; the address is the lookup key. Write-once semantics are inherent (blockchain is append-only). Persistence is perpetual. The derived address has no corresponding private key (the ARID-derived bytes are not a valid keypair), so any value sent to it is permanently unspendable, effectively burned. For OP_RETURN outputs this is moot (they carry zero value by design), but implementations should use OP_RETURN rather than pay-to-address patterns to avoid unnecessary coin burning.
 
-Capacity depends on the approach. OP_RETURN outputs have no consensus-level size limit, but Bitcoin Core's default relay policy limits them to 83 bytes (80 bytes of data plus 3 bytes of script overhead). Larger OP_RETURN transactions are valid and will be mined, but may not propagate through nodes using default settings. An 80-byte payload suffices for an ARID (32 bytes) plus minimal metadata. For larger payloads, a blockchain backend could use indirection: the on-chain transaction stores a reference ARID pointing to the actual envelope stored elsewhere. However, permanence creates a tension here. Blockchain data is immutable and perpetually persistent, but the referenced backend may be ephemeral—DHT entries expire in hours, IPNS records in days. A permanent on-chain pointer to ephemeral off-chain storage produces a dangling reference once the off-chain data expires. This limits the indirection pattern to backends with comparable persistence guarantees (e.g., pinned IPFS content with long-term hosting commitments). For truly permanent archival, the payload should be stored on-chain directly via Ordinals or similar inscription protocols, which can store larger payloads (up to ~400 KB split across multiple transactions) at proportionally higher cost.
+Capacity depends on the approach. OP_RETURN outputs have no consensus-level size limit, but Bitcoin Core's default relay policy limits them to 83 bytes (80 bytes of data plus 3 bytes of script overhead). Larger OP_RETURN transactions are valid and will be mined, but may not propagate through nodes using default settings. An 80-byte payload suffices for an ARID (32 bytes) plus minimal metadata. For larger payloads, a blockchain backend could use indirection: the on-chain transaction stores a reference ARID pointing to the actual envelope stored elsewhere. However, permanence creates a tension here. Blockchain data is immutable and perpetually persistent, but the referenced backend may be ephemeral: DHT entries expire in hours, IPNS records in days. A permanent on-chain pointer to ephemeral off-chain storage produces a dangling reference once the off-chain data expires. This limits the indirection pattern to backends with comparable persistence guarantees (e.g., pinned IPFS content with long-term hosting commitments). For truly permanent archival, the payload should be stored on-chain directly via Ordinals or similar inscription protocols, which can store larger payloads (up to ~400 KB split across multiple transactions) at proportionally higher cost.
 
 Additional constraints include fee volatility and 10+ minute confirmation latency. This backend suits high-value, low-frequency coordination where persistence and tamper-evidence outweigh cost and latency concerns, such as anchoring the final output of a FROST signing ceremony as an immutable public record.
 
@@ -701,19 +701,19 @@ Satellite broadcasts fit the broadcast-filter model. Senders pay to inject messa
 
 LoRa networks fit the broadcast-filter model. Messages flood across ad-hoc mesh topologies; nodes do not provide query-by-key semantics. A Hubert backend would interpret `put` as injecting a message with hop-limited flooding and `get` as filtering local mesh traffic for a matching ARID. Persistence depends on mesh node buffers; messages may expire after hours. This backend excels in disaster-recovery, rural, or maritime scenarios where participants must coordinate without infrastructure.
 
-> **LoRa: Long Range—** a spread-spectrum radio modulation technique designed for low-power, long-distance communication in unlicensed ISM bands (typically 868 MHz in Europe, 915 MHz in North America). LoRa trades bandwidth for range: data rates are extremely limited (0.3–50 kbps depending on spreading factor and regulatory constraints), but transmissions can reach 10+ km line-of-sight with milliwatt-level power. LoRa is the physical layer; higher-level protocols like LoRaWAN (for IoT sensor networks) and Meshtastic (for mesh messaging) build on top of it.
+> **LoRa (Long Range):** A spread-spectrum radio modulation technique designed for low-power, long-distance communication in unlicensed ISM bands (typically 868 MHz in Europe, 915 MHz in North America). LoRa trades bandwidth for range: data rates are extremely limited (0.3–50 kbps depending on spreading factor and regulatory constraints), but transmissions can reach 10+ km line-of-sight with milliwatt-level power. LoRa is the physical layer; higher-level protocols like LoRaWAN (for IoT sensor networks) and Meshtastic (for mesh messaging) build on top of it.
 
-> **Meshtastic:** An open-source project that implements encrypted mesh messaging over LoRa radios. Inexpensive hardware (typically $20–50 per node) forms ad-hoc networks where messages propagate via store-and-forward flooding. Nodes can operate for days on battery power. The protocol supports text messaging, GPS location sharing, and telemetry. Meshtastic networks require no Internet connectivity and no central infrastructure—any node can relay messages for any other node within radio range.
+> **Meshtastic:** An open-source project that implements encrypted mesh messaging over LoRa radios. Inexpensive hardware (typically $20–50 per node) forms ad-hoc networks where messages propagate via store-and-forward flooding. Nodes can operate for days on battery power. The protocol supports text messaging, GPS location sharing, and telemetry. Meshtastic networks require no Internet connectivity and no central infrastructure. Any node can relay messages for any other node within radio range.
 
 #### 6.2.4 HF Radio
 
 HF radio fits the broadcast-filter model with no storage whatsoever. If the recipient is not listening when the message transmits, it is gone. Coordination would require scheduled transmission windows and recipient discipline. HF provides truly global reach, but the operational demands are significant.
 
-> **HF (High Frequency) Radio:** Radio transmissions in the 3–30 MHz band, also called shortwave. Unlike VHF/UHF signals that travel line-of-sight, HF signals reflect off the ionosphere (*skywave propagation*), enabling communication over thousands of kilometers without satellites or internet infrastructure. HF is used by amateur radio operators, military communications, aviation, and maritime services. Propagation conditions vary with solar activity, time of day, and frequency selection; reliable communication requires operator skill. Modern digital modes (FT8, JS8Call, Winlink) enable low-bandwidth data transfer over HF with error correction.
+> **HF (High Frequency) Radio:** Radio transmissions in the 3–30 MHz band, also called shortwave. Unlike VHF/UHF signals that travel line-of-sight, HF signals reflect off the ionosphere via skywave propagation, enabling communication over thousands of kilometers without satellites or internet infrastructure. HF is used by amateur radio operators, military communications, aviation, and maritime services. Propagation conditions vary with solar activity, time of day, and frequency selection; reliable communication requires operator skill. Modern digital modes (FT8, JS8Call, Winlink) enable low-bandwidth data transfer over HF with error correction.
 
 #### 6.2.5 Sneakernet and Physical Media
 
-Physical storage media (USB drives, NFC tags) fit the query-addressable model: the filesystem or tag stores files named by ARID-derived identifiers, and recipients can read at any time. QR codes fit the broadcast-filter model: they must be displayed when the recipient is present to scan them. Both require physical-layer protocols outside Hubert's network abstraction—dead-drops, live-drops, or in-person exchange—with out-of-band coordination about *where the medium is located*. The ARID tells the recipient which file to read or which QR code to accept; it does not tell them which USB drive to find or which wall to scan.
+Physical storage media (USB drives, NFC tags) fit the query-addressable model: the filesystem or tag stores files named by ARID-derived identifiers, and recipients can read at any time. QR codes fit the broadcast-filter model: they must be displayed when the recipient is present to scan them. Both require physical-layer protocols outside Hubert's network abstraction (dead-drops, live-drops, or in-person exchange) with out-of-band coordination about *where the medium is located*. The ARID tells the recipient which file to read or which QR code to accept; it does not tell them which USB drive to find or which wall to scan.
 
 #### 6.2.6 LEO Satellite Services
 
