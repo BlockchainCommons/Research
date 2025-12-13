@@ -13,7 +13,7 @@ Date: December 9, 2025
 
 Hubert is a distributed key-value storage protocol designed to facilitate secure multiparty transactions such as FROST threshold signature ceremonies and distributed key generation without requiring centralized servers, persistent connections, or synchronous participation. By leveraging write-once semantics on public distributed networks (BitTorrent Mainline DHT and IPFS), Hubert creates a trustless coordination layer where parties exchange encrypted messages using cryptographically derived addresses.
 
-The protocol addresses the centralization vulnerability inherent in traditional secure messaging: even with end-to-end encryption, centralized servers observe the social graph of who communicates with whom. Hubert hardens this visibility by implementing a "cryptographic dead-drop" architecture where decentralized storage networks processes only encrypted binary blobs and derived keys, gaining no insight into the sender, receiver, or content. All stored data is obfuscated and appears uniform random bytes to network observers.
+The protocol addresses the centralization vulnerability inherent in traditional secure messaging: even with end-to-end encryption, centralized servers observe the social graph of who communicates with whom. Hubert hardens this visibility by implementing a "cryptographic dead-drop" architecture where decentralized storage networks process only encrypted binary blobs and derived keys, gaining no insight into the sender, receiver, or content. All stored data is obfuscated and appears as uniform random bytes to network observers.
 
 Design properties include:
 
@@ -46,9 +46,9 @@ Design properties include:
     - [5.1 Overview](#51-overview)
     - [5.2: Phase 1: Registry Setup](#52-phase-1-registry-setup)
     - [5.3: Phase 2: Distributed Key Generation](#53-phase-2-distributed-key-generation)
-    - [5.3: Phase 3: Signing](#53-phase-3-signing)
-    - [5.4: Message Structure](#54-message-structure)
-    - [5.5: Operational Considerations](#55-operational-considerations)
+    - [5.4: Phase 3: Signing](#54-phase-3-signing)
+    - [5.5: Message Structure](#55-message-structure)
+    - [5.6: Operational Considerations](#56-operational-considerations)
   - [6. Future Backends](#6-future-backends)
     - [6.1 Backend Models](#61-backend-models)
     - [6.2 Candidate Technologies](#62-candidate-technologies)
@@ -63,9 +63,9 @@ Design properties include:
 
 ## 1. Introduction
 
-Modern cryptographic protocols increasingly require coordination among multiple parties. Threshold signature schemes like FROST demand several rounds of message exchange between participants. Distributed key generation ceremonies require commitments and shares to flow between nodes. Secure voting, multiparty computation, and collaborative custody all share this requirement: parties must exchange messages to complete a cryptographic ceremony.
+Modern cryptographic protocols increasingly require coordination among multiple parties. Threshold signature schemes like FROST demand several rounds of message exchange; distributed key generation ceremonies require commitments and shares to flow between nodes; secure voting, multiparty computation, and collaborative custody all share this requirement: parties must exchange messages to complete a cryptographic ceremony.
 
-The conventional approach routes these messages through centralized servers. This introduces a single point of failure: the server operator can censor, delay, or selectively deliver messages. It creates a trust requirement: participants must believe the server will not collude against them. And it concentrates risk: a compromised server exposes the entire coordination graph, who participates with whom, when ceremonies occur, and how groups are structured.
+The conventional approach routes these messages through centralized servers. This introduces a single point of failure: the server operator can censor, delay, or selectively deliver messages. Participants must trust the server will not collude against them. A compromised server exposes the entire coordination graph, revealing who participates with whom, when ceremonies occur, and how groups are structured.
 
 > **FROST— Flexible Round-Optimized Schnorr Threshold signatures:** a protocol for generating threshold Schnorr signatures with minimal rounds of communication. Threshold signatures allow a subset of participants to jointly produce a valid signature without reconstructing the private key. To observers, a threshold signature is indistinguishable from a standard Schnorr signature made by a single party.
 
@@ -137,7 +137,7 @@ sequenceDiagram
     A->>E: HTTPS GET
     E->>A: XIDDocument(E)<br/>ARID 1
 
-    A->>H: Request<br/>XIDDocument(A)<br>ARID 2
+    A->>H: Request<br/>XIDDocument(A)<br/>ARID 2
 
     H->>A: Response<br/>ARID 3
 ```
@@ -451,7 +451,9 @@ DKG establishes a $t$ of $n$ threshold signing group. One participant acts as *c
 
 The DKG protocol proceeds in three rounds, each using Hubert dead-drops for message exchange:
 
-**Round 1: Commitment**: The coordinator creates a multicast `dkgInvite` containing the group parameters (threshold, charter, participant list) and posts it to a single ARID. Each invite entry includes a per-participant encrypted response ARID, ensuring that the invited participants can only see their own response ARID and not those belonging to other participants. The coordinator shares the invite ARID out-of-band. Participants fetch the invite, generate their Round 1 commitments (hiding and binding values with proof of knowledge), and post responses to their assigned response ARIDs. This is the only multicast message, and allows all participants to receive and approve the same initial information, including a string describing the groups charter, and the XID documents of the other invited participants, which should all already exist in the participant's registries.
+**Round 1: Commitment**: The coordinator creates a multicast `dkgInvite` containing the group parameters (threshold, charter, participant list) and posts it to a single ARID. Each invite entry includes a per-participant encrypted response ARID, ensuring that the invited participants can only see their own response ARID and not those belonging to other participants. The coordinator shares the invite ARID out-of-band.
+
+Participants fetch the invite, generate their Round 1 commitments (hiding and binding values with proof of knowledge), and post responses to their assigned response ARIDs. This is the only multicast message, and allows all participants to receive and approve the same initial information, including a string describing the groups charter, and the XID documents of the other invited participants, which should all already exist in the participant's registries.
 
 **Round 2: Secret Sharing**: The coordinator collects Round 1 responses, aggregates all commitments, and sends each participant a `dkgRound2` request containing the full commitment set. Participants verify the commitments, compute their Round 2 secret shares for each other participant, and post responses. In this phase, each participant receives shares from all others via the coordinator.
 
@@ -534,7 +536,7 @@ At completion, each participant holds:
 
 The group verifying key can be published; signatures made by any $t$ participants will verify against it. The private signing shares never leave individual participants' devices.
 
-### 5.3: Phase 3: Signing
+### 5.4: Phase 3: Signing
 
 To sign a target envelope, the coordinator initiates a signing session. The target is typically a wrapped Gordian Envelope containing the message or transaction to be authorized.
 
@@ -610,7 +612,7 @@ sequenceDiagram
 
 The final signature is a standard Ed25519 Schnorr signature. Verifiers need only the group public key; they cannot distinguish a threshold signature from a single-party signature, nor can they determine which subset of participants contributed.
 
-### 5.4: Message Structure
+### 5.5: Message Structure
 
 All messages in the FROST protocol are GSTP (Gordian Sealed Transaction Protocol) envelopes:
 
@@ -627,7 +629,7 @@ This layering provides:
 
 Hubert adds the obfuscation layer: stored blobs appear as uniform random bytes, and storage locations are derived from secret ARIDs rather than content hashes.
 
-### 5.5: Operational Considerations
+### 5.6: Operational Considerations
 
 **Asynchrony**: Participants need not be online simultaneously. The coordinator posts messages and waits (polling) for responses. Participants fetch requests whenever convenient and post responses. DHT entries persist for approximately 2 hours; longer ceremonies should use IPFS with pinning enabled, or the local server backend.
 
