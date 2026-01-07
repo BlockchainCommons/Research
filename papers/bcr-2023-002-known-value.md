@@ -162,7 +162,7 @@ When encoded as CBOR, the amount of storage required for integer values varies, 
 The following table summarizes the assigned Known Value code point ranges:
 
 | Name                                                                                                             | Range       | Entries      | JSON                                                                       |
-|------------------------------------------------------------------------------------------------------------------|-------------|--------------|----------------------------------------------------------------------------|
+| ---------------------------------------------------------------------------------------------------------------- | ----------- | ------------ | -------------------------------------------------------------------------- |
 | [Blockchain Commons](../known-value-assignments/markdown/0_blockchain_commons_registry.md)                       | 0-999       | 88           | [JSON](../known-value-assignments/json/0_blockchain_commons_registry.json) |
 | [RDF and RDFS](../known-value-assignments/markdown/1000_rdf_rdfs_registry.md)                                    | 1000-1999   | 33           | [JSON](../known-value-assignments/json/1000_rdf_rdfs_registry.json)        |
 | [OWL 2](../known-value-assignments/markdown/2000_owl2_registry.md)                                               | 2000-2999   | 75           | [JSON](../known-value-assignments/json/2000_owl2_registry.json)            |
@@ -223,3 +223,11 @@ The W3C Verifiable Credentials vocabulary provides terms for expressing credenti
 #### Schema.org
 
 Schema.org is a collaborative vocabulary created by major search engines (Google, Microsoft, Yahoo, Yandex) for structured data on web pages. It provides an extensive vocabulary of over 2,600 types and properties covering diverse domains: creative works, events, organizations, people, places, products, reviews, and more. While less formal than OWL ontologies, Schema.org is the most widely deployed structured data vocabulary on the Web.
+
+## Community Known Values
+
+The Known Value namespace reserves code points 100,000 and above for community-submitted registrations. This allows organizations and individuals to register their own ontological concepts while maintaining the centralized coordination benefits of the Known Value system.
+
+The community registration process is automated through GitHub Actions workflows. Submitters create a JSON request file specifying their desired code points (≥ 100,000) and submit it via pull request. The system validates the request for schema conformance, code point availability, and uniqueness constraints. Upon successful validation and merge, the code points are automatically registered in the community registry.
+
+For detailed information on submitting community Known Value requests, including the JSON schema, validation rules, and submission process, see [community-known-values/README.md](../community-known-values/README.md).

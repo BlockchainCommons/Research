@@ -147,7 +147,7 @@ If validation fails, fix the errors indicated in the PR comment and push again.
 
 ## Code Point Ranges
 
-Organizations are encouraged to claim a contiguous range for their concepts to avoid fragmentation. Check the [community registry](../known-value-assignments/markdown/100000_community_registry.md) to see which code points are already assigned.
+Check the [community registry](../known-value-assignments/markdown/100000_community_registry.md) to see which code points are already assigned.
 
 ## Additional Documentation
 
