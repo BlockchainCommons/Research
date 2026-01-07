@@ -38,15 +38,19 @@ community-known-values/requests/
 
 ### 2.2 File Naming Convention
 
-Request files should follow the pattern:
+Request files must follow the pattern:
 
 ```
-<submitter>_<short_description>.json
+yyyymmdd_<short_description>.json
 ```
+
+Where `yyyymmdd` is the submission date (e.g., `20260107` for January 7, 2026). This ensures request files are sorted chronologically.
 
 Examples:
-- `alice_credential_types.json`
-- `myorg_payment_terms.json`
+- `20260107_credential_types.json`
+- `20260115_payment_terms.json`
+
+**Note:** The date is validated with ±1 day tolerance to account for timezone differences.
 
 ### 2.3 JSON Schema
 
@@ -170,6 +174,7 @@ The workflow must validate each request against the following rules. A PR is rej
 | V-003   | `canonical_name` must match `^[a-zA-Z][a-zA-Z0-9_]*$`              |
 | V-004   | `type` must be one of: `class`, `property`, `datatype`, `constant` |
 | V-005   | `description` must be at least 10 characters                       |
+| V-006   | Filename must start with date in `yyyymmdd_` format (±1 day)       |
 
 ### 3.2 Code Point Rules
 

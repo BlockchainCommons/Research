@@ -14,6 +14,7 @@ import json
 import re
 import sys
 from dataclasses import dataclass, field
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -52,6 +53,7 @@ REQUEST_SCHEMA = {
 }
 
 CANONICAL_NAME_PATTERN = re.compile(r"^[a-zA-Z][a-zA-Z0-9_]*$")
+FILENAME_DATE_PATTERN = re.compile(r"^(\d{8})_.*\.json$")
 VALID_TYPES = {"class", "property", "datatype", "constant"}
 MIN_CODEPOINT = 100000
 
@@ -346,6 +348,48 @@ def validate_name_uniqueness_within_request(
             seen_names[name] = i
 
 
+def validate_filename_date(file_path: Path, result: ValidationResult) -> bool:
+    """V-006: Filename must start with date in yyyymmdd_ format (±1 day tolerance)."""
+    filename = file_path.name
+    
+    # Skip the example template
+    if filename.startswith("_"):
+        return True
+    
+    match = FILENAME_DATE_PATTERN.match(filename)
+    if not match:
+        result.add_error(
+            "V-006",
+            str(file_path),
+            f"Filename must start with date in yyyymmdd_ format (e.g., 20260107_myrequest.json), got: {filename}",
+        )
+        return False
+    
+    date_str = match.group(1)
+    try:
+        file_date = datetime.strptime(date_str, "%Y%m%d").date()
+    except ValueError:
+        result.add_error(
+            "V-006",
+            str(file_path),
+            f"Invalid date in filename: {date_str}",
+        )
+        return False
+    
+    # Allow ±1 day tolerance for timezone differences
+    today = datetime.now(timezone.utc).date()
+    delta = abs((file_date - today).days)
+    if delta > 1:
+        result.add_error(
+            "V-006",
+            str(file_path),
+            f"Filename date {date_str} is more than 1 day from today ({today.strftime('%Y%m%d')})",
+        )
+        return False
+    
+    return True
+
+
 def validate_request_file(
     file_path: Path,
     assigned_codepoints: set[int],
@@ -354,6 +398,9 @@ def validate_request_file(
     result: ValidationResult,
 ):
     """Validate a single request file against all rules."""
+    # V-006: Filename date format
+    validate_filename_date(file_path, result)
+
     # V-001: Parse JSON
     data = validate_json_syntax(file_path, result)
     if data is None:

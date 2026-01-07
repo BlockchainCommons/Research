@@ -4,7 +4,7 @@ This directory manages community-submitted Known Value assignments. Known Values
 
 ## How to Submit a Request
 
-1. **Create a JSON file** in the `requests/` directory following the naming convention: `<submitter>_<description>.json`
+1. **Create a JSON file** in the `requests/` directory following the naming convention: `yyyymmdd_<description>.json` (e.g., `20260107_myproject.json`)
 2. **Choose your code points** — each entry must specify a `codepoint` value ≥ 100,000 that is not already assigned
 3. **Submit a Pull Request** with your request file(s)
 
