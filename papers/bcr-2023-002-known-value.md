@@ -161,19 +161,19 @@ When encoded as CBOR, the amount of storage required for integer values varies, 
 
 The following table summarizes the assigned Known Value code point ranges:
 
-| Name                                                                                                                      | Range       | Entries | JSON                                                                            |
-|---------------------------------------------------------------------------------------------------------------------------|-------------|---------|---------------------------------------------------------------------------------|
-| [Blockchain Commons](../known-value-assignments/markdown/0_blockchain_commons_registry.md)                                | 0-999       | 88      | [JSON](../known-value-assignments/json/0_blockchain_commons_registry.json)      |
-| [RDF and RDFS](../known-value-assignments/markdown/1000_rdf_rdfs_registry.md)                                             | 1000-1999   | 33      | [JSON](../known-value-assignments/json/1000_rdf_rdfs_registry.json)             |
-| [OWL 2](../known-value-assignments/markdown/2000_owl2_registry.md)                                                        | 2000-2999   | 75      | [JSON](../known-value-assignments/json/2000_owl2_registry.json)                 |
-| [Dublin Core Elements](../known-value-assignments/markdown/3000_dc_elements_registry.md)                                  | 3000-3499   | 15      | [JSON](../known-value-assignments/json/3000_dc_elements_registry.json)          |
-| [Dublin Core Terms](../known-value-assignments/markdown/3500_dc_terms_registry.md)                                        | 3500-3999   | 84      | [JSON](../known-value-assignments/json/3500_dc_terms_registry.json)             |
-| [FOAF](../known-value-assignments/markdown/4000_foaf_registry.md)                                                         | 4000-4999   | 83      | [JSON](../known-value-assignments/json/4000_foaf_registry.json)                 |
-| [SKOS](../known-value-assignments/markdown/5000_skos_registry.md)                                                         | 5000-5999   | 32      | [JSON](../known-value-assignments/json/5000_skos_registry.json)                 |
-| [Solid](../known-value-assignments/markdown/6000_solid_registry.md)                                                       | 6000-6999   | 33      | [JSON](../known-value-assignments/json/6000_solid_registry.json)                |
-| [Schema.org](../known-value-assignments/markdown/10000_schema_org_registry.md)                                            | 10000-19999 | 2664    | [JSON](../known-value-assignments/json/10000_schema_org_registry.json)          |
-| [W3C Verifiable Credentials](../known-value-assignments/markdown/20000_w3c_vc_registry.md)                                | 20000-20999 | 28      | [JSON](../known-value-assignments/json/20000_w3c_vc_registry.json)              |
-| [Community Assigned](../known-value-assignments/markdown/100000_community_registry.md) (first come-first served) | 100000-...  | 0       | [JSON](../known-value-assignments/json/100000_community_registry.json) |
+| Name                                                                                                             | Range       | Entries      | JSON                                                                       |
+|------------------------------------------------------------------------------------------------------------------|-------------|--------------|----------------------------------------------------------------------------|
+| [Blockchain Commons](../known-value-assignments/markdown/0_blockchain_commons_registry.md)                       | 0-999       | 88           | [JSON](../known-value-assignments/json/0_blockchain_commons_registry.json) |
+| [RDF and RDFS](../known-value-assignments/markdown/1000_rdf_rdfs_registry.md)                                    | 1000-1999   | 33           | [JSON](../known-value-assignments/json/1000_rdf_rdfs_registry.json)        |
+| [OWL 2](../known-value-assignments/markdown/2000_owl2_registry.md)                                               | 2000-2999   | 75           | [JSON](../known-value-assignments/json/2000_owl2_registry.json)            |
+| [Dublin Core Elements](../known-value-assignments/markdown/3000_dc_elements_registry.md)                         | 3000-3499   | 15           | [JSON](../known-value-assignments/json/3000_dc_elements_registry.json)     |
+| [Dublin Core Terms](../known-value-assignments/markdown/3500_dc_terms_registry.md)                               | 3500-3999   | 84           | [JSON](../known-value-assignments/json/3500_dc_terms_registry.json)        |
+| [FOAF](../known-value-assignments/markdown/4000_foaf_registry.md)                                                | 4000-4999   | 83           | [JSON](../known-value-assignments/json/4000_foaf_registry.json)            |
+| [SKOS](../known-value-assignments/markdown/5000_skos_registry.md)                                                | 5000-5999   | 32           | [JSON](../known-value-assignments/json/5000_skos_registry.json)            |
+| [Solid](../known-value-assignments/markdown/6000_solid_registry.md)                                              | 6000-6999   | 33           | [JSON](../known-value-assignments/json/6000_solid_registry.json)           |
+| [Schema.org](../known-value-assignments/markdown/10000_schema_org_registry.md)                                   | 10000-19999 | 2664         | [JSON](../known-value-assignments/json/10000_schema_org_registry.json)     |
+| [W3C Verifiable Credentials](../known-value-assignments/markdown/20000_w3c_vc_registry.md)                       | 20000-20999 | 28           | [JSON](../known-value-assignments/json/20000_w3c_vc_registry.json)         |
+| [Community Assigned](../known-value-assignments/markdown/100000_community_registry.md) (first come-first served) | 100000-...  | see registry | [JSON](../known-value-assignments/json/100000_community_registry.json)     |
 
 ### Blockchain Commons Core Concepts
 
