@@ -1,0 +1,87 @@
+name: Validate Community Known Values Request
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - "community-known-values/requests/**/*.json"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Get changed files
+        id: changed
+        uses: tj-actions/changed-files@v44
+        with:
+          files: |
+            community-known-values/requests/**/*.json
+
+      - name: Check for request files
+        id: check
+        run: |
+          if [ -z "${{ steps.changed.outputs.all_changed_files }}" ]; then
+            echo "has_files=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_files=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Validate request files
+        id: validate
+        if: steps.check.outputs.has_files == 'true'
+        run: |
+          python .github/scripts/validate_community_kv.py \
+            --registry known-value-assignments/json/100000_community_registry.json \
+            --files "${{ steps.changed.outputs.all_changed_files }}" \
+            --report validation_report.md
+        continue-on-error: true
+
+      - name: Post validation results
+        uses: actions/github-script@v7
+        if: steps.check.outputs.has_files == 'true'
+        with:
+          script: |
+            const fs = require('fs');
+            const result = '${{ steps.validate.outcome }}';
+            let output = 'Validation completed.';
+
+            try {
+              if (fs.existsSync('validation_report.md')) {
+                output = fs.readFileSync('validation_report.md', 'utf8');
+              }
+            } catch (e) {
+              console.log('Could not read validation report:', e);
+            }
+
+            const body = result === 'success'
+              ? `✅ **Validation Passed**\n\n${output}`
+              : `❌ **Validation Failed**\n\n${output}\n\nPlease fix the errors above and push again.`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body
+            });
+
+      - name: Fail if validation failed
+        if: steps.check.outputs.has_files == 'true' && steps.validate.outcome == 'failure'
+        run: exit 1
+
+      - name: Skip validation (no request files)
+        if: steps.check.outputs.has_files == 'false'
+        run: echo "No community Known Value request files found in this PR."

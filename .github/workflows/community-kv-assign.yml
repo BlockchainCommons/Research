@@ -1,0 +1,84 @@
+name: Assign Community Known Values
+
+on:
+  pull_request_target:
+    types: [closed]
+    paths:
+      - "community-known-values/requests/**/*.json"
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  assign:
+    # Only run if the PR was merged (not just closed)
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Get merged request files
+        id: merged
+        run: |
+          # Get list of JSON files added in the merged PR
+          FILES=$(git diff --name-only --diff-filter=A \
+            ${{ github.event.pull_request.base.sha }} \
+            ${{ github.event.pull_request.merge_commit_sha }} \
+            -- 'community-known-values/requests/*.json' || true)
+
+          if [ -z "$FILES" ]; then
+            echo "has_files=false" >> $GITHUB_OUTPUT
+            echo "files=" >> $GITHUB_OUTPUT
+          else
+            echo "has_files=true" >> $GITHUB_OUTPUT
+            # Convert newlines to spaces for passing as argument
+            FILES_ONELINE=$(echo "$FILES" | tr '\n' ' ')
+            echo "files=$FILES_ONELINE" >> $GITHUB_OUTPUT
+            echo "Found request files: $FILES_ONELINE"
+          fi
+
+      - name: Assign code points and update registry
+        id: assign
+        if: steps.merged.outputs.has_files == 'true'
+        run: |
+          python .github/scripts/assign_community_kv.py \
+            --registry known-value-assignments/json/100000_community_registry.json \
+            --markdown known-value-assignments/markdown/100000_community_registry.md \
+            --files "${{ steps.merged.outputs.files }}" \
+            --pr ${{ github.event.pull_request.number }}
+
+      - name: Commit and push registry updates
+        if: steps.merged.outputs.has_files == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Check if there are changes to commit
+          if git diff --quiet known-value-assignments/; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git add known-value-assignments/
+          git commit -m "Assign community Known Values from PR #${{ github.event.pull_request.number }}
+
+          Registered new Known Values from community request.
+
+          PR: #${{ github.event.pull_request.number }}
+          Author: @${{ github.event.pull_request.user.login }}"
+
+          git push
+
+      - name: Skip assignment (no request files)
+        if: steps.merged.outputs.has_files == 'false'
+        run: echo "No community Known Value request files found in the merged PR."

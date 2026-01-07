@@ -1,0 +1,23 @@
+{
+    "request": {
+        "submitter": "Example Organization",
+        "description": "Example request file demonstrating the format for community Known Value submissions",
+        "contact": "@example-github-handle",
+        "url": "https://example.org/specs/my-ontology"
+    },
+    "entries": [
+        {
+            "codepoint": 100000,
+            "canonical_name": "exampleClass",
+            "type": "class",
+            "uri": "https://example.org/ontology#ExampleClass",
+            "description": "An example class demonstrating the request format for community Known Values"
+        },
+        {
+            "codepoint": 100001,
+            "canonical_name": "exampleProperty",
+            "type": "property",
+            "description": "An example property demonstrating the request format (URI is optional)"
+        }
+    ]
+}

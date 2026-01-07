@@ -30,10 +30,10 @@ The `known-values-assigner` tool processes standard Semantic Web ontologies and 
 
 ### 2.1 File Location
 
-Community requests must be submitted as JSON files in:
+Community requests must be submitted as JSON files in the [BlockchainCommons/Research](https://github.com/BlockchainCommons/Research) repository:
 
 ```
-research/community-known-values/requests/
+community-known-values/requests/
 ```
 
 ### 2.2 File Naming Convention
@@ -163,22 +163,22 @@ The workflow must validate each request against the following rules. A PR is rej
 
 ### 3.1 Schema Validation
 
-| Rule ID | Description                                                                |
-| ------- | -------------------------------------------------------------------------- |
-| V-001   | File must be valid JSON                                                    |
-| V-002   | JSON must conform to the schema in §2.3                                    |
-| V-003   | `canonical_name` must match `^[a-zA-Z][a-zA-Z0-9_]*$`                      |
+| Rule ID | Description                                                        |
+| ------- | ------------------------------------------------------------------ |
+| V-001   | File must be valid JSON                                            |
+| V-002   | JSON must conform to the schema in §2.3                            |
+| V-003   | `canonical_name` must match `^[a-zA-Z][a-zA-Z0-9_]*$`              |
 | V-004   | `type` must be one of: `class`, `property`, `datatype`, `constant` |
-| V-005   | `description` must be at least 10 characters                               |
+| V-005   | `description` must be at least 10 characters                       |
 
 ### 3.2 Code Point Rules
 
-| Rule ID | Description                                                                    |
-| ------- | ------------------------------------------------------------------------------ |
-| V-100   | Each entry must specify a `codepoint`                                          |
-| V-101   | Each `codepoint` must be ≥ 100,000                                             |
-| V-102   | Each `codepoint` must not already be assigned in the community registry        |
-| V-103   | Code points must not conflict with other entries in the same request           |
+| Rule ID | Description                                                             |
+| ------- | ----------------------------------------------------------------------- |
+| V-100   | Each entry must specify a `codepoint`                                   |
+| V-101   | Each `codepoint` must be ≥ 100,000                                      |
+| V-102   | Each `codepoint` must not already be assigned in the community registry |
+| V-103   | Code points must not conflict with other entries in the same request    |
 
 ### 3.3 Uniqueness Rules
 
@@ -248,7 +248,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
-      - 'research/community-known-values/requests/**/*.json'
+      - 'community-known-values/requests/**/*.json'
 
 permissions:
   contents: read
@@ -281,13 +281,13 @@ jobs:
         uses: tj-actions/changed-files@v44
         with:
           files: |
-            research/community-known-values/requests/**/*.json
+            community-known-values/requests/**/*.json
 
       - name: Validate request files
         id: validate
         run: |
           python .github/scripts/validate_community_kv.py \
-            --registry research/known-value-assignments/json/100000_community_registry.json \
+            --registry known-value-assignments/json/100000_community_registry.json \
             --files "${{ steps.changed.outputs.all_changed_files }}"
         continue-on-error: true
 
@@ -343,7 +343,7 @@ on:
   pull_request_target:
     types: [closed]
     paths:
-      - 'research/community-known-values/requests/**/*.json'
+      - 'community-known-values/requests/**/*.json'
 
 permissions:
   contents: write
@@ -386,22 +386,22 @@ jobs:
           FILES=$(git diff --name-only --diff-filter=A \
             ${{ github.event.pull_request.base.sha }} \
             ${{ github.event.pull_request.merge_commit_sha }} \
-            -- 'research/community-known-values/requests/*.json')
+            -- 'community-known-values/requests/*.json')
           echo "files=$FILES" >> $GITHUB_OUTPUT
 
       - name: Assign code points and update registry
         id: assign
         run: |
           python .github/scripts/assign_community_kv.py \
-            --registry research/known-value-assignments/json/100000_community_registry.json \
-            --markdown research/known-value-assignments/markdown/100000_community_registry.md \
+            --registry known-value-assignments/json/100000_community_registry.json \
+            --markdown known-value-assignments/markdown/100000_community_registry.md \
             --files "${{ steps.merged.outputs.files }}"
 
       - name: Commit and push registry updates
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add research/known-value-assignments/
+          git add known-value-assignments/
           git commit -m "Assign community Known Values from PR #${{ github.event.pull_request.number }}"
           git push
 ```
