@@ -173,7 +173,7 @@ The following table summarizes the assigned Known Value code point ranges:
 | [Solid](../known-value-assignments/markdown/6000_solid_registry.md)                                                       | 6000-6999   | 33      | [JSON](../known-value-assignments/json/6000_solid_registry.json)                |
 | [Schema.org](../known-value-assignments/markdown/10000_schema_org_registry.md)                                            | 10000-19999 | 2664    | [JSON](../known-value-assignments/json/10000_schema_org_registry.json)          |
 | [W3C Verifiable Credentials](../known-value-assignments/markdown/20000_w3c_vc_registry.md)                                | 20000-20999 | 28      | [JSON](../known-value-assignments/json/20000_w3c_vc_registry.json)              |
-| [Community Assigned](../known-value-assignments/markdown/100000_community_assigned_registry.md) (first come-first served) | 100000-...  | 0       | [JSON](../known-value-assignments/json/100000_community_assigned_registry.json) |
+| [Community Assigned](../known-value-assignments/markdown/100000_community_registry.md) (first come-first served) | 100000-...  | 0       | [JSON](../known-value-assignments/json/100000_community_registry.json) |
 
 ### Blockchain Commons Core Concepts
 
