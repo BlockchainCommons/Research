@@ -90,3 +90,7 @@ dkms.conf
 
 # CI artifacts
 validation_report.md
+
+# Python
+__pycache__/
+*.py[cod]
