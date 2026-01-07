@@ -1,0 +1,217 @@
+{
+  "ontology": {
+    "name": "w3c_vc",
+    "source_url": "https://www.w3.org/ns/credentials/v2",
+    "start_code_point": 20000,
+    "processing_strategy": "ContextMap"
+  },
+  "generated": {
+    "tool": "KnownValueAssigner",
+    "version": "1.0.0"
+  },
+  "entries": [
+    {
+      "codepoint": 20000,
+      "canonical_name": "description",
+      "type": "property",
+      "uri": "https://schema.org/description",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20001,
+      "canonical_name": "mediaType",
+      "type": "property",
+      "uri": "https://schema.org/encodingFormat",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20002,
+      "canonical_name": "name",
+      "type": "property",
+      "uri": "https://schema.org/name",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20003,
+      "canonical_name": "dataIntegrityProof",
+      "type": "property",
+      "uri": "https://w3id.org/security#DataIntegrityProof",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20004,
+      "canonical_name": "digestMultibase",
+      "type": "property",
+      "uri": "https://w3id.org/security#digestMultibase",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20005,
+      "canonical_name": "iss",
+      "type": "property",
+      "uri": "https://www.iana.org/assignments/jose#iss",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20006,
+      "canonical_name": "jku",
+      "type": "property",
+      "uri": "https://www.iana.org/assignments/jose#jku",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20007,
+      "canonical_name": "kid",
+      "type": "property",
+      "uri": "https://www.iana.org/assignments/jose#kid",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20008,
+      "canonical_name": "sub",
+      "type": "property",
+      "uri": "https://www.iana.org/assignments/jose#sub",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20009,
+      "canonical_name": "x5u",
+      "type": "property",
+      "uri": "https://www.iana.org/assignments/jose#x5u",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20010,
+      "canonical_name": "",
+      "type": "property",
+      "uri": "https://www.iana.org/assignments/jwt#...",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20011,
+      "canonical_name": "_sd",
+      "type": "property",
+      "uri": "https://www.iana.org/assignments/jwt#_sd",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20012,
+      "canonical_name": "_sd_alg",
+      "type": "property",
+      "uri": "https://www.iana.org/assignments/jwt#_sd_alg",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20013,
+      "canonical_name": "aud",
+      "type": "property",
+      "uri": "https://www.iana.org/assignments/jwt#aud",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20014,
+      "canonical_name": "cnf",
+      "type": "property",
+      "uri": "https://www.iana.org/assignments/jwt#cnf",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20015,
+      "canonical_name": "exp",
+      "type": "property",
+      "uri": "https://www.iana.org/assignments/jwt#exp",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20016,
+      "canonical_name": "iat",
+      "type": "property",
+      "uri": "https://www.iana.org/assignments/jwt#iat",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20017,
+      "canonical_name": "nbf",
+      "type": "property",
+      "uri": "https://www.iana.org/assignments/jwt#nbf",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20018,
+      "canonical_name": "envelopedVerifiableCredential",
+      "type": "property",
+      "uri": "https://www.w3.org/2018/credentials#EnvelopedVerifiableCredential",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20019,
+      "canonical_name": "envelopedVerifiablePresentation",
+      "type": "property",
+      "uri": "https://www.w3.org/2018/credentials#EnvelopedVerifiablePresentation",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20020,
+      "canonical_name": "jsonSchema",
+      "type": "property",
+      "uri": "https://www.w3.org/2018/credentials#JsonSchema",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20021,
+      "canonical_name": "jsonSchemaCredential",
+      "type": "property",
+      "uri": "https://www.w3.org/2018/credentials#JsonSchemaCredential",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20022,
+      "canonical_name": "verifiableCredential",
+      "type": "property",
+      "uri": "https://www.w3.org/2018/credentials#VerifiableCredential",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20023,
+      "canonical_name": "verifiablePresentation",
+      "type": "property",
+      "uri": "https://www.w3.org/2018/credentials#VerifiablePresentation",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20024,
+      "canonical_name": "digestSri",
+      "type": "property",
+      "uri": "https://www.w3.org/2018/credentials#digestSRI",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20025,
+      "canonical_name": "bitstringStatusList",
+      "type": "property",
+      "uri": "https://www.w3.org/ns/credentials/status#BitstringStatusList",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20026,
+      "canonical_name": "bitstringStatusListCredential",
+      "type": "property",
+      "uri": "https://www.w3.org/ns/credentials/status#BitstringStatusListCredential",
+      "description": "Defined in w3c_vc"
+    },
+    {
+      "codepoint": 20027,
+      "canonical_name": "bitstringStatusListEntry",
+      "type": "property",
+      "uri": "https://www.w3.org/ns/credentials/status#BitstringStatusListEntry",
+      "description": "Defined in w3c_vc"
+    }
+  ],
+  "statistics": {
+    "total_entries": 28,
+    "code_point_range": {
+      "start": 20000,
+      "end": 20027
+    }
+  }
+}

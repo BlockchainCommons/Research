@@ -1,0 +1,245 @@
+{
+  "ontology": {
+    "name": "skos",
+    "source_url": "http://www.w3.org/2004/02/skos/core#",
+    "start_code_point": 5000,
+    "processing_strategy": "StandardRDF"
+  },
+  "generated": {
+    "tool": "KnownValueAssigner",
+    "version": "1.0.0"
+  },
+  "entries": [
+    {
+      "codepoint": 5000,
+      "canonical_name": "Collection",
+      "type": "class",
+      "uri": "http://www.w3.org/2004/02/skos/core#Collection",
+      "description": "A meaningful collection of concepts."
+    },
+    {
+      "codepoint": 5001,
+      "canonical_name": "Concept",
+      "type": "class",
+      "uri": "http://www.w3.org/2004/02/skos/core#Concept",
+      "description": "An idea or notion; a unit of thought."
+    },
+    {
+      "codepoint": 5002,
+      "canonical_name": "conceptScheme",
+      "type": "class",
+      "uri": "http://www.w3.org/2004/02/skos/core#ConceptScheme",
+      "description": "A set of concepts, optionally including statements about semantic relationships between those concepts."
+    },
+    {
+      "codepoint": 5003,
+      "canonical_name": "orderedCollection",
+      "type": "class",
+      "uri": "http://www.w3.org/2004/02/skos/core#OrderedCollection",
+      "description": "An ordered collection of concepts, where both the grouping and the ordering are meaningful."
+    },
+    {
+      "codepoint": 5004,
+      "canonical_name": "alternativeLabel",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#altLabel",
+      "description": "The range of skos:altLabel is the class of RDF plain literals."
+    },
+    {
+      "codepoint": 5005,
+      "canonical_name": "hasBroaderMatch",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#broadMatch",
+      "description": "skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes."
+    },
+    {
+      "codepoint": 5006,
+      "canonical_name": "hasBroader",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#broader",
+      "description": "Broader concepts are typically rendered as parents in a concept hierarchy (tree)."
+    },
+    {
+      "codepoint": 5007,
+      "canonical_name": "hasBroaderTransitive",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#broaderTransitive",
+      "description": "skos:broaderTransitive is a transitive superproperty of skos:broader."
+    },
+    {
+      "codepoint": 5008,
+      "canonical_name": "changeNote",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#changeNote",
+      "description": "A note about a modification to a concept."
+    },
+    {
+      "codepoint": 5009,
+      "canonical_name": "hasCloseMatch",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#closeMatch",
+      "description": "skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of \"compound errors\" when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property."
+    },
+    {
+      "codepoint": 5010,
+      "canonical_name": "definition",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#definition",
+      "description": "A statement or formal explanation of the meaning of a concept."
+    },
+    {
+      "codepoint": 5011,
+      "canonical_name": "editorialNote",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#editorialNote",
+      "description": "A note for an editor, translator or maintainer of the vocabulary."
+    },
+    {
+      "codepoint": 5012,
+      "canonical_name": "hasExactMatch",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#exactMatch",
+      "description": "skos:exactMatch is disjoint with each of the properties skos:broadMatch and skos:relatedMatch."
+    },
+    {
+      "codepoint": 5013,
+      "canonical_name": "example",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#example",
+      "description": "An example of the use of a concept."
+    },
+    {
+      "codepoint": 5014,
+      "canonical_name": "hasTopConcept",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#hasTopConcept",
+      "description": "Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies."
+    },
+    {
+      "codepoint": 5015,
+      "canonical_name": "hiddenLabel",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#hiddenLabel",
+      "description": "The range of skos:hiddenLabel is the class of RDF plain literals."
+    },
+    {
+      "codepoint": 5016,
+      "canonical_name": "historyNote",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#historyNote",
+      "description": "A note about the past state/use/meaning of a concept."
+    },
+    {
+      "codepoint": 5017,
+      "canonical_name": "isInScheme",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#inScheme",
+      "description": "Relates a resource (for example a concept) to a concept scheme in which it is included."
+    },
+    {
+      "codepoint": 5018,
+      "canonical_name": "isInMappingRelationWith",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
+      "description": "These concept mapping relations mirror semantic relations, and the data model defined below is similar (with the exception of skos:exactMatch) to the data model defined for semantic relations. A distinct vocabulary is provided for concept mapping relations, to provide a convenient way to differentiate links within a concept scheme from links between concept schemes. However, this pattern of usage is not a formal requirement of the SKOS data model, and relies on informal definitions of best practice."
+    },
+    {
+      "codepoint": 5019,
+      "canonical_name": "hasMember",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#member",
+      "description": "Relates a collection to one of its members."
+    },
+    {
+      "codepoint": 5020,
+      "canonical_name": "hasMemberList",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#memberList",
+      "description": "For any resource, every item in the list given as the value of the\n      skos:memberList property is also a value of the skos:member property."
+    },
+    {
+      "codepoint": 5021,
+      "canonical_name": "hasNarrowerMatch",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#narrowMatch",
+      "description": "skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes."
+    },
+    {
+      "codepoint": 5022,
+      "canonical_name": "hasNarrower",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#narrower",
+      "description": "Narrower concepts are typically rendered as children in a concept hierarchy (tree)."
+    },
+    {
+      "codepoint": 5023,
+      "canonical_name": "hasNarrowerTransitive",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#narrowerTransitive",
+      "description": "skos:narrowerTransitive is a transitive superproperty of skos:narrower."
+    },
+    {
+      "codepoint": 5024,
+      "canonical_name": "notation",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#notation",
+      "description": "A notation, also known as classification code, is a string of characters such as \"T58.5\" or \"303.4833\" used to uniquely identify a concept within the scope of a given concept scheme."
+    },
+    {
+      "codepoint": 5025,
+      "canonical_name": "note",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#note",
+      "description": "A general note, for any purpose."
+    },
+    {
+      "codepoint": 5026,
+      "canonical_name": "preferredLabel",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "description": "A resource has no more than one value of skos:prefLabel per language tag, and no more than one value of skos:prefLabel without language tag."
+    },
+    {
+      "codepoint": 5027,
+      "canonical_name": "hasRelated",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#related",
+      "description": "skos:related is disjoint with skos:broaderTransitive"
+    },
+    {
+      "codepoint": 5028,
+      "canonical_name": "hasRelatedMatch",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+      "description": "skos:relatedMatch is used to state an associative mapping link between two conceptual resources in different concept schemes."
+    },
+    {
+      "codepoint": 5029,
+      "canonical_name": "scopeNote",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#scopeNote",
+      "description": "A note that helps to clarify the meaning and/or the use of a concept."
+    },
+    {
+      "codepoint": 5030,
+      "canonical_name": "isInSemanticRelationWith",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#semanticRelation",
+      "description": "Links a concept to a concept related by meaning."
+    },
+    {
+      "codepoint": 5031,
+      "canonical_name": "isTopConceptInScheme",
+      "type": "property",
+      "uri": "http://www.w3.org/2004/02/skos/core#topConceptOf",
+      "description": "Relates a concept to the concept scheme that it is a top level concept of."
+    }
+  ],
+  "statistics": {
+    "total_entries": 32,
+    "code_point_range": {
+      "start": 5000,
+      "end": 5031
+    }
+  }
+}

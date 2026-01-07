@@ -1,0 +1,126 @@
+{
+  "ontology": {
+    "name": "dc_elements",
+    "source_url": "http://purl.org/dc/elements/1.1/",
+    "start_code_point": 3000,
+    "processing_strategy": "StandardRDF"
+  },
+  "generated": {
+    "tool": "KnownValueAssigner",
+    "version": "1.0.0"
+  },
+  "entries": [
+    {
+      "codepoint": 3000,
+      "canonical_name": "Contributor",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/contributor",
+      "description": "An entity responsible for making contributions to the resource."
+    },
+    {
+      "codepoint": 3001,
+      "canonical_name": "Coverage",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/coverage",
+      "description": "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant."
+    },
+    {
+      "codepoint": 3002,
+      "canonical_name": "Creator",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/creator",
+      "description": "An entity primarily responsible for making the resource."
+    },
+    {
+      "codepoint": 3003,
+      "canonical_name": "Date",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/date",
+      "description": "A point or period of time associated with an event in the lifecycle of the resource."
+    },
+    {
+      "codepoint": 3004,
+      "canonical_name": "Description",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/description",
+      "description": "An account of the resource."
+    },
+    {
+      "codepoint": 3005,
+      "canonical_name": "Format",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/format",
+      "description": "The file format, physical medium, or dimensions of the resource."
+    },
+    {
+      "codepoint": 3006,
+      "canonical_name": "Identifier",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/identifier",
+      "description": "An unambiguous reference to the resource within a given context."
+    },
+    {
+      "codepoint": 3007,
+      "canonical_name": "Language",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/language",
+      "description": "A language of the resource."
+    },
+    {
+      "codepoint": 3008,
+      "canonical_name": "Publisher",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/publisher",
+      "description": "An entity responsible for making the resource available."
+    },
+    {
+      "codepoint": 3009,
+      "canonical_name": "Relation",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/relation",
+      "description": "A related resource."
+    },
+    {
+      "codepoint": 3010,
+      "canonical_name": "Rights",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/rights",
+      "description": "Information about rights held in and over the resource."
+    },
+    {
+      "codepoint": 3011,
+      "canonical_name": "Source",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/source",
+      "description": "A related resource from which the described resource is derived."
+    },
+    {
+      "codepoint": 3012,
+      "canonical_name": "Subject",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/subject",
+      "description": "The topic of the resource."
+    },
+    {
+      "codepoint": 3013,
+      "canonical_name": "Title",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/title",
+      "description": "A name given to the resource."
+    },
+    {
+      "codepoint": 3014,
+      "canonical_name": "Type",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/type",
+      "description": "The nature or genre of the resource."
+    }
+  ],
+  "statistics": {
+    "total_entries": 15,
+    "code_point_range": {
+      "start": 3000,
+      "end": 3014
+    }
+  }
+}

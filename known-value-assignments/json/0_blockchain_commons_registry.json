@@ -1,0 +1,714 @@
+{
+  "ontology": {
+    "name": "blockchain_commons",
+    "source_url": "https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2023-002-known-value.md",
+    "start_code_point": 0,
+    "processing_strategy": "Manual"
+  },
+  "generated": {
+    "tool": "KnownValueAssigner",
+    "version": "1.0.0"
+  },
+  "entries": [
+    {
+      "codepoint": 0,
+      "canonical_name": "",
+      "type": "unit",
+      "uri": "",
+      "description": "The Unit type, and its sole inhabitant '', which is a value conveying no information."
+    },
+    {
+      "codepoint": 1,
+      "canonical_name": "isA",
+      "type": "property",
+      "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "description": "The subject is an instance of the class identified by the object."
+    },
+    {
+      "codepoint": 2,
+      "canonical_name": "id",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/identifier",
+      "description": "The object is an unambiguous identifier of the subject within a given context."
+    },
+    {
+      "codepoint": 3,
+      "canonical_name": "signed",
+      "type": "property",
+      "uri": "",
+      "description": "The object is a cryptographic signature of the subject."
+    },
+    {
+      "codepoint": 4,
+      "canonical_name": "note",
+      "type": "property",
+      "uri": "http://www.w3.org/2000/01/rdf-schema#comment",
+      "description": "The object is a human-readable note about the subject."
+    },
+    {
+      "codepoint": 5,
+      "canonical_name": "hasRecipient",
+      "type": "property",
+      "uri": "",
+      "description": "The subject can be decrypted using the private key that decrypts the content key in the object."
+    },
+    {
+      "codepoint": 6,
+      "canonical_name": "sskrShare",
+      "type": "property",
+      "uri": "",
+      "description": "The subject can be decrypted by a quorum of SSKR shares including the one in the object."
+    },
+    {
+      "codepoint": 7,
+      "canonical_name": "controller",
+      "type": "property",
+      "uri": "https://www.w3.org/ns/solid/terms#owner",
+      "description": "The object is the subject's controlling entity."
+    },
+    {
+      "codepoint": 8,
+      "canonical_name": "key",
+      "type": "property",
+      "uri": "",
+      "description": "The entity identified by the subject holds the private half of the public keys(s) in the object."
+    },
+    {
+      "codepoint": 9,
+      "canonical_name": "dereferenceVia",
+      "type": "property",
+      "uri": "",
+      "description": "The content referenced by the subject can be dereferenced using the object."
+    },
+    {
+      "codepoint": 10,
+      "canonical_name": "entity",
+      "type": "property",
+      "uri": "",
+      "description": "The entity referenced by the subject is specified in the object."
+    },
+    {
+      "codepoint": 11,
+      "canonical_name": "name",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/spec/#term_name",
+      "description": "The subject is known by the name in the object."
+    },
+    {
+      "codepoint": 12,
+      "canonical_name": "language",
+      "type": "property",
+      "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+      "description": "The subject is written in the language of the ISO language code object."
+    },
+    {
+      "codepoint": 13,
+      "canonical_name": "issuer",
+      "type": "property",
+      "uri": "",
+      "description": "The object is the subject's issuing entity."
+    },
+    {
+      "codepoint": 14,
+      "canonical_name": "holder",
+      "type": "property",
+      "uri": "",
+      "description": "The object identifies the entity to which the subject has been issued."
+    },
+    {
+      "codepoint": 15,
+      "canonical_name": "salt",
+      "type": "property",
+      "uri": "",
+      "description": "The object is random salt used to decorrelate the digest of the subject."
+    },
+    {
+      "codepoint": 16,
+      "canonical_name": "date",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/date",
+      "description": "The object is a primary datestamp of the subject."
+    },
+    {
+      "codepoint": 17,
+      "canonical_name": "Unknown",
+      "type": "value",
+      "uri": "https://en.wikipedia.org/wiki/Blank_node",
+      "description": "Placeholder for an unknown value."
+    },
+    {
+      "codepoint": 18,
+      "canonical_name": "version",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/hasVersion",
+      "description": "The object is the version of the subject."
+    },
+    {
+      "codepoint": 19,
+      "canonical_name": "hasSecret",
+      "type": "property",
+      "uri": "",
+      "description": "The subject can be decrypted using the secret that decrypts the content key in the object."
+    },
+    {
+      "codepoint": 20,
+      "canonical_name": "edits",
+      "type": "property",
+      "uri": "",
+      "description": "The object is a set of edits used by the Envelope.transform(edits:) method."
+    },
+    {
+      "codepoint": 21,
+      "canonical_name": "validFrom",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/valid",
+      "description": "The subject is valid from the date in the object."
+    },
+    {
+      "codepoint": 22,
+      "canonical_name": "validUntil",
+      "type": "property",
+      "uri": "https://schema.org/validUntil",
+      "description": "The subject is valid until the date in the object."
+    },
+    {
+      "codepoint": 23,
+      "canonical_name": "position",
+      "type": "property",
+      "uri": "https://schema.org/position",
+      "description": "The position of an item in a series or sequence of items."
+    },
+    {
+      "codepoint": 24,
+      "canonical_name": "nickname",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/spec/#term_nick",
+      "description": "The subject is a nickname for the object."
+    },
+    {
+      "codepoint": 50,
+      "canonical_name": "attachment",
+      "type": "property",
+      "uri": "",
+      "description": "Declares that the object is a vendor-defined attachment to the envelope."
+    },
+    {
+      "codepoint": 51,
+      "canonical_name": "vendor",
+      "type": "property",
+      "uri": "",
+      "description": "Declares the vendor of the subject."
+    },
+    {
+      "codepoint": 52,
+      "canonical_name": "conformsTo",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/conformsTo",
+      "description": "An established standard to which the subject conforms."
+    },
+    {
+      "codepoint": 60,
+      "canonical_name": "allow",
+      "type": "property",
+      "uri": "",
+      "description": "The object is a set of permissions that allow the subject to perform the actions specified in the object."
+    },
+    {
+      "codepoint": 61,
+      "canonical_name": "deny",
+      "type": "property",
+      "uri": "",
+      "description": "The object is a set of permissions that deny the subject from performing the actions specified in the object."
+    },
+    {
+      "codepoint": 62,
+      "canonical_name": "endpoint",
+      "type": "property",
+      "uri": "",
+      "description": "The object is a service endpoint associated with the subject."
+    },
+    {
+      "codepoint": 63,
+      "canonical_name": "delegate",
+      "type": "property",
+      "uri": "",
+      "description": "The object is a delegate authorized by the subject."
+    },
+    {
+      "codepoint": 64,
+      "canonical_name": "provenance",
+      "type": "property",
+      "uri": "",
+      "description": "The object is a provenance mark associated with the subject."
+    },
+    {
+      "codepoint": 65,
+      "canonical_name": "privateKey",
+      "type": "property",
+      "uri": "",
+      "description": "The object is a private key associated with the subject."
+    },
+    {
+      "codepoint": 66,
+      "canonical_name": "service",
+      "type": "property",
+      "uri": "",
+      "description": "The object is a service associated with the subject."
+    },
+    {
+      "codepoint": 67,
+      "canonical_name": "capability",
+      "type": "property",
+      "uri": "",
+      "description": "The object is a capability associated with the subject."
+    },
+    {
+      "codepoint": 68,
+      "canonical_name": "provenanceGenerator",
+      "type": "property",
+      "uri": "",
+      "description": "The object is a provenance mark generator associated with the subject."
+    },
+    {
+      "codepoint": 70,
+      "canonical_name": "All",
+      "type": "value",
+      "uri": "",
+      "description": "The set of all allowed privileges."
+    },
+    {
+      "codepoint": 71,
+      "canonical_name": "Authorize",
+      "type": "value",
+      "uri": "",
+      "description": "Operational privilege: authorize actions on behalf of the subject."
+    },
+    {
+      "codepoint": 72,
+      "canonical_name": "Sign",
+      "type": "value",
+      "uri": "",
+      "description": "Operational privilege: sign documents on behalf of the subject."
+    },
+    {
+      "codepoint": 73,
+      "canonical_name": "Encrypt",
+      "type": "value",
+      "uri": "",
+      "description": "Operational privilege: encrypt messages from the subject and decrypt messages to the subject."
+    },
+    {
+      "codepoint": 74,
+      "canonical_name": "Elide",
+      "type": "value",
+      "uri": "",
+      "description": "Operational privilege: elide the subject's documents."
+    },
+    {
+      "codepoint": 75,
+      "canonical_name": "Issue",
+      "type": "value",
+      "uri": "",
+      "description": "Operational privilege: issue documents on behalf of the subject."
+    },
+    {
+      "codepoint": 76,
+      "canonical_name": "Access",
+      "type": "value",
+      "uri": "",
+      "description": "Operational privilege: access resources on behalf of the subject."
+    },
+    {
+      "codepoint": 80,
+      "canonical_name": "Delegate",
+      "type": "value",
+      "uri": "",
+      "description": "Management privilege: delegate the privileges of the subject to another entity."
+    },
+    {
+      "codepoint": 81,
+      "canonical_name": "Verify",
+      "type": "value",
+      "uri": "",
+      "description": "Management privilege: update the subject's documents, including the ability to reduce privileges."
+    },
+    {
+      "codepoint": 82,
+      "canonical_name": "Update",
+      "type": "value",
+      "uri": "",
+      "description": "Management privilege: update the subject's service endpoints."
+    },
+    {
+      "codepoint": 83,
+      "canonical_name": "Transfer",
+      "type": "value",
+      "uri": "",
+      "description": "Management privilege: remove the inception key from the XID document."
+    },
+    {
+      "codepoint": 84,
+      "canonical_name": "Elect",
+      "type": "value",
+      "uri": "",
+      "description": "Management privilege: add or remove other verifiers (rotate keys)."
+    },
+    {
+      "codepoint": 85,
+      "canonical_name": "Burn",
+      "type": "value",
+      "uri": "",
+      "description": "Management privilege: transition to a new provenance mark chain."
+    },
+    {
+      "codepoint": 86,
+      "canonical_name": "Revoke",
+      "type": "value",
+      "uri": "",
+      "description": "Management privilege: revoke the XID entirely."
+    },
+    {
+      "codepoint": 101,
+      "canonical_name": "result",
+      "type": "property",
+      "uri": "",
+      "description": "The object is the success result of the request identified by the subject."
+    },
+    {
+      "codepoint": 102,
+      "canonical_name": "error",
+      "type": "property",
+      "uri": "",
+      "description": "The object is the failure result of the request identified by the subject."
+    },
+    {
+      "codepoint": 103,
+      "canonical_name": "OK",
+      "type": "value",
+      "uri": "",
+      "description": "The success result of a request that has no other return value."
+    },
+    {
+      "codepoint": 104,
+      "canonical_name": "Processing",
+      "type": "value",
+      "uri": "",
+      "description": "The \"in processing\" result of a request."
+    },
+    {
+      "codepoint": 105,
+      "canonical_name": "sender",
+      "type": "property",
+      "uri": "",
+      "description": "The object identifies the sender, including a way to verify messages from the sender (e.g. public key)."
+    },
+    {
+      "codepoint": 106,
+      "canonical_name": "senderContinuation",
+      "type": "property",
+      "uri": "",
+      "description": "The object is a continuation owned by the sender."
+    },
+    {
+      "codepoint": 107,
+      "canonical_name": "recipientContinuation",
+      "type": "property",
+      "uri": "",
+      "description": "The object is a continuation owned by the recipient."
+    },
+    {
+      "codepoint": 108,
+      "canonical_name": "content",
+      "type": "property",
+      "uri": "",
+      "description": "The object is the content of the event."
+    },
+    {
+      "codepoint": 200,
+      "canonical_name": "Seed",
+      "type": "class",
+      "uri": "",
+      "description": "A cryptographic seed."
+    },
+    {
+      "codepoint": 201,
+      "canonical_name": "PrivateKey",
+      "type": "class",
+      "uri": "",
+      "description": "A cryptographic private key."
+    },
+    {
+      "codepoint": 202,
+      "canonical_name": "PublicKey",
+      "type": "class",
+      "uri": "",
+      "description": "A cryptographic public key."
+    },
+    {
+      "codepoint": 203,
+      "canonical_name": "MasterKey",
+      "type": "class",
+      "uri": "",
+      "description": "A cryptographic master key."
+    },
+    {
+      "codepoint": 300,
+      "canonical_name": "asset",
+      "type": "property",
+      "uri": "",
+      "description": "Declares a cryptocurrency asset specifier, e.g. \"Bitcoin\", \"Ethereum\""
+    },
+    {
+      "codepoint": 301,
+      "canonical_name": "Bitcoin",
+      "type": "value",
+      "uri": "",
+      "description": "The Bitcoin cryptocurrency (\"BTC\")"
+    },
+    {
+      "codepoint": 302,
+      "canonical_name": "Ethereum",
+      "type": "value",
+      "uri": "",
+      "description": "The Ethereum cryptocurrency (\"ETH\")"
+    },
+    {
+      "codepoint": 303,
+      "canonical_name": "Tezos",
+      "type": "value",
+      "uri": "",
+      "description": "The Tezos cryptocurrency (\"XTZ\")"
+    },
+    {
+      "codepoint": 400,
+      "canonical_name": "network",
+      "type": "property",
+      "uri": "",
+      "description": "Declares a cryptocurrency network, e.g. \"MainNet\", \"TestNet\""
+    },
+    {
+      "codepoint": 401,
+      "canonical_name": "MainNet",
+      "type": "value",
+      "uri": "",
+      "description": "A cryptocurrency main network"
+    },
+    {
+      "codepoint": 402,
+      "canonical_name": "TestNet",
+      "type": "value",
+      "uri": "",
+      "description": "A cryptocurrency test network"
+    },
+    {
+      "codepoint": 500,
+      "canonical_name": "BIP32Key",
+      "type": "class",
+      "uri": "",
+      "description": "A BIP-32 HD key"
+    },
+    {
+      "codepoint": 501,
+      "canonical_name": "chainCode",
+      "type": "property",
+      "uri": "",
+      "description": "Declares the chain code of a BIP-32 HD key"
+    },
+    {
+      "codepoint": 502,
+      "canonical_name": "DerivationPath",
+      "type": "class",
+      "uri": "",
+      "description": "A BIP-32 derivation path"
+    },
+    {
+      "codepoint": 503,
+      "canonical_name": "parentPath",
+      "type": "property",
+      "uri": "",
+      "description": "Declares the derivation path for a BIP-32 key"
+    },
+    {
+      "codepoint": 504,
+      "canonical_name": "childrenPath",
+      "type": "property",
+      "uri": "",
+      "description": "Declares the allowable derivation paths from a BIP-32 key"
+    },
+    {
+      "codepoint": 505,
+      "canonical_name": "parentFingerprint",
+      "type": "property",
+      "uri": "",
+      "description": "Declares the parent fingerprint of a BIP-32 key"
+    },
+    {
+      "codepoint": 506,
+      "canonical_name": "PSBT",
+      "type": "class",
+      "uri": "",
+      "description": "A Partially-Signed Bitcoin Transaction (PSBT)"
+    },
+    {
+      "codepoint": 507,
+      "canonical_name": "OutputDescriptor",
+      "type": "class",
+      "uri": "",
+      "description": "A Bitcoin output descriptor"
+    },
+    {
+      "codepoint": 508,
+      "canonical_name": "outputDescriptor",
+      "type": "property",
+      "uri": "",
+      "description": "Declares a Bitcoin output descriptor associated with the subject"
+    },
+    {
+      "codepoint": 600,
+      "canonical_name": "Graph",
+      "type": "class",
+      "uri": "",
+      "description": "A graph. All other assertions in the envelope must be either node or edge."
+    },
+    {
+      "codepoint": 601,
+      "canonical_name": "SourceTargetGraph",
+      "type": "class",
+      "uri": "",
+      "description": "A graph with edges that have source and target assertions."
+    },
+    {
+      "codepoint": 602,
+      "canonical_name": "ParentChildGraph",
+      "type": "class",
+      "uri": "",
+      "description": "A graph with edges that have parent and child assertions."
+    },
+    {
+      "codepoint": 603,
+      "canonical_name": "Digraph",
+      "type": "class",
+      "uri": "",
+      "description": "A directed graph. Implies SourceTargetGraph. source and target are distinct."
+    },
+    {
+      "codepoint": 604,
+      "canonical_name": "AcyclicGraph",
+      "type": "class",
+      "uri": "",
+      "description": "A graph that does not admit cycles. Implies SourceTargetGraph."
+    },
+    {
+      "codepoint": 605,
+      "canonical_name": "Multigraph",
+      "type": "class",
+      "uri": "",
+      "description": "A multigraph (admits parallel edges). Implies SourceTargetGraph."
+    },
+    {
+      "codepoint": 606,
+      "canonical_name": "Pseudograph",
+      "type": "class",
+      "uri": "",
+      "description": "A pseudograph (admits self-loops and parallel edges). Implies Multigraph."
+    },
+    {
+      "codepoint": 607,
+      "canonical_name": "GraphFragment",
+      "type": "class",
+      "uri": "",
+      "description": "A fragment of a graph. May have references to external nodes and edges that are not resolvable in the fragment."
+    },
+    {
+      "codepoint": 608,
+      "canonical_name": "DAG",
+      "type": "class",
+      "uri": "",
+      "description": "A directed acyclic graph. Implies Digraph and AcyclicGraph."
+    },
+    {
+      "codepoint": 609,
+      "canonical_name": "Tree",
+      "type": "class",
+      "uri": "",
+      "description": "A tree. Implies ParentChildGraph. Exactly one node must have no parent. All other nodes must have exactly one parent."
+    },
+    {
+      "codepoint": 610,
+      "canonical_name": "Forest",
+      "type": "class",
+      "uri": "",
+      "description": "A forest (set of trees). Implies ParentChildGraph."
+    },
+    {
+      "codepoint": 611,
+      "canonical_name": "CompoundGraph",
+      "type": "class",
+      "uri": "",
+      "description": "A compound graph (a graph with subgraphs). Implies Forest and SourceTargetGraph."
+    },
+    {
+      "codepoint": 612,
+      "canonical_name": "Hypergraph",
+      "type": "class",
+      "uri": "",
+      "description": "An undirected hypergraph (edges may connect more than two nodes)."
+    },
+    {
+      "codepoint": 613,
+      "canonical_name": "Dihypergraph",
+      "type": "class",
+      "uri": "",
+      "description": "A directed hypergraph (edges may connect more than two nodes and have a direction). Implies Hypergraph and Digraph."
+    },
+    {
+      "codepoint": 700,
+      "canonical_name": "node",
+      "type": "property",
+      "uri": "",
+      "description": "A node in a graph."
+    },
+    {
+      "codepoint": 701,
+      "canonical_name": "edge",
+      "type": "property",
+      "uri": "",
+      "description": "An edge in a graph."
+    },
+    {
+      "codepoint": 702,
+      "canonical_name": "source",
+      "type": "property",
+      "uri": "",
+      "description": "Identifies the source node of the subject edge of a SourceTargetGraph."
+    },
+    {
+      "codepoint": 703,
+      "canonical_name": "target",
+      "type": "property",
+      "uri": "",
+      "description": "Identifies the target node of the subject edge of a SourceTargetGraph."
+    },
+    {
+      "codepoint": 704,
+      "canonical_name": "parent",
+      "type": "property",
+      "uri": "",
+      "description": "Identifies the parent node of the subject edge of a ParentChildGraph."
+    },
+    {
+      "codepoint": 705,
+      "canonical_name": "child",
+      "type": "property",
+      "uri": "",
+      "description": "Identifies a child node of the subject edge of a ParentChildGraph."
+    }
+  ],
+  "statistics": {
+    "total_entries": 88,
+    "code_point_range": {
+      "start": 0,
+      "end": 705
+    }
+  }
+}

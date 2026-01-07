@@ -1,0 +1,644 @@
+{
+  "ontology": {
+    "name": "dc_terms",
+    "source_url": "http://purl.org/dc/terms/",
+    "start_code_point": 3500,
+    "processing_strategy": "StandardRDF"
+  },
+  "generated": {
+    "tool": "KnownValueAssigner",
+    "version": "1.0.0"
+  },
+  "entries": [
+    {
+      "codepoint": 3500,
+      "canonical_name": "Agent",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/Agent",
+      "description": "A resource that acts or has the power to act."
+    },
+    {
+      "codepoint": 3501,
+      "canonical_name": "agentClass",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/AgentClass",
+      "description": "A group of agents."
+    },
+    {
+      "codepoint": 3502,
+      "canonical_name": "bibliographicResource",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/BibliographicResource",
+      "description": "A book, article, or other documentary resource."
+    },
+    {
+      "codepoint": 3503,
+      "canonical_name": "dcmiBox",
+      "type": "datatype",
+      "uri": "http://purl.org/dc/terms/Box",
+      "description": "The set of regions in space defined by their geographic coordinates according to the DCMI Box Encoding Scheme."
+    },
+    {
+      "codepoint": 3504,
+      "canonical_name": "fileFormat",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/FileFormat",
+      "description": "A digital resource format."
+    },
+    {
+      "codepoint": 3505,
+      "canonical_name": "Frequency",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/Frequency",
+      "description": "A rate at which something recurs."
+    },
+    {
+      "codepoint": 3506,
+      "canonical_name": "iso3166",
+      "type": "datatype",
+      "uri": "http://purl.org/dc/terms/ISO3166",
+      "description": "The set of codes listed in ISO 3166-1 for the representation of names of countries."
+    },
+    {
+      "codepoint": 3507,
+      "canonical_name": "iso6392",
+      "type": "datatype",
+      "uri": "http://purl.org/dc/terms/ISO639-2",
+      "description": "The three-letter alphabetic codes listed in ISO639-2 for the representation of names of languages."
+    },
+    {
+      "codepoint": 3508,
+      "canonical_name": "iso6393",
+      "type": "datatype",
+      "uri": "http://purl.org/dc/terms/ISO639-3",
+      "description": "The set of three-letter codes listed in ISO 639-3 for the representation of names of languages."
+    },
+    {
+      "codepoint": 3509,
+      "canonical_name": "Jurisdiction",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/Jurisdiction",
+      "description": "The extent or range of judicial, law enforcement, or other authority."
+    },
+    {
+      "codepoint": 3510,
+      "canonical_name": "licenseDocument",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/LicenseDocument",
+      "description": "A legal document giving official permission to do something with a resource."
+    },
+    {
+      "codepoint": 3511,
+      "canonical_name": "linguisticSystem",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/LinguisticSystem",
+      "description": "A system of signs, symbols, sounds, gestures, or rules used in communication."
+    },
+    {
+      "codepoint": 3512,
+      "canonical_name": "Location",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/Location",
+      "description": "A spatial region or named place."
+    },
+    {
+      "codepoint": 3513,
+      "canonical_name": "locationPeriodOrJurisdiction",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/LocationPeriodOrJurisdiction",
+      "description": "A location, period of time, or jurisdiction."
+    },
+    {
+      "codepoint": 3514,
+      "canonical_name": "mediaType",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/MediaType",
+      "description": "A file format or physical medium."
+    },
+    {
+      "codepoint": 3515,
+      "canonical_name": "mediaTypeOrExtent",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/MediaTypeOrExtent",
+      "description": "A media type or extent."
+    },
+    {
+      "codepoint": 3516,
+      "canonical_name": "methodOfAccrual",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/MethodOfAccrual",
+      "description": "A method by which resources are added to a collection."
+    },
+    {
+      "codepoint": 3517,
+      "canonical_name": "methodOfInstruction",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/MethodOfInstruction",
+      "description": "A process that is used to engender knowledge, attitudes, and skills."
+    },
+    {
+      "codepoint": 3518,
+      "canonical_name": "dcmiPeriod",
+      "type": "datatype",
+      "uri": "http://purl.org/dc/terms/Period",
+      "description": "The set of time intervals defined by their limits according to the DCMI Period Encoding Scheme."
+    },
+    {
+      "codepoint": 3519,
+      "canonical_name": "periodOfTime",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/PeriodOfTime",
+      "description": "An interval of time that is named or defined by its start and end dates."
+    },
+    {
+      "codepoint": 3520,
+      "canonical_name": "physicalMedium",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/PhysicalMedium",
+      "description": "A physical material or carrier."
+    },
+    {
+      "codepoint": 3521,
+      "canonical_name": "physicalResource",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/PhysicalResource",
+      "description": "A material thing."
+    },
+    {
+      "codepoint": 3522,
+      "canonical_name": "dcmiPoint",
+      "type": "datatype",
+      "uri": "http://purl.org/dc/terms/Point",
+      "description": "The set of points in space defined by their geographic coordinates according to the DCMI Point Encoding Scheme."
+    },
+    {
+      "codepoint": 3523,
+      "canonical_name": "Policy",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/Policy",
+      "description": "A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters."
+    },
+    {
+      "codepoint": 3524,
+      "canonical_name": "provenanceStatement",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/ProvenanceStatement",
+      "description": "Any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation."
+    },
+    {
+      "codepoint": 3525,
+      "canonical_name": "rfc1766",
+      "type": "datatype",
+      "uri": "http://purl.org/dc/terms/RFC1766",
+      "description": "The set of tags, constructed according to RFC 1766, for the identification of languages."
+    },
+    {
+      "codepoint": 3526,
+      "canonical_name": "rfc3066",
+      "type": "datatype",
+      "uri": "http://purl.org/dc/terms/RFC3066",
+      "description": "The set of tags constructed according to RFC 3066 for the identification of languages."
+    },
+    {
+      "codepoint": 3527,
+      "canonical_name": "rfc4646",
+      "type": "datatype",
+      "uri": "http://purl.org/dc/terms/RFC4646",
+      "description": "The set of tags constructed according to RFC 4646 for the identification of languages."
+    },
+    {
+      "codepoint": 3528,
+      "canonical_name": "rfc5646",
+      "type": "datatype",
+      "uri": "http://purl.org/dc/terms/RFC5646",
+      "description": "The set of tags constructed according to RFC 5646 for the identification of languages."
+    },
+    {
+      "codepoint": 3529,
+      "canonical_name": "rightsStatement",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/RightsStatement",
+      "description": "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."
+    },
+    {
+      "codepoint": 3530,
+      "canonical_name": "sizeOrDuration",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/SizeOrDuration",
+      "description": "A dimension or extent, or a time taken to play or execute."
+    },
+    {
+      "codepoint": 3531,
+      "canonical_name": "Standard",
+      "type": "class",
+      "uri": "http://purl.org/dc/terms/Standard",
+      "description": "A reference point against which other things can be evaluated or compared."
+    },
+    {
+      "codepoint": 3532,
+      "canonical_name": "URI",
+      "type": "datatype",
+      "uri": "http://purl.org/dc/terms/URI",
+      "description": "The set of identifiers constructed according to the generic syntax for Uniform Resource Identifiers as specified by the Internet Engineering Task Force."
+    },
+    {
+      "codepoint": 3533,
+      "canonical_name": "W3CDTF",
+      "type": "datatype",
+      "uri": "http://purl.org/dc/terms/W3CDTF",
+      "description": "The set of dates and times constructed according to the W3C Date and Time Formats Specification."
+    },
+    {
+      "codepoint": 3534,
+      "canonical_name": "Abstract",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/abstract",
+      "description": "A summary of the resource."
+    },
+    {
+      "codepoint": 3535,
+      "canonical_name": "accessRights",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/accessRights",
+      "description": "Information about who access the resource or an indication of its security status."
+    },
+    {
+      "codepoint": 3536,
+      "canonical_name": "accrualMethod",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/accrualMethod",
+      "description": "The method by which items are added to a collection."
+    },
+    {
+      "codepoint": 3537,
+      "canonical_name": "accrualPeriodicity",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/accrualPeriodicity",
+      "description": "The frequency with which items are added to a collection."
+    },
+    {
+      "codepoint": 3538,
+      "canonical_name": "accrualPolicy",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/accrualPolicy",
+      "description": "The policy governing the addition of items to a collection."
+    },
+    {
+      "codepoint": 3539,
+      "canonical_name": "alternativeTitle",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/alternative",
+      "description": "An alternative name for the resource."
+    },
+    {
+      "codepoint": 3540,
+      "canonical_name": "Audience",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/audience",
+      "description": "A class of agents for whom the resource is intended or useful."
+    },
+    {
+      "codepoint": 3541,
+      "canonical_name": "dateAvailable",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/available",
+      "description": "Date that the resource became or will become available."
+    },
+    {
+      "codepoint": 3542,
+      "canonical_name": "bibliographicCitation",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/bibliographicCitation",
+      "description": "A bibliographic reference for the resource."
+    },
+    {
+      "codepoint": 52,
+      "canonical_name": "conformsTo",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/conformsTo",
+      "description": "An established standard to which the described resource conforms."
+    },
+    {
+      "codepoint": 3543,
+      "canonical_name": "Contributor",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/contributor",
+      "description": "An entity responsible for making contributions to the resource."
+    },
+    {
+      "codepoint": 3544,
+      "canonical_name": "Coverage",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/coverage",
+      "description": "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant."
+    },
+    {
+      "codepoint": 3545,
+      "canonical_name": "dateCreated",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/created",
+      "description": "Date of creation of the resource."
+    },
+    {
+      "codepoint": 3546,
+      "canonical_name": "Creator",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/creator",
+      "description": "An entity responsible for making the resource."
+    },
+    {
+      "codepoint": 16,
+      "canonical_name": "Date",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/date",
+      "description": "A point or period of time associated with an event in the lifecycle of the resource."
+    },
+    {
+      "codepoint": 3547,
+      "canonical_name": "dateAccepted",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/dateAccepted",
+      "description": "Date of acceptance of the resource."
+    },
+    {
+      "codepoint": 3548,
+      "canonical_name": "dateCopyrighted",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/dateCopyrighted",
+      "description": "Date of copyright of the resource."
+    },
+    {
+      "codepoint": 3549,
+      "canonical_name": "dateSubmitted",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/dateSubmitted",
+      "description": "Date of submission of the resource."
+    },
+    {
+      "codepoint": 3550,
+      "canonical_name": "Description",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/description",
+      "description": "An account of the resource."
+    },
+    {
+      "codepoint": 3551,
+      "canonical_name": "audienceEducationLevel",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/educationLevel",
+      "description": "A class of agents, defined in terms of progression through an educational or training context, for which the described resource is intended."
+    },
+    {
+      "codepoint": 3552,
+      "canonical_name": "Extent",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/extent",
+      "description": "The size or duration of the resource."
+    },
+    {
+      "codepoint": 3553,
+      "canonical_name": "Format",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/format",
+      "description": "The file format, physical medium, or dimensions of the resource."
+    },
+    {
+      "codepoint": 3554,
+      "canonical_name": "hasFormat",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/hasFormat",
+      "description": "A related resource that is substantially the same as the pre-existing described resource, but in another format."
+    },
+    {
+      "codepoint": 3555,
+      "canonical_name": "hasPart",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/hasPart",
+      "description": "A related resource that is included either physically or logically in the described resource."
+    },
+    {
+      "codepoint": 18,
+      "canonical_name": "hasVersion",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/hasVersion",
+      "description": "A related resource that is a version, edition, or adaptation of the described resource."
+    },
+    {
+      "codepoint": 2,
+      "canonical_name": "Identifier",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/identifier",
+      "description": "An unambiguous reference to the resource within a given context."
+    },
+    {
+      "codepoint": 3556,
+      "canonical_name": "instructionalMethod",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/instructionalMethod",
+      "description": "A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support."
+    },
+    {
+      "codepoint": 3557,
+      "canonical_name": "isFormatOf",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/isFormatOf",
+      "description": "A pre-existing related resource that is substantially the same as the described resource, but in another format."
+    },
+    {
+      "codepoint": 3558,
+      "canonical_name": "isPartOf",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/isPartOf",
+      "description": "A related resource in which the described resource is physically or logically included."
+    },
+    {
+      "codepoint": 3559,
+      "canonical_name": "isReferencedBy",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/isReferencedBy",
+      "description": "A related resource that references, cites, or otherwise points to the described resource."
+    },
+    {
+      "codepoint": 3560,
+      "canonical_name": "isReplacedBy",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/isReplacedBy",
+      "description": "A related resource that supplants, displaces, or supersedes the described resource."
+    },
+    {
+      "codepoint": 3561,
+      "canonical_name": "isRequiredBy",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/isRequiredBy",
+      "description": "A related resource that requires the described resource to support its function, delivery, or coherence."
+    },
+    {
+      "codepoint": 3562,
+      "canonical_name": "isVersionOf",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/isVersionOf",
+      "description": "A related resource of which the described resource is a version, edition, or adaptation."
+    },
+    {
+      "codepoint": 3563,
+      "canonical_name": "dateIssued",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/issued",
+      "description": "Date of formal issuance of the resource."
+    },
+    {
+      "codepoint": 3564,
+      "canonical_name": "Language",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/language",
+      "description": "A language of the resource."
+    },
+    {
+      "codepoint": 3565,
+      "canonical_name": "License",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/license",
+      "description": "A legal document giving official permission to do something with the resource."
+    },
+    {
+      "codepoint": 3566,
+      "canonical_name": "Mediator",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/mediator",
+      "description": "An entity that mediates access to the resource."
+    },
+    {
+      "codepoint": 3567,
+      "canonical_name": "Medium",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/medium",
+      "description": "The material or physical carrier of the resource."
+    },
+    {
+      "codepoint": 3568,
+      "canonical_name": "dateModified",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/modified",
+      "description": "Date on which the resource was changed."
+    },
+    {
+      "codepoint": 3569,
+      "canonical_name": "Provenance",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/provenance",
+      "description": "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation."
+    },
+    {
+      "codepoint": 3570,
+      "canonical_name": "Publisher",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/publisher",
+      "description": "An entity responsible for making the resource available."
+    },
+    {
+      "codepoint": 3571,
+      "canonical_name": "References",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/references",
+      "description": "A related resource that is referenced, cited, or otherwise pointed to by the described resource."
+    },
+    {
+      "codepoint": 3572,
+      "canonical_name": "Relation",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/relation",
+      "description": "A related resource."
+    },
+    {
+      "codepoint": 3573,
+      "canonical_name": "Replaces",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/replaces",
+      "description": "A related resource that is supplanted, displaced, or superseded by the described resource."
+    },
+    {
+      "codepoint": 3574,
+      "canonical_name": "Requires",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/requires",
+      "description": "A related resource that is required by the described resource to support its function, delivery, or coherence."
+    },
+    {
+      "codepoint": 3575,
+      "canonical_name": "Rights",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/rights",
+      "description": "Information about rights held in and over the resource."
+    },
+    {
+      "codepoint": 3576,
+      "canonical_name": "rightsHolder",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/rightsHolder",
+      "description": "A person or organization owning or managing rights over the resource."
+    },
+    {
+      "codepoint": 3577,
+      "canonical_name": "Source",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/source",
+      "description": "A related resource from which the described resource is derived."
+    },
+    {
+      "codepoint": 3578,
+      "canonical_name": "spatialCoverage",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/spatial",
+      "description": "Spatial characteristics of the resource."
+    },
+    {
+      "codepoint": 3579,
+      "canonical_name": "Subject",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/subject",
+      "description": "A topic of the resource."
+    },
+    {
+      "codepoint": 3580,
+      "canonical_name": "tableOfContents",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/tableOfContents",
+      "description": "A list of subunits of the resource."
+    },
+    {
+      "codepoint": 3581,
+      "canonical_name": "temporalCoverage",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/temporal",
+      "description": "Temporal characteristics of the resource."
+    },
+    {
+      "codepoint": 3582,
+      "canonical_name": "Title",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/title",
+      "description": "A name given to the resource."
+    },
+    {
+      "codepoint": 3583,
+      "canonical_name": "Type",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/type",
+      "description": "The nature or genre of the resource."
+    },
+    {
+      "codepoint": 21,
+      "canonical_name": "dateValid",
+      "type": "property",
+      "uri": "http://purl.org/dc/terms/valid",
+      "description": "Date (often a range) of validity of a resource."
+    }
+  ],
+  "statistics": {
+    "total_entries": 89,
+    "code_point_range": {
+      "start": 3500,
+      "end": 3588
+    }
+  }
+}

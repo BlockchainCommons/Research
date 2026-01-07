@@ -1,0 +1,602 @@
+{
+  "ontology": {
+    "name": "foaf",
+    "source_url": "http://xmlns.com/foaf/0.1/",
+    "start_code_point": 4000,
+    "processing_strategy": "StandardRDF"
+  },
+  "generated": {
+    "tool": "KnownValueAssigner",
+    "version": "1.0.0"
+  },
+  "entries": [
+    {
+      "codepoint": 4000,
+      "canonical_name": "date",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/date",
+      "description": ""
+    },
+    {
+      "codepoint": 4001,
+      "canonical_name": "description",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/description",
+      "description": ""
+    },
+    {
+      "codepoint": 4002,
+      "canonical_name": "title",
+      "type": "property",
+      "uri": "http://purl.org/dc/elements/1.1/title",
+      "description": ""
+    },
+    {
+      "codepoint": 4003,
+      "canonical_name": "Class",
+      "type": "class",
+      "uri": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "description": ""
+    },
+    {
+      "codepoint": 4004,
+      "canonical_name": "spatialThing",
+      "type": "class",
+      "uri": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing",
+      "description": ""
+    },
+    {
+      "codepoint": 4005,
+      "canonical_name": "term_status",
+      "type": "property",
+      "uri": "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status",
+      "description": ""
+    },
+    {
+      "codepoint": 4006,
+      "canonical_name": "Agent",
+      "type": "class",
+      "uri": "http://xmlns.com/foaf/0.1/Agent",
+      "description": "An agent (eg. person, group, software or physical artifact)."
+    },
+    {
+      "codepoint": 4007,
+      "canonical_name": "Document",
+      "type": "class",
+      "uri": "http://xmlns.com/foaf/0.1/Document",
+      "description": "A document."
+    },
+    {
+      "codepoint": 4008,
+      "canonical_name": "Group",
+      "type": "class",
+      "uri": "http://xmlns.com/foaf/0.1/Group",
+      "description": "A class of Agents."
+    },
+    {
+      "codepoint": 4009,
+      "canonical_name": "Image",
+      "type": "class",
+      "uri": "http://xmlns.com/foaf/0.1/Image",
+      "description": "An image."
+    },
+    {
+      "codepoint": 4010,
+      "canonical_name": "labelProperty",
+      "type": "class",
+      "uri": "http://xmlns.com/foaf/0.1/LabelProperty",
+      "description": "A foaf:LabelProperty is any RDF property with texual values that serve as labels."
+    },
+    {
+      "codepoint": 4011,
+      "canonical_name": "onlineAccount",
+      "type": "class",
+      "uri": "http://xmlns.com/foaf/0.1/OnlineAccount",
+      "description": "An online account."
+    },
+    {
+      "codepoint": 4012,
+      "canonical_name": "onlineChatAccount",
+      "type": "class",
+      "uri": "http://xmlns.com/foaf/0.1/OnlineChatAccount",
+      "description": "An online chat account."
+    },
+    {
+      "codepoint": 4013,
+      "canonical_name": "onlineEcommerceAccount",
+      "type": "class",
+      "uri": "http://xmlns.com/foaf/0.1/OnlineEcommerceAccount",
+      "description": "An online e-commerce account."
+    },
+    {
+      "codepoint": 4014,
+      "canonical_name": "onlineGamingAccount",
+      "type": "class",
+      "uri": "http://xmlns.com/foaf/0.1/OnlineGamingAccount",
+      "description": "An online gaming account."
+    },
+    {
+      "codepoint": 4015,
+      "canonical_name": "Organization",
+      "type": "class",
+      "uri": "http://xmlns.com/foaf/0.1/Organization",
+      "description": "An organization."
+    },
+    {
+      "codepoint": 4016,
+      "canonical_name": "Person",
+      "type": "class",
+      "uri": "http://xmlns.com/foaf/0.1/Person",
+      "description": "A person."
+    },
+    {
+      "codepoint": 4017,
+      "canonical_name": "PersonalProfileDocument",
+      "type": "class",
+      "uri": "http://xmlns.com/foaf/0.1/PersonalProfileDocument",
+      "description": "A personal profile RDF document."
+    },
+    {
+      "codepoint": 4018,
+      "canonical_name": "Project",
+      "type": "class",
+      "uri": "http://xmlns.com/foaf/0.1/Project",
+      "description": "A project (a collective endeavour of some kind)."
+    },
+    {
+      "codepoint": 4019,
+      "canonical_name": "account",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/account",
+      "description": "Indicates an account held by this agent."
+    },
+    {
+      "codepoint": 4020,
+      "canonical_name": "accountName",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/accountName",
+      "description": "Indicates the name (identifier) associated with this online account."
+    },
+    {
+      "codepoint": 4021,
+      "canonical_name": "accountServiceHomepage",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/accountServiceHomepage",
+      "description": "Indicates a homepage of the service provide for this online account."
+    },
+    {
+      "codepoint": 4022,
+      "canonical_name": "age",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/age",
+      "description": "The age in years of some agent."
+    },
+    {
+      "codepoint": 4023,
+      "canonical_name": "aimChatId",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/aimChatID",
+      "description": "An AIM chat ID"
+    },
+    {
+      "codepoint": 4024,
+      "canonical_name": "basedNear",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/based_near",
+      "description": "A location that something is based near, for some broadly human notion of near."
+    },
+    {
+      "codepoint": 4025,
+      "canonical_name": "birthday",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/birthday",
+      "description": "The birthday of this Agent, represented in mm-dd string form, eg. '12-31'."
+    },
+    {
+      "codepoint": 4026,
+      "canonical_name": "currentProject",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/currentProject",
+      "description": "A current project this person works on."
+    },
+    {
+      "codepoint": 4027,
+      "canonical_name": "depiction",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/depiction",
+      "description": "A depiction of some thing."
+    },
+    {
+      "codepoint": 4028,
+      "canonical_name": "depicts",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/depicts",
+      "description": "A thing depicted in this representation."
+    },
+    {
+      "codepoint": 4029,
+      "canonical_name": "dnaChecksum",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/dnaChecksum",
+      "description": "A checksum for the DNA of some thing. Joke."
+    },
+    {
+      "codepoint": 4030,
+      "canonical_name": "familyName",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/familyName",
+      "description": "The family name of some person."
+    },
+    {
+      "codepoint": 4031,
+      "canonical_name": "family_name",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/family_name",
+      "description": "The family name of some person."
+    },
+    {
+      "codepoint": 4032,
+      "canonical_name": "firstName",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/firstName",
+      "description": "The first name of a person."
+    },
+    {
+      "codepoint": 4033,
+      "canonical_name": "focus",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/focus",
+      "description": "The underlying or 'focal' entity associated with some SKOS-described concept."
+    },
+    {
+      "codepoint": 4034,
+      "canonical_name": "fundedBy",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/fundedBy",
+      "description": "An organization funding a project or person."
+    },
+    {
+      "codepoint": 4035,
+      "canonical_name": "geekcode",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/geekcode",
+      "description": "A textual geekcode for this person, see http://www.geekcode.com/geek.html"
+    },
+    {
+      "codepoint": 4036,
+      "canonical_name": "gender",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/gender",
+      "description": "The gender of this Agent (typically but not necessarily 'male' or 'female')."
+    },
+    {
+      "codepoint": 4037,
+      "canonical_name": "givenName",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/givenName",
+      "description": "The given name of some person."
+    },
+    {
+      "codepoint": 4038,
+      "canonical_name": "givenName",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/givenname",
+      "description": "The given name of some person."
+    },
+    {
+      "codepoint": 4039,
+      "canonical_name": "account",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/holdsAccount",
+      "description": "Indicates an account held by this agent."
+    },
+    {
+      "codepoint": 4040,
+      "canonical_name": "homepage",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/homepage",
+      "description": "A homepage for some thing."
+    },
+    {
+      "codepoint": 4041,
+      "canonical_name": "icqChatId",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/icqChatID",
+      "description": "An ICQ chat ID"
+    },
+    {
+      "codepoint": 4042,
+      "canonical_name": "image",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/img",
+      "description": "An image that can be used to represent some thing (ie. those depictions which are particularly representative of something, eg. one's photo on a homepage)."
+    },
+    {
+      "codepoint": 4043,
+      "canonical_name": "interest",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/interest",
+      "description": "A page about a topic of interest to this person."
+    },
+    {
+      "codepoint": 4044,
+      "canonical_name": "isPrimaryTopicOf",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/isPrimaryTopicOf",
+      "description": "A document that this thing is the primary topic of."
+    },
+    {
+      "codepoint": 4045,
+      "canonical_name": "jabberId",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/jabberID",
+      "description": "A jabber ID for something."
+    },
+    {
+      "codepoint": 4046,
+      "canonical_name": "knows",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/knows",
+      "description": "A person known by this person (indicating some level of reciprocated interaction between the parties)."
+    },
+    {
+      "codepoint": 4047,
+      "canonical_name": "lastName",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/lastName",
+      "description": "The last name of a person."
+    },
+    {
+      "codepoint": 4048,
+      "canonical_name": "logo",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/logo",
+      "description": "A logo representing some thing."
+    },
+    {
+      "codepoint": 4049,
+      "canonical_name": "made",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/made",
+      "description": "Something that was made by this agent."
+    },
+    {
+      "codepoint": 4050,
+      "canonical_name": "maker",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/maker",
+      "description": "An agent that  made this thing."
+    },
+    {
+      "codepoint": 4051,
+      "canonical_name": "personalMailbox",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/mbox",
+      "description": "A  personal mailbox, ie. an Internet mailbox associated with exactly one owner, the first owner of this mailbox. This is a 'static inverse functional property', in that  there is (across time and change) at most one individual that ever has any particular value for foaf:mbox."
+    },
+    {
+      "codepoint": 4052,
+      "canonical_name": "sha1sumOfAPersonalMailboxUriName",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/mbox_sha1sum",
+      "description": "The sha1sum of the URI of an Internet mailbox associated with exactly one owner, the  first owner of the mailbox."
+    },
+    {
+      "codepoint": 4053,
+      "canonical_name": "member",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/member",
+      "description": "Indicates a member of a Group"
+    },
+    {
+      "codepoint": 4054,
+      "canonical_name": "membershipClass",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/membershipClass",
+      "description": "Indicates the class of individuals that are a member of a Group"
+    },
+    {
+      "codepoint": 4055,
+      "canonical_name": "msnChatId",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/msnChatID",
+      "description": "An MSN chat ID"
+    },
+    {
+      "codepoint": 4056,
+      "canonical_name": "myersBriggs",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/myersBriggs",
+      "description": "A Myers Briggs (MBTI) personality classification."
+    },
+    {
+      "codepoint": 4057,
+      "canonical_name": "name",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/name",
+      "description": "A name for some thing."
+    },
+    {
+      "codepoint": 4058,
+      "canonical_name": "nickname",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/nick",
+      "description": "A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames)."
+    },
+    {
+      "codepoint": 4059,
+      "canonical_name": "openid",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/openid",
+      "description": "An OpenID for an Agent."
+    },
+    {
+      "codepoint": 4060,
+      "canonical_name": "page",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/page",
+      "description": "A page or document about this thing."
+    },
+    {
+      "codepoint": 4061,
+      "canonical_name": "pastProject",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/pastProject",
+      "description": "A project this person has previously worked on."
+    },
+    {
+      "codepoint": 4062,
+      "canonical_name": "phone",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/phone",
+      "description": "A phone,  specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel)."
+    },
+    {
+      "codepoint": 4063,
+      "canonical_name": "plan",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/plan",
+      "description": "A .plan comment, in the tradition of finger and '.plan' files."
+    },
+    {
+      "codepoint": 4064,
+      "canonical_name": "primaryTopic",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/primaryTopic",
+      "description": "The primary topic of some page or document."
+    },
+    {
+      "codepoint": 4065,
+      "canonical_name": "publications",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/publications",
+      "description": "A link to the publications of this person."
+    },
+    {
+      "codepoint": 4066,
+      "canonical_name": "schoolHomepage",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/schoolHomepage",
+      "description": "A homepage of a school attended by the person."
+    },
+    {
+      "codepoint": 4067,
+      "canonical_name": "sha1sumHex",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/sha1",
+      "description": "A sha1sum hash, in hex."
+    },
+    {
+      "codepoint": 4068,
+      "canonical_name": "skypeId",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/skypeID",
+      "description": "A Skype ID"
+    },
+    {
+      "codepoint": 4069,
+      "canonical_name": "status",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/status",
+      "description": "A string expressing what the user is happy for the general public (normally) to know about their current activity."
+    },
+    {
+      "codepoint": 4070,
+      "canonical_name": "Surname",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/surname",
+      "description": "The surname of some person."
+    },
+    {
+      "codepoint": 4071,
+      "canonical_name": "theme",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/theme",
+      "description": "A theme."
+    },
+    {
+      "codepoint": 4072,
+      "canonical_name": "thumbnail",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/thumbnail",
+      "description": "A derived thumbnail image."
+    },
+    {
+      "codepoint": 4073,
+      "canonical_name": "tipjar",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/tipjar",
+      "description": "A tipjar document for this agent, describing means for payment and reward."
+    },
+    {
+      "codepoint": 4074,
+      "canonical_name": "title",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/title",
+      "description": "Title (Mr, Mrs, Ms, Dr. etc)"
+    },
+    {
+      "codepoint": 4075,
+      "canonical_name": "topic",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/topic",
+      "description": "A topic of some page or document."
+    },
+    {
+      "codepoint": 4076,
+      "canonical_name": "topic_interest",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/topic_interest",
+      "description": "A thing of interest to this person."
+    },
+    {
+      "codepoint": 4077,
+      "canonical_name": "weblog",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/weblog",
+      "description": "A weblog of some thing (whether person, group, company etc.)."
+    },
+    {
+      "codepoint": 4078,
+      "canonical_name": "workInfoHomepage",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/workInfoHomepage",
+      "description": "A work info homepage of some person; a page about their work for some organization."
+    },
+    {
+      "codepoint": 4079,
+      "canonical_name": "workplaceHomepage",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/workplaceHomepage",
+      "description": "A workplace homepage of some person; the homepage of an organization they work for."
+    },
+    {
+      "codepoint": 4080,
+      "canonical_name": "yahooChatId",
+      "type": "property",
+      "uri": "http://xmlns.com/foaf/0.1/yahooChatID",
+      "description": "A Yahoo chat ID"
+    },
+    {
+      "codepoint": 4081,
+      "canonical_name": "assurance",
+      "type": "property",
+      "uri": "http://xmlns.com/wot/0.1/assurance",
+      "description": ""
+    },
+    {
+      "codepoint": 4082,
+      "canonical_name": "src_assurance",
+      "type": "property",
+      "uri": "http://xmlns.com/wot/0.1/src_assurance",
+      "description": ""
+    }
+  ],
+  "statistics": {
+    "total_entries": 83,
+    "code_point_range": {
+      "start": 4000,
+      "end": 4082
+    }
+  }
+}

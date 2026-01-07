@@ -157,190 +157,69 @@ When encoded as CBOR, the amount of storage required for integer values varies, 
 | 65536..4294967295                | 1+4 = 5 |
 | 4294967296..18446744073709551615 | 1+8 = 9 |
 
-This table documents the Known Value codepoints currently assigned, but is currently subject to change. It should probably be brought into line with one or more of the foundational ontology vocabularies such as RDF or OWL.
+### Assigned Code Point Ranges
 
+The following table summarizes the assigned Known Value code point ranges:
 
-### General
+| Name                                                                                                                      | Range       | Entries | JSON                                                                            |
+|---------------------------------------------------------------------------------------------------------------------------|-------------|---------|---------------------------------------------------------------------------------|
+| [Blockchain Commons](../known-value-assignments/markdown/0_blockchain_commons_registry.md)                                | 0-999       | 88      | [JSON](../known-value-assignments/json/0_blockchain_commons_registry.json)      |
+| [RDF and RDFS](../known-value-assignments/markdown/1000_rdf_rdfs_registry.md)                                             | 1000-1999   | 33      | [JSON](../known-value-assignments/json/1000_rdf_rdfs_registry.json)             |
+| [OWL 2](../known-value-assignments/markdown/2000_owl2_registry.md)                                                        | 2000-2999   | 75      | [JSON](../known-value-assignments/json/2000_owl2_registry.json)                 |
+| [Dublin Core Elements](../known-value-assignments/markdown/3000_dc_elements_registry.md)                                  | 3000-3499   | 15      | [JSON](../known-value-assignments/json/3000_dc_elements_registry.json)          |
+| [Dublin Core Terms](../known-value-assignments/markdown/3500_dc_terms_registry.md)                                        | 3500-3999   | 84      | [JSON](../known-value-assignments/json/3500_dc_terms_registry.json)             |
+| [FOAF](../known-value-assignments/markdown/4000_foaf_registry.md)                                                         | 4000-4999   | 83      | [JSON](../known-value-assignments/json/4000_foaf_registry.json)                 |
+| [SKOS](../known-value-assignments/markdown/5000_skos_registry.md)                                                         | 5000-5999   | 32      | [JSON](../known-value-assignments/json/5000_skos_registry.json)                 |
+| [Solid](../known-value-assignments/markdown/6000_solid_registry.md)                                                       | 6000-6999   | 33      | [JSON](../known-value-assignments/json/6000_solid_registry.json)                |
+| [Schema.org](../known-value-assignments/markdown/10000_schema_org_registry.md)                                            | 10000-19999 | 2664    | [JSON](../known-value-assignments/json/10000_schema_org_registry.json)          |
+| [W3C Verifiable Credentials](../known-value-assignments/markdown/20000_w3c_vc_registry.md)                                | 20000-20999 | 28      | [JSON](../known-value-assignments/json/20000_w3c_vc_registry.json)              |
+| [Community Assigned](../known-value-assignments/markdown/100000_community_assigned_registry.md) (first come-first served) | 100000-...  | 0       | [JSON](../known-value-assignments/json/100000_community_assigned_registry.json) |
 
-| Codepoint | Canonical Name   | Type     | Description                                                                                      | URI                                                   |
-| --------- | ---------------- | -------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
-| 0         | `''` _empty_     | unit     | The Unit type, and its sole inhabitant `''`, which is a value conveying no information.          |
-| 1         | `isA`            | property | The subject is an instance of the class identified by the object.                                | http://www.w3.org/1999/02/22-rdf-syntax-ns#type       |
-| 2         | `id`             | property | The object is an unambiguous identifier of the subject within a given context.                   | http://purl.org/dc/terms/identifier                   |
-| 3         | `signed`         | property | The object is a cryptographic signature of the subject.                                          |
-| 4         | `note`           | property | The object is a human-readable note about the subject.                                           | http://www.w3.org/2000/01/rdf-schema#comment          |
-| 5         | `hasRecipient`   | property | The subject can be decrypted using the private key that decrypts the content key in the object.  |
-| 6         | `sskrShare`      | property | The subject can be decrypted by a quorum of SSKR shares including the one in the object.         |
-| 7         | `controller`     | property | The object is the subject's controlling entity.                                                  | https://www.w3.org/ns/solid/terms#owner               |
-| 8         | `key`            | property | The entity identified by the subject holds the private half of the public keys(s) in the object. |
-| 9         | `dereferenceVia` | property | The content referenced by the subject can be dereferenced using the object.                      |
-| 10        | `entity`         | property | The entity referenced by the subject is specified in the object.                                 |
-| 11        | `name`           | property | The subject is known by the name in the object.                                                  | http://xmlns.com/foaf/spec/#term_name                 |
-| 12        | `language`       | property | The subject is written in the language of the ISO language code object.                          | http://www.w3.org/1999/02/22-rdf-syntax-ns#langString |
-| 13        | `issuer`         | property | The object is the subject's issuing entity.                                                      |
-| 14        | `holder`         | property | The object identifies the entity to which the subject has been issued.                           |
-| 15        | `salt`           | property | The object is random salt used to decorrelate the digest of the subject.                         |
-| 16        | `date`           | property | The object is a primary datestamp of the subject.                                                | http://purl.org/dc/terms/date                         |
-| 17        | `Unknown`        | value    | Placeholder for an unknown value.                                                                | https://en.wikipedia.org/wiki/Blank_node              |
-| 18        | `version`        | property | The object is the version of the subject.                                                        | http://purl.org/dc/terms/hasVersion                   |
-| 19        | `hasSecret`      | property | The subject can be decrypted using the secret that decrypts the content key in the object.       |
-| 20        | `edits`          | property | The object is a set of edits used by the `Envelope.transform(edits:)` method.                    |
-| 21        | `validFrom`      | property | The subject is valid from the date in the object.                                                | http://purl.org/dc/terms/valid                        |
-| 22        | `validUntil`     | property | The subject is valid until the date in the object.                                               | http://purl.org/dc/terms/valid                        |
-| 23        | `position`       | property | The position of an item in a series or sequence of items.                                        | https://schema.org/position                           |
-| 24        | `nickname`       | property | The subject is a nickname for the object.                                                        | http://xmlns.com/foaf/spec/#term_nick                 |
-| 25-49     | *unassigned*     |
+### Blockchain Commons Core Concepts
 
-> **✅ NOTE:** Code-point 0 denotes **Unit**—a special entry that is
-> *simultaneously* a class **and** its single inhabitant `''`.
->
-> *Semantics:* **Unit** *positively* asserts that “nothing is being conveyed.”
-> It is **not** a stand-in for a missing, null, or still-to-be-determined value,
-> nor a marker that something *ought* to or *might* be here later. By using
-> **Unit** you are saying, *precisely*, that this position carries zero
-> informational content.
->
-> Contrast this with `'Unknown'` (codepoint 17), which indicates that *some*
-> value exists but is not known, and with explicit null constructs (e.g.,
-> JavaScript or CBOR `null`), which signify *absence* rather than *deliberate
-> emptiness.*
->
-> **Language parallels:**
-> • Rust: both the type and the value are written `()`
-> • C / C++: the *type* `void` plays the same role, but there is **no
->   inhabitant value** (functions simply return to the caller)
-> • Java: the primitive return type `void`; boxed analogue `java.lang.Void` is a
->   reference type whose only legal value is `null`
-> • Python: the singleton value `None`, whose type is `types.NoneType`
+The Blockchain Commons range (0-999) contains core concepts specific to Gordian Envelope and related specifications. Where these concepts have equivalent URIs in other ontologies, the external ontology registries reference the Blockchain Commons code point rather than assigning a new one, ensuring 1:1 correspondence between code points and URIs.
 
-### Attachments
+- **Core envelope predicates** (0-49): Fundamental properties like `isA`, `id`, `signed`, `note`, `hasRecipient`, `salt`, `date`, `version`
+- **Attachments** (50-59): Vendor-defined envelope extensions
+- **XID Documents** (60-99): Extensible identifier documents for decentralized identity, including privileges like `allow`, `deny`, `delegate`, and operational/management capabilities
+- **Expressions and Functions** (100-199): Request/response patterns including `result`, `error`, `sender`, and continuations
+- **Cryptography** (200-299): Cryptographic primitives like `Seed`, `PrivateKey`, `PublicKey`, `MasterKey`
+- **Cryptocurrency** (300-499): Asset types (`Bitcoin`, `Ethereum`, `Tezos`) and networks (`MainNet`, `TestNet`)
+- **Bitcoin** (500-599): BIP-32 HD keys, derivation paths, PSBTs, and output descriptors
+- **Graphs** (600-799): Graph structures including directed graphs, DAGs, trees, forests, hypergraphs, and related edge/node predicates
 
-| Codepoint | Canonical Name | Type     | Description                                                              | URI                                                 |
-| --------- | -------------- | -------- | ------------------------------------------------------------------------ | --------------------------------------------------- |
-| 50        | `attachment`   | property | Declares that the object is a vendor-defined attachment to the envelope. | [BCR-2023-006](bcr-2023-006-envelope-attachment.md) |
-| 51        | `vendor`       | property | Declares the vendor of the subject.                                      | [BCR-2023-006](bcr-2023-006-envelope-attachment.md) |
-| 52        | `conformsTo`   | property | An established standard to which the subject conforms.                   | http://purl.org/dc/terms/conformsTo                 |
-| 53-59     | *unassigned*   |
+### Standard Supported Ontologies
 
-### XID Documents
+This section describes the ontologies from which Known Values are assigned, organized from most fundamental to most specialized.
 
-| Codepoint | Canonical Name        | Type     | Description                                                                                                   | URI |
-| --------- | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------- | --- |
-| 60        | `allow`               | property | The object is a set of permissions that allow the subject to perform the actions specified in the object.     |
-| 61        | `deny`                | property | The object is a set of permissions that deny the subject from performing the actions specified in the object. |
-| 62        | `endpoint`            | property | The object is a service endpoint associated with the subject.                                                 |
-| 63        | `delegate`            | property | The object is a delegate authorized by the subject.                                                           |
-| 64        | `provenance`          | property | The object is a provenance mark associated with the subject.                                                  |
-| 65        | `privateKey`          | property | The object is a private key associated with the subject.                                                      |
-| 66        | `service`             | property | The object is a service associated with the subject.                                                          |
-| 67        | `capability`          | property | The object is a capability associated with the subject.                                                       |
-| 68        | `provenanceGenerator` | property | The object is a provenance mark generator associated with the subject.                                        |
-| 69        | *unassigned*          |
+#### RDF and RDFS (Resource Description Framework and RDF Schema)
 
-#### XID Privileges
+RDF is the foundational data model of the Semantic Web, providing a standard way to make statements about resources using subject-predicate-object triples. RDFS extends RDF with basic schema vocabulary for defining classes and properties. These are the most fundamental building blocks for any semantic system, defining concepts like `type`, `Class`, `Property`, `subClassOf`, and `comment`. Nearly all other semantic vocabularies are built upon RDF/RDFS primitives.
 
-| Codepoint | Canonical Name | Type  | Description                                                                                       | URI |
-| --------- | -------------- | ----- | ------------------------------------------------------------------------------------------------- | --- |
-| 70        | `All`          | value | The set of all allowed privileges.                                                                |
-| 71        | `Authorize`    | value | Operational privilege: authorize actions on behalf of the subject.                                |
-| 72        | `Sign`         | value | Operational privilege: sign documents on behalf of the subject.                                   |
-| 73        | `Encrypt`      | value | Operational privilege: encrypt messages from the subject and decrypt messages to the subject.     |
-| 74        | `Elide`        | value | Operational privilege: elide the subject's documents.                                             |
-| 75        | `Issue`        | value | Operational privilege: issue documents on behalf of the subject.                                  |
-| 76        | `Access`       | value | Operational privilege: access resources on behalf of the subject.                                 |
-| 77-79     | *unassigned*   |
-| 80        | `Delegate`     | value | Management privilege: delegate the privileges of the subject to another entity.                   |
-| 81        | `Verify`       | value | Management privilege: update the subject's documents, including the ability to reduce privileges. |
-| 82        | `Update`       | value | Management privilege: update the subject's service endpoints.                                     |
-| 83        | `Transfer`     | value | Management privilege: remove the inception key from the XID document.                             |
-| 84        | `Elect`        | value | Management privilege: add or remove other verifiers (rotate keys).                                |
-| 85        | `Burn`         | value | Management privilege: transition to a new provenance mark chain.                                  |
-| 86        | `Revoke`       | value | Management privilege: revoke the XID entirely.                                                    |
-| 87-99     | *unassigned*   |
+#### OWL 2 (Web Ontology Language)
 
-### Expression and Function Calls
+OWL 2 extends RDF/RDFS with more expressive constructs for describing complex relationships and constraints. It provides vocabulary for cardinality restrictions, property characteristics (transitive, symmetric, functional), class expressions (unions, intersections, complements), and reasoning capabilities. OWL enables more sophisticated ontological modeling and automated inference.
 
-| Codepoint | Canonical Name          | Type     | Description                                                                                             | URI |
-| --------- | ----------------------- | -------- | ------------------------------------------------------------------------------------------------------- | --- |
-| 101       | `result`                | property | The object is the success result of the request identified by the subject.                              |
-| 102       | `error`                 | property | The object is the failure result of the request identified by the subject.                              |
-| 103       | `OK`                    | value    | The success result of a request that has no other return value.                                         |
-| 104       | `Processing`            | value    | The "in processing" result of a request.                                                                |
-| 105       | `sender`                | property | The object identifies the sender, including a way to verify messages from the sender (e.g. public key). |
-| 106       | `senderContinuation`    | property | The object is a continuation owned by the sender.                                                       |
-| 107       | `recipientContinuation` | property | The object is a continuation owned by the recipient.                                                    |
-| 108       | `content`               | property | The object is the content of the event.                                                                 |
-| 109-199   | *unassigned*            |
+#### Dublin Core (Elements and Terms)
 
-### Cryptography
+Dublin Core is a widely-adopted metadata vocabulary originally developed for describing digital resources like documents, images, and web pages. The 15 core elements (title, creator, subject, description, publisher, date, etc.) provide a lingua franca for resource metadata. Dublin Core Terms extends this with additional properties and refined semantics. Many other vocabularies reference Dublin Core for basic metadata needs.
 
-| Codepoint | Canonical Name | Type  | Description                  | URI |
-| --------- | -------------- | ----- | ---------------------------- | --- |
-| 200       | `Seed`         | class | A cryptographic seed.        |
-| 201       | `PrivateKey`   | class | A cryptographic private key. |
-| 202       | `PublicKey`    | class | A cryptographic public key.  |
-| 203       | `MasterKey`    | class | A cryptographic master key.  |
-| 204-259   | *unassigned*   |
+#### SKOS (Simple Knowledge Organization System)
 
-### Cryptocurrency Assets
+SKOS provides vocabulary for representing knowledge organization systems such as thesauri, classification schemes, taxonomies, and folksonomies. It defines concepts like `Concept`, `ConceptScheme`, `broader`, `narrower`, `prefLabel`, and `altLabel`. SKOS is essential for organizing and relating concepts in controlled vocabularies.
 
-| Codepoint | Canonical Name | Type     | Description                                                           | URI |
-| --------- | -------------- | -------- | --------------------------------------------------------------------- | --- |
-| 300       | `asset`        | property | Declares a cryptocurrency asset specifier, e.g. "Bitcoin", "Ethereum" |
-| 301       | `Bitcoin`      | value    | The Bitcoin cryptocurrency ("BTC")                                    |
-| 302       | `Ethereum`     | value    | The Ethereum cryptocurrency ("ETH")                                   |
-| 303       | `Tezos`        | value    | The Tezos cryptocurrency ("XTZ")                                      |
-| 304-399   | *unassigned*   |
+#### FOAF (Friend of a Friend)
 
+FOAF is a vocabulary for describing people, their activities, and their relationships to other people and objects. It defines classes like `Person`, `Organization`, and `Document`, along with properties like `name`, `knows`, `mbox`, and `homepage`. FOAF is widely used in social web applications and decentralized identity systems.
 
-### Cryptocurrency Networks
+#### Solid
 
-| Codepoint | Canonical Name | Type     | Description                                                  | URI |
-| --------- | -------------- | -------- | ------------------------------------------------------------ | --- |
-| 400       | `network`      | property | Declares a cryptocurrency network, e.g. "MainNet", "TestNet" |
-| 401       | `MainNet`      | value    | A cryptocurrency main network                                |
-| 402       | `TestNet`      | value    | A cryptocurrency test network                                |
-| 403-499   | *unassigned*   |
+Solid (Social Linked Data) is a W3C project for decentralized data storage and identity. The Solid Terms vocabulary defines concepts for personal data pods, access control, type indexes, and WebID-based authentication. It includes properties like `owner`, `publicTypeIndex`, and `oidcIssuer` that are essential for Solid-based applications.
 
+#### W3C Verifiable Credentials
 
-### Bitcoin
+The W3C Verifiable Credentials vocabulary provides terms for expressing credentials on the Web in a cryptographically secure, privacy-respecting, and machine-verifiable way. It defines concepts like `VerifiableCredential`, `VerifiablePresentation`, `credentialSubject`, `issuer`, and `proof`. This vocabulary is fundamental to decentralized identity and digital credential ecosystems.
 
-| Codepoint | Canonical Name      | Type     | Description                                                      | URI |
-| --------- | ------------------- | -------- | ---------------------------------------------------------------- | --- |
-| 500       | `BIP32Key`          | class    | A BIP-32 HD key                                                  |
-| 501       | `chainCode`         | property | Declares the chain code of a BIP-32 HD key                       |
-| 502       | `DerivationPath`    | class    | A BIP-32 derivation path                                         |
-| 503       | `parentPath`        | property | Declares the derivation path for a BIP-32 key                    |
-| 504       | `childrenPath`      | property | Declares the allowable derivation paths from a BIP-32 key        |
-| 505       | `parentFingerprint` | property | Declares the parent fingerprint of a BIP-32 key                  |
-| 506       | `PSBT`              | class    | A Partially-Signed Bitcoin Transaction (PSBT)                    |
-| 507       | `OutputDescriptor`  | class    | A Bitcoin output descriptor                                      |
-| 508       | `outputDescriptor`  | property | Declares a Bitcoin output descriptor associated with the subject |
-| 509-599   | *unassigned*        |
+#### Schema.org
 
-### Graphs
-
-| Codepoint | Canonical Name      | Type     | Description                                                                                                                                                                                                                                         | URI |
-| --------- | ------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| 600       | `Graph`             | class    | A graph. All other assertions in the envelope must be either `node` or `edge`.                                                                                                                                                                      |
-| 601       | `SourceTargetGraph` | class    | A graph with edges that have `source` and `target` assertions.                                                                                                                                                                                      |
-| 602       | `ParentChildGraph`  | class    | A graph with edges that have `parent` and `child` assertions.                                                                                                                                                                                       |
-| 603       | `Digraph`           | class    | A directed graph. Implies `SourceTargetGraph`. `source` and `target` are distinct. Without this type, edges are undirected (symmetric) and `source` and `target` are interchangeable.                                                               |
-| 604       | `AcyclicGraph`      | class    | A graph that does not admit cycles. Implies `SourceTargetGraph`. If `Digraph`, does not admit directed cycles.                                                                                                                                      |
-| 605       | `Multigraph`        | class    | A multigraph (admits parallel edges). Implies `SourceTargetGraph`. Without this type, edges may not be parallel (i.e., there is at most one edge between any pair of nodes, in a directed graph, connecting the same `source` and `target` nodes.)  |
-| 606       | `Pseudograph`       | class    | A pseudograph (admits self-loops and parallel edges). Implies `Multigraph`. Without this type, edges may not be self-loops (i.e., `source` and `target` are the same).                                                                              |
-| 607       | `GraphFragment`     | class    | A fragment of a graph. May have references to external nodes and edges that are not resolvable in the fragment. As such, validation of a `GraphFragment` may be weaker. Without this type, all nodes and edges must be resolvable within the graph. |
-| 608       | `DAG`               | class    | A directed acyclic graph. Implies `Digraph` and `AcyclicGraph`.                                                                                                                                                                                     |
-| 609       | `Tree`              | class    | A tree. Implies `ParentChildGraph`. Exactly one node must have no `parent`. All other nodes must have exactly one `parent`.                                                                                                                         |
-| 610       | `Forest`            | class    | A forest (set of trees). Implies `ParentChildGraph`. Edges use `parent` and `child` to define tree relationships. All nodes must have either no `parent` or exactly one `parent`.                                                                   |
-| 611       | `CompoundGraph`     | class    | A compound graph (a graph with subgraphs). Implies `Forest` and `SourceTargetGraph`. Uses `source` and `target` to define graph relationships, and `parent` and `child` to define tree relationships.                                               |
-| 612       | `Hypergraph`        | class    | An undirected hypergraph (edges may connect more than two nodes). There may be multiple `source` and `target` assertions in a hyperedge. Source and Target sets must be disjoint. `source` and `target` are interchangeable.                        |
-| 613       | `Dihypergraph`      | class    | A directed hypergraph (edges may connect more than two nodes and have a direction). There may be multiple `source` and `target` assertions in a hyperedge. Source and Target sets must be disjoint. Implies `Hypergraph` and `Digraph`.             |
-| 614-699   | *unassigned*        |
-| 700       | `node`              | property | A node in a graph.                                                                                                                                                                                                                                  |
-| 701       | `edge`              | property | An edge in a graph. Defines the edge's endpoints using either (`source` and `target`) assertions for `SourceTargetGraph`s or (`parent` and `child`) assertions for `ParentChildGraph`s.                                                             |
-| 702       | `source`            | property | Identifies the source node of the subject edge of a `SourceTargetGraph`. Required. May not be repeated, except in a hyperedge.                                                                                                                      |
-| 703       | `target`            | property | Identifies the target node of the subject edge of a `SourceTargetGraph`. Required. May not be repeated, except in a hyperedge.                                                                                                                      |
-| 704       | `parent`            | property | Identifies the parent node of the subject edge of a `ParentChildGraph`. Omitted only for a root node, required for all other nodes. May not be repeated.                                                                                            |
-| 705       | `child`             | property | Identifies a child node of the subject edge of a `ParentChildGraph`. Required. May not be repeated.                                                                                                                                                 |
-| 706-...   | *unassigned*        |
+Schema.org is a collaborative vocabulary created by major search engines (Google, Microsoft, Yahoo, Yandex) for structured data on web pages. It provides an extensive vocabulary of over 2,600 types and properties covering diverse domains: creative works, events, organizations, people, places, products, reviews, and more. While less formal than OWL ontologies, Schema.org is the most widely deployed structured data vocabulary on the Web.
