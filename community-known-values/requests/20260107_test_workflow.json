@@ -1,0 +1,15 @@
+{
+  "request": {
+    "submitter": "Blockchain Commons",
+    "description": "Test entry to verify the community Known Value assignment workflow",
+    "contact": "@wolfmcnally"
+  },
+  "entries": [
+    {
+      "codepoint": 200000,
+      "canonical_name": "testWorkflowEntry",
+      "type": "constant",
+      "description": "Test entry to verify the community Known Value assignment workflow"
+    }
+  ]
+}
