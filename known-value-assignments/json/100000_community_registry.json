@@ -1,0 +1,13 @@
+{
+  "ontology": {
+    "name": "community_registry",
+    "start_code_point": 100000,
+    "processing_strategy": "Custom"
+  },
+  "generated": {
+    "tool": "CommunityValueAssigner",
+    "version": "1.0.0"
+  },
+  "entries": [
+  ]
+}
