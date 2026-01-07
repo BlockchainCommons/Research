@@ -6,8 +6,28 @@
   },
   "generated": {
     "tool": "CommunityValueAssigner",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "last_updated": "2026-01-07T17:27:19.929923+00:00"
   },
   "entries": [
-  ]
+    {
+      "codepoint": 200000,
+      "canonical_name": "testWorkflowEntry",
+      "type": "constant",
+      "description": "Test entry to verify the community Known Value assignment workflow",
+      "source": {
+        "submitter": "Blockchain Commons",
+        "assigned_date": "2026-01-07",
+        "pr_number": 147,
+        "contact": "@wolfmcnally"
+      }
+    }
+  ],
+  "statistics": {
+    "total_entries": 1,
+    "code_point_range": {
+      "start": 200000,
+      "end": 200000
+    }
+  }
 }
