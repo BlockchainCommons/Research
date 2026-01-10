@@ -1,0 +1,19 @@
+{
+  "ontology": {
+    "name": "community_registry",
+    "start_code_point": 1000,
+    "processing_strategy": "Manual"
+  },
+  "generated": {
+    "tool": "Manual"
+  },
+  "entries": [
+  ],
+  "statistics": {
+    "total_entries": 0,
+    "code_point_range": {
+      "start": 1000,
+      "end": 1000
+    }
+  }
+}

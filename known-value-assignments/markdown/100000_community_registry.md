@@ -1,4 +1,4 @@
-# Community Known Values Registry
+# Community Known Values Registry - First-Come-First-Served
 
 ## Ontology Information
 

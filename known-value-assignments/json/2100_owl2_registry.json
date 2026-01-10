@@ -2,7 +2,7 @@
   "ontology": {
     "name": "owl2",
     "source_url": "http://www.w3.org/2002/07/owl#",
-    "start_code_point": 2000,
+    "start_code_point": 2100,
     "processing_strategy": "StandardRDF"
   },
   "generated": {
@@ -11,525 +11,525 @@
   },
   "entries": [
     {
-      "codepoint": 2000,
+      "codepoint": 2100,
       "canonical_name": "AllDifferent",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#AllDifferent",
       "description": "The class of collections of pairwise different individuals."
     },
     {
-      "codepoint": 2001,
+      "codepoint": 2101,
       "canonical_name": "AllDisjointClasses",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#AllDisjointClasses",
       "description": "The class of collections of pairwise disjoint classes."
     },
     {
-      "codepoint": 2002,
+      "codepoint": 2102,
       "canonical_name": "AllDisjointProperties",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#AllDisjointProperties",
       "description": "The class of collections of pairwise disjoint properties."
     },
     {
-      "codepoint": 2003,
+      "codepoint": 2103,
       "canonical_name": "Annotation",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#Annotation",
       "description": "The class of annotated annotations for which the RDF serialization consists of an annotated subject, predicate and object."
     },
     {
-      "codepoint": 2004,
+      "codepoint": 2104,
       "canonical_name": "AnnotationProperty",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#AnnotationProperty",
       "description": "The class of annotation properties."
     },
     {
-      "codepoint": 2005,
+      "codepoint": 2105,
       "canonical_name": "AsymmetricProperty",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#AsymmetricProperty",
       "description": "The class of asymmetric properties."
     },
     {
-      "codepoint": 2006,
+      "codepoint": 2106,
       "canonical_name": "Axiom",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#Axiom",
       "description": "The class of annotated axioms for which the RDF serialization consists of an annotated subject, predicate and object."
     },
     {
-      "codepoint": 2007,
+      "codepoint": 2107,
       "canonical_name": "Class",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#Class",
       "description": "The class of OWL classes."
     },
     {
-      "codepoint": 2008,
+      "codepoint": 2108,
       "canonical_name": "DataRange",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#DataRange",
       "description": "The class of OWL data ranges, which are special kinds of datatypes. Note: The use of the IRI owl:DataRange has been deprecated as of OWL 2. The IRI rdfs:Datatype SHOULD be used instead."
     },
     {
-      "codepoint": 2009,
+      "codepoint": 2109,
       "canonical_name": "DatatypeProperty",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#DatatypeProperty",
       "description": "The class of data properties."
     },
     {
-      "codepoint": 2010,
+      "codepoint": 2110,
       "canonical_name": "DeprecatedClass",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#DeprecatedClass",
       "description": "The class of deprecated classes."
     },
     {
-      "codepoint": 2011,
+      "codepoint": 2111,
       "canonical_name": "DeprecatedProperty",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#DeprecatedProperty",
       "description": "The class of deprecated properties."
     },
     {
-      "codepoint": 2012,
+      "codepoint": 2112,
       "canonical_name": "FunctionalProperty",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#FunctionalProperty",
       "description": "The class of functional properties."
     },
     {
-      "codepoint": 2013,
+      "codepoint": 2113,
       "canonical_name": "InverseFunctionalProperty",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#InverseFunctionalProperty",
       "description": "The class of inverse-functional properties."
     },
     {
-      "codepoint": 2014,
+      "codepoint": 2114,
       "canonical_name": "IrreflexiveProperty",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#IrreflexiveProperty",
       "description": "The class of irreflexive properties."
     },
     {
-      "codepoint": 2015,
+      "codepoint": 2115,
       "canonical_name": "NamedIndividual",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#NamedIndividual",
       "description": "The class of named individuals."
     },
     {
-      "codepoint": 2016,
+      "codepoint": 2116,
       "canonical_name": "NegativePropertyAssertion",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#NegativePropertyAssertion",
       "description": "The class of negative property assertions."
     },
     {
-      "codepoint": 2017,
+      "codepoint": 2117,
       "canonical_name": "Nothing",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#Nothing",
       "description": "This is the empty class."
     },
     {
-      "codepoint": 2018,
+      "codepoint": 2118,
       "canonical_name": "ObjectProperty",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#ObjectProperty",
       "description": "The class of object properties."
     },
     {
-      "codepoint": 2019,
+      "codepoint": 2119,
       "canonical_name": "Ontology",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#Ontology",
       "description": "The class of ontologies."
     },
     {
-      "codepoint": 2020,
+      "codepoint": 2120,
       "canonical_name": "OntologyProperty",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#OntologyProperty",
       "description": "The class of ontology properties."
     },
     {
-      "codepoint": 2021,
+      "codepoint": 2121,
       "canonical_name": "ReflexiveProperty",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#ReflexiveProperty",
       "description": "The class of reflexive properties."
     },
     {
-      "codepoint": 2022,
+      "codepoint": 2122,
       "canonical_name": "Restriction",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#Restriction",
       "description": "The class of property restrictions."
     },
     {
-      "codepoint": 2023,
+      "codepoint": 2123,
       "canonical_name": "SymmetricProperty",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#SymmetricProperty",
       "description": "The class of symmetric properties."
     },
     {
-      "codepoint": 2024,
+      "codepoint": 2124,
       "canonical_name": "Thing",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#Thing",
       "description": "The class of OWL individuals."
     },
     {
-      "codepoint": 2025,
+      "codepoint": 2125,
       "canonical_name": "TransitiveProperty",
       "type": "class",
       "uri": "http://www.w3.org/2002/07/owl#TransitiveProperty",
       "description": "The class of transitive properties."
     },
     {
-      "codepoint": 2026,
+      "codepoint": 2126,
       "canonical_name": "allValuesFrom",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#allValuesFrom",
       "description": "The property that determines the class that a universal property restriction refers to."
     },
     {
-      "codepoint": 2027,
+      "codepoint": 2127,
       "canonical_name": "annotatedProperty",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#annotatedProperty",
       "description": "The property that determines the predicate of an annotated axiom or annotated annotation."
     },
     {
-      "codepoint": 2028,
+      "codepoint": 2128,
       "canonical_name": "annotatedSource",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#annotatedSource",
       "description": "The property that determines the subject of an annotated axiom or annotated annotation."
     },
     {
-      "codepoint": 2029,
+      "codepoint": 2129,
       "canonical_name": "annotatedTarget",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#annotatedTarget",
       "description": "The property that determines the object of an annotated axiom or annotated annotation."
     },
     {
-      "codepoint": 2030,
+      "codepoint": 2130,
       "canonical_name": "assertionProperty",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#assertionProperty",
       "description": "The property that determines the predicate of a negative property assertion."
     },
     {
-      "codepoint": 2031,
+      "codepoint": 2131,
       "canonical_name": "backwardCompatibleWith",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#backwardCompatibleWith",
       "description": "The annotation property that indicates that a given ontology is backward compatible with another ontology."
     },
     {
-      "codepoint": 2032,
+      "codepoint": 2132,
       "canonical_name": "bottomDataProperty",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#bottomDataProperty",
       "description": "The data property that does not relate any individual to any data value."
     },
     {
-      "codepoint": 2033,
+      "codepoint": 2133,
       "canonical_name": "bottomObjectProperty",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#bottomObjectProperty",
       "description": "The object property that does not relate any two individuals."
     },
     {
-      "codepoint": 2034,
+      "codepoint": 2134,
       "canonical_name": "cardinality",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#cardinality",
       "description": "The property that determines the cardinality of an exact cardinality restriction."
     },
     {
-      "codepoint": 2035,
+      "codepoint": 2135,
       "canonical_name": "complementOf",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#complementOf",
       "description": "The property that determines that a given class is the complement of another class."
     },
     {
-      "codepoint": 2036,
+      "codepoint": 2136,
       "canonical_name": "datatypeComplementOf",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#datatypeComplementOf",
       "description": "The property that determines that a given data range is the complement of another data range with respect to the data domain."
     },
     {
-      "codepoint": 2037,
+      "codepoint": 2137,
       "canonical_name": "deprecated",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#deprecated",
       "description": "The annotation property that indicates that a given entity has been deprecated."
     },
     {
-      "codepoint": 2038,
+      "codepoint": 2138,
       "canonical_name": "differentFrom",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#differentFrom",
       "description": "The property that determines that two given individuals are different."
     },
     {
-      "codepoint": 2039,
+      "codepoint": 2139,
       "canonical_name": "disjointUnionOf",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#disjointUnionOf",
       "description": "The property that determines that a given class is equivalent to the disjoint union of a collection of other classes."
     },
     {
-      "codepoint": 2040,
+      "codepoint": 2140,
       "canonical_name": "disjointWith",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#disjointWith",
       "description": "The property that determines that two given classes are disjoint."
     },
     {
-      "codepoint": 2041,
+      "codepoint": 2141,
       "canonical_name": "distinctMembers",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#distinctMembers",
       "description": "The property that determines the collection of pairwise different individuals in a owl:AllDifferent axiom."
     },
     {
-      "codepoint": 2042,
+      "codepoint": 2142,
       "canonical_name": "equivalentClass",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#equivalentClass",
       "description": "The property that determines that two given classes are equivalent, and that is used to specify datatype definitions."
     },
     {
-      "codepoint": 2043,
+      "codepoint": 2143,
       "canonical_name": "equivalentProperty",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#equivalentProperty",
       "description": "The property that determines that two given properties are equivalent."
     },
     {
-      "codepoint": 2044,
+      "codepoint": 2144,
       "canonical_name": "hasKey",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#hasKey",
       "description": "The property that determines the collection of properties that jointly build a key."
     },
     {
-      "codepoint": 2045,
+      "codepoint": 2145,
       "canonical_name": "hasSelf",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#hasSelf",
       "description": "The property that determines the property that a self restriction refers to."
     },
     {
-      "codepoint": 2046,
+      "codepoint": 2146,
       "canonical_name": "hasValue",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#hasValue",
       "description": "The property that determines the individual that a has-value restriction refers to."
     },
     {
-      "codepoint": 2047,
+      "codepoint": 2147,
       "canonical_name": "incompatibleWith",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#incompatibleWith",
       "description": "The annotation property that indicates that a given ontology is incompatible with another ontology."
     },
     {
-      "codepoint": 2048,
+      "codepoint": 2148,
       "canonical_name": "intersectionOf",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#intersectionOf",
       "description": "The property that determines the collection of classes or data ranges that build an intersection."
     },
     {
-      "codepoint": 2049,
+      "codepoint": 2149,
       "canonical_name": "inverseOf",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#inverseOf",
       "description": "The property that determines that two given properties are inverse."
     },
     {
-      "codepoint": 2050,
+      "codepoint": 2150,
       "canonical_name": "maxCardinality",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#maxCardinality",
       "description": "The property that determines the cardinality of a maximum cardinality restriction."
     },
     {
-      "codepoint": 2051,
+      "codepoint": 2151,
       "canonical_name": "maxQualifiedCardinality",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#maxQualifiedCardinality",
       "description": "The property that determines the cardinality of a maximum qualified cardinality restriction."
     },
     {
-      "codepoint": 2052,
+      "codepoint": 2152,
       "canonical_name": "members",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#members",
       "description": "The property that determines the collection of members in either a owl:AllDifferent, owl:AllDisjointClasses or owl:AllDisjointProperties axiom."
     },
     {
-      "codepoint": 2053,
+      "codepoint": 2153,
       "canonical_name": "minCardinality",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#minCardinality",
       "description": "The property that determines the cardinality of a minimum cardinality restriction."
     },
     {
-      "codepoint": 2054,
+      "codepoint": 2154,
       "canonical_name": "minQualifiedCardinality",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#minQualifiedCardinality",
       "description": "The property that determines the cardinality of a minimum qualified cardinality restriction."
     },
     {
-      "codepoint": 2055,
+      "codepoint": 2155,
       "canonical_name": "onClass",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#onClass",
       "description": "The property that determines the class that a qualified object cardinality restriction refers to."
     },
     {
-      "codepoint": 2056,
+      "codepoint": 2156,
       "canonical_name": "onDataRange",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#onDataRange",
       "description": "The property that determines the data range that a qualified data cardinality restriction refers to."
     },
     {
-      "codepoint": 2057,
+      "codepoint": 2157,
       "canonical_name": "onDatatype",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#onDatatype",
       "description": "The property that determines the datatype that a datatype restriction refers to."
     },
     {
-      "codepoint": 2058,
+      "codepoint": 2158,
       "canonical_name": "onProperties",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#onProperties",
       "description": "The property that determines the n-tuple of properties that a property restriction on an n-ary data range refers to."
     },
     {
-      "codepoint": 2059,
+      "codepoint": 2159,
       "canonical_name": "onProperty",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#onProperty",
       "description": "The property that determines the property that a property restriction refers to."
     },
     {
-      "codepoint": 2060,
+      "codepoint": 2160,
       "canonical_name": "oneOf",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#oneOf",
       "description": "The property that determines the collection of individuals or data values that build an enumeration."
     },
     {
-      "codepoint": 2061,
+      "codepoint": 2161,
       "canonical_name": "priorVersion",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#priorVersion",
       "description": "The annotation property that indicates the predecessor ontology of a given ontology."
     },
     {
-      "codepoint": 2062,
+      "codepoint": 2162,
       "canonical_name": "propertyChainAxiom",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#propertyChainAxiom",
       "description": "The property that determines the n-tuple of properties that build a sub property chain of a given property."
     },
     {
-      "codepoint": 2063,
+      "codepoint": 2163,
       "canonical_name": "propertyDisjointWith",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#propertyDisjointWith",
       "description": "The property that determines that two given properties are disjoint."
     },
     {
-      "codepoint": 2064,
+      "codepoint": 2164,
       "canonical_name": "qualifiedCardinality",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#qualifiedCardinality",
       "description": "The property that determines the cardinality of an exact qualified cardinality restriction."
     },
     {
-      "codepoint": 2065,
+      "codepoint": 2165,
       "canonical_name": "sameAs",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#sameAs",
       "description": "The property that determines that two given individuals are equal."
     },
     {
-      "codepoint": 2066,
+      "codepoint": 2166,
       "canonical_name": "someValuesFrom",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#someValuesFrom",
       "description": "The property that determines the class that an existential property restriction refers to."
     },
     {
-      "codepoint": 2067,
+      "codepoint": 2167,
       "canonical_name": "sourceIndividual",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#sourceIndividual",
       "description": "The property that determines the subject of a negative property assertion."
     },
     {
-      "codepoint": 2068,
+      "codepoint": 2168,
       "canonical_name": "targetIndividual",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#targetIndividual",
       "description": "The property that determines the object of a negative object property assertion."
     },
     {
-      "codepoint": 2069,
+      "codepoint": 2169,
       "canonical_name": "targetValue",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#targetValue",
       "description": "The property that determines the value of a negative data property assertion."
     },
     {
-      "codepoint": 2070,
+      "codepoint": 2170,
       "canonical_name": "topDataProperty",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#topDataProperty",
       "description": "The data property that relates every individual to every data value."
     },
     {
-      "codepoint": 2071,
+      "codepoint": 2171,
       "canonical_name": "topObjectProperty",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#topObjectProperty",
       "description": "The object property that relates every two individuals."
     },
     {
-      "codepoint": 2072,
+      "codepoint": 2172,
       "canonical_name": "unionOf",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#unionOf",
       "description": "The property that determines the collection of classes or data ranges that build a union."
     },
     {
-      "codepoint": 2073,
+      "codepoint": 2173,
       "canonical_name": "versionInfo",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#versionInfo",
       "description": "The annotation property that provides version information for an ontology or another OWL construct."
     },
     {
-      "codepoint": 2074,
+      "codepoint": 2174,
       "canonical_name": "withRestrictions",
       "type": "property",
       "uri": "http://www.w3.org/2002/07/owl#withRestrictions",
@@ -539,8 +539,8 @@
   "statistics": {
     "total_entries": 75,
     "code_point_range": {
-      "start": 2000,
-      "end": 2074
+      "start": 2100,
+      "end": 2174
     }
   }
 }

@@ -6,8 +6,7 @@
     "processing_strategy": "Manual"
   },
   "generated": {
-    "tool": "KnownValueAssigner",
-    "version": "1.0.0"
+    "tool": "Manual"
   },
   "entries": [
     {

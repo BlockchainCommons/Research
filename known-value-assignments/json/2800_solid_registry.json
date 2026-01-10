@@ -2,7 +2,7 @@
   "ontology": {
     "name": "solid",
     "source_url": "http://www.w3.org/ns/solid/terms#",
-    "start_code_point": 6000,
+    "start_code_point": 2800,
     "processing_strategy": "StandardRDF"
   },
   "generated": {
@@ -11,231 +11,231 @@
   },
   "entries": [
     {
-      "codepoint": 6000,
+      "codepoint": 2800,
       "canonical_name": "Account",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#Account",
       "description": "A Solid account."
     },
     {
-      "codepoint": 6001,
+      "codepoint": 2801,
       "canonical_name": "Inbox",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#Inbox",
       "description": "A resource containing notifications."
     },
     {
-      "codepoint": 6002,
+      "codepoint": 2802,
       "canonical_name": "insertdeletePatch",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#InsertDeletePatch",
       "description": "A class of patch expressing insertions, deletions, and conditional modifications to a resource that has an RDF-based representation."
     },
     {
-      "codepoint": 6003,
+      "codepoint": 2803,
       "canonical_name": "listedTypeIndex",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#ListedDocument",
       "description": "Listed Type Index is a registry of resources that are publicly discoverable by outside users and applications."
     },
     {
-      "codepoint": 6004,
+      "codepoint": 2804,
       "canonical_name": "Notification",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#Notification",
       "description": "A notification resource."
     },
     {
-      "codepoint": 6005,
+      "codepoint": 2805,
       "canonical_name": "Patch",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#Patch",
       "description": "A patch expresses conditional modifications to a resource that has an RDF-based representation."
     },
     {
-      "codepoint": 6006,
+      "codepoint": 2806,
       "canonical_name": "Timeline",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#Timeline",
       "description": "A resource containing time ordered items and sub-containers.  Sub-containers may be desirable in file based systems to split the timeline into logical components e.g. /yyyy-mm-dd/ as used in ISO 8061."
     },
     {
-      "codepoint": 6007,
+      "codepoint": 2807,
       "canonical_name": "typeIndex",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#TypeIndex",
       "description": "A index of type registries for resources. Applications can register the RDF type they use and list them in the index resource."
     },
     {
-      "codepoint": 6008,
+      "codepoint": 2808,
       "canonical_name": "typeRegistration",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#TypeRegistration",
       "description": "The registered types that map a RDF classes/types to their locations using either `instance` or `instanceContainer` property."
     },
     {
-      "codepoint": 6009,
+      "codepoint": 2809,
       "canonical_name": "unlistedTypeIndex",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#UnlistedDocument",
       "description": "Unlisted Type Index is a registry of resources that are private to the user and their apps, for types that are not publicly discoverable."
     },
     {
-      "codepoint": 6010,
+      "codepoint": 2810,
       "canonical_name": "account",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#account",
       "description": "A solid account belonging to an Agent."
     },
     {
-      "codepoint": 6011,
+      "codepoint": 2811,
       "canonical_name": "deletes",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#deletes",
       "description": "The triple patterns this patch removes from the document."
     },
     {
-      "codepoint": 6012,
+      "codepoint": 2812,
       "canonical_name": "registryClass",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#forClass",
       "description": "A class that is used to map an listed or unlisted type index."
     },
     {
-      "codepoint": 6013,
+      "codepoint": 2813,
       "canonical_name": "inboxDeprecated",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#inbox",
       "description": "Deprecated pointer to a Linked Data Notifications inbox; please use http://www.w3.org/ns/ldp#inbox instead."
     },
     {
-      "codepoint": 6014,
+      "codepoint": 2814,
       "canonical_name": "inserts",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#inserts",
       "description": "The triple patterns this patch adds to the document."
     },
     {
-      "codepoint": 6015,
+      "codepoint": 2815,
       "canonical_name": "instance",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#instance",
       "description": "Maps a type to an individual resource, typically an index or a directory listing resource."
     },
     {
-      "codepoint": 6016,
+      "codepoint": 2816,
       "canonical_name": "instanceContainer",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#instanceContainer",
       "description": "Maps a type to a container which the client would have to list to get the instances of that type."
     },
     {
-      "codepoint": 6017,
+      "codepoint": 2817,
       "canonical_name": "loginEndpoint",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#loginEndpoint",
       "description": "The login URI of a given server."
     },
     {
-      "codepoint": 6018,
+      "codepoint": 2818,
       "canonical_name": "logoutEndpoint",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#logoutEndpoint",
       "description": "The logout URI of a given server."
     },
     {
-      "codepoint": 6019,
+      "codepoint": 2819,
       "canonical_name": "notification",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#notification",
       "description": "Notification resource for an inbox."
     },
     {
-      "codepoint": 6020,
+      "codepoint": 2820,
       "canonical_name": "oidcIssuer",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#oidcIssuer",
       "description": "The preferred OpenID Connect issuer URI for a given WebID."
     },
     {
-      "codepoint": 6021,
+      "codepoint": 2821,
       "canonical_name": "owner",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#owner",
       "description": "A person or social entity that is considered to have control, rights, and responsibilities over a data storage."
     },
     {
-      "codepoint": 6022,
+      "codepoint": 2822,
       "canonical_name": "patches",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#patches",
       "description": "The document to which this patch applies."
     },
     {
-      "codepoint": 6023,
+      "codepoint": 2823,
       "canonical_name": "privateLabelIndex",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#privateLabelIndex",
       "description": "Points to an unlisted label index resource."
     },
     {
-      "codepoint": 6024,
+      "codepoint": 2824,
       "canonical_name": "privateTypeIndex",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#privateTypeIndex",
       "description": "Points to an unlisted type index resource."
     },
     {
-      "codepoint": 6025,
+      "codepoint": 2825,
       "canonical_name": "publicTypeIndex",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#publicTypeIndex",
       "description": "Points to a listed type index resource."
     },
     {
-      "codepoint": 6026,
+      "codepoint": 2826,
       "canonical_name": "read",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#read",
       "description": "Indicates if a message has been read or not. This property should have a boolean datatype."
     },
     {
-      "codepoint": 6027,
+      "codepoint": 2827,
       "canonical_name": "storageDescription",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#storageDescription",
       "description": "Refers to the resource that provides a description of the storage containing this resource."
     },
     {
-      "codepoint": 6028,
+      "codepoint": 2828,
       "canonical_name": "nonvolatileMemoryQuota",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#storageQuota",
       "description": "The quota of non-volatile memory that is available for the account (in bytes)"
     },
     {
-      "codepoint": 6029,
+      "codepoint": 2829,
       "canonical_name": "nonvolatileMemoryUsage",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#storageUsage",
       "description": "The amount of non-volatile memory that the account have used (in bytes)"
     },
     {
-      "codepoint": 6030,
+      "codepoint": 2830,
       "canonical_name": "timeline",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#timeline",
       "description": "Timeline for a given resource."
     },
     {
-      "codepoint": 6031,
+      "codepoint": 2831,
       "canonical_name": "typeIndex",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#typeIndex",
       "description": "Points to a TypeIndex resource."
     },
     {
-      "codepoint": 6032,
+      "codepoint": 2832,
       "canonical_name": "where",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#where",
@@ -245,8 +245,8 @@
   "statistics": {
     "total_entries": 33,
     "code_point_range": {
-      "start": 6000,
-      "end": 6032
+      "start": 2800,
+      "end": 2832
     }
   }
 }

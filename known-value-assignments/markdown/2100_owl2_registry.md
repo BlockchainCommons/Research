@@ -1,0 +1,97 @@
+# owl2 Known Values Registry
+
+## Ontology Information
+
+| Property | Value |
+|----------|-------|
+| **Name** | owl2 |
+| **Source URL** | http://www.w3.org/2002/07/owl# |
+| **Start Code Point** | 2100 |
+| **Processing Strategy** | StandardRDF |
+
+## Statistics
+
+| Metric | Value |
+|--------|-------|
+| **Total Entries** | 75 |
+| **Code Point Range** | 2100 - 2174 |
+
+## Entries
+
+| Codepoint | Canonical Name | Type | URI | Description |
+|-----------|----------------|------|-----|-------------|
+| 2100 | `AllDifferent` | class | http://www.w3.org/2002/07/owl#AllDifferent | The class of collections of pairwise different individuals. |
+| 2101 | `AllDisjointClasses` | class | http://www.w3.org/2002/07/owl#AllDisjointClasses | The class of collections of pairwise disjoint classes. |
+| 2102 | `AllDisjointProperties` | class | http://www.w3.org/2002/07/owl#AllDisjointProperties | The class of collections of pairwise disjoint properties. |
+| 2103 | `Annotation` | class | http://www.w3.org/2002/07/owl#Annotation | The class of annotated annotations for which the RDF serialization consists of an annotated subject, predicate and object. |
+| 2104 | `AnnotationProperty` | class | http://www.w3.org/2002/07/owl#AnnotationProperty | The class of annotation properties. |
+| 2105 | `AsymmetricProperty` | class | http://www.w3.org/2002/07/owl#AsymmetricProperty | The class of asymmetric properties. |
+| 2106 | `Axiom` | class | http://www.w3.org/2002/07/owl#Axiom | The class of annotated axioms for which the RDF serialization consists of an annotated subject, predicate and object. |
+| 2107 | `Class` | class | http://www.w3.org/2002/07/owl#Class | The class of OWL classes. |
+| 2108 | `DataRange` | class | http://www.w3.org/2002/07/owl#DataRange | The class of OWL data ranges, which are special kinds of datatypes. Note: The use of the IRI owl:DataRange has been deprecated as of OWL 2. The IRI rdfs:Datatype SHOULD be used instead. |
+| 2109 | `DatatypeProperty` | class | http://www.w3.org/2002/07/owl#DatatypeProperty | The class of data properties. |
+| 2110 | `DeprecatedClass` | class | http://www.w3.org/2002/07/owl#DeprecatedClass | The class of deprecated classes. |
+| 2111 | `DeprecatedProperty` | class | http://www.w3.org/2002/07/owl#DeprecatedProperty | The class of deprecated properties. |
+| 2112 | `FunctionalProperty` | class | http://www.w3.org/2002/07/owl#FunctionalProperty | The class of functional properties. |
+| 2113 | `InverseFunctionalProperty` | class | http://www.w3.org/2002/07/owl#InverseFunctionalProperty | The class of inverse-functional properties. |
+| 2114 | `IrreflexiveProperty` | class | http://www.w3.org/2002/07/owl#IrreflexiveProperty | The class of irreflexive properties. |
+| 2115 | `NamedIndividual` | class | http://www.w3.org/2002/07/owl#NamedIndividual | The class of named individuals. |
+| 2116 | `NegativePropertyAssertion` | class | http://www.w3.org/2002/07/owl#NegativePropertyAssertion | The class of negative property assertions. |
+| 2117 | `Nothing` | class | http://www.w3.org/2002/07/owl#Nothing | This is the empty class. |
+| 2118 | `ObjectProperty` | class | http://www.w3.org/2002/07/owl#ObjectProperty | The class of object properties. |
+| 2119 | `Ontology` | class | http://www.w3.org/2002/07/owl#Ontology | The class of ontologies. |
+| 2120 | `OntologyProperty` | class | http://www.w3.org/2002/07/owl#OntologyProperty | The class of ontology properties. |
+| 2121 | `ReflexiveProperty` | class | http://www.w3.org/2002/07/owl#ReflexiveProperty | The class of reflexive properties. |
+| 2122 | `Restriction` | class | http://www.w3.org/2002/07/owl#Restriction | The class of property restrictions. |
+| 2123 | `SymmetricProperty` | class | http://www.w3.org/2002/07/owl#SymmetricProperty | The class of symmetric properties. |
+| 2124 | `Thing` | class | http://www.w3.org/2002/07/owl#Thing | The class of OWL individuals. |
+| 2125 | `TransitiveProperty` | class | http://www.w3.org/2002/07/owl#TransitiveProperty | The class of transitive properties. |
+| 2126 | `allValuesFrom` | property | http://www.w3.org/2002/07/owl#allValuesFrom | The property that determines the class that a universal property restriction refers to. |
+| 2127 | `annotatedProperty` | property | http://www.w3.org/2002/07/owl#annotatedProperty | The property that determines the predicate of an annotated axiom or annotated annotation. |
+| 2128 | `annotatedSource` | property | http://www.w3.org/2002/07/owl#annotatedSource | The property that determines the subject of an annotated axiom or annotated annotation. |
+| 2129 | `annotatedTarget` | property | http://www.w3.org/2002/07/owl#annotatedTarget | The property that determines the object of an annotated axiom or annotated annotation. |
+| 2130 | `assertionProperty` | property | http://www.w3.org/2002/07/owl#assertionProperty | The property that determines the predicate of a negative property assertion. |
+| 2131 | `backwardCompatibleWith` | property | http://www.w3.org/2002/07/owl#backwardCompatibleWith | The annotation property that indicates that a given ontology is backward compatible with another ontology. |
+| 2132 | `bottomDataProperty` | property | http://www.w3.org/2002/07/owl#bottomDataProperty | The data property that does not relate any individual to any data value. |
+| 2133 | `bottomObjectProperty` | property | http://www.w3.org/2002/07/owl#bottomObjectProperty | The object property that does not relate any two individuals. |
+| 2134 | `cardinality` | property | http://www.w3.org/2002/07/owl#cardinality | The property that determines the cardinality of an exact cardinality restriction. |
+| 2135 | `complementOf` | property | http://www.w3.org/2002/07/owl#complementOf | The property that determines that a given class is the complement of another class. |
+| 2136 | `datatypeComplementOf` | property | http://www.w3.org/2002/07/owl#datatypeComplementOf | The property that determines that a given data range is the complement of another data range with respect to the data domain. |
+| 2137 | `deprecated` | property | http://www.w3.org/2002/07/owl#deprecated | The annotation property that indicates that a given entity has been deprecated. |
+| 2138 | `differentFrom` | property | http://www.w3.org/2002/07/owl#differentFrom | The property that determines that two given individuals are different. |
+| 2139 | `disjointUnionOf` | property | http://www.w3.org/2002/07/owl#disjointUnionOf | The property that determines that a given class is equivalent to the disjoint union of a collection of other classes. |
+| 2140 | `disjointWith` | property | http://www.w3.org/2002/07/owl#disjointWith | The property that determines that two given classes are disjoint. |
+| 2141 | `distinctMembers` | property | http://www.w3.org/2002/07/owl#distinctMembers | The property that determines the collection of pairwise different individuals in a owl:AllDifferent axiom. |
+| 2142 | `equivalentClass` | property | http://www.w3.org/2002/07/owl#equivalentClass | The property that determines that two given classes are equivalent, and that is used to specify datatype definitions. |
+| 2143 | `equivalentProperty` | property | http://www.w3.org/2002/07/owl#equivalentProperty | The property that determines that two given properties are equivalent. |
+| 2144 | `hasKey` | property | http://www.w3.org/2002/07/owl#hasKey | The property that determines the collection of properties that jointly build a key. |
+| 2145 | `hasSelf` | property | http://www.w3.org/2002/07/owl#hasSelf | The property that determines the property that a self restriction refers to. |
+| 2146 | `hasValue` | property | http://www.w3.org/2002/07/owl#hasValue | The property that determines the individual that a has-value restriction refers to. |
+| 2147 | `incompatibleWith` | property | http://www.w3.org/2002/07/owl#incompatibleWith | The annotation property that indicates that a given ontology is incompatible with another ontology. |
+| 2148 | `intersectionOf` | property | http://www.w3.org/2002/07/owl#intersectionOf | The property that determines the collection of classes or data ranges that build an intersection. |
+| 2149 | `inverseOf` | property | http://www.w3.org/2002/07/owl#inverseOf | The property that determines that two given properties are inverse. |
+| 2150 | `maxCardinality` | property | http://www.w3.org/2002/07/owl#maxCardinality | The property that determines the cardinality of a maximum cardinality restriction. |
+| 2151 | `maxQualifiedCardinality` | property | http://www.w3.org/2002/07/owl#maxQualifiedCardinality | The property that determines the cardinality of a maximum qualified cardinality restriction. |
+| 2152 | `members` | property | http://www.w3.org/2002/07/owl#members | The property that determines the collection of members in either a owl:AllDifferent, owl:AllDisjointClasses or owl:AllDisjointProperties axiom. |
+| 2153 | `minCardinality` | property | http://www.w3.org/2002/07/owl#minCardinality | The property that determines the cardinality of a minimum cardinality restriction. |
+| 2154 | `minQualifiedCardinality` | property | http://www.w3.org/2002/07/owl#minQualifiedCardinality | The property that determines the cardinality of a minimum qualified cardinality restriction. |
+| 2155 | `onClass` | property | http://www.w3.org/2002/07/owl#onClass | The property that determines the class that a qualified object cardinality restriction refers to. |
+| 2156 | `onDataRange` | property | http://www.w3.org/2002/07/owl#onDataRange | The property that determines the data range that a qualified data cardinality restriction refers to. |
+| 2157 | `onDatatype` | property | http://www.w3.org/2002/07/owl#onDatatype | The property that determines the datatype that a datatype restriction refers to. |
+| 2158 | `onProperties` | property | http://www.w3.org/2002/07/owl#onProperties | The property that determines the n-tuple of properties that a property restriction on an n-ary data range refers to. |
+| 2159 | `onProperty` | property | http://www.w3.org/2002/07/owl#onProperty | The property that determines the property that a property restriction refers to. |
+| 2160 | `oneOf` | property | http://www.w3.org/2002/07/owl#oneOf | The property that determines the collection of individuals or data values that build an enumeration. |
+| 2161 | `priorVersion` | property | http://www.w3.org/2002/07/owl#priorVersion | The annotation property that indicates the predecessor ontology of a given ontology. |
+| 2162 | `propertyChainAxiom` | property | http://www.w3.org/2002/07/owl#propertyChainAxiom | The property that determines the n-tuple of properties that build a sub property chain of a given property. |
+| 2163 | `propertyDisjointWith` | property | http://www.w3.org/2002/07/owl#propertyDisjointWith | The property that determines that two given properties are disjoint. |
+| 2164 | `qualifiedCardinality` | property | http://www.w3.org/2002/07/owl#qualifiedCardinality | The property that determines the cardinality of an exact qualified cardinality restriction. |
+| 2165 | `sameAs` | property | http://www.w3.org/2002/07/owl#sameAs | The property that determines that two given individuals are equal. |
+| 2166 | `someValuesFrom` | property | http://www.w3.org/2002/07/owl#someValuesFrom | The property that determines the class that an existential property restriction refers to. |
+| 2167 | `sourceIndividual` | property | http://www.w3.org/2002/07/owl#sourceIndividual | The property that determines the subject of a negative property assertion. |
+| 2168 | `targetIndividual` | property | http://www.w3.org/2002/07/owl#targetIndividual | The property that determines the object of a negative object property assertion. |
+| 2169 | `targetValue` | property | http://www.w3.org/2002/07/owl#targetValue | The property that determines the value of a negative data property assertion. |
+| 2170 | `topDataProperty` | property | http://www.w3.org/2002/07/owl#topDataProperty | The data property that relates every individual to every data value. |
+| 2171 | `topObjectProperty` | property | http://www.w3.org/2002/07/owl#topObjectProperty | The object property that relates every two individuals. |
+| 2172 | `unionOf` | property | http://www.w3.org/2002/07/owl#unionOf | The property that determines the collection of classes or data ranges that build a union. |
+| 2173 | `versionInfo` | property | http://www.w3.org/2002/07/owl#versionInfo | The annotation property that provides version information for an ontology or another OWL construct. |
+| 2174 | `withRestrictions` | property | http://www.w3.org/2002/07/owl#withRestrictions | The property that determines the collection of facet-value pairs that define a datatype restriction. |

@@ -118,7 +118,7 @@ ONTOLOGY_CONFIGS = [
     OntologyConfig(
         name="rdf_rdfs",
         source_url="http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-        start_code_point=1000,
+        start_code_point=2000,
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
         merge_urls=["http://www.w3.org/2000/01/rdf-schema#"],
@@ -127,7 +127,7 @@ ONTOLOGY_CONFIGS = [
     OntologyConfig(
         name="owl2",
         source_url="http://www.w3.org/2002/07/owl#",
-        start_code_point=2000,
+        start_code_point=2100,
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
         cli_ids=["owl", "owl2"],
@@ -135,7 +135,7 @@ ONTOLOGY_CONFIGS = [
     OntologyConfig(
         name="dc_elements",
         source_url="http://purl.org/dc/elements/1.1/",
-        start_code_point=3000,
+        start_code_point=2200,
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
         cli_ids=["dc-elements", "dce"],
@@ -143,7 +143,7 @@ ONTOLOGY_CONFIGS = [
     OntologyConfig(
         name="dc_terms",
         source_url="http://purl.org/dc/terms/",
-        start_code_point=3500,
+        start_code_point=2300,
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
         cli_ids=["dc-terms", "dct", "dcterms"],
@@ -152,7 +152,7 @@ ONTOLOGY_CONFIGS = [
         name="foaf",
         # Primary source is xmlns.com (often unreliable)
         source_url="http://xmlns.com/foaf/0.1/",
-        start_code_point=4000,
+        start_code_point=2500,
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
         cli_ids=["foaf"],
@@ -161,7 +161,7 @@ ONTOLOGY_CONFIGS = [
     OntologyConfig(
         name="skos",
         source_url="http://www.w3.org/2004/02/skos/core#",
-        start_code_point=5000,
+        start_code_point=2700,
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
         cli_ids=["skos"],
@@ -169,7 +169,7 @@ ONTOLOGY_CONFIGS = [
     OntologyConfig(
         name="solid",
         source_url="http://www.w3.org/ns/solid/terms#",
-        start_code_point=6000,
+        start_code_point=2800,
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
         cli_ids=["solid", "solid-terms"],
@@ -185,7 +185,7 @@ ONTOLOGY_CONFIGS = [
     OntologyConfig(
         name="w3c_vc",
         source_url="https://www.w3.org/ns/credentials/v2",
-        start_code_point=20000,
+        start_code_point=2900,
         data_format=DataFormat.JSON_LD,
         strategy=ProcessingStrategy.CONTEXT_MAP,
         cli_ids=["vc", "w3c-vc", "credentials"],
