@@ -102,6 +102,7 @@ class TestIntegrationEndToEnd:
 
             # Write registry and verify output
             json_file, markdown_file = assigner.write_registry(config, entries)
+            assert json_file is not None
             assert json_file.exists()
 
             with open(json_file) as f:
@@ -158,7 +159,8 @@ class TestDeterministicAssignment:
                 )
 
                 entries = assigner.process_ontology(config)
-                results.append([(e.codepoint, e.canonical_name, e.uri) for e in entries])
+                assert entries is not None
+                results.append([(e.codepoint, e.name, e.uri) for e in entries])
 
         # All runs should produce identical results
         assert results[0] == results[1] == results[2]
@@ -203,7 +205,9 @@ class TestOutputValidation:
             )
 
             entries = assigner.process_ontology(config)
+            assert entries is not None
             json_file, markdown_file = assigner.write_registry(config, entries)
+            assert json_file is not None
 
             with open(json_file) as f:
                 registry = json.load(f)
@@ -230,7 +234,7 @@ class TestOutputValidation:
             assert len(registry["entries"]) == 1
             entry = registry["entries"][0]
             assert entry["codepoint"] == 1000
-            assert entry["canonical_name"] == "Thing"
+            assert entry["name"] == "Thing"
             assert entry["type"] == "class"
             assert entry["uri"] == "http://example.org/Thing"
             assert entry["description"] == "A generic thing"
@@ -271,7 +275,6 @@ class TestCLIInterface:
             assert config.start_code_point > 0, f"{config.name} has invalid start_code_point"
             assert config.data_format is not None, f"{config.name} missing data_format"
             assert config.strategy is not None, f"{config.name} missing strategy"
-            assert len(config.cli_ids) > 0, f"{config.name} has no CLI identifiers"
 
 
 class TestErrorHandling:

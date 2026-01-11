@@ -90,14 +90,14 @@ Each request file must conform to this schema:
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["codepoint", "canonical_name", "type", "description"],
+        "required": ["codepoint", "name", "type", "description"],
         "properties": {
           "codepoint": {
             "type": "integer",
             "minimum": 100000,
             "description": "The requested code point (must be ≥ 100,000 and not already assigned)"
           },
-          "canonical_name": {
+          "name": {
             "type": "string",
             "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$",
             "description": "CamelCase or snake_case identifier"
@@ -137,20 +137,20 @@ Each request file must conform to this schema:
   "entries": [
     {
       "codepoint": 100500,
-      "canonical_name": "employmentCredential",
+      "name": "employmentCredential",
       "type": "class",
       "uri": "https://example.org/credentials#EmploymentCredential",
       "description": "A verifiable credential asserting current or past employment status"
     },
     {
       "codepoint": 100501,
-      "canonical_name": "employerName",
+      "name": "employerName",
       "type": "property",
       "description": "The name of the employer issuing an employment credential"
     },
     {
       "codepoint": 100502,
-      "canonical_name": "employmentStartDate",
+      "name": "employmentStartDate",
       "type": "property",
       "uri": "https://example.org/credentials#employmentStartDate",
       "description": "The date on which employment began"
@@ -171,7 +171,7 @@ The workflow must validate each request against the following rules. A PR is rej
 | ------- | ------------------------------------------------------------------ |
 | V-001   | File must be valid JSON                                            |
 | V-002   | JSON must conform to the schema in §2.3                            |
-| V-003   | `canonical_name` must match `^[a-zA-Z][a-zA-Z0-9_]*$`              |
+| V-003   | `name` must match `^[a-zA-Z][a-zA-Z0-9_:]*$`              |
 | V-004   | `type` must be one of: `class`, `property`, `datatype`, `constant` |
 | V-005   | `description` must be at least 10 characters                       |
 | V-006   | Filename must start with date in `yyyymmdd_` format (±1 day)       |
@@ -189,9 +189,9 @@ The workflow must validate each request against the following rules. A PR is rej
 
 | Rule ID | Description                                                          |
 | ------- | -------------------------------------------------------------------- |
-| V-200   | `canonical_name` must not already exist in the community registry    |
+| V-200   | `name` must not already exist in the community registry    |
 | V-201   | `uri` (if provided) must not already exist in the community registry |
-| V-202   | `canonical_name` values must be unique within the request file       |
+| V-202   | `name` values must be unique within the request file       |
 
 ### 3.4 Path Rules
 
@@ -449,7 +449,7 @@ The `100000_community_registry.json` must maintain this structure:
   "entries": [
     {
       "codepoint": 100000,
-      "canonical_name": "exampleConcept",
+      "name": "exampleConcept",
       "type": "class",
       "uri": "https://example.org/concepts#Example",
       "description": "An example community-assigned concept",

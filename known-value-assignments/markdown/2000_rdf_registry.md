@@ -18,8 +18,8 @@
 
 ## Entries
 
-| Codepoint | Canonical Name | Type | URI | Description |
-|-----------|----------------|------|-----|-------------|
+| Codepoint | Name | Type | URI | Description |
+|-----------|------|------|-----|-------------|
 | 2000 | `rdf:Alt` | class | http://www.w3.org/1999/02/22-rdf-syntax-ns#Alt | The class of containers of alternatives. |
 | 2001 | `rdf:Bag` | class | http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag | The class of unordered containers. |
 | 2002 | `rdf:CompoundLiteral` | class | http://www.w3.org/1999/02/22-rdf-syntax-ns#CompoundLiteral | A class representing a compound literal. |

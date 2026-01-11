@@ -48,14 +48,14 @@ Each request file must conform to this schema:
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["codepoint", "canonical_name", "type", "description"],
+        "required": ["codepoint", "name", "type", "description"],
         "properties": {
           "codepoint": {
             "type": "integer",
             "minimum": 100000,
             "description": "The requested code point (must be ≥ 100,000 and not already assigned)"
           },
-          "canonical_name": {
+          "name": {
             "type": "string",
             "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$",
             "description": "CamelCase or snake_case identifier"
@@ -95,14 +95,14 @@ Each request file must conform to this schema:
   "entries": [
     {
       "codepoint": 100500,
-      "canonical_name": "employmentCredential",
+      "name": "employmentCredential",
       "type": "class",
       "uri": "https://example.org/credentials#EmploymentCredential",
       "description": "A verifiable credential asserting current or past employment status"
     },
     {
       "codepoint": 100501,
-      "canonical_name": "employerName",
+      "name": "employerName",
       "type": "property",
       "description": "The name of the employer issuing an employment credential"
     }
@@ -125,13 +125,13 @@ See [requests/_example_template.json](requests/_example_template.json) for a com
 
 ### Entry Fields
 
-| Field            | Required | Description                                         |
-| ---------------- | -------- | --------------------------------------------------- |
-| `codepoint`      | Yes      | Integer ≥ 100,000 (must not be already assigned)    |
-| `canonical_name` | Yes      | Identifier matching `^[a-zA-Z][a-zA-Z0-9_]*$`       |
-| `type`           | Yes      | One of: `class`, `property`, `datatype`, `constant` |
-| `description`    | Yes      | Human-readable description (minimum 10 characters)  |
-| `uri`            | No       | Authoritative URI for this concept                  |
+| Field         | Required | Description                                         |
+|---------------|----------|-----------------------------------------------------|
+| `codepoint`   | Yes      | Integer ≥ 100,000 (must not be already assigned)    |
+| `name`        | Yes      | Identifier matching `^[a-zA-Z][a-zA-Z0-9_:]*$`       |
+| `type`        | Yes      | One of: `class`, `property`, `datatype`, `constant` |
+| `description` | Yes      | Human-readable description (minimum 10 characters)  |
+| `uri`         | No       | Authoritative URI for this concept                  |
 
 ## Validation
 

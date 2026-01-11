@@ -18,8 +18,8 @@
 
 ## Entries
 
-| Codepoint | Canonical Name | Type | URI | Description |
-|-----------|----------------|------|-----|-------------|
+| Codepoint | Name | Type | URI | Description |
+|-----------|------|------|-----|-------------|
 | 2800 | `solid:Account` | class | http://www.w3.org/ns/solid/terms#Account | A Solid account. |
 | 2801 | `solid:Inbox` | class | http://www.w3.org/ns/solid/terms#Inbox | A resource containing notifications. |
 | 2802 | `solid:insertdeletePatch` | class | http://www.w3.org/ns/solid/terms#InsertDeletePatch | A class of patch expressing insertions, deletions, and conditional modifications to a resource that has an RDF-based representation. |

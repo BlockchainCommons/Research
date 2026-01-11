@@ -18,8 +18,8 @@
 
 ## Entries
 
-| Codepoint | Canonical Name | Type | URI | Description |
-|-----------|----------------|------|-----|-------------|
+| Codepoint | Name | Type | URI | Description |
+|-----------|------|------|-----|-------------|
 | 2500 | `foaf:date` | property | http://purl.org/dc/elements/1.1/date |  |
 | 2501 | `foaf:description` | property | http://purl.org/dc/elements/1.1/description |  |
 | 2502 | `foaf:title` | property | http://purl.org/dc/elements/1.1/title |  |

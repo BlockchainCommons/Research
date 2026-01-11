@@ -12,231 +12,231 @@
   "entries": [
     {
       "codepoint": 2800,
-      "canonical_name": "solid:Account",
+      "name": "solid:Account",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#Account",
       "description": "A Solid account."
     },
     {
       "codepoint": 2801,
-      "canonical_name": "solid:Inbox",
+      "name": "solid:Inbox",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#Inbox",
       "description": "A resource containing notifications."
     },
     {
       "codepoint": 2802,
-      "canonical_name": "solid:insertdeletePatch",
+      "name": "solid:insertdeletePatch",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#InsertDeletePatch",
       "description": "A class of patch expressing insertions, deletions, and conditional modifications to a resource that has an RDF-based representation."
     },
     {
       "codepoint": 2803,
-      "canonical_name": "solid:listedTypeIndex",
+      "name": "solid:listedTypeIndex",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#ListedDocument",
       "description": "Listed Type Index is a registry of resources that are publicly discoverable by outside users and applications."
     },
     {
       "codepoint": 2804,
-      "canonical_name": "solid:Notification",
+      "name": "solid:Notification",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#Notification",
       "description": "A notification resource."
     },
     {
       "codepoint": 2805,
-      "canonical_name": "solid:Patch",
+      "name": "solid:Patch",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#Patch",
       "description": "A patch expresses conditional modifications to a resource that has an RDF-based representation."
     },
     {
       "codepoint": 2806,
-      "canonical_name": "solid:Timeline",
+      "name": "solid:Timeline",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#Timeline",
       "description": "A resource containing time ordered items and sub-containers.  Sub-containers may be desirable in file based systems to split the timeline into logical components e.g. /yyyy-mm-dd/ as used in ISO 8061."
     },
     {
       "codepoint": 2807,
-      "canonical_name": "solid:typeIndex",
+      "name": "solid:typeIndex",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#TypeIndex",
       "description": "A index of type registries for resources. Applications can register the RDF type they use and list them in the index resource."
     },
     {
       "codepoint": 2808,
-      "canonical_name": "solid:typeRegistration",
+      "name": "solid:typeRegistration",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#TypeRegistration",
       "description": "The registered types that map a RDF classes/types to their locations using either `instance` or `instanceContainer` property."
     },
     {
       "codepoint": 2809,
-      "canonical_name": "solid:unlistedTypeIndex",
+      "name": "solid:unlistedTypeIndex",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#UnlistedDocument",
       "description": "Unlisted Type Index is a registry of resources that are private to the user and their apps, for types that are not publicly discoverable."
     },
     {
       "codepoint": 2810,
-      "canonical_name": "solid:account",
+      "name": "solid:account",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#account",
       "description": "A solid account belonging to an Agent."
     },
     {
       "codepoint": 2811,
-      "canonical_name": "solid:deletes",
+      "name": "solid:deletes",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#deletes",
       "description": "The triple patterns this patch removes from the document."
     },
     {
       "codepoint": 2812,
-      "canonical_name": "solid:registryClass",
+      "name": "solid:registryClass",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#forClass",
       "description": "A class that is used to map an listed or unlisted type index."
     },
     {
       "codepoint": 2813,
-      "canonical_name": "solid:inboxDeprecated",
+      "name": "solid:inboxDeprecated",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#inbox",
       "description": "Deprecated pointer to a Linked Data Notifications inbox; please use http://www.w3.org/ns/ldp#inbox instead."
     },
     {
       "codepoint": 2814,
-      "canonical_name": "solid:inserts",
+      "name": "solid:inserts",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#inserts",
       "description": "The triple patterns this patch adds to the document."
     },
     {
       "codepoint": 2815,
-      "canonical_name": "solid:instance",
+      "name": "solid:instance",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#instance",
       "description": "Maps a type to an individual resource, typically an index or a directory listing resource."
     },
     {
       "codepoint": 2816,
-      "canonical_name": "solid:instanceContainer",
+      "name": "solid:instanceContainer",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#instanceContainer",
       "description": "Maps a type to a container which the client would have to list to get the instances of that type."
     },
     {
       "codepoint": 2817,
-      "canonical_name": "solid:loginEndpoint",
+      "name": "solid:loginEndpoint",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#loginEndpoint",
       "description": "The login URI of a given server."
     },
     {
       "codepoint": 2818,
-      "canonical_name": "solid:logoutEndpoint",
+      "name": "solid:logoutEndpoint",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#logoutEndpoint",
       "description": "The logout URI of a given server."
     },
     {
       "codepoint": 2819,
-      "canonical_name": "solid:notification",
+      "name": "solid:notification",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#notification",
       "description": "Notification resource for an inbox."
     },
     {
       "codepoint": 2820,
-      "canonical_name": "solid:oidcIssuer",
+      "name": "solid:oidcIssuer",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#oidcIssuer",
       "description": "The preferred OpenID Connect issuer URI for a given WebID."
     },
     {
       "codepoint": 2821,
-      "canonical_name": "solid:owner",
+      "name": "solid:owner",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#owner",
       "description": "A person or social entity that is considered to have control, rights, and responsibilities over a data storage."
     },
     {
       "codepoint": 2822,
-      "canonical_name": "solid:patches",
+      "name": "solid:patches",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#patches",
       "description": "The document to which this patch applies."
     },
     {
       "codepoint": 2823,
-      "canonical_name": "solid:privateLabelIndex",
+      "name": "solid:privateLabelIndex",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#privateLabelIndex",
       "description": "Points to an unlisted label index resource."
     },
     {
       "codepoint": 2824,
-      "canonical_name": "solid:privateTypeIndex",
+      "name": "solid:privateTypeIndex",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#privateTypeIndex",
       "description": "Points to an unlisted type index resource."
     },
     {
       "codepoint": 2825,
-      "canonical_name": "solid:publicTypeIndex",
+      "name": "solid:publicTypeIndex",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#publicTypeIndex",
       "description": "Points to a listed type index resource."
     },
     {
       "codepoint": 2826,
-      "canonical_name": "solid:read",
+      "name": "solid:read",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#read",
       "description": "Indicates if a message has been read or not. This property should have a boolean datatype."
     },
     {
       "codepoint": 2827,
-      "canonical_name": "solid:storageDescription",
+      "name": "solid:storageDescription",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#storageDescription",
       "description": "Refers to the resource that provides a description of the storage containing this resource."
     },
     {
       "codepoint": 2828,
-      "canonical_name": "solid:nonvolatileMemoryQuota",
+      "name": "solid:nonvolatileMemoryQuota",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#storageQuota",
       "description": "The quota of non-volatile memory that is available for the account (in bytes)"
     },
     {
       "codepoint": 2829,
-      "canonical_name": "solid:nonvolatileMemoryUsage",
+      "name": "solid:nonvolatileMemoryUsage",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#storageUsage",
       "description": "The amount of non-volatile memory that the account have used (in bytes)"
     },
     {
       "codepoint": 2830,
-      "canonical_name": "solid:timeline",
+      "name": "solid:timeline",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#timeline",
       "description": "Timeline for a given resource."
     },
     {
       "codepoint": 2831,
-      "canonical_name": "solid:typeIndex",
+      "name": "solid:typeIndex",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#typeIndex",
       "description": "Points to a TypeIndex resource."
     },
     {
       "codepoint": 2832,
-      "canonical_name": "solid:where",
+      "name": "solid:where",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#where",
       "description": "The conditions the document and the inserted and deleted triple patterns need to satisfy in order for the patch to be applied."

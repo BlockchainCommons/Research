@@ -18,8 +18,8 @@
 
 ## Entries
 
-| Codepoint | Canonical Name | Type | URI | Description |
-|-----------|----------------|------|-----|-------------|
+| Codepoint | Name | Type | URI | Description |
+|-----------|------|------|-----|-------------|
 | 2200 | `dce:Contributor` | property | http://purl.org/dc/elements/1.1/contributor | An entity responsible for making contributions to the resource. |
 | 2201 | `dce:Coverage` | property | http://purl.org/dc/elements/1.1/coverage | The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant. |
 | 2202 | `dce:Creator` | property | http://purl.org/dc/elements/1.1/creator | An entity primarily responsible for making the resource. |

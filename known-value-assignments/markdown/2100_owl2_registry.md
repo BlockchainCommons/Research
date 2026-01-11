@@ -18,8 +18,8 @@
 
 ## Entries
 
-| Codepoint | Canonical Name | Type | URI | Description |
-|-----------|----------------|------|-----|-------------|
+| Codepoint | Name | Type | URI | Description |
+|-----------|------|------|-----|-------------|
 | 2100 | `owl2:AllDifferent` | class | http://www.w3.org/2002/07/owl#AllDifferent | The class of collections of pairwise different individuals. |
 | 2101 | `owl2:AllDisjointClasses` | class | http://www.w3.org/2002/07/owl#AllDisjointClasses | The class of collections of pairwise disjoint classes. |
 | 2102 | `owl2:AllDisjointProperties` | class | http://www.w3.org/2002/07/owl#AllDisjointProperties | The class of collections of pairwise disjoint properties. |

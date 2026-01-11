@@ -12,105 +12,105 @@
   "entries": [
     {
       "codepoint": 2200,
-      "canonical_name": "dce:Contributor",
+      "name": "dce:Contributor",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/contributor",
       "description": "An entity responsible for making contributions to the resource."
     },
     {
       "codepoint": 2201,
-      "canonical_name": "dce:Coverage",
+      "name": "dce:Coverage",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/coverage",
       "description": "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant."
     },
     {
       "codepoint": 2202,
-      "canonical_name": "dce:Creator",
+      "name": "dce:Creator",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/creator",
       "description": "An entity primarily responsible for making the resource."
     },
     {
       "codepoint": 2203,
-      "canonical_name": "dce:Date",
+      "name": "dce:Date",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/date",
       "description": "A point or period of time associated with an event in the lifecycle of the resource."
     },
     {
       "codepoint": 2204,
-      "canonical_name": "dce:Description",
+      "name": "dce:Description",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/description",
       "description": "An account of the resource."
     },
     {
       "codepoint": 2205,
-      "canonical_name": "dce:Format",
+      "name": "dce:Format",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/format",
       "description": "The file format, physical medium, or dimensions of the resource."
     },
     {
       "codepoint": 2206,
-      "canonical_name": "dce:Identifier",
+      "name": "dce:Identifier",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/identifier",
       "description": "An unambiguous reference to the resource within a given context."
     },
     {
       "codepoint": 2207,
-      "canonical_name": "dce:Language",
+      "name": "dce:Language",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/language",
       "description": "A language of the resource."
     },
     {
       "codepoint": 2208,
-      "canonical_name": "dce:Publisher",
+      "name": "dce:Publisher",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/publisher",
       "description": "An entity responsible for making the resource available."
     },
     {
       "codepoint": 2209,
-      "canonical_name": "dce:Relation",
+      "name": "dce:Relation",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/relation",
       "description": "A related resource."
     },
     {
       "codepoint": 2210,
-      "canonical_name": "dce:Rights",
+      "name": "dce:Rights",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/rights",
       "description": "Information about rights held in and over the resource."
     },
     {
       "codepoint": 2211,
-      "canonical_name": "dce:Source",
+      "name": "dce:Source",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/source",
       "description": "A related resource from which the described resource is derived."
     },
     {
       "codepoint": 2212,
-      "canonical_name": "dce:Subject",
+      "name": "dce:Subject",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/subject",
       "description": "The topic of the resource."
     },
     {
       "codepoint": 2213,
-      "canonical_name": "dce:Title",
+      "name": "dce:Title",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/title",
       "description": "A name given to the resource."
     },
     {
       "codepoint": 2214,
-      "canonical_name": "dce:Type",
+      "name": "dce:Type",
       "type": "property",
       "uri": "http://purl.org/dc/elements/1.1/type",
       "description": "The nature or genre of the resource."

@@ -18,8 +18,8 @@
 
 ## Entries
 
-| Codepoint | Canonical Name | Type | URI | Description |
-|-----------|----------------|------|-----|-------------|
+| Codepoint | Name | Type | URI | Description |
+|-----------|------|------|-----|-------------|
 | 2900 | `vc:description` | property | https://schema.org/description | Defined in vc |
 | 2901 | `vc:mediaType` | property | https://schema.org/encodingFormat | Defined in vc |
 | 2902 | `vc:name` | property | https://schema.org/name | Defined in vc |

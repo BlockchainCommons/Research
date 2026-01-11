@@ -18,8 +18,8 @@
 
 ## Entries
 
-| Codepoint | Canonical Name | Type | URI | Description |
-|-----------|----------------|------|-----|-------------|
+| Codepoint | Name | Type | URI | Description |
+|-----------|------|------|-----|-------------|
 | 2300 | `dct:Agent` | class | http://purl.org/dc/terms/Agent | A resource that acts or has the power to act. |
 | 2301 | `dct:agentClass` | class | http://purl.org/dc/terms/AgentClass | A group of agents. |
 | 2302 | `dct:bibliographicResource` | class | http://purl.org/dc/terms/BibliographicResource | A book, article, or other documentary resource. |

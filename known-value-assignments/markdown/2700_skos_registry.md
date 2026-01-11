@@ -18,8 +18,8 @@
 
 ## Entries
 
-| Codepoint | Canonical Name | Type | URI | Description |
-|-----------|----------------|------|-----|-------------|
+| Codepoint | Name | Type | URI | Description |
+|-----------|------|------|-----|-------------|
 | 2700 | `skos:Collection` | class | http://www.w3.org/2004/02/skos/core#Collection | A meaningful collection of concepts. |
 | 2701 | `skos:Concept` | class | http://www.w3.org/2004/02/skos/core#Concept | An idea or notion; a unit of thought. |
 | 2702 | `skos:conceptScheme` | class | http://www.w3.org/2004/02/skos/core#ConceptScheme | A set of concepts, optionally including statements about semantic relationships between those concepts. |

@@ -79,7 +79,7 @@ Each ontology generates a JSON registry file:
   "entries": [
     {
       "codepoint": 5000,
-      "canonical_name": "Collection",
+      "name": "Collection",
       "type": "class",
       "uri": "http://www.w3.org/2004/02/skos/core#Collection",
       "description": "A meaningful collection of concepts."

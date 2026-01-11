@@ -39,10 +39,10 @@ REQUEST_SCHEMA = {
             "minItems": 1,
             "items": {
                 "type": "object",
-                "required": ["codepoint", "canonical_name", "type", "description"],
+                "required": ["codepoint", "name", "type", "description"],
                 "properties": {
                     "codepoint": {"type": "integer", "minimum": 100000},
-                    "canonical_name": {"type": "string", "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$"},
+                    "name": {"type": "string", "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$"},
                     "type": {"type": "string", "enum": ["class", "property", "datatype", "constant"]},
                     "uri": {"type": "string"},
                     "description": {"type": "string", "minLength": 10},
@@ -52,7 +52,7 @@ REQUEST_SCHEMA = {
     },
 }
 
-CANONICAL_NAME_PATTERN = re.compile(r"^[a-zA-Z][a-zA-Z0-9_]*$")
+NAME_PATTERN = re.compile(r"^[a-zA-Z][a-zA-Z0-9_:]*$")
 FILENAME_DATE_PATTERN = re.compile(r"^(\d{8})_.*\.json$")
 VALID_TYPES = {"class", "property", "datatype", "constant"}
 MIN_CODEPOINT = 100000
@@ -106,7 +106,7 @@ def get_assigned_codepoints(registry: dict[str, Any]) -> set[int]:
 
 def get_assigned_names(registry: dict[str, Any]) -> set[str]:
     """Extract all assigned canonical names from the registry."""
-    return {entry["canonical_name"] for entry in registry.get("entries", [])}
+    return {entry["name"] for entry in registry.get("entries", [])}
 
 
 def get_assigned_uris(registry: dict[str, Any]) -> set[str]:
@@ -162,7 +162,7 @@ def validate_schema(data: dict[str, Any], file_path: str, result: ValidationResu
             result.add_error("V-002", file_path, f"Entry {i} must be an object", entry_index=i)
             valid = False
             continue
-        for required_field in ["codepoint", "canonical_name", "type", "description"]:
+        for required_field in ["codepoint", "name", "type", "description"]:
             if required_field not in entry:
                 result.add_error(
                     "V-002",
@@ -176,19 +176,19 @@ def validate_schema(data: dict[str, Any], file_path: str, result: ValidationResu
     return valid
 
 
-def validate_canonical_names(
+def validate_names(
     entries: list[dict[str, Any]], file_path: str, result: ValidationResult
 ):
-    """V-003: Validate canonical_name format."""
+    """V-003: Validate name format."""
     for i, entry in enumerate(entries):
-        name = entry.get("canonical_name", "")
-        if not CANONICAL_NAME_PATTERN.match(name):
+        name = entry.get("name", "")
+        if not NAME_PATTERN.match(name):
             result.add_error(
                 "V-003",
                 file_path,
-                f"Invalid canonical_name '{name}': must match ^[a-zA-Z][a-zA-Z0-9_]*$",
+                f"Invalid name '{name}': must match ^[a-zA-Z][a-zA-Z0-9_]*$",
                 entry_index=i,
-                field="canonical_name",
+                field="name",
             )
 
 
@@ -297,16 +297,16 @@ def validate_name_availability(
     assigned_names: set[str],
     result: ValidationResult,
 ):
-    """V-200: canonical_name must not already exist in the registry."""
+    """V-200: name must not already exist in the registry."""
     for i, entry in enumerate(entries):
-        name = entry.get("canonical_name", "")
+        name = entry.get("name", "")
         if name in assigned_names:
             result.add_error(
                 "V-200",
                 file_path,
                 f"Canonical name '{name}' is already assigned in the registry",
                 entry_index=i,
-                field="canonical_name",
+                field="name",
             )
 
 
@@ -332,17 +332,17 @@ def validate_uri_availability(
 def validate_name_uniqueness_within_request(
     entries: list[dict[str, Any]], file_path: str, result: ValidationResult
 ):
-    """V-202: canonical_name values must be unique within the request."""
+    """V-202: name values must be unique within the request."""
     seen_names: dict[str, int] = {}
     for i, entry in enumerate(entries):
-        name = entry.get("canonical_name", "")
+        name = entry.get("name", "")
         if name in seen_names:
             result.add_error(
                 "V-202",
                 file_path,
                 f"Canonical name '{name}' is duplicated (also in entry {seen_names[name]})",
                 entry_index=i,
-                field="canonical_name",
+                field="name",
             )
         else:
             seen_names[name] = i
@@ -351,11 +351,11 @@ def validate_name_uniqueness_within_request(
 def validate_filename_date(file_path: Path, result: ValidationResult) -> bool:
     """V-006: Filename must start with date in yyyymmdd_ format (±1 day tolerance)."""
     filename = file_path.name
-    
+
     # Skip the example template
     if filename.startswith("_"):
         return True
-    
+
     match = FILENAME_DATE_PATTERN.match(filename)
     if not match:
         result.add_error(
@@ -364,7 +364,7 @@ def validate_filename_date(file_path: Path, result: ValidationResult) -> bool:
             f"Filename must start with date in yyyymmdd_ format (e.g., 20260107_myrequest.json), got: {filename}",
         )
         return False
-    
+
     date_str = match.group(1)
     try:
         file_date = datetime.strptime(date_str, "%Y%m%d").date()
@@ -375,7 +375,7 @@ def validate_filename_date(file_path: Path, result: ValidationResult) -> bool:
             f"Invalid date in filename: {date_str}",
         )
         return False
-    
+
     # Allow ±1 day tolerance for timezone differences
     today = datetime.now(timezone.utc).date()
     delta = abs((file_date - today).days)
@@ -386,7 +386,7 @@ def validate_filename_date(file_path: Path, result: ValidationResult) -> bool:
             f"Filename date {date_str} is more than 1 day from today ({today.strftime('%Y%m%d')})",
         )
         return False
-    
+
     return True
 
 
@@ -414,8 +414,8 @@ def validate_request_file(
 
     entries = data.get("entries", [])
 
-    # V-003: canonical_name format
-    validate_canonical_names(entries, file_str, result)
+    # V-003: name format
+    validate_names(entries, file_str, result)
 
     # V-004: type values
     validate_types(entries, file_str, result)

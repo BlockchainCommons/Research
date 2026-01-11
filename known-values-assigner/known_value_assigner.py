@@ -93,7 +93,7 @@ class Concept:
 class KnownValueEntry:
     """A Known Value registry entry."""
     codepoint: int
-    canonical_name: str
+    name: str
     type: str
     uri: str
     description: str
@@ -102,7 +102,7 @@ class KnownValueEntry:
         """Convert to dictionary for JSON serialization."""
         return {
             "codepoint": self.codepoint,
-            "canonical_name": self.canonical_name,
+            "name": self.name,
             "type": self.type,
             "uri": self.uri,
             "description": self.description,
@@ -640,8 +640,8 @@ class KnownValueAssigner:
 
         for concept in sorted_concepts:
             # Extract local name from label or URI, then prepend ontology name as prefix
-            local_name = self._to_canonical_name(concept.label, concept.uri)
-            canonical_name = f"{config.name}:{local_name}"
+            local_name = self._to_local_name(concept.label, concept.uri)
+            name = f"{config.name}:{local_name}"
 
             # Check if this URI already has a codepoint in Blockchain Commons registry
             if concept.uri in self.bc_uri_to_codepoint:
@@ -649,7 +649,7 @@ class KnownValueAssigner:
                 logger.info(f"Using Blockchain Commons codepoint {bc_codepoint} for {concept.uri}")
                 entry = KnownValueEntry(
                     codepoint=bc_codepoint,
-                    canonical_name=canonical_name,
+                    name=name,
                     type=concept.concept_type.lower(),
                     uri=concept.uri,
                     description=concept.description if concept.description else "",
@@ -658,7 +658,7 @@ class KnownValueAssigner:
                 # Assign from ontology's range
                 entry = KnownValueEntry(
                     codepoint=current_codepoint,
-                    canonical_name=canonical_name,
+                    name=name,
                     type=concept.concept_type.lower(),
                     uri=concept.uri,
                     description=concept.description if concept.description else "",
@@ -669,7 +669,7 @@ class KnownValueAssigner:
 
         return entries
 
-    def _to_canonical_name(self, label: str, uri: str) -> str:
+    def _to_local_name(self, label: str, uri: str) -> str:
         """Convert a label to canonical name format."""
         # Use label if available, otherwise extract from URI
         if label and label != "[No Label]":
@@ -695,17 +695,17 @@ class KnownValueAssigner:
             if entry.uri.endswith("#type") or entry.uri.endswith("/type"):
                 logger.warning(
                     f"Semantically equivalent to Core 'isA' (1): "
-                    f"{entry.canonical_name} ({entry.codepoint}) -> {entry.uri}"
+                    f"{entry.name} ({entry.codepoint}) -> {entry.uri}"
                 )
 
             # Check for identifier equivalent
             if entry.uri.endswith("#identifier") or entry.uri.endswith("/identifier"):
                 logger.warning(
                     f"Semantically equivalent to Core 'id' (2): "
-                    f"{entry.canonical_name} ({entry.codepoint}) -> {entry.uri}"
+                    f"{entry.name} ({entry.codepoint}) -> {entry.uri}"
                 )
 
-    def write_registry(self, config: OntologyConfig, entries: list[KnownValueEntry]) -> tuple[Path, Path]:
+    def write_registry(self, config: OntologyConfig, entries: list[KnownValueEntry]) -> tuple[Path | None, Path | None]:
         """Write the registry to JSON and Markdown files."""
         # Create output subdirectories
         json_dir = self.output_dir / "json"
@@ -778,14 +778,14 @@ class KnownValueAssigner:
             "",
             "## Entries",
             "",
-            "| Codepoint | Canonical Name | Type | URI | Description |",
-            "|-----------|----------------|------|-----|-------------|",
+            "| Codepoint | Name | Type | URI | Description |",
+            "|-----------|------|------|-----|-------------|",
         ]
 
         for entry in entries:
             # Escape pipe characters in URIs and descriptions
             uri = entry.uri.replace("|", "\\|")
-            name = entry.canonical_name.replace("|", "\\|")
+            name = entry.name.replace("|", "\\|")
             desc = entry.description.replace("|", "\\|").replace("\n", " ") if entry.description else ""
             lines.append(f"| {entry.codepoint} | `{name}` | {entry.type} | {uri} | {desc} |")
 

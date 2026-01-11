@@ -7,7 +7,7 @@
   "entries": [
     {
       "codepoint": 200000,
-      "canonical_name": "testWorkflowEntry",
+      "name": "testWorkflowEntry",
       "type": "constant",
       "description": "Test entry to verify the community Known Value assignment workflow"
     }

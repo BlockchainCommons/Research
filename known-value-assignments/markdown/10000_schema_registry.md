@@ -18,8 +18,8 @@
 
 ## Entries
 
-| Codepoint | Canonical Name | Type | URI | Description |
-|-----------|----------------|------|-----|-------------|
+| Codepoint | Name | Type | URI | Description |
+|-----------|------|------|-----|-------------|
 | 10000 | `schema:ontologyamends` | property | http://data.europa.eu/eli/ontology#amends |  |
 | 10001 | `schema:ontologychanges` | property | http://data.europa.eu/eli/ontology#changes |  |
 | 10002 | `schema:ontologycommences` | property | http://data.europa.eu/eli/ontology#commences |  |

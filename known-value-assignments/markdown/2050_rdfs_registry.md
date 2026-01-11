@@ -18,8 +18,8 @@
 
 ## Entries
 
-| Codepoint | Canonical Name | Type | URI | Description |
-|-----------|----------------|------|-----|-------------|
+| Codepoint | Name | Type | URI | Description |
+|-----------|------|------|-----|-------------|
 | 2050 | `rdfs:Class` | class | http://www.w3.org/2000/01/rdf-schema#Class | The class of classes. |
 | 2051 | `rdfs:Container` | class | http://www.w3.org/2000/01/rdf-schema#Container | The class of RDF containers. |
 | 2052 | `rdfs:ContainerMembershipProperty` | class | http://www.w3.org/2000/01/rdf-schema#ContainerMembershipProperty | The class of container membership properties, rdf:_1, rdf:_2, ..., all of which are sub-properties of 'member'. |

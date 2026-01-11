@@ -60,7 +60,7 @@ def add_entries_to_registry(
     for entry in entries:
         registry_entry = {
             "codepoint": entry["codepoint"],
-            "canonical_name": entry["canonical_name"],
+            "name": entry["name"],
             "type": entry["type"],
             "description": entry["description"],
             "source": {
@@ -172,7 +172,7 @@ def generate_markdown(registry: dict[str, Any], markdown_path: Path):
 
         for entry in entries:
             codepoint = entry.get("codepoint", "")
-            name = entry.get("canonical_name", "")
+            name = entry.get("name", "")
             entry_type = entry.get("type", "")
             uri = entry.get("uri", "")
             description = entry.get("description", "")

@@ -12,623 +12,623 @@
   "entries": [
     {
       "codepoint": 2300,
-      "canonical_name": "dct:Agent",
+      "name": "dct:Agent",
       "type": "class",
       "uri": "http://purl.org/dc/terms/Agent",
       "description": "A resource that acts or has the power to act."
     },
     {
       "codepoint": 2301,
-      "canonical_name": "dct:agentClass",
+      "name": "dct:agentClass",
       "type": "class",
       "uri": "http://purl.org/dc/terms/AgentClass",
       "description": "A group of agents."
     },
     {
       "codepoint": 2302,
-      "canonical_name": "dct:bibliographicResource",
+      "name": "dct:bibliographicResource",
       "type": "class",
       "uri": "http://purl.org/dc/terms/BibliographicResource",
       "description": "A book, article, or other documentary resource."
     },
     {
       "codepoint": 2303,
-      "canonical_name": "dct:dcmiBox",
+      "name": "dct:dcmiBox",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/Box",
       "description": "The set of regions in space defined by their geographic coordinates according to the DCMI Box Encoding Scheme."
     },
     {
       "codepoint": 2304,
-      "canonical_name": "dct:fileFormat",
+      "name": "dct:fileFormat",
       "type": "class",
       "uri": "http://purl.org/dc/terms/FileFormat",
       "description": "A digital resource format."
     },
     {
       "codepoint": 2305,
-      "canonical_name": "dct:Frequency",
+      "name": "dct:Frequency",
       "type": "class",
       "uri": "http://purl.org/dc/terms/Frequency",
       "description": "A rate at which something recurs."
     },
     {
       "codepoint": 2306,
-      "canonical_name": "dct:iso3166",
+      "name": "dct:iso3166",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/ISO3166",
       "description": "The set of codes listed in ISO 3166-1 for the representation of names of countries."
     },
     {
       "codepoint": 2307,
-      "canonical_name": "dct:iso6392",
+      "name": "dct:iso6392",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/ISO639-2",
       "description": "The three-letter alphabetic codes listed in ISO639-2 for the representation of names of languages."
     },
     {
       "codepoint": 2308,
-      "canonical_name": "dct:iso6393",
+      "name": "dct:iso6393",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/ISO639-3",
       "description": "The set of three-letter codes listed in ISO 639-3 for the representation of names of languages."
     },
     {
       "codepoint": 2309,
-      "canonical_name": "dct:Jurisdiction",
+      "name": "dct:Jurisdiction",
       "type": "class",
       "uri": "http://purl.org/dc/terms/Jurisdiction",
       "description": "The extent or range of judicial, law enforcement, or other authority."
     },
     {
       "codepoint": 2310,
-      "canonical_name": "dct:licenseDocument",
+      "name": "dct:licenseDocument",
       "type": "class",
       "uri": "http://purl.org/dc/terms/LicenseDocument",
       "description": "A legal document giving official permission to do something with a resource."
     },
     {
       "codepoint": 2311,
-      "canonical_name": "dct:linguisticSystem",
+      "name": "dct:linguisticSystem",
       "type": "class",
       "uri": "http://purl.org/dc/terms/LinguisticSystem",
       "description": "A system of signs, symbols, sounds, gestures, or rules used in communication."
     },
     {
       "codepoint": 2312,
-      "canonical_name": "dct:Location",
+      "name": "dct:Location",
       "type": "class",
       "uri": "http://purl.org/dc/terms/Location",
       "description": "A spatial region or named place."
     },
     {
       "codepoint": 2313,
-      "canonical_name": "dct:locationPeriodOrJurisdiction",
+      "name": "dct:locationPeriodOrJurisdiction",
       "type": "class",
       "uri": "http://purl.org/dc/terms/LocationPeriodOrJurisdiction",
       "description": "A location, period of time, or jurisdiction."
     },
     {
       "codepoint": 2314,
-      "canonical_name": "dct:mediaType",
+      "name": "dct:mediaType",
       "type": "class",
       "uri": "http://purl.org/dc/terms/MediaType",
       "description": "A file format or physical medium."
     },
     {
       "codepoint": 2315,
-      "canonical_name": "dct:mediaTypeOrExtent",
+      "name": "dct:mediaTypeOrExtent",
       "type": "class",
       "uri": "http://purl.org/dc/terms/MediaTypeOrExtent",
       "description": "A media type or extent."
     },
     {
       "codepoint": 2316,
-      "canonical_name": "dct:methodOfAccrual",
+      "name": "dct:methodOfAccrual",
       "type": "class",
       "uri": "http://purl.org/dc/terms/MethodOfAccrual",
       "description": "A method by which resources are added to a collection."
     },
     {
       "codepoint": 2317,
-      "canonical_name": "dct:methodOfInstruction",
+      "name": "dct:methodOfInstruction",
       "type": "class",
       "uri": "http://purl.org/dc/terms/MethodOfInstruction",
       "description": "A process that is used to engender knowledge, attitudes, and skills."
     },
     {
       "codepoint": 2318,
-      "canonical_name": "dct:dcmiPeriod",
+      "name": "dct:dcmiPeriod",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/Period",
       "description": "The set of time intervals defined by their limits according to the DCMI Period Encoding Scheme."
     },
     {
       "codepoint": 2319,
-      "canonical_name": "dct:periodOfTime",
+      "name": "dct:periodOfTime",
       "type": "class",
       "uri": "http://purl.org/dc/terms/PeriodOfTime",
       "description": "An interval of time that is named or defined by its start and end dates."
     },
     {
       "codepoint": 2320,
-      "canonical_name": "dct:physicalMedium",
+      "name": "dct:physicalMedium",
       "type": "class",
       "uri": "http://purl.org/dc/terms/PhysicalMedium",
       "description": "A physical material or carrier."
     },
     {
       "codepoint": 2321,
-      "canonical_name": "dct:physicalResource",
+      "name": "dct:physicalResource",
       "type": "class",
       "uri": "http://purl.org/dc/terms/PhysicalResource",
       "description": "A material thing."
     },
     {
       "codepoint": 2322,
-      "canonical_name": "dct:dcmiPoint",
+      "name": "dct:dcmiPoint",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/Point",
       "description": "The set of points in space defined by their geographic coordinates according to the DCMI Point Encoding Scheme."
     },
     {
       "codepoint": 2323,
-      "canonical_name": "dct:Policy",
+      "name": "dct:Policy",
       "type": "class",
       "uri": "http://purl.org/dc/terms/Policy",
       "description": "A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters."
     },
     {
       "codepoint": 2324,
-      "canonical_name": "dct:provenanceStatement",
+      "name": "dct:provenanceStatement",
       "type": "class",
       "uri": "http://purl.org/dc/terms/ProvenanceStatement",
       "description": "Any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation."
     },
     {
       "codepoint": 2325,
-      "canonical_name": "dct:rfc1766",
+      "name": "dct:rfc1766",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/RFC1766",
       "description": "The set of tags, constructed according to RFC 1766, for the identification of languages."
     },
     {
       "codepoint": 2326,
-      "canonical_name": "dct:rfc3066",
+      "name": "dct:rfc3066",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/RFC3066",
       "description": "The set of tags constructed according to RFC 3066 for the identification of languages."
     },
     {
       "codepoint": 2327,
-      "canonical_name": "dct:rfc4646",
+      "name": "dct:rfc4646",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/RFC4646",
       "description": "The set of tags constructed according to RFC 4646 for the identification of languages."
     },
     {
       "codepoint": 2328,
-      "canonical_name": "dct:rfc5646",
+      "name": "dct:rfc5646",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/RFC5646",
       "description": "The set of tags constructed according to RFC 5646 for the identification of languages."
     },
     {
       "codepoint": 2329,
-      "canonical_name": "dct:rightsStatement",
+      "name": "dct:rightsStatement",
       "type": "class",
       "uri": "http://purl.org/dc/terms/RightsStatement",
       "description": "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."
     },
     {
       "codepoint": 2330,
-      "canonical_name": "dct:sizeOrDuration",
+      "name": "dct:sizeOrDuration",
       "type": "class",
       "uri": "http://purl.org/dc/terms/SizeOrDuration",
       "description": "A dimension or extent, or a time taken to play or execute."
     },
     {
       "codepoint": 2331,
-      "canonical_name": "dct:Standard",
+      "name": "dct:Standard",
       "type": "class",
       "uri": "http://purl.org/dc/terms/Standard",
       "description": "A reference point against which other things can be evaluated or compared."
     },
     {
       "codepoint": 2332,
-      "canonical_name": "dct:URI",
+      "name": "dct:URI",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/URI",
       "description": "The set of identifiers constructed according to the generic syntax for Uniform Resource Identifiers as specified by the Internet Engineering Task Force."
     },
     {
       "codepoint": 2333,
-      "canonical_name": "dct:W3CDTF",
+      "name": "dct:W3CDTF",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/W3CDTF",
       "description": "The set of dates and times constructed according to the W3C Date and Time Formats Specification."
     },
     {
       "codepoint": 2334,
-      "canonical_name": "dct:Abstract",
+      "name": "dct:Abstract",
       "type": "property",
       "uri": "http://purl.org/dc/terms/abstract",
       "description": "A summary of the resource."
     },
     {
       "codepoint": 2335,
-      "canonical_name": "dct:accessRights",
+      "name": "dct:accessRights",
       "type": "property",
       "uri": "http://purl.org/dc/terms/accessRights",
       "description": "Information about who access the resource or an indication of its security status."
     },
     {
       "codepoint": 2336,
-      "canonical_name": "dct:accrualMethod",
+      "name": "dct:accrualMethod",
       "type": "property",
       "uri": "http://purl.org/dc/terms/accrualMethod",
       "description": "The method by which items are added to a collection."
     },
     {
       "codepoint": 2337,
-      "canonical_name": "dct:accrualPeriodicity",
+      "name": "dct:accrualPeriodicity",
       "type": "property",
       "uri": "http://purl.org/dc/terms/accrualPeriodicity",
       "description": "The frequency with which items are added to a collection."
     },
     {
       "codepoint": 2338,
-      "canonical_name": "dct:accrualPolicy",
+      "name": "dct:accrualPolicy",
       "type": "property",
       "uri": "http://purl.org/dc/terms/accrualPolicy",
       "description": "The policy governing the addition of items to a collection."
     },
     {
       "codepoint": 2339,
-      "canonical_name": "dct:alternativeTitle",
+      "name": "dct:alternativeTitle",
       "type": "property",
       "uri": "http://purl.org/dc/terms/alternative",
       "description": "An alternative name for the resource."
     },
     {
       "codepoint": 2340,
-      "canonical_name": "dct:Audience",
+      "name": "dct:Audience",
       "type": "property",
       "uri": "http://purl.org/dc/terms/audience",
       "description": "A class of agents for whom the resource is intended or useful."
     },
     {
       "codepoint": 2341,
-      "canonical_name": "dct:dateAvailable",
+      "name": "dct:dateAvailable",
       "type": "property",
       "uri": "http://purl.org/dc/terms/available",
       "description": "Date that the resource became or will become available."
     },
     {
       "codepoint": 2342,
-      "canonical_name": "dct:bibliographicCitation",
+      "name": "dct:bibliographicCitation",
       "type": "property",
       "uri": "http://purl.org/dc/terms/bibliographicCitation",
       "description": "A bibliographic reference for the resource."
     },
     {
       "codepoint": 52,
-      "canonical_name": "dct:conformsTo",
+      "name": "dct:conformsTo",
       "type": "property",
       "uri": "http://purl.org/dc/terms/conformsTo",
       "description": "An established standard to which the described resource conforms."
     },
     {
       "codepoint": 2343,
-      "canonical_name": "dct:Contributor",
+      "name": "dct:Contributor",
       "type": "property",
       "uri": "http://purl.org/dc/terms/contributor",
       "description": "An entity responsible for making contributions to the resource."
     },
     {
       "codepoint": 2344,
-      "canonical_name": "dct:Coverage",
+      "name": "dct:Coverage",
       "type": "property",
       "uri": "http://purl.org/dc/terms/coverage",
       "description": "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant."
     },
     {
       "codepoint": 2345,
-      "canonical_name": "dct:dateCreated",
+      "name": "dct:dateCreated",
       "type": "property",
       "uri": "http://purl.org/dc/terms/created",
       "description": "Date of creation of the resource."
     },
     {
       "codepoint": 2346,
-      "canonical_name": "dct:Creator",
+      "name": "dct:Creator",
       "type": "property",
       "uri": "http://purl.org/dc/terms/creator",
       "description": "An entity responsible for making the resource."
     },
     {
       "codepoint": 16,
-      "canonical_name": "dct:Date",
+      "name": "dct:Date",
       "type": "property",
       "uri": "http://purl.org/dc/terms/date",
       "description": "A point or period of time associated with an event in the lifecycle of the resource."
     },
     {
       "codepoint": 2347,
-      "canonical_name": "dct:dateAccepted",
+      "name": "dct:dateAccepted",
       "type": "property",
       "uri": "http://purl.org/dc/terms/dateAccepted",
       "description": "Date of acceptance of the resource."
     },
     {
       "codepoint": 2348,
-      "canonical_name": "dct:dateCopyrighted",
+      "name": "dct:dateCopyrighted",
       "type": "property",
       "uri": "http://purl.org/dc/terms/dateCopyrighted",
       "description": "Date of copyright of the resource."
     },
     {
       "codepoint": 2349,
-      "canonical_name": "dct:dateSubmitted",
+      "name": "dct:dateSubmitted",
       "type": "property",
       "uri": "http://purl.org/dc/terms/dateSubmitted",
       "description": "Date of submission of the resource."
     },
     {
       "codepoint": 2350,
-      "canonical_name": "dct:Description",
+      "name": "dct:Description",
       "type": "property",
       "uri": "http://purl.org/dc/terms/description",
       "description": "An account of the resource."
     },
     {
       "codepoint": 2351,
-      "canonical_name": "dct:audienceEducationLevel",
+      "name": "dct:audienceEducationLevel",
       "type": "property",
       "uri": "http://purl.org/dc/terms/educationLevel",
       "description": "A class of agents, defined in terms of progression through an educational or training context, for which the described resource is intended."
     },
     {
       "codepoint": 2352,
-      "canonical_name": "dct:Extent",
+      "name": "dct:Extent",
       "type": "property",
       "uri": "http://purl.org/dc/terms/extent",
       "description": "The size or duration of the resource."
     },
     {
       "codepoint": 2353,
-      "canonical_name": "dct:Format",
+      "name": "dct:Format",
       "type": "property",
       "uri": "http://purl.org/dc/terms/format",
       "description": "The file format, physical medium, or dimensions of the resource."
     },
     {
       "codepoint": 2354,
-      "canonical_name": "dct:hasFormat",
+      "name": "dct:hasFormat",
       "type": "property",
       "uri": "http://purl.org/dc/terms/hasFormat",
       "description": "A related resource that is substantially the same as the pre-existing described resource, but in another format."
     },
     {
       "codepoint": 2355,
-      "canonical_name": "dct:hasPart",
+      "name": "dct:hasPart",
       "type": "property",
       "uri": "http://purl.org/dc/terms/hasPart",
       "description": "A related resource that is included either physically or logically in the described resource."
     },
     {
       "codepoint": 18,
-      "canonical_name": "dct:hasVersion",
+      "name": "dct:hasVersion",
       "type": "property",
       "uri": "http://purl.org/dc/terms/hasVersion",
       "description": "A related resource that is a version, edition, or adaptation of the described resource."
     },
     {
       "codepoint": 2,
-      "canonical_name": "dct:Identifier",
+      "name": "dct:Identifier",
       "type": "property",
       "uri": "http://purl.org/dc/terms/identifier",
       "description": "An unambiguous reference to the resource within a given context."
     },
     {
       "codepoint": 2356,
-      "canonical_name": "dct:instructionalMethod",
+      "name": "dct:instructionalMethod",
       "type": "property",
       "uri": "http://purl.org/dc/terms/instructionalMethod",
       "description": "A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support."
     },
     {
       "codepoint": 2357,
-      "canonical_name": "dct:isFormatOf",
+      "name": "dct:isFormatOf",
       "type": "property",
       "uri": "http://purl.org/dc/terms/isFormatOf",
       "description": "A pre-existing related resource that is substantially the same as the described resource, but in another format."
     },
     {
       "codepoint": 2358,
-      "canonical_name": "dct:isPartOf",
+      "name": "dct:isPartOf",
       "type": "property",
       "uri": "http://purl.org/dc/terms/isPartOf",
       "description": "A related resource in which the described resource is physically or logically included."
     },
     {
       "codepoint": 2359,
-      "canonical_name": "dct:isReferencedBy",
+      "name": "dct:isReferencedBy",
       "type": "property",
       "uri": "http://purl.org/dc/terms/isReferencedBy",
       "description": "A related resource that references, cites, or otherwise points to the described resource."
     },
     {
       "codepoint": 2360,
-      "canonical_name": "dct:isReplacedBy",
+      "name": "dct:isReplacedBy",
       "type": "property",
       "uri": "http://purl.org/dc/terms/isReplacedBy",
       "description": "A related resource that supplants, displaces, or supersedes the described resource."
     },
     {
       "codepoint": 2361,
-      "canonical_name": "dct:isRequiredBy",
+      "name": "dct:isRequiredBy",
       "type": "property",
       "uri": "http://purl.org/dc/terms/isRequiredBy",
       "description": "A related resource that requires the described resource to support its function, delivery, or coherence."
     },
     {
       "codepoint": 2362,
-      "canonical_name": "dct:isVersionOf",
+      "name": "dct:isVersionOf",
       "type": "property",
       "uri": "http://purl.org/dc/terms/isVersionOf",
       "description": "A related resource of which the described resource is a version, edition, or adaptation."
     },
     {
       "codepoint": 2363,
-      "canonical_name": "dct:dateIssued",
+      "name": "dct:dateIssued",
       "type": "property",
       "uri": "http://purl.org/dc/terms/issued",
       "description": "Date of formal issuance of the resource."
     },
     {
       "codepoint": 2364,
-      "canonical_name": "dct:Language",
+      "name": "dct:Language",
       "type": "property",
       "uri": "http://purl.org/dc/terms/language",
       "description": "A language of the resource."
     },
     {
       "codepoint": 2365,
-      "canonical_name": "dct:License",
+      "name": "dct:License",
       "type": "property",
       "uri": "http://purl.org/dc/terms/license",
       "description": "A legal document giving official permission to do something with the resource."
     },
     {
       "codepoint": 2366,
-      "canonical_name": "dct:Mediator",
+      "name": "dct:Mediator",
       "type": "property",
       "uri": "http://purl.org/dc/terms/mediator",
       "description": "An entity that mediates access to the resource."
     },
     {
       "codepoint": 2367,
-      "canonical_name": "dct:Medium",
+      "name": "dct:Medium",
       "type": "property",
       "uri": "http://purl.org/dc/terms/medium",
       "description": "The material or physical carrier of the resource."
     },
     {
       "codepoint": 2368,
-      "canonical_name": "dct:dateModified",
+      "name": "dct:dateModified",
       "type": "property",
       "uri": "http://purl.org/dc/terms/modified",
       "description": "Date on which the resource was changed."
     },
     {
       "codepoint": 2369,
-      "canonical_name": "dct:Provenance",
+      "name": "dct:Provenance",
       "type": "property",
       "uri": "http://purl.org/dc/terms/provenance",
       "description": "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation."
     },
     {
       "codepoint": 2370,
-      "canonical_name": "dct:Publisher",
+      "name": "dct:Publisher",
       "type": "property",
       "uri": "http://purl.org/dc/terms/publisher",
       "description": "An entity responsible for making the resource available."
     },
     {
       "codepoint": 2371,
-      "canonical_name": "dct:References",
+      "name": "dct:References",
       "type": "property",
       "uri": "http://purl.org/dc/terms/references",
       "description": "A related resource that is referenced, cited, or otherwise pointed to by the described resource."
     },
     {
       "codepoint": 2372,
-      "canonical_name": "dct:Relation",
+      "name": "dct:Relation",
       "type": "property",
       "uri": "http://purl.org/dc/terms/relation",
       "description": "A related resource."
     },
     {
       "codepoint": 2373,
-      "canonical_name": "dct:Replaces",
+      "name": "dct:Replaces",
       "type": "property",
       "uri": "http://purl.org/dc/terms/replaces",
       "description": "A related resource that is supplanted, displaced, or superseded by the described resource."
     },
     {
       "codepoint": 2374,
-      "canonical_name": "dct:Requires",
+      "name": "dct:Requires",
       "type": "property",
       "uri": "http://purl.org/dc/terms/requires",
       "description": "A related resource that is required by the described resource to support its function, delivery, or coherence."
     },
     {
       "codepoint": 2375,
-      "canonical_name": "dct:Rights",
+      "name": "dct:Rights",
       "type": "property",
       "uri": "http://purl.org/dc/terms/rights",
       "description": "Information about rights held in and over the resource."
     },
     {
       "codepoint": 2376,
-      "canonical_name": "dct:rightsHolder",
+      "name": "dct:rightsHolder",
       "type": "property",
       "uri": "http://purl.org/dc/terms/rightsHolder",
       "description": "A person or organization owning or managing rights over the resource."
     },
     {
       "codepoint": 2377,
-      "canonical_name": "dct:Source",
+      "name": "dct:Source",
       "type": "property",
       "uri": "http://purl.org/dc/terms/source",
       "description": "A related resource from which the described resource is derived."
     },
     {
       "codepoint": 2378,
-      "canonical_name": "dct:spatialCoverage",
+      "name": "dct:spatialCoverage",
       "type": "property",
       "uri": "http://purl.org/dc/terms/spatial",
       "description": "Spatial characteristics of the resource."
     },
     {
       "codepoint": 2379,
-      "canonical_name": "dct:Subject",
+      "name": "dct:Subject",
       "type": "property",
       "uri": "http://purl.org/dc/terms/subject",
       "description": "A topic of the resource."
     },
     {
       "codepoint": 2380,
-      "canonical_name": "dct:tableOfContents",
+      "name": "dct:tableOfContents",
       "type": "property",
       "uri": "http://purl.org/dc/terms/tableOfContents",
       "description": "A list of subunits of the resource."
     },
     {
       "codepoint": 2381,
-      "canonical_name": "dct:temporalCoverage",
+      "name": "dct:temporalCoverage",
       "type": "property",
       "uri": "http://purl.org/dc/terms/temporal",
       "description": "Temporal characteristics of the resource."
     },
     {
       "codepoint": 2382,
-      "canonical_name": "dct:Title",
+      "name": "dct:Title",
       "type": "property",
       "uri": "http://purl.org/dc/terms/title",
       "description": "A name given to the resource."
     },
     {
       "codepoint": 2383,
-      "canonical_name": "dct:Type",
+      "name": "dct:Type",
       "type": "property",
       "uri": "http://purl.org/dc/terms/type",
       "description": "The nature or genre of the resource."
     },
     {
       "codepoint": 21,
-      "canonical_name": "dct:dateValid",
+      "name": "dct:dateValid",
       "type": "property",
       "uri": "http://purl.org/dc/terms/valid",
       "description": "Date (often a range) of validity of a resource."

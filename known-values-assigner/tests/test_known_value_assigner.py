@@ -67,27 +67,27 @@ class TestKnownValueEntry:
         """Test basic entry creation."""
         entry = KnownValueEntry(
             codepoint=1000,
-            canonical_name="Thing",
+            name="Thing",
             type="class",
             uri="http://example.org/Thing",
             description="A thing",
         )
         assert entry.codepoint == 1000
-        assert entry.canonical_name == "Thing"
+        assert entry.name == "Thing"
         assert entry.type == "class"
 
     def test_entry_to_dict(self):
         """Test entry serialization."""
         entry = KnownValueEntry(
             codepoint=1000,
-            canonical_name="Thing",
+            name="Thing",
             type="class",
             uri="http://example.org/Thing",
             description="A thing",
         )
         d = entry.to_dict()
         assert d["codepoint"] == 1000
-        assert d["canonical_name"] == "Thing"
+        assert d["name"] == "Thing"
         assert d["type"] == "class"
         assert d["uri"] == "http://example.org/Thing"
         assert d["description"] == "A thing"
@@ -117,11 +117,6 @@ class TestOntologyConfig:
         """Test finding ontology by invalid identifier."""
         config = get_ontology_by_id("nonexistent")
         assert config is None
-
-    def test_all_configs_have_cli_ids(self):
-        """Test that all configs have at least one CLI identifier."""
-        for config in ONTOLOGY_CONFIGS:
-            assert len(config.cli_ids) > 0, f"{config.name} has no CLI identifiers"
 
     def test_configs_have_unique_start_points(self):
         """Test that all configs have unique start code points."""
@@ -347,11 +342,11 @@ class TestKnownValueAssigner:
             entries = assigner._assign_known_values(concepts, config)
 
             # Should be sorted alphabetically by URI
-            assert entries[0].canonical_name == "Apple"
+            assert entries[0].name == "Apple"
             assert entries[0].codepoint == 1000
-            assert entries[1].canonical_name == "Mango"
+            assert entries[1].name == "Mango"
             assert entries[1].codepoint == 1001
-            assert entries[2].canonical_name == "Zebra"
+            assert entries[2].name == "Zebra"
             assert entries[2].codepoint == 1002
 
     def test_deterministic_assignment_consistent(self):
@@ -383,10 +378,10 @@ class TestKnownValueAssigner:
             assert len(entries1) == len(entries2)
             for e1, e2 in zip(entries1, entries2):
                 assert e1.codepoint == e2.codepoint
-                assert e1.canonical_name == e2.canonical_name
+                assert e1.name == e2.name
                 assert e1.uri == e2.uri
 
-    def test_canonical_name_generation(self):
+    def test_name_generation(self):
         """Test canonical name generation from various inputs."""
         with tempfile.TemporaryDirectory() as tmpdir:
             assigner = KnownValueAssigner(
@@ -395,16 +390,16 @@ class TestKnownValueAssigner:
             )
 
             # From simple label
-            assert assigner._to_canonical_name("Person", "http://ex.org/Person") == "Person"
+            assert assigner._to_local_name("Person", "http://ex.org/Person") == "Person"
 
             # From multi-word label
-            assert assigner._to_canonical_name("Human Being", "http://ex.org/HumanBeing") == "humanBeing"
+            assert assigner._to_local_name("Human Being", "http://ex.org/HumanBeing") == "humanBeing"
 
             # From URI (hash)
-            assert assigner._to_canonical_name("", "http://ex.org/ns#Thing") == "Thing"
+            assert assigner._to_local_name("", "http://ex.org/ns#Thing") == "Thing"
 
             # From URI (slash)
-            assert assigner._to_canonical_name("", "http://ex.org/vocab/Thing") == "Thing"
+            assert assigner._to_local_name("", "http://ex.org/vocab/Thing") == "Thing"
 
     def test_write_registry(self):
         """Test registry JSON file generation."""
@@ -429,6 +424,7 @@ class TestKnownValueAssigner:
 
             json_file, markdown_file = assigner.write_registry(config, entries)
 
+            assert json_file is not None
             assert json_file.exists()
             assert "1000_test_ontology_registry.json" in str(json_file)
 
@@ -579,6 +575,7 @@ class TestJSONOutputSchema:
 
             json_file, markdown_file = assigner.write_registry(config, entries)
 
+            assert json_file is not None
             with open(json_file) as f:
                 data = json.load(f)
 
@@ -597,7 +594,7 @@ class TestJSONOutputSchema:
             # Check entry structure
             entry = data["entries"][0]
             assert "codepoint" in entry
-            assert "canonical_name" in entry
+            assert "name" in entry
             assert "type" in entry
             assert "uri" in entry
             assert "description" in entry
