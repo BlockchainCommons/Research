@@ -575,7 +575,7 @@ class KnownValueAssigner:
         self._load_blockchain_commons_registry()
 
     def _load_blockchain_commons_registry(self) -> None:
-        """Load the Blockchain Commons registry to get pre-assigned codepoints."""
+        """Load the Blockchain Commons registry to get pre-assigned codepoints and names."""
         bc_registry_path = self.output_dir / "json" / "0_blockchain_commons_registry.json"
         if not bc_registry_path.exists():
             logger.warning(f"Blockchain Commons registry not found at {bc_registry_path}")
@@ -588,8 +588,9 @@ class KnownValueAssigner:
             for entry in registry.get("entries", []):
                 uri = entry.get("uri", "")
                 codepoint = entry.get("codepoint")
+                name = entry.get("name", "")
                 if uri and codepoint is not None:
-                    self.bc_uri_to_codepoint[uri] = codepoint
+                    self.bc_uri_to_codepoint[uri] = (codepoint, name)
 
             logger.info(f"Loaded {len(self.bc_uri_to_codepoint)} URI mappings from Blockchain Commons registry")
         except Exception as e:
@@ -639,22 +640,21 @@ class KnownValueAssigner:
         current_codepoint = config.start_code_point
 
         for concept in sorted_concepts:
-            # Extract local name from label or URI, then prepend ontology name as prefix
-            local_name = self._to_local_name(concept.label, concept.uri)
-            name = f"{config.name}:{local_name}"
-
             # Check if this URI already has a codepoint in Blockchain Commons registry
             if concept.uri in self.bc_uri_to_codepoint:
-                bc_codepoint = self.bc_uri_to_codepoint[concept.uri]
-                logger.info(f"Using Blockchain Commons codepoint {bc_codepoint} for {concept.uri}")
+                bc_codepoint, bc_name = self.bc_uri_to_codepoint[concept.uri]
+                logger.info(f"Using Blockchain Commons codepoint {bc_codepoint} ({bc_name}) for {concept.uri}")
                 entry = KnownValueEntry(
                     codepoint=bc_codepoint,
-                    name=name,
+                    name=bc_name,
                     type=concept.concept_type.lower(),
                     uri=concept.uri,
                     description=concept.description if concept.description else "",
                 )
             else:
+                # Extract local name from label or URI, then prepend ontology name as prefix
+                local_name = self._to_local_name(concept.label, concept.uri)
+                name = f"{config.name}:{local_name}"
                 # Assign from ontology's range
                 entry = KnownValueEntry(
                     codepoint=current_codepoint,

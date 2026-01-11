@@ -53,7 +53,7 @@
 | 10030 | `schema:Image` | class | http://purl.org/dc/dcmitype/Image |  |
 | 10031 | `schema:Text` | class | http://purl.org/dc/dcmitype/Text |  |
 | 10032 | `schema:description` | property | http://purl.org/dc/terms/description |  |
-| 2 | `schema:identifier` | property | http://purl.org/dc/terms/identifier |  |
+| 2 | `id` | property | http://purl.org/dc/terms/identifier |  |
 | 10033 | `schema:spatial` | property | http://purl.org/dc/terms/spatial |  |
 | 10034 | `schema:temporal` | property | http://purl.org/dc/terms/temporal |  |
 | 10035 | `schema:title` | property | http://purl.org/dc/terms/title |  |
@@ -131,7 +131,7 @@
 | 10107 | `schema:vocabsizeDescription` | property | http://unece.org/vocab#sizeDescription |  |
 | 10108 | `schema:vocabvariantId` | property | http://unece.org/vocab#variantId |  |
 | 10109 | `schema:22rdfsyntaxnsProperty` | class | http://www.w3.org/1999/02/22-rdf-syntax-ns#Property |  |
-| 1 | `schema:22rdfsyntaxnstype` | property | http://www.w3.org/1999/02/22-rdf-syntax-ns#type |  |
+| 1 | `isA` | property | http://www.w3.org/1999/02/22-rdf-syntax-ns#type |  |
 | 10110 | `schema:rdfschemaClass` | class | http://www.w3.org/2000/01/rdf-schema#Class |  |
 | 10111 | `schema:rdfschemalabel` | property | http://www.w3.org/2000/01/rdf-schema#label |  |
 | 10112 | `schema:corebroader` | property | http://www.w3.org/2004/02/skos/core#broader |  |
@@ -2146,7 +2146,7 @@
 | 12121 | `schema:playersOnline` | property | https://schema.org/playersOnline | Number of players on the server. |
 | 12122 | `schema:polygon` | property | https://schema.org/polygon | A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical. |
 | 12123 | `schema:populationType` | property | https://schema.org/populationType | Indicates the populationType common to all members of a [[StatisticalPopulation]] or all cases within the scope of a [[StatisticalVariable]]. |
-| 23 | `schema:position` | property | https://schema.org/position | The position of an item in a series or sequence of items. |
+| 23 | `position` | property | https://schema.org/position | The position of an item in a series or sequence of items. |
 | 12124 | `schema:positiveNotes` | property | https://schema.org/positiveNotes | Provides positive considerations regarding something, for example product highlights or (alongside [[negativeNotes]]) pro/con lists for reviews.  In the case of a [[Review]], the property describes the [[itemReviewed]] from the perspective of the review; in the case of a [[Product]], the product itself is being described.  The property values can be expressed either as unstructured text (repeated as necessary), or if ordered, as a list (in which case the most positive is at the beginning of the list). |
 | 12125 | `schema:possibleComplication` | property | https://schema.org/possibleComplication | A possible unexpected and unfavorable evolution of a medical condition. Complications may include worsening of the signs or symptoms of the disease, extension of the condition to other organ systems, etc. |
 | 12126 | `schema:possibleTreatment` | property | https://schema.org/possibleTreatment | A possible treatment to address this condition, sign or symptom. |
@@ -2555,7 +2555,7 @@
 | 12529 | `schema:validFrom` | property | https://schema.org/validFrom | The date when the item becomes valid. |
 | 12530 | `schema:validIn` | property | https://schema.org/validIn | The geographic area where the item is valid. Applies for example to a [[Permit]], a [[Certification]], or an [[EducationalOccupationalCredential]].  |
 | 12531 | `schema:validThrough` | property | https://schema.org/validThrough | The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours. |
-| 22 | `schema:validUntil` | property | https://schema.org/validUntil | The date when the item is no longer valid. |
+| 22 | `validUntil` | property | https://schema.org/validUntil | The date when the item is no longer valid. |
 | 12532 | `schema:value` | property | https://schema.org/value | The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', or 'StructuredValue'.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator. |
 | 12533 | `schema:valueAddedTaxIncluded` | property | https://schema.org/valueAddedTaxIncluded | Specifies whether the applicable value-added tax (VAT) is included in the price specification or not. |
 | 12534 | `schema:valueMaxLength` | property | https://schema.org/valueMaxLength | Specifies the allowed range for number of characters in a literal value. |

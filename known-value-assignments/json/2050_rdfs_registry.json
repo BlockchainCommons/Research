@@ -54,7 +54,7 @@
     },
     {
       "codepoint": 4,
-      "name": "rdfs:comment",
+      "name": "note",
       "type": "property",
       "uri": "http://www.w3.org/2000/01/rdf-schema#comment",
       "description": "A description of the subject resource."

@@ -313,7 +313,7 @@
     },
     {
       "codepoint": 52,
-      "name": "dct:conformsTo",
+      "name": "conformsTo",
       "type": "property",
       "uri": "http://purl.org/dc/terms/conformsTo",
       "description": "An established standard to which the described resource conforms."
@@ -348,7 +348,7 @@
     },
     {
       "codepoint": 16,
-      "name": "dct:Date",
+      "name": "date",
       "type": "property",
       "uri": "http://purl.org/dc/terms/date",
       "description": "A point or period of time associated with an event in the lifecycle of the resource."
@@ -418,14 +418,14 @@
     },
     {
       "codepoint": 18,
-      "name": "dct:hasVersion",
+      "name": "version",
       "type": "property",
       "uri": "http://purl.org/dc/terms/hasVersion",
       "description": "A related resource that is a version, edition, or adaptation of the described resource."
     },
     {
       "codepoint": 2,
-      "name": "dct:Identifier",
+      "name": "id",
       "type": "property",
       "uri": "http://purl.org/dc/terms/identifier",
       "description": "An unambiguous reference to the resource within a given context."
@@ -628,7 +628,7 @@
     },
     {
       "codepoint": 21,
-      "name": "dct:dateValid",
+      "name": "validFrom",
       "type": "property",
       "uri": "http://purl.org/dc/terms/valid",
       "description": "Date (often a range) of validity of a resource."

@@ -243,7 +243,7 @@
     },
     {
       "codepoint": 2,
-      "name": "schema:identifier",
+      "name": "id",
       "type": "property",
       "uri": "http://purl.org/dc/terms/identifier",
       "description": ""
@@ -789,7 +789,7 @@
     },
     {
       "codepoint": 1,
-      "name": "schema:22rdfsyntaxnstype",
+      "name": "isA",
       "type": "property",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
       "description": ""
@@ -14894,7 +14894,7 @@
     },
     {
       "codepoint": 23,
-      "name": "schema:position",
+      "name": "position",
       "type": "property",
       "uri": "https://schema.org/position",
       "description": "The position of an item in a series or sequence of items."
@@ -17757,7 +17757,7 @@
     },
     {
       "codepoint": 22,
-      "name": "schema:validUntil",
+      "name": "validUntil",
       "type": "property",
       "uri": "https://schema.org/validUntil",
       "description": "The date when the item is no longer valid."

@@ -63,12 +63,12 @@
 | 2340 | `dct:Audience` | property | http://purl.org/dc/terms/audience | A class of agents for whom the resource is intended or useful. |
 | 2341 | `dct:dateAvailable` | property | http://purl.org/dc/terms/available | Date that the resource became or will become available. |
 | 2342 | `dct:bibliographicCitation` | property | http://purl.org/dc/terms/bibliographicCitation | A bibliographic reference for the resource. |
-| 52 | `dct:conformsTo` | property | http://purl.org/dc/terms/conformsTo | An established standard to which the described resource conforms. |
+| 52 | `conformsTo` | property | http://purl.org/dc/terms/conformsTo | An established standard to which the described resource conforms. |
 | 2343 | `dct:Contributor` | property | http://purl.org/dc/terms/contributor | An entity responsible for making contributions to the resource. |
 | 2344 | `dct:Coverage` | property | http://purl.org/dc/terms/coverage | The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant. |
 | 2345 | `dct:dateCreated` | property | http://purl.org/dc/terms/created | Date of creation of the resource. |
 | 2346 | `dct:Creator` | property | http://purl.org/dc/terms/creator | An entity responsible for making the resource. |
-| 16 | `dct:Date` | property | http://purl.org/dc/terms/date | A point or period of time associated with an event in the lifecycle of the resource. |
+| 16 | `date` | property | http://purl.org/dc/terms/date | A point or period of time associated with an event in the lifecycle of the resource. |
 | 2347 | `dct:dateAccepted` | property | http://purl.org/dc/terms/dateAccepted | Date of acceptance of the resource. |
 | 2348 | `dct:dateCopyrighted` | property | http://purl.org/dc/terms/dateCopyrighted | Date of copyright of the resource. |
 | 2349 | `dct:dateSubmitted` | property | http://purl.org/dc/terms/dateSubmitted | Date of submission of the resource. |
@@ -78,8 +78,8 @@
 | 2353 | `dct:Format` | property | http://purl.org/dc/terms/format | The file format, physical medium, or dimensions of the resource. |
 | 2354 | `dct:hasFormat` | property | http://purl.org/dc/terms/hasFormat | A related resource that is substantially the same as the pre-existing described resource, but in another format. |
 | 2355 | `dct:hasPart` | property | http://purl.org/dc/terms/hasPart | A related resource that is included either physically or logically in the described resource. |
-| 18 | `dct:hasVersion` | property | http://purl.org/dc/terms/hasVersion | A related resource that is a version, edition, or adaptation of the described resource. |
-| 2 | `dct:Identifier` | property | http://purl.org/dc/terms/identifier | An unambiguous reference to the resource within a given context. |
+| 18 | `version` | property | http://purl.org/dc/terms/hasVersion | A related resource that is a version, edition, or adaptation of the described resource. |
+| 2 | `id` | property | http://purl.org/dc/terms/identifier | An unambiguous reference to the resource within a given context. |
 | 2356 | `dct:instructionalMethod` | property | http://purl.org/dc/terms/instructionalMethod | A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support. |
 | 2357 | `dct:isFormatOf` | property | http://purl.org/dc/terms/isFormatOf | A pre-existing related resource that is substantially the same as the described resource, but in another format. |
 | 2358 | `dct:isPartOf` | property | http://purl.org/dc/terms/isPartOf | A related resource in which the described resource is physically or logically included. |
@@ -108,4 +108,4 @@
 | 2381 | `dct:temporalCoverage` | property | http://purl.org/dc/terms/temporal | Temporal characteristics of the resource. |
 | 2382 | `dct:Title` | property | http://purl.org/dc/terms/title | A name given to the resource. |
 | 2383 | `dct:Type` | property | http://purl.org/dc/terms/type | The nature or genre of the resource. |
-| 21 | `dct:dateValid` | property | http://purl.org/dc/terms/valid | Date (often a range) of validity of a resource. |
+| 21 | `validFrom` | property | http://purl.org/dc/terms/valid | Date (often a range) of validity of a resource. |

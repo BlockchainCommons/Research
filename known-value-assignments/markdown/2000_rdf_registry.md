@@ -33,11 +33,11 @@
 | 2010 | `rdf:XMLLiteral` | datatype | http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral | The datatype of XML literal values. |
 | 2011 | `rdf:direction` | property | http://www.w3.org/1999/02/22-rdf-syntax-ns#direction | The base direction component of a CompoundLiteral. |
 | 2012 | `rdf:first` | property | http://www.w3.org/1999/02/22-rdf-syntax-ns#first | The first item in the subject RDF list. |
-| 12 | `rdf:langString` | datatype | http://www.w3.org/1999/02/22-rdf-syntax-ns#langString | The datatype of language-tagged string values |
+| 12 | `language` | datatype | http://www.w3.org/1999/02/22-rdf-syntax-ns#langString | The datatype of language-tagged string values |
 | 2013 | `rdf:language` | property | http://www.w3.org/1999/02/22-rdf-syntax-ns#language | The language component of a CompoundLiteral. |
 | 2014 | `rdf:object` | property | http://www.w3.org/1999/02/22-rdf-syntax-ns#object | The object of the subject RDF statement. |
 | 2015 | `rdf:predicate` | property | http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate | The predicate of the subject RDF statement. |
 | 2016 | `rdf:rest` | property | http://www.w3.org/1999/02/22-rdf-syntax-ns#rest | The rest of the subject RDF list after the first item. |
 | 2017 | `rdf:subject` | property | http://www.w3.org/1999/02/22-rdf-syntax-ns#subject | The subject of the subject RDF statement. |
-| 1 | `rdf:type` | property | http://www.w3.org/1999/02/22-rdf-syntax-ns#type | The subject is an instance of a class. |
+| 1 | `isA` | property | http://www.w3.org/1999/02/22-rdf-syntax-ns#type | The subject is an instance of a class. |
 | 2018 | `rdf:value` | property | http://www.w3.org/1999/02/22-rdf-syntax-ns#value | Idiomatic property used for structured values. |

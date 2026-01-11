@@ -103,7 +103,7 @@
     },
     {
       "codepoint": 12,
-      "name": "rdf:langString",
+      "name": "language",
       "type": "datatype",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
       "description": "The datatype of language-tagged string values"
@@ -145,7 +145,7 @@
     },
     {
       "codepoint": 1,
-      "name": "rdf:type",
+      "name": "isA",
       "type": "property",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
       "description": "The subject is an instance of a class."

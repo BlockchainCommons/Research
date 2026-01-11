@@ -26,7 +26,7 @@
 | 2053 | `rdfs:Datatype` | class | http://www.w3.org/2000/01/rdf-schema#Datatype | The class of RDF datatypes. |
 | 2054 | `rdfs:Literal` | class | http://www.w3.org/2000/01/rdf-schema#Literal | The class of literal values, eg. textual strings and integers. |
 | 2055 | `rdfs:Resource` | class | http://www.w3.org/2000/01/rdf-schema#Resource | The class resource, everything. |
-| 4 | `rdfs:comment` | property | http://www.w3.org/2000/01/rdf-schema#comment | A description of the subject resource. |
+| 4 | `note` | property | http://www.w3.org/2000/01/rdf-schema#comment | A description of the subject resource. |
 | 2056 | `rdfs:domain` | property | http://www.w3.org/2000/01/rdf-schema#domain | A domain of the subject property. |
 | 2057 | `rdfs:isDefinedBy` | property | http://www.w3.org/2000/01/rdf-schema#isDefinedBy | The definition of the subject resource. |
 | 2058 | `rdfs:label` | property | http://www.w3.org/2000/01/rdf-schema#label | A human-readable name for the subject. |
