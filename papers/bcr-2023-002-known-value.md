@@ -162,18 +162,19 @@ When encoded as CBOR, the amount of storage required for integer values varies, 
 The following table summarizes the assigned Known Value code point ranges:
 
 | Name                                                                                                             | Range       | Entries      | JSON                                                                       |
-|------------------------------------------------------------------------------------------------------------------|-------------|--------------|----------------------------------------------------------------------------|
-| [Blockchain Commons](../known-value-assignments/markdown/0_blockchain_commons_registry.md)                       | 0-999       | 88           | [JSON](../known-value-assignments/json/0_blockchain_commons_registry.json) |
+| ---------------------------------------------------------------------------------------------------------------- | ----------- | ------------ | -------------------------------------------------------------------------- |
+| [Blockchain Commons](../known-value-assignments/markdown/0_blockchain_commons_registry.md)                       | 0-999       | 99           | [JSON](../known-value-assignments/json/0_blockchain_commons_registry.json) |
 | [Community Assigned](../known-value-assignments/markdown/1000_community_registry.md) (specification required)    | 1000-1999   | see registry | [JSON](../known-value-assignments/json/1000_community_registry.json)       |
-| [RDF and RDFS](../known-value-assignments/markdown/1000_rdf_rdfs_registry.md)                                    | 2000-2099   | 33           | [JSON](../known-value-assignments/json/2000_rdf_rdfs_registry.json)        |
-| [OWL 2](../known-value-assignments/markdown/2000_owl2_registry.md)                                               | 2100-2199   | 75           | [JSON](../known-value-assignments/json/2100_owl2_registry.json)            |
-| [Dublin Core Elements](../known-value-assignments/markdown/3000_dc_elements_registry.md)                         | 2200-2299   | 15           | [JSON](../known-value-assignments/json/2200_dc_elements_registry.json)     |
-| [Dublin Core Terms](../known-value-assignments/markdown/3500_dc_terms_registry.md)                               | 2300-2499   | 84           | [JSON](../known-value-assignments/json/2300_dc_terms_registry.json)        |
-| [FOAF](../known-value-assignments/markdown/4000_foaf_registry.md)                                                | 2500-2699   | 83           | [JSON](../known-value-assignments/json/2500_foaf_registry.json)            |
-| [SKOS](../known-value-assignments/markdown/5000_skos_registry.md)                                                | 2700-2799   | 32           | [JSON](../known-value-assignments/json/2700_skos_registry.json)            |
-| [Solid](../known-value-assignments/markdown/6000_solid_registry.md)                                              | 2800-2899   | 33           | [JSON](../known-value-assignments/json/2800_solid_registry.json)           |
-| [W3C Verifiable Credentials](../known-value-assignments/markdown/20000_w3c_vc_registry.md)                       | 2900-2999   | 28           | [JSON](../known-value-assignments/json/2900_w3c_vc_registry.json)         |
-| [Schema.org](../known-value-assignments/markdown/10000_schema_org_registry.md)                                   | 10000-19999 | 2664         | [JSON](../known-value-assignments/json/10000_schema_org_registry.json)     |
+| [RDF](../known-value-assignments/markdown/2000_rdf_registry.md)                                                  | 2000-2049   | 21           | [JSON](../known-value-assignments/json/2000_rdf_registry.json)             |
+| [RDFS](../known-value-assignments/markdown/2050_rdfs_registry.md)                                                | 2050-2099   | 15           | [JSON](../known-value-assignments/json/2050_rdfs_registry.json)            |
+| [OWL 2](../known-value-assignments/markdown/2100_owl2_registry.md)                                               | 2100-2199   | 75           | [JSON](../known-value-assignments/json/2100_owl2_registry.json)            |
+| [Dublin Core Elements](../known-value-assignments/markdown/2200_dce_registry.md)                                 | 2200-2299   | 15           | [JSON](../known-value-assignments/json/2200_dce_registry.json)             |
+| [Dublin Core Terms](../known-value-assignments/markdown/2300_dct_registry.md)                                    | 2300-2499   | 89           | [JSON](../known-value-assignments/json/2300_dct_registry.json)             |
+| [FOAF](../known-value-assignments/markdown/2500_foaf_registry.md)                                                | 2500-2699   | 83           | [JSON](../known-value-assignments/json/2500_foaf_registry.json)            |
+| [SKOS](../known-value-assignments/markdown/2700_skos_registry.md)                                                | 2700-2799   | 32           | [JSON](../known-value-assignments/json/2700_skos_registry.json)            |
+| [Solid](../known-value-assignments/markdown/2800_solid_registry.md)                                              | 2800-2899   | 33           | [JSON](../known-value-assignments/json/2800_solid_registry.json)           |
+| [W3C Verifiable Credentials](../known-value-assignments/markdown/2900_vc_registry.md)                            | 2900-2999   | 28           | [JSON](../known-value-assignments/json/2900_vc_registry.json)              |
+| [Schema.org](../known-value-assignments/markdown/10000_schema_registry.md)                                       | 10000-19999 | 2667         | [JSON](../known-value-assignments/json/10000_schema_registry.json)         |
 | [Community Assigned](../known-value-assignments/markdown/100000_community_registry.md) (first come-first served) | 100000-...  | see registry | [JSON](../known-value-assignments/json/100000_community_registry.json)     |
 
 ### Blockchain Commons Core Concepts
@@ -193,9 +194,13 @@ The Blockchain Commons range (0-999) contains core concepts specific to Gordian 
 
 This section describes the ontologies from which Known Values are assigned, organized from most fundamental to most specialized.
 
-#### RDF and RDFS (Resource Description Framework and RDF Schema)
+#### RDF (Resource Description Framework)
 
-RDF is the foundational data model of the Semantic Web, providing a standard way to make statements about resources using subject-predicate-object triples. RDFS extends RDF with basic schema vocabulary for defining classes and properties. These are the most fundamental building blocks for any semantic system, defining concepts like `type`, `Class`, `Property`, `subClassOf`, and `comment`. Nearly all other semantic vocabularies are built upon RDF/RDFS primitives.
+RDF is the foundational data model of the Semantic Web, providing a standard way to make statements about resources using subject-predicate-object triples. It defines core concepts like `rdf:type`, `rdf:Property`, `rdf:List`, and `rdf:Statement`. RDF is the most fundamental building block for any semantic system.
+
+#### RDFS (RDF Schema)
+
+RDFS extends RDF with basic schema vocabulary for defining classes and properties. It provides concepts like `rdfs:Class`, `rdfs:subClassOf`, `rdfs:domain`, `rdfs:range`, and `rdfs:comment`. Nearly all other semantic vocabularies are built upon RDF/RDFS primitives.
 
 #### OWL 2 (Web Ontology Language)
 

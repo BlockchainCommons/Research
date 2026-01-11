@@ -18,7 +18,7 @@ import logging
 import os
 import re
 import sys
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass, asdict
 from enum import Enum
 from pathlib import Path
 from typing import Optional
@@ -67,10 +67,6 @@ class OntologyConfig:
     start_code_point: int
     data_format: DataFormat
     strategy: ProcessingStrategy
-    # Additional URLs to merge (e.g., RDFS with RDF)
-    merge_urls: list = field(default_factory=list)
-    # CLI identifiers for this ontology
-    cli_ids: list = field(default_factory=list)
     # Local bundled file path (fallback if URL fails)
     bundled_file: Optional[str] = None
 
@@ -116,13 +112,18 @@ class KnownValueEntry:
 # Ontology configurations as per spec
 ONTOLOGY_CONFIGS = [
     OntologyConfig(
-        name="rdf_rdfs",
+        name="rdf",
         source_url="http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         start_code_point=2000,
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
-        merge_urls=["http://www.w3.org/2000/01/rdf-schema#"],
-        cli_ids=["rdf", "rdfs", "rdf-rdfs"],
+    ),
+    OntologyConfig(
+        name="rdfs",
+        source_url="http://www.w3.org/2000/01/rdf-schema#",
+        start_code_point=2050,
+        data_format=DataFormat.RDF_XML,
+        strategy=ProcessingStrategy.STANDARD_RDF,
     ),
     OntologyConfig(
         name="owl2",
@@ -130,32 +131,27 @@ ONTOLOGY_CONFIGS = [
         start_code_point=2100,
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
-        cli_ids=["owl", "owl2"],
     ),
     OntologyConfig(
-        name="dc_elements",
+        name="dce",
         source_url="http://purl.org/dc/elements/1.1/",
         start_code_point=2200,
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
-        cli_ids=["dc-elements", "dce"],
     ),
     OntologyConfig(
-        name="dc_terms",
+        name="dct",
         source_url="http://purl.org/dc/terms/",
         start_code_point=2300,
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
-        cli_ids=["dc-terms", "dct", "dcterms"],
     ),
     OntologyConfig(
         name="foaf",
-        # Primary source is xmlns.com (often unreliable)
         source_url="http://xmlns.com/foaf/0.1/",
         start_code_point=2500,
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
-        cli_ids=["foaf"],
         bundled_file="bundled/foaf.rdf",
     ),
     OntologyConfig(
@@ -164,7 +160,6 @@ ONTOLOGY_CONFIGS = [
         start_code_point=2700,
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
-        cli_ids=["skos"],
     ),
     OntologyConfig(
         name="solid",
@@ -172,32 +167,29 @@ ONTOLOGY_CONFIGS = [
         start_code_point=2800,
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
-        cli_ids=["solid", "solid-terms"],
     ),
     OntologyConfig(
-        name="schema_org",
+        name="schema",
         source_url="https://schema.org/version/latest/schemaorg-current-https.jsonld",
         start_code_point=10000,
         data_format=DataFormat.JSON_LD,
         strategy=ProcessingStrategy.SCHEMA_ORG_LD,
-        cli_ids=["schema", "schema.org", "schemaorg"],
     ),
     OntologyConfig(
-        name="w3c_vc",
+        name="vc",
         source_url="https://www.w3.org/ns/credentials/v2",
         start_code_point=2900,
         data_format=DataFormat.JSON_LD,
         strategy=ProcessingStrategy.CONTEXT_MAP,
-        cli_ids=["vc", "w3c-vc", "credentials"],
     ),
 ]
 
 
 def get_ontology_by_id(cli_id: str) -> Optional[OntologyConfig]:
-    """Find an ontology configuration by its CLI identifier."""
+    """Find an ontology configuration by its name."""
     cli_id_lower = cli_id.lower()
     for config in ONTOLOGY_CONFIGS:
-        if cli_id_lower in [x.lower() for x in config.cli_ids]:
+        if cli_id_lower == config.name.lower():
             return config
     return None
 
@@ -205,13 +197,12 @@ def get_ontology_by_id(cli_id: str) -> Optional[OntologyConfig]:
 def list_ontologies() -> None:
     """Print available ontologies and their identifiers."""
     print("\nAvailable Ontologies:")
-    print("-" * 60)
-    print(f"{'Identifier':<20} {'Name':<25} {'Start Code'}")
-    print("-" * 60)
+    print("-" * 40)
+    print(f"{'Name':<15} {'Start Code'}")
+    print("-" * 40)
     for config in ONTOLOGY_CONFIGS:
-        ids = ", ".join(config.cli_ids)
-        print(f"{ids:<20} {config.name:<25} {config.start_code_point}")
-    print("-" * 60)
+        print(f"{config.name:<15} {config.start_code_point}")
+    print("-" * 40)
 
 
 class OntologyFetcher:
@@ -312,18 +303,6 @@ class StandardRDFParser:
         except Exception as e:
             logger.warning(f"Failed to parse {config.source_url} as XML, trying auto-detection: {e}")
             graph.parse(data=content)
-
-        # Merge additional URLs (e.g., RDFS with RDF)
-        for merge_url in config.merge_urls:
-            try:
-                merge_content = self.fetcher.fetch(
-                    merge_url,
-                    config.data_format,
-                    f"{config.name}_merge"
-                )
-                graph.parse(data=merge_content, format="xml")
-            except Exception as e:
-                logger.warning(f"Failed to merge {merge_url}: {e}")
 
         # Extract concepts
         concepts = []
@@ -660,8 +639,9 @@ class KnownValueAssigner:
         current_codepoint = config.start_code_point
 
         for concept in sorted_concepts:
-            # Extract canonical name from label or URI
-            canonical_name = self._to_canonical_name(concept.label, concept.uri)
+            # Extract local name from label or URI, then prepend ontology name as prefix
+            local_name = self._to_canonical_name(concept.label, concept.uri)
+            canonical_name = f"{config.name}:{local_name}"
 
             # Check if this URI already has a codepoint in Blockchain Commons registry
             if concept.uri in self.bc_uri_to_codepoint:

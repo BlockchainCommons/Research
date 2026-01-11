@@ -1,6 +1,6 @@
 {
   "ontology": {
-    "name": "rdf_rdfs",
+    "name": "rdf",
     "source_url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "start_code_point": 2000,
     "processing_strategy": "StandardRDF"
@@ -12,262 +12,157 @@
   "entries": [
     {
       "codepoint": 2000,
-      "canonical_name": "Alt",
+      "canonical_name": "rdf:Alt",
       "type": "class",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Alt",
       "description": "The class of containers of alternatives."
     },
     {
       "codepoint": 2001,
-      "canonical_name": "Bag",
+      "canonical_name": "rdf:Bag",
       "type": "class",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag",
       "description": "The class of unordered containers."
     },
     {
       "codepoint": 2002,
-      "canonical_name": "CompoundLiteral",
+      "canonical_name": "rdf:CompoundLiteral",
       "type": "class",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#CompoundLiteral",
       "description": "A class representing a compound literal."
     },
     {
       "codepoint": 2003,
-      "canonical_name": "HTML",
+      "canonical_name": "rdf:HTML",
       "type": "datatype",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML",
       "description": "The datatype of RDF literals storing fragments of HTML content"
     },
     {
       "codepoint": 2004,
-      "canonical_name": "JSON",
+      "canonical_name": "rdf:JSON",
       "type": "datatype",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON",
       "description": "The datatype of RDF literals storing JSON content."
     },
     {
       "codepoint": 2005,
-      "canonical_name": "List",
+      "canonical_name": "rdf:List",
       "type": "class",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#List",
       "description": "The class of RDF Lists."
     },
     {
       "codepoint": 2006,
-      "canonical_name": "PlainLiteral",
+      "canonical_name": "rdf:PlainLiteral",
       "type": "datatype",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral",
       "description": "The class of plain (i.e. untyped) literal values, as used in RIF and OWL 2"
     },
     {
       "codepoint": 2007,
-      "canonical_name": "Property",
+      "canonical_name": "rdf:Property",
       "type": "class",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
       "description": "The class of RDF properties."
     },
     {
       "codepoint": 2008,
-      "canonical_name": "Seq",
+      "canonical_name": "rdf:Seq",
       "type": "class",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq",
       "description": "The class of ordered containers."
     },
     {
       "codepoint": 2009,
-      "canonical_name": "Statement",
+      "canonical_name": "rdf:Statement",
       "type": "class",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement",
       "description": "The class of RDF statements."
     },
     {
       "codepoint": 2010,
-      "canonical_name": "XMLLiteral",
+      "canonical_name": "rdf:XMLLiteral",
       "type": "datatype",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral",
       "description": "The datatype of XML literal values."
     },
     {
       "codepoint": 2011,
-      "canonical_name": "direction",
+      "canonical_name": "rdf:direction",
       "type": "property",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#direction",
       "description": "The base direction component of a CompoundLiteral."
     },
     {
       "codepoint": 2012,
-      "canonical_name": "first",
+      "canonical_name": "rdf:first",
       "type": "property",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
       "description": "The first item in the subject RDF list."
     },
     {
       "codepoint": 12,
-      "canonical_name": "langString",
+      "canonical_name": "rdf:langString",
       "type": "datatype",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
       "description": "The datatype of language-tagged string values"
     },
     {
       "codepoint": 2013,
-      "canonical_name": "language",
+      "canonical_name": "rdf:language",
       "type": "property",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#language",
       "description": "The language component of a CompoundLiteral."
     },
     {
       "codepoint": 2014,
-      "canonical_name": "object",
+      "canonical_name": "rdf:object",
       "type": "property",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#object",
       "description": "The object of the subject RDF statement."
     },
     {
       "codepoint": 2015,
-      "canonical_name": "predicate",
+      "canonical_name": "rdf:predicate",
       "type": "property",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate",
       "description": "The predicate of the subject RDF statement."
     },
     {
       "codepoint": 2016,
-      "canonical_name": "rest",
+      "canonical_name": "rdf:rest",
       "type": "property",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
       "description": "The rest of the subject RDF list after the first item."
     },
     {
       "codepoint": 2017,
-      "canonical_name": "subject",
+      "canonical_name": "rdf:subject",
       "type": "property",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#subject",
       "description": "The subject of the subject RDF statement."
     },
     {
       "codepoint": 1,
-      "canonical_name": "type",
+      "canonical_name": "rdf:type",
       "type": "property",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
       "description": "The subject is an instance of a class."
     },
     {
       "codepoint": 2018,
-      "canonical_name": "value",
+      "canonical_name": "rdf:value",
       "type": "property",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value",
       "description": "Idiomatic property used for structured values."
-    },
-    {
-      "codepoint": 2019,
-      "canonical_name": "Class",
-      "type": "class",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#Class",
-      "description": "The class of classes."
-    },
-    {
-      "codepoint": 2020,
-      "canonical_name": "Container",
-      "type": "class",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#Container",
-      "description": "The class of RDF containers."
-    },
-    {
-      "codepoint": 2021,
-      "canonical_name": "ContainerMembershipProperty",
-      "type": "class",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#ContainerMembershipProperty",
-      "description": "The class of container membership properties, rdf:_1, rdf:_2, ..., all of which are sub-properties of 'member'."
-    },
-    {
-      "codepoint": 2022,
-      "canonical_name": "Datatype",
-      "type": "class",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#Datatype",
-      "description": "The class of RDF datatypes."
-    },
-    {
-      "codepoint": 2023,
-      "canonical_name": "Literal",
-      "type": "class",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#Literal",
-      "description": "The class of literal values, eg. textual strings and integers."
-    },
-    {
-      "codepoint": 2024,
-      "canonical_name": "Resource",
-      "type": "class",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#Resource",
-      "description": "The class resource, everything."
-    },
-    {
-      "codepoint": 4,
-      "canonical_name": "comment",
-      "type": "property",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#comment",
-      "description": "A description of the subject resource."
-    },
-    {
-      "codepoint": 2025,
-      "canonical_name": "domain",
-      "type": "property",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#domain",
-      "description": "A domain of the subject property."
-    },
-    {
-      "codepoint": 2026,
-      "canonical_name": "isDefinedBy",
-      "type": "property",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
-      "description": "The definition of the subject resource."
-    },
-    {
-      "codepoint": 2027,
-      "canonical_name": "label",
-      "type": "property",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#label",
-      "description": "A human-readable name for the subject."
-    },
-    {
-      "codepoint": 2028,
-      "canonical_name": "member",
-      "type": "property",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#member",
-      "description": "A member of the subject resource."
-    },
-    {
-      "codepoint": 2029,
-      "canonical_name": "range",
-      "type": "property",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#range",
-      "description": "A range of the subject property."
-    },
-    {
-      "codepoint": 2030,
-      "canonical_name": "seeAlso",
-      "type": "property",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-      "description": "Further information about the subject resource."
-    },
-    {
-      "codepoint": 2031,
-      "canonical_name": "subClassOf",
-      "type": "property",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
-      "description": "The subject is a subclass of a class."
-    },
-    {
-      "codepoint": 2032,
-      "canonical_name": "subPropertyOf",
-      "type": "property",
-      "uri": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
-      "description": "The subject is a subproperty of a property."
     }
   ],
   "statistics": {
-    "total_entries": 36,
+    "total_entries": 21,
     "code_point_range": {
       "start": 2000,
-      "end": 2035
+      "end": 2020
     }
   }
 }
