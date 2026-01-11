@@ -108,4 +108,4 @@
 | 2381 | `dct:temporalCoverage` | property | http://purl.org/dc/terms/temporal | Temporal characteristics of the resource. |
 | 2382 | `dct:Title` | property | http://purl.org/dc/terms/title | A name given to the resource. |
 | 2383 | `dct:Type` | property | http://purl.org/dc/terms/type | The nature or genre of the resource. |
-| 21 | `validFrom` | property | http://purl.org/dc/terms/valid | Date (often a range) of validity of a resource. |
+| 2384 | `dct:dateValid` | property | http://purl.org/dc/terms/valid | Date (often a range) of validity of a resource. |

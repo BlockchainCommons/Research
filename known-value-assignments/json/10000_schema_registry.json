@@ -17735,21 +17735,21 @@
       "description": "The membership program tier an Offer (or a PriceSpecification, OfferShippingDetails, or MerchantReturnPolicy under an Offer) is valid for."
     },
     {
-      "codepoint": 12529,
-      "name": "schema:validFrom",
+      "codepoint": 21,
+      "name": "validFrom",
       "type": "property",
       "uri": "https://schema.org/validFrom",
       "description": "The date when the item becomes valid."
     },
     {
-      "codepoint": 12530,
+      "codepoint": 12529,
       "name": "schema:validIn",
       "type": "property",
       "uri": "https://schema.org/validIn",
       "description": "The geographic area where the item is valid. Applies for example to a [[Permit]], a [[Certification]], or an [[EducationalOccupationalCredential]]. "
     },
     {
-      "codepoint": 12531,
+      "codepoint": 12530,
       "name": "schema:validThrough",
       "type": "property",
       "uri": "https://schema.org/validThrough",
@@ -17763,917 +17763,917 @@
       "description": "The date when the item is no longer valid."
     },
     {
-      "codepoint": 12532,
+      "codepoint": 12531,
       "name": "schema:value",
       "type": "property",
       "uri": "https://schema.org/value",
       "description": "The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\\n\\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', or 'StructuredValue'.\\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator."
     },
     {
-      "codepoint": 12533,
+      "codepoint": 12532,
       "name": "schema:valueAddedTaxIncluded",
       "type": "property",
       "uri": "https://schema.org/valueAddedTaxIncluded",
       "description": "Specifies whether the applicable value-added tax (VAT) is included in the price specification or not."
     },
     {
-      "codepoint": 12534,
+      "codepoint": 12533,
       "name": "schema:valueMaxLength",
       "type": "property",
       "uri": "https://schema.org/valueMaxLength",
       "description": "Specifies the allowed range for number of characters in a literal value."
     },
     {
-      "codepoint": 12535,
+      "codepoint": 12534,
       "name": "schema:valueMinLength",
       "type": "property",
       "uri": "https://schema.org/valueMinLength",
       "description": "Specifies the minimum allowed range for number of characters in a literal value."
     },
     {
-      "codepoint": 12536,
+      "codepoint": 12535,
       "name": "schema:valueName",
       "type": "property",
       "uri": "https://schema.org/valueName",
       "description": "Indicates the name of the PropertyValueSpecification to be used in URL templates and form encoding in a manner analogous to HTML's input@name."
     },
     {
-      "codepoint": 12537,
+      "codepoint": 12536,
       "name": "schema:valuePattern",
       "type": "property",
       "uri": "https://schema.org/valuePattern",
       "description": "Specifies a regular expression for testing literal values according to the HTML spec."
     },
     {
-      "codepoint": 12538,
+      "codepoint": 12537,
       "name": "schema:valueReference",
       "type": "property",
       "uri": "https://schema.org/valueReference",
       "description": "A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement."
     },
     {
-      "codepoint": 12539,
+      "codepoint": 12538,
       "name": "schema:valueRequired",
       "type": "property",
       "uri": "https://schema.org/valueRequired",
       "description": "Whether the property must be filled in to complete the action.  Default is false."
     },
     {
-      "codepoint": 12540,
+      "codepoint": 12539,
       "name": "schema:variableMeasured",
       "type": "property",
       "uri": "https://schema.org/variableMeasured",
       "description": "The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue, or more explicitly as a [[StatisticalVariable]]."
     },
     {
-      "codepoint": 12541,
+      "codepoint": 12540,
       "name": "schema:variantCover",
       "type": "property",
       "uri": "https://schema.org/variantCover",
       "description": "A description of the variant cover\n    \tfor the issue, if the issue is a variant printing. For example, \"Bryan Hitch\n    \tVariant Cover\" or \"2nd Printing Variant\"."
     },
     {
-      "codepoint": 12542,
+      "codepoint": 12541,
       "name": "schema:variesBy",
       "type": "property",
       "uri": "https://schema.org/variesBy",
       "description": "Indicates the property or properties by which the variants in a [[ProductGroup]] vary, e.g. their size, color etc. Schema.org properties can be referenced by their short name e.g. \"color\"; terms defined elsewhere can be referenced with their URIs."
     },
     {
-      "codepoint": 12543,
+      "codepoint": 12542,
       "name": "schema:vatID",
       "type": "property",
       "uri": "https://schema.org/vatID",
       "description": "The Value-added Tax ID of the organization or person."
     },
     {
-      "codepoint": 12544,
+      "codepoint": 12543,
       "name": "schema:vehicleConfiguration",
       "type": "property",
       "uri": "https://schema.org/vehicleConfiguration",
       "description": "A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'."
     },
     {
-      "codepoint": 12545,
+      "codepoint": 12544,
       "name": "schema:vehicleEngine",
       "type": "property",
       "uri": "https://schema.org/vehicleEngine",
       "description": "Information about the engine or engines of the vehicle."
     },
     {
-      "codepoint": 12546,
+      "codepoint": 12545,
       "name": "schema:vehicleIdentificationNumber",
       "type": "property",
       "uri": "https://schema.org/vehicleIdentificationNumber",
       "description": "The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles."
     },
     {
-      "codepoint": 12547,
+      "codepoint": 12546,
       "name": "schema:vehicleInteriorColor",
       "type": "property",
       "uri": "https://schema.org/vehicleInteriorColor",
       "description": "The color or color combination of the interior of the vehicle."
     },
     {
-      "codepoint": 12548,
+      "codepoint": 12547,
       "name": "schema:vehicleInteriorType",
       "type": "property",
       "uri": "https://schema.org/vehicleInteriorType",
       "description": "The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.). While most interior types are characterized by the material used, an interior type can also be based on vehicle usage or target audience."
     },
     {
-      "codepoint": 12549,
+      "codepoint": 12548,
       "name": "schema:vehicleModelDate",
       "type": "property",
       "uri": "https://schema.org/vehicleModelDate",
       "description": "The release date of a vehicle model (often used to differentiate versions of the same make and model)."
     },
     {
-      "codepoint": 12550,
+      "codepoint": 12549,
       "name": "schema:vehicleSeatingCapacity",
       "type": "property",
       "uri": "https://schema.org/vehicleSeatingCapacity",
       "description": "The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.\\n\\nTypical unit code(s): C62 for persons."
     },
     {
-      "codepoint": 12551,
+      "codepoint": 12550,
       "name": "schema:vehicleSpecialUsage",
       "type": "property",
       "uri": "https://schema.org/vehicleSpecialUsage",
       "description": "Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school, or as a taxi. The legislation in many countries requires this information to be revealed when offering a car for sale."
     },
     {
-      "codepoint": 12552,
+      "codepoint": 12551,
       "name": "schema:vehicleTransmission",
       "type": "property",
       "uri": "https://schema.org/vehicleTransmission",
       "description": "The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) (\"gearbox\" for cars)."
     },
     {
-      "codepoint": 12553,
+      "codepoint": 12552,
       "name": "schema:vendor",
       "type": "property",
       "uri": "https://schema.org/vendor",
       "description": "'vendor' is an earlier term for 'seller'."
     },
     {
-      "codepoint": 12554,
+      "codepoint": 12553,
       "name": "schema:verificationFactCheckingPolicy",
       "type": "property",
       "uri": "https://schema.org/verificationFactCheckingPolicy",
       "description": "Disclosure about verification and fact-checking processes for a [[NewsMediaOrganization]] or other fact-checking [[Organization]]."
     },
     {
-      "codepoint": 12555,
+      "codepoint": 12554,
       "name": "schema:version",
       "type": "property",
       "uri": "https://schema.org/version",
       "description": "The version of the CreativeWork embodied by a specified resource."
     },
     {
-      "codepoint": 12556,
+      "codepoint": 12555,
       "name": "schema:video",
       "type": "property",
       "uri": "https://schema.org/video",
       "description": "An embedded video object."
     },
     {
-      "codepoint": 12557,
+      "codepoint": 12556,
       "name": "schema:videoFormat",
       "type": "property",
       "uri": "https://schema.org/videoFormat",
       "description": "The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.)."
     },
     {
-      "codepoint": 12558,
+      "codepoint": 12557,
       "name": "schema:videoFrameSize",
       "type": "property",
       "uri": "https://schema.org/videoFrameSize",
       "description": "The frame size of the video."
     },
     {
-      "codepoint": 12559,
+      "codepoint": 12558,
       "name": "schema:videoQuality",
       "type": "property",
       "uri": "https://schema.org/videoQuality",
       "description": "The quality of the video."
     },
     {
-      "codepoint": 12560,
+      "codepoint": 12559,
       "name": "schema:volumeNumber",
       "type": "property",
       "uri": "https://schema.org/volumeNumber",
       "description": "Identifies the volume of publication or multi-part work; for example, \"iii\" or \"2\"."
     },
     {
-      "codepoint": 12561,
+      "codepoint": 12560,
       "name": "schema:warning",
       "type": "property",
       "uri": "https://schema.org/warning",
       "description": "Any FDA or other warnings about the drug (text or URL)."
     },
     {
-      "codepoint": 12562,
+      "codepoint": 12561,
       "name": "schema:warranty",
       "type": "property",
       "uri": "https://schema.org/warranty",
       "description": "The warranty promise(s) included in the offer."
     },
     {
-      "codepoint": 12563,
+      "codepoint": 12562,
       "name": "schema:warrantyPromise",
       "type": "property",
       "uri": "https://schema.org/warrantyPromise",
       "description": "The warranty promise(s) included in the offer."
     },
     {
-      "codepoint": 12564,
+      "codepoint": 12563,
       "name": "schema:warrantyScope",
       "type": "property",
       "uri": "https://schema.org/warrantyScope",
       "description": "The scope of the warranty promise."
     },
     {
-      "codepoint": 12565,
+      "codepoint": 12564,
       "name": "schema:webCheckinTime",
       "type": "property",
       "uri": "https://schema.org/webCheckinTime",
       "description": "The time when a passenger can check into the flight online."
     },
     {
-      "codepoint": 12566,
+      "codepoint": 12565,
       "name": "schema:webFeed",
       "type": "property",
       "uri": "https://schema.org/webFeed",
       "description": "The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped updates. This is usually RSS or Atom."
     },
     {
-      "codepoint": 12567,
+      "codepoint": 12566,
       "name": "schema:weight",
       "type": "property",
       "uri": "https://schema.org/weight",
       "description": "The weight of the product or person."
     },
     {
-      "codepoint": 12568,
+      "codepoint": 12567,
       "name": "schema:weightPercentage",
       "type": "property",
       "uri": "https://schema.org/weightPercentage",
       "description": "Value in the range [0.0 ; 1.0] representing the fraction of the weight that is used to compute the shipping price."
     },
     {
-      "codepoint": 12569,
+      "codepoint": 12568,
       "name": "schema:weightTotal",
       "type": "property",
       "uri": "https://schema.org/weightTotal",
       "description": "The permitted total weight of the loaded vehicle, including passengers and cargo and the weight of the empty vehicle.\\n\\nTypical unit code(s): KGM for kilogram, LBR for pound\\n\\n* Note 1: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\\n* Note 2: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]].\\n* Note 3: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges."
     },
     {
-      "codepoint": 12570,
+      "codepoint": 12569,
       "name": "schema:wheelbase",
       "type": "property",
       "uri": "https://schema.org/wheelbase",
       "description": "The distance between the centers of the front and rear wheels.\\n\\nTypical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet."
     },
     {
-      "codepoint": 12571,
+      "codepoint": 12570,
       "name": "schema:width",
       "type": "property",
       "uri": "https://schema.org/width",
       "description": "The width of the item."
     },
     {
-      "codepoint": 12572,
+      "codepoint": 12571,
       "name": "schema:winner",
       "type": "property",
       "uri": "https://schema.org/winner",
       "description": "A sub property of participant. The winner of the action."
     },
     {
-      "codepoint": 12573,
+      "codepoint": 12572,
       "name": "schema:wordCount",
       "type": "property",
       "uri": "https://schema.org/wordCount",
       "description": "The number of words in the text of the CreativeWork such as an Article, Book, etc."
     },
     {
-      "codepoint": 12574,
+      "codepoint": 12573,
       "name": "schema:workExample",
       "type": "property",
       "uri": "https://schema.org/workExample",
       "description": "Example/instance/realization/derivation of the concept of this creative work. E.g. the paperback edition, first edition, or e-book."
     },
     {
-      "codepoint": 12575,
+      "codepoint": 12574,
       "name": "schema:workFeatured",
       "type": "property",
       "uri": "https://schema.org/workFeatured",
       "description": "A work featured in some event, e.g. exhibited in an ExhibitionEvent.\n       Specific subproperties are available for workPerformed (e.g. a play), or a workPresented (a Movie at a ScreeningEvent)."
     },
     {
-      "codepoint": 12576,
+      "codepoint": 12575,
       "name": "schema:workHours",
       "type": "property",
       "uri": "https://schema.org/workHours",
       "description": "The typical working hours for this job (e.g. 1st shift, night shift, 8am-5pm)."
     },
     {
-      "codepoint": 12577,
+      "codepoint": 12576,
       "name": "schema:workLocation",
       "type": "property",
       "uri": "https://schema.org/workLocation",
       "description": "A contact location for a person's place of work."
     },
     {
-      "codepoint": 12578,
+      "codepoint": 12577,
       "name": "schema:workPerformed",
       "type": "property",
       "uri": "https://schema.org/workPerformed",
       "description": "A work performed in some event, for example a play performed in a TheaterEvent."
     },
     {
-      "codepoint": 12579,
+      "codepoint": 12578,
       "name": "schema:workPresented",
       "type": "property",
       "uri": "https://schema.org/workPresented",
       "description": "The movie presented during this event."
     },
     {
-      "codepoint": 12580,
+      "codepoint": 12579,
       "name": "schema:workTranslation",
       "type": "property",
       "uri": "https://schema.org/workTranslation",
       "description": "A work that is a translation of the content of this work. E.g. 西遊記 has an English workTranslation “Journey to the West”, a German workTranslation “Monkeys Pilgerfahrt” and a Vietnamese  translation Tây du ký bình khảo."
     },
     {
-      "codepoint": 12581,
+      "codepoint": 12580,
       "name": "schema:workload",
       "type": "property",
       "uri": "https://schema.org/workload",
       "description": "Quantitative measure of the physiologic output of the exercise; also referred to as energy expenditure."
     },
     {
-      "codepoint": 12582,
+      "codepoint": 12581,
       "name": "schema:worksFor",
       "type": "property",
       "uri": "https://schema.org/worksFor",
       "description": "Organizations that the person works for."
     },
     {
-      "codepoint": 12583,
+      "codepoint": 12582,
       "name": "schema:worstRating",
       "type": "property",
       "uri": "https://schema.org/worstRating",
       "description": "The lowest value allowed in this rating system."
     },
     {
-      "codepoint": 12584,
+      "codepoint": 12583,
       "name": "schema:xpath",
       "type": "property",
       "uri": "https://schema.org/xpath",
       "description": "An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual \"Web page element\"."
     },
     {
-      "codepoint": 12585,
+      "codepoint": 12584,
       "name": "schema:yearBuilt",
       "type": "property",
       "uri": "https://schema.org/yearBuilt",
       "description": "The year an [[Accommodation]] was constructed. This corresponds to the [YearBuilt field in RESO](https://ddwiki.reso.org/display/DDW17/YearBuilt+Field). "
     },
     {
-      "codepoint": 12586,
+      "codepoint": 12585,
       "name": "schema:yearlyRevenue",
       "type": "property",
       "uri": "https://schema.org/yearlyRevenue",
       "description": "The size of the business in annual revenue."
     },
     {
-      "codepoint": 12587,
+      "codepoint": 12586,
       "name": "schema:yearsInOperation",
       "type": "property",
       "uri": "https://schema.org/yearsInOperation",
       "description": "The age of the business."
     },
     {
-      "codepoint": 12588,
+      "codepoint": 12587,
       "name": "schema:yield",
       "type": "property",
       "uri": "https://schema.org/yield",
       "description": "The quantity that results by performing instructions. For example, a paper airplane, 10 personalized candles."
     },
     {
-      "codepoint": 12589,
+      "codepoint": 12588,
       "name": "schema:Corporation",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/BE/Corporations/Corporations/Corporation",
       "description": ""
     },
     {
-      "codepoint": 12590,
+      "codepoint": 12589,
       "name": "schema:CooperativeSociety",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/CooperativeSociety",
       "description": ""
     },
     {
-      "codepoint": 12591,
+      "codepoint": 12590,
       "name": "schema:hasLegalEntityIdentifier",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/LegalPersons/hasLegalEntityIdentifier",
       "description": ""
     },
     {
-      "codepoint": 12592,
+      "codepoint": 12591,
       "name": "schema:NonGovernmentalOrganization",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/BE/NotForProfitOrganizations/NotForProfitOrganizations/NonGovernmentalOrganization",
       "description": ""
     },
     {
-      "codepoint": 12593,
+      "codepoint": 12592,
       "name": "schema:hasSubsidiary",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/BE/OwnershipAndControl/CorporateControl/hasSubsidiary",
       "description": ""
     },
     {
-      "codepoint": 12594,
+      "codepoint": 12593,
       "name": "schema:hasPaymentDueDate",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/hasPaymentDueDate",
       "description": ""
     },
     {
-      "codepoint": 12595,
+      "codepoint": 12594,
       "name": "schema:BankAccount",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/BankAccount",
       "description": ""
     },
     {
-      "codepoint": 12596,
+      "codepoint": 12595,
       "name": "schema:PaymentMechanism",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/PaymentMechanism",
       "description": ""
     },
     {
-      "codepoint": 12597,
+      "codepoint": 12596,
       "name": "schema:hasPaymentMechanism",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/hasPaymentMechanism",
       "description": ""
     },
     {
-      "codepoint": 12598,
+      "codepoint": 12597,
       "name": "schema:hasAmount",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasAmount",
       "description": ""
     },
     {
-      "codepoint": 12599,
+      "codepoint": 12598,
       "name": "schema:hasCurrency",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasCurrency",
       "description": ""
     },
     {
-      "codepoint": 12600,
+      "codepoint": 12599,
       "name": "schema:hasMonetaryAmount",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasMonetaryAmount",
       "description": ""
     },
     {
-      "codepoint": 12601,
+      "codepoint": 12600,
       "name": "schema:MutualContractualAgreement",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/MutualContractualAgreement",
       "description": ""
     },
     {
-      "codepoint": 12602,
+      "codepoint": 12601,
       "name": "schema:Certificate",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/Certificate",
       "description": ""
     },
     {
-      "codepoint": 12603,
+      "codepoint": 12602,
       "name": "schema:Document",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/Document",
       "description": ""
     },
     {
-      "codepoint": 12604,
+      "codepoint": 12603,
       "name": "schema:LegalDocument",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/LegalDocument",
       "description": ""
     },
     {
-      "codepoint": 12605,
+      "codepoint": 12604,
       "name": "schema:isReferencedIn",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/isReferencedIn",
       "description": ""
     },
     {
-      "codepoint": 12606,
+      "codepoint": 12605,
       "name": "schema:refersTo",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/refersTo",
       "description": ""
     },
     {
-      "codepoint": 12607,
+      "codepoint": 12606,
       "name": "schema:hasRegistrationIdentifier",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Registration/hasRegistrationIdentifier",
       "description": ""
     },
     {
-      "codepoint": 12608,
+      "codepoint": 12607,
       "name": "schema:Occurrence",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/Occurrences/Occurrence",
       "description": ""
     },
     {
-      "codepoint": 12609,
+      "codepoint": 12608,
       "name": "schema:ContactPoint",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/ContactPoint",
       "description": ""
     },
     {
-      "codepoint": 12610,
+      "codepoint": 12609,
       "name": "schema:Organization",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/Organization",
       "description": ""
     },
     {
-      "codepoint": 12611,
+      "codepoint": 12610,
       "name": "schema:hasContactPoint",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/hasContactPoint",
       "description": ""
     },
     {
-      "codepoint": 12612,
+      "codepoint": 12611,
       "name": "schema:hasMember",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/hasMember",
       "description": ""
     },
     {
-      "codepoint": 12613,
+      "codepoint": 12612,
       "name": "schema:hasTaxIdentifier",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/hasTaxIdentifier",
       "description": ""
     },
     {
-      "codepoint": 12614,
+      "codepoint": 12613,
       "name": "schema:PostalAddress",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/PostalAddress",
       "description": ""
     },
     {
-      "codepoint": 12615,
+      "codepoint": 12614,
       "name": "schema:hasCountrySubdivision",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/hasCountrySubdivision",
       "description": ""
     },
     {
-      "codepoint": 12616,
+      "codepoint": 12615,
       "name": "schema:hasMunicipality",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/hasMunicipality",
       "description": ""
     },
     {
-      "codepoint": 12617,
+      "codepoint": 12616,
       "name": "schema:hasPostalCode",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/hasPostalCode",
       "description": ""
     },
     {
-      "codepoint": 12618,
+      "codepoint": 12617,
       "name": "schema:hasRegisteredAddress",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/hasRegisteredAddress",
       "description": ""
     },
     {
-      "codepoint": 12619,
+      "codepoint": 12618,
       "name": "schema:Municipality",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Places/Locations/Municipality",
       "description": ""
     },
     {
-      "codepoint": 12620,
+      "codepoint": 12619,
       "name": "schema:Offer",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Offer",
       "description": ""
     },
     {
-      "codepoint": 12621,
+      "codepoint": 12620,
       "name": "schema:Price",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Price",
       "description": ""
     },
     {
-      "codepoint": 12622,
+      "codepoint": 12621,
       "name": "schema:Product",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product",
       "description": ""
     },
     {
-      "codepoint": 12623,
+      "codepoint": 12622,
       "name": "schema:hasProduct",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/hasProduct",
       "description": ""
     },
     {
-      "codepoint": 12624,
+      "codepoint": 12623,
       "name": "schema:hasServiceArea",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/hasServiceArea",
       "description": ""
     },
     {
-      "codepoint": 12625,
+      "codepoint": 12624,
       "name": "schema:hasSupplier",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/hasSupplier",
       "description": ""
     },
     {
-      "codepoint": 12626,
+      "codepoint": 12625,
       "name": "schema:isOfferedBy",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/isOfferedBy",
       "description": ""
     },
     {
-      "codepoint": 12627,
+      "codepoint": 12626,
       "name": "schema:isProductOf",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/isProductOf",
       "description": ""
     },
     {
-      "codepoint": 12628,
+      "codepoint": 12627,
       "name": "schema:isProvisionedBy",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/isProvisionedBy",
       "description": ""
     },
     {
-      "codepoint": 12629,
+      "codepoint": 12628,
       "name": "schema:offers",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/offers",
       "description": ""
     },
     {
-      "codepoint": 12630,
+      "codepoint": 12629,
       "name": "schema:hasDesignation",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasDesignation",
       "description": ""
     },
     {
-      "codepoint": 12631,
+      "codepoint": 12630,
       "name": "schema:hasLegalName",
       "type": "property",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasLegalName",
       "description": ""
     },
     {
-      "codepoint": 12632,
+      "codepoint": 12631,
       "name": "schema:PaymentService",
       "type": "class",
       "uri": "https://spec.edmcouncil.org/fibo/ontology/PAY/PaymentServices/PaymentServices/PaymentService",
       "description": ""
     },
     {
-      "codepoint": 12633,
+      "codepoint": 12632,
       "name": "schema:hasLEI",
       "type": "property",
       "uri": "https://www.gleif.org/ontology/L1/hasLEI",
       "description": ""
     },
     {
-      "codepoint": 12634,
+      "codepoint": 12633,
       "name": "schema:Classifier",
       "type": "class",
       "uri": "https://www.omg.org/spec/Commons/Classifiers/Classifier",
       "description": ""
     },
     {
-      "codepoint": 12635,
+      "codepoint": 12634,
       "name": "schema:exemplifies",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/Classifiers/exemplifies",
       "description": ""
     },
     {
-      "codepoint": 12636,
+      "codepoint": 12635,
       "name": "schema:isClassifiedBy",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/Classifiers/isClassifiedBy",
       "description": ""
     },
     {
-      "codepoint": 12637,
+      "codepoint": 12636,
       "name": "schema:Collection",
       "type": "class",
       "uri": "https://www.omg.org/spec/Commons/Collections/Collection",
       "description": ""
     },
     {
-      "codepoint": 12638,
+      "codepoint": 12637,
       "name": "schema:isPartOf",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/Collections/isPartOf",
       "description": ""
     },
     {
-      "codepoint": 12639,
+      "codepoint": 12638,
       "name": "schema:Date",
       "type": "class",
       "uri": "https://www.omg.org/spec/Commons/DatesAndTimes/Date",
       "description": ""
     },
     {
-      "codepoint": 12640,
+      "codepoint": 12639,
       "name": "schema:DateTime",
       "type": "class",
       "uri": "https://www.omg.org/spec/Commons/DatesAndTimes/DateTime",
       "description": ""
     },
     {
-      "codepoint": 12641,
+      "codepoint": 12640,
       "name": "schema:Duration",
       "type": "class",
       "uri": "https://www.omg.org/spec/Commons/DatesAndTimes/Duration",
       "description": ""
     },
     {
-      "codepoint": 12642,
+      "codepoint": 12641,
       "name": "schema:hasDate",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/DatesAndTimes/hasDate",
       "description": ""
     },
     {
-      "codepoint": 12643,
+      "codepoint": 12642,
       "name": "schema:hasEndDate",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/DatesAndTimes/hasEndDate",
       "description": ""
     },
     {
-      "codepoint": 12644,
+      "codepoint": 12643,
       "name": "schema:hasStartDate",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/DatesAndTimes/hasStartDate",
       "description": ""
     },
     {
-      "codepoint": 12645,
+      "codepoint": 12644,
       "name": "schema:GeopoliticalEntity",
       "type": "class",
       "uri": "https://www.omg.org/spec/Commons/GeopoliticalEntities/GeopoliticalEntity",
       "description": ""
     },
     {
-      "codepoint": 12646,
+      "codepoint": 12645,
       "name": "schema:Subdivision",
       "type": "class",
       "uri": "https://www.omg.org/spec/Commons/GeopoliticalEntities/Subdivision",
       "description": ""
     },
     {
-      "codepoint": 12647,
+      "codepoint": 12646,
       "name": "schema:identifiedBy",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/Identifiers/identifiedBy",
       "description": ""
     },
     {
-      "codepoint": 12648,
+      "codepoint": 12647,
       "name": "schema:Address",
       "type": "class",
       "uri": "https://www.omg.org/spec/Commons/Locations/Address",
       "description": ""
     },
     {
-      "codepoint": 12649,
+      "codepoint": 12648,
       "name": "schema:GeographicCoordinate",
       "type": "class",
       "uri": "https://www.omg.org/spec/Commons/Locations/GeographicCoordinate",
       "description": ""
     },
     {
-      "codepoint": 12650,
+      "codepoint": 12649,
       "name": "schema:Location",
       "type": "class",
       "uri": "https://www.omg.org/spec/Commons/Locations/Location",
       "description": ""
     },
     {
-      "codepoint": 12651,
+      "codepoint": 12650,
       "name": "schema:hasAddress",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/Locations/hasAddress",
       "description": ""
     },
     {
-      "codepoint": 12652,
+      "codepoint": 12651,
       "name": "schema:hasLatitude",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/Locations/hasLatitude",
       "description": ""
     },
     {
-      "codepoint": 12653,
+      "codepoint": 12652,
       "name": "schema:hasLocation",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/Locations/hasLocation",
       "description": ""
     },
     {
-      "codepoint": 12654,
+      "codepoint": 12653,
       "name": "schema:hasLongitude",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/Locations/hasLongitude",
       "description": ""
     },
     {
-      "codepoint": 12655,
+      "codepoint": 12654,
       "name": "schema:isLocatedIn",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/Locations/isLocatedIn",
       "description": ""
     },
     {
-      "codepoint": 12656,
+      "codepoint": 12655,
       "name": "schema:hasLowerBound",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/Quantities/hasLowerBound",
       "description": ""
     },
     {
-      "codepoint": 12657,
+      "codepoint": 12656,
       "name": "schema:hasNumericValue",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/Quantities/hasNumericValue",
       "description": ""
     },
     {
-      "codepoint": 12658,
+      "codepoint": 12657,
       "name": "schema:hasQuantity",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/Quantities/hasQuantity",
       "description": ""
     },
     {
-      "codepoint": 12659,
+      "codepoint": 12658,
       "name": "schema:hasUpperBound",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/Quantities/hasUpperBound",
       "description": ""
     },
     {
-      "codepoint": 12660,
+      "codepoint": 12659,
       "name": "schema:hasName",
       "type": "property",
       "uri": "https://www.omg.org/spec/Commons/Text/hasName",
       "description": ""
     },
     {
-      "codepoint": 12661,
+      "codepoint": 12660,
       "name": "schema:Continent",
       "type": "class",
       "uri": "https://www.omg.org/spec/LCC/Countries/CountryRepresentation/Continent",
       "description": ""
     },
     {
-      "codepoint": 12662,
+      "codepoint": 12661,
       "name": "schema:Country",
       "type": "class",
       "uri": "https://www.omg.org/spec/LCC/Countries/CountryRepresentation/Country",

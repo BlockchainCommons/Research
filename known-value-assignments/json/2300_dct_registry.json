@@ -627,8 +627,8 @@
       "description": "The nature or genre of the resource."
     },
     {
-      "codepoint": 21,
-      "name": "validFrom",
+      "codepoint": 2384,
+      "name": "dct:dateValid",
       "type": "property",
       "uri": "http://purl.org/dc/terms/valid",
       "description": "Date (often a range) of validity of a resource."

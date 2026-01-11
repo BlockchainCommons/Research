@@ -2552,138 +2552,138 @@
 | 12526 | `schema:utterances` | property | https://schema.org/utterances | Text of an utterances (spoken words, lyrics etc.) that occurs at a certain section of a media object, represented as a [[HyperTocEntry]]. |
 | 12527 | `schema:validFor` | property | https://schema.org/validFor | The duration of validity of a permit or similar thing. |
 | 12528 | `schema:validForMemberTier` | property | https://schema.org/validForMemberTier | The membership program tier an Offer (or a PriceSpecification, OfferShippingDetails, or MerchantReturnPolicy under an Offer) is valid for. |
-| 12529 | `schema:validFrom` | property | https://schema.org/validFrom | The date when the item becomes valid. |
-| 12530 | `schema:validIn` | property | https://schema.org/validIn | The geographic area where the item is valid. Applies for example to a [[Permit]], a [[Certification]], or an [[EducationalOccupationalCredential]].  |
-| 12531 | `schema:validThrough` | property | https://schema.org/validThrough | The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours. |
+| 21 | `validFrom` | property | https://schema.org/validFrom | The date when the item becomes valid. |
+| 12529 | `schema:validIn` | property | https://schema.org/validIn | The geographic area where the item is valid. Applies for example to a [[Permit]], a [[Certification]], or an [[EducationalOccupationalCredential]].  |
+| 12530 | `schema:validThrough` | property | https://schema.org/validThrough | The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours. |
 | 22 | `validUntil` | property | https://schema.org/validUntil | The date when the item is no longer valid. |
-| 12532 | `schema:value` | property | https://schema.org/value | The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', or 'StructuredValue'.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator. |
-| 12533 | `schema:valueAddedTaxIncluded` | property | https://schema.org/valueAddedTaxIncluded | Specifies whether the applicable value-added tax (VAT) is included in the price specification or not. |
-| 12534 | `schema:valueMaxLength` | property | https://schema.org/valueMaxLength | Specifies the allowed range for number of characters in a literal value. |
-| 12535 | `schema:valueMinLength` | property | https://schema.org/valueMinLength | Specifies the minimum allowed range for number of characters in a literal value. |
-| 12536 | `schema:valueName` | property | https://schema.org/valueName | Indicates the name of the PropertyValueSpecification to be used in URL templates and form encoding in a manner analogous to HTML's input@name. |
-| 12537 | `schema:valuePattern` | property | https://schema.org/valuePattern | Specifies a regular expression for testing literal values according to the HTML spec. |
-| 12538 | `schema:valueReference` | property | https://schema.org/valueReference | A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement. |
-| 12539 | `schema:valueRequired` | property | https://schema.org/valueRequired | Whether the property must be filled in to complete the action.  Default is false. |
-| 12540 | `schema:variableMeasured` | property | https://schema.org/variableMeasured | The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue, or more explicitly as a [[StatisticalVariable]]. |
-| 12541 | `schema:variantCover` | property | https://schema.org/variantCover | A description of the variant cover     	for the issue, if the issue is a variant printing. For example, "Bryan Hitch     	Variant Cover" or "2nd Printing Variant". |
-| 12542 | `schema:variesBy` | property | https://schema.org/variesBy | Indicates the property or properties by which the variants in a [[ProductGroup]] vary, e.g. their size, color etc. Schema.org properties can be referenced by their short name e.g. "color"; terms defined elsewhere can be referenced with their URIs. |
-| 12543 | `schema:vatID` | property | https://schema.org/vatID | The Value-added Tax ID of the organization or person. |
-| 12544 | `schema:vehicleConfiguration` | property | https://schema.org/vehicleConfiguration | A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'. |
-| 12545 | `schema:vehicleEngine` | property | https://schema.org/vehicleEngine | Information about the engine or engines of the vehicle. |
-| 12546 | `schema:vehicleIdentificationNumber` | property | https://schema.org/vehicleIdentificationNumber | The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles. |
-| 12547 | `schema:vehicleInteriorColor` | property | https://schema.org/vehicleInteriorColor | The color or color combination of the interior of the vehicle. |
-| 12548 | `schema:vehicleInteriorType` | property | https://schema.org/vehicleInteriorType | The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.). While most interior types are characterized by the material used, an interior type can also be based on vehicle usage or target audience. |
-| 12549 | `schema:vehicleModelDate` | property | https://schema.org/vehicleModelDate | The release date of a vehicle model (often used to differentiate versions of the same make and model). |
-| 12550 | `schema:vehicleSeatingCapacity` | property | https://schema.org/vehicleSeatingCapacity | The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.\n\nTypical unit code(s): C62 for persons. |
-| 12551 | `schema:vehicleSpecialUsage` | property | https://schema.org/vehicleSpecialUsage | Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school, or as a taxi. The legislation in many countries requires this information to be revealed when offering a car for sale. |
-| 12552 | `schema:vehicleTransmission` | property | https://schema.org/vehicleTransmission | The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) ("gearbox" for cars). |
-| 12553 | `schema:vendor` | property | https://schema.org/vendor | 'vendor' is an earlier term for 'seller'. |
-| 12554 | `schema:verificationFactCheckingPolicy` | property | https://schema.org/verificationFactCheckingPolicy | Disclosure about verification and fact-checking processes for a [[NewsMediaOrganization]] or other fact-checking [[Organization]]. |
-| 12555 | `schema:version` | property | https://schema.org/version | The version of the CreativeWork embodied by a specified resource. |
-| 12556 | `schema:video` | property | https://schema.org/video | An embedded video object. |
-| 12557 | `schema:videoFormat` | property | https://schema.org/videoFormat | The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.). |
-| 12558 | `schema:videoFrameSize` | property | https://schema.org/videoFrameSize | The frame size of the video. |
-| 12559 | `schema:videoQuality` | property | https://schema.org/videoQuality | The quality of the video. |
-| 12560 | `schema:volumeNumber` | property | https://schema.org/volumeNumber | Identifies the volume of publication or multi-part work; for example, "iii" or "2". |
-| 12561 | `schema:warning` | property | https://schema.org/warning | Any FDA or other warnings about the drug (text or URL). |
-| 12562 | `schema:warranty` | property | https://schema.org/warranty | The warranty promise(s) included in the offer. |
-| 12563 | `schema:warrantyPromise` | property | https://schema.org/warrantyPromise | The warranty promise(s) included in the offer. |
-| 12564 | `schema:warrantyScope` | property | https://schema.org/warrantyScope | The scope of the warranty promise. |
-| 12565 | `schema:webCheckinTime` | property | https://schema.org/webCheckinTime | The time when a passenger can check into the flight online. |
-| 12566 | `schema:webFeed` | property | https://schema.org/webFeed | The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped updates. This is usually RSS or Atom. |
-| 12567 | `schema:weight` | property | https://schema.org/weight | The weight of the product or person. |
-| 12568 | `schema:weightPercentage` | property | https://schema.org/weightPercentage | Value in the range [0.0 ; 1.0] representing the fraction of the weight that is used to compute the shipping price. |
-| 12569 | `schema:weightTotal` | property | https://schema.org/weightTotal | The permitted total weight of the loaded vehicle, including passengers and cargo and the weight of the empty vehicle.\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n\n* Note 1: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\n* Note 2: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]].\n* Note 3: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges. |
-| 12570 | `schema:wheelbase` | property | https://schema.org/wheelbase | The distance between the centers of the front and rear wheels.\n\nTypical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet. |
-| 12571 | `schema:width` | property | https://schema.org/width | The width of the item. |
-| 12572 | `schema:winner` | property | https://schema.org/winner | A sub property of participant. The winner of the action. |
-| 12573 | `schema:wordCount` | property | https://schema.org/wordCount | The number of words in the text of the CreativeWork such as an Article, Book, etc. |
-| 12574 | `schema:workExample` | property | https://schema.org/workExample | Example/instance/realization/derivation of the concept of this creative work. E.g. the paperback edition, first edition, or e-book. |
-| 12575 | `schema:workFeatured` | property | https://schema.org/workFeatured | A work featured in some event, e.g. exhibited in an ExhibitionEvent.        Specific subproperties are available for workPerformed (e.g. a play), or a workPresented (a Movie at a ScreeningEvent). |
-| 12576 | `schema:workHours` | property | https://schema.org/workHours | The typical working hours for this job (e.g. 1st shift, night shift, 8am-5pm). |
-| 12577 | `schema:workLocation` | property | https://schema.org/workLocation | A contact location for a person's place of work. |
-| 12578 | `schema:workPerformed` | property | https://schema.org/workPerformed | A work performed in some event, for example a play performed in a TheaterEvent. |
-| 12579 | `schema:workPresented` | property | https://schema.org/workPresented | The movie presented during this event. |
-| 12580 | `schema:workTranslation` | property | https://schema.org/workTranslation | A work that is a translation of the content of this work. E.g. 西遊記 has an English workTranslation “Journey to the West”, a German workTranslation “Monkeys Pilgerfahrt” and a Vietnamese  translation Tây du ký bình khảo. |
-| 12581 | `schema:workload` | property | https://schema.org/workload | Quantitative measure of the physiologic output of the exercise; also referred to as energy expenditure. |
-| 12582 | `schema:worksFor` | property | https://schema.org/worksFor | Organizations that the person works for. |
-| 12583 | `schema:worstRating` | property | https://schema.org/worstRating | The lowest value allowed in this rating system. |
-| 12584 | `schema:xpath` | property | https://schema.org/xpath | An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual "Web page element". |
-| 12585 | `schema:yearBuilt` | property | https://schema.org/yearBuilt | The year an [[Accommodation]] was constructed. This corresponds to the [YearBuilt field in RESO](https://ddwiki.reso.org/display/DDW17/YearBuilt+Field).  |
-| 12586 | `schema:yearlyRevenue` | property | https://schema.org/yearlyRevenue | The size of the business in annual revenue. |
-| 12587 | `schema:yearsInOperation` | property | https://schema.org/yearsInOperation | The age of the business. |
-| 12588 | `schema:yield` | property | https://schema.org/yield | The quantity that results by performing instructions. For example, a paper airplane, 10 personalized candles. |
-| 12589 | `schema:Corporation` | class | https://spec.edmcouncil.org/fibo/ontology/BE/Corporations/Corporations/Corporation |  |
-| 12590 | `schema:CooperativeSociety` | class | https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/CooperativeSociety |  |
-| 12591 | `schema:hasLegalEntityIdentifier` | property | https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/LegalPersons/hasLegalEntityIdentifier |  |
-| 12592 | `schema:NonGovernmentalOrganization` | class | https://spec.edmcouncil.org/fibo/ontology/BE/NotForProfitOrganizations/NotForProfitOrganizations/NonGovernmentalOrganization |  |
-| 12593 | `schema:hasSubsidiary` | property | https://spec.edmcouncil.org/fibo/ontology/BE/OwnershipAndControl/CorporateControl/hasSubsidiary |  |
-| 12594 | `schema:hasPaymentDueDate` | property | https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/hasPaymentDueDate |  |
-| 12595 | `schema:BankAccount` | class | https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/BankAccount |  |
-| 12596 | `schema:PaymentMechanism` | class | https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/PaymentMechanism |  |
-| 12597 | `schema:hasPaymentMechanism` | property | https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/hasPaymentMechanism |  |
-| 12598 | `schema:hasAmount` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasAmount |  |
-| 12599 | `schema:hasCurrency` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasCurrency |  |
-| 12600 | `schema:hasMonetaryAmount` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasMonetaryAmount |  |
-| 12601 | `schema:MutualContractualAgreement` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/MutualContractualAgreement |  |
-| 12602 | `schema:Certificate` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/Certificate |  |
-| 12603 | `schema:Document` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/Document |  |
-| 12604 | `schema:LegalDocument` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/LegalDocument |  |
-| 12605 | `schema:isReferencedIn` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/isReferencedIn |  |
-| 12606 | `schema:refersTo` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/refersTo |  |
-| 12607 | `schema:hasRegistrationIdentifier` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Registration/hasRegistrationIdentifier |  |
-| 12608 | `schema:Occurrence` | class | https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/Occurrences/Occurrence |  |
-| 12609 | `schema:ContactPoint` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/ContactPoint |  |
-| 12610 | `schema:Organization` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/Organization |  |
-| 12611 | `schema:hasContactPoint` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/hasContactPoint |  |
-| 12612 | `schema:hasMember` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/hasMember |  |
-| 12613 | `schema:hasTaxIdentifier` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/hasTaxIdentifier |  |
-| 12614 | `schema:PostalAddress` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/PostalAddress |  |
-| 12615 | `schema:hasCountrySubdivision` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/hasCountrySubdivision |  |
-| 12616 | `schema:hasMunicipality` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/hasMunicipality |  |
-| 12617 | `schema:hasPostalCode` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/hasPostalCode |  |
-| 12618 | `schema:hasRegisteredAddress` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/hasRegisteredAddress |  |
-| 12619 | `schema:Municipality` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Places/Locations/Municipality |  |
-| 12620 | `schema:Offer` | class | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Offer |  |
-| 12621 | `schema:Price` | class | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Price |  |
-| 12622 | `schema:Product` | class | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product |  |
-| 12623 | `schema:hasProduct` | property | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/hasProduct |  |
-| 12624 | `schema:hasServiceArea` | property | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/hasServiceArea |  |
-| 12625 | `schema:hasSupplier` | property | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/hasSupplier |  |
-| 12626 | `schema:isOfferedBy` | property | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/isOfferedBy |  |
-| 12627 | `schema:isProductOf` | property | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/isProductOf |  |
-| 12628 | `schema:isProvisionedBy` | property | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/isProvisionedBy |  |
-| 12629 | `schema:offers` | property | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/offers |  |
-| 12630 | `schema:hasDesignation` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasDesignation |  |
-| 12631 | `schema:hasLegalName` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasLegalName |  |
-| 12632 | `schema:PaymentService` | class | https://spec.edmcouncil.org/fibo/ontology/PAY/PaymentServices/PaymentServices/PaymentService |  |
-| 12633 | `schema:hasLEI` | property | https://www.gleif.org/ontology/L1/hasLEI |  |
-| 12634 | `schema:Classifier` | class | https://www.omg.org/spec/Commons/Classifiers/Classifier |  |
-| 12635 | `schema:exemplifies` | property | https://www.omg.org/spec/Commons/Classifiers/exemplifies |  |
-| 12636 | `schema:isClassifiedBy` | property | https://www.omg.org/spec/Commons/Classifiers/isClassifiedBy |  |
-| 12637 | `schema:Collection` | class | https://www.omg.org/spec/Commons/Collections/Collection |  |
-| 12638 | `schema:isPartOf` | property | https://www.omg.org/spec/Commons/Collections/isPartOf |  |
-| 12639 | `schema:Date` | class | https://www.omg.org/spec/Commons/DatesAndTimes/Date |  |
-| 12640 | `schema:DateTime` | class | https://www.omg.org/spec/Commons/DatesAndTimes/DateTime |  |
-| 12641 | `schema:Duration` | class | https://www.omg.org/spec/Commons/DatesAndTimes/Duration |  |
-| 12642 | `schema:hasDate` | property | https://www.omg.org/spec/Commons/DatesAndTimes/hasDate |  |
-| 12643 | `schema:hasEndDate` | property | https://www.omg.org/spec/Commons/DatesAndTimes/hasEndDate |  |
-| 12644 | `schema:hasStartDate` | property | https://www.omg.org/spec/Commons/DatesAndTimes/hasStartDate |  |
-| 12645 | `schema:GeopoliticalEntity` | class | https://www.omg.org/spec/Commons/GeopoliticalEntities/GeopoliticalEntity |  |
-| 12646 | `schema:Subdivision` | class | https://www.omg.org/spec/Commons/GeopoliticalEntities/Subdivision |  |
-| 12647 | `schema:identifiedBy` | property | https://www.omg.org/spec/Commons/Identifiers/identifiedBy |  |
-| 12648 | `schema:Address` | class | https://www.omg.org/spec/Commons/Locations/Address |  |
-| 12649 | `schema:GeographicCoordinate` | class | https://www.omg.org/spec/Commons/Locations/GeographicCoordinate |  |
-| 12650 | `schema:Location` | class | https://www.omg.org/spec/Commons/Locations/Location |  |
-| 12651 | `schema:hasAddress` | property | https://www.omg.org/spec/Commons/Locations/hasAddress |  |
-| 12652 | `schema:hasLatitude` | property | https://www.omg.org/spec/Commons/Locations/hasLatitude |  |
-| 12653 | `schema:hasLocation` | property | https://www.omg.org/spec/Commons/Locations/hasLocation |  |
-| 12654 | `schema:hasLongitude` | property | https://www.omg.org/spec/Commons/Locations/hasLongitude |  |
-| 12655 | `schema:isLocatedIn` | property | https://www.omg.org/spec/Commons/Locations/isLocatedIn |  |
-| 12656 | `schema:hasLowerBound` | property | https://www.omg.org/spec/Commons/Quantities/hasLowerBound |  |
-| 12657 | `schema:hasNumericValue` | property | https://www.omg.org/spec/Commons/Quantities/hasNumericValue |  |
-| 12658 | `schema:hasQuantity` | property | https://www.omg.org/spec/Commons/Quantities/hasQuantity |  |
-| 12659 | `schema:hasUpperBound` | property | https://www.omg.org/spec/Commons/Quantities/hasUpperBound |  |
-| 12660 | `schema:hasName` | property | https://www.omg.org/spec/Commons/Text/hasName |  |
-| 12661 | `schema:Continent` | class | https://www.omg.org/spec/LCC/Countries/CountryRepresentation/Continent |  |
-| 12662 | `schema:Country` | class | https://www.omg.org/spec/LCC/Countries/CountryRepresentation/Country |  |
+| 12531 | `schema:value` | property | https://schema.org/value | The value of a [[QuantitativeValue]] (including [[Observation]]) or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\n* For [[PropertyValue]], it can be 'Text', 'Number', 'Boolean', or 'StructuredValue'.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator. |
+| 12532 | `schema:valueAddedTaxIncluded` | property | https://schema.org/valueAddedTaxIncluded | Specifies whether the applicable value-added tax (VAT) is included in the price specification or not. |
+| 12533 | `schema:valueMaxLength` | property | https://schema.org/valueMaxLength | Specifies the allowed range for number of characters in a literal value. |
+| 12534 | `schema:valueMinLength` | property | https://schema.org/valueMinLength | Specifies the minimum allowed range for number of characters in a literal value. |
+| 12535 | `schema:valueName` | property | https://schema.org/valueName | Indicates the name of the PropertyValueSpecification to be used in URL templates and form encoding in a manner analogous to HTML's input@name. |
+| 12536 | `schema:valuePattern` | property | https://schema.org/valuePattern | Specifies a regular expression for testing literal values according to the HTML spec. |
+| 12537 | `schema:valueReference` | property | https://schema.org/valueReference | A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement. |
+| 12538 | `schema:valueRequired` | property | https://schema.org/valueRequired | Whether the property must be filled in to complete the action.  Default is false. |
+| 12539 | `schema:variableMeasured` | property | https://schema.org/variableMeasured | The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue, or more explicitly as a [[StatisticalVariable]]. |
+| 12540 | `schema:variantCover` | property | https://schema.org/variantCover | A description of the variant cover     	for the issue, if the issue is a variant printing. For example, "Bryan Hitch     	Variant Cover" or "2nd Printing Variant". |
+| 12541 | `schema:variesBy` | property | https://schema.org/variesBy | Indicates the property or properties by which the variants in a [[ProductGroup]] vary, e.g. their size, color etc. Schema.org properties can be referenced by their short name e.g. "color"; terms defined elsewhere can be referenced with their URIs. |
+| 12542 | `schema:vatID` | property | https://schema.org/vatID | The Value-added Tax ID of the organization or person. |
+| 12543 | `schema:vehicleConfiguration` | property | https://schema.org/vehicleConfiguration | A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'. |
+| 12544 | `schema:vehicleEngine` | property | https://schema.org/vehicleEngine | Information about the engine or engines of the vehicle. |
+| 12545 | `schema:vehicleIdentificationNumber` | property | https://schema.org/vehicleIdentificationNumber | The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles. |
+| 12546 | `schema:vehicleInteriorColor` | property | https://schema.org/vehicleInteriorColor | The color or color combination of the interior of the vehicle. |
+| 12547 | `schema:vehicleInteriorType` | property | https://schema.org/vehicleInteriorType | The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.). While most interior types are characterized by the material used, an interior type can also be based on vehicle usage or target audience. |
+| 12548 | `schema:vehicleModelDate` | property | https://schema.org/vehicleModelDate | The release date of a vehicle model (often used to differentiate versions of the same make and model). |
+| 12549 | `schema:vehicleSeatingCapacity` | property | https://schema.org/vehicleSeatingCapacity | The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.\n\nTypical unit code(s): C62 for persons. |
+| 12550 | `schema:vehicleSpecialUsage` | property | https://schema.org/vehicleSpecialUsage | Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school, or as a taxi. The legislation in many countries requires this information to be revealed when offering a car for sale. |
+| 12551 | `schema:vehicleTransmission` | property | https://schema.org/vehicleTransmission | The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) ("gearbox" for cars). |
+| 12552 | `schema:vendor` | property | https://schema.org/vendor | 'vendor' is an earlier term for 'seller'. |
+| 12553 | `schema:verificationFactCheckingPolicy` | property | https://schema.org/verificationFactCheckingPolicy | Disclosure about verification and fact-checking processes for a [[NewsMediaOrganization]] or other fact-checking [[Organization]]. |
+| 12554 | `schema:version` | property | https://schema.org/version | The version of the CreativeWork embodied by a specified resource. |
+| 12555 | `schema:video` | property | https://schema.org/video | An embedded video object. |
+| 12556 | `schema:videoFormat` | property | https://schema.org/videoFormat | The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.). |
+| 12557 | `schema:videoFrameSize` | property | https://schema.org/videoFrameSize | The frame size of the video. |
+| 12558 | `schema:videoQuality` | property | https://schema.org/videoQuality | The quality of the video. |
+| 12559 | `schema:volumeNumber` | property | https://schema.org/volumeNumber | Identifies the volume of publication or multi-part work; for example, "iii" or "2". |
+| 12560 | `schema:warning` | property | https://schema.org/warning | Any FDA or other warnings about the drug (text or URL). |
+| 12561 | `schema:warranty` | property | https://schema.org/warranty | The warranty promise(s) included in the offer. |
+| 12562 | `schema:warrantyPromise` | property | https://schema.org/warrantyPromise | The warranty promise(s) included in the offer. |
+| 12563 | `schema:warrantyScope` | property | https://schema.org/warrantyScope | The scope of the warranty promise. |
+| 12564 | `schema:webCheckinTime` | property | https://schema.org/webCheckinTime | The time when a passenger can check into the flight online. |
+| 12565 | `schema:webFeed` | property | https://schema.org/webFeed | The URL for a feed, e.g. associated with a podcast series, blog, or series of date-stamped updates. This is usually RSS or Atom. |
+| 12566 | `schema:weight` | property | https://schema.org/weight | The weight of the product or person. |
+| 12567 | `schema:weightPercentage` | property | https://schema.org/weightPercentage | Value in the range [0.0 ; 1.0] representing the fraction of the weight that is used to compute the shipping price. |
+| 12568 | `schema:weightTotal` | property | https://schema.org/weightTotal | The permitted total weight of the loaded vehicle, including passengers and cargo and the weight of the empty vehicle.\n\nTypical unit code(s): KGM for kilogram, LBR for pound\n\n* Note 1: You can indicate additional information in the [[name]] of the [[QuantitativeValue]] node.\n* Note 2: You may also link to a [[QualitativeValue]] node that provides additional information using [[valueReference]].\n* Note 3: Note that you can use [[minValue]] and [[maxValue]] to indicate ranges. |
+| 12569 | `schema:wheelbase` | property | https://schema.org/wheelbase | The distance between the centers of the front and rear wheels.\n\nTypical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet. |
+| 12570 | `schema:width` | property | https://schema.org/width | The width of the item. |
+| 12571 | `schema:winner` | property | https://schema.org/winner | A sub property of participant. The winner of the action. |
+| 12572 | `schema:wordCount` | property | https://schema.org/wordCount | The number of words in the text of the CreativeWork such as an Article, Book, etc. |
+| 12573 | `schema:workExample` | property | https://schema.org/workExample | Example/instance/realization/derivation of the concept of this creative work. E.g. the paperback edition, first edition, or e-book. |
+| 12574 | `schema:workFeatured` | property | https://schema.org/workFeatured | A work featured in some event, e.g. exhibited in an ExhibitionEvent.        Specific subproperties are available for workPerformed (e.g. a play), or a workPresented (a Movie at a ScreeningEvent). |
+| 12575 | `schema:workHours` | property | https://schema.org/workHours | The typical working hours for this job (e.g. 1st shift, night shift, 8am-5pm). |
+| 12576 | `schema:workLocation` | property | https://schema.org/workLocation | A contact location for a person's place of work. |
+| 12577 | `schema:workPerformed` | property | https://schema.org/workPerformed | A work performed in some event, for example a play performed in a TheaterEvent. |
+| 12578 | `schema:workPresented` | property | https://schema.org/workPresented | The movie presented during this event. |
+| 12579 | `schema:workTranslation` | property | https://schema.org/workTranslation | A work that is a translation of the content of this work. E.g. 西遊記 has an English workTranslation “Journey to the West”, a German workTranslation “Monkeys Pilgerfahrt” and a Vietnamese  translation Tây du ký bình khảo. |
+| 12580 | `schema:workload` | property | https://schema.org/workload | Quantitative measure of the physiologic output of the exercise; also referred to as energy expenditure. |
+| 12581 | `schema:worksFor` | property | https://schema.org/worksFor | Organizations that the person works for. |
+| 12582 | `schema:worstRating` | property | https://schema.org/worstRating | The lowest value allowed in this rating system. |
+| 12583 | `schema:xpath` | property | https://schema.org/xpath | An XPath, e.g. of a [[SpeakableSpecification]] or [[WebPageElement]]. In the latter case, multiple matches within a page can constitute a single conceptual "Web page element". |
+| 12584 | `schema:yearBuilt` | property | https://schema.org/yearBuilt | The year an [[Accommodation]] was constructed. This corresponds to the [YearBuilt field in RESO](https://ddwiki.reso.org/display/DDW17/YearBuilt+Field).  |
+| 12585 | `schema:yearlyRevenue` | property | https://schema.org/yearlyRevenue | The size of the business in annual revenue. |
+| 12586 | `schema:yearsInOperation` | property | https://schema.org/yearsInOperation | The age of the business. |
+| 12587 | `schema:yield` | property | https://schema.org/yield | The quantity that results by performing instructions. For example, a paper airplane, 10 personalized candles. |
+| 12588 | `schema:Corporation` | class | https://spec.edmcouncil.org/fibo/ontology/BE/Corporations/Corporations/Corporation |  |
+| 12589 | `schema:CooperativeSociety` | class | https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/CorporateBodies/CooperativeSociety |  |
+| 12590 | `schema:hasLegalEntityIdentifier` | property | https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntities/LegalPersons/hasLegalEntityIdentifier |  |
+| 12591 | `schema:NonGovernmentalOrganization` | class | https://spec.edmcouncil.org/fibo/ontology/BE/NotForProfitOrganizations/NotForProfitOrganizations/NonGovernmentalOrganization |  |
+| 12592 | `schema:hasSubsidiary` | property | https://spec.edmcouncil.org/fibo/ontology/BE/OwnershipAndControl/CorporateControl/hasSubsidiary |  |
+| 12593 | `schema:hasPaymentDueDate` | property | https://spec.edmcouncil.org/fibo/ontology/FBC/DebtAndEquities/Debt/hasPaymentDueDate |  |
+| 12594 | `schema:BankAccount` | class | https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/BankAccount |  |
+| 12595 | `schema:PaymentMechanism` | class | https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/PaymentMechanism |  |
+| 12596 | `schema:hasPaymentMechanism` | property | https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/hasPaymentMechanism |  |
+| 12597 | `schema:hasAmount` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasAmount |  |
+| 12598 | `schema:hasCurrency` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasCurrency |  |
+| 12599 | `schema:hasMonetaryAmount` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Accounting/CurrencyAmount/hasMonetaryAmount |  |
+| 12600 | `schema:MutualContractualAgreement` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/MutualContractualAgreement |  |
+| 12601 | `schema:Certificate` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/Certificate |  |
+| 12602 | `schema:Document` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/Document |  |
+| 12603 | `schema:LegalDocument` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/LegalDocument |  |
+| 12604 | `schema:isReferencedIn` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/isReferencedIn |  |
+| 12605 | `schema:refersTo` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Documents/refersTo |  |
+| 12606 | `schema:hasRegistrationIdentifier` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Arrangements/Registration/hasRegistrationIdentifier |  |
+| 12607 | `schema:Occurrence` | class | https://spec.edmcouncil.org/fibo/ontology/FND/DatesAndTimes/Occurrences/Occurrence |  |
+| 12608 | `schema:ContactPoint` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/ContactPoint |  |
+| 12609 | `schema:Organization` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/Organization |  |
+| 12610 | `schema:hasContactPoint` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/hasContactPoint |  |
+| 12611 | `schema:hasMember` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/hasMember |  |
+| 12612 | `schema:hasTaxIdentifier` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Parties/Parties/hasTaxIdentifier |  |
+| 12613 | `schema:PostalAddress` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/PostalAddress |  |
+| 12614 | `schema:hasCountrySubdivision` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/hasCountrySubdivision |  |
+| 12615 | `schema:hasMunicipality` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/hasMunicipality |  |
+| 12616 | `schema:hasPostalCode` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/hasPostalCode |  |
+| 12617 | `schema:hasRegisteredAddress` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Places/Addresses/hasRegisteredAddress |  |
+| 12618 | `schema:Municipality` | class | https://spec.edmcouncil.org/fibo/ontology/FND/Places/Locations/Municipality |  |
+| 12619 | `schema:Offer` | class | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Offer |  |
+| 12620 | `schema:Price` | class | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Price |  |
+| 12621 | `schema:Product` | class | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/Product |  |
+| 12622 | `schema:hasProduct` | property | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/hasProduct |  |
+| 12623 | `schema:hasServiceArea` | property | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/hasServiceArea |  |
+| 12624 | `schema:hasSupplier` | property | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/hasSupplier |  |
+| 12625 | `schema:isOfferedBy` | property | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/isOfferedBy |  |
+| 12626 | `schema:isProductOf` | property | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/isProductOf |  |
+| 12627 | `schema:isProvisionedBy` | property | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/isProvisionedBy |  |
+| 12628 | `schema:offers` | property | https://spec.edmcouncil.org/fibo/ontology/FND/ProductsAndServices/ProductsAndServices/offers |  |
+| 12629 | `schema:hasDesignation` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasDesignation |  |
+| 12630 | `schema:hasLegalName` | property | https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasLegalName |  |
+| 12631 | `schema:PaymentService` | class | https://spec.edmcouncil.org/fibo/ontology/PAY/PaymentServices/PaymentServices/PaymentService |  |
+| 12632 | `schema:hasLEI` | property | https://www.gleif.org/ontology/L1/hasLEI |  |
+| 12633 | `schema:Classifier` | class | https://www.omg.org/spec/Commons/Classifiers/Classifier |  |
+| 12634 | `schema:exemplifies` | property | https://www.omg.org/spec/Commons/Classifiers/exemplifies |  |
+| 12635 | `schema:isClassifiedBy` | property | https://www.omg.org/spec/Commons/Classifiers/isClassifiedBy |  |
+| 12636 | `schema:Collection` | class | https://www.omg.org/spec/Commons/Collections/Collection |  |
+| 12637 | `schema:isPartOf` | property | https://www.omg.org/spec/Commons/Collections/isPartOf |  |
+| 12638 | `schema:Date` | class | https://www.omg.org/spec/Commons/DatesAndTimes/Date |  |
+| 12639 | `schema:DateTime` | class | https://www.omg.org/spec/Commons/DatesAndTimes/DateTime |  |
+| 12640 | `schema:Duration` | class | https://www.omg.org/spec/Commons/DatesAndTimes/Duration |  |
+| 12641 | `schema:hasDate` | property | https://www.omg.org/spec/Commons/DatesAndTimes/hasDate |  |
+| 12642 | `schema:hasEndDate` | property | https://www.omg.org/spec/Commons/DatesAndTimes/hasEndDate |  |
+| 12643 | `schema:hasStartDate` | property | https://www.omg.org/spec/Commons/DatesAndTimes/hasStartDate |  |
+| 12644 | `schema:GeopoliticalEntity` | class | https://www.omg.org/spec/Commons/GeopoliticalEntities/GeopoliticalEntity |  |
+| 12645 | `schema:Subdivision` | class | https://www.omg.org/spec/Commons/GeopoliticalEntities/Subdivision |  |
+| 12646 | `schema:identifiedBy` | property | https://www.omg.org/spec/Commons/Identifiers/identifiedBy |  |
+| 12647 | `schema:Address` | class | https://www.omg.org/spec/Commons/Locations/Address |  |
+| 12648 | `schema:GeographicCoordinate` | class | https://www.omg.org/spec/Commons/Locations/GeographicCoordinate |  |
+| 12649 | `schema:Location` | class | https://www.omg.org/spec/Commons/Locations/Location |  |
+| 12650 | `schema:hasAddress` | property | https://www.omg.org/spec/Commons/Locations/hasAddress |  |
+| 12651 | `schema:hasLatitude` | property | https://www.omg.org/spec/Commons/Locations/hasLatitude |  |
+| 12652 | `schema:hasLocation` | property | https://www.omg.org/spec/Commons/Locations/hasLocation |  |
+| 12653 | `schema:hasLongitude` | property | https://www.omg.org/spec/Commons/Locations/hasLongitude |  |
+| 12654 | `schema:isLocatedIn` | property | https://www.omg.org/spec/Commons/Locations/isLocatedIn |  |
+| 12655 | `schema:hasLowerBound` | property | https://www.omg.org/spec/Commons/Quantities/hasLowerBound |  |
+| 12656 | `schema:hasNumericValue` | property | https://www.omg.org/spec/Commons/Quantities/hasNumericValue |  |
+| 12657 | `schema:hasQuantity` | property | https://www.omg.org/spec/Commons/Quantities/hasQuantity |  |
+| 12658 | `schema:hasUpperBound` | property | https://www.omg.org/spec/Commons/Quantities/hasUpperBound |  |
+| 12659 | `schema:hasName` | property | https://www.omg.org/spec/Commons/Text/hasName |  |
+| 12660 | `schema:Continent` | class | https://www.omg.org/spec/LCC/Countries/CountryRepresentation/Continent |  |
+| 12661 | `schema:Country` | class | https://www.omg.org/spec/LCC/Countries/CountryRepresentation/Country |  |

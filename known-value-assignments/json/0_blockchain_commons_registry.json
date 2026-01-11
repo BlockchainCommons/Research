@@ -160,7 +160,7 @@
       "codepoint": 21,
       "name": "validFrom",
       "type": "property",
-      "uri": "http://purl.org/dc/terms/valid",
+      "uri": "https://schema.org/validFrom",
       "description": "The subject is valid from the date in the object."
     },
     {
