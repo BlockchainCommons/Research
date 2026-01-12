@@ -48,7 +48,7 @@ A Known Value is an unsigned integer in the range 0..2<sup>64</sup> - 1. When th
 
 When a Known Value's name is printed in text, whether as a name or integer value it is surrounded by single quotes (`U+0027`). For example, the Known Value for `isA` is printed as either `'1'` or `'isA'`. Therefore the presence of single quotes always indicates a Known Value.
 
-> **✅ NOTE:** The known value `0` (zero) is the "unit type", and is printed as `''` (empty string). See the note below for more details.
+> **✅ NOTE:** The known value `0` (zero) is the "unit type", and is printed as `''` (empty string). See [BCR-2026-001](bcr-2026-001-unit.md) for more information.
 
 When serialized as a tagged CBOR structure it uses tag `#6.40000`. The formal language used is the Concise Data Definition Language (CDDL) [RFC8610].
 
