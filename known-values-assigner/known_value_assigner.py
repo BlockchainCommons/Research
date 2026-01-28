@@ -410,6 +410,7 @@ class SchemaOrgParser:
         seen_uris = set()
 
         # Schema.org uses rdfs:Class and rdf:Property
+        # Only include schema.org URIs, not external vocabularies referenced in the JSON-LD
         for rdf_type, concept_type in [
             (RDFS.Class, "Class"),
             (RDF.Property, "Property"),
@@ -419,6 +420,11 @@ class SchemaOrgParser:
                     continue
 
                 uri = str(subject)
+                
+                # Filter: only include schema.org URIs
+                if not uri.startswith("https://schema.org/"):
+                    continue
+                
                 if uri in seen_uris:
                     continue
                 seen_uris.add(uri)
