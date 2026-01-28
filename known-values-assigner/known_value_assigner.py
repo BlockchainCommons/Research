@@ -69,6 +69,8 @@ class OntologyConfig:
     strategy: ProcessingStrategy
     # Local bundled file path (fallback if URL fails)
     bundled_file: Optional[str] = None
+    # Optional URI prefix filter - only include URIs starting with this
+    uri_filter: Optional[str] = None
 
 
 @dataclass
@@ -153,6 +155,7 @@ ONTOLOGY_CONFIGS = [
         data_format=DataFormat.RDF_XML,
         strategy=ProcessingStrategy.STANDARD_RDF,
         bundled_file="bundled/foaf.rdf",
+        uri_filter="http://xmlns.com/foaf/",
     ),
     OntologyConfig(
         name="skos",
@@ -174,6 +177,7 @@ ONTOLOGY_CONFIGS = [
         start_code_point=10000,
         data_format=DataFormat.JSON_LD,
         strategy=ProcessingStrategy.SCHEMA_ORG_LD,
+        uri_filter="https://schema.org/",
     ),
     OntologyConfig(
         name="vc",
@@ -314,6 +318,11 @@ class StandardRDFParser:
                     continue
 
                 uri = str(subject)
+                
+                # Apply URI filter if specified in config
+                if config.uri_filter and not uri.startswith(config.uri_filter):
+                    continue
+                
                 if uri in seen_uris:
                     continue
                 seen_uris.add(uri)
@@ -410,7 +419,6 @@ class SchemaOrgParser:
         seen_uris = set()
 
         # Schema.org uses rdfs:Class and rdf:Property
-        # Only include schema.org URIs, not external vocabularies referenced in the JSON-LD
         for rdf_type, concept_type in [
             (RDFS.Class, "Class"),
             (RDF.Property, "Property"),
@@ -421,10 +429,10 @@ class SchemaOrgParser:
 
                 uri = str(subject)
                 
-                # Filter: only include schema.org URIs
-                if not uri.startswith("https://schema.org/"):
+                # Apply URI filter if specified in config
+                if config.uri_filter and not uri.startswith(config.uri_filter):
                     continue
-                
+
                 if uri in seen_uris:
                     continue
                 seen_uris.add(uri)
@@ -673,7 +681,33 @@ class KnownValueAssigner:
 
             entries.append(entry)
 
+        # Check for duplicate canonical names
+        self._check_duplicate_names(entries, config)
+
         return entries
+
+    def _check_duplicate_names(self, entries: list[KnownValueEntry], config: OntologyConfig) -> None:
+        """Check for duplicate canonical names within an ontology.
+        
+        Raises ValueError if duplicates are found, as this indicates a logic error
+        where two different URIs map to the same canonical name.
+        """
+        name_to_uris = {}
+        for entry in entries:
+            if entry.name not in name_to_uris:
+                name_to_uris[entry.name] = []
+            name_to_uris[entry.name].append(entry.uri)
+        
+        duplicates = {name: uris for name, uris in name_to_uris.items() if len(uris) > 1}
+        
+        if duplicates:
+            error_msg = f"Duplicate canonical names found in {config.name} ontology:\n"
+            for name, uris in duplicates.items():
+                error_msg += f"  {name}:\n"
+                for uri in uris:
+                    error_msg += f"    - {uri}\n"
+            logger.error(error_msg)
+            raise ValueError(f"Found {len(duplicates)} duplicate canonical name(s) in {config.name} ontology")
 
     def _to_local_name(self, label: str, uri: str) -> str:
         """Convert URI to canonical name format.
