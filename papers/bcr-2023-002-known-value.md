@@ -170,11 +170,11 @@ The following table summarizes the assigned Known Value code point ranges:
 | [OWL 2](../known-value-assignments/markdown/2100_owl2_registry.md)                                               | 2100-2199   | 75           | [JSON](../known-value-assignments/json/2100_owl2_registry.json)            |
 | [Dublin Core Elements](../known-value-assignments/markdown/2200_dce_registry.md)                                 | 2200-2299   | 15           | [JSON](../known-value-assignments/json/2200_dce_registry.json)             |
 | [Dublin Core Terms](../known-value-assignments/markdown/2300_dct_registry.md)                                    | 2300-2499   | 89           | [JSON](../known-value-assignments/json/2300_dct_registry.json)             |
-| [FOAF](../known-value-assignments/markdown/2500_foaf_registry.md)                                                | 2500-2699   | 83           | [JSON](../known-value-assignments/json/2500_foaf_registry.json)            |
+| [FOAF](../known-value-assignments/markdown/2500_foaf_registry.md)                                                | 2500-2699   | 75           | [JSON](../known-value-assignments/json/2500_foaf_registry.json)            |
 | [SKOS](../known-value-assignments/markdown/2700_skos_registry.md)                                                | 2700-2799   | 32           | [JSON](../known-value-assignments/json/2700_skos_registry.json)            |
 | [Solid](../known-value-assignments/markdown/2800_solid_registry.md)                                              | 2800-2899   | 33           | [JSON](../known-value-assignments/json/2800_solid_registry.json)           |
 | [W3C Verifiable Credentials](../known-value-assignments/markdown/2900_vc_registry.md)                            | 2900-2999   | 28           | [JSON](../known-value-assignments/json/2900_vc_registry.json)              |
-| [Schema.org](../known-value-assignments/markdown/10000_schema_registry.md)                                       | 10000-19999 | 2667         | [JSON](../known-value-assignments/json/10000_schema_registry.json)         |
+| [Schema.org](../known-value-assignments/markdown/10000_schema_registry.md)                                       | 10000-19999 | 2450         | [JSON](../known-value-assignments/json/10000_schema_registry.json)         |
 | [Community Assigned](../known-value-assignments/markdown/100000_community_registry.md) (first come-first served) | 100000-...  | see registry | [JSON](../known-value-assignments/json/100000_community_registry.json)     |
 
 ### Blockchain Commons Core Concepts
