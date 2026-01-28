@@ -87,6 +87,7 @@ Each BCR has a status which is indicated by a symbol.
 | [BCR-2025-005](papers/bcr-2025-005-domain-separation.md) | Domain Separation in Derived Keys | Wolf McNally | ⭐️ |
 | [BCR-2025-006](papers/bcr-2025-006-hubert.md) | Hubert: Distributed Key-Value Store for Secure Multiparty Coordination | Wolf McNally | ⭐️ |
 | [BCR-2026-001](papers/bcr-2026-001-unit.md) | Unit: The Known Value for Deliberate Emptiness | Wolf McNally | ⭐️ |
+| [BCR-2026-002](papers/bcr-2026-002-envelope-notation.md) | Gordian Envelope Notation - Quick Reference | Wolf McNally | ⭐️ |
 
 _Also see our [Testimony](https://github.com/BlockchainCommons/Testimony/blob/master/README.md) and our [Blockchain Commons Proposals](https://github.com/BlockchainCommons/bcps/blob/master/README.md)._
 
