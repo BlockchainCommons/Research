@@ -318,11 +318,11 @@ class StandardRDFParser:
                     continue
 
                 uri = str(subject)
-                
+
                 # Apply URI filter if specified in config
                 if config.uri_filter and not uri.startswith(config.uri_filter):
                     continue
-                
+
                 if uri in seen_uris:
                     continue
                 seen_uris.add(uri)
@@ -428,7 +428,7 @@ class SchemaOrgParser:
                     continue
 
                 uri = str(subject)
-                
+
                 # Apply URI filter if specified in config
                 if config.uri_filter and not uri.startswith(config.uri_filter):
                     continue
@@ -688,7 +688,7 @@ class KnownValueAssigner:
 
     def _check_duplicate_names(self, entries: list[KnownValueEntry], config: OntologyConfig) -> None:
         """Check for duplicate canonical names within an ontology.
-        
+
         Raises ValueError if duplicates are found, as this indicates a logic error
         where two different URIs map to the same canonical name.
         """
@@ -697,9 +697,9 @@ class KnownValueAssigner:
             if entry.name not in name_to_uris:
                 name_to_uris[entry.name] = []
             name_to_uris[entry.name].append(entry.uri)
-        
+
         duplicates = {name: uris for name, uris in name_to_uris.items() if len(uris) > 1}
-        
+
         if duplicates:
             error_msg = f"Duplicate canonical names found in {config.name} ontology:\n"
             for name, uris in duplicates.items():
