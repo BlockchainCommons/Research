@@ -670,8 +670,23 @@ class KnownValueAssigner:
         return entries
 
     def _to_local_name(self, label: str, uri: str) -> str:
-        """Convert a label to canonical name format."""
-        # Use label if available, otherwise extract from URI
+        """Convert URI to canonical name format.
+
+        Prefers URI fragment over label for more concise, idiomatic names.
+        Falls back to label processing only if URI has no usable fragment.
+        """
+        # Extract from URI first (preferred)
+        if "#" in uri:
+            fragment = uri.split("#")[-1]
+            if fragment:  # Check it's not empty
+                return fragment
+
+        # Try path-based URI
+        path_part = uri.rstrip("/").split("/")[-1]
+        if path_part and path_part not in ["", uri]:
+            return path_part
+
+        # Fall back to label processing only if URI extraction failed
         if label and label != "[No Label]":
             # Clean up the label
             name = label.strip()
@@ -683,10 +698,8 @@ class KnownValueAssigner:
                 name = parts[0].lower() + ''.join(p.capitalize() for p in parts[1:])
             return name
 
-        # Extract from URI
-        if "#" in uri:
-            return uri.split("#")[-1]
-        return uri.rstrip("/").split("/")[-1]
+        # Ultimate fallback
+        return "unknown"
 
     def _check_collisions(self, entries: list[KnownValueEntry]) -> None:
         """Check for semantic collisions with core Known Values."""

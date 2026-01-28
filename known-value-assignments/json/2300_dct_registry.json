@@ -19,28 +19,28 @@
     },
     {
       "codepoint": 2301,
-      "name": "dct:agentClass",
+      "name": "dct:AgentClass",
       "type": "class",
       "uri": "http://purl.org/dc/terms/AgentClass",
       "description": "A group of agents."
     },
     {
       "codepoint": 2302,
-      "name": "dct:bibliographicResource",
+      "name": "dct:BibliographicResource",
       "type": "class",
       "uri": "http://purl.org/dc/terms/BibliographicResource",
       "description": "A book, article, or other documentary resource."
     },
     {
       "codepoint": 2303,
-      "name": "dct:dcmiBox",
+      "name": "dct:Box",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/Box",
       "description": "The set of regions in space defined by their geographic coordinates according to the DCMI Box Encoding Scheme."
     },
     {
       "codepoint": 2304,
-      "name": "dct:fileFormat",
+      "name": "dct:FileFormat",
       "type": "class",
       "uri": "http://purl.org/dc/terms/FileFormat",
       "description": "A digital resource format."
@@ -54,21 +54,21 @@
     },
     {
       "codepoint": 2306,
-      "name": "dct:iso3166",
+      "name": "dct:ISO3166",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/ISO3166",
       "description": "The set of codes listed in ISO 3166-1 for the representation of names of countries."
     },
     {
       "codepoint": 2307,
-      "name": "dct:iso6392",
+      "name": "dct:ISO639-2",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/ISO639-2",
       "description": "The three-letter alphabetic codes listed in ISO639-2 for the representation of names of languages."
     },
     {
       "codepoint": 2308,
-      "name": "dct:iso6393",
+      "name": "dct:ISO639-3",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/ISO639-3",
       "description": "The set of three-letter codes listed in ISO 639-3 for the representation of names of languages."
@@ -82,14 +82,14 @@
     },
     {
       "codepoint": 2310,
-      "name": "dct:licenseDocument",
+      "name": "dct:LicenseDocument",
       "type": "class",
       "uri": "http://purl.org/dc/terms/LicenseDocument",
       "description": "A legal document giving official permission to do something with a resource."
     },
     {
       "codepoint": 2311,
-      "name": "dct:linguisticSystem",
+      "name": "dct:LinguisticSystem",
       "type": "class",
       "uri": "http://purl.org/dc/terms/LinguisticSystem",
       "description": "A system of signs, symbols, sounds, gestures, or rules used in communication."
@@ -103,70 +103,70 @@
     },
     {
       "codepoint": 2313,
-      "name": "dct:locationPeriodOrJurisdiction",
+      "name": "dct:LocationPeriodOrJurisdiction",
       "type": "class",
       "uri": "http://purl.org/dc/terms/LocationPeriodOrJurisdiction",
       "description": "A location, period of time, or jurisdiction."
     },
     {
       "codepoint": 2314,
-      "name": "dct:mediaType",
+      "name": "dct:MediaType",
       "type": "class",
       "uri": "http://purl.org/dc/terms/MediaType",
       "description": "A file format or physical medium."
     },
     {
       "codepoint": 2315,
-      "name": "dct:mediaTypeOrExtent",
+      "name": "dct:MediaTypeOrExtent",
       "type": "class",
       "uri": "http://purl.org/dc/terms/MediaTypeOrExtent",
       "description": "A media type or extent."
     },
     {
       "codepoint": 2316,
-      "name": "dct:methodOfAccrual",
+      "name": "dct:MethodOfAccrual",
       "type": "class",
       "uri": "http://purl.org/dc/terms/MethodOfAccrual",
       "description": "A method by which resources are added to a collection."
     },
     {
       "codepoint": 2317,
-      "name": "dct:methodOfInstruction",
+      "name": "dct:MethodOfInstruction",
       "type": "class",
       "uri": "http://purl.org/dc/terms/MethodOfInstruction",
       "description": "A process that is used to engender knowledge, attitudes, and skills."
     },
     {
       "codepoint": 2318,
-      "name": "dct:dcmiPeriod",
+      "name": "dct:Period",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/Period",
       "description": "The set of time intervals defined by their limits according to the DCMI Period Encoding Scheme."
     },
     {
       "codepoint": 2319,
-      "name": "dct:periodOfTime",
+      "name": "dct:PeriodOfTime",
       "type": "class",
       "uri": "http://purl.org/dc/terms/PeriodOfTime",
       "description": "An interval of time that is named or defined by its start and end dates."
     },
     {
       "codepoint": 2320,
-      "name": "dct:physicalMedium",
+      "name": "dct:PhysicalMedium",
       "type": "class",
       "uri": "http://purl.org/dc/terms/PhysicalMedium",
       "description": "A physical material or carrier."
     },
     {
       "codepoint": 2321,
-      "name": "dct:physicalResource",
+      "name": "dct:PhysicalResource",
       "type": "class",
       "uri": "http://purl.org/dc/terms/PhysicalResource",
       "description": "A material thing."
     },
     {
       "codepoint": 2322,
-      "name": "dct:dcmiPoint",
+      "name": "dct:Point",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/Point",
       "description": "The set of points in space defined by their geographic coordinates according to the DCMI Point Encoding Scheme."
@@ -180,49 +180,49 @@
     },
     {
       "codepoint": 2324,
-      "name": "dct:provenanceStatement",
+      "name": "dct:ProvenanceStatement",
       "type": "class",
       "uri": "http://purl.org/dc/terms/ProvenanceStatement",
       "description": "Any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation."
     },
     {
       "codepoint": 2325,
-      "name": "dct:rfc1766",
+      "name": "dct:RFC1766",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/RFC1766",
       "description": "The set of tags, constructed according to RFC 1766, for the identification of languages."
     },
     {
       "codepoint": 2326,
-      "name": "dct:rfc3066",
+      "name": "dct:RFC3066",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/RFC3066",
       "description": "The set of tags constructed according to RFC 3066 for the identification of languages."
     },
     {
       "codepoint": 2327,
-      "name": "dct:rfc4646",
+      "name": "dct:RFC4646",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/RFC4646",
       "description": "The set of tags constructed according to RFC 4646 for the identification of languages."
     },
     {
       "codepoint": 2328,
-      "name": "dct:rfc5646",
+      "name": "dct:RFC5646",
       "type": "datatype",
       "uri": "http://purl.org/dc/terms/RFC5646",
       "description": "The set of tags constructed according to RFC 5646 for the identification of languages."
     },
     {
       "codepoint": 2329,
-      "name": "dct:rightsStatement",
+      "name": "dct:RightsStatement",
       "type": "class",
       "uri": "http://purl.org/dc/terms/RightsStatement",
       "description": "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."
     },
     {
       "codepoint": 2330,
-      "name": "dct:sizeOrDuration",
+      "name": "dct:SizeOrDuration",
       "type": "class",
       "uri": "http://purl.org/dc/terms/SizeOrDuration",
       "description": "A dimension or extent, or a time taken to play or execute."
@@ -250,7 +250,7 @@
     },
     {
       "codepoint": 2334,
-      "name": "dct:Abstract",
+      "name": "dct:abstract",
       "type": "property",
       "uri": "http://purl.org/dc/terms/abstract",
       "description": "A summary of the resource."
@@ -285,21 +285,21 @@
     },
     {
       "codepoint": 2339,
-      "name": "dct:alternativeTitle",
+      "name": "dct:alternative",
       "type": "property",
       "uri": "http://purl.org/dc/terms/alternative",
       "description": "An alternative name for the resource."
     },
     {
       "codepoint": 2340,
-      "name": "dct:Audience",
+      "name": "dct:audience",
       "type": "property",
       "uri": "http://purl.org/dc/terms/audience",
       "description": "A class of agents for whom the resource is intended or useful."
     },
     {
       "codepoint": 2341,
-      "name": "dct:dateAvailable",
+      "name": "dct:available",
       "type": "property",
       "uri": "http://purl.org/dc/terms/available",
       "description": "Date that the resource became or will become available."
@@ -320,28 +320,28 @@
     },
     {
       "codepoint": 2343,
-      "name": "dct:Contributor",
+      "name": "dct:contributor",
       "type": "property",
       "uri": "http://purl.org/dc/terms/contributor",
       "description": "An entity responsible for making contributions to the resource."
     },
     {
       "codepoint": 2344,
-      "name": "dct:Coverage",
+      "name": "dct:coverage",
       "type": "property",
       "uri": "http://purl.org/dc/terms/coverage",
       "description": "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant."
     },
     {
       "codepoint": 2345,
-      "name": "dct:dateCreated",
+      "name": "dct:created",
       "type": "property",
       "uri": "http://purl.org/dc/terms/created",
       "description": "Date of creation of the resource."
     },
     {
       "codepoint": 2346,
-      "name": "dct:Creator",
+      "name": "dct:creator",
       "type": "property",
       "uri": "http://purl.org/dc/terms/creator",
       "description": "An entity responsible for making the resource."
@@ -376,28 +376,28 @@
     },
     {
       "codepoint": 2350,
-      "name": "dct:Description",
+      "name": "dct:description",
       "type": "property",
       "uri": "http://purl.org/dc/terms/description",
       "description": "An account of the resource."
     },
     {
       "codepoint": 2351,
-      "name": "dct:audienceEducationLevel",
+      "name": "dct:educationLevel",
       "type": "property",
       "uri": "http://purl.org/dc/terms/educationLevel",
       "description": "A class of agents, defined in terms of progression through an educational or training context, for which the described resource is intended."
     },
     {
       "codepoint": 2352,
-      "name": "dct:Extent",
+      "name": "dct:extent",
       "type": "property",
       "uri": "http://purl.org/dc/terms/extent",
       "description": "The size or duration of the resource."
     },
     {
       "codepoint": 2353,
-      "name": "dct:Format",
+      "name": "dct:format",
       "type": "property",
       "uri": "http://purl.org/dc/terms/format",
       "description": "The file format, physical medium, or dimensions of the resource."
@@ -481,91 +481,91 @@
     },
     {
       "codepoint": 2363,
-      "name": "dct:dateIssued",
+      "name": "dct:issued",
       "type": "property",
       "uri": "http://purl.org/dc/terms/issued",
       "description": "Date of formal issuance of the resource."
     },
     {
       "codepoint": 2364,
-      "name": "dct:Language",
+      "name": "dct:language",
       "type": "property",
       "uri": "http://purl.org/dc/terms/language",
       "description": "A language of the resource."
     },
     {
       "codepoint": 2365,
-      "name": "dct:License",
+      "name": "dct:license",
       "type": "property",
       "uri": "http://purl.org/dc/terms/license",
       "description": "A legal document giving official permission to do something with the resource."
     },
     {
       "codepoint": 2366,
-      "name": "dct:Mediator",
+      "name": "dct:mediator",
       "type": "property",
       "uri": "http://purl.org/dc/terms/mediator",
       "description": "An entity that mediates access to the resource."
     },
     {
       "codepoint": 2367,
-      "name": "dct:Medium",
+      "name": "dct:medium",
       "type": "property",
       "uri": "http://purl.org/dc/terms/medium",
       "description": "The material or physical carrier of the resource."
     },
     {
       "codepoint": 2368,
-      "name": "dct:dateModified",
+      "name": "dct:modified",
       "type": "property",
       "uri": "http://purl.org/dc/terms/modified",
       "description": "Date on which the resource was changed."
     },
     {
       "codepoint": 2369,
-      "name": "dct:Provenance",
+      "name": "dct:provenance",
       "type": "property",
       "uri": "http://purl.org/dc/terms/provenance",
       "description": "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation."
     },
     {
       "codepoint": 2370,
-      "name": "dct:Publisher",
+      "name": "dct:publisher",
       "type": "property",
       "uri": "http://purl.org/dc/terms/publisher",
       "description": "An entity responsible for making the resource available."
     },
     {
       "codepoint": 2371,
-      "name": "dct:References",
+      "name": "dct:references",
       "type": "property",
       "uri": "http://purl.org/dc/terms/references",
       "description": "A related resource that is referenced, cited, or otherwise pointed to by the described resource."
     },
     {
       "codepoint": 2372,
-      "name": "dct:Relation",
+      "name": "dct:relation",
       "type": "property",
       "uri": "http://purl.org/dc/terms/relation",
       "description": "A related resource."
     },
     {
       "codepoint": 2373,
-      "name": "dct:Replaces",
+      "name": "dct:replaces",
       "type": "property",
       "uri": "http://purl.org/dc/terms/replaces",
       "description": "A related resource that is supplanted, displaced, or superseded by the described resource."
     },
     {
       "codepoint": 2374,
-      "name": "dct:Requires",
+      "name": "dct:requires",
       "type": "property",
       "uri": "http://purl.org/dc/terms/requires",
       "description": "A related resource that is required by the described resource to support its function, delivery, or coherence."
     },
     {
       "codepoint": 2375,
-      "name": "dct:Rights",
+      "name": "dct:rights",
       "type": "property",
       "uri": "http://purl.org/dc/terms/rights",
       "description": "Information about rights held in and over the resource."
@@ -579,21 +579,21 @@
     },
     {
       "codepoint": 2377,
-      "name": "dct:Source",
+      "name": "dct:source",
       "type": "property",
       "uri": "http://purl.org/dc/terms/source",
       "description": "A related resource from which the described resource is derived."
     },
     {
       "codepoint": 2378,
-      "name": "dct:spatialCoverage",
+      "name": "dct:spatial",
       "type": "property",
       "uri": "http://purl.org/dc/terms/spatial",
       "description": "Spatial characteristics of the resource."
     },
     {
       "codepoint": 2379,
-      "name": "dct:Subject",
+      "name": "dct:subject",
       "type": "property",
       "uri": "http://purl.org/dc/terms/subject",
       "description": "A topic of the resource."
@@ -607,28 +607,28 @@
     },
     {
       "codepoint": 2381,
-      "name": "dct:temporalCoverage",
+      "name": "dct:temporal",
       "type": "property",
       "uri": "http://purl.org/dc/terms/temporal",
       "description": "Temporal characteristics of the resource."
     },
     {
       "codepoint": 2382,
-      "name": "dct:Title",
+      "name": "dct:title",
       "type": "property",
       "uri": "http://purl.org/dc/terms/title",
       "description": "A name given to the resource."
     },
     {
       "codepoint": 2383,
-      "name": "dct:Type",
+      "name": "dct:type",
       "type": "property",
       "uri": "http://purl.org/dc/terms/type",
       "description": "The nature or genre of the resource."
     },
     {
       "codepoint": 2384,
-      "name": "dct:dateValid",
+      "name": "dct:valid",
       "type": "property",
       "uri": "http://purl.org/dc/terms/valid",
       "description": "Date (often a range) of validity of a resource."

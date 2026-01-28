@@ -19,7 +19,7 @@
     },
     {
       "codepoint": 2901,
-      "name": "vc:mediaType",
+      "name": "vc:encodingFormat",
       "type": "property",
       "uri": "https://schema.org/encodingFormat",
       "description": "Defined in vc"
@@ -33,7 +33,7 @@
     },
     {
       "codepoint": 2903,
-      "name": "vc:dataIntegrityProof",
+      "name": "vc:DataIntegrityProof",
       "type": "property",
       "uri": "https://w3id.org/security#DataIntegrityProof",
       "description": "Defined in vc"
@@ -82,7 +82,7 @@
     },
     {
       "codepoint": 2910,
-      "name": "vc:",
+      "name": "vc:...",
       "type": "property",
       "uri": "https://www.iana.org/assignments/jwt#...",
       "description": "Defined in vc"
@@ -138,70 +138,70 @@
     },
     {
       "codepoint": 2918,
-      "name": "vc:envelopedVerifiableCredential",
+      "name": "vc:EnvelopedVerifiableCredential",
       "type": "property",
       "uri": "https://www.w3.org/2018/credentials#EnvelopedVerifiableCredential",
       "description": "Defined in vc"
     },
     {
       "codepoint": 2919,
-      "name": "vc:envelopedVerifiablePresentation",
+      "name": "vc:EnvelopedVerifiablePresentation",
       "type": "property",
       "uri": "https://www.w3.org/2018/credentials#EnvelopedVerifiablePresentation",
       "description": "Defined in vc"
     },
     {
       "codepoint": 2920,
-      "name": "vc:jsonSchema",
+      "name": "vc:JsonSchema",
       "type": "property",
       "uri": "https://www.w3.org/2018/credentials#JsonSchema",
       "description": "Defined in vc"
     },
     {
       "codepoint": 2921,
-      "name": "vc:jsonSchemaCredential",
+      "name": "vc:JsonSchemaCredential",
       "type": "property",
       "uri": "https://www.w3.org/2018/credentials#JsonSchemaCredential",
       "description": "Defined in vc"
     },
     {
       "codepoint": 2922,
-      "name": "vc:verifiableCredential",
+      "name": "vc:VerifiableCredential",
       "type": "property",
       "uri": "https://www.w3.org/2018/credentials#VerifiableCredential",
       "description": "Defined in vc"
     },
     {
       "codepoint": 2923,
-      "name": "vc:verifiablePresentation",
+      "name": "vc:VerifiablePresentation",
       "type": "property",
       "uri": "https://www.w3.org/2018/credentials#VerifiablePresentation",
       "description": "Defined in vc"
     },
     {
       "codepoint": 2924,
-      "name": "vc:digestSri",
+      "name": "vc:digestSRI",
       "type": "property",
       "uri": "https://www.w3.org/2018/credentials#digestSRI",
       "description": "Defined in vc"
     },
     {
       "codepoint": 2925,
-      "name": "vc:bitstringStatusList",
+      "name": "vc:BitstringStatusList",
       "type": "property",
       "uri": "https://www.w3.org/ns/credentials/status#BitstringStatusList",
       "description": "Defined in vc"
     },
     {
       "codepoint": 2926,
-      "name": "vc:bitstringStatusListCredential",
+      "name": "vc:BitstringStatusListCredential",
       "type": "property",
       "uri": "https://www.w3.org/ns/credentials/status#BitstringStatusListCredential",
       "description": "Defined in vc"
     },
     {
       "codepoint": 2927,
-      "name": "vc:bitstringStatusListEntry",
+      "name": "vc:BitstringStatusListEntry",
       "type": "property",
       "uri": "https://www.w3.org/ns/credentials/status#BitstringStatusListEntry",
       "description": "Defined in vc"

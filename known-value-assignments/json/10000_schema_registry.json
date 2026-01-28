@@ -12,133 +12,133 @@
   "entries": [
     {
       "codepoint": 10000,
-      "name": "schema:ontologyamends",
+      "name": "schema:amends",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#amends",
       "description": ""
     },
     {
       "codepoint": 10001,
-      "name": "schema:ontologychanges",
+      "name": "schema:changes",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#changes",
       "description": ""
     },
     {
       "codepoint": 10002,
-      "name": "schema:ontologycommences",
+      "name": "schema:commences",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#commences",
       "description": ""
     },
     {
       "codepoint": 10003,
-      "name": "schema:ontologyconsolidates",
+      "name": "schema:consolidates",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#consolidates",
       "description": ""
     },
     {
       "codepoint": 10004,
-      "name": "schema:ontologycorrects",
+      "name": "schema:corrects",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#corrects",
       "description": ""
     },
     {
       "codepoint": 10005,
-      "name": "schema:ontologycountersigned_by",
+      "name": "schema:countersigned_by",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#countersigned_by",
       "description": ""
     },
     {
       "codepoint": 10006,
-      "name": "schema:ontologydate_applicability",
+      "name": "schema:date_applicability",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#date_applicability",
       "description": ""
     },
     {
       "codepoint": 10007,
-      "name": "schema:ontologydate_document",
+      "name": "schema:date_document",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#date_document",
       "description": ""
     },
     {
       "codepoint": 10008,
-      "name": "schema:ontologyensures_implementation_of",
+      "name": "schema:ensures_implementation_of",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#ensures_implementation_of",
       "description": ""
     },
     {
       "codepoint": 10009,
-      "name": "schema:ontologyimplements",
+      "name": "schema:implements",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#implements",
       "description": ""
     },
     {
       "codepoint": 10010,
-      "name": "schema:ontologyin_force",
+      "name": "schema:in_force",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#in_force",
       "description": ""
     },
     {
       "codepoint": 10011,
-      "name": "schema:ontologyjurisdiction",
+      "name": "schema:jurisdiction",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#jurisdiction",
       "description": ""
     },
     {
       "codepoint": 10012,
-      "name": "schema:ontologylegal_value",
+      "name": "schema:legal_value",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#legal_value",
       "description": ""
     },
     {
       "codepoint": 10013,
-      "name": "schema:ontologypassed_by",
+      "name": "schema:passed_by",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#passed_by",
       "description": ""
     },
     {
       "codepoint": 10014,
-      "name": "schema:ontologyrepeals",
+      "name": "schema:repeals",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#repeals",
       "description": ""
     },
     {
       "codepoint": 10015,
-      "name": "schema:ontologyresponsibility_of",
+      "name": "schema:responsibility_of",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#responsibility_of",
       "description": ""
     },
     {
       "codepoint": 10016,
-      "name": "schema:ontologytransposes",
+      "name": "schema:transposes",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#transposes",
       "description": ""
     },
     {
       "codepoint": 10017,
-      "name": "schema:ontologytype_document",
+      "name": "schema:type_document",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#type_document",
       "description": ""
     },
     {
       "codepoint": 10018,
-      "name": "schema:ontologyversion_date",
+      "name": "schema:version_date",
       "type": "property",
       "uri": "http://data.europa.eu/eli/ontology#version_date",
       "description": ""
@@ -341,7 +341,7 @@
     },
     {
       "codepoint": 10046,
-      "name": "schema:voidDataset",
+      "name": "schema:Dataset",
       "type": "class",
       "uri": "http://rdfs.org/ns/void#Dataset",
       "description": ""
@@ -355,434 +355,434 @@
     },
     {
       "codepoint": 10048,
-      "name": "schema:vocabAmountType",
+      "name": "schema:AmountType",
       "type": "class",
       "uri": "http://unece.org/vocab#AmountType",
       "description": ""
     },
     {
       "codepoint": 10049,
-      "name": "schema:vocabApplicableCertificate",
+      "name": "schema:ApplicableCertificate",
       "type": "property",
       "uri": "http://unece.org/vocab#ApplicableCertificate",
       "description": ""
     },
     {
       "codepoint": 10050,
-      "name": "schema:vocabBillingAddress",
+      "name": "schema:BillingAddress",
       "type": "property",
       "uri": "http://unece.org/vocab#BillingAddress",
       "description": ""
     },
     {
       "codepoint": 10051,
-      "name": "schema:vocabBrandName",
+      "name": "schema:BrandName",
       "type": "class",
       "uri": "http://unece.org/vocab#BrandName",
       "description": ""
     },
     {
       "codepoint": 10052,
-      "name": "schema:vocabCertificateIdentifier",
+      "name": "schema:CertificateIdentifier",
       "type": "property",
       "uri": "http://unece.org/vocab#CertificateIdentifier",
       "description": ""
     },
     {
       "codepoint": 10053,
-      "name": "schema:vocabCountry",
+      "name": "schema:Country",
       "type": "class",
       "uri": "http://unece.org/vocab#Country",
       "description": ""
     },
     {
       "codepoint": 10054,
-      "name": "schema:vocabDespatchLocation",
+      "name": "schema:DespatchLocation",
       "type": "property",
       "uri": "http://unece.org/vocab#DespatchLocation",
       "description": ""
     },
     {
       "codepoint": 10055,
-      "name": "schema:vocabEffectiveEndDateTime",
+      "name": "schema:EffectiveEndDateTime",
       "type": "property",
       "uri": "http://unece.org/vocab#EffectiveEndDateTime",
       "description": ""
     },
     {
       "codepoint": 10056,
-      "name": "schema:vocabElectronicDocument",
+      "name": "schema:ElectronicDocument",
       "type": "class",
       "uri": "http://unece.org/vocab#ElectronicDocument",
       "description": ""
     },
     {
       "codepoint": 10057,
-      "name": "schema:vocabFinancialCard",
+      "name": "schema:FinancialCard",
       "type": "class",
       "uri": "http://unece.org/vocab#FinancialCard",
       "description": ""
     },
     {
       "codepoint": 10058,
-      "name": "schema:vocabGeographicalCoordinate",
+      "name": "schema:GeographicalCoordinate",
       "type": "class",
       "uri": "http://unece.org/vocab#GeographicalCoordinate",
       "description": ""
     },
     {
       "codepoint": 10059,
-      "name": "schema:vocabIncludedConsignmentItem",
+      "name": "schema:IncludedConsignmentItem",
       "type": "property",
       "uri": "http://unece.org/vocab#IncludedConsignmentItem",
       "description": ""
     },
     {
       "codepoint": 10060,
-      "name": "schema:vocabInspectionDateTime",
+      "name": "schema:InspectionDateTime",
       "type": "property",
       "uri": "http://unece.org/vocab#InspectionDateTime",
       "description": ""
     },
     {
       "codepoint": 10061,
-      "name": "schema:vocabInvoice",
+      "name": "schema:Invoice",
       "type": "class",
       "uri": "http://unece.org/vocab#Invoice",
       "description": ""
     },
     {
       "codepoint": 10062,
-      "name": "schema:vocabLineItemIdentifier",
+      "name": "schema:LineItemIdentifier",
       "type": "property",
       "uri": "http://unece.org/vocab#LineItemIdentifier",
       "description": ""
     },
     {
       "codepoint": 10063,
-      "name": "schema:vocabLineTradeAgreement",
+      "name": "schema:LineTradeAgreement",
       "type": "class",
       "uri": "http://unece.org/vocab#LineTradeAgreement",
       "description": ""
     },
     {
       "codepoint": 10064,
-      "name": "schema:vocabModelName",
+      "name": "schema:ModelName",
       "type": "property",
       "uri": "http://unece.org/vocab#ModelName",
       "description": ""
     },
     {
       "codepoint": 10065,
-      "name": "schema:vocabOffer",
+      "name": "schema:Offer",
       "type": "class",
       "uri": "http://unece.org/vocab#Offer",
       "description": ""
     },
     {
       "codepoint": 10066,
-      "name": "schema:vocabOrder",
+      "name": "schema:Order",
       "type": "class",
       "uri": "http://unece.org/vocab#Order",
       "description": ""
     },
     {
       "codepoint": 10067,
-      "name": "schema:vocabOrderDate",
+      "name": "schema:OrderDate",
       "type": "property",
       "uri": "http://unece.org/vocab#OrderDate",
       "description": ""
     },
     {
       "codepoint": 10068,
-      "name": "schema:vocabOrderIdentifier",
+      "name": "schema:OrderIdentifier",
       "type": "property",
       "uri": "http://unece.org/vocab#OrderIdentifier",
       "description": ""
     },
     {
       "codepoint": 10069,
-      "name": "schema:vocabPaymentDueDate",
+      "name": "schema:PaymentDueDate",
       "type": "property",
       "uri": "http://unece.org/vocab#PaymentDueDate",
       "description": ""
     },
     {
       "codepoint": 10070,
-      "name": "schema:vocabPaymentMeans",
+      "name": "schema:PaymentMeans",
       "type": "class",
       "uri": "http://unece.org/vocab#PaymentMeans",
       "description": ""
     },
     {
       "codepoint": 10071,
-      "name": "schema:vocabPaymentMeansID",
+      "name": "schema:PaymentMeansID",
       "type": "property",
       "uri": "http://unece.org/vocab#PaymentMeansID",
       "description": ""
     },
     {
       "codepoint": 10072,
-      "name": "schema:vocabPriceTypeCode",
+      "name": "schema:PriceTypeCode",
       "type": "property",
       "uri": "http://unece.org/vocab#PriceTypeCode",
       "description": ""
     },
     {
       "codepoint": 10073,
-      "name": "schema:vocabProcessingCountry",
+      "name": "schema:ProcessingCountry",
       "type": "property",
       "uri": "http://unece.org/vocab#ProcessingCountry",
       "description": ""
     },
     {
       "codepoint": 10074,
-      "name": "schema:vocabProductAvailabilityDate",
+      "name": "schema:ProductAvailabilityDate",
       "type": "property",
       "uri": "http://unece.org/vocab#ProductAvailabilityDate",
       "description": ""
     },
     {
       "codepoint": 10075,
-      "name": "schema:vocabProductionDate",
+      "name": "schema:ProductionDate",
       "type": "property",
       "uri": "http://unece.org/vocab#ProductionDate",
       "description": ""
     },
     {
       "codepoint": 10076,
-      "name": "schema:vocabPromotionalMessage",
+      "name": "schema:PromotionalMessage",
       "type": "property",
       "uri": "http://unece.org/vocab#PromotionalMessage",
       "description": ""
     },
     {
       "codepoint": 10077,
-      "name": "schema:vocabReferencedOrder",
+      "name": "schema:ReferencedOrder",
       "type": "property",
       "uri": "http://unece.org/vocab#ReferencedOrder",
       "description": ""
     },
     {
       "codepoint": 10078,
-      "name": "schema:vocabRelatedProduct",
+      "name": "schema:RelatedProduct",
       "type": "property",
       "uri": "http://unece.org/vocab#RelatedProduct",
       "description": ""
     },
     {
       "codepoint": 10079,
-      "name": "schema:vocabRequestForQuotation",
+      "name": "schema:RequestForQuotation",
       "type": "class",
       "uri": "http://unece.org/vocab#RequestForQuotation",
       "description": ""
     },
     {
       "codepoint": 10080,
-      "name": "schema:vocabSeller",
+      "name": "schema:Seller",
       "type": "property",
       "uri": "http://unece.org/vocab#Seller",
       "description": ""
     },
     {
       "codepoint": 10081,
-      "name": "schema:vocabSerialId",
+      "name": "schema:SerialId",
       "type": "property",
       "uri": "http://unece.org/vocab#SerialId",
       "description": ""
     },
     {
       "codepoint": 10082,
-      "name": "schema:vocabServiceProvider",
+      "name": "schema:ServiceProvider",
       "type": "property",
       "uri": "http://unece.org/vocab#ServiceProvider",
       "description": ""
     },
     {
       "codepoint": 10083,
-      "name": "schema:vocabShipToAddress",
+      "name": "schema:ShipToAddress",
       "type": "property",
       "uri": "http://unece.org/vocab#ShipToAddress",
       "description": ""
     },
     {
       "codepoint": 10084,
-      "name": "schema:vocabSpecifiedCertificate",
+      "name": "schema:SpecifiedCertificate",
       "type": "class",
       "uri": "http://unece.org/vocab#SpecifiedCertificate",
       "description": ""
     },
     {
       "codepoint": 10085,
-      "name": "schema:vocabSpecifiedTradeProduct",
+      "name": "schema:SpecifiedTradeProduct",
       "type": "class",
       "uri": "http://unece.org/vocab#SpecifiedTradeProduct",
       "description": ""
     },
     {
       "codepoint": 10086,
-      "name": "schema:vocabSubstituteProduct",
+      "name": "schema:SubstituteProduct",
       "type": "property",
       "uri": "http://unece.org/vocab#SubstituteProduct",
       "description": ""
     },
     {
       "codepoint": 10087,
-      "name": "schema:vocabTradeAddress",
+      "name": "schema:TradeAddress",
       "type": "class",
       "uri": "http://unece.org/vocab#TradeAddress",
       "description": ""
     },
     {
       "codepoint": 10088,
-      "name": "schema:vocabTradeProduct",
+      "name": "schema:TradeProduct",
       "type": "class",
       "uri": "http://unece.org/vocab#TradeProduct",
       "description": ""
     },
     {
       "codepoint": 10089,
-      "name": "schema:vocabTransportMethod",
+      "name": "schema:TransportMethod",
       "type": "class",
       "uri": "http://unece.org/vocab#TransportMethod",
       "description": ""
     },
     {
       "codepoint": 10090,
-      "name": "schema:vocabbillingPeriod",
+      "name": "schema:billingPeriod",
       "type": "property",
       "uri": "http://unece.org/vocab#billingPeriod",
       "description": ""
     },
     {
       "codepoint": 10091,
-      "name": "schema:vocabbrandName",
+      "name": "schema:brandName",
       "type": "property",
       "uri": "http://unece.org/vocab#brandName",
       "description": ""
     },
     {
       "codepoint": 10092,
-      "name": "schema:vocabcolourDescription",
+      "name": "schema:colourDescription",
       "type": "property",
       "uri": "http://unece.org/vocab#colourDescription",
       "description": ""
     },
     {
       "codepoint": 10093,
-      "name": "schema:vocabdUNSId",
+      "name": "schema:dUNSId",
       "type": "property",
       "uri": "http://unece.org/vocab#dUNSId",
       "description": ""
     },
     {
       "codepoint": 10094,
-      "name": "schema:vocabfinalAssemblyCountry",
+      "name": "schema:finalAssemblyCountry",
       "type": "property",
       "uri": "http://unece.org/vocab#finalAssemblyCountry",
       "description": ""
     },
     {
       "codepoint": 10095,
-      "name": "schema:vocabgLNId",
+      "name": "schema:gLNId",
       "type": "property",
       "uri": "http://unece.org/vocab#gLNId",
       "description": ""
     },
     {
       "codepoint": 10096,
-      "name": "schema:vocabgTINId",
+      "name": "schema:gTINId",
       "type": "property",
       "uri": "http://unece.org/vocab#gTINId",
       "description": ""
     },
     {
       "codepoint": 10097,
-      "name": "schema:vocablogoReferencedDocument",
+      "name": "schema:logoReferencedDocument",
       "type": "property",
       "uri": "http://unece.org/vocab#logoReferencedDocument",
       "description": ""
     },
     {
       "codepoint": 10098,
-      "name": "schema:vocabmanufacturerAssignedId",
+      "name": "schema:manufacturerAssignedId",
       "type": "property",
       "uri": "http://unece.org/vocab#manufacturerAssignedId",
       "description": ""
     },
     {
       "codepoint": 10099,
-      "name": "schema:vocabmanufacturerParty",
+      "name": "schema:manufacturerParty",
       "type": "property",
       "uri": "http://unece.org/vocab#manufacturerParty",
       "description": ""
     },
     {
       "codepoint": 10100,
-      "name": "schema:vocabnSNId",
+      "name": "schema:nSNId",
       "type": "property",
       "uri": "http://unece.org/vocab#nSNId",
       "description": ""
     },
     {
       "codepoint": 10101,
-      "name": "schema:vocaborderQuantity",
+      "name": "schema:orderQuantity",
       "type": "property",
       "uri": "http://unece.org/vocab#orderQuantity",
       "description": ""
     },
     {
       "codepoint": 10102,
-      "name": "schema:vocaboriginCountry",
+      "name": "schema:originCountry",
       "type": "property",
       "uri": "http://unece.org/vocab#originCountry",
       "description": ""
     },
     {
       "codepoint": 10103,
-      "name": "schema:vocabpostOfficeBox",
+      "name": "schema:postOfficeBox",
       "type": "property",
       "uri": "http://unece.org/vocab#postOfficeBox",
       "description": ""
     },
     {
       "codepoint": 10104,
-      "name": "schema:vocabpostcodeCode",
+      "name": "schema:postcodeCode",
       "type": "property",
       "uri": "http://unece.org/vocab#postcodeCode",
       "description": ""
     },
     {
       "codepoint": 10105,
-      "name": "schema:vocabprintDesignDescription",
+      "name": "schema:printDesignDescription",
       "type": "property",
       "uri": "http://unece.org/vocab#printDesignDescription",
       "description": ""
     },
     {
       "codepoint": 10106,
-      "name": "schema:vocabsellerAssignedId",
+      "name": "schema:sellerAssignedId",
       "type": "property",
       "uri": "http://unece.org/vocab#sellerAssignedId",
       "description": ""
     },
     {
       "codepoint": 10107,
-      "name": "schema:vocabsizeDescription",
+      "name": "schema:sizeDescription",
       "type": "property",
       "uri": "http://unece.org/vocab#sizeDescription",
       "description": ""
     },
     {
       "codepoint": 10108,
-      "name": "schema:vocabvariantId",
+      "name": "schema:variantId",
       "type": "property",
       "uri": "http://unece.org/vocab#variantId",
       "description": ""
     },
     {
       "codepoint": 10109,
-      "name": "schema:22rdfsyntaxnsProperty",
+      "name": "schema:Property",
       "type": "class",
       "uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
       "description": ""
@@ -796,70 +796,70 @@
     },
     {
       "codepoint": 10110,
-      "name": "schema:rdfschemaClass",
+      "name": "schema:Class",
       "type": "class",
       "uri": "http://www.w3.org/2000/01/rdf-schema#Class",
       "description": ""
     },
     {
       "codepoint": 10111,
-      "name": "schema:rdfschemalabel",
+      "name": "schema:label",
       "type": "property",
       "uri": "http://www.w3.org/2000/01/rdf-schema#label",
       "description": ""
     },
     {
       "codepoint": 10112,
-      "name": "schema:corebroader",
+      "name": "schema:broader",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#broader",
       "description": ""
     },
     {
       "codepoint": 10113,
-      "name": "schema:nsVCard",
+      "name": "schema:VCard",
       "type": "class",
       "uri": "http://www.w3.org/2006/vcard/ns#VCard",
       "description": ""
     },
     {
       "codepoint": 10114,
-      "name": "schema:dcatCatalog",
+      "name": "schema:Catalog",
       "type": "class",
       "uri": "http://www.w3.org/ns/dcat#Catalog",
       "description": ""
     },
     {
       "codepoint": 10115,
-      "name": "schema:dcatDataset",
+      "name": "schema:Dataset",
       "type": "class",
       "uri": "http://www.w3.org/ns/dcat#Dataset",
       "description": ""
     },
     {
       "codepoint": 10116,
-      "name": "schema:dcatDistribution",
+      "name": "schema:Distribution",
       "type": "class",
       "uri": "http://www.w3.org/ns/dcat#Distribution",
       "description": ""
     },
     {
       "codepoint": 10117,
-      "name": "schema:coreError",
+      "name": "schema:Error",
       "type": "class",
       "uri": "http://www.w3.org/ns/hydra/core#Error",
       "description": ""
     },
     {
       "codepoint": 10118,
-      "name": "schema:provInstantaneousEvent",
+      "name": "schema:InstantaneousEvent",
       "type": "class",
       "uri": "http://www.w3.org/ns/prov#InstantaneousEvent",
       "description": ""
     },
     {
       "codepoint": 10119,
-      "name": "schema:provatTime",
+      "name": "schema:atTime",
       "type": "class",
       "uri": "http://www.w3.org/ns/prov#atTime",
       "description": ""

@@ -26,42 +26,42 @@
     },
     {
       "codepoint": 2702,
-      "name": "skos:conceptScheme",
+      "name": "skos:ConceptScheme",
       "type": "class",
       "uri": "http://www.w3.org/2004/02/skos/core#ConceptScheme",
       "description": "A set of concepts, optionally including statements about semantic relationships between those concepts."
     },
     {
       "codepoint": 2703,
-      "name": "skos:orderedCollection",
+      "name": "skos:OrderedCollection",
       "type": "class",
       "uri": "http://www.w3.org/2004/02/skos/core#OrderedCollection",
       "description": "An ordered collection of concepts, where both the grouping and the ordering are meaningful."
     },
     {
       "codepoint": 2704,
-      "name": "skos:alternativeLabel",
+      "name": "skos:altLabel",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#altLabel",
       "description": "The range of skos:altLabel is the class of RDF plain literals."
     },
     {
       "codepoint": 2705,
-      "name": "skos:hasBroaderMatch",
+      "name": "skos:broadMatch",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#broadMatch",
       "description": "skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes."
     },
     {
       "codepoint": 2706,
-      "name": "skos:hasBroader",
+      "name": "skos:broader",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#broader",
       "description": "Broader concepts are typically rendered as parents in a concept hierarchy (tree)."
     },
     {
       "codepoint": 2707,
-      "name": "skos:hasBroaderTransitive",
+      "name": "skos:broaderTransitive",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#broaderTransitive",
       "description": "skos:broaderTransitive is a transitive superproperty of skos:broader."
@@ -75,7 +75,7 @@
     },
     {
       "codepoint": 2709,
-      "name": "skos:hasCloseMatch",
+      "name": "skos:closeMatch",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#closeMatch",
       "description": "skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of \"compound errors\" when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property."
@@ -96,7 +96,7 @@
     },
     {
       "codepoint": 2712,
-      "name": "skos:hasExactMatch",
+      "name": "skos:exactMatch",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#exactMatch",
       "description": "skos:exactMatch is disjoint with each of the properties skos:broadMatch and skos:relatedMatch."
@@ -131,49 +131,49 @@
     },
     {
       "codepoint": 2717,
-      "name": "skos:isInScheme",
+      "name": "skos:inScheme",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#inScheme",
       "description": "Relates a resource (for example a concept) to a concept scheme in which it is included."
     },
     {
       "codepoint": 2718,
-      "name": "skos:isInMappingRelationWith",
+      "name": "skos:mappingRelation",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#mappingRelation",
       "description": "These concept mapping relations mirror semantic relations, and the data model defined below is similar (with the exception of skos:exactMatch) to the data model defined for semantic relations. A distinct vocabulary is provided for concept mapping relations, to provide a convenient way to differentiate links within a concept scheme from links between concept schemes. However, this pattern of usage is not a formal requirement of the SKOS data model, and relies on informal definitions of best practice."
     },
     {
       "codepoint": 2719,
-      "name": "skos:hasMember",
+      "name": "skos:member",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#member",
       "description": "Relates a collection to one of its members."
     },
     {
       "codepoint": 2720,
-      "name": "skos:hasMemberList",
+      "name": "skos:memberList",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#memberList",
       "description": "For any resource, every item in the list given as the value of the\n      skos:memberList property is also a value of the skos:member property."
     },
     {
       "codepoint": 2721,
-      "name": "skos:hasNarrowerMatch",
+      "name": "skos:narrowMatch",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#narrowMatch",
       "description": "skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes."
     },
     {
       "codepoint": 2722,
-      "name": "skos:hasNarrower",
+      "name": "skos:narrower",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#narrower",
       "description": "Narrower concepts are typically rendered as children in a concept hierarchy (tree)."
     },
     {
       "codepoint": 2723,
-      "name": "skos:hasNarrowerTransitive",
+      "name": "skos:narrowerTransitive",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#narrowerTransitive",
       "description": "skos:narrowerTransitive is a transitive superproperty of skos:narrower."
@@ -194,21 +194,21 @@
     },
     {
       "codepoint": 2726,
-      "name": "skos:preferredLabel",
+      "name": "skos:prefLabel",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#prefLabel",
       "description": "A resource has no more than one value of skos:prefLabel per language tag, and no more than one value of skos:prefLabel without language tag."
     },
     {
       "codepoint": 2727,
-      "name": "skos:hasRelated",
+      "name": "skos:related",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#related",
       "description": "skos:related is disjoint with skos:broaderTransitive"
     },
     {
       "codepoint": 2728,
-      "name": "skos:hasRelatedMatch",
+      "name": "skos:relatedMatch",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#relatedMatch",
       "description": "skos:relatedMatch is used to state an associative mapping link between two conceptual resources in different concept schemes."
@@ -222,14 +222,14 @@
     },
     {
       "codepoint": 2730,
-      "name": "skos:isInSemanticRelationWith",
+      "name": "skos:semanticRelation",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#semanticRelation",
       "description": "Links a concept to a concept related by meaning."
     },
     {
       "codepoint": 2731,
-      "name": "skos:isTopConceptInScheme",
+      "name": "skos:topConceptOf",
       "type": "property",
       "uri": "http://www.w3.org/2004/02/skos/core#topConceptOf",
       "description": "Relates a concept to the concept scheme that it is a top level concept of."

@@ -26,14 +26,14 @@
     },
     {
       "codepoint": 2802,
-      "name": "solid:insertdeletePatch",
+      "name": "solid:InsertDeletePatch",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#InsertDeletePatch",
       "description": "A class of patch expressing insertions, deletions, and conditional modifications to a resource that has an RDF-based representation."
     },
     {
       "codepoint": 2803,
-      "name": "solid:listedTypeIndex",
+      "name": "solid:ListedDocument",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#ListedDocument",
       "description": "Listed Type Index is a registry of resources that are publicly discoverable by outside users and applications."
@@ -61,21 +61,21 @@
     },
     {
       "codepoint": 2807,
-      "name": "solid:typeIndex",
+      "name": "solid:TypeIndex",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#TypeIndex",
       "description": "A index of type registries for resources. Applications can register the RDF type they use and list them in the index resource."
     },
     {
       "codepoint": 2808,
-      "name": "solid:typeRegistration",
+      "name": "solid:TypeRegistration",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#TypeRegistration",
       "description": "The registered types that map a RDF classes/types to their locations using either `instance` or `instanceContainer` property."
     },
     {
       "codepoint": 2809,
-      "name": "solid:unlistedTypeIndex",
+      "name": "solid:UnlistedDocument",
       "type": "class",
       "uri": "http://www.w3.org/ns/solid/terms#UnlistedDocument",
       "description": "Unlisted Type Index is a registry of resources that are private to the user and their apps, for types that are not publicly discoverable."
@@ -96,14 +96,14 @@
     },
     {
       "codepoint": 2812,
-      "name": "solid:registryClass",
+      "name": "solid:forClass",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#forClass",
       "description": "A class that is used to map an listed or unlisted type index."
     },
     {
       "codepoint": 2813,
-      "name": "solid:inboxDeprecated",
+      "name": "solid:inbox",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#inbox",
       "description": "Deprecated pointer to a Linked Data Notifications inbox; please use http://www.w3.org/ns/ldp#inbox instead."
@@ -208,14 +208,14 @@
     },
     {
       "codepoint": 2828,
-      "name": "solid:nonvolatileMemoryQuota",
+      "name": "solid:storageQuota",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#storageQuota",
       "description": "The quota of non-volatile memory that is available for the account (in bytes)"
     },
     {
       "codepoint": 2829,
-      "name": "solid:nonvolatileMemoryUsage",
+      "name": "solid:storageUsage",
       "type": "property",
       "uri": "http://www.w3.org/ns/solid/terms#storageUsage",
       "description": "The amount of non-volatile memory that the account have used (in bytes)"
