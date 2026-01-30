@@ -701,13 +701,20 @@
       "type": "property",
       "uri": "",
       "description": "Identifies a child node of the subject edge of a ParentChildGraph."
+    },
+    {
+      "codepoint": 706,
+      "name": "Self",
+      "type": "value",
+      "uri": "",
+      "description": "A reference to the subject itself."
     }
   ],
   "statistics": {
-    "total_entries": 88,
+    "total_entries": 89,
     "code_point_range": {
       "start": 0,
-      "end": 705
+      "end": 706
     }
   }
 }

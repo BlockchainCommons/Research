@@ -13,8 +13,8 @@
 
 | Metric | Value |
 |--------|-------|
-| **Total Entries** | 88 |
-| **Code Point Range** | 0 - 705 |
+| **Total Entries** | 89 |
+| **Code Point Range** | 0 - 706 |
 
 ## Entries
 
@@ -166,3 +166,4 @@
 | 703 | `target` | property |  | Identifies the target node of the subject edge of a SourceTargetGraph. |
 | 704 | `parent` | property |  | Identifies the parent node of the subject edge of a ParentChildGraph. |
 | 705 | `child` | property |  | Identifies a child node of the subject edge of a ParentChildGraph. |
+| 706 | `Self` | value |  | A reference to the subject itself. |

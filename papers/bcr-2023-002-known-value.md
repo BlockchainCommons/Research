@@ -162,8 +162,8 @@ When encoded as CBOR, the amount of storage required for integer values varies, 
 The following table summarizes the assigned Known Value code point ranges:
 
 | Name                                                                                                             | Range       | Entries      | JSON                                                                       |
-| ---------------------------------------------------------------------------------------------------------------- | ----------- | ------------ | -------------------------------------------------------------------------- |
-| [Blockchain Commons](../known-value-assignments/markdown/0_blockchain_commons_registry.md)                       | 0-999       | 99           | [JSON](../known-value-assignments/json/0_blockchain_commons_registry.json) |
+|------------------------------------------------------------------------------------------------------------------|-------------|--------------|----------------------------------------------------------------------------|
+| [Blockchain Commons](../known-value-assignments/markdown/0_blockchain_commons_registry.md)                       | 0-999       | see registry | [JSON](../known-value-assignments/json/0_blockchain_commons_registry.json) |
 | [Community Assigned](../known-value-assignments/markdown/1000_community_registry.md) (specification required)    | 1000-1999   | see registry | [JSON](../known-value-assignments/json/1000_community_registry.json)       |
 | [RDF](../known-value-assignments/markdown/2000_rdf_registry.md)                                                  | 2000-2049   | 21           | [JSON](../known-value-assignments/json/2000_rdf_registry.json)             |
 | [RDFS](../known-value-assignments/markdown/2050_rdfs_registry.md)                                                | 2050-2099   | 15           | [JSON](../known-value-assignments/json/2050_rdfs_registry.json)            |
