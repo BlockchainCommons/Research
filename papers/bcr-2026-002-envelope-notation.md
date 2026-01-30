@@ -21,7 +21,7 @@ This document is intended to be read by humans and AI agents. It is *not* a form
 
 An envelope is a *subject* with multiple *assertions*. Each assertion asserts a *fact* about the subject. Square brackets `[` and `]` denote the start and end of the assertions for a subject. There are no line terminators or commas between assertions.
 
-```
+```envelope
 <subject> [
     <assertion>
     <assertion>
@@ -32,7 +32,7 @@ An envelope is a *subject* with multiple *assertions*. Each assertion asserts a 
 
 Assertions are composed of a *predicate* and an *object*, separated by a colon `:`.
 
-```
+```envelope
 <subject> [
     <predicate>: <object>
     <predicate>: <object>
@@ -47,7 +47,7 @@ $$(subject, predicate, object) \in Envelope$$
 
 A subject can have no assertions (a *bare subject*):
 
-```
+```envelope
 <subject>
 ```
 
@@ -55,13 +55,13 @@ Brackets always contain one or more assertions. An envelope with no assertions *
 
 An assertion can also stand alone (a *bare assertion*):
 
-```
+```envelope
 <predicate>: <object>
 ```
 
 An envelope can be *wrapped*. The wrapped subject *and* its assertions become the subject of the envelope. It is denoted by enclosing the entire subject and its assertions in curly braces `{` and `}`.
 
-```
+```envelope
 {
     <subject> [
         <assertion>
@@ -72,7 +72,7 @@ An envelope can be *wrapped*. The wrapped subject *and* its assertions become th
 
 This allows assertions to be placed on the entire wrapped envelope. Below, `inner-assertion`s are assertions about the *subject* of the inner envelope, while `outer-assertion`s are assertions about the *entire inner envelope*. This pattern is commonly used when signing.
 
-```
+```envelope
 {
     <subject> [
         <inner-assertion>
@@ -95,7 +95,7 @@ Every *position* within an envelope is *also itself* an envelope. So every posit
 
 Subject with an assertion (most common):
 
-```
+```envelope
 <subject> [
     <predicate>: <object>
 ]
@@ -103,7 +103,7 @@ Subject with an assertion (most common):
 
 Wrapped envelope with an assertion (common):
 
-```
+```envelope
 {
     <subject> [
         <inner-assertion>
@@ -115,7 +115,7 @@ Wrapped envelope with an assertion (common):
 
 Object with an assertion (common):
 
-```
+```envelope
 <subject> [
     <predicate>: <object> [
         <object-assertion>
@@ -125,7 +125,7 @@ Object with an assertion (common):
 
 Predicate with an assertion (rare):
 
-```
+```envelope
 <subject> [
     <predicate> [
         <predicate-assertion>
@@ -136,7 +136,7 @@ Predicate with an assertion (rare):
 
 Assertion with an assertion (less common):
 
-```
+```envelope
 <subject> [
     {
         <predicate>: <object>
@@ -174,13 +174,13 @@ Because Envelope Notation is a human-readable format, the envelope formatter may
 
 A bare subject that is a leaf displays just the leaf value. This is the notation for a simple but complete envelope:
 
-```
+```envelope
 "Just a string"
 ```
 
 Here `UUID` and `Date` are known tagged CBOR types, so they are displayed with their canonical names and formatted values:
 
-```
+```envelope
 UUID(dd1aaad2-0ae6-4402-9806-f60ba7a51361) {
     'isA': "HeartRateMeasurement"
     'date': Date(2026-01-15T10:30:00Z)
@@ -194,7 +194,7 @@ UUID(dd1aaad2-0ae6-4402-9806-f60ba7a51361) {
 
 For example, the known value `1` has the canonical name `isA`, and is used as a predicate to assert the type of a subject. By noticing what kinds of quotes are used, the reader can immediately see that `'isA'` is a known value and `"SomeType"` is a string:
 
-```
+```envelope
 <subject> [
     'isA': "SomeType"
 ]
@@ -202,7 +202,7 @@ For example, the known value `1` has the canonical name `isA`, and is used as a 
 
 If the envelope formatter encounters an *unknown* known value, it will display the known value's integer code point in single quotes:
 
-```
+```envelope
 <subject> [
     '9999': "No idea what's being asserted here"
 ]
@@ -214,11 +214,41 @@ Known value code points have been assigned to many common concepts, as well as t
 
 Known value `0` represents the [Unit](https://grokipedia.com/page/Unit_type), which is a type as well as its sole inhabitant. It is used to denote not merely the *absence* of a value (that is what `null` is for), but to hold a position where there *can* be no information conveyed and it would be *invalid* to do so. It is displayed as empty single quotes `''`. The most common use of Unit is as the subject of an envelope entirely defined by its assertions:
 
-```
+```envelope
 '' [
     'isA': 'foaf:Person'
     'foaf:firstName': "Alice"
     'foaf:lastName': "Smith"
+]
+```
+
+In the case where such a structure has a unique identifier for the referent, the subject may instead be a known value representing the unique identifier, e.g. a UUID, or XID:
+
+```envelope
+UUID(a25e5f24-33e2-41ba-b5c3-61c7d630620a) [
+    'isA': 'foaf:Person'
+    'foaf:firstName': "Carol"
+    'foaf:lastName': "Johnson"
+]
+```
+
+Where a unique identifier is not available, `null` may be used as the subject to indicate the envelope refers an unidentified entity where the identifier may or may not exist:
+
+```envelope
+null [
+    'isA': 'foaf:Person'
+    'foaf:firstName': "Bob"
+    'foaf:lastName': "Jones"
+]
+```
+
+The `'unknown'` known value is used to indicate that the identifier *must* exist, but is not known:
+
+```envelope
+'unknown' [
+    'isA': 'foaf:Person'
+    'foaf:firstName': "Eve"
+    'foaf:lastName': "Unknown"
 ]
 ```
 
@@ -234,7 +264,7 @@ In the examples below `<OBSCURED>` can appear as `ELIDED`, `ENCRYPTED`, or `COMP
 
 No positions obscured:
 
-```
+```envelope
 "Alice" [
     'foaf:knows': "Bob"
 ]
@@ -242,7 +272,7 @@ No positions obscured:
 
 Subject obscured:
 
-```
+```envelope
 <OBSCURED> [
     'foaf:knows': "Bob"
 ]
@@ -250,7 +280,7 @@ Subject obscured:
 
 Predicate obscured:
 
-```
+```envelope
 "Alice" [
     <OBSCURED>: "Bob"
 ]
@@ -258,7 +288,7 @@ Predicate obscured:
 
 Object obscured:
 
-```
+```envelope
 "Alice" [
     'foaf:knows': <OBSCURED>
 ]
@@ -266,7 +296,7 @@ Object obscured:
 
 Predicate and object obscured:
 
-```
+```envelope
 "Alice" [
     <OBSCURED>: <OBSCURED>
 ]
@@ -274,7 +304,7 @@ Predicate and object obscured:
 
 Entire assertion obscured:
 
-```
+```envelope
 "Alice" [
     <OBSCURED>
 ]
@@ -282,13 +312,13 @@ Entire assertion obscured:
 
 Entire envelope obscured:
 
-```
+```envelope
 <OBSCURED>
 ```
 
 When more than one assertion has been obscured in the same way, they are grouped together for brevity. Here five assertions have been elided, but their digests remain separately verifiable:
 
-```
+```envelope
 "Alice" [
     ELIDED (5)
 ]
@@ -298,7 +328,7 @@ When more than one assertion has been obscured in the same way, they are grouped
 
 In a Gordian Envelope, each assertion must have a unique digest. In other words, no two assertions can be identical. Because Envelope Notation can abbreviate values for readability, it may appear that duplicate assertions exist when they do not. For example, here are two assertions that *look* identical, but actually *must* have different byte strings for the objects:
 
-```
+```envelope
 <subject> [
     'key': Bytes(16)
     'key': Bytes(16)
@@ -313,7 +343,7 @@ The important thing to remember is that in a Gordian Envelope, assertions are *u
 
 Signatures are assertions. But as assertions assert facts about their subjects, an envelope like this would not sign the whole envelope, but only the subject.
 
-```
+```envelope
 <subject> [
     <inner-assertion>
     'signed': Signature
@@ -322,7 +352,7 @@ Signatures are assertions. But as assertions assert facts about their subjects, 
 
 To sign the entire envelope, including its assertions, the common pattern is to *wrap* the envelope first, then place the signature assertion on the outer envelope:
 
-```
+```envelope
 {
     <subject> [
         <inner-assertion>
@@ -338,7 +368,7 @@ The plaintext envelope is optionally signed, then symmetrically encrypted with t
 
 Plaintext signed then wrapped:
 
-```
+```envelope
 {
     {
         <subject> [
@@ -352,13 +382,13 @@ Plaintext signed then wrapped:
 
 The subject (now the entire signed envelope) is then encrypted using the content key:
 
-```
+```envelope
 ENCRYPTED
 ```
 
 The encrypted envelope is then asserted for each recipient:
 
-```
+```envelope
 ENCRYPTED [
     'hasRecipient': SealedMessage
     'hasRecipient': SealedMessage
@@ -369,7 +399,7 @@ ENCRYPTED [
 
 A password may be used to symmetrically encrypt the content key. The `hasSecret` assertion contains an `EncryptedKey` object with the encrypted content key and necessary parameters.
 
-```
+```envelope
 ENCRYPTED [
     'hasSecret': EncryptedKey(Argon2id)
 ]
@@ -379,7 +409,7 @@ ENCRYPTED [
 
 Before elision the assertion object is decorated with a salt assertion to prevent identical objects from producing identical digests.
 
-```
+```envelope
 <subject> [
     {
         <predicate>: <object>
@@ -391,7 +421,7 @@ Before elision the assertion object is decorated with a salt assertion to preven
 
 After elision the digest remains, but the salt prevents correlation.
 
-```
+```envelope
 <subject> [
     ELIDED
 ]
@@ -403,7 +433,7 @@ After elision the digest remains, but the salt prevents correlation.
 
 Example: a cryptographic seed envelope with two attachments, each conforming to a different version of a seed attachment format, along with a name and note assertions:
 
-```
+```envelope
 Bytes(16) [
     'isA': 'Seed'
     'attachment': {
@@ -443,7 +473,7 @@ Envelope notation uses some punctuation characters in ways that are overloaded b
 
 ## Mock Example: Supply Chain Manifest
 
-```
+```envelope
 {
     UUID(550e8400-e29b-41d4-a716-446655440000) [
         'isA': "ElectronicComponent"
