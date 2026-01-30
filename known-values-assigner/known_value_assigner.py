@@ -180,6 +180,14 @@ ONTOLOGY_CONFIGS = [
         uri_filter="https://schema.org/",
     ),
     OntologyConfig(
+        name="gs1",
+        source_url="https://raw.githubusercontent.com/gs1/WebVoc/master/v1.16/gs1Voc.ttl",
+        start_code_point=3000,
+        data_format=DataFormat.TURTLE,
+        strategy=ProcessingStrategy.STANDARD_RDF,
+        uri_filter="https://ref.gs1.org/voc/",
+    ),
+    OntologyConfig(
         name="vc",
         source_url="https://www.w3.org/ns/credentials/v2",
         start_code_point=2900,
@@ -223,7 +231,12 @@ class OntologyFetcher:
         """Generate a cache filename from URL and ontology name."""
         # Use hash of URL to handle special characters
         url_hash = hashlib.md5(url.encode()).hexdigest()[:8]
-        extension = ".jsonld" if "json" in url.lower() else ".rdf"
+        if "json" in url.lower():
+            extension = ".jsonld"
+        elif url.lower().endswith(".ttl"):
+            extension = ".ttl"
+        else:
+            extension = ".rdf"
         return self.cache_dir / f"{ontology_name}_{url_hash}{extension}"
 
     def fetch(self, url: str, data_format: DataFormat, ontology_name: str,

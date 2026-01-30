@@ -174,6 +174,7 @@ The following table summarizes the assigned Known Value code point ranges:
 | [SKOS](../known-value-assignments/markdown/2700_skos_registry.md)                                                | 2700-2799   | 32           | [JSON](../known-value-assignments/json/2700_skos_registry.json)            |
 | [Solid](../known-value-assignments/markdown/2800_solid_registry.md)                                              | 2800-2899   | 33           | [JSON](../known-value-assignments/json/2800_solid_registry.json)           |
 | [W3C Verifiable Credentials](../known-value-assignments/markdown/2900_vc_registry.md)                            | 2900-2999   | 28           | [JSON](../known-value-assignments/json/2900_vc_registry.json)              |
+| [GS1 Web Vocabulary](../known-value-assignments/markdown/3000_gs1_registry.md)                                   | 3000-3999   | 609          | [JSON](../known-value-assignments/json/3000_gs1_registry.json)             |
 | [Schema.org](../known-value-assignments/markdown/10000_schema_registry.md)                                       | 10000-19999 | 2450         | [JSON](../known-value-assignments/json/10000_schema_registry.json)         |
 | [Community Assigned](../known-value-assignments/markdown/100000_community_registry.md) (first come-first served) | 100000-...  | see registry | [JSON](../known-value-assignments/json/100000_community_registry.json)     |
 
@@ -225,6 +226,10 @@ Solid (Social Linked Data) is a W3C project for decentralized data storage and i
 #### W3C Verifiable Credentials
 
 The W3C Verifiable Credentials vocabulary provides terms for expressing credentials on the Web in a cryptographically secure, privacy-respecting, and machine-verifiable way. It defines concepts like `VerifiableCredential`, `VerifiablePresentation`, `credentialSubject`, `issuer`, and `proof`. This vocabulary is fundamental to decentralized identity and digital credential ecosystems.
+
+#### GS1 Web Vocabulary
+
+The GS1 Web Vocabulary is an OWL ontology for global supply chain and product identification, published by GS1 (the organization behind barcodes and GTINs). It extends Schema.org with detailed product, organization, and supply chain concepts covering food/beverage/tobacco products, wearable products, allergen details, nutrition information, packaging, certifications, and extensive code lists for regulated product data. The vocabulary defines classes like `gs1:Product`, `gs1:Organization`, and `gs1:FoodBeverageTobaccoProduct`, along with properties for GTINs, ingredient sequences, allergen declarations, and GS1 Digital Link resolver types.
 
 #### Schema.org
 

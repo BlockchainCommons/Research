@@ -1,0 +1,4284 @@
+{
+  "ontology": {
+    "name": "gs1",
+    "source_url": "https://raw.githubusercontent.com/gs1/WebVoc/master/v1.16/gs1Voc.ttl",
+    "start_code_point": 3000,
+    "processing_strategy": "StandardRDF"
+  },
+  "generated": {
+    "tool": "KnownValueAssigner",
+    "version": "1.0.0"
+  },
+  "entries": [
+    {
+      "codepoint": 3000,
+      "name": "gs1:AI",
+      "type": "datatype",
+      "uri": "https://ref.gs1.org/voc/AI",
+      "description": "A Data Type that corresponds to GS1 Application Identifiers defined in the GS1 General Specifications"
+    },
+    {
+      "codepoint": 3001,
+      "name": "gs1:AdditionalProductClassificationDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/AdditionalProductClassificationDetails",
+      "description": "A product classification for the product other than the Global Product Classification(GPC brick value)."
+    },
+    {
+      "codepoint": 3002,
+      "name": "gs1:AdditiveDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/AdditiveDetails",
+      "description": "A set of details about one of the additives within the product."
+    },
+    {
+      "codepoint": 3003,
+      "name": "gs1:AllergenDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/AllergenDetails",
+      "description": "Details of an allergen for a product."
+    },
+    {
+      "codepoint": 3004,
+      "name": "gs1:AuthenticityDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/AuthenticityDetails",
+      "description": "A set of details about covert or overt security features that may contribute to checking the authenticity of a product or product instance."
+    },
+    {
+      "codepoint": 3005,
+      "name": "gs1:AwardPrizeDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/AwardPrizeDetails",
+      "description": "Describes a prize or award won by a product or organization."
+    },
+    {
+      "codepoint": 3006,
+      "name": "gs1:Beverage",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/Beverage",
+      "description": "Any potable liquid."
+    },
+    {
+      "codepoint": 3007,
+      "name": "gs1:Brand",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/Brand",
+      "description": "Information on brands and sub-brands for a product."
+    },
+    {
+      "codepoint": 3008,
+      "name": "gs1:CertificationDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/CertificationDetails",
+      "description": "Certification issued by a certifying body to a certification subject (Organization, Place, Product)."
+    },
+    {
+      "codepoint": 3009,
+      "name": "gs1:Clothing",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/Clothing",
+      "description": " A product that is worn on the body."
+    },
+    {
+      "codepoint": 3010,
+      "name": "gs1:ColourCodeDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/ColourCodeDetails",
+      "description": "A set of colour code details (colour code, party controlling the code list) for the product."
+    },
+    {
+      "codepoint": 3011,
+      "name": "gs1:CompulsoryAdditionalInformation",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/CompulsoryAdditionalInformation",
+      "description": "The group of compulsory information about a product."
+    },
+    {
+      "codepoint": 3012,
+      "name": "gs1:ContactPoint",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/ContactPoint",
+      "description": "Information on an individual or department acting as point of contact for an organiation."
+    },
+    {
+      "codepoint": 3013,
+      "name": "gs1:Country",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/Country",
+      "description": "Country is a complex data type that indicates a country and a country subdivision."
+    },
+    {
+      "codepoint": 3014,
+      "name": "gs1:DietTypeCodeDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/DietTypeCodeDetails",
+      "description": "A set of diet type code details (diet type code and diet type sub code) for the product."
+    },
+    {
+      "codepoint": 3015,
+      "name": "gs1:Discount",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/Discount",
+      "description": "Provides information on a discount applicable to an offer for example 2 percent."
+    },
+    {
+      "codepoint": 3016,
+      "name": "gs1:FoodAndBeveragePreparationInformation",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/FoodAndBeveragePreparationInformation",
+      "description": "Food and Beverage Preparation Information is a complex data type that indicates a preparation state code and preparation instructions."
+    },
+    {
+      "codepoint": 3017,
+      "name": "gs1:FoodBeverageTobaccoIngredientDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/FoodBeverageTobaccoIngredientDetails",
+      "description": "Food Beverage Tobacco Ingredient is a complex data type that includes an ingredient statement and details."
+    },
+    {
+      "codepoint": 3018,
+      "name": "gs1:FoodBeverageTobaccoProduct",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/FoodBeverageTobaccoProduct",
+      "description": "A food, beverage or tobacco product."
+    },
+    {
+      "codepoint": 3019,
+      "name": "gs1:Footwear",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/Footwear",
+      "description": " Outerwear that is worn on the feet such as shoes or boots."
+    },
+    {
+      "codepoint": 3020,
+      "name": "gs1:FruitsVegetables",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/FruitsVegetables",
+      "description": "Contains properties related specifically to fruit and vegetable products."
+    },
+    {
+      "codepoint": 3021,
+      "name": "gs1:GeoCoordinates",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/GeoCoordinates",
+      "description": "The geographic coordinates of a place or event."
+    },
+    {
+      "codepoint": 3022,
+      "name": "gs1:GeoShape",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/GeoShape",
+      "description": "The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs. Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points."
+    },
+    {
+      "codepoint": 3023,
+      "name": "gs1:LocationID_Details",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/LocationID_Details",
+      "description": "Government bodies, trade organisations, and other parties issue identifiers that are associated to locations. Linking these identifiers to GLN and one another supports consolidating records, mapping related, collaborative identifiers, enhances search ability and enables more efficient transitions between identifiers.  This class provides a mechanism for connecting and sharing location identifiers."
+    },
+    {
+      "codepoint": 3024,
+      "name": "gs1:LocationStatusHistory",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/LocationStatusHistory",
+      "description": "Over the lifetime of a location, it may go through periods of being active and inactive. gs1:LocationStatusHistory allows changes in status to be communicated in advance and tracked over time."
+    },
+    {
+      "codepoint": 3025,
+      "name": "gs1:MeatPoultry",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/MeatPoultry",
+      "description": "Meat and poultry products."
+    },
+    {
+      "codepoint": 3026,
+      "name": "gs1:Message",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/Message",
+      "description": "Any kind of electronic message for communication of information from one party to one or more other parties."
+    },
+    {
+      "codepoint": 3027,
+      "name": "gs1:MilkButterCreamYogurtCheeseEggsSubstitutes",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/MilkButterCreamYogurtCheeseEggsSubstitutes",
+      "description": "Milk butter cream yogurts cheese eggs and any substitutes for these products."
+    },
+    {
+      "codepoint": 3028,
+      "name": "gs1:NutritionMeasurementType",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/NutritionMeasurementType",
+      "description": "A class providing nutritional value and intake percent."
+    },
+    {
+      "codepoint": 3029,
+      "name": "gs1:Offer",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/Offer",
+      "description": "An offer to transfer some rights to an item or to provide a service,for example, an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, to repair a motorcycle, or to loan a book."
+    },
+    {
+      "codepoint": 3030,
+      "name": "gs1:OrganicClaimDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/OrganicClaimDetails",
+      "description": "A set of organic claim details for the product."
+    },
+    {
+      "codepoint": 3031,
+      "name": "gs1:Organization",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/Organization",
+      "description": "An Organization is any legal or physical entity involved at any point in any supply chain and upon which there is a need to retrieve predefined information. An Organization is uniquely identified by a Global Location Number (GLN)."
+    },
+    {
+      "codepoint": 3032,
+      "name": "gs1:OrganizationID_Details",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/OrganizationID_Details",
+      "description": "Government bodies, trade organisations, and other parties issue identifiers that are associated to legal entities and/or functions. Linking these identifiers to GLN and one another supports consolidating records, mapping related, collaborative identifiers, enhances search ability and enables more efficient transitions between identifiers.  This class provides a mechanism for connecting and sharing party identifiers."
+    },
+    {
+      "codepoint": 3033,
+      "name": "gs1:OrganizationStatusHistory",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/OrganizationStatusHistory",
+      "description": "Over the lifetime of an organisation, it may go through periods of being active and inactive. gs1:OrganizationStatusHistory allows changes in status to be communicated in advance and tracked over time."
+    },
+    {
+      "codepoint": 3034,
+      "name": "gs1:PackagingDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/PackagingDetails",
+      "description": "Details on packaging for a product for example packaging type (bottle), materials, features, recycling, etc.."
+    },
+    {
+      "codepoint": 3035,
+      "name": "gs1:PackagingMaterialDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/PackagingMaterialDetails",
+      "description": "Information on any material used for packaging."
+    },
+    {
+      "codepoint": 3036,
+      "name": "gs1:Place",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/Place",
+      "description": "Entities that have a somewhat fixed, physical location."
+    },
+    {
+      "codepoint": 3037,
+      "name": "gs1:PostalAddress",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/PostalAddress",
+      "description": "The location at which a particular organization or person may be found or reached."
+    },
+    {
+      "codepoint": 3038,
+      "name": "gs1:PriceSpecification",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/PriceSpecification",
+      "description": "A structured value representing a monetary amount, consisting of a value and currency code."
+    },
+    {
+      "codepoint": 3039,
+      "name": "gs1:Product",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/Product",
+      "description": "Any item (product or service) upon which there is a need to retrieve pre-defined information and that may be priced, or ordered, or invoiced at any point in any supply chain."
+    },
+    {
+      "codepoint": 3040,
+      "name": "gs1:ProductYieldDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/ProductYieldDetails",
+      "description": "A grouping of properties related to the yield of a food or beverage product according to a specified type of preparation."
+    },
+    {
+      "codepoint": 3041,
+      "name": "gs1:QuantitativeValue",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/QuantitativeValue",
+      "description": "A point value or interval for product characteristics and other purposes. A unit of measurement is also specified."
+    },
+    {
+      "codepoint": 3042,
+      "name": "gs1:ReferencedFileDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/ReferencedFileDetails",
+      "description": "Provides URL and other information on a referenced electronic file."
+    },
+    {
+      "codepoint": 3043,
+      "name": "gs1:RegulatoryIdentifier",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/RegulatoryIdentifier",
+      "description": "A repeatable grouping of identifiers that reference one document, record or dataset within one regulatory information system, repository or registry"
+    },
+    {
+      "codepoint": 3044,
+      "name": "gs1:RegulatoryInformation",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/RegulatoryInformation",
+      "description": "Information on applicable government regulations applicable to a trade item"
+    },
+    {
+      "codepoint": 3045,
+      "name": "gs1:RegulatoryNotification",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/RegulatoryNotification",
+      "description": "A notification message about information on applicable government regulations applicable to a trade item"
+    },
+    {
+      "codepoint": 3046,
+      "name": "gs1:ReturnablePackageDepositDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/ReturnablePackageDepositDetails",
+      "description": "Details of the deposit for returnable packaging for a product."
+    },
+    {
+      "codepoint": 3047,
+      "name": "gs1:Seafood",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/Seafood",
+      "description": "Seafood Products including fish and shellfish."
+    },
+    {
+      "codepoint": 3048,
+      "name": "gs1:SizeCodeDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/SizeCodeDetails",
+      "description": "A grouping of properties related to the representing the size of a product, by specifying a value from a specified code list."
+    },
+    {
+      "codepoint": 3049,
+      "name": "gs1:SizeDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/SizeDetails",
+      "description": "A grouping of properties related to the size of a wearable product"
+    },
+    {
+      "codepoint": 3050,
+      "name": "gs1:TargetMarketDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/TargetMarketDetails",
+      "description": "A set of target market details (product release date and associated countries) for the product."
+    },
+    {
+      "codepoint": 3051,
+      "name": "gs1:TextileMaterialDetails",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/TextileMaterialDetails",
+      "description": "Details on the composition of any materials used to make a product using textiles."
+    },
+    {
+      "codepoint": 3052,
+      "name": "gs1:Transaction",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/Transaction",
+      "description": "A repeatable grouping of identifiers that identify a business transaction ID and its type"
+    },
+    {
+      "codepoint": 3053,
+      "name": "gs1:TypeCode",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/TypeCode",
+      "description": "A code list."
+    },
+    {
+      "codepoint": 3054,
+      "name": "gs1:WarrantyPromise",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/WarrantyPromise",
+      "description": "An assurance that the product is reliable and that repairs or replacement will be done free of charge within a given time limit and under certain conditions in the event of a defect."
+    },
+    {
+      "codepoint": 3055,
+      "name": "gs1:WearableProduct",
+      "type": "class",
+      "uri": "https://ref.gs1.org/voc/WearableProduct",
+      "description": "Products that are worn on the body."
+    },
+    {
+      "codepoint": 3056,
+      "name": "gs1:acceptedPaymentMethod",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/acceptedPaymentMethod",
+      "description": "Code indicating a means of payment, for example, BANK_CHEQUE, CASH, etc."
+    },
+    {
+      "codepoint": 3057,
+      "name": "gs1:activityIdeas",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/activityIdeas",
+      "description": "A link to ideas for using a product or engaging in other forms of entertainment, particularly with children."
+    },
+    {
+      "codepoint": 3058,
+      "name": "gs1:additionalLocationID",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/additionalLocationID",
+      "description": "Location identifiers assigned and managed by government bodies, trade organisations, and other entities."
+    },
+    {
+      "codepoint": 3059,
+      "name": "gs1:additionalOrganizationID",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/additionalOrganizationID",
+      "description": "Party/organisation identifiers assigned and managed by government bodies, trade organisations, and other entities."
+    },
+    {
+      "codepoint": 3060,
+      "name": "gs1:additionalOrganizationIdentificationTypeValue",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/additionalOrganizationIdentificationTypeValue",
+      "description": "The value associated with the Additional Organization Identification Type Value."
+    },
+    {
+      "codepoint": 3061,
+      "name": "gs1:additionalProductClassification",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/additionalProductClassification",
+      "description": "Relates to a set of additional product classification details"
+    },
+    {
+      "codepoint": 3062,
+      "name": "gs1:additionalProductClassificationCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/additionalProductClassificationCode",
+      "description": "Code specifying the applied additional product classification scheme."
+    },
+    {
+      "codepoint": 3063,
+      "name": "gs1:additionalProductClassificationCodeDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/additionalProductClassificationCodeDescription",
+      "description": "A description related to  the additional product classification code value."
+    },
+    {
+      "codepoint": 3064,
+      "name": "gs1:additionalProductClassificationValue",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/additionalProductClassificationValue",
+      "description": "Code specifying an additional product classification other than the GS1 Global Product Classification. The applied classification scheme is specified as additional information together with the classification value."
+    },
+    {
+      "codepoint": 3065,
+      "name": "gs1:additionalProductDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/additionalProductDescription",
+      "description": "Additional variants necessary to communicate to the industry to help define the product. Multiple variants can be established for each GTIN for e.g. Style, Colour, and Fragrance ."
+    },
+    {
+      "codepoint": 3066,
+      "name": "gs1:additive",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/additive",
+      "description": "Relates to details about any additives that a product may contain."
+    },
+    {
+      "codepoint": 3067,
+      "name": "gs1:additiveLevelOfContainment",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/additiveLevelOfContainment",
+      "description": "Code indicating the level of presence of the additive."
+    },
+    {
+      "codepoint": 3068,
+      "name": "gs1:additiveName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/additiveName",
+      "description": "The name of any additive or genetic modification contained or not contained in the product ."
+    },
+    {
+      "codepoint": 3069,
+      "name": "gs1:address",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/address",
+      "description": "The postal address for an organization or place."
+    },
+    {
+      "codepoint": 3070,
+      "name": "gs1:addressCountry",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/addressCountry",
+      "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1."
+    },
+    {
+      "codepoint": 3071,
+      "name": "gs1:addressLocality",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/addressLocality",
+      "description": "Text specifying the name of the locality, for example a city."
+    },
+    {
+      "codepoint": 3072,
+      "name": "gs1:addressRegion",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/addressRegion",
+      "description": "Text specifying a province or state in abbreviated format for example NJ."
+    },
+    {
+      "codepoint": 3073,
+      "name": "gs1:addressSuburb",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/addressSuburb",
+      "description": "A suburb within a town or city."
+    },
+    {
+      "codepoint": 3074,
+      "name": "gs1:affiliatedTo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/affiliatedTo",
+      "description": "Method for associating an organisation/party affiliated to the identified organisation e.g., when engaged in an agent relationship (insurance, shipping, etc)."
+    },
+    {
+      "codepoint": 3075,
+      "name": "gs1:afterHoursContact",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/afterHoursContact",
+      "description": "Links to after-hours contact information. For general contact details, gs1:contactPoint SHALL be used."
+    },
+    {
+      "codepoint": 3076,
+      "name": "gs1:alcoholicBeverageSubregion",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/alcoholicBeverageSubregion",
+      "description": "A legally defined geographical region where the grapes for a wine were grown also known as an appellation. It is recommended to populate this property with an ISO 3166-2 code to indicate country and subdivision."
+    },
+    {
+      "codepoint": 3077,
+      "name": "gs1:allergenInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/allergenInfo",
+      "description": "A link to a description of the allergen information."
+    },
+    {
+      "codepoint": 3078,
+      "name": "gs1:allergenLevelOfContainmentCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/allergenLevelOfContainmentCode",
+      "description": "Code specifying the level of presence of the allergen."
+    },
+    {
+      "codepoint": 3079,
+      "name": "gs1:allergenSpecificationAgency",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/allergenSpecificationAgency",
+      "description": "The agency or other organization that defines or manages the criteria for allergen containment."
+    },
+    {
+      "codepoint": 3080,
+      "name": "gs1:allergenSpecificationName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/allergenSpecificationName",
+      "description": "Free text field containing the name and version of the regulation or standard that defines the criteria of allergen containment."
+    },
+    {
+      "codepoint": 3081,
+      "name": "gs1:allergenStatement",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/allergenStatement",
+      "description": "Textual description of the presence or absence of allergens as governed by local rules and regulations, specified as one string."
+    },
+    {
+      "codepoint": 3082,
+      "name": "gs1:allergenType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/allergenType",
+      "description": "Code specifying the type of allergen."
+    },
+    {
+      "codepoint": 3083,
+      "name": "gs1:anatomicalForm",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/anatomicalForm",
+      "description": "Describes the meat product in terms of whether it is the whole animal or part of the animal which has been cut such as the muscle, bone, organ, or fat."
+    },
+    {
+      "codepoint": 3084,
+      "name": "gs1:appDownload",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/appDownload",
+      "description": "A link to a related mobile app"
+    },
+    {
+      "codepoint": 3085,
+      "name": "gs1:applicableProducts",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/applicableProducts",
+      "description": "The set of product identifiers for which this regulatory notification message applies."
+    },
+    {
+      "codepoint": 3086,
+      "name": "gs1:applicableTo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/applicableTo",
+      "description": "A property linking a gs1:linkType to the primary GS1 key(s) for which it can be used. Similar to rdfs:Domain but the value space is a GS1 Application Identifier, not a class."
+    },
+    {
+      "codepoint": 3087,
+      "name": "gs1:applicableTransactions",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/applicableTransactions",
+      "description": "References one or more business transactions"
+    },
+    {
+      "codepoint": 3088,
+      "name": "gs1:audioFile",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/audioFile",
+      "description": "Link to a file containing an audio clip which is relevant to the product. Examples are commercials, or instructional/ how to use audio files."
+    },
+    {
+      "codepoint": 3089,
+      "name": "gs1:authenticity",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/authenticity",
+      "description": "Links to details of covert/overt security markings that may be used to check authenticity of a product instance."
+    },
+    {
+      "codepoint": 3090,
+      "name": "gs1:authenticitySecurityFeatureInstructions",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/authenticitySecurityFeatureInstructions",
+      "description": "Provides human-readable instructions about how to locate a physical security marking and read a value from it."
+    },
+    {
+      "codepoint": 3091,
+      "name": "gs1:authenticitySecurityFeatureInstructionsURL",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/authenticitySecurityFeatureInstructionsURL",
+      "description": "Links to online instructions about how to locate a physical security marking and read a value from it."
+    },
+    {
+      "codepoint": 3092,
+      "name": "gs1:authenticitySecurityFeatureRegularExpression",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/authenticitySecurityFeatureRegularExpression",
+      "description": "Links to a regular expression to be used to perform syntax validation (plausibility checking) of a string value read from a physical security marking."
+    },
+    {
+      "codepoint": 3093,
+      "name": "gs1:authenticitySecurityFeatureType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/authenticitySecurityFeatureType",
+      "description": "Links to a URI code value indicating a particular type of physical security marking."
+    },
+    {
+      "codepoint": 3094,
+      "name": "gs1:authenticitySecurityFeatureValue",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/authenticitySecurityFeatureValue",
+      "description": "Links to a string value read from a physical security marking."
+    },
+    {
+      "codepoint": 3095,
+      "name": "gs1:availabilityEnds",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/availabilityEnds",
+      "description": "The date from which the product is no longer available from the information provider, including seasonal or temporary product and services ."
+    },
+    {
+      "codepoint": 3096,
+      "name": "gs1:availabilityStarts",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/availabilityStarts",
+      "description": "The date from which the product is available from the information provider, including seasonal or temporary product and services."
+    },
+    {
+      "codepoint": 3097,
+      "name": "gs1:availableAtOrFrom",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/availableAtOrFrom",
+      "description": "The location the offered product or service is available from."
+    },
+    {
+      "codepoint": 3098,
+      "name": "gs1:availableLanguage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/availableLanguage",
+      "description": "ISO 639-1 code specifying the language of a specified contact point."
+    },
+    {
+      "codepoint": 3099,
+      "name": "gs1:awardPrize",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/awardPrize",
+      "description": "An award or prize given to the product."
+    },
+    {
+      "codepoint": 3100,
+      "name": "gs1:awardPrizeCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/awardPrizeCode",
+      "description": "Indicates the achievement of the product in relation to a prize or award, e.g. winner, runner-up, shortlisted."
+    },
+    {
+      "codepoint": 3101,
+      "name": "gs1:awardPrizeCountryCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/awardPrizeCountryCode",
+      "description": "An ISO standard code identifying the country in which a prize or award is given. It is recommended to populate this property with an ISO 3166-1 country code."
+    },
+    {
+      "codepoint": 3102,
+      "name": "gs1:awardPrizeDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/awardPrizeDescription",
+      "description": "Text that describes the awards won."
+    },
+    {
+      "codepoint": 3103,
+      "name": "gs1:awardPrizeJury",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/awardPrizeJury",
+      "description": "Free text listing members of the jury that awarded the prize."
+    },
+    {
+      "codepoint": 3104,
+      "name": "gs1:awardPrizeName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/awardPrizeName",
+      "description": "The name of a prize or award which the product has received."
+    },
+    {
+      "codepoint": 3105,
+      "name": "gs1:awardPrizeYear",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/awardPrizeYear",
+      "description": "The year in which a prize or award was given."
+    },
+    {
+      "codepoint": 3106,
+      "name": "gs1:backgroundInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/backgroundInfo",
+      "description": "A link to information typically from the owner of the identified entity about the creative background, thought leadership or influence of the identified entity. This may include the inspiration, innovation for a development process, literary approach or, the science or technology used."
+    },
+    {
+      "codepoint": 3107,
+      "name": "gs1:baseLocation",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/baseLocation",
+      "description": "A fixed physical location where a mobile location most commonly resides. If gs1:glnType is present, gs1:baseLocationGLN SHALL only be used when gs1:glnType is gs1:GLN_TypeCode-MOBILE_PHYSICAL_LOCATION"
+    },
+    {
+      "codepoint": 3108,
+      "name": "gs1:bestBeforeDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/bestBeforeDate",
+      "description": "Best before date on the label or package signifies the end of the period under which the product will retain specific quality attributes or claims even though the product may continue to retain positive quality attributes after this date. Best before date is primarily used for consumer information and may be a regulatory requirement."
+    },
+    {
+      "codepoint": 3109,
+      "name": "gs1:beverageVintage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/beverageVintage",
+      "description": "The year in which the majority of ingredients are harvested and/or the alcoholic beverage is produced. Determination as to whether the vintage year is the harvest date or production date is according to requirements in the Target Market."
+    },
+    {
+      "codepoint": 3110,
+      "name": "gs1:biotinPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/biotinPerNutrientBasis",
+      "description": "Biotin Acid per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3111,
+      "name": "gs1:bonelessClaim",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/bonelessClaim",
+      "description": "The descriptive term that is used by the product manufacturer to identify whether the product makes a specific claim to contain no bones."
+    },
+    {
+      "codepoint": 3112,
+      "name": "gs1:brand",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/brand",
+      "description": "The brand of the product that appears on the consumer package."
+    },
+    {
+      "codepoint": 3113,
+      "name": "gs1:brandHomepageClinical",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/brandHomepageClinical",
+      "description": "A link to a brand presence aimed at clinical professionals."
+    },
+    {
+      "codepoint": 3114,
+      "name": "gs1:brandHomepagePatient",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/brandHomepagePatient",
+      "description": "A link to a brand presence aimed at patients."
+    },
+    {
+      "codepoint": 3115,
+      "name": "gs1:brandName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/brandName",
+      "description": "The brand name of the product that appears on the consumer package."
+    },
+    {
+      "codepoint": 3116,
+      "name": "gs1:brandOwner",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/brandOwner",
+      "description": "The brand owner of the product. The organization that is responsible for allocating the GTIN to the product."
+    },
+    {
+      "codepoint": 3117,
+      "name": "gs1:businessEntity",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/businessEntity",
+      "description": "Method for noting business structure (e.g., Limited liability company, not for profit).  Expects a repeatable value from gs1:BusinessEntityType code list."
+    },
+    {
+      "codepoint": 3118,
+      "name": "gs1:calciumPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/calciumPerNutrientBasis",
+      "description": "Calcium per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3119,
+      "name": "gs1:carbohydratesPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/carbohydratesPerNutrientBasis",
+      "description": "Carbohydrates per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3120,
+      "name": "gs1:careersInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/careersInfo",
+      "description": "A link to information about jobs, careers, or other employment opportunities associated to an organisation or location."
+    },
+    {
+      "codepoint": 3121,
+      "name": "gs1:catchZone",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/catchZone",
+      "description": "Free text field describing the sea zone from which the product was caught in."
+    },
+    {
+      "codepoint": 3122,
+      "name": "gs1:certification",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certification",
+      "description": "Certification information about a product, organisation or location."
+    },
+    {
+      "codepoint": 3123,
+      "name": "gs1:certificationAgency",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certificationAgency",
+      "description": "Name of the organisation issuing the certification standard or other requirement being met ."
+    },
+    {
+      "codepoint": 3124,
+      "name": "gs1:certificationAgencyURL",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certificationAgencyURL",
+      "description": "URL of the organisation issuing the certification standard or other requirement being met. e.g. https://www.msc.org , https://www.fsc.org"
+    },
+    {
+      "codepoint": 3125,
+      "name": "gs1:certificationAuditDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certificationAuditDate",
+      "description": "Date of completion of the auditing needed for certification"
+    },
+    {
+      "codepoint": 3126,
+      "name": "gs1:certificationEndDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certificationEndDate",
+      "description": "Last date of validity for the certification. (After this date the certification lapses and would need to be renewed/replaced)"
+    },
+    {
+      "codepoint": 3127,
+      "name": "gs1:certificationIdentification",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certificationIdentification",
+      "description": "A reference (i.e, to a certificate instance) issued to confirm that a product, party or location has passed certification. e.g. 'XSC-C-12345'"
+    },
+    {
+      "codepoint": 3128,
+      "name": "gs1:certificationInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certificationInfo",
+      "description": "A link to certification information."
+    },
+    {
+      "codepoint": 3129,
+      "name": "gs1:certificationStandard",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certificationStandard",
+      "description": "Name of the certification standard. Free text. Example: 'Egg classification' ."
+    },
+    {
+      "codepoint": 3130,
+      "name": "gs1:certificationStartDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certificationStartDate",
+      "description": "First date of validity for the certification"
+    },
+    {
+      "codepoint": 3131,
+      "name": "gs1:certificationStatement",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certificationStatement",
+      "description": "Certification scope statement of the individual certification instance. The same certificationStandard can be issued with different values of certificationStatement in different instances."
+    },
+    {
+      "codepoint": 3132,
+      "name": "gs1:certificationStatus",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certificationStatus",
+      "description": "Indicates the current status of the certification, e.g. active or inactive."
+    },
+    {
+      "codepoint": 3133,
+      "name": "gs1:certificationSubject",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certificationSubject",
+      "description": "References the object (e.g. product, asset, container), party or location being certified. If multiple values are specified, the certification details apply to the logical conjunction (AND) of groups of different types, while a logical disjunction (OR) applies within each group of the same type. For example, two sibling organisations O1 and O2 can process products P1 and P2 at locations L1 and L2: meaning that either organisation can process either product at either location (OR); but the certificate holds for the combinations of organisation (either O1 OR O2) AND product (either P1 OR P2) AND location (either L1 OR L2)"
+    },
+    {
+      "codepoint": 3134,
+      "name": "gs1:certificationType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certificationType",
+      "description": "Indicates the type of certification"
+    },
+    {
+      "codepoint": 3135,
+      "name": "gs1:certificationURI",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certificationURI",
+      "description": "If gs1:certificationURI is present, it should point to data about this individual certificate within a repository maintained by the certification agency."
+    },
+    {
+      "codepoint": 3136,
+      "name": "gs1:certificationValue",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/certificationValue",
+      "description": "The certification's standard value. Example: '4'."
+    },
+    {
+      "codepoint": 3137,
+      "name": "gs1:cheeseFirmness",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/cheeseFirmness",
+      "description": "The firmness of the cheese product for example EXTRA_HARD."
+    },
+    {
+      "codepoint": 3138,
+      "name": "gs1:cheeseMaturationPeriodDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/cheeseMaturationPeriodDescription",
+      "description": "A descriptive way to specify a date range as some cheeses are matured over a period of time, but not an exact period. For example 3 to 4 weeks, over 1 year etc. The term maturation is also known in other markets as Aged."
+    },
+    {
+      "codepoint": 3139,
+      "name": "gs1:chloridePerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/chloridePerNutrientBasis",
+      "description": "Chloride per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3140,
+      "name": "gs1:cholesterolPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/cholesterolPerNutrientBasis",
+      "description": "Cholesterol per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3141,
+      "name": "gs1:chromiumPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/chromiumPerNutrientBasis",
+      "description": "Chromium per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3142,
+      "name": "gs1:circle",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/circle",
+      "description": "A circle is the circular region of a specified radius centred at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters."
+    },
+    {
+      "codepoint": 3143,
+      "name": "gs1:clothingCut",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/clothingCut",
+      "description": "Supplemental information to indicate the clothing cut or silhouette make of the garment. For example, silhouette details for a pair of jeans such as boot cut, or loose fit, comfort fit."
+    },
+    {
+      "codepoint": 3144,
+      "name": "gs1:collarType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/collarType",
+      "description": "A free text description of the type of collar on the garment."
+    },
+    {
+      "codepoint": 3145,
+      "name": "gs1:colourCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/colourCode",
+      "description": "Relates to a set of details about the colour code for a product"
+    },
+    {
+      "codepoint": 3146,
+      "name": "gs1:colourCodeList",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/colourCodeList",
+      "description": "The parties controlling the colour code lists. Dependent on colour code value."
+    },
+    {
+      "codepoint": 3147,
+      "name": "gs1:colourCodeValue",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/colourCodeValue",
+      "description": "A code indicating the colour of an object according to a specific code list. The applied code list is specified as additional information together with the colour code."
+    },
+    {
+      "codepoint": 3148,
+      "name": "gs1:colourDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/colourDescription",
+      "description": "A description of the colour of an object."
+    },
+    {
+      "codepoint": 3149,
+      "name": "gs1:companyFilingURL",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/companyFilingURL",
+      "description": "A URI value linking to information related to organisation filing details."
+    },
+    {
+      "codepoint": 3150,
+      "name": "gs1:compulsoryAdditionalInformation",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/compulsoryAdditionalInformation",
+      "description": "The legally required/compulsory additional label information as stated on the product packaging or label."
+    },
+    {
+      "codepoint": 3151,
+      "name": "gs1:compulsoryAdditionalLabelInformation",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/compulsoryAdditionalLabelInformation",
+      "description": "The legally required/compulsory additional label information as stated on the product packaging or label."
+    },
+    {
+      "codepoint": 3152,
+      "name": "gs1:compulsoryAdditionalLabelInformationType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/compulsoryAdditionalLabelInformationType",
+      "description": "The code indicating the type of the legally required/compulsory additional information that is stated on the product packaging label."
+    },
+    {
+      "codepoint": 3153,
+      "name": "gs1:consumerFirstAvailabilityDateTime",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/consumerFirstAvailabilityDateTime",
+      "description": "The first date/time that the buyer is allowed to sell the product to consumers. Usually related to a specific geography. ISO 8601 date format CCYY-MM-DDTHH:MM:SS."
+    },
+    {
+      "codepoint": 3154,
+      "name": "gs1:consumerHandlingStorage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/consumerHandlingStorage",
+      "description": "Link to a website, file, or image containing the manufacturer's recommendations for how the consumer or end user should store and handle the product."
+    },
+    {
+      "codepoint": 3155,
+      "name": "gs1:consumerHandlingStorageInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/consumerHandlingStorageInfo",
+      "description": "A link to information about safe handling and storage for consumer use."
+    },
+    {
+      "codepoint": 3156,
+      "name": "gs1:consumerLifestage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/consumerLifestage",
+      "description": "Indicates, with reference to the product branding, labelling or packaging, the descriptive term that is used by the product manufacturer to identify the period or stage in the consumer's life during which the product is considered to be suitable."
+    },
+    {
+      "codepoint": 3157,
+      "name": "gs1:consumerPackageDisclaimer",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/consumerPackageDisclaimer",
+      "description": "Additional information that should be used in advertising and in displaying."
+    },
+    {
+      "codepoint": 3158,
+      "name": "gs1:consumerProductVariant",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/consumerProductVariant",
+      "description": "The consumer product variant may be used to distinguish one variant of a retail consumer trade item from another if the change does not require the allocation of a different Global Trade Item Number (per the GTIN Management Standard), but communication between trading partners is required to support consumers. The brand owner is responsible for assigning the consumer product variant."
+    },
+    {
+      "codepoint": 3159,
+      "name": "gs1:consumerRecyclingInstructions",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/consumerRecyclingInstructions",
+      "description": "Expresses in text the consumer recycling instructions which are normally held on the label or accompanying the product. Instructions may refer to the 'how' the consumer is supposed to sort the product and packaging materials for recycling."
+    },
+    {
+      "codepoint": 3160,
+      "name": "gs1:consumerSafetyInformation",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/consumerSafetyInformation",
+      "description": "Information on consumer safety regarding the product."
+    },
+    {
+      "codepoint": 3161,
+      "name": "gs1:consumerSalesCondition",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/consumerSalesCondition",
+      "description": "A code indicating restrictions imposed on the product regarding how it can be sold to the consumer for example Prescription Required."
+    },
+    {
+      "codepoint": 3162,
+      "name": "gs1:consumerStorageInstructions",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/consumerStorageInstructions",
+      "description": "Expresses in text the consumer storage instructions of a product which are normally held on the label or accompanying the product. This information may or may not be labelled on the pack."
+    },
+    {
+      "codepoint": 3163,
+      "name": "gs1:consumerUsageInstructions",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/consumerUsageInstructions",
+      "description": "Free text containing the usage instructions of a product, which are normally held on the label or accompanying the product. This information may or may not be labelled on the pack."
+    },
+    {
+      "codepoint": 3164,
+      "name": "gs1:contactPoint",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/contactPoint",
+      "description": "Contact information. To specify a contact specifically designated for after-hours support, see gs1:afterHoursContact"
+    },
+    {
+      "codepoint": 3165,
+      "name": "gs1:contactRoleCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/contactRoleCode",
+      "description": "The function or role of a contact. Value from gs1:ContactRoleType code list."
+    },
+    {
+      "codepoint": 3166,
+      "name": "gs1:contactTitle",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/contactTitle",
+      "description": "The job title of the person that can be contacted for example Manager."
+    },
+    {
+      "codepoint": 3167,
+      "name": "gs1:contactType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/contactType",
+      "description": "The function or role of a contact for example Customer Support."
+    },
+    {
+      "codepoint": 3168,
+      "name": "gs1:containedInPlace",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/containedInPlace",
+      "description": "Designates the larger physical location a sub-location is located within. To specify sub-locations of a physical location, see gs1:containsPlace."
+    },
+    {
+      "codepoint": 3169,
+      "name": "gs1:containsPlace",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/containsPlace",
+      "description": "Designates a sub-location (e.g., floor, room, shelf) within the physical location being identified. There may be multiple sub-locations associated to a single, physical location. To specify the larger physical location the sub-location is located within, see gs1:containedInPlace"
+    },
+    {
+      "codepoint": 3170,
+      "name": "gs1:convenienceLevelPercent",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/convenienceLevelPercent",
+      "description": "An indication of the ease of preparation for semi-prepared products. The convenience level indicates the level of preparation in percentage required to prepare and helps the consumer to assess how long it will take to prepare the meal."
+    },
+    {
+      "codepoint": 3171,
+      "name": "gs1:coordinateReferenceSystem",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/coordinateReferenceSystem",
+      "description": "Open standard spatial reference systems or coordinate reference systems that provide coordinate-based local, regional or global system used to locate geographical entities.  Values should be URIs already defined by the IOPG Geomatics Committee (https://epsg.org/), such as https://epsg.io/4326 (WGS84); https://epsg.io/4267 (NAD27); https://epsg.io/4230 (ED50); https://epsg.io/4618 (SAD69); https://epsg.io/4269 (NAD83).  For elevation values, gs1:elevation SHALL be used."
+    },
+    {
+      "codepoint": 3172,
+      "name": "gs1:copperPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/copperPerNutrientBasis",
+      "description": "Copper per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3173,
+      "name": "gs1:countryCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/countryCode",
+      "description": "Code specifying the country for the address using ISO 3166-1."
+    },
+    {
+      "codepoint": 3174,
+      "name": "gs1:countryOfAssembly",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/countryOfAssembly",
+      "description": "The place where product is assembled."
+    },
+    {
+      "codepoint": 3175,
+      "name": "gs1:countryOfLastProcessing",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/countryOfLastProcessing",
+      "description": "The place where the product or ingredient was last processed and tested before importation."
+    },
+    {
+      "codepoint": 3176,
+      "name": "gs1:countryOfOrigin",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/countryOfOrigin",
+      "description": "Code indicating the country of origin of the product."
+    },
+    {
+      "codepoint": 3177,
+      "name": "gs1:countryOfOriginStatement",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/countryOfOriginStatement",
+      "description": "A description of the geographic area the item may have originated from or has been processed."
+    },
+    {
+      "codepoint": 3178,
+      "name": "gs1:countrySubdivisionCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/countrySubdivisionCode",
+      "description": "A short text string code (see values defined in ISO 3166_2) specifying the country subdivision in which an activity is performed, for example processing, bottling, manufacturing."
+    },
+    {
+      "codepoint": 3179,
+      "name": "gs1:countyCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/countyCode",
+      "description": "A code that identifies a county. A county is a territorial division in some countries, forming the chief unit of local administration. In the US, a county is a political and administrative division of a state."
+    },
+    {
+      "codepoint": 3180,
+      "name": "gs1:crossStreet",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/crossStreet",
+      "description": "A street intersecting a main street (usually at right angles) and continuing on both sides of it."
+    },
+    {
+      "codepoint": 3181,
+      "name": "gs1:csrAffiliation",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/csrAffiliation",
+      "description": "A URI value linking to information related to social responsibility activities and associations that an organisation/party is involved with."
+    },
+    {
+      "codepoint": 3182,
+      "name": "gs1:customerSupportCentre",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/customerSupportCentre",
+      "description": "The organization which provides product support to the trading partner organization to which merchandise is sold."
+    },
+    {
+      "codepoint": 3183,
+      "name": "gs1:dailyValueIntakePercent",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/dailyValueIntakePercent",
+      "description": "The percentage of the recommended daily intake of a nutrient as recommended by authorities of the target market. Is expressed relative to the serving size and base daily value intake."
+    },
+    {
+      "codepoint": 3184,
+      "name": "gs1:defaultLink",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/defaultLink",
+      "description": "The default link for a given identified item to which a resolver will redirect unless there is information in the request that is a better match."
+    },
+    {
+      "codepoint": 3185,
+      "name": "gs1:defaultLinkMulti",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/defaultLinkMulti",
+      "description": "A set of 'default links' that may be differentiated by information in the HTTP request headers sent to a resolver to enable a better match than the single default link."
+    },
+    {
+      "codepoint": 3186,
+      "name": "gs1:department",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/department",
+      "description": "The name of a division of an organization dealing with a specific activity"
+    },
+    {
+      "codepoint": 3187,
+      "name": "gs1:dependentProprietaryProduct",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/dependentProprietaryProduct",
+      "description": "Dependent products are products which are required to make the current product functional."
+    },
+    {
+      "codepoint": 3188,
+      "name": "gs1:descriptiveSize",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/descriptiveSize",
+      "description": "An alphanumeric size factor the brand owner wishes to communicate to the consumer. IE Jumbo, Capri, Full Length, Maxi."
+    },
+    {
+      "codepoint": 3189,
+      "name": "gs1:dietCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/dietCode",
+      "description": "Links to multiple pairs of gs1:DietTypeCode and diet type sub code (free-form text string)."
+    },
+    {
+      "codepoint": 3190,
+      "name": "gs1:dietType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/dietType",
+      "description": "Code indicating the diet the product is suitable for example Kosher."
+    },
+    {
+      "codepoint": 3191,
+      "name": "gs1:dietTypeDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/dietTypeDescription",
+      "description": "Free text for indication of diet not stated in the list of diets."
+    },
+    {
+      "codepoint": 3192,
+      "name": "gs1:dietTypeSubcode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/dietTypeSubcode",
+      "description": "Indicates a set of agreements or a certificate name that guarantees the product is permitted in a particular diet. A diet type subcode is a subclassification of a specific diet type. For example, Pareve is a diet type subcode of Kosher."
+    },
+    {
+      "codepoint": 3193,
+      "name": "gs1:digitalAddress",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/digitalAddress",
+      "description": "The location reference associated to a digital place. If gs1:glnType is present, SHALL only be associated if the value of gs1:glnType is gs1:GLN_TypeCode-DIGITAL_LOCATION."
+    },
+    {
+      "codepoint": 3194,
+      "name": "gs1:digitalLocationName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/digitalLocationName",
+      "description": "The name of a digital place. To specify the name of a physical location, see gs1:physicalLocationName."
+    },
+    {
+      "codepoint": 3195,
+      "name": "gs1:discountRepeatsPerMultipleMinimum",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/discountRepeatsPerMultipleMinimum",
+      "description": "If specified and set to true, the discount is available for each time the minimum qualifying criteria are met.  This can be used to express '$10 off each $50 spend', which is distinct from a 20% discount because it is quantized in units of spending."
+    },
+    {
+      "codepoint": 3196,
+      "name": "gs1:discountType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/discountType",
+      "description": "A code that specifies the type of payment discount applicable to an offer, for example BOGO."
+    },
+    {
+      "codepoint": 3197,
+      "name": "gs1:dpp",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/dpp",
+      "description": "A link to a digital product passport."
+    },
+    {
+      "codepoint": 3198,
+      "name": "gs1:drainedWeight",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/drainedWeight",
+      "description": "The weight of the product when drained of its liquid. For example 225 GRM, Jar of pickles in vinegar."
+    },
+    {
+      "codepoint": 3199,
+      "name": "gs1:dueDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/dueDate",
+      "description": "The date by which an invoice should be paid. This data element represents an attribute of a payment slip reference number, AI (8020), and a Global Location Number (GLN) of the invoicing party."
+    },
+    {
+      "codepoint": 3200,
+      "name": "gs1:durationOfWarranty",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/durationOfWarranty",
+      "description": "The time period that the warranty is valid within."
+    },
+    {
+      "codepoint": 3201,
+      "name": "gs1:dutyFeeTaxAmount",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/dutyFeeTaxAmount",
+      "description": "The current tax or duty or fee amount applicable to the product, expressed as a floating-point numeric value that is qualified by the corresponding currency. See also gs1:priceCurrency."
+    },
+    {
+      "codepoint": 3202,
+      "name": "gs1:dutyFeeTaxDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/dutyFeeTaxDescription",
+      "description": "A description of tax type for example Taxes sure les supports audio."
+    },
+    {
+      "codepoint": 3203,
+      "name": "gs1:dutyFeeTaxRate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/dutyFeeTaxRate",
+      "description": "The current tax or duty rate percentage applicable to the product."
+    },
+    {
+      "codepoint": 3204,
+      "name": "gs1:eifu",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/eifu",
+      "description": "A link to electronic Instruction For Use instructions for Medical Devices."
+    },
+    {
+      "codepoint": 3205,
+      "name": "gs1:elevation",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/elevation",
+      "description": "The elevation of a location (WGS 84). Values may be of the form 'NUMBER UNITOFMEASUREMENT' (e.g., '1,000 m', '3,200 ft') while numbers alone SHALL be a value in meters."
+    },
+    {
+      "codepoint": 3206,
+      "name": "gs1:eligibleQuantity",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/eligibleQuantity",
+      "description": "The quantity including unit of measure for which the offer for good or service is valid.  If this is not specified, an eligible quantity of 1 should be assumed."
+    },
+    {
+      "codepoint": 3207,
+      "name": "gs1:eligibleQuantityMaximum",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/eligibleQuantityMaximum",
+      "description": "The maximum quantity including unit of measure for which the offer for good or service is valid."
+    },
+    {
+      "codepoint": 3208,
+      "name": "gs1:eligibleQuantityMinimum",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/eligibleQuantityMinimum",
+      "description": "The minimum quantity including unit of measure for which the offer for good or service is valid."
+    },
+    {
+      "codepoint": 3209,
+      "name": "gs1:eligibleTradeChannel",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/eligibleTradeChannel",
+      "description": "A code determining the location where a user can redeem the offer, for example ONLINE_ONLY. "
+    },
+    {
+      "codepoint": 3210,
+      "name": "gs1:email",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/email",
+      "description": "Creating/sending/receiving of unstructured free text messages or documents using computer network, a mini-computer or an attached modem and regular telephone line or other electronic transmission media."
+    },
+    {
+      "codepoint": 3211,
+      "name": "gs1:energyFromFatPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/energyFromFatPerNutrientBasis",
+      "description": "Energy from Fat per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3212,
+      "name": "gs1:energyPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/energyPerNutrientBasis",
+      "description": "Energy Per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3213,
+      "name": "gs1:epcis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/epcis",
+      "description": "A link to an EPCIS repository of visibility event data."
+    },
+    {
+      "codepoint": 3214,
+      "name": "gs1:epil",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/epil",
+      "description": "A link to an electronic patient information leaflet."
+    },
+    {
+      "codepoint": 3215,
+      "name": "gs1:equivalentProduct",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/equivalentProduct",
+      "description": "A product which can be substituted for the product based on supplier-defined functional equivalence to the product."
+    },
+    {
+      "codepoint": 3216,
+      "name": "gs1:eventsInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/eventsInfo",
+      "description": "A link to event details.  For a page specifically for scheduling a reservation or booking an appointment, see gs1:scheduleTime."
+    },
+    {
+      "codepoint": 3217,
+      "name": "gs1:exactDiscountAmount",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/exactDiscountAmount",
+      "description": "Links to a gs1:PriceSpecification that indicates in terms of an amount and specified currency, the exact discount on the sales price associated with a particular gs1:Discount. This property can be used to express '$10 off'."
+    },
+    {
+      "codepoint": 3218,
+      "name": "gs1:exactDiscountPercentage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/exactDiscountPercentage",
+      "description": "A floating-point value indicating an exact percentage discount on the sales price associated with a particular gs1:Discount.  This property can be used to express '15% discount'."
+    },
+    {
+      "codepoint": 3219,
+      "name": "gs1:exclusionDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/exclusionDescription",
+      "description": " A text description of any products, brands, or categories that cannot be used with the offer"
+    },
+    {
+      "codepoint": 3220,
+      "name": "gs1:expirationDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/expirationDate",
+      "description": "The expiration date is the date that determines the limit of consumption or use of a product/coupon. Its meaning is determined based on the trade item context (e.g., for food, the date will indicate the possibility of a direct health risk resulting from use of the product after the date, for pharmaceutical products, it will indicate the possibility of an indirect health risk resulting from the ineffectiveness of the product after the date). It is often referred to as 'use by date' or 'maximum durability date'."
+    },
+    {
+      "codepoint": 3221,
+      "name": "gs1:expirationDateTime",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/expirationDateTime",
+      "description": "The manufacturer determines the expiration date and time, which is relevant only for short duration and for items that will not be sent on long distances and not outside of the time zone. A typical application of AI (7003) is in hospitals or public pharmacies for special, customised, products which may have a 'life duration' shorter than one single day. The life duration varies according the pharmaceutical substances used in the treatment. The precise expiration date and time is defined at the end of the manufacturing process, and can be barcoded on the product label as an attribute to the item's GTIN. Where there is no business requirement to express the expiration date to the nearest hour (or less), AI (17) Expiration date should be used."
+    },
+    {
+      "codepoint": 3222,
+      "name": "gs1:faqs",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/faqs",
+      "description": "A link to a set of frequently asked questions."
+    },
+    {
+      "codepoint": 3223,
+      "name": "gs1:fatInMilkContent",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/fatInMilkContent",
+      "description": "The percentage of fat contained in milk content of the product."
+    },
+    {
+      "codepoint": 3224,
+      "name": "gs1:fatPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/fatPerNutrientBasis",
+      "description": "Fat per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3225,
+      "name": "gs1:fatpercentageInDryMatter",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/fatpercentageInDryMatter",
+      "description": "The amount of fat contained in the base product expressed in percentage."
+    },
+    {
+      "codepoint": 3226,
+      "name": "gs1:faxNumber",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/faxNumber",
+      "description": "A fax number used for transmitting and reproducing fixed graphic material over telephone lines or other electronic transmission media."
+    },
+    {
+      "codepoint": 3227,
+      "name": "gs1:fibrePerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/fibrePerNutrientBasis",
+      "description": "Fibre per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3228,
+      "name": "gs1:fileLanguageCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/fileLanguageCode",
+      "description": "The specified language to which the digital asset is targeted. It is recommended to use the ISO 639-1 language code."
+    },
+    {
+      "codepoint": 3229,
+      "name": "gs1:filePixelHeight",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/filePixelHeight",
+      "description": "The number of pixels along the vertical axis of the image."
+    },
+    {
+      "codepoint": 3230,
+      "name": "gs1:filePixelWidth",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/filePixelWidth",
+      "description": "The number of pixels along the horizontal axis of the image."
+    },
+    {
+      "codepoint": 3231,
+      "name": "gs1:firstFreezeDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/firstFreezeDate",
+      "description": "The first freeze date is applicable to products that are frozen directly after slaughtering, harvesting, catching or after initial processing of the product. Examples include fresh meat, meat products or fishery products. The first freeze date is determined by the organisation conducting the freezing."
+    },
+    {
+      "codepoint": 3232,
+      "name": "gs1:fishType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/fishType",
+      "description": "The type of fish for example Sea bass."
+    },
+    {
+      "codepoint": 3233,
+      "name": "gs1:fluoridePerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/fluoridePerNutrientBasis",
+      "description": "Fluoride per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3234,
+      "name": "gs1:folicAcidPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/folicAcidPerNutrientBasis",
+      "description": "Folic Acid per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3235,
+      "name": "gs1:foodBeverageRefrigerationClaim",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/foodBeverageRefrigerationClaim",
+      "description": "Identifies whether or not the product requires refrigeration."
+    },
+    {
+      "codepoint": 3236,
+      "name": "gs1:foodBeverageTargetUse",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/foodBeverageTargetUse",
+      "description": "The type of meal the food or beverage product is targeted to for example Breakfast."
+    },
+    {
+      "codepoint": 3237,
+      "name": "gs1:footwearFasteningType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/footwearFasteningType",
+      "description": "Something that mechanically joins or affixes two or more parts together in a footwear product for example a shoe lace."
+    },
+    {
+      "codepoint": 3238,
+      "name": "gs1:footwearUpperType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/footwearUpperType",
+      "description": "The descriptive term that is used by the product manufacturer to identify whether the footwear upper is open or closed. Otherwise known as Open or Closed Upper."
+    },
+    {
+      "codepoint": 3239,
+      "name": "gs1:franchiseeOf",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/franchiseeOf",
+      "description": "Method for associating the franchisor organisation to the franchisee."
+    },
+    {
+      "codepoint": 3240,
+      "name": "gs1:franchisorOf",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/franchisorOf",
+      "description": "Method for associating franchisee organisation(s) to the franchisor."
+    },
+    {
+      "codepoint": 3241,
+      "name": "gs1:freshOrSeawaterFarmed",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/freshOrSeawaterFarmed",
+      "description": "A code determining whether the fish originated from the sea or was farmed."
+    },
+    {
+      "codepoint": 3242,
+      "name": "gs1:functionalName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/functionalName",
+      "description": "Describes use of the product or service by the consumer. Should help clarify the product classification associated with the GTIN."
+    },
+    {
+      "codepoint": 3243,
+      "name": "gs1:geneticallyModifiedDeclaration",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/geneticallyModifiedDeclaration",
+      "description": "A statement of the presence or absence of genetically modified protein or DNA."
+    },
+    {
+      "codepoint": 3244,
+      "name": "gs1:geo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/geo",
+      "description": "Links to information about geocoordinates or geoshapes for a place."
+    },
+    {
+      "codepoint": 3245,
+      "name": "gs1:glnType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/glnType",
+      "description": "Indicates what type of thing is being identified by a GLN."
+    },
+    {
+      "codepoint": 3246,
+      "name": "gs1:globalLocationNumber",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/globalLocationNumber",
+      "description": "A Global Location Number (GLN) is the GS1 Identification Key used to identify physical locations or parties. The key comprises a GS1 Company Prefix, Location Reference and Check Digit. For more information see https://www.gs1.org/gln."
+    },
+    {
+      "codepoint": 3247,
+      "name": "gs1:gpcCategoryCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/gpcCategoryCode",
+      "description": "8-digit code (GPC Brick Value) specifying a product category according to the GS1 Global Product Classification (GPC) standard. For more information see https://www.gs1.org/gpc"
+    },
+    {
+      "codepoint": 3248,
+      "name": "gs1:gpcCategoryDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/gpcCategoryDescription",
+      "description": "A description of the code specifying a product category according to the GS1 Global Product Classification (GPC) standard."
+    },
+    {
+      "codepoint": 3249,
+      "name": "gs1:grossArea",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/grossArea",
+      "description": "The overall area of the item including packaging. This can be given using a number of different AI ranges that depend on the units in which the area is measured."
+    },
+    {
+      "codepoint": 3250,
+      "name": "gs1:grossVolume",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/grossVolume",
+      "description": "The overall volume of the item including packaging. This can be given using a number of different AI ranges that depend on the units in which the volume is measured."
+    },
+    {
+      "codepoint": 3251,
+      "name": "gs1:grossWeight",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/grossWeight",
+      "description": "Used to identify the gross weight of the product. The gross weight includes all packaging materials of the product. At pallet level the productGrossWeight includes the weight of the pallet itself. For example, 200 GRM, value - total pounds, total grams, etc."
+    },
+    {
+      "codepoint": 3252,
+      "name": "gs1:growingMethod",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/growingMethod",
+      "description": "The process through which fresh produce is grown and cultivated."
+    },
+    {
+      "codepoint": 3253,
+      "name": "gs1:gtin",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/gtin",
+      "description": "A Global Trade Item Number (GTIN) is the 14 digit GS1 Identification Key used to identify products. The key comprises a GS1 Company Prefix followed by an Item Reference Number and a Check Digit. See https://www.gs1.org/gtin  for more details."
+    },
+    {
+      "codepoint": 3254,
+      "name": "gs1:handledBy",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/handledBy",
+      "description": "Used when one resolver redirects all request URIs that match a given pattern without further processing, such as from GS1 to a brand-operated service. See section 7.7.1 of the Digital Link standard, version 1.1. "
+    },
+    {
+      "codepoint": 3255,
+      "name": "gs1:harvestDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/harvestDate",
+      "description": "The harvest date. For example, the harvest date can be the date when an animal was slaughtered or killed, a fish has been harvested, or a crop was harvested. This date  is determined by the organisation conducting the harvesting. Different organisations may use more specific terminology when referring to their specific needs and use terms such as: Date of catch or slaughter date. "
+    },
+    {
+      "codepoint": 3256,
+      "name": "gs1:harvestDateEnd",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/harvestDateEnd",
+      "description": "The harvest end date. For example, the harvest end date can be the date when an animal was slaughtered or killed, a fish has been harvested, or a crop was harvested. This end date is determined by the organisation conducting the harvesting. Different organisations may use more specific terminology when referring to their specific needs and use terms such as: Date of catch or slaughter date. When referring to animals the date range refers to the whole animal and all meat or fish cuts derived from this animal."
+    },
+    {
+      "codepoint": 3257,
+      "name": "gs1:harvestDateStart",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/harvestDateStart",
+      "description": "The harvest start date. For example, the harvest start date can be the date when an animal was slaughtered or killed, a fish has been harvested, or a crop was harvested. This start date is determined by the organisation conducting the harvesting. Different organisations may use more specific terminology when referring to their specific needs and use terms such as: Date of catch or slaughter date. When referring to animals the date range refers to the whole animal and all meat or fish cuts derived from this animal."
+    },
+    {
+      "codepoint": 3258,
+      "name": "gs1:hasAllergen",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/hasAllergen",
+      "description": "Relates to details about allergens"
+    },
+    {
+      "codepoint": 3259,
+      "name": "gs1:hasBatchLotNumber",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/hasBatchLotNumber",
+      "description": "The batch or lot number associates an item with information the manufacturer considers relevant for traceability of the trade item to which the element string is applied. The data may refer to the trade item itself or to items contained. The number may be, for example, a production lot number, a shift number, a machine number, a time, or an internal production code. In cases where the same product is manufactured in different locations the brand owner and the manufacturer are responsible for ensuring the non-duplication of batch/lot numbers for a GTIN. For the re-use of batch/lot numbers with a GTIN, sector-specific constraints need to be considered."
+    },
+    {
+      "codepoint": 3260,
+      "name": "gs1:hasPrimaryLocation",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/hasPrimaryLocation",
+      "description": "Links to the place(s) that this organisation designates as their primary location(s)."
+    },
+    {
+      "codepoint": 3261,
+      "name": "gs1:hasRetailers",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/hasRetailers",
+      "description": "A link to a list of retailers."
+    },
+    {
+      "codepoint": 3262,
+      "name": "gs1:hasReturnablePackageDeposit",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/hasReturnablePackageDeposit",
+      "description": "links to details of amounts refunded for returnable package in a specified region."
+    },
+    {
+      "codepoint": 3263,
+      "name": "gs1:hasSerialNumber",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/hasSerialNumber",
+      "description": "A serial number is assigned to an entity for its lifetime. When combined with a GTIN, a serial number uniquely identifies an individual item. The serial number field is alphanumeric and may include all characters contained in figure 7.11-1. The brand owner and the manufacturer are responsible for ensuring the non-duplication of serial numbers for a GTIN. For the re-use of serial numbers with a GTIN, sector-specific constraints need to be considered."
+    },
+    {
+      "codepoint": 3264,
+      "name": "gs1:hasThirdPartyControlledSerialNumber",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/hasThirdPartyControlledSerialNumber",
+      "description": "This identifier is assigned to an entity for its lifetime. When combined with a GTIN, a TPX uniquely identifies an individual item and forms a unit pack Unique Identifier (upUI) for tobacco traceability per EU 2018/574. The serial number field is alphanumeric and may include all characters contained in figure 7.11-1. The Third Party determines the TPX, but the TPX shall begin with the ID Issuer Unique Identification Code (UIC), followed by GS1 UIC Extension 1, and GS1 UIC Extension 2."
+    },
+    {
+      "codepoint": 3265,
+      "name": "gs1:healthClaimDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/healthClaimDescription",
+      "description": "A description of health claims according to regulations of the target market."
+    },
+    {
+      "codepoint": 3266,
+      "name": "gs1:homepage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/homepage",
+      "description": "A link to general information about an organisation or brand. Typically the homepage of an organisation's website. It may include links to further information such as certifications, careers, payments, reservations, etc."
+    },
+    {
+      "codepoint": 3267,
+      "name": "gs1:image",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/image",
+      "description": "Link to a file containing a visual representation of the product."
+    },
+    {
+      "codepoint": 3268,
+      "name": "gs1:inPackageDepth",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/inPackageDepth",
+      "description": "The depth of the product in its packaging, as measured according to the GS1 Package Measurement Rules. See https://www.gs1.org/package-measurement-rules-implementation-guide for more details."
+    },
+    {
+      "codepoint": 3269,
+      "name": "gs1:inPackageDiameter",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/inPackageDiameter",
+      "description": "The measurement of the diameter of the product in its package at its largest point. For example, 165 MMT."
+    },
+    {
+      "codepoint": 3270,
+      "name": "gs1:inPackageHeight",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/inPackageHeight",
+      "description": "The height of the product in the package, as measured according to the GS1 Package Measurement Rules. See https://www.gs1.org/package-measurement-rules-implementation-guide for more details."
+    },
+    {
+      "codepoint": 3271,
+      "name": "gs1:inPackageWidth",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/inPackageWidth",
+      "description": "The width of the product in the package, as measured according to the GS1 Package Measurement Rules. See https://www.gs1.org/package-measurement-rules-implementation-guide for more details."
+    },
+    {
+      "codepoint": 3272,
+      "name": "gs1:includedAccessories",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/includedAccessories",
+      "description": "Any included object or device not part of the core product itself but which adds to its functionality or use."
+    },
+    {
+      "codepoint": 3273,
+      "name": "gs1:ingredient",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/ingredient",
+      "description": "Links to information about ingredients of a specific Food/Beverage/Tobacco product."
+    },
+    {
+      "codepoint": 3274,
+      "name": "gs1:ingredientContentPercentage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/ingredientContentPercentage",
+      "description": "Quantity of the ingredient contained in the product as a percentage of the total product ingredients. This is used in conjunction with ingredientName."
+    },
+    {
+      "codepoint": 3275,
+      "name": "gs1:ingredientName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/ingredientName",
+      "description": "Free text field describing an ingredient or ingredient group. Ingredients include any additives (colourings, preservatives, e-numbers, etc.) that are encompassed."
+    },
+    {
+      "codepoint": 3276,
+      "name": "gs1:ingredientOfConcern",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/ingredientOfConcern",
+      "description": "Indicates a claim to an ingredient, considered to be a concern for regulatory or other reasons, and which is 'contained' within the product but may not need to specify the amount whether approximate, or an accurate measurement be given."
+    },
+    {
+      "codepoint": 3277,
+      "name": "gs1:ingredientSequence",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/ingredientSequence",
+      "description": "Integer (1, 2, 3...) indicating the ingredient order by content percentage of the product. (major ingredient = 1, second ingredient = 2) etc."
+    },
+    {
+      "codepoint": 3278,
+      "name": "gs1:ingredientStatement",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/ingredientStatement",
+      "description": "Information on the constituent ingredient make up of the product specified as one string."
+    },
+    {
+      "codepoint": 3279,
+      "name": "gs1:ingredientsInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/ingredientsInfo",
+      "description": "A link to facts about ingredients."
+    },
+    {
+      "codepoint": 3280,
+      "name": "gs1:initialCertificationDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/initialCertificationDate",
+      "description": "The date when the certification was originally issued. May differ from the certificationStartDate of the current recertification cycle."
+    },
+    {
+      "codepoint": 3281,
+      "name": "gs1:instructions",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/instructions",
+      "description": "A link to instructions, such as assembly instructions, usage tips etc.  It is not appropriate to use this link type for healthcare regulated content applications for which specific link types are available."
+    },
+    {
+      "codepoint": 3282,
+      "name": "gs1:instructionsForUse",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/instructionsForUse",
+      "description": "Link to a file containing the Instructions For Use."
+    },
+    {
+      "codepoint": 3283,
+      "name": "gs1:iodinePerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/iodinePerNutrientBasis",
+      "description": "Iodine per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3284,
+      "name": "gs1:ironPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/ironPerNutrientBasis",
+      "description": "Iron per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3285,
+      "name": "gs1:irradiatedCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/irradiatedCode",
+      "description": "Indicates if radiation has been applied to the product."
+    },
+    {
+      "codepoint": 3286,
+      "name": "gs1:isCarbonated",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isCarbonated",
+      "description": "Used to identify whether or not a beverage product is naturally effervescent or has been made effervescent by the addition of carbon dioxide gas."
+    },
+    {
+      "codepoint": 3287,
+      "name": "gs1:isDecaffeinated",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isDecaffeinated",
+      "description": "The descriptive term that is used by the product manufacturer to identify whether or not the product contains caffeine."
+    },
+    {
+      "codepoint": 3288,
+      "name": "gs1:isFromConcentrate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isFromConcentrate",
+      "description": "Used to identify whether or not the product claims to be made from a concentrated formulation."
+    },
+    {
+      "codepoint": 3289,
+      "name": "gs1:isHomogenised",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isHomogenised",
+      "description": "A The indication whether or not the milk used was actively homogenised. The homogenisation of milk is a technical process in the dairy. The milk fat is milled to such an extent that further creaming is prevented."
+    },
+    {
+      "codepoint": 3290,
+      "name": "gs1:isInstant",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isInstant",
+      "description": "Determines whether the product is instant."
+    },
+    {
+      "codepoint": 3291,
+      "name": "gs1:isMaternity",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isMaternity",
+      "description": "Indicates, with reference to the product branding, labelling or packaging, the descriptive term that is used by the product manufacturer to identify if the product is intended as maternity wear."
+    },
+    {
+      "codepoint": 3292,
+      "name": "gs1:isOnlyAvailableThroughRetailer",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isOnlyAvailableThroughRetailer",
+      "description": "If specified and set to true, the discount is only available through the retailer making the offer."
+    },
+    {
+      "codepoint": 3293,
+      "name": "gs1:isOnlyWithMailingListSignup",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isOnlyWithMailingListSignup",
+      "description": "If specified and set to true, the discount is only available for customers who have signed up to the retailer's mailing list."
+    },
+    {
+      "codepoint": 3294,
+      "name": "gs1:isOnlyWithPaymentCard",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isOnlyWithPaymentCard",
+      "description": "If specified, the discount is only available when purchasing using one of the specified payment card types."
+    },
+    {
+      "codepoint": 3295,
+      "name": "gs1:isOnlyWithRetailerLoyaltyCard",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isOnlyWithRetailerLoyaltyCard",
+      "description": "If specified and set to true, the discount is only available for holders of the retailer's own loyalty card."
+    },
+    {
+      "codepoint": 3296,
+      "name": "gs1:isOnlyWithRetailerPaymentCard",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isOnlyWithRetailerPaymentCard",
+      "description": "If specified and set to true, the discount is only available for holders of the retailer's own store payment card."
+    },
+    {
+      "codepoint": 3297,
+      "name": "gs1:isPatterned",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isPatterned",
+      "description": "The descriptive term that is used by the product manufacturer to identify whether or not the product has a patterned design."
+    },
+    {
+      "codepoint": 3298,
+      "name": "gs1:isPittedStoned",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isPittedStoned",
+      "description": "The descriptive term that is used by the product manufacturer to identify whether or not a fruit or vegetable product has been de-stoned or pitted prior to being offered for sale."
+    },
+    {
+      "codepoint": 3299,
+      "name": "gs1:isProductRecalled",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isProductRecalled",
+      "description": "An indicator for the product to determine if the Manufacturer or Supplier has recalled the product."
+    },
+    {
+      "codepoint": 3300,
+      "name": "gs1:isPromoterExclusiveOffer",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isPromoterExclusiveOffer",
+      "description": "Determines whether the offer is only provided by the promoter"
+    },
+    {
+      "codepoint": 3301,
+      "name": "gs1:isRindEdible",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isRindEdible",
+      "description": "An indicator whether or not the cheese rind is edible. Some cheeses are coated in plastic or their surface is treated with other traditional substances to increase their shelf life. This can result in the rind no longer being edible."
+    },
+    {
+      "codepoint": 3302,
+      "name": "gs1:isSeedless",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isSeedless",
+      "description": "Determines whether the product is seedless as grown."
+    },
+    {
+      "codepoint": 3303,
+      "name": "gs1:isShelledPeeled",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isShelledPeeled",
+      "description": "The descriptive term that is used by the product manufacturer to identify whether or not the product or its contents have been shelled/peeled prior to being offered for sale."
+    },
+    {
+      "codepoint": 3304,
+      "name": "gs1:isSliced",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isSliced",
+      "description": "Determines whether the product comes pre-sliced."
+    },
+    {
+      "codepoint": 3305,
+      "name": "gs1:isThermal",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isThermal",
+      "description": "The descriptive term that is used to identify whether the product is thermal."
+    },
+    {
+      "codepoint": 3306,
+      "name": "gs1:isVintage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isVintage",
+      "description": "Identifies whether the product makes claim to being vintage."
+    },
+    {
+      "codepoint": 3307,
+      "name": "gs1:isWashedReadyToEat",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isWashedReadyToEat",
+      "description": "Determines whether product has been prewashed and is ready to eat."
+    },
+    {
+      "codepoint": 3308,
+      "name": "gs1:isWaterproof",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isWaterproof",
+      "description": "The descriptive term that is used to identify whether or not the product claims to provide waterproofing to the applied surface."
+    },
+    {
+      "codepoint": 3309,
+      "name": "gs1:isWearableItemDisposable",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/isWearableItemDisposable",
+      "description": "Identifies whether or not the product is intended to be disposed of after single use or a limited period of use."
+    },
+    {
+      "codepoint": 3310,
+      "name": "gs1:itemOffered",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/itemOffered",
+      "description": "The product included in the offer."
+    },
+    {
+      "codepoint": 3311,
+      "name": "gs1:juiceContentPercent",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/juiceContentPercent",
+      "description": "The fruit juice content of the product expressed as a percentage."
+    },
+    {
+      "codepoint": 3312,
+      "name": "gs1:jws",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/jws",
+      "description": "A link to a JSON Web Signature"
+    },
+    {
+      "codepoint": 3313,
+      "name": "gs1:latitude",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/latitude",
+      "description": "Angular distance North or South from the earth's equator measured through 90 degrees."
+    },
+    {
+      "codepoint": 3314,
+      "name": "gs1:leasedFrom",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/leasedFrom",
+      "description": "Links to the organisation (lessor) from which this place is leased."
+    },
+    {
+      "codepoint": 3315,
+      "name": "gs1:leasedTo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/leasedTo",
+      "description": "Links to the organisation(s) (lessee(s)) to which this place is leased. Property SHOULD be applied to a specific sub-location, rather than a main location, wherever possible."
+    },
+    {
+      "codepoint": 3316,
+      "name": "gs1:leaveReview",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/leaveReview",
+      "description": "A link through which a review can be added."
+    },
+    {
+      "codepoint": 3317,
+      "name": "gs1:lesseeOf",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/lesseeOf",
+      "description": "Links to the place(s) for which this organisation is the lessee (i.e., this organisation leases those places from another organisation, the lessor)."
+    },
+    {
+      "codepoint": 3318,
+      "name": "gs1:lessorFor",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/lessorFor",
+      "description": "Links to the place(s) for which this organisation is the lessor (i.e., this organisation leases those places to others)."
+    },
+    {
+      "codepoint": 3319,
+      "name": "gs1:line",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/line",
+      "description": "A line is a point-to-point path consisting of two or more point objects separated by a space. A single line segment (i.e., straight line) is expressed as two points.  A multi-line path (i.e., open polygon) is expressed as a series of three or more points. For a closed shape, gs1:polygon SHALL be used."
+    },
+    {
+      "codepoint": 3320,
+      "name": "gs1:linkType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/linkType",
+      "description": "Provides a URL for related information or services. This is not expected to be used directly but provides a super property for all other link types in the GS1 ecosystem."
+    },
+    {
+      "codepoint": 3321,
+      "name": "gs1:location",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/location",
+      "description": "The place(s) associated with an organization."
+    },
+    {
+      "codepoint": 3322,
+      "name": "gs1:locationDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/locationDescription",
+      "description": "The description of a place."
+    },
+    {
+      "codepoint": 3323,
+      "name": "gs1:locationFinalClosureDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/locationFinalClosureDate",
+      "description": "Date in which a location was finally closed. Note that this is NOT the date when a GLN was deactivated. To designate when location opened, see gs1:locationOpeningDate."
+    },
+    {
+      "codepoint": 3324,
+      "name": "gs1:locationGLN",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/locationGLN",
+      "description": "13-digit GLN that is being used to identify a physical or digital location. If gs1:glnType is present, gs1:locationGLN SHALL only be used when gs1:GLN_TypeCode includes FIXED_PHYSICAL_LOCATION, MOBILE_PHYSICAL_LOCATION, or DIGITAL_LOCATION"
+    },
+    {
+      "codepoint": 3325,
+      "name": "gs1:locationHistory",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/locationHistory",
+      "description": "Provides details on if and when a location is active or inactive."
+    },
+    {
+      "codepoint": 3326,
+      "name": "gs1:locationID",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/locationID",
+      "description": "Identifier value associated to a location. This value SHALL follow rules set forth by the administrating organisation designated in gs1:LocationID_Type."
+    },
+    {
+      "codepoint": 3327,
+      "name": "gs1:locationID_Qualifier",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/locationID_Qualifier",
+      "description": "Secondary qualifier to supplement gs1:LocationID_Type meaning. May be used with proprietary ID code values to define identifier administrator."
+    },
+    {
+      "codepoint": 3328,
+      "name": "gs1:locationID_Type",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/locationID_Type",
+      "description": "Organisation that administers the gs1:locationID or the name of the ID itself.  Value from gs1:LocationID_Type code list."
+    },
+    {
+      "codepoint": 3329,
+      "name": "gs1:locationID_URI",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/locationID_URI",
+      "description": "A URI that links to information about the gs1:locationID."
+    },
+    {
+      "codepoint": 3330,
+      "name": "gs1:locationInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/locationInfo",
+      "description": "A link to a map, directions, or other location-related information.  For B2B location  information, see gs1:logisticsInfo.  For details specific to hours of operation, see gs1:openingHoursInfo"
+    },
+    {
+      "codepoint": 3331,
+      "name": "gs1:locationOpeningDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/locationOpeningDate",
+      "description": "Date in which a location was opened or otherwise established. Note that this is NOT the date when a GLN was allocated to identify the location. To designate when location was finally closed, see gs1: gs1:locationFinalClosureDate"
+    },
+    {
+      "codepoint": 3332,
+      "name": "gs1:locationRole",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/locationRole",
+      "description": "A location classification based on the purpose, type of site and/or what occurs there. Repeatable value from gs1:LocationRoleType code list."
+    },
+    {
+      "codepoint": 3333,
+      "name": "gs1:locationStatus",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/locationStatus",
+      "description": "Designation of active/inactive status of a location."
+    },
+    {
+      "codepoint": 3334,
+      "name": "gs1:logisticsInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/logisticsInfo",
+      "description": "A link to B2B logistics information related to a physical location."
+    },
+    {
+      "codepoint": 3335,
+      "name": "gs1:longitude",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/longitude",
+      "description": "The arc or portion of the earth's equator intersected between the meridian of a given place and the prime meridian and expressed in degrees"
+    },
+    {
+      "codepoint": 3336,
+      "name": "gs1:loyaltyProgram",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/loyaltyProgram",
+      "description": "A link to information about a loyalty program, including a member's current status and/or a registration option for new members"
+    },
+    {
+      "codepoint": 3337,
+      "name": "gs1:magnesiumPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/magnesiumPerNutrientBasis",
+      "description": "Magnesium per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3338,
+      "name": "gs1:makesOffer",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/makesOffer",
+      "description": "An offer made by an organization."
+    },
+    {
+      "codepoint": 3339,
+      "name": "gs1:managedBy",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/managedBy",
+      "description": "Links to the organisation that manages this place or organisation, as designated by the owner or another organisation."
+    },
+    {
+      "codepoint": 3340,
+      "name": "gs1:managedFor",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/managedFor",
+      "description": "Links to the organisation(s) for whom this place is managed. Property SHOULD be applied to a specific sub-location, rather than a main location, wherever possible."
+    },
+    {
+      "codepoint": 3341,
+      "name": "gs1:manages",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/manages",
+      "description": "Links to the place(s) or organisation(s) that this organisation manages, on behalf of the owner or another organisation."
+    },
+    {
+      "codepoint": 3342,
+      "name": "gs1:manganesePerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/manganesePerNutrientBasis",
+      "description": "Manganese per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3343,
+      "name": "gs1:manufacturer",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/manufacturer",
+      "description": "The organization that produces the item."
+    },
+    {
+      "codepoint": 3344,
+      "name": "gs1:manufacturerPreparationCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/manufacturerPreparationCode",
+      "description": "Code indicating the preparation methods that a manufacturer has used in the manufacturing of a product for example DEEP_FRY."
+    },
+    {
+      "codepoint": 3345,
+      "name": "gs1:manufacturersWarranty",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/manufacturersWarranty",
+      "description": "The warranty associated with the product."
+    },
+    {
+      "codepoint": 3346,
+      "name": "gs1:manufacturingPlant",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/manufacturingPlant",
+      "description": "A physical location consisting of one or more buildings with facilities for manufacturing."
+    },
+    {
+      "codepoint": 3347,
+      "name": "gs1:massPerUnitArea",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/massPerUnitArea",
+      "description": "The mass per unit area of the item. This can be given using a number of different AI ranges that depend on the units in which the mass and area are measured."
+    },
+    {
+      "codepoint": 3348,
+      "name": "gs1:masterData",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/masterData",
+      "description": "A link to a source of structured master data for the entity. This is typically for B2B applications."
+    },
+    {
+      "codepoint": 3349,
+      "name": "gs1:maturationMethod",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/maturationMethod",
+      "description": "The method of maturity for the item for example tree ripened or jet fresh."
+    },
+    {
+      "codepoint": 3350,
+      "name": "gs1:maxPrice",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/maxPrice",
+      "description": "Provides a maximum price value as a floating-point numeric value that is qualified by the corresponding currency. See also gs1:priceCurrency"
+    },
+    {
+      "codepoint": 3351,
+      "name": "gs1:maximumDiscountAmount",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/maximumDiscountAmount",
+      "description": "Links to a gs1:PriceSpecification that indicates in terms of an amount and specified currency, the maximum discount on the sales price associated with a particular gs1:Discount. This property can be used to express 'up to $10 off'."
+    },
+    {
+      "codepoint": 3352,
+      "name": "gs1:maximumDiscountPercentage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/maximumDiscountPercentage",
+      "description": "A floating-point value indicating a maximum percentage discount on the sales price associated with a particular gs1:Discount.  This property can be used to express 'up to 15% discount'."
+    },
+    {
+      "codepoint": 3353,
+      "name": "gs1:maximumOptimumConsumptionTemperature",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/maximumOptimumConsumptionTemperature",
+      "description": "The upper limit drinking temperature of the optimum range of the drinking temperature. The optimum range of the drinking temperature is a recommendation and is based on the experience of the individual producer. Allows for the representation of the same value in different units of measure but not multiple values."
+    },
+    {
+      "codepoint": 3354,
+      "name": "gs1:maximumQualifyingItems",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/maximumQualifyingItems",
+      "description": "Specifies the maximum number of items that qualify for a particular gs1:Discount. This property can be used to express 'maximum N items per customer'."
+    },
+    {
+      "codepoint": 3355,
+      "name": "gs1:maximumQualifyingSpend",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/maximumQualifyingSpend",
+      "description": "Links to a gs1:PriceSpecification that indicates in terms of an amount and specified currency, the maximum spend that qualifies for a particular gs1:Discount. This property can be used to express 'for purchases of up to $100'."
+    },
+    {
+      "codepoint": 3356,
+      "name": "gs1:meatPoultryType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/meatPoultryType",
+      "description": "The fish, meat, or poultry type for this food and beverage item."
+    },
+    {
+      "codepoint": 3357,
+      "name": "gs1:menuInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/menuInfo",
+      "description": "A link to menu details. This may include food menus, services, or other offerings provided by an organisation or at a location.  For details specific to allergens only, see gs1:allergenInfo .  For details specific to nutrition information only, see gs1:nutritionalInfo .  For details specific to ingredients only, see gs1:ingredientsInfo ."
+    },
+    {
+      "codepoint": 3358,
+      "name": "gs1:messageRecipient",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/messageRecipient",
+      "description": "Identifies the party receiving an electronic message"
+    },
+    {
+      "codepoint": 3359,
+      "name": "gs1:messageSender",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/messageSender",
+      "description": "Identifies the party sending an electronic message"
+    },
+    {
+      "codepoint": 3360,
+      "name": "gs1:minPrice",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/minPrice",
+      "description": "Provides a minimum price value as a floating-point numeric value that is qualified by the corresponding currency. See also gs1:priceCurrency"
+    },
+    {
+      "codepoint": 3361,
+      "name": "gs1:minimumDiscountAmount",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/minimumDiscountAmount",
+      "description": "Links to a gs1:PriceSpecification that indicates in terms of an amount and specified currency, the minimum discount on the sales price associated with a particular gs1:Discount. This property can be used to express 'at least $10 off'."
+    },
+    {
+      "codepoint": 3362,
+      "name": "gs1:minimumDiscountPercentage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/minimumDiscountPercentage",
+      "description": "A floating-point value indicating a minimum percentage discount on the sales price associated with a particular gs1:Discount.  This property can be used to express 'at least 15% discount'."
+    },
+    {
+      "codepoint": 3363,
+      "name": "gs1:minimumFishContent",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/minimumFishContent",
+      "description": "The minimum amount of fish contained in a food and beverage product expressed as a measurement."
+    },
+    {
+      "codepoint": 3364,
+      "name": "gs1:minimumMeatPoultryContent",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/minimumMeatPoultryContent",
+      "description": "The minimum amount of fish, meat or poultry contained in a food and beverage product expressed as a measurement."
+    },
+    {
+      "codepoint": 3365,
+      "name": "gs1:minimumOptimumConsumptionTemperature",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/minimumOptimumConsumptionTemperature",
+      "description": "The lower limit drinking temperature of the optimum range of the drinking temperature. The optimum range of the drinking temperature is a recommendation and is based on the experience of the individual producer. Allows for the representation of the same value in different units of measure but not multiple values."
+    },
+    {
+      "codepoint": 3366,
+      "name": "gs1:minimumQualifyingItems",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/minimumQualifyingItems",
+      "description": "Specifies the minimum number of items that must be purchased to qualify for a particular gs1:Discount. This property can be used to express 'if you buy at least N items'."
+    },
+    {
+      "codepoint": 3367,
+      "name": "gs1:minimumQualifyingSpend",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/minimumQualifyingSpend",
+      "description": "Links to a gs1:PriceSpecification that indicates in terms of an amount and specified currency, the minimum spend required to qualify for a particular gs1:Discount. This property can be used to express 'if you spend at least $100'."
+    },
+    {
+      "codepoint": 3368,
+      "name": "gs1:molybdenumPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/molybdenumPerNutrientBasis",
+      "description": "Molybdenum per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3369,
+      "name": "gs1:monounsaturatedFatPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/monounsaturatedFatPerNutrientBasis",
+      "description": "Monounsaturated fat per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3370,
+      "name": "gs1:netArea",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/netArea",
+      "description": "The net area of the item. This can be given using a number of different AI ranges that depend on the units in which the area is measured."
+    },
+    {
+      "codepoint": 3371,
+      "name": "gs1:netContent",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/netContent",
+      "description": "The quantity of the product contained by a package, usually as claimed on the label. Indicates the net content of the total product. For fixed value products use the value claimed on the package, to avoid variable fill rate issue that arises with some product which are sold by volume or weight, and whose actual content may vary slightly from batch to batch."
+    },
+    {
+      "codepoint": 3372,
+      "name": "gs1:netWeight",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/netWeight",
+      "description": "Used to identify the net weight of the product. Net Weight excludes all packaging material, including the packaging material of all lower-level GTINs. Example:11.5 kgm."
+    },
+    {
+      "codepoint": 3373,
+      "name": "gs1:niacinPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/niacinPerNutrientBasis",
+      "description": "Niacin per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3374,
+      "name": "gs1:numberOfServingsPerPackage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/numberOfServingsPerPackage",
+      "description": "The total number of servings contained in the package."
+    },
+    {
+      "codepoint": 3375,
+      "name": "gs1:numberOfServingsPerPackageMeasurementPrecision",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/numberOfServingsPerPackageMeasurementPrecision",
+      "description": "Code indicating whether the number of servings per package is exact or approximate."
+    },
+    {
+      "codepoint": 3376,
+      "name": "gs1:numberOfServingsRangeDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/numberOfServingsRangeDescription",
+      "description": "A free text field specifying a range for the number of servings contained in the package."
+    },
+    {
+      "codepoint": 3377,
+      "name": "gs1:nutrientBasisQuantity",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/nutrientBasisQuantity",
+      "description": "Quantity on which the nutrient information has been based; for example, per 100 grams. When specified, nutrientBasisQuantity establishes the basis for all contained nutrient records."
+    },
+    {
+      "codepoint": 3378,
+      "name": "gs1:nutrientBasisQuantityType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/nutrientBasisQuantityType",
+      "description": "The type of quantity specified in the nutrientBasisQuantity for example measurement, serving size, or container. This is used in conjunction with the nutrientBasisQuantity."
+    },
+    {
+      "codepoint": 3379,
+      "name": "gs1:nutrientMeasurementPrecision",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/nutrientMeasurementPrecision",
+      "description": "The Code indicating whether the specified nutrient content is exact or approximate."
+    },
+    {
+      "codepoint": 3380,
+      "name": "gs1:nutritionalClaim",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/nutritionalClaim",
+      "description": "Code indicating a nutritional claim applicable to the product, for example FAT_FREE."
+    },
+    {
+      "codepoint": 3381,
+      "name": "gs1:nutritionalClaimStatement",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/nutritionalClaimStatement",
+      "description": "Free text field for any additional nutritional claims."
+    },
+    {
+      "codepoint": 3382,
+      "name": "gs1:nutritionalInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/nutritionalInfo",
+      "description": "A link to nutritional facts."
+    },
+    {
+      "codepoint": 3383,
+      "name": "gs1:occupiedBy",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/occupiedBy",
+      "description": "Links to the organisation(s) that occupy this place. Property SHOULD be applied to a specific sub-location, rather than a main location, wherever possible."
+    },
+    {
+      "codepoint": 3384,
+      "name": "gs1:occupies",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/occupies",
+      "description": "Links to the place(s) that this organisation occupies."
+    },
+    {
+      "codepoint": 3385,
+      "name": "gs1:offerDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/offerDescription",
+      "description": "A description of the offer including goods or services offered for sale or use."
+    },
+    {
+      "codepoint": 3386,
+      "name": "gs1:offerDiscount",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/offerDiscount",
+      "description": "A discount associated with an offer."
+    },
+    {
+      "codepoint": 3387,
+      "name": "gs1:offerRedemptionType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/offerRedemptionType",
+      "description": "A code indicating the type of redemptions that apply to the offer, for example single use."
+    },
+    {
+      "codepoint": 3388,
+      "name": "gs1:offerRedemptionURL",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/offerRedemptionURL",
+      "description": "The URL where the offer seeker will need to go in order to redeem the offer for an online redemption."
+    },
+    {
+      "codepoint": 3389,
+      "name": "gs1:offerRestrictionDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/offerRestrictionDescription",
+      "description": "A description of what the offer is restricted to, relative to all other offerings by the issuer, for example payment restrictions, subscription required, new customers only."
+    },
+    {
+      "codepoint": 3390,
+      "name": "gs1:openingHoursInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/openingHoursInfo",
+      "description": "A link to details on hours of operation."
+    },
+    {
+      "codepoint": 3391,
+      "name": "gs1:organicClaim",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organicClaim",
+      "description": "Relates to an organic claim about the product"
+    },
+    {
+      "codepoint": 3392,
+      "name": "gs1:organicClaimAgency",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organicClaimAgency",
+      "description": "A governing body that creates and maintains standards related to organic products."
+    },
+    {
+      "codepoint": 3393,
+      "name": "gs1:organicPercentClaim",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organicPercentClaim",
+      "description": "The percent of actual organic materials per weight of the product. This is usually claimed on the product."
+    },
+    {
+      "codepoint": 3394,
+      "name": "gs1:organizationFormationDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organizationFormationDate",
+      "description": "Date in which an organisation was formed or otherwise established. Note that this is NOT the date when a GLN was allocated to identify the organisation. To designate when organisation was terminated, see gs1:organizationTerminationDate"
+    },
+    {
+      "codepoint": 3395,
+      "name": "gs1:organizationHistory",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organizationHistory",
+      "description": "Provides details on if and when an organisation/party is active or inactive."
+    },
+    {
+      "codepoint": 3396,
+      "name": "gs1:organizationID",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organizationID",
+      "description": "Identifier value associated to an organisation/party. This value SHALL follow rules set forth by the administrating organisation designated in gs1:OrganizationID_Type."
+    },
+    {
+      "codepoint": 3397,
+      "name": "gs1:organizationID_Qualifier",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organizationID_Qualifier",
+      "description": "Secondary qualifier to supplement gs1:organizationID_Type meaning. May be used with proprietary ID code values to define identifier administrator."
+    },
+    {
+      "codepoint": 3398,
+      "name": "gs1:organizationID_Type",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organizationID_Type",
+      "description": "Organisation that administers the gs1:organizationID or the name of the ID itself.  Value from gs1:OrganizationID_Type code list."
+    },
+    {
+      "codepoint": 3399,
+      "name": "gs1:organizationID_URI",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organizationID_URI",
+      "description": "A URI that links to information about the gs1:organizationID."
+    },
+    {
+      "codepoint": 3400,
+      "name": "gs1:organizationLegalName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organizationLegalName",
+      "description": "The legal name used by an organisation for official purposes. There may be more than one legal name, particularly in countries with more than one official language. In such cases the language of the string should be identified. To specify a general name, see gs1:organizationName. For trade name, see gs1:organizationTradingName. To specify the name of a function, see gs1:department."
+    },
+    {
+      "codepoint": 3401,
+      "name": "gs1:organizationName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organizationName",
+      "description": "The name of the organization expressed in text."
+    },
+    {
+      "codepoint": 3402,
+      "name": "gs1:organizationRole",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organizationRole",
+      "description": "The role and/or purpose of a party (i.e. legal entity or function).  Multiple values from gs1:OrganizationRoleType code list may be associated to a single organisation/party."
+    },
+    {
+      "codepoint": 3403,
+      "name": "gs1:organizationStatus",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organizationStatus",
+      "description": "Designation of active/inactive status of an organisation/party."
+    },
+    {
+      "codepoint": 3404,
+      "name": "gs1:organizationTerminationDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organizationTerminationDate",
+      "description": "Date in which an organisation was disbanded or otherwise ended. Note that this is NOT the date when a GLN was deactivated. To designate when organisation formed, see gs1:organizationFormationDate."
+    },
+    {
+      "codepoint": 3405,
+      "name": "gs1:organizationTradingName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/organizationTradingName",
+      "description": "A trading name or alternative forms of a legal entity's name as recognised by some jurisdictions. To specify a general name, see gs1:organizationName. For legal name, see gs1:organizationLegalName. To specify the name of a function, see gs1:department."
+    },
+    {
+      "codepoint": 3406,
+      "name": "gs1:originalCodeValue",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/originalCodeValue",
+      "description": "Links to the alphanumeric code value defined elsewhere in GS1 or the GS1 Global Data Dictionary"
+    },
+    {
+      "codepoint": 3407,
+      "name": "gs1:outOfPackageDepth",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/outOfPackageDepth",
+      "description": "The depth of the product out of its packaging, as measured according to the GS1 Package Measurement Rules. See https://www.gs1.org/package-measurement-rules-implementation-guide for more details."
+    },
+    {
+      "codepoint": 3408,
+      "name": "gs1:outOfPackageDiameter",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/outOfPackageDiameter",
+      "description": "The measurement of the diameter of the product out of its package at its largest point. For example, 165 MMT."
+    },
+    {
+      "codepoint": 3409,
+      "name": "gs1:outOfPackageHeight",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/outOfPackageHeight",
+      "description": "The height of the product out of the package, as measured according to the GS1 Package Measurement Rules. See https://www.gs1.org/package-measurement-rules-implementation-guide for more details."
+    },
+    {
+      "codepoint": 3410,
+      "name": "gs1:outOfPackageWidth",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/outOfPackageWidth",
+      "description": "The width of the product out of the package, as measured according to the GS1 Package Measurement Rules. See https://www.gs1.org/package-measurement-rules-implementation-guide for more details."
+    },
+    {
+      "codepoint": 3411,
+      "name": "gs1:ownedBy",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/ownedBy",
+      "description": "Links to the organisation(s) that own this place, in full or in part. This includes joint ventures. For leased locations, see gs1:lessorFor and gs1:isLeasedFrom."
+    },
+    {
+      "codepoint": 3412,
+      "name": "gs1:owns",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/owns",
+      "description": "Links to the place(s) or organisation(s) that this organisation owns."
+    },
+    {
+      "codepoint": 3413,
+      "name": "gs1:packaging",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packaging",
+      "description": "Details on the packaging for a product including type, weight and materials."
+    },
+    {
+      "codepoint": 3414,
+      "name": "gs1:packagingDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packagingDate",
+      "description": "The packaging date is the date when the goods were packed as determined by the packager. The date may refer to the trade item itself or to items contained."
+    },
+    {
+      "codepoint": 3415,
+      "name": "gs1:packagingFeature",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packagingFeature",
+      "description": "Code indicating a feature that facilitates the usage of the product by the consumer, for example a handle. Packaging features do not affect the core composition of the packaging type nor modify its usage."
+    },
+    {
+      "codepoint": 3416,
+      "name": "gs1:packagingFunction",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packagingFunction",
+      "description": "Code indicating specific functionality for packaging resulting from specific processes or features present in the packaging type,for example, ANTI_TAMPERING."
+    },
+    {
+      "codepoint": 3417,
+      "name": "gs1:packagingMarkedDietAllergenType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packagingMarkedDietAllergenType",
+      "description": "Indication of which dietary or allergen marks are on the package."
+    },
+    {
+      "codepoint": 3418,
+      "name": "gs1:packagingMarkedFreeFrom",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packagingMarkedFreeFrom",
+      "description": "Indication of the food ingredients that the package is marked free from."
+    },
+    {
+      "codepoint": 3419,
+      "name": "gs1:packagingMarkedLabelAccreditation",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packagingMarkedLabelAccreditation",
+      "description": "A marking that the product received recognition, endorsement, certification by following guidelines by the label issuing agency. This does not represent claims for regulatory purposes on products such as free from markings."
+    },
+    {
+      "codepoint": 3420,
+      "name": "gs1:packagingMaterial",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packagingMaterial",
+      "description": "links to details about packaging material type, quantity and thickness"
+    },
+    {
+      "codepoint": 3421,
+      "name": "gs1:packagingMaterialCompositionQuantity",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packagingMaterialCompositionQuantity",
+      "description": "The quantity of the packaging material of the product. Can be weight, volume or surface, can vary by country."
+    },
+    {
+      "codepoint": 3422,
+      "name": "gs1:packagingMaterialThickness",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packagingMaterialThickness",
+      "description": "The thickness of a packaging material."
+    },
+    {
+      "codepoint": 3423,
+      "name": "gs1:packagingMaterialType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packagingMaterialType",
+      "description": "The materials used for the packaging of the product for example glass or plastic."
+    },
+    {
+      "codepoint": 3424,
+      "name": "gs1:packagingRecyclingProcessType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packagingRecyclingProcessType",
+      "description": "The process the packaging could undertake for recyclable & sustainability programs. Examples COMPOSTABLE, ENERGY_RECOVERABLE, REUSABLE."
+    },
+    {
+      "codepoint": 3425,
+      "name": "gs1:packagingRecyclingScheme",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packagingRecyclingScheme",
+      "description": "A code indicating the recycling scheme the packaging of this product will fall within when recycled. Applies to recyclable packaging with or without deposit."
+    },
+    {
+      "codepoint": 3426,
+      "name": "gs1:packagingShape",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packagingShape",
+      "description": "A code depicting the shape of a package for example CONE."
+    },
+    {
+      "codepoint": 3427,
+      "name": "gs1:packagingType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/packagingType",
+      "description": "The dominant means used to transport, store, handle or display the product as defined by the data source. This packaging is not used to describe any manufacturing process.Recommend to use UNECE Rec 21 codes."
+    },
+    {
+      "codepoint": 3428,
+      "name": "gs1:pantothenicAcidPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/pantothenicAcidPerNutrientBasis",
+      "description": "Pantothenic Acid per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3429,
+      "name": "gs1:parentOrganization",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/parentOrganization",
+      "description": "Designates the legal entity or function directly above the organisation/party being identified in a hierarchy. This is not defaulted to the highest-level entity in the hierarchy. Only one parent organisation SHALL be associated to a single GLN. To specify other affiliated organisations, see gs1:affiliatedTo, gs1:managedBy, gs1:franchiseeOf, gs1:ownedBy. To specify an organisation/party lower in the hierarchy, see gs1:subOrganization."
+    },
+    {
+      "codepoint": 3430,
+      "name": "gs1:partyGLN",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/partyGLN",
+      "description": "13-digit GLN that is being used to identify a legal entity or function. If gs1:glnType is present, gs1:partyGLN SHALL only be used when gs1:GLN_TypeCode includes LEGAL_ENTITY and/or FUNCTION"
+    },
+    {
+      "codepoint": 3431,
+      "name": "gs1:paymentLink",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/paymentLink",
+      "description": "A link to a place where payments details are provided and/or payments can be made by the user."
+    },
+    {
+      "codepoint": 3432,
+      "name": "gs1:paymentTerms",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/paymentTerms",
+      "description": "The type of payment term expressed as a code, for example Discount."
+    },
+    {
+      "codepoint": 3433,
+      "name": "gs1:percentageOfAlcoholByVolume",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/percentageOfAlcoholByVolume",
+      "description": "The percentage of alcohol contained in product."
+    },
+    {
+      "codepoint": 3434,
+      "name": "gs1:phosphorusPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/phosphorusPerNutrientBasis",
+      "description": "Phosphorus per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3435,
+      "name": "gs1:physicalLocationName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/physicalLocationName",
+      "description": "The name of a physical place. To specify the name of a digital location, see gs1:digitalLocationName."
+    },
+    {
+      "codepoint": 3436,
+      "name": "gs1:pip",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/pip",
+      "description": "A link to information specifically about the identified item, typically operated by the brand owner or a retailer of the product and aimed at consumers. It may include links to further information, product description, specifications etc."
+    },
+    {
+      "codepoint": 3437,
+      "name": "gs1:polygon",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/polygon",
+      "description": "A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical."
+    },
+    {
+      "codepoint": 3438,
+      "name": "gs1:polyolsPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/polyolsPerNutrientBasis",
+      "description": "Polyols per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3439,
+      "name": "gs1:polyunsaturatedFatPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/polyunsaturatedFatPerNutrientBasis",
+      "description": "Polyunsaturated fat per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3440,
+      "name": "gs1:postOfficeBoxNumber",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/postOfficeBoxNumber",
+      "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept."
+    },
+    {
+      "codepoint": 3441,
+      "name": "gs1:postalCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/postalCode",
+      "description": "Text specifying the postal code for an address."
+    },
+    {
+      "codepoint": 3442,
+      "name": "gs1:postalName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/postalName",
+      "description": "The name of the recipient expressed in text. Note that this may be different than gs1:OrganizationName."
+    },
+    {
+      "codepoint": 3443,
+      "name": "gs1:potassiumPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/potassiumPerNutrientBasis",
+      "description": "Potassium per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3444,
+      "name": "gs1:preparationCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/preparationCode",
+      "description": "Code specifying the preparation state of the product for which the nutrient information is valid. PREPARED, UNPREPARED."
+    },
+    {
+      "codepoint": 3445,
+      "name": "gs1:preparationConsumptionPrecautions",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/preparationConsumptionPrecautions",
+      "description": "Specifies additional precautions to be taken before preparation or consumption of the product."
+    },
+    {
+      "codepoint": 3446,
+      "name": "gs1:preparationInformation",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/preparationInformation",
+      "description": "Links to information about how to prepare a specific Food/Beverage/Tobacco product."
+    },
+    {
+      "codepoint": 3447,
+      "name": "gs1:preparationInstructions",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/preparationInstructions",
+      "description": "Free text providing instructions on how to prepare the product before serving."
+    },
+    {
+      "codepoint": 3448,
+      "name": "gs1:preservationTechnique",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/preservationTechnique",
+      "description": "Code indicating the preservation technique used to preserve the product from deterioration, for example, BRINING."
+    },
+    {
+      "codepoint": 3449,
+      "name": "gs1:price",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/price",
+      "description": "Provides a price value as a floating-point numeric value that is qualified by the corresponding currency. See also gs1:priceCurrency. The price value indicates the unit price unless the property gs1:eligibleQuantity is specified and indicates multiple units"
+    },
+    {
+      "codepoint": 3450,
+      "name": "gs1:priceCurrency",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/priceCurrency",
+      "description": "A string value indicating a currency from ISO 4217 for example USD ."
+    },
+    {
+      "codepoint": 3451,
+      "name": "gs1:priceSpecification",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/priceSpecification",
+      "description": "The price related to an offer. If the offer is a multi-buy offer for a quantity of product greater than one unit, this should be indicated using the property gs1:eligibleQuantity"
+    },
+    {
+      "codepoint": 3452,
+      "name": "gs1:primaryAlternateProduct",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/primaryAlternateProduct",
+      "description": "A product that is similar to the current product but is not exact match. Same form fit function, e.g. same product different colour, different package size, better quality."
+    },
+    {
+      "codepoint": 3453,
+      "name": "gs1:primaryLocationOf",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/primaryLocationOf",
+      "description": "Links to the organisation(s) that designate this place as its/their primary location. Property SHOULD be applied to a specific sub-location, rather than a main location, wherever possible."
+    },
+    {
+      "codepoint": 3454,
+      "name": "gs1:productDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productDescription",
+      "description": "An understandable and useable description of a product using brand and other descriptors. This attribute is filled with as little abbreviation as possible, while keeping to a reasonable length.  This should be a meaningful description of the product with full spelling to facilitate message processing. Retailers can use this description as the base to fully understand the brand, flavour, scent etc. of the specific product, in order to accurately create a product description as needed for their internal systems. Examples: XYZ Brand Base Invisible Solid Deodorant AP Stick Spring Breeze."
+    },
+    {
+      "codepoint": 3455,
+      "name": "gs1:productFeatureBenefit",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productFeatureBenefit",
+      "description": "Element for consumer facing marketing content to describe the key features or benefits of the style suitable for display purposes."
+    },
+    {
+      "codepoint": 3456,
+      "name": "gs1:productFormDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productFormDescription",
+      "description": "The physical form or shape of the product. Used, for example, in pharmaceutical industry to indicate the formulation of the product. Defines the form the product takes and is distinct from the form of the packaging."
+    },
+    {
+      "codepoint": 3457,
+      "name": "gs1:productID",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productID",
+      "description": "Additional means to the Global Trade Item Number to identify a product."
+    },
+    {
+      "codepoint": 3458,
+      "name": "gs1:productMarketingMessage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productMarketingMessage",
+      "description": "Marketing message associated with the product. Consumer-friendly marketing detailed description of the product."
+    },
+    {
+      "codepoint": 3459,
+      "name": "gs1:productName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productName",
+      "description": "Consumer friendly short description of the product suitable for compact presentation."
+    },
+    {
+      "codepoint": 3460,
+      "name": "gs1:productRange",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productRange",
+      "description": "A name, used by a Brand Owner, that span multiple consumer categories or uses. E.g. (Waist Watchers)."
+    },
+    {
+      "codepoint": 3461,
+      "name": "gs1:productSustainabilityInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productSustainabilityInfo",
+      "description": "This term has been deprecated. Please use gs1:sustainabilityInfo instead."
+    },
+    {
+      "codepoint": 3462,
+      "name": "gs1:productYield",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productYield",
+      "description": "Product quantity after preparation. This can differ based on productYieldType"
+    },
+    {
+      "codepoint": 3463,
+      "name": "gs1:productYieldType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productYieldType",
+      "description": "Code indicating the type of yield measurement specified in productYield. Examples: AFTER_DILUTION, DRAINED_WEIGHT."
+    },
+    {
+      "codepoint": 3464,
+      "name": "gs1:productYieldVariationPercentage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productYieldVariationPercentage",
+      "description": "Indication of range in percent of the given cooking / roasting loss. Percentage that the actual weight of the product differs upward or downward from the average or estimated product yield."
+    },
+    {
+      "codepoint": 3465,
+      "name": "gs1:productionDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productionDate",
+      "description": "The production date is the production or assembly date determined by the manufacturer. The date may refer to the trade item itself or to items contained."
+    },
+    {
+      "codepoint": 3466,
+      "name": "gs1:productionDateTime",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productionDateTime",
+      "description": "The date and time of production (or assembly). The date and time of production is determined by the manufacturer. The date and time may refer to the trade item itself or to the items contained."
+    },
+    {
+      "codepoint": 3467,
+      "name": "gs1:productionVariantDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productionVariantDescription",
+      "description": "Free text assigned by the manufacturer to describe the production variant. Examples are: package series X, package series Y."
+    },
+    {
+      "codepoint": 3468,
+      "name": "gs1:productionVariantEffectiveDateTime",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/productionVariantEffectiveDateTime",
+      "description": "The start date of a production variant. The variant applies to products having a date mark (a best before date or expiration date) on the package that comes on or after the effective date."
+    },
+    {
+      "codepoint": 3469,
+      "name": "gs1:promotion",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/promotion",
+      "description": "A link to a promotion."
+    },
+    {
+      "codepoint": 3470,
+      "name": "gs1:proteinPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/proteinPerNutrientBasis",
+      "description": "Protein per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3471,
+      "name": "gs1:provenanceStatement",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/provenanceStatement",
+      "description": "Free text description of the region or place the product originates from. This is to be specifically used to specify areas such as cities, mountain ranges, regions. Examples: Made in the Thuringen Mountains, Made in Paris, From the Napa Valley."
+    },
+    {
+      "codepoint": 3472,
+      "name": "gs1:purchaseSuppliesOrAccessories",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/purchaseSuppliesOrAccessories",
+      "description": "A link to information about where supplies or accessories for the item can be purchased or ordered."
+    },
+    {
+      "codepoint": 3473,
+      "name": "gs1:qualifyingBrandName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/qualifyingBrandName",
+      "description": "If specified, the discount is only available when purchasing a product from one of the brand names specified via this property."
+    },
+    {
+      "codepoint": 3474,
+      "name": "gs1:qualifyingGPCs",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/qualifyingGPCs",
+      "description": "If specified, the discount is only available when purchasing a product whose Global Product Classification (GPC) brick value appears in the list specified via this property."
+    },
+    {
+      "codepoint": 3475,
+      "name": "gs1:qualifyingProductCategoryDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/qualifyingProductCategoryDescription",
+      "description": "If specified, the discount is only available when purchasing a product from categories specified in this free-form text field."
+    },
+    {
+      "codepoint": 3476,
+      "name": "gs1:qualifyingProductClassificationCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/qualifyingProductClassificationCode",
+      "description": "If specified, the discount is only available when purchasing a product whose product classification (other than GPC) appears in the list specified via this property. This property specifies a product classification other than GPC."
+    },
+    {
+      "codepoint": 3477,
+      "name": "gs1:qualifyingProductGTINs",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/qualifyingProductGTINs",
+      "description": "If specified, the discount is only available when purchasing a product whose GTIN appears in the list specified via this property."
+    },
+    {
+      "codepoint": 3478,
+      "name": "gs1:qualifyingSubBrandName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/qualifyingSubBrandName",
+      "description": "If specified, the discount is only available when purchasing a product from one of the sub-brand names (specified product ranges for a given brand) specified via this property."
+    },
+    {
+      "codepoint": 3479,
+      "name": "gs1:quickStartGuide",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/quickStartGuide",
+      "description": "A link to a description of the key features needed to be understood to begin using the item or interacting with something new."
+    },
+    {
+      "codepoint": 3480,
+      "name": "gs1:recallStatus",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/recallStatus",
+      "description": "A link to information about whether the product has been recalled or not, typically an API."
+    },
+    {
+      "codepoint": 3481,
+      "name": "gs1:recipeInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/recipeInfo",
+      "description": "A link to a recipe website."
+    },
+    {
+      "codepoint": 3482,
+      "name": "gs1:referencedFile",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/referencedFile",
+      "description": "Link to a file or website containing additional information on product."
+    },
+    {
+      "codepoint": 3483,
+      "name": "gs1:referencedFileEffectiveEndDateTime",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/referencedFileEffectiveEndDateTime",
+      "description": "The date upon which the target of this external link ceases to be effective for use."
+    },
+    {
+      "codepoint": 3484,
+      "name": "gs1:referencedFileEffectiveStartDateTime",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/referencedFileEffectiveStartDateTime",
+      "description": "The date upon which the target of this external link begins to be effective for use."
+    },
+    {
+      "codepoint": 3485,
+      "name": "gs1:referencedFileSize",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/referencedFileSize",
+      "description": "The size of the file as it is stored in an uncompressed format."
+    },
+    {
+      "codepoint": 3486,
+      "name": "gs1:referencedFileType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/referencedFileType",
+      "description": "A code indicating the purpose or role of file (not a MIME type) that is being referenced, for example PRODUCT_LABEL_IMAGE. This code is used when the purpose of a file is not specified in the property."
+    },
+    {
+      "codepoint": 3487,
+      "name": "gs1:referencedFileURL",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/referencedFileURL",
+      "description": "Simple text string that refers to a resource on the internet, URLs may refer to documents, resources, people, etc."
+    },
+    {
+      "codepoint": 3488,
+      "name": "gs1:registerProduct",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/registerProduct",
+      "description": "A link to an entry point for registering ownership of a product including for warranty purposes."
+    },
+    {
+      "codepoint": 3489,
+      "name": "gs1:registryEntry",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/registryEntry",
+      "description": "A link to an entry in a register, such as a business register or register of locations. Such registers may act as alternative identifiers, such as official company numbers, LEIs, other location identifiers etc."
+    },
+    {
+      "codepoint": 3490,
+      "name": "gs1:regulatedProductName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/regulatedProductName",
+      "description": "The prescribed, regulated or generic product name or denomination that describes the true nature of the product. For example for a food product in order to distinguish it from other foods according to country specific regulations."
+    },
+    {
+      "codepoint": 3491,
+      "name": "gs1:regulationType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/regulationType",
+      "description": "Links to a code indicating the type of government regulation."
+    },
+    {
+      "codepoint": 3492,
+      "name": "gs1:regulatoryAct",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/regulatoryAct",
+      "description": "The name given to the requirement assigned by the regulatory agency."
+    },
+    {
+      "codepoint": 3493,
+      "name": "gs1:regulatoryIdentifier",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/regulatoryIdentifier",
+      "description": "Links to one or more groupings of identifiers that reference documents or datasets within a regulatory information system, repository or registry."
+    },
+    {
+      "codepoint": 3494,
+      "name": "gs1:regulatoryIdentifierType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/regulatoryIdentifierType",
+      "description": "The code indicating the type of regulatory information that is referenced."
+    },
+    {
+      "codepoint": 3495,
+      "name": "gs1:regulatoryInformation",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/regulatoryInformation",
+      "description": "Links to one or more groupings of information on applicable government regulations applicable to a trade item."
+    },
+    {
+      "codepoint": 3496,
+      "name": "gs1:regulatoryInformationProvider",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/regulatoryInformationProvider",
+      "description": "The organisation that provided a document or dataset to a regulatory information system, repository or registry."
+    },
+    {
+      "codepoint": 3497,
+      "name": "gs1:regulatoryReferenceApplicabilityEndDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/regulatoryReferenceApplicabilityEndDate",
+      "description": "The final date for which the referenced information remains applicable."
+    },
+    {
+      "codepoint": 3498,
+      "name": "gs1:regulatoryReferenceApplicabilityStartDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/regulatoryReferenceApplicabilityStartDate",
+      "description": "The earliest date from which the referenced information becomes applicable."
+    },
+    {
+      "codepoint": 3499,
+      "name": "gs1:regulatoryReferenceNumber",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/regulatoryReferenceNumber",
+      "description": "A reference number for a record, document or dataset stored within a regulatory information system, repository or registry."
+    },
+    {
+      "codepoint": 3500,
+      "name": "gs1:regulatoryVerificationNumber",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/regulatoryVerificationNumber",
+      "description": "A verification number for a record, document or dataset stored within a regulatory information system, repository or registry, typically used in combination with the reference number when requesting access to the refrenced document or dataset."
+    },
+    {
+      "codepoint": 3501,
+      "name": "gs1:reheatingClaim",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/reheatingClaim",
+      "description": "Indicates, with reference to the product branding, labelling or packaging whether a food product which is ready to eat can be reheated if required prior to consumption."
+    },
+    {
+      "codepoint": 3502,
+      "name": "gs1:relatedImage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/relatedImage",
+      "description": "A link to any image that depicts or relates to the identified entity (e.g., trade item, assets, business process, patient record, location, organisation, etc.)"
+    },
+    {
+      "codepoint": 3503,
+      "name": "gs1:relatedOrganization",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/relatedOrganization",
+      "description": "The organisation(s) associated with a place."
+    },
+    {
+      "codepoint": 3504,
+      "name": "gs1:relatedVideo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/relatedVideo",
+      "description": "A link to any video, or document that has an embedded video, that describes or relates to the identified item, organisation, or location in some way."
+    },
+    {
+      "codepoint": 3505,
+      "name": "gs1:replacedByOrganization",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/replacedByOrganization",
+      "description": "Links to the successor organisation that is used in place of a previous organisation"
+    },
+    {
+      "codepoint": 3506,
+      "name": "gs1:replacedByPlace",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/replacedByPlace",
+      "description": "Links to the successor location that is used in place of a previous location"
+    },
+    {
+      "codepoint": 3507,
+      "name": "gs1:replacedByProduct",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/replacedByProduct",
+      "description": "The product which permanently replaces the current product. This product is sent in the record for the original item that is being replaced."
+    },
+    {
+      "codepoint": 3508,
+      "name": "gs1:replacedOrganization",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/replacedOrganization",
+      "description": "Links to the previous organisation that this organisation replaces"
+    },
+    {
+      "codepoint": 3509,
+      "name": "gs1:replacedPlace",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/replacedPlace",
+      "description": "Links to the previous location that this location replaces"
+    },
+    {
+      "codepoint": 3510,
+      "name": "gs1:replacedProduct",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/replacedProduct",
+      "description": "Indicates the product identification of an item that is being permanently replaced by this product."
+    },
+    {
+      "codepoint": 3511,
+      "name": "gs1:reportFound",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/reportFound",
+      "description": "A link to a platform or service where users (company or a person) can report a found item associated with the identified entity (instance of an item). This link type is designed to assist in connecting the found item with its rightful owner or relevant authorities."
+    },
+    {
+      "codepoint": 3512,
+      "name": "gs1:responsibility",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/responsibility",
+      "description": "Text further specifying the area of responsibility of the trade contact."
+    },
+    {
+      "codepoint": 3513,
+      "name": "gs1:responsibleForLocation",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/responsibleForLocation",
+      "description": "Links to the place(s) for which this organisation is responsible."
+    },
+    {
+      "codepoint": 3514,
+      "name": "gs1:responsibleOrganization",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/responsibleOrganization",
+      "description": "Links to the organisation that is directly responsible for this place."
+    },
+    {
+      "codepoint": 3515,
+      "name": "gs1:restricted",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/restricted",
+      "description": ""
+    },
+    {
+      "codepoint": 3516,
+      "name": "gs1:returnablePackageDepositAmount",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/returnablePackageDepositAmount",
+      "description": "The monetary amount for the individual returnable package."
+    },
+    {
+      "codepoint": 3517,
+      "name": "gs1:returnablePackageDepositRegion",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/returnablePackageDepositRegion",
+      "description": "The geographic region associated with the returnable package deposit amount."
+    },
+    {
+      "codepoint": 3518,
+      "name": "gs1:review",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/review",
+      "description": "A link to reviews."
+    },
+    {
+      "codepoint": 3519,
+      "name": "gs1:riboflavinPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/riboflavinPerNutrientBasis",
+      "description": "Riboflavin per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3520,
+      "name": "gs1:safetyInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/safetyInfo",
+      "description": "A link to safety information."
+    },
+    {
+      "codepoint": 3521,
+      "name": "gs1:saltPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/saltPerNutrientBasis",
+      "description": "Salt per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3522,
+      "name": "gs1:saturatedFatPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/saturatedFatPerNutrientBasis",
+      "description": "Saturated fat per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3523,
+      "name": "gs1:scheduleTime",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/scheduleTime",
+      "description": "A link to a site that offers information on scheduling, appointments, or reservations. This may or may not allow the user to book the reservation."
+    },
+    {
+      "codepoint": 3524,
+      "name": "gs1:seasonCalendarYear",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/seasonCalendarYear",
+      "description": "The calendar year in which the product is seasonally available."
+    },
+    {
+      "codepoint": 3525,
+      "name": "gs1:seasonName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/seasonName",
+      "description": "Element defines the season applicable to the item for example Winter."
+    },
+    {
+      "codepoint": 3526,
+      "name": "gs1:seasonParameter",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/seasonParameter",
+      "description": "Code indicating the season in which the product is available, e.g. SPRING, WINTER"
+    },
+    {
+      "codepoint": 3527,
+      "name": "gs1:seeker",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/seeker",
+      "description": "The organization seeking an offer."
+    },
+    {
+      "codepoint": 3528,
+      "name": "gs1:selectedProductsOnly",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/selectedProductsOnly",
+      "description": "If specified and set to true, the discount only applies to specific products selected by the retailer or offer promoter - not to all items in that product category.  This property should be asserted and set to true for offers that say 'on selected products'."
+    },
+    {
+      "codepoint": 3529,
+      "name": "gs1:seleniumPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/seleniumPerNutrientBasis",
+      "description": "Selenium per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3530,
+      "name": "gs1:sellByDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sellByDate",
+      "description": "The date specified by the manufacturer as the last date the retailer is to offer the product for sale to the consumer. The product should not be merchandised after this date."
+    },
+    {
+      "codepoint": 3531,
+      "name": "gs1:seller",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/seller",
+      "description": "The organization seeking to sell a product or service."
+    },
+    {
+      "codepoint": 3532,
+      "name": "gs1:serviceInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/serviceInfo",
+      "description": "A link to service or maintenance instructions."
+    },
+    {
+      "codepoint": 3533,
+      "name": "gs1:servingSize",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/servingSize",
+      "description": "Measurement value specifying the serving size in which the information per nutrient has been stated. Example: Per 100 GRM."
+    },
+    {
+      "codepoint": 3534,
+      "name": "gs1:servingSizeDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/servingSizeDescription",
+      "description": "A free text field specifying the serving size for which the nutrient information has been stated for example: per 1/3 cup (42 g)."
+    },
+    {
+      "codepoint": 3535,
+      "name": "gs1:servingSuggestion",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/servingSuggestion",
+      "description": "Free text field for serving suggestion."
+    },
+    {
+      "codepoint": 3536,
+      "name": "gs1:sharpnessOfCheese",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sharpnessOfCheese",
+      "description": "The descriptive term that is used by the product manufacturer to identify the sharpness of the taste of the product for example EXTRA_SHARP. Usually the longer the aging of the product, the sharper the taste."
+    },
+    {
+      "codepoint": 3537,
+      "name": "gs1:siteAccessRequirements",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/siteAccessRequirements",
+      "description": "A URI value linking to information related to requirements for accessing or visiting a place."
+    },
+    {
+      "codepoint": 3538,
+      "name": "gs1:size",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/size",
+      "description": "Links a wearable product to one or more groupings of gs1:SizeDetails representing size systems, size groups, size type and size dimensions."
+    },
+    {
+      "codepoint": 3539,
+      "name": "gs1:sizeCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sizeCode",
+      "description": "Links a product to one or more groupings of gs1:SizeCodeDetails representing the size value from a specified code list."
+    },
+    {
+      "codepoint": 3540,
+      "name": "gs1:sizeCodeListCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sizeCodeListCode",
+      "description": "Code specifying a size code list. Allowed code values are specified in GS1 Code List SizeCodeListCode ."
+    },
+    {
+      "codepoint": 3541,
+      "name": "gs1:sizeCodeValue",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sizeCodeValue",
+      "description": "A code indicating the size of an object according to a specific code list. The applied code list is specified as additional information together with the size code."
+    },
+    {
+      "codepoint": 3542,
+      "name": "gs1:sizeDimension",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sizeDimension",
+      "description": "The numerical size measurement relating to the size type."
+    },
+    {
+      "codepoint": 3543,
+      "name": "gs1:sizeGroup",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sizeGroup",
+      "description": "Code indicating the type of size that is necessary to uniquely specify the size of the item, for example, BOYS."
+    },
+    {
+      "codepoint": 3544,
+      "name": "gs1:sizeSystem",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sizeSystem",
+      "description": "The system that is being used to define the size for example EUROPE. Size system is used in conjunction with size group to define the size dimension."
+    },
+    {
+      "codepoint": 3545,
+      "name": "gs1:sizeType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sizeType",
+      "description": "The type of size dimension being specified for example SLEEVE."
+    },
+    {
+      "codepoint": 3546,
+      "name": "gs1:smartLabel",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/smartLabel",
+      "description": "A link to the product's SmartLabel page."
+    },
+    {
+      "codepoint": 3547,
+      "name": "gs1:smpc",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/smpc",
+      "description": "A link to Summary Product Characteristics. To be used specifically when linking to information for healthcare professionals."
+    },
+    {
+      "codepoint": 3548,
+      "name": "gs1:socialMedia",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/socialMedia",
+      "description": "A link to a social media channel. The title will typically be replaced by the name of the channel."
+    },
+    {
+      "codepoint": 3549,
+      "name": "gs1:sodiumPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sodiumPerNutrientBasis",
+      "description": "Sodium per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3550,
+      "name": "gs1:sourceAnimal",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sourceAnimal",
+      "description": "Code indicating the source of raw material used to produce the food product, for example a GOAT for milk."
+    },
+    {
+      "codepoint": 3551,
+      "name": "gs1:sportingActivityType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sportingActivityType",
+      "description": "Code indicating the type of sporting activity for which the product is intended to be worn, for example FOOTBALL."
+    },
+    {
+      "codepoint": 3552,
+      "name": "gs1:starchPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/starchPerNutrientBasis",
+      "description": "Starch per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3553,
+      "name": "gs1:statisticInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/statisticInfo",
+      "description": "A link to information about statistics regarding an organisation, location, or other entity."
+    },
+    {
+      "codepoint": 3554,
+      "name": "gs1:statusTimestamp",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/statusTimestamp",
+      "description": "Date and time (including optional timezone) associated to status designations. Timestamps may be future dated to provide advance notice of status changes. For further information about the required lexical representation of date, time, and timezone please see https://www.w3.org/TR/xmlschema-2/#dateTime"
+    },
+    {
+      "codepoint": 3555,
+      "name": "gs1:streetAddress",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/streetAddress",
+      "description": "The street address expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building. A total of four street address lines are available. gs1:streetAddress SHOULD be used before populating lines two through four. For a PO Box gs1:postOfficeBoxNumber SHOULD be used instead."
+    },
+    {
+      "codepoint": 3556,
+      "name": "gs1:streetAddressLine2",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/streetAddressLine2",
+      "description": "The second line of the street address, expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building. A total of four street address lines are available. gs1:streetAddress SHOULD be used before populating lines two through four. These SHALL NOT be used as alternatives to the dedicated address properties gs1:addressSuburb, gs1:addressLocality and gs1:addressRegion."
+    },
+    {
+      "codepoint": 3557,
+      "name": "gs1:streetAddressLine3",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/streetAddressLine3",
+      "description": "The third line of the street address, expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building. A total of four street address lines are available. gs1:streetAddress and gs1:streetaddressLine2 SHOULD be used before populating lines three and four. These SHALL NOT be used as alternatives to the dedicated address properties gs1:addressSuburb, gs1:addressLocality and gs1:addressRegion."
+    },
+    {
+      "codepoint": 3558,
+      "name": "gs1:streetAddressLine4",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/streetAddressLine4",
+      "description": "The fourth line of the street address, expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building. gs1:streetAddress, gs1:streetaddressLine2 and gs1:streetaddressLine3 SHOULD be used before populating line four. These SHALL NOT be used as alternatives to the dedicated address properties gs1:addressSuburb, gs1:addressLocality and gs1:addressRegion."
+    },
+    {
+      "codepoint": 3559,
+      "name": "gs1:styleDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/styleDescription",
+      "description": "An attribute that classifies products that share many of the same characteristics (attribute values) that does NOT vary by GTIN, and are presented by the supplier as a single merchandise selection for the buyer."
+    },
+    {
+      "codepoint": 3560,
+      "name": "gs1:subBrandName",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/subBrandName",
+      "description": "Second level of brand. Can be a trademark. It is the primary differentiating factor that a brand owner wants to communicate to the consumer or buyer. E.g. Yummy-Cola Classic. In this example Yummy-Cola is the brand and Classic is the sub-brand."
+    },
+    {
+      "codepoint": 3561,
+      "name": "gs1:subOrganization",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/subOrganization",
+      "description": "Designates a legal entity or function directly below the organisation/party being identified in a hierarchy. There may be multiple sub-organisations associated to a single GLN. To specify other affiliated organisations, see gs1:manages, gs1:franchisorOf, gs1:owns. To specify a parent organisation, see gs1:parentOrganization."
+    },
+    {
+      "codepoint": 3562,
+      "name": "gs1:subscribe",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/subscribe",
+      "description": "A link to a subscription form"
+    },
+    {
+      "codepoint": 3563,
+      "name": "gs1:sugarsPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sugarsPerNutrientBasis",
+      "description": "Sugars per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3564,
+      "name": "gs1:supplierSpecifiedMinimumConsumerStorageDays",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/supplierSpecifiedMinimumConsumerStorageDays",
+      "description": "Represents the number of days between a product's sell by date and its use by date."
+    },
+    {
+      "codepoint": 3565,
+      "name": "gs1:support",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/support",
+      "description": "A link to a source of support such as a helpdesk, chat support, email etc."
+    },
+    {
+      "codepoint": 3566,
+      "name": "gs1:sustainabilityInfo",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sustainabilityInfo",
+      "description": "A link to information relating to sustainability and recycling requirements or processes."
+    },
+    {
+      "codepoint": 3567,
+      "name": "gs1:sweetnessLevelOfAlcoholicBeverage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/sweetnessLevelOfAlcoholicBeverage",
+      "description": "Indicates the descriptive term that is used by the product manufacturer to identify the sweetness of the alcoholic beverage. These are sometimes placed on a label. In some markets, the term is based on the amount of sugar content according to local regulation."
+    },
+    {
+      "codepoint": 3568,
+      "name": "gs1:targetConsumerAge",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/targetConsumerAge",
+      "description": "Identifies the target consumer age range for which a product has been designed."
+    },
+    {
+      "codepoint": 3569,
+      "name": "gs1:targetConsumerGender",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/targetConsumerGender",
+      "description": "Identifies the target consumer gender for which a product has been designed for example MALE"
+    },
+    {
+      "codepoint": 3570,
+      "name": "gs1:targetMarket",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/targetMarket",
+      "description": "Relates to a set of target market details (product release date and associated countries)"
+    },
+    {
+      "codepoint": 3571,
+      "name": "gs1:targetMarketCountries",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/targetMarketCountries",
+      "description": "List of countries representing the target market for a particular release date indicated by gs1:consumerFirstAvailabilityDateTime"
+    },
+    {
+      "codepoint": 3572,
+      "name": "gs1:telephone",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/telephone",
+      "description": "A telephone number for example +44 217 992 9999."
+    },
+    {
+      "codepoint": 3573,
+      "name": "gs1:textileMaterial",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/textileMaterial",
+      "description": "One or more links to information about the materials used in a wearable product."
+    },
+    {
+      "codepoint": 3574,
+      "name": "gs1:textileMaterialContent",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/textileMaterialContent",
+      "description": "A description of the material composition used in conjunction with the material percentage."
+    },
+    {
+      "codepoint": 3575,
+      "name": "gs1:textileMaterialDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/textileMaterialDescription",
+      "description": "This provides a name or brief description of one material contained within the product, for example Rayon."
+    },
+    {
+      "codepoint": 3576,
+      "name": "gs1:textileMaterialPercentage",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/textileMaterialPercentage",
+      "description": "Corresponding net weight percentage of the product material specified via gs1:textileMaterialDescription, e.g. 70."
+    },
+    {
+      "codepoint": 3577,
+      "name": "gs1:textileMaterialThreadCount",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/textileMaterialThreadCount",
+      "description": "The quality of material (fabric) of a product based on the total number of vertical and horizontal threads in one square inch."
+    },
+    {
+      "codepoint": 3578,
+      "name": "gs1:textileMaterialWeight",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/textileMaterialWeight",
+      "description": "The measured weight of the material expressed in ounces per square yard or grams per square meter."
+    },
+    {
+      "codepoint": 3579,
+      "name": "gs1:thiaminPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/thiaminPerNutrientBasis",
+      "description": "Thiamin per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3580,
+      "name": "gs1:traceability",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/traceability",
+      "description": "A link to traceability information (includes track and trace).  Traceability information may be provided for consumption by humans or computers. If the target is an EPCIS repository, use gs1:epcis instead."
+    },
+    {
+      "codepoint": 3581,
+      "name": "gs1:transFatPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/transFatPerNutrientBasis",
+      "description": "Trans Fat per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3582,
+      "name": "gs1:transactionDate",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/transactionDate",
+      "description": "The date associated with a business transaction"
+    },
+    {
+      "codepoint": 3583,
+      "name": "gs1:transactionID",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/transactionID",
+      "description": "An identifier for a business transactions"
+    },
+    {
+      "codepoint": 3584,
+      "name": "gs1:transactionType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/transactionType",
+      "description": "The code indicating the type of business transactions"
+    },
+    {
+      "codepoint": 3585,
+      "name": "gs1:tutorial",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/tutorial",
+      "description": "A link to a tutorial or set of tutorials, such as online classes, how-to videos etc."
+    },
+    {
+      "codepoint": 3586,
+      "name": "gs1:unitCode",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/unitCode",
+      "description": "A string value indicating a Measurement Unit from UN/ECE Recommendation 20, Units of Measure used in International Trade e.g. GRM = gram - see http://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20_rev3_Annex3e.pdf"
+    },
+    {
+      "codepoint": 3587,
+      "name": "gs1:upperMaterialType",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/upperMaterialType",
+      "description": "The material(s) used for the upper part of the footwear product. The upper is the part of a shoe, boot, slipper or other item of footwear that is above the sole."
+    },
+    {
+      "codepoint": 3588,
+      "name": "gs1:userAgreement",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/userAgreement",
+      "description": "A link to an agreement or waiver."
+    },
+    {
+      "codepoint": 3589,
+      "name": "gs1:usesManagedLocation",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/usesManagedLocation",
+      "description": "Links to the place(s) that this organisation uses as a managed space."
+    },
+    {
+      "codepoint": 3590,
+      "name": "gs1:validFrom",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/validFrom",
+      "description": "The effective start date of the price ."
+    },
+    {
+      "codepoint": 3591,
+      "name": "gs1:validThrough",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/validThrough",
+      "description": "The effective end date of the price ."
+    },
+    {
+      "codepoint": 3592,
+      "name": "gs1:value",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/value",
+      "description": "A floating-point numeric value that is qualified by the corresponding measurement unit code - see gs1:unitCode"
+    },
+    {
+      "codepoint": 3593,
+      "name": "gs1:variantDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/variantDescription",
+      "description": "Free text field used to identify the variant of the product. Variants are the distinguishing characteristics that differentiate products with the same brand and size including such things as the particular flavour, fragrance, taste."
+    },
+    {
+      "codepoint": 3594,
+      "name": "gs1:verificationService",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/verificationService",
+      "description": "A link to a GS1 Lightweight Messaging Service for verifying the status of a product, organisation, or location and its identifier."
+    },
+    {
+      "codepoint": 3595,
+      "name": "gs1:vintner",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/vintner",
+      "description": "The person hired by a winery or wine company who is responsible for many of the processes in the preparation, taste and quality of the wine produced. The science of wine making is referred to as oenology. The vintner is the oenologist."
+    },
+    {
+      "codepoint": 3596,
+      "name": "gs1:vitaminAPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/vitaminAPerNutrientBasis",
+      "description": "Vitamin A per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3597,
+      "name": "gs1:vitaminB12PerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/vitaminB12PerNutrientBasis",
+      "description": "Vitamin B12 per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3598,
+      "name": "gs1:vitaminB6PerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/vitaminB6PerNutrientBasis",
+      "description": "Vitamin B6 per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3599,
+      "name": "gs1:vitaminCPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/vitaminCPerNutrientBasis",
+      "description": "Vitamin C per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3600,
+      "name": "gs1:vitaminDPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/vitaminDPerNutrientBasis",
+      "description": "Vitamin D per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3601,
+      "name": "gs1:vitaminEPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/vitaminEPerNutrientBasis",
+      "description": "Vitamin E per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3602,
+      "name": "gs1:vitaminKPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/vitaminKPerNutrientBasis",
+      "description": "Vitamin K per specified nutrient basis quantity."
+    },
+    {
+      "codepoint": 3603,
+      "name": "gs1:warningCopyDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/warningCopyDescription",
+      "description": "Warning information is additional information that outlines special requirements, warning and caution information printed on the package."
+    },
+    {
+      "codepoint": 3604,
+      "name": "gs1:warranty",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/warranty",
+      "description": "The warranty associated with the product, as provided by the manufacturer."
+    },
+    {
+      "codepoint": 3605,
+      "name": "gs1:warrantyScopeDescription",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/warrantyScopeDescription",
+      "description": "The description of warranty available for the product. Allows for the representation of the same value in different languages but not for multiple values."
+    },
+    {
+      "codepoint": 3606,
+      "name": "gs1:whatsInTheBox",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/whatsInTheBox",
+      "description": "A link to a description of all the individual items in a packaged item."
+    },
+    {
+      "codepoint": 3607,
+      "name": "gs1:yield",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/yield",
+      "description": "Product quantity after preparation."
+    },
+    {
+      "codepoint": 3608,
+      "name": "gs1:zincPerNutrientBasis",
+      "type": "property",
+      "uri": "https://ref.gs1.org/voc/zincPerNutrientBasis",
+      "description": "Zinc per specified nutrient basis quantity."
+    }
+  ],
+  "statistics": {
+    "total_entries": 609,
+    "code_point_range": {
+      "start": 3000,
+      "end": 3608
+    }
+  }
+}
