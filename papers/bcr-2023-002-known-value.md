@@ -25,7 +25,11 @@ The Known Value approach addresses this by associating a unique 64-bit integer w
 This approach carries several benefits:
 
 * **Simplification and Efficiency:** Converting ontological concepts into unique integers enables compact encoding in various documents, particularly binary formats like CBOR.
-* **Enhanced Security:** Utilizing integers instead of URIs eliminates the surface for manipulation attacks and helps ensure deterministic encoding, as used in Gordian Envelope.
+* **Enhanced Security:** Utilizing integers instead of URIs eliminates the surface for manipulation attacks and helps ensure deterministic encoding.
+
+## Independence from Gordian Envelope
+
+Known Values are a registry of integer code points representing ontological concepts, usable by anyone for any purpose. While this document defines a CBOR serialization (`#6.40000`) and [Gordian Envelope](https://datatracker.ietf.org/doc/draft-mcnally-envelope/) incorporates Known Values as an extension (see [BCR-2023-003](bcr-2023-003-envelope-known-value.md)), this specification has no normative dependency on either CBOR or Envelope. The registry of codepoint-to-concept mappings stands on its own and may be used in any encoding, protocol, or data format.
 
 ## Scope
 
@@ -180,7 +184,7 @@ The following table summarizes the assigned Known Value code point ranges:
 
 ### Blockchain Commons Core Concepts
 
-The Blockchain Commons range (0-999) contains core concepts specific to Gordian Envelope and related specifications. Where these concepts have equivalent URIs in other ontologies, the external ontology registries reference the Blockchain Commons code point rather than assigning a new one, ensuring 1:1 correspondence between code points and URIs.
+The Blockchain Commons range (0-999) contains core concepts used across Blockchain Commons specifications, including but not limited to Gordian Envelope. Where these concepts have equivalent URIs in other ontologies, the external ontology registries reference the Blockchain Commons code point rather than assigning a new one, ensuring 1:1 correspondence between code points and URIs.
 
 - **Core envelope predicates** (0-49): Fundamental properties like `isA`, `id`, `signed`, `note`, `hasRecipient`, `salt`, `date`, `version`
 - **Attachments** (50-59): Vendor-defined envelope extensions
