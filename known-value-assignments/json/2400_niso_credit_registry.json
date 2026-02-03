@@ -1,0 +1,118 @@
+{
+  "ontology": {
+    "name": "credit",
+    "source_url": "https://credit.niso.org/contributor-roles-defined/",
+    "start_code_point": 2400,
+    "processing_strategy": "Manual"
+  },
+  "generated": {
+    "tool": "Manual"
+  },
+  "entries": [
+    {
+      "codepoint": 2400,
+      "name": "niso-credit:Conceptualization",
+      "type": "value",
+      "uri": "https://credit.niso.org/contributor-roles/conceptualization/",
+      "description": "Ideas; formulation or evolution of overarching research goals and aims."
+    },
+    {
+      "codepoint": 2401,
+      "name": "niso-credit:DataCuration",
+      "type": "value",
+      "uri": "https://credit.niso.org/contributor-roles/data-curation/",
+      "description": "Management activities to annotate (produce metadata), scrub data and maintain research data for initial use and later re-use."
+    },
+    {
+      "codepoint": 2402,
+      "name": "niso-credit:FormalAnalysis",
+      "type": "value",
+      "uri": "https://credit.niso.org/contributor-roles/formal-analysis/",
+      "description": "Application of statistical, mathematical, computational, or other formal techniques to analyze or synthesize study data."
+    },
+    {
+      "codepoint": 2403,
+      "name": "niso-credit:FundingAcquisition",
+      "type": "value",
+      "uri": "https://credit.niso.org/contributor-roles/funding-acquisition/",
+      "description": "Acquisition of the financial support for the project leading to this publication."
+    },
+    {
+      "codepoint": 2404,
+      "name": "niso-credit:Investigation",
+      "type": "value",
+      "uri": "https://credit.niso.org/contributor-roles/investigation/",
+      "description": "Conducting a research and investigation process, specifically performing the experiments, or data/evidence collection."
+    },
+    {
+      "codepoint": 2405,
+      "name": "niso-credit:Methodology",
+      "type": "value",
+      "uri": "https://credit.niso.org/contributor-roles/methodology/",
+      "description": "Development or design of methodology; creation of models."
+    },
+    {
+      "codepoint": 2406,
+      "name": "niso-credit:ProjectAdministration",
+      "type": "value",
+      "uri": "https://credit.niso.org/contributor-roles/project-administration/",
+      "description": "Management and coordination responsibility for the research activity planning and execution."
+    },
+    {
+      "codepoint": 2407,
+      "name": "niso-credit:Resources",
+      "type": "value",
+      "uri": "https://credit.niso.org/contributor-roles/resources/",
+      "description": "Provision of study materials, reagents, materials, patients, laboratory samples, animals, instrumentation, computing resources, or other analysis tools."
+    },
+    {
+      "codepoint": 2408,
+      "name": "niso-credit:Software",
+      "type": "value",
+      "uri": "https://credit.niso.org/contributor-roles/software/",
+      "description": "Programming, software development; designing computer programs; implementation of the computer code and supporting algorithms; testing of existing code components."
+    },
+    {
+      "codepoint": 2409,
+      "name": "niso-credit:Supervision",
+      "type": "value",
+      "uri": "https://credit.niso.org/contributor-roles/supervision/",
+      "description": "Oversight and leadership responsibility for the research activity planning and execution, including mentorship external to the core team."
+    },
+    {
+      "codepoint": 2410,
+      "name": "niso-credit:Validation",
+      "type": "value",
+      "uri": "https://credit.niso.org/contributor-roles/validation/",
+      "description": "Verification, whether as a part of the activity or separate, of the overall replication/reproducibility of results/experiments and other research outputs."
+    },
+    {
+      "codepoint": 2411,
+      "name": "niso-credit:Visualization",
+      "type": "value",
+      "uri": "https://credit.niso.org/contributor-roles/visualization/",
+      "description": "Preparation, creation and/or presentation of the published work, specifically visualization/data presentation."
+    },
+    {
+      "codepoint": 2412,
+      "name": "niso-credit:WritingOriginalDraft",
+      "type": "value",
+      "uri": "https://credit.niso.org/contributor-roles/writing-original-draft/",
+      "description": "Preparation, creation and/or presentation of the published work, specifically writing the initial draft (including substantive translation)."
+    },
+    {
+      "codepoint": 2413,
+      "name": "niso-credit:WritingReviewEditing",
+      "type": "value",
+      "uri": "https://credit.niso.org/contributor-roles/writing-review-editing/",
+      "description": "Preparation, creation and/or presentation of the published work by those from the original research group, specifically critical review, commentary or revision, including pre- or post-publication stages."
+    }
+  ],
+  "statistics": {
+    "total_entries": 14,
+    "code_point_range": {
+      "start": 2400,
+      "end": 2413
+    }
+  }
+}

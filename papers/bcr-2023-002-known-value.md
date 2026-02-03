@@ -174,6 +174,7 @@ The following table summarizes the assigned Known Value code point ranges:
 | [OWL 2](../known-value-assignments/markdown/2100_owl2_registry.md)                                               | 2100-2199   | 75           | [JSON](../known-value-assignments/json/2100_owl2_registry.json)            |
 | [Dublin Core Elements](../known-value-assignments/markdown/2200_dce_registry.md)                                 | 2200-2299   | 15           | [JSON](../known-value-assignments/json/2200_dce_registry.json)             |
 | [Dublin Core Terms](../known-value-assignments/markdown/2300_dct_registry.md)                                    | 2300-2499   | 89           | [JSON](../known-value-assignments/json/2300_dct_registry.json)             |
+| [NISO CRediT](../known-value-assignments/markdown/2400_niso_credit_registry.md)                                  | 2400-2413   | 14           | [JSON](../known-value-assignments/json/2400_niso_credit_registry.json)     |
 | [FOAF](../known-value-assignments/markdown/2500_foaf_registry.md)                                                | 2500-2699   | 75           | [JSON](../known-value-assignments/json/2500_foaf_registry.json)            |
 | [SKOS](../known-value-assignments/markdown/2700_skos_registry.md)                                                | 2700-2799   | 32           | [JSON](../known-value-assignments/json/2700_skos_registry.json)            |
 | [Solid](../known-value-assignments/markdown/2800_solid_registry.md)                                              | 2800-2899   | 33           | [JSON](../known-value-assignments/json/2800_solid_registry.json)           |
@@ -214,6 +215,10 @@ OWL 2 extends RDF/RDFS with more expressive constructs for describing complex re
 #### Dublin Core (Elements and Terms)
 
 Dublin Core is a widely-adopted metadata vocabulary originally developed for describing digital resources like documents, images, and web pages. The 15 core elements (title, creator, subject, description, publisher, date, etc.) provide a lingua franca for resource metadata. Dublin Core Terms extends this with additional properties and refined semantics. Many other vocabularies reference Dublin Core for basic metadata needs.
+
+#### NISO CRediT (Contributor Roles Taxonomy)
+
+NISO CRediT is a taxonomy for describing the specific contributions of individuals to scholarly research outputs. It defines 14 distinct contributor roles such as `Conceptualization`, `DataCuration`, `FormalAnalysis`, `FundingAcquisition`, and `WritingReviewEditing`. CRediT enables clearer, more transparent attribution of credit across research products and their associated metadata.
 
 #### SKOS (Simple Knowledge Organization System)
 
