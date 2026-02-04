@@ -249,11 +249,32 @@ Common values: approval, acknowledgment, witness, receipt, origin.
 
 ## Security Considerations
 
-Signing event assertions are claims by the signer. Relying parties must verify both signatures, confirm they use the same key, resolve the XID, and evaluate plausibility.
+### Verification Requirements
 
-For signature-with-assertions, different keys indicate tampering. For wrapped signing, different keys are expected.
+For signature-with-assertions pattern, verifiers MUST:
 
-When `signer` is elided, signatures remain valid but identity is hidden.
+1. Verify the outer signature (on wrapped signature-with-assertions)
+2. Verify the inner signature (on content)
+3. Confirm both signatures use the **same public key**
+
+If both signatures are valid but use different keys, the envelope has been tampered with — someone added assertions to another party's signature.
+
+For wrapped signing (third-party assertions), different keys are expected — the third party's key signs the outer envelope.
+
+### Claims vs Proof
+
+Signing event assertions are claims by the signer, not proof. Relying parties must:
+- Resolve the XID to verify the claimed identity
+- Evaluate whether claims (role, representation) are plausible
+- Check delegation chains if `signedOnBehalfOf` is present
+
+### Elision
+
+When `signer` is elided, signatures remain valid but identity is hidden. This enables selective disclosure while preserving cryptographic verification.
+
+### Implementation
+
+For API guidance and reference implementation, see BCR-2024-009.
 
 ## References
 
