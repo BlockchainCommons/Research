@@ -159,7 +159,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(contract-signing-observation) [
+    Digest(contract-signing-observation) [
         'observerWitness': XID(notary)
         'observationTimestamp': 2026-02-02T14:30:00Z
         'observerIndependence': "No relationship with either party"
@@ -200,7 +200,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(asset-verification) [
+    Digest(asset-verification) [
         'observerWitness': XID(inspector)
         'observerPhysicalPresence': true
         'observationTimestamp': 2026-02-02T10:00:00Z
@@ -225,7 +225,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(dispute-observation) [
+    Digest(dispute-observation) [
         'observerWitness': XID(mediator)
         'observerIndependence': "Court-appointed mediator with no prior relationship to either party"
     ]
@@ -249,7 +249,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(site-inspection) [
+    Digest(site-inspection) [
         'observerWitness': XID(inspector)
         'observationTimestamp': 2026-02-02T10:00:00Z
         'observerStatement': "Building foundation complete; concrete cured; no visible cracks or defects on south and east faces"
@@ -273,8 +273,8 @@ A Fair Witness attesting to a contract signing:
 
 ```
 {
-    CID(contract-signature-attestation) [
-        'attestsTo': CID(signed-contract)
+    Digest(contract-signature-attestation) [
+        'attestsTo': Digest(signed-contract)
         'observerWitness': XID(licensed-notary)
         'observationTimestamp': 2026-02-02T15:00:00Z
         'observerPhysicalPresence': true
@@ -289,7 +289,7 @@ Observation via video call:
 
 ```
 {
-    CID(remote-verification) [
+    Digest(remote-verification) [
         'observerWitness': XID(remote-inspector)
         'observationTimestamp': 2026-02-02T11:00:00Z
         'observerPhysicalPresence': "Remote via video call; visual and audio confirmation"
@@ -305,8 +305,8 @@ Multiple independent observers for high-stakes attestation:
 ```
 // Witness 1
 {
-    CID(observation-1) [
-        'attestsTo': CID(event)
+    Digest(observation-1) [
+        'attestsTo': Digest(event)
         'observerWitness': XID(witness-a)
         'observerIndependence': "Independent party"
     ]
@@ -314,8 +314,8 @@ Multiple independent observers for high-stakes attestation:
 
 // Witness 2
 {
-    CID(observation-2) [
-        'attestsTo': CID(event)
+    Digest(observation-2) [
+        'attestsTo': Digest(event)
         'observerWitness': XID(witness-b)
         'observerIndependence': "Independent party"
     ]
@@ -329,8 +329,8 @@ The same witness observing the same subject at different times — building prog
 ```
 // Initial observation (2024)
 {
-    CID(observation-2024) [
-        'attestsTo': CID(project-status)
+    Digest(observation-2024) [
+        'attestsTo': Digest(project-status)
         'observerWitness': XID(auditor)
         'observationTimestamp': 2024-06-15T10:00:00Z
         'observerPhysicalPresence': true
@@ -340,8 +340,8 @@ The same witness observing the same subject at different times — building prog
 
 // Follow-up observation (2025)
 {
-    CID(observation-2025) [
-        'attestsTo': CID(project-status)
+    Digest(observation-2025) [
+        'attestsTo': Digest(project-status)
         'observerWitness': XID(auditor)
         'observationTimestamp': 2025-01-20T14:00:00Z
         'observerPhysicalPresence': true
@@ -351,8 +351,8 @@ The same witness observing the same subject at different times — building prog
 
 // Later observation (2026)
 {
-    CID(observation-2026) [
-        'attestsTo': CID(project-status)
+    Digest(observation-2026) [
+        'attestsTo': Digest(project-status)
         'observerWitness': XID(auditor)
         'observationTimestamp': 2026-02-02T09:00:00Z
         'observerPhysicalPresence': "Remote via monitoring dashboard"
@@ -369,7 +369,7 @@ Combining observation with delegation context:
 
 ```
 {
-    CID(witnessed-delegation) [
+    Digest(witnessed-delegation) [
         'principalAuthority': XID(company-ceo)
         'assertsDelegationFrom': XID(company-ceo)
         'delegationScope': "Authority to sign vendor contracts"
@@ -377,8 +377,8 @@ Combining observation with delegation context:
 }
 
 {
-    CID(delegation-witness) [
-        'attestsTo': CID(witnessed-delegation)
+    Digest(delegation-witness) [
+        'attestsTo': Digest(witnessed-delegation)
         'observerWitness': XID(corporate-secretary)
         'observationTimestamp': 2026-02-02T09:00:00Z
         'observerPhysicalPresence': true
