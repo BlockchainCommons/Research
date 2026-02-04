@@ -74,7 +74,7 @@ Fair Witness attestations are inherently **temporal and additive**:
 - Observations are **never revoked** — newer observations supplement rather than replace older ones
 - Trust builds through accumulated observations over time
 
-This differs from credentials (which may be revoked) or endorsements (which may be superseded). A Fair Witness attestation from 2024 remains valid as "what the witness observed in 2024" even after new observations in 2026.
+This differs from credentials (which may be revoked) or endorsements (which may be withdrawn). A Fair Witness attestation from 2024 remains valid as "what the witness observed in 2024" even after new observations in 2026.
 
 ### Use Cases
 
@@ -465,7 +465,7 @@ BCR-2026-011 defines peer endorsement predicates. Fair Witness and Peer Endorsem
 | **Purpose** | Neutral observation of facts | Personal vouching for another |
 | **Relationship** | Independence required | Relationship expected |
 | **Statement type** | "I observed X happened" | "I endorse X's skills/character" |
-| **Lifecycle** | Temporal/additive (never revoked) | Can be withdrawn or superseded |
+| **Lifecycle** | Temporal/additive (never revoked) | Can be withdrawn or updated |
 | **Trust model** | Observer credibility | Endorser reputation stake |
 | **Acceptance model** | Not applicable | Subject accepts/rejects endorsement |
 
