@@ -148,13 +148,13 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Type**: property
 **Definition**: References an earlier assertion that this assertion replaces.
 **Domain**: Any assertion
-**Range**: CID or URI of the superseded assertion
+**Range**: Digest or URI of the superseded assertion
 **Usage**: Creates an explicit version chain for assertions.
 
 ```
 {
-    CID(new-delegation-v2) [
-        'supersedes': CID(old-delegation-v1)
+    Digest(new-delegation-v2) [
+        'supersedes': Digest(old-delegation-v1)
         'validFrom': 2026-02-01
     ]
 }
@@ -176,8 +176,8 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(revocation) [
-        'supersedes': CID(original-assertion)
+    Digest(revocation) [
+        'supersedes': Digest(original-assertion)
         'revocationReason': "Key compromise suspected"
     ]
 }
@@ -199,7 +199,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(document) [
+    Digest(document) [
         'processDisclosure': "Drafted with AI assistance using Claude. Human author reviewed, edited, and approved final content."
     ]
 }
@@ -221,7 +221,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(endorsement) [
+    Digest(endorsement) [
         'disclosedBias': "I have a professional relationship with the subject. We have collaborated on three projects."
     ]
 }
@@ -245,7 +245,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(skill-endorsement) [
+    Digest(skill-endorsement) [
         'disclosedLimitations': "I observed their work on frontend components only. I cannot speak to their backend or infrastructure skills."
     ]
 }
@@ -268,7 +268,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(competency-assertion) [
+    Digest(competency-assertion) [
         'assertionLimitations': "This assertion covers demonstrated skill as of the observation date. It does not predict future performance or guarantee results."
     ]
 }
