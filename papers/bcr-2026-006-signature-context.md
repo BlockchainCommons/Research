@@ -11,7 +11,7 @@ Date: February 2, 2026
 
 ## Abstract
 
-This document specifies Known Value predicates for expressing the context and capacity in which signatures are made in Gordian Envelopes. These predicates apply to ALL signature types — self-attestations, peer endorsements, and binding agreements — enabling clear expression of signing role, authority conferral, and authority chains.
+This document specifies Known Value predicates for expressing the context and capacity in which signatures are made in Gordian Envelopes. These predicates apply to ALL signature types — self-attestations, peer endorsements, and binding agreements — enabling clear expression of signing role and representation.
 
 This BCR depends on [BCR-2026-005: General Assertion Predicates](bcr-2026-005-general-assertions.md) for lifecycle management.
 
@@ -65,12 +65,12 @@ Earlier drafts named this concern "Endorsement Authority," but [XID-Quickstart T
 
 ### Solution
 
-This specification defines four predicates for signature context:
+This specification defines two predicates for signature context:
 
 1. **`signingAs`** — The capacity or role in which the signer is acting
 2. **`onBehalfOf`** — The party the signer represents (if any)
-3. **`conferredBy`** — Who granted the signer's authority
-4. **`conferralChain`** — The full chain of authority conferral (for multi-hop)
+
+For authority conferral chains (who granted signing authority), see [BCR-2026-007: Principal Authority Predicates](bcr-2026-007-principal-authority.md) which defines `conferredBy` and `conferralChain`.
 
 ### Relationship to Principal Authority
 
@@ -81,7 +81,7 @@ This BCR and [BCR-2026-007: Principal Authority Predicates](bcr-2026-007-princip
 | **Signature Context** | This BCR (006) | "In what capacity is this signature made?" |
 | **Principal Authority** | BCR-2026-007 | "Who directs and takes responsibility for this work?" |
 
-**Signature Context** is about the signature itself — role, conferral, authority chain.
+**Signature Context** is about the signature itself — the role and representation claims.
 
 **Principal Authority** is about the work — who directed it, whose judgment shaped it, who stands behind it.
 
@@ -96,10 +96,6 @@ Both may be present. Neither implies the other.
 **Signature Context**: The capacity, role, and authority chain under which a signature is made.
 
 **Signing Capacity**: The role or function in which a signer acts (e.g., "CEO", "Legal Representative", "Witness").
-
-**Conferral**: The grant of authority from one party to another to act or sign on their behalf. This term is used instead of "delegation" to distinguish from cryptographic delegation (XID `delegate` predicate) which grants cryptographic signing privileges.
-
-**Conferral Chain**: A sequence of authority conferrals from an original authority to the current signer.
 
 **Known Value**: A registered predicate identifier in the Gordian Envelope system. See [BCR-2023-002](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2023-002-known-value.md).
 
@@ -118,7 +114,7 @@ Both may be present. Neither implies the other.
 
 All proposed codepoints are in the **Community Assigned (specification required)** range (1000-1999).
 
-### Signature Context (1020-1023)
+### Signature Context (1020-1021)
 
 ---
 
@@ -172,66 +168,8 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 **Notes**:
 - The signer asserts they have authority to represent the named party
-- Does not itself prove authority — see `conferredBy` for authority chain
+- Does not itself prove authority — see BCR-2026-007 for `conferredBy` and `conferralChain`
 - Common in corporate, legal, and organizational contexts
-
----
-
-#### 1022: `conferredBy`
-
-**Type**: property
-**Definition**: The entity that granted the signer's authority to sign.
-**Domain**: Signature context
-**Range**: XID, DID, or identifier of the conferring party
-**Usage**: Documents the immediate source of signing authority.
-
-```
-{
-    Digest(approval-document) [
-        'signed': {
-            XID(department-head) [
-                'signingAs': "Authorized Approver"
-                'conferredBy': XID(cfo)
-            ]
-        }
-    ]
-}
-```
-
-**Notes**:
-- For single-hop authority conferral, `conferredBy` is sufficient
-- For multi-hop conferral, use `conferralChain`
-- The conferral may be standing (ongoing) or contextual (one-time)
-- "Conferral" is used instead of "delegation" to distinguish from cryptographic delegation (XID `delegate` predicate)
-
----
-
-#### 1023: `conferralChain`
-
-**Type**: property
-**Definition**: The full chain of authority conferral from original authority to current signer.
-**Domain**: Signature context
-**Range**: Ordered list of XIDs/DIDs representing the conferral path
-**Usage**: Documents multi-hop authority conferral for complex authority structures.
-
-```
-{
-    Digest(field-authorization) [
-        'signed': {
-            XID(field-agent) [
-                'signingAs': "Field Representative"
-                'conferralChain': [XID(board), XID(ceo), XID(regional-director)]
-            ]
-        }
-    ]
-}
-```
-
-**Notes**:
-- Chain is ordered from original authority to immediate conferrer
-- The signer is implicitly at the end of the chain
-- Use for audit trails and authority verification
-- Simpler cases can use `conferredBy` alone
 
 ---
 
@@ -293,31 +231,13 @@ A binding agreement signed by representatives:
             XID(bob) [
                 'signingAs': "Authorized Representative"
                 'onBehalfOf': XID(widgets-inc)
-                'conferredBy': XID(widgets-ceo)
             ]
         }
     ]
 }
 ```
 
-### Multi-Hop Authority Conferral
-
-Field authorization with full audit trail:
-
-```
-{
-    Digest(emergency-authorization) [
-        'authorizes': "Emergency procurement up to $50,000"
-        'signed': {
-            XID(field-manager) [
-                'signingAs': "Emergency Coordinator"
-                'onBehalfOf': XID(corporation)
-                'conferralChain': [XID(board), XID(ceo), XID(coo), XID(regional-vp)]
-            ]
-        }
-    ]
-}
-```
+For documenting authority chains (who granted signing authority), see BCR-2026-007's `conferredBy` and `conferralChain` predicates.
 
 ### Combined with Principal Authority
 
@@ -345,23 +265,14 @@ Using both Signature Context and Principal Authority predicates:
 The predicates in this BCR express **claims by the signer**. Relying parties must:
 - Verify the signer's identity
 - Evaluate whether the claimed capacity (`signingAs`) is plausible
-- Verify the conferral chain if authority is claimed
+- Verify authority claims using BCR-2026-007 predicates if needed
 - Consider the context and stakes of the assertion
-
-### Authority Conferral Verification
-
-The presence of `conferredBy` or `conferralChain` does not prove valid authority conferral. Verification requires:
-- Checking that each conferrer had authority to confer
-- Confirming the conferral was active at signing time
-- Validating any scope or constraint limitations
 
 ### Capacity vs. Authority
 
 `signingAs` describes claimed capacity, not granted authority. A signature claiming `signingAs: "CEO"` does not prove the signer is a CEO. External verification is required for high-stakes contexts.
 
-### Chain Integrity
-
-For `conferralChain`, each link should be independently verifiable. A broken or unverifiable link invalidates the claimed authority from that point forward.
+For authority chain verification, see BCR-2026-007 which defines `conferredBy` and `conferralChain`.
 
 ## Open Questions
 
@@ -369,7 +280,7 @@ For `conferralChain`, each link should be independently verifiable. A broken or 
 
 [BCR-2024-009](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2024-009-signature-metadata.md) defines a pattern for attaching metadata to signatures using double-signing: the outer signature signs both the original content and the metadata on the inner Signature object.
 
-**Question**: Should the signature context predicates in this BCR (`signingAs`, `onBehalfOf`, `conferredBy`, `conferralChain`) be applied:
+**Question**: Should the signature context predicates in this BCR (`signingAs`, `onBehalfOf`) be applied:
 
 1. **As assertions on the signer XID** (as shown in current examples) — simpler but metadata is separate from signature
 2. **As metadata on the Signature object** (per BCR-2024-009) — cryptographically bound but requires double-signing
@@ -389,7 +300,7 @@ We invite community feedback on the recommended integration pattern. See [GitHub
 
 - **BCR-2024-009: Signature Metadata** — Established pattern for attaching metadata to signatures using double-signing. Signature context predicates should be applied using this pattern.
 - **BCR-2026-005: General Assertion Predicates** — Lifecycle predicates used by this BCR
-- **BCR-2026-007: Principal Authority Predicates** — Authority over work (complementary; uses matching `conferral*` terminology)
+- **BCR-2026-007: Principal Authority Predicates** — Authority relationships including `conferredBy` and `conferralChain` for documenting authority chains
 
 ---
 
