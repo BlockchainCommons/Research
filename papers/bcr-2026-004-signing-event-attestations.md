@@ -240,7 +240,12 @@ The proposed codepoints (300-301) are placed above the compact 2-byte range (0-2
 **Notes**:
 - A signature proves a key signed; `signer` links to the identity behind the key
 - The identity reference can be elided while preserving the attestation structure
-- Without `signer`, relying parties must resolve key→identity through other means
+- **Why `signer` is necessary**: Not all signature schemes embed the public key in the signature or allow key recovery:
+  - **EdDSA/Ed25519**: Public key cannot be recovered from signature (hashed in Fiat-Shamir transform)
+  - **BBS+**: Zero-knowledge proofs are unlinkable — verifiers cannot determine which key/signature created the proof
+  - **Longfellow and similar ZK schemes**: Designed specifically to hide signer identity from the cryptographic artifact
+
+  In these schemes, there is no public key to "look up" from the signature alone. The `signer` predicate provides the necessary link to identity that the cryptographic signature cannot.
 - **Gordian ecosystem**: Within XIDs, Clubs, and GSTP, this predicate references an XID or Club
 - **Broader use**: Gordian Envelope supports other identity reference formats (URIs, DIDs, etc.) for interoperability with external systems
 
@@ -428,6 +433,8 @@ This enables privacy-preserving signatures where identity is disclosed selective
 - [BCR-2023-002: Known Value Registry](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2023-002-known-value.md)
 - [ETSI TS 101 903: XAdES](https://www.etsi.org/deliver/etsi_ts/101900_101999/101903/01.04.02_60/ts_101903v010402p.pdf)
 - [Gordian Envelope Specification](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2024-001-envelope.md)
+- [The BBS Signature Scheme (IETF Draft)](https://identity.foundation/bbs-signature/draft-irtf-cfrg-bbs-signatures.html) — Zero-knowledge proofs with unlinkable signatures
+- [The Longfellow Zero-knowledge Scheme (IETF Draft)](https://datatracker.ietf.org/doc/html/draft-google-cfrg-libzk-01) — Privacy-preserving credential verification
 
 ## Related BCRs
 
