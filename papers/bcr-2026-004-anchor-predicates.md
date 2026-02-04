@@ -66,7 +66,7 @@ In all cases, the value comes from the log's **append-only, publicly auditable n
 
 **Audit Trails**: Anchoring creates tamper-evident records of assertions for compliance, legal discovery, or forensic analysis.
 
-**Revocation Detection**: When combined with `supersedes` (BCR-2026-005), anchoring enables detection of attempts to silently replace assertions — the original anchor remains in the log even after supersession.
+**Revocation Detection**: Anchoring enables detection of attempts to silently replace assertions — the original anchor remains in the log even after revocation or update.
 
 ### Terminology Distinction
 
@@ -285,19 +285,18 @@ All proposed codepoints are in the **Core Registry** range (0-99).
     ]
 ```
 
-### Anchor with Supersession
+### Anchor Updates
 
-Using `supersedes` from BCR-2026-005 (General Assertions) to indicate an assertion has been replaced:
+When an assertion is revoked or updated, a new anchor entry is created:
 
 ```
-    Digest(supersession-anchor) [
-        'anchors': Digest(superseding-assertion)
-        'supersedes': Digest(original-anchor)
-        'anchoredBy': XID(log-operator)
-    ]
+Digest(update-anchor) [
+    'anchors': Digest(updated-assertion)
+    'anchoredBy': XID(log-operator)
+]
 ```
 
-> **Important**: This creates a **new** anchor entry in the log. The original anchor remains permanently in the append-only log — it is not modified or deleted. The `supersedes` predicate creates a forward reference, allowing verifiers to discover that a newer version exists. This is how Certificate Transparency handles certificate revocation: the original certificate's log entry persists, but a newer entry supersedes it.
+> **Important**: This creates a **new** anchor entry in the log. The original anchor remains permanently in the append-only log — it is not modified or deleted. This is how Certificate Transparency handles certificate revocation: the original certificate's log entry persists, but a newer entry indicates the update.
 
 ## Relationship to Other Predicates
 
@@ -313,8 +312,7 @@ Using `supersedes` from BCR-2026-005 (General Assertions) to indicate an asserti
 
 | Predicate | Usage with Anchors |
 |-----------|-------------------|
-| `supersedes` | Anchor revocation/updates |
-| `revocationReason` | Why an anchor was superseded |
+| `revocationReason` | Why an anchor was revoked |
 
 ## Security Considerations
 
@@ -383,7 +381,7 @@ We invite feedback on how these specifications should interoperate. See also the
 
 ## Related BCRs
 
-- **BCR-2026-005: General Assertion Predicates** — `supersedes` for anchor updates
+- **BCR-2026-005: General Assertion Predicates** — `revocationReason` for anchor revocations
 - **BCR-2026-007: Principal Authority Predicates** — Authority relationships
 
 ---
