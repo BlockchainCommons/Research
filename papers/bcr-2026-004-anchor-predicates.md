@@ -46,7 +46,27 @@ Assertions in Gordian Envelopes may need independent attestation that they exist
 - **Signing** — which implies consent or authorship
 - **Witnessing** (human) — which implies observation of events
 
-Cryptographic event logs (as in Certificate Transparency, Key Transparency, and CEL) provide append-only structures where independent parties can attest to having observed an assertion, without implying approval.
+Cryptographic event logs (as in Certificate Transparency, Key Transparency, and CEL) provide **append-only** structures where independent parties can attest to having observed an assertion, without implying approval.
+
+### Why Anchoring Matters
+
+Anchoring provides **proof of existence and ordering** without requiring trust in the asserter:
+
+1. **Certificate Transparency** — Public logs prove certificates existed at a point in time, enabling detection of misissued certificates even after the fact
+2. **Key Transparency** — Append-only logs of key bindings prevent silent key replacement attacks
+3. **Software Transparency** — Binary hashes in logs prove what code was distributed, enabling detection of supply chain attacks
+
+In all cases, the value comes from the log's **append-only, publicly auditable nature**. Once an assertion is anchored, it cannot be removed or altered — the log provides permanent evidence that the assertion existed.
+
+### Use Cases
+
+**Timestamp Authority**: An independent service anchors assertions to prove they existed before a certain time — useful for intellectual property, contract precedence, or regulatory compliance.
+
+**Multi-Party Attestation**: Multiple log operators anchor the same assertion (quorum), providing resilience against any single operator being compromised or unavailable.
+
+**Audit Trails**: Anchoring creates tamper-evident records of assertions for compliance, legal discovery, or forensic analysis.
+
+**Revocation Detection**: When combined with `supersedes` (BCR-2026-005), anchoring enables detection of attempts to silently replace assertions — the original anchor remains in the log even after supersession.
 
 ### Terminology Distinction
 
@@ -65,7 +85,7 @@ This specification defines predicates for cryptographic log anchoring:
 | `anchoredBy` | Who anchored the assertion |
 | `anchors` | What assertion is anchored |
 | `anchoredAt` | When it was anchored |
-| `anchorHash` | Cryptographic binding |
+| `anchorDigest` | Cryptographic binding |
 | `anchorLog` | Which log contains the anchor |
 
 Optional extensions for multi-anchor scenarios:
@@ -74,12 +94,14 @@ Optional extensions for multi-anchor scenarios:
 | `anchorQuorum` | Minimum anchors required |
 | `anchorIndex` | Position in log |
 
-### Inference Source
+### Conceptual Foundation
 
-These predicates are derived from concepts in:
+These predicates are **Envelope-native vocabulary** for expressing anchoring relationships within Gordian Envelopes, which uses concepts inspired by:
 - [Cryptographic Event Logs (CEL)](https://digitalbazaar.github.io/cel-spec/)
 - Certificate Transparency (RFC 6962)
 - Key Transparency systems
+
+> **Note**: This is not a bridge format or interoperability specification for CT/CEL. Round-trip conversion to/from external log formats would require a separate specification.
 
 ## Terminology
 
@@ -109,7 +131,7 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 
 ```
 {
-    CID(my-assertion) [
+    Digest(my-assertion) [
         'anchoredBy': XID(log-operator)
         'anchoredAt': 2026-02-02T12:00:00Z
     ]
@@ -127,15 +149,15 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 **Type**: property
 **Definition**: References the assertion that is being anchored.
 **Domain**: Anchor assertion
-**Range**: CID or URI of the anchored assertion
+**Range**: Digest or URI of the anchored assertion
 **Usage**: Establishes an explicit, verifiable link between an anchor assertion and the assertion it attests to.
 
 ```
 {
-    CID(anchor-assertion) [
-        'anchors': CID(original-assertion)
+    Digest(anchor-assertion) [
+        'anchors': Digest(original-assertion)
         'anchoredBy': XID(log-operator)
-        'anchorHash': "sha256:abc123..."
+        'anchorDigest': Digest(abc123...)
     ]
 }
 ```
@@ -156,26 +178,27 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 
 ---
 
-#### 90: `anchorHash`
+#### 90: `anchorDigest`
 
 **Type**: property
-**Definition**: A cryptographic hash of the canonical form of the assertion being anchored.
+**Definition**: A cryptographic digest of the canonical form of the assertion being anchored.
 **Domain**: Anchor assertion
-**Range**: Multihash or hash string
+**Range**: Digest
 **Usage**: Cryptographically binds the anchor to a specific assertion representation.
 
 ```
 {
-    CID(anchor-assertion) [
-        'anchors': CID(original-assertion)
-        'anchorHash': "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    Digest(anchor-assertion) [
+        'anchors': Digest(original-assertion)
+        'anchorDigest': Digest(e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855)
     ]
 }
 ```
 
 **Notes**:
 - Enables verification that the anchored content hasn't changed
-- Should use the canonical envelope hash
+- Uses the native Envelope `Digest` type for type safety
+- Should use the canonical envelope digest
 
 ---
 
@@ -189,8 +212,8 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 
 ```
 {
-    CID(anchor-assertion) [
-        'anchors': CID(original-assertion)
+    Digest(anchor-assertion) [
+        'anchors': Digest(original-assertion)
         'anchorLog': "https://log.example.com/v1"
     ]
 }
@@ -208,7 +231,7 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 
 ```
 {
-    CID(high-value-assertion) [
+    Digest(high-value-assertion) [
         'anchorQuorum': 3
     ]
 }
@@ -230,8 +253,8 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 
 ```
 {
-    CID(anchor-assertion) [
-        'anchors': CID(original-assertion)
+    Digest(anchor-assertion) [
+        'anchors': Digest(original-assertion)
         'anchorLog': "https://log.example.com/v1"
         'anchorIndex': 12345
     ]
@@ -246,11 +269,11 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 
 ```
 {
-    CID(anchor-assertion) [
-        'anchors': CID(original-document)
+    Digest(anchor-assertion) [
+        'anchors': Digest(original-document)
         'anchoredBy': XID(transparency-log)
         'anchoredAt': 2026-02-02T12:00:00Z
-        'anchorHash': "sha256:..."
+        'anchorDigest': Digest(...)
         'anchorLog': "https://log.example.com/v1"
     ]
 }
@@ -260,41 +283,43 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 
 ```
 {
-    CID(important-assertion) [
+    Digest(important-assertion) [
         'anchorQuorum': 2
     ]
 }
 
 // Anchor 1
 {
-    CID(anchor-1) [
-        'anchors': CID(important-assertion)
+    Digest(anchor-1) [
+        'anchors': Digest(important-assertion)
         'anchoredBy': XID(log-operator-a)
     ]
 }
 
 // Anchor 2
 {
-    CID(anchor-2) [
-        'anchors': CID(important-assertion)
+    Digest(anchor-2) [
+        'anchors': Digest(important-assertion)
         'anchoredBy': XID(log-operator-b)
     ]
 }
 ```
 
-### Anchor with Revocation
+### Anchor with Supersession
 
-Using `supersedes` from BCR-2026-005 (General Assertions):
+Using `supersedes` from BCR-2026-005 (General Assertions) to indicate an assertion has been replaced:
 
 ```
 {
-    CID(revocation-anchor) [
-        'anchors': CID(revoked-assertion)
-        'supersedes': CID(original-anchor)
+    Digest(supersession-anchor) [
+        'anchors': Digest(superseding-assertion)
+        'supersedes': Digest(original-anchor)
         'anchoredBy': XID(log-operator)
     ]
 }
 ```
+
+> **Important**: This creates a **new** anchor entry in the log. The original anchor remains permanently in the append-only log — it is not modified or deleted. The `supersedes` predicate creates a forward reference, allowing verifiers to discover that a newer version exists. This is how Certificate Transparency handles certificate revocation: the original certificate's log entry persists, but a newer entry supersedes it.
 
 ## Relationship to Other Predicates
 
@@ -332,7 +357,7 @@ The `anchorIndex` predicate supports detection of log equivocation — where a l
 
 ### Hash Binding
 
-The `anchorHash` provides cryptographic binding between the anchor and the anchored content. Verifiers should confirm that the hash matches the canonical form of the referenced assertion.
+The `anchorDigest` provides cryptographic binding between the anchor and the anchored content. Verifiers should confirm that the hash matches the canonical form of the referenced assertion.
 
 ## Open Questions
 
