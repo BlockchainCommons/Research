@@ -286,24 +286,25 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    {
-        Digest(authority-grant) [
-            'confersTo': XID(agent-alice)
-            'conferralScope': "Draft technical documentation"
-            'conferralConstraints': "Subject to review before publication"
-            'validFrom': 2026-02-01
-        ]
-    } 'signed': Signature
-    [
-        'signer': XID(principal-bob)
-        'xades:ClaimedRole': "Project Lead"
+    Digest(authority-grant) [
+        'confersTo': XID(agent-alice)
+        'conferralScope': "Draft technical documentation"
+        'conferralConstraints': "Subject to review before publication"
+        'validFrom': 2026-02-01
     ]
-} 'signed': Signature
+} [
+    'signed': {
+        Signature [
+            'signer': XID(principal-bob)
+            'xades:ClaimedRole': "Project Lead"
+        ]
+    } ['signed': Signature]
+]
 ```
 
 **Notes**:
 - This is a **declaration by the principal**, signed by them
-- Uses double-signing pattern (BCR-2026-004) to bind signer identity to signature
+- Uses signature-with-assertions pattern (BCR-2026-004) to bind signer identity to signature
 - Complements `assertsConferralFrom` which is the agent's claim
 - Together they provide bidirectional verification:
   - Agent claims: `assertsConferralFrom`: XID(principal)
