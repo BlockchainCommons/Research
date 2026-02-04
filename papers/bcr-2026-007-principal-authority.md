@@ -13,7 +13,7 @@ Date: February 2, 2026
 
 This document specifies Known Value predicates for expressing principal-agent authority relationships in Gordian Envelopes. These predicates enable clear attribution when authorship and responsibility are distinct — such as AI-generated content under human direction, ghostwritten works, or any delegation of creative authority.
 
-This BCR depends on [BCR-2026-005: General Assertion Predicates](bcr-2026-005-general-assertions.md) for lifecycle management (`supersedes`, `revocationReason`, `processDisclosure`).
+This BCR depends on [BCR-2026-005: General Assertion Predicates](bcr-2026-005-general-assertions.md) for lifecycle management (`revocationReason`, `processDisclosure`).
 
 ## Status: Pre-Registration Proposal
 
@@ -79,7 +79,7 @@ These predicates draw on the legal concept of Principal Authority from the Laws 
 This BCR defines **authority relationship predicates**, not:
 - Contribution roles (Author, Editor, etc.) — see [BCR-2026-008: CreativeWork Role Predicates](bcr-2026-008-creativework-roles.md)
 - Signature context (`signingAs`, `onBehalfOf`) — see [BCR-2026-006: Signature Context Predicates](bcr-2026-006-signature-context.md)
-- Assertion lifecycle (`supersedes`, `revocationReason`) — see [BCR-2026-005: General Assertion Predicates](bcr-2026-005-general-assertions.md)
+- Assertion lifecycle (`revocationReason`) — see [BCR-2026-005: General Assertion Predicates](bcr-2026-005-general-assertions.md)
 
 ## Terminology
 
@@ -103,7 +103,6 @@ This BCR uses predicates from BCR-2026-005 for assertion lifecycle:
 
 | Codepoint | Predicate | Usage in This Context |
 |-----------|-----------|----------------------|
-| 1000 | `supersedes` | Updating or replacing authority assertions |
 | 1001 | `revocationReason` | Documenting why authority conferral was revoked |
 | 1002 | `processDisclosure` | Describing how work was produced |
 
@@ -349,26 +348,26 @@ An agent (human or AI) asserting its authority source.
     ]
 ```
 
-### Authority Conferral with Lifecycle
+### Authority Conferral with Time Bounds
 
-Using BCR-2026-005 predicates for conferral management.
+Using time bounds for conferral management.
 
 ```
-    Digest(conferral-v2) [
-        'assertsConferralFrom': XID(alice)
-        'conferralScope': "Extended to include customer communications"
-        'supersedes': Digest(conferral-v1)
-        'validFrom': 2026-03-01
-    ]
+Digest(conferral) [
+    'assertsConferralFrom': XID(alice)
+    'conferralScope': "Draft technical documentation"
+    'validFrom': 2026-03-01
+    'validUntil': 2026-12-31
+]
 ```
 
 ### Revoked Authority Conferral
 
 ```
-    Digest(revocation) [
-        'supersedes': Digest(original-conferral)
-        'revocationReason': "Project concluded"
-    ]
+Digest(revocation) [
+    'revokes': Digest(original-conferral)
+    'revocationReason': "Project concluded"
+]
 ```
 
 ## Design Notes
