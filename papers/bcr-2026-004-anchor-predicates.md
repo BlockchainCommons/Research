@@ -130,12 +130,10 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 **Usage**: Declares which entity provided the anchor attestation.
 
 ```
-{
     Digest(my-assertion) [
         'anchoredBy': XID(log-operator)
         'anchoredAt': 2026-02-02T12:00:00Z
     ]
-}
 ```
 
 **Notes**:
@@ -153,13 +151,11 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 **Usage**: Establishes an explicit, verifiable link between an anchor assertion and the assertion it attests to.
 
 ```
-{
     Digest(anchor-assertion) [
         'anchors': Digest(original-assertion)
         'anchoredBy': XID(log-operator)
         'anchorDigest': Digest(abc123...)
     ]
-}
 ```
 
 ---
@@ -187,12 +183,10 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 **Usage**: Cryptographically binds the anchor to a specific assertion representation.
 
 ```
-{
     Digest(anchor-assertion) [
         'anchors': Digest(original-assertion)
         'anchorDigest': Digest(e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855)
     ]
-}
 ```
 
 **Notes**:
@@ -211,12 +205,10 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 **Usage**: Enables cross-log comparison and detection of inconsistent log views.
 
 ```
-{
     Digest(anchor-assertion) [
         'anchors': Digest(original-assertion)
         'anchorLog': "https://log.example.com/v1"
     ]
-}
 ```
 
 ---
@@ -230,11 +222,9 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 **Usage**: Expresses governance or trust thresholds independently of verification.
 
 ```
-{
     Digest(high-value-assertion) [
         'anchorQuorum': 3
     ]
-}
 ```
 
 **Notes**:
@@ -252,13 +242,11 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 **Usage**: Supports detection of log equivocation and inconsistent ordering claims.
 
 ```
-{
     Digest(anchor-assertion) [
         'anchors': Digest(original-assertion)
         'anchorLog': "https://log.example.com/v1"
         'anchorIndex': 12345
     ]
-}
 ```
 
 ---
@@ -268,7 +256,6 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 ### Basic Anchoring
 
 ```
-{
     Digest(anchor-assertion) [
         'anchors': Digest(original-document)
         'anchoredBy': XID(transparency-log)
@@ -276,33 +263,26 @@ All proposed codepoints are in the **Core Registry** range (0-99).
         'anchorDigest': Digest(...)
         'anchorLog': "https://log.example.com/v1"
     ]
-}
 ```
 
 ### Multiple Anchors (Quorum)
 
 ```
-{
     Digest(important-assertion) [
         'anchorQuorum': 2
     ]
-}
 
 // Anchor 1
-{
     Digest(anchor-1) [
         'anchors': Digest(important-assertion)
         'anchoredBy': XID(log-operator-a)
     ]
-}
 
 // Anchor 2
-{
     Digest(anchor-2) [
         'anchors': Digest(important-assertion)
         'anchoredBy': XID(log-operator-b)
     ]
-}
 ```
 
 ### Anchor with Supersession
@@ -310,13 +290,11 @@ All proposed codepoints are in the **Core Registry** range (0-99).
 Using `supersedes` from BCR-2026-005 (General Assertions) to indicate an assertion has been replaced:
 
 ```
-{
     Digest(supersession-anchor) [
         'anchors': Digest(superseding-assertion)
         'supersedes': Digest(original-anchor)
         'anchoredBy': XID(log-operator)
     ]
-}
 ```
 
 > **Important**: This creates a **new** anchor entry in the log. The original anchor remains permanently in the append-only log — it is not modified or deleted. The `supersedes` predicate creates a forward reference, allowing verifiers to discover that a newer version exists. This is how Certificate Transparency handles certificate revocation: the original certificate's log entry persists, but a newer entry supersedes it.
