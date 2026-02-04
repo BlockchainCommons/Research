@@ -106,7 +106,6 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Distinction from ConceptOriginator**: ConceptOriginator provides the core *idea*; Commissioner makes the *decision* to create and may define requirements without providing the concept.
 
 ```
-{
     Digest(commissioned-report) [
         'schema:author': XID(researcher)
         'schema:contributor': {
@@ -120,7 +119,6 @@ All proposed codepoints are in the **Community Assigned (specification required)
             ]
         }
     ]
-}
 ```
 
 **Examples**:
@@ -142,7 +140,6 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Distinction from Publisher**: Traditional "publisher" conflates multiple roles (commissioning, editing, distribution, responsibility). Distributor isolates the distribution function.
 
 ```
-{
     Digest(open-source-project) [
         'schema:author': XID(maintainer)
         'schema:contributor': {
@@ -156,7 +153,6 @@ All proposed codepoints are in the **Community Assigned (specification required)
             ]
         }
     ]
-}
 ```
 
 **Examples**:
@@ -179,7 +175,6 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Distinction from Maintainer**: Maintainer (BCR-2026-006) focuses on technical updates; Steward encompasses broader care including ideas, community, and legacy.
 
 ```
-{
     Digest(community-project) [
         'schema:author': XID(original-author)
         'schema:contributor': {
@@ -193,7 +188,6 @@ All proposed codepoints are in the **Community Assigned (specification required)
             ]
         }
     ]
-}
 ```
 
 **Examples**:
@@ -213,7 +207,6 @@ All proposed codepoints are in the **Community Assigned (specification required)
 ### Commissioned Work
 
 ```
-{
     Digest(research-report) [
         'principalAuthority': XID(foundation)
         'schema:author': XID(research-team)
@@ -228,13 +221,11 @@ All proposed codepoints are in the **Community Assigned (specification required)
             ]
         }
     ]
-}
 ```
 
 ### Full Lifecycle Attribution
 
 ```
-{
     Digest(open-standard) [
         'schema:author': XID(working-group)
         'schema:contributor': {
@@ -254,13 +245,11 @@ All proposed codepoints are in the **Community Assigned (specification required)
             ]
         }
     ]
-}
 ```
 
 ### Stewardship Succession
 
 ```
-{
     Digest(legacy-project) [
         'schema:author': XID(original-creator)
         'schema:contributor': {
@@ -275,7 +264,6 @@ All proposed codepoints are in the **Community Assigned (specification required)
         }
         'processDisclosure': "Stewardship transferred to New Foundation in 2025."
     ]
-}
 ```
 
 ## Roles Not Included
