@@ -148,11 +148,9 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **MARC mapping**: aut (Author)
 
 ```
-{
     Digest(document) [
         'schema:author': XID(writer)
     ]
-}
 ```
 
 > **Note**: Use the existing Schema.org predicate `schema:author` (11063) rather than defining a new role value.
@@ -167,11 +165,9 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **MARC mapping**: edt (Editor)
 
 ```
-{
     Digest(document) [
         'schema:editor': XID(editor)
     ]
-}
 ```
 
 > **Note**: Use the existing Schema.org predicate `schema:editor` (11369) rather than defining a new role value.
@@ -212,7 +208,6 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Notes**: Captures ideation prior to expressive creation. Distinct from authorship and implementation.
 
 ```
-{
     Digest(document) [
         'schema:contributor': {
             XID(ideator) [
@@ -220,7 +215,6 @@ All proposed codepoints are in the **Community Assigned (specification required)
             ]
         }
     ]
-}
 ```
 
 > **Note**: Use the existing NISO CRediT role value `niso-credit:Conceptualization` (2400) rather than defining a new `ConceptOriginator` value.
@@ -340,12 +334,10 @@ Detailed mappings to publishing and media standards are available in the attesta
 Use direct predicates where Schema.org provides them:
 
 ```
-{
     Digest(blog-post) [
         'schema:author': XID(alice)
         'schema:editor': XID(bob)
     ]
-}
 ```
 
 ### Multiple Roles
@@ -353,7 +345,6 @@ Use direct predicates where Schema.org provides them:
 A single contributor may hold multiple roles. Use direct predicates where available, Role pattern for others:
 
 ```
-{
     Digest(software-project) [
         'schema:author': XID(developer)
         'schema:contributor': {
@@ -363,7 +354,6 @@ A single contributor may hold multiple roles. Use direct predicates where availa
             ]
         }
     ]
-}
 ```
 
 ### Roles with Principal Authority
@@ -371,7 +361,6 @@ A single contributor may hold multiple roles. Use direct predicates where availa
 Combining roles with authority predicates from BCR-2026-007:
 
 ```
-{
     Digest(ai-generated-document) [
         'principalAuthority': XID(human-director)
         'schema:author': XID(claude-ai)
@@ -388,7 +377,6 @@ Combining roles with authority predicates from BCR-2026-007:
         }
         'processDisclosure': "Drafted by Claude under human direction and review."
     ]
-}
 ```
 
 ### AI as Contributor
@@ -396,7 +384,6 @@ Combining roles with authority predicates from BCR-2026-007:
 AI systems receive the same role vocabulary as human contributors:
 
 ```
-{
     Digest(code-module) [
         'schema:author': "Claude Sonnet 4.5"
         'schema:editor': XID(developer)
@@ -406,7 +393,6 @@ AI systems receive the same role vocabulary as human contributors:
             ]
         }
     ]
-}
 ```
 
 ## Roles Not Included
