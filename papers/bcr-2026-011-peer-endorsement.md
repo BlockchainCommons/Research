@@ -101,7 +101,6 @@ This specification defines:
 For formal credentials with institutional backing, use the W3C Verifiable Credentials Data Model:
 
 ```
-{
     Digest(vc-endorsement) [
         '@context': ["https://www.w3.org/ns/credentials/v2"]
         'type': ["VerifiableCredential", "EndorsementCredential"]
@@ -116,7 +115,6 @@ For formal credentials with institutional backing, use the W3C Verifiable Creden
             'id': "https://github.com/org/repo/pull/123"
         }
     ]
-}
 ```
 
 **When to use VC pattern:**
@@ -129,7 +127,6 @@ For formal credentials with institutional backing, use the W3C Verifiable Creden
 For skill endorsements in educational or professional contexts, use Open Badges v3:
 
 ```
-{
     Digest(badge-endorsement) [
         '@context': "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
         'type': ["VerifiableCredential", "OpenBadgeCredential"]
@@ -149,7 +146,6 @@ For skill endorsements in educational or professional contexts, use Open Badges 
             }
         }
     ]
-}
 ```
 
 **When to use Open Badges pattern:**
@@ -162,7 +158,6 @@ For skill endorsements in educational or professional contexts, use Open Badges 
 For endorsements that need web search discoverability:
 
 ```
-{
     Digest(schema-endorsement) [
         '@context': "https://schema.org"
         '@type': "Recommendation"
@@ -177,7 +172,6 @@ For endorsements that need web search discoverability:
         'reviewBody': "Excellent security architecture skills..."
         'dateCreated': "2026-02-02T00:00:00Z"
     ]
-}
 ```
 
 **When to use Schema.org pattern:**
@@ -245,12 +239,10 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Identifies what or who this endorsement is about.
 
 ```
-{
     Digest(endorsement) [
         'endorsementTarget': XID(alice)
         'endorserStatement': "Demonstrated excellent security review skills"
     ]
-}
 ```
 
 **Notes**:
@@ -268,11 +260,9 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Captures the endorser's direct observation using fair witness methodology.
 
 ```
-{
     Digest(endorsement) [
         'endorserStatement': "I reviewed 8 of their PRs over 6 months. All were well-structured with comprehensive test coverage."
     ]
-}
 ```
 
 **Notes**:
@@ -291,11 +281,9 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Explains why the endorser is credible for this endorsement.
 
 ```
-{
     Digest(endorsement) [
         'endorsementBasis': "12 years as security architect; reviewed similar systems at 3 organizations"
     ]
-}
 ```
 
 **Notes**:
@@ -313,11 +301,9 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Provides relationship transparency essential for trust calibration.
 
 ```
-{
     Digest(endorsement) [
         'endorserRelationship': "Project maintainer who merged their contributions over 6 months"
     ]
-}
 ```
 
 **Notes**:
@@ -366,12 +352,10 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Bounds the endorsement to specific contexts or capabilities.
 
 ```
-{
     Digest(endorsement) [
         'endorsementContext': "Security architecture and cryptographic implementation"
         'endorserStatement': "..."
     ]
-}
 ```
 
 **Notes**:
@@ -392,12 +376,10 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: General endorsements between individuals without institutional backing.
 
 ```
-{
     Digest(endorsement) [
         'isA': 'PeerEndorsement'
         'endorsementTarget': XID(subject)
     ]
-}
 ```
 
 ---
@@ -409,13 +391,11 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Software-specific endorsements where the endorser reviewed code.
 
 ```
-{
     Digest(endorsement) [
         'isA': 'CodeReviewEndorsement'
         'endorserStatement': "Reviewed PRs #123, #145, #167 — all demonstrated solid security practices"
         'endorsementBasis': "As project maintainer, I merged these contributions"
     ]
-}
 ```
 
 ---
@@ -427,13 +407,11 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Endorsements from people who worked on projects together.
 
 ```
-{
     Digest(endorsement) [
         'isA': 'CollaborationEndorsement'
         'endorserStatement': "Collaborated on 3-month security audit; reliable, communicative, delivered on commitments"
         'endorserRelationship': "Project collaborator and co-author"
     ]
-}
 ```
 
 ---
@@ -445,14 +423,12 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Focused skill endorsements, often used in participation profiles.
 
 ```
-{
     Digest(endorsement) [
         'isA': 'SkillEndorsement'
         'endorsementTarget': XID(subject)
         'endorsementContext': "Rust memory safety patterns"
         'endorserStatement': "Demonstrated deep understanding in our systems programming collaboration"
     ]
-}
 ```
 
 ---
