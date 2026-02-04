@@ -198,9 +198,11 @@ Bob's outer signature binds his assertions to his counter-signature on Alice's a
 
 ## Terminology
 
+**Assertion vs Attestation**: In Gordian Envelope, *assertion* is the technical term for a predicate-object pair attached to a subject — this is Envelope vocabulary. *Attestation* refers to the act of formally declaring or testifying to facts — this is general vocabulary. In this BCR: the signer *attests* to facts about the signing event; these attestations are expressed as *assertions* in the Envelope structure.
+
 **Signing Event**: The act of a private key producing a signature over specific content. The cryptographic operation itself — distinct from any claims about who performed it or why.
 
-**Signing Event Assertions**: Claims made by the signer about the signing event — who they are (`signer`), who they represent (`signedOnBehalfOf`), in what capacity (`xades:ClaimedRole`), and the signature's purpose (`xades:CommitmentType`). These are self-asserted claims, not cryptographic proofs.
+**Signing Event Assertions**: The Envelope assertions containing the signer's attestations about the signing event — who they are (`signer`), who they represent (`signedOnBehalfOf`), in what capacity (`xades:ClaimedRole`), and the signature's purpose (`xades:CommitmentType`). These are self-asserted claims, not cryptographic proofs.
 
 **Double-Signing Pattern**: The technique of wrapping and signing twice to cryptographically bind assertions to an inner signature. The inner signature proves the key signed; the outer signature proves the key asserts the assertions.
 
