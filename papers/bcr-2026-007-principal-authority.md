@@ -70,6 +70,7 @@ This specification defines four predicates for principal-agent authority relatio
 4. **`conferralConstraints`** — What limits apply to the conferral
 5. **`conferredBy`** — Who granted authority (single-hop)
 6. **`conferralChain`** — Full chain of authority conferral (multi-hop)
+7. **`confersTo`** — Principal declares conferral to an agent
 
 These predicates draw on the legal concept of Principal Authority from the Laws of Agency, where a principal confers authority to an agent who acts on their behalf while owing duties back to the principal. The term "conferral" is used instead of "delegation" to avoid confusion with cryptographic delegation (XID `delegate` predicate).
 
@@ -133,7 +134,7 @@ The two concerns are orthogonal:
 
 All proposed codepoints are in the **Community Assigned (specification required)** range (1000-1999).
 
-### Principal Authority (1040-1045)
+### Principal Authority (1040-1046)
 
 ---
 
@@ -293,6 +294,41 @@ All proposed codepoints are in the **Community Assigned (specification required)
 - The actor (signer or agent) is implicitly at the end of the chain
 - Use for audit trails and authority verification
 - Simpler cases can use `conferredBy` alone
+
+---
+
+#### 1046: `confersTo`
+
+**Type**: property
+**Definition**: The principal declares that authority is conferred to the specified agent.
+**Domain**: Authority declaration by principal
+**Range**: XID, DID, or identifier of the agent receiving authority
+**Usage**: Principal signs a conferral TO an agent, establishing the authority relationship.
+
+```
+{
+    Digest(authority-grant) [
+        'confersTo': XID(agent-alice)
+        'conferralScope': "Draft technical documentation"
+        'conferralConstraints': "Subject to review before publication"
+        'validFrom': 2026-02-01
+        'signed': {
+            XID(principal-bob) [
+                'signingAs': "Project Lead"
+            ]
+        }
+    ]
+}
+```
+
+**Notes**:
+- This is a **declaration by the principal**, signed by them
+- Complements `assertsConferralFrom` which is the agent's claim
+- Together they provide bidirectional verification:
+  - Agent claims: `assertsConferralFrom`: XID(principal)
+  - Principal confirms: `confersTo`: XID(agent)
+- For standing conferrals, use `validFrom`/`validUntil` for time bounds
+- The signed conferral can be referenced by the agent as proof of authority
 
 ---
 
