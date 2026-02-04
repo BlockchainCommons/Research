@@ -152,12 +152,10 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Creates an explicit version chain for assertions.
 
 ```
-{
     Digest(new-delegation-v2) [
         'supersedes': Digest(old-delegation-v1)
         'validFrom': 2026-02-01
     ]
-}
 ```
 
 **Notes**:
@@ -175,12 +173,10 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Distinguishes revocation causes (key compromise, error, withdrawal of consent, etc.)
 
 ```
-{
     Digest(revocation) [
         'supersedes': Digest(original-assertion)
         'revocationReason': "Key compromise suspected"
     ]
-}
 ```
 
 **Notes**:
@@ -198,11 +194,9 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Provides context about production methods, tools used, or collaboration involved.
 
 ```
-{
     Digest(document) [
         'processDisclosure': "Drafted with AI assistance using Claude. Human author reviewed, edited, and approved final content."
     ]
-}
 ```
 
 **Notes**:
@@ -220,11 +214,9 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Enables attestors to proactively disclose factors that might affect interpretation of their assertion.
 
 ```
-{
     Digest(endorsement) [
         'disclosedBias': "I have a professional relationship with the subject. We have collaborated on three projects."
     ]
-}
 ```
 
 **Notes**:
@@ -244,11 +236,9 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Enables attestors to acknowledge gaps in their knowledge or constraints on their perspective.
 
 ```
-{
     Digest(skill-endorsement) [
         'disclosedLimitations': "I observed their work on frontend components only. I cannot speak to their backend or infrastructure skills."
     ]
-}
 ```
 
 **Notes**:
@@ -267,11 +257,9 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Documents what the assertion does and does not claim, establishing its boundaries.
 
 ```
-{
     Digest(competency-assertion) [
         'assertionLimitations': "This assertion covers demonstrated skill as of the observation date. It does not predict future performance or guarantee results."
     ]
-}
 ```
 
 **Notes**:
