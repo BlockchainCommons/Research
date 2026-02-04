@@ -42,6 +42,20 @@ We invite feedback on:
 - Any missing roles that belong in this creative contribution vocabulary
 - Suggested refinements to role definitions
 
+### Open Questions
+
+**Q1: Is `niso-credit:Conceptualization` equivalent to "ConceptOriginator"?**
+
+NISO CRediT defines Conceptualization as: "Ideas; formulation or evolution of overarching research goals and aims."
+
+This BCR's ConceptOriginator is defined as: "Originated the core idea, premise, or conceptual foundation of the CreativeWork."
+
+These may differ in:
+- **Scope**: CRediT is scholarly research-focused; ConceptOriginator applies to all creative works
+- **Emphasis**: CRediT includes "evolution" of goals; ConceptOriginator emphasizes "origination"
+
+Should we use `niso-credit:Conceptualization` (2400) directly, define a distinct `ConceptOriginator` (1065), or document both with clear distinction?
+
 Please submit feedback via:
 - [Gordian Developer Community Discussions](https://github.com/BlockchainCommons/Gordian-Developer-Community/discussions)
 - Pull requests to this specification
@@ -108,6 +122,15 @@ The same role vocabulary applies regardless of agent type. Attribution quality s
 | 1040 | `principalAuthority` | Who directed the work |
 | 1041 | `assertsDelegationFrom` | Agent claims delegation |
 
+### Schema.org Predicates
+
+| Codepoint | Predicate | Usage with Roles |
+|-----------|-----------|------------------|
+| 11227 | `schema:contributor` | Links work to contributor with role assertions |
+| 12151 | `schema:roleName` | Assigns role type to contributor |
+
+These predicates use the [Schema.org Known Values Registry](https://github.com/BlockchainCommons/Research/blob/master/known-value-assignments/markdown/10000_schema_registry.md) for structural patterns.
+
 ## Proposed Known Value Assignments
 
 All proposed codepoints are in the **Community Assigned (specification required)** range (1000-1999).
@@ -116,9 +139,9 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ---
 
-#### 1060: `Author`
+#### `schema:author` (11063)
 
-**Type**: role
+**Type**: property (Schema.org)
 **Definition**: Created the primary expressive content of the CreativeWork.
 **Includes**: Text, code, music, visual composition, or other expressive media.
 **CRediT mapping**: Writing – Original Draft, Software
@@ -126,24 +149,32 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(document) [
-        'hasContributor': {
-            XID(writer) [
-                'role': 'Author'
-            ]
-        }
+    Digest(document) [
+        'schema:author': XID(writer)
     ]
 }
 ```
 
+> **Note**: Use the existing Schema.org predicate `schema:author` (11063) rather than defining a new role value.
+
 ---
 
-#### 1061: `Editor`
+#### `schema:editor` (11369)
 
-**Type**: role
+**Type**: property (Schema.org)
 **Definition**: Refined, revised, or shaped existing content for quality, clarity, or coherence.
 **CRediT mapping**: Writing – Review & Editing
 **MARC mapping**: edt (Editor)
+
+```
+{
+    Digest(document) [
+        'schema:editor': XID(editor)
+    ]
+}
+```
+
+> **Note**: Use the existing Schema.org predicate `schema:editor` (11369) rather than defining a new role value.
 
 ---
 
@@ -174,12 +205,25 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ---
 
-#### 1065: `ConceptOriginator`
+#### `niso-credit:Conceptualization` (2400)
 
-**Type**: role
+**Type**: value (NISO CRediT)
 **Definition**: Originated the core idea, premise, or conceptual foundation of the CreativeWork.
 **Notes**: Captures ideation prior to expressive creation. Distinct from authorship and implementation.
-**CRediT mapping**: Conceptualization
+
+```
+{
+    Digest(document) [
+        'schema:contributor': {
+            XID(ideator) [
+                'schema:roleName': 'niso-credit:Conceptualization'
+            ]
+        }
+    ]
+}
+```
+
+> **Note**: Use the existing NISO CRediT role value `niso-credit:Conceptualization` (2400) rather than defining a new `ConceptOriginator` value.
 
 ---
 
@@ -293,35 +337,29 @@ Detailed mappings to publishing and media standards are available in the attesta
 
 ### Basic Role Attribution
 
+Use direct predicates where Schema.org provides them:
+
 ```
 {
-    CID(blog-post) [
-        'hasContributor': {
-            XID(alice) [
-                'role': 'Author'
-            ]
-        }
-        'hasContributor': {
-            XID(bob) [
-                'role': 'Editor'
-            ]
-        }
+    Digest(blog-post) [
+        'schema:author': XID(alice)
+        'schema:editor': XID(bob)
     ]
 }
 ```
 
 ### Multiple Roles
 
-A single contributor may hold multiple roles:
+A single contributor may hold multiple roles. Use direct predicates where available, Role pattern for others:
 
 ```
 {
-    CID(software-project) [
-        'hasContributor': {
+    Digest(software-project) [
+        'schema:author': XID(developer)
+        'schema:contributor': {
             XID(developer) [
-                'role': 'Author'
-                'role': 'Architect'
-                'role': 'Documenter'
+                'schema:roleName': 'Architect'
+                'schema:roleName': 'Documenter'
             ]
         }
     ]
@@ -330,21 +368,21 @@ A single contributor may hold multiple roles:
 
 ### Roles with Principal Authority
 
-Combining roles with authority predicates from BCR-2026-005:
+Combining roles with authority predicates from BCR-2026-007:
 
 ```
 {
-    CID(ai-generated-document) [
+    Digest(ai-generated-document) [
         'principalAuthority': XID(human-director)
-        'hasContributor': {
+        'schema:author': XID(claude-ai)
+        'schema:editor': XID(human-director)
+        'schema:contributor': {
             XID(human-director) [
-                'role': 'ConceptOriginator'
-                'role': 'Editor'
+                'schema:roleName': 'niso-credit:Conceptualization'
             ]
         }
-        'hasContributor': {
+        'schema:contributor': {
             XID(claude-ai) [
-                'role': 'Author'
                 'assertsDelegationFrom': XID(human-director)
             ]
         }
@@ -359,16 +397,12 @@ AI systems receive the same role vocabulary as human contributors:
 
 ```
 {
-    CID(code-module) [
-        'hasContributor': {
-            "Claude Sonnet 4.5" [
-                'role': 'Author'
-            ]
-        }
-        'hasContributor': {
+    Digest(code-module) [
+        'schema:author': "Claude Sonnet 4.5"
+        'schema:editor': XID(developer)
+        'schema:contributor': {
             XID(developer) [
-                'role': 'Reviewer'
-                'role': 'Editor'
+                'schema:roleName': 'Reviewer'
             ]
         }
     ]
@@ -381,9 +415,9 @@ The following roles are intentionally excluded from this BCR:
 
 | Role | Reason | Where Covered |
 |------|--------|---------------|
-| Distribution | Lifecycle role, not creative contribution | BCR-2026-007 |
-| Stewardship | Lifecycle role, not creative contribution | BCR-2026-007 |
-| Commissioning | May overlap with ConceptOriginator | BCR-2026-007 (under review) |
+| Distribution | Lifecycle role, not creative contribution | BCR-2026-009 |
+| Stewardship | Lifecycle role, not creative contribution | BCR-2026-009 |
+| Commissioning | May overlap with ConceptOriginator | BCR-2026-009 (under review) |
 | Community Shepherding | Social role, not creative contribution | Out of scope |
 | Funding Acquisition | Scholarly-specific | Out of scope |
 | Investigation | Scholarly-specific | Out of scope |
