@@ -274,7 +274,7 @@ When `signer` is elided, signatures remain valid but identity is hidden. This en
 
 ### Implementation
 
-For API guidance and reference implementation, see BCR-2024-009.
+For API guidance and reference implementation, see [BCR-2024-009](bcr-2024-009-signature-metadata.md).
 
 ## References
 
