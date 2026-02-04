@@ -105,7 +105,6 @@ Both may be present. Neither implies the other.
 
 | Codepoint | Predicate | Usage in This Context |
 |-----------|-----------|----------------------|
-| 1000 | `supersedes` | Updating authority conferral assertions |
 | 1001 | `revocationReason` | Documenting why authority was revoked |
 | 21 | `validFrom` | When signing authority becomes effective |
 | 22 | `validUntil` | When signing authority expires |
