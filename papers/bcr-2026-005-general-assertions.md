@@ -11,7 +11,7 @@ Date: February 2, 2026
 
 ## Abstract
 
-This document specifies Known Value predicates for general-purpose assertion lifecycle management in Gordian Envelopes. These predicates handle versioning, revocation, disclosure, and transparency — concerns that apply across all assertion types.
+This document specifies Known Value predicates for general-purpose assertion lifecycle management in Gordian Envelopes. These predicates handle revocation, disclosure, and transparency — concerns that apply across all assertion types.
 
 This BCR is intentionally minimal. It provides foundational predicates that domain-specific BCRs (Principal Authority, CreativeWork Roles, Fair Witness, Peer Endorsement) can reference without duplication.
 
@@ -45,21 +45,20 @@ Please submit feedback via:
 
 ### Problem Statement
 
-Assertions in Gordian Envelopes need lifecycle management: they can be updated, superseded, or revoked. They may carry disclosure about how they were produced. Currently, these common needs are addressed ad-hoc in each domain-specific vocabulary, leading to inconsistency and duplication.
+Assertions in Gordian Envelopes need lifecycle management: they can be revoked and may carry disclosure about how they were produced. Currently, these common needs are addressed ad-hoc in each domain-specific vocabulary, leading to inconsistency and duplication.
 
 ### Solution
 
-This specification defines six predicates for assertion lifecycle and transparency:
+This specification defines five predicates for assertion lifecycle and transparency:
 
 **Lifecycle predicates:**
-1. **`supersedes`** — Links a new assertion to the one it replaces
-2. **`revocationReason`** — Documents why an assertion was revoked
-3. **`processDisclosure`** — Narrative about how the assertion was produced
+1. **`revocationReason`** — Documents why an assertion was revoked
+2. **`processDisclosure`** — Narrative about how the assertion was produced
 
 **Transparency predicates:**
-4. **`disclosedBias`** — Potential biases the attestor discloses
-5. **`disclosedLimitations`** — Limitations on the attestor's knowledge or perspective
-6. **`assertionLimitations`** — Scope or constraints of the assertion itself
+3. **`disclosedBias`** — Potential biases the attestor discloses
+4. **`disclosedLimitations`** — Limitations on the attestor's knowledge or perspective
+5. **`assertionLimitations`** — Scope or constraints of the assertion itself
 
 These predicates complement existing core predicates `validFrom` (21) and `validUntil` (22), which this BCR references but does not redefine.
 
@@ -95,9 +94,7 @@ The following terms were evaluated for collision risk with major ontologies:
 
 **Assertion**: A signed statement in a Gordian Envelope expressing a claim about something.
 
-**Supersession**: The replacement of one assertion with a newer version, where the newer version is authoritative.
-
-**Revocation**: The explicit withdrawal of an assertion, distinct from expiration (reaching `validUntil`) or supersession (replacement with new content).
+**Revocation**: The explicit withdrawal of an assertion, distinct from expiration (reaching `validUntil`).
 
 **Known Value**: A registered predicate identifier in the Gordian Envelope system, encoded as a numeric codepoint for efficient representation. See [BCR-2023-002](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2023-002-known-value.md).
 
@@ -139,28 +136,7 @@ The two concerns are orthogonal:
 
 All proposed codepoints are in the **Community Assigned (specification required)** range (1000-1999).
 
-### General Assertions (1000-1005)
-
----
-
-#### 1000: `supersedes`
-
-**Type**: property
-**Definition**: References an earlier assertion that this assertion replaces.
-**Domain**: Any assertion
-**Range**: Digest or URI of the superseded assertion
-**Usage**: Creates an explicit version chain for assertions.
-
-```
-    Digest(new-delegation-v2) [
-        'supersedes': Digest(old-delegation-v1)
-        'validFrom': 2026-02-01
-    ]
-```
-
-**Notes**:
-- The superseding assertion should be signed by an entity authorized to update the original
-- Supersession is distinct from revocation — supersession provides new content, revocation withdraws without replacement
+### General Assertions (1001-1005)
 
 ---
 
@@ -173,10 +149,10 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Distinguishes revocation causes (key compromise, error, withdrawal of consent, etc.)
 
 ```
-    Digest(revocation) [
-        'supersedes': Digest(original-assertion)
-        'revocationReason': "Key compromise suspected"
-    ]
+Digest(revocation) [
+    'revokes': Digest(original-assertion)
+    'revocationReason': "Key compromise suspected"
+]
 ```
 
 **Notes**:
@@ -286,29 +262,13 @@ This BCR does not define an `acceptance` predicate because signing already carri
 
 When an entity other than the original signer needs to revoke an assertion:
 
-1. The third party creates a new assertion with `supersedes` pointing to the original
-2. The new assertion may include `revocationReason`
+1. The third party creates a revocation assertion referencing the original
+2. The revocation may include `revocationReason`
 3. Relying parties must determine whether the third party has authority to revoke
 
 This BCR does not define who may revoke — that is a policy decision. It provides the vocabulary to express that revocation occurred and why.
 
-### Version Chains
-
-Multiple supersessions create a version chain:
-
-```
-v1 (original)
-  ← superseded by v2
-    ← superseded by v3 (current)
-```
-
-Relying parties should follow the chain to find the current authoritative assertion. An assertion with no incoming `supersedes` reference and no outgoing supersession is current.
-
 ## Security Considerations
-
-### Supersession Authority
-
-Systems consuming these predicates must verify that the entity creating a superseding assertion has authority to do so. The predicate structure does not enforce authorization — it only expresses the relationship.
 
 ### Revocation Timing
 
