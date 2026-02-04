@@ -1,6 +1,6 @@
 # CreativeWork Role Predicates
 
-## BCR-2026-008
+## BCR-2026-007
 
 **© 2026 Blockchain Commons**
 
@@ -17,7 +17,7 @@ This vocabulary is derived from the CreativeWork contributor roles vocabulary (t
 
 This BCR complements:
 - [BCR-2026-005: General Assertion Predicates](bcr-2026-005-general-assertions.md) — lifecycle management
-- [BCR-2026-007: Principal Authority Predicates](bcr-2026-007-principal-authority.md) — authority relationships
+- [BCR-2026-006: Principal Authority Predicates](bcr-2026-006-principal-authority.md) — authority relationships
 
 ## Status: Pre-Registration Proposal
 
@@ -84,8 +84,8 @@ This specification defines 14 roles that:
 This BCR defines **creative contribution roles** — what kind of work was done.
 
 **Not in scope:**
-- Authority relationships (who directed whom) — see [BCR-2026-007](bcr-2026-007-principal-authority.md)
-- Lifecycle roles (distribution, stewardship) — see BCR-2026-009
+- Authority relationships (who directed whom) — see [BCR-2026-006](bcr-2026-006-principal-authority.md)
+- Lifecycle roles (distribution, stewardship) — see BCR-2026-008
 - Social roles (community shepherding, facilitation)
 - Domain-specific scholarly roles (funding acquisition, investigation)
 
@@ -115,7 +115,7 @@ The same role vocabulary applies regardless of agent type. Attribution quality s
 |-----------|-----------|------------------|
 | 1002 | `processDisclosure` | Describes how the work was produced |
 
-### BCR-2026-007: Principal Authority Predicates
+### BCR-2026-006: Principal Authority Predicates
 
 | Codepoint | Predicate | Usage with Roles |
 |-----------|-----------|------------------|
@@ -260,7 +260,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 **Type**: role
 **Definition**: Provides ongoing care, updates, or stewardship of the CreativeWork after initial creation.
-**Notes**: Technical maintenance focus. For broader stewardship of ideas, see BCR-2026-007.
+**Notes**: Technical maintenance focus. For broader stewardship of ideas, see BCR-2026-006.
 
 ---
 
@@ -358,7 +358,7 @@ A single contributor may hold multiple roles. Use direct predicates where availa
 
 ### Roles with Principal Authority
 
-Combining roles with authority predicates from BCR-2026-007:
+Combining roles with authority predicates from BCR-2026-006:
 
 ```
     Digest(ai-generated-document) [
@@ -401,9 +401,9 @@ The following roles are intentionally excluded from this BCR:
 
 | Role | Reason | Where Covered |
 |------|--------|---------------|
-| Distribution | Lifecycle role, not creative contribution | BCR-2026-009 |
-| Stewardship | Lifecycle role, not creative contribution | BCR-2026-009 |
-| Commissioning | May overlap with ConceptOriginator | BCR-2026-009 (under review) |
+| Distribution | Lifecycle role, not creative contribution | BCR-2026-008 |
+| Stewardship | Lifecycle role, not creative contribution | BCR-2026-008 |
+| Commissioning | May overlap with ConceptOriginator | BCR-2026-008 (under review) |
 | Community Shepherding | Social role, not creative contribution | Out of scope |
 | Funding Acquisition | Scholarly-specific | Out of scope |
 | Investigation | Scholarly-specific | Out of scope |
@@ -420,13 +420,13 @@ Role attributions are claims by the asserter. Relying parties must:
 
 ### Role vs. Authority
 
-Having a role (e.g., Author) does not imply authority over the work. Authority relationships are expressed through BCR-2026-007 predicates (`principalAuthority`, `assertsDelegationFrom`).
+Having a role (e.g., Author) does not imply authority over the work. Authority relationships are expressed through BCR-2026-006 predicates (`principalAuthority`, `assertsDelegationFrom`).
 
 ## References
 
 - [BCR-2023-002: Known Value Registry](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2023-002-known-value.md)
 - [BCR-2026-005: General Assertion Predicates](bcr-2026-005-general-assertions.md)
-- [BCR-2026-007: Principal Authority Predicates](bcr-2026-007-principal-authority.md)
+- [BCR-2026-006: Principal Authority Predicates](bcr-2026-006-principal-authority.md)
 - [attestation.info](https://attestation.info) — Source vocabulary (planned)
 - [CRediT Taxonomy](https://credit.niso.org/) — ANSI/NISO Z39.104-2022
 - [NISO CRediT Known Values Registry](https://github.com/BlockchainCommons/Research/blob/master/known-value-assignments/markdown/2400_niso_credit_registry.md) — Codepoints 2400-2413
@@ -436,10 +436,10 @@ Having a role (e.g., Author) does not imply authority over the work. Authority r
 ## Related BCRs
 
 - **BCR-2026-005: General Assertion Predicates** — Lifecycle management
-- **BCR-2026-007: Principal Authority Predicates** — Authority relationships
-- **BCR-2026-009: Lifecycle Role Predicates** — Distribution, Stewardship
+- **BCR-2026-006: Principal Authority Predicates** — Authority relationships
+- **BCR-2026-008: Lifecycle Role Predicates** — Distribution, Stewardship
 
 ---
 
-*BCR-2026-008: CreativeWork Role Predicates*
+*BCR-2026-007: CreativeWork Role Predicates*
 *Draft - February 2, 2026*
