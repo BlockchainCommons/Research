@@ -107,16 +107,16 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(commissioned-report) [
-        'hasContributor': {
+    Digest(commissioned-report) [
+        'schema:author': XID(researcher)
+        'schema:contributor': {
             XID(foundation) [
-                'role': 'Commissioner'
+                'schema:roleName': 'Commissioner'
             ]
         }
-        'hasContributor': {
+        'schema:contributor': {
             XID(researcher) [
-                'role': 'ConceptOriginator'
-                'role': 'Author'
+                'schema:roleName': 'niso-credit:Conceptualization'
             ]
         }
     ]
@@ -124,7 +124,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 ```
 
 **Examples**:
-- A foundation commissions a research report (Commissioner) while researchers develop the approach (ConceptOriginator)
+- A foundation commissions a research report (Commissioner) while researchers develop the approach (Conceptualization)
 - A client commissions software (Commissioner) while developers design the architecture (Architect)
 - A publisher commissions a book on a topic (Commissioner) while the author provides the unique perspective (ConceptOriginator)
 
@@ -143,16 +143,16 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(open-source-project) [
-        'hasContributor': {
+    Digest(open-source-project) [
+        'schema:author': XID(maintainer)
+        'schema:contributor': {
             XID(maintainer) [
-                'role': 'Author'
-                'role': 'Steward'
+                'schema:roleName': 'Steward'
             ]
         }
-        'hasContributor': {
+        'schema:contributor': {
             XID(package-registry) [
-                'role': 'Distributor'
+                'schema:roleName': 'Distributor'
             ]
         }
     ]
@@ -180,16 +180,16 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(community-project) [
-        'hasContributor': {
+    Digest(community-project) [
+        'schema:author': XID(original-author)
+        'schema:contributor': {
             XID(original-author) [
-                'role': 'Author'
-                'role': 'ConceptOriginator'
+                'schema:roleName': 'niso-credit:Conceptualization'
             ]
         }
-        'hasContributor': {
+        'schema:contributor': {
             XID(foundation) [
-                'role': 'Steward'
+                'schema:roleName': 'Steward'
             ]
         }
     ]
@@ -214,16 +214,16 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(research-report) [
+    Digest(research-report) [
         'principalAuthority': XID(foundation)
-        'hasContributor': {
+        'schema:author': XID(research-team)
+        'schema:contributor': {
             XID(foundation) [
-                'role': 'Commissioner'
+                'schema:roleName': 'Commissioner'
             ]
         }
-        'hasContributor': {
+        'schema:contributor': {
             XID(research-team) [
-                'role': 'Author'
                 'assertsDelegationFrom': XID(foundation)
             ]
         }
@@ -235,22 +235,22 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(open-standard) [
-        'hasContributor': {
+    Digest(open-standard) [
+        'schema:author': XID(working-group)
+        'schema:contributor': {
             XID(standards-body) [
-                'role': 'Commissioner'
-                'role': 'Steward'
+                'schema:roleName': 'Commissioner'
+                'schema:roleName': 'Steward'
             ]
         }
-        'hasContributor': {
+        'schema:contributor': {
             XID(working-group) [
-                'role': 'ConceptOriginator'
-                'role': 'Author'
+                'schema:roleName': 'niso-credit:Conceptualization'
             ]
         }
-        'hasContributor': {
+        'schema:contributor': {
             XID(website) [
-                'role': 'Distributor'
+                'schema:roleName': 'Distributor'
             ]
         }
     ]
@@ -261,16 +261,16 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(legacy-project) [
-        'hasContributor': {
+    Digest(legacy-project) [
+        'schema:author': XID(original-creator)
+        'schema:contributor': {
             XID(original-creator) [
-                'role': 'Author'
-                'role': 'ConceptOriginator'
+                'schema:roleName': 'niso-credit:Conceptualization'
             ]
         }
-        'hasContributor': {
+        'schema:contributor': {
             XID(new-foundation) [
-                'role': 'Steward'
+                'schema:roleName': 'Steward'
             ]
         }
         'processDisclosure': "Stewardship transferred to New Foundation in 2025."
@@ -322,6 +322,7 @@ Authority relationships should be expressed explicitly through BCR-2026-007.
 - [BCR-2026-005: General Assertion Predicates](bcr-2026-005-general-assertions.md)
 - [BCR-2026-007: Principal Authority Predicates](bcr-2026-007-principal-authority.md)
 - [BCR-2026-008: CreativeWork Role Predicates](bcr-2026-008-creativework-roles.md)
+- [Schema.org Known Values Registry](https://github.com/BlockchainCommons/Research/blob/master/known-value-assignments/markdown/10000_schema_registry.md) — `schema:contributor` (11227), `schema:roleName` (12151)
 - [RAA Framework](https://github.com/peterkaminski/raa-framework) — Role analysis informing this BCR
 
 ## Related BCRs
