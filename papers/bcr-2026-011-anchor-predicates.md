@@ -1,6 +1,6 @@
 # Anchor Predicates
 
-## BCR-2026-004
+## BCR-2026-011
 
 **© 2026 Blockchain Commons**
 
@@ -97,11 +97,11 @@ Optional extensions for multi-anchor scenarios:
 ### Conceptual Foundation
 
 These predicates are **Envelope-native vocabulary** for expressing anchoring relationships within Gordian Envelopes, which uses concepts inspired by:
-- [Cryptographic Event Logs (CEL)](https://digitalbazaar.github.io/cel-spec/)
 - Certificate Transparency (RFC 6962)
 - Key Transparency systems
+- [Cryptographic Event Logs (CEL)](https://digitalbazaar.github.io/cel-spec/)
 
-> **Note**: This is not a bridge format or interoperability specification for CT/CEL. Round-trip conversion to/from external log formats would require a separate specification.
+> **Note**: This is not a bridge format or interoperability specification for CT/KT/CEL. Round-trip conversion to/from external log formats would require a separate specification.
 
 ## Terminology
 
@@ -382,9 +382,9 @@ We invite feedback on how these specifications should interoperate. See also the
 ## Related BCRs
 
 - **BCR-2026-005: General Assertion Predicates** — `revocationReason` for anchor revocations
-- **BCR-2026-007: Principal Authority Predicates** — Authority relationships
+- **BCR-2026-006: Principal Authority Predicates** — Authority relationships
 
 ---
 
-*BCR-2026-004: Anchor Predicates*
+*BCR-2026-011: Anchor Predicates*
 *Draft - February 2, 2026*
