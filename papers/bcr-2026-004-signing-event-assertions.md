@@ -13,10 +13,10 @@ Date: February 4, 2026
 
 In Gordian Envelope, the `signed` predicate is purely cryptographic — it proves that a specific private key was used to sign specific content. Nothing more. A signature alone doesn't prove who possesses the key, when signing occurred, or what the signature means.
 
-To express these facts about a signing event, signers must explicitly attest them using predicates bound to the signature via the double-signing pattern. This BCR:
+To express these facts about a signing event, signers must explicitly attest them using predicates bound to the signature. This BCR:
 
 1. **Establishes the mental model** — signatures prove keys signed, not identity or intent
-2. **Documents the double-signing pattern** — how to cryptographically bind assertions to signatures
+2. **Documents two signing patterns** — signature-with-assertions (primary) and wrapped signing (for third-party assertions)
 3. **Defines two novel predicates** — `signer` (300) links to the signer's identity; `signedOnBehalfOf` (301) optionally identifies another XID the signer represents
 4. **References XAdES standards** — `xades:ClaimedRole` and `xades:CommitmentType` for additional assertion types
 
@@ -74,9 +74,11 @@ This specification defines:
    - `xades:ClaimedRole` — The capacity in which the signer is acting
    - `xades:CommitmentType` — The purpose or meaning of the signature
 
-3. **The double-signing pattern** for cryptographically binding assertions to signatures
+3. **Two signing patterns** for cryptographically binding assertions:
+   - **Signature-with-assertions** (primary) — signer's own assertions about their signing act
+   - **Wrapped signing** — third-party assertions about already-signed content
 
-## The Double-Signing Pattern
+## Binding Assertions to Signatures
 
 ### Problem: Assertions Must Be Bound to Signatures
 
@@ -86,56 +88,103 @@ Simply adding assertions alongside a signature doesn't cryptographically bind th
 // WRONG: Assertions not bound to signature
 {
     Digest(contract)
-} 'signed': Signature(alice)
-  'signer': XID(alice)           // Not signed!
-  'signedOnBehalfOf': XID(acme)  // Anyone could add this
+} [
+    'signed': Signature
+    'signer': XID(alice)           // Not signed!
+    'signedOnBehalfOf': XID(acme)  // Anyone could add this
+]
 ```
 
 These assertions could be added or modified by anyone after Alice signed.
 
-### Solution: Wrap and Sign Twice
+### Pattern 1: Signature-with-Assertions (Primary)
 
-The double-signing pattern solves this:
+For a signer's own assertions about their signing act, use the signature-with-assertions pattern from [BCR-2024-009](bcr-2024-009-signature-metadata.md):
 
-1. **Inner wrap and sign**: Sign the content
-2. **Add assertions**: Attach signing event assertions to the inner signed envelope
-3. **Outer wrap and sign**: Sign again, binding the assertions
+1. **Sign the content**: Produce a Signature
+2. **Create assertion envelope**: Make the Signature the subject, add assertions
+3. **Sign the assertion envelope**: Bind assertions to the signature
+4. **Attach to content**: Use the signed assertion envelope as the `'signed'` object
 
 ```
 {
-    {
-        Digest(contract)
-    } 'signed': Signature(alice)
-    [
-        'signer': XID(alice)
-        'signedOnBehalfOf': XID(acme-corp)
-        'xades:ClaimedRole': "Chief Executive Officer"
-        'xades:CommitmentType': "approval"
+    Digest(contract)
+} [
+    'signed': {
+        Signature [
+            'signer': XID(alice)
+            'signedOnBehalfOf': XID(acme-corp)
+            'xades:ClaimedRole': "Chief Executive Officer"
+            'xades:CommitmentType': "approval"
+        ]
+    } [
+        'signed': Signature
     ]
-} 'signed': Signature(alice)
+]
 ```
 
-Now the outer signature cryptographically binds Alice's identity, representation, role, and commitment type to her inner signature on the contract.
+The Signature object carries its own assertions, wrapped and signed. This is a self-contained unit: "Alice's signature, with Alice's assertions about that signature, bound together."
 
-### Inner Signs Content, Outer Binds Assertions
+**Verification**: Both signatures must verify against the same public key. The inner signature covers the content; the outer signature covers the assertion envelope.
 
-The inner signature proves: "This key signed this content."
+**Key separation**: Alice may use different keys from her XID — one for signing content, another for signing the assertion envelope. Both must be Alice's keys. The `signer` predicate points to the XID where key purposes are documented.
 
-The outer signature proves: "This key asserts these assertions about that signature."
+### Pattern 2: Wrapped Signing (Third-Party Assertions)
 
-Typically both signatures use the same key — Alice making assertions about her own signature. But they need not be the same:
+When a **third party** needs to add assertions to already-signed content — such as a timestamp authority, notary, or witness — use wrapped signing:
 
-- **Same key**: Self-asserted assertions. Alice claims her own identity, role, and intent.
-- **Different key**: May be key separation or third-party assertion:
-  - **By purpose**: Alice uses distinct keys for different operations — one authorized only for git commits, another for contract signing, another for routine approvals
-  - **By device**: Alice uses distinct keys on different devices — phone, laptop, hardware token — each with its own authorization scope
-  - **Third-party**: A different identity is attesting facts about Alice's signature. If this is a formal counter-signature (notary, witness, approver), see the Counter-Signatures section below. If not a counter-signature, third-party assertions are generally not recommended — the signer should make their own assertions. Exception: hardware assertions where a secure element attests security properties of the signing operation.
+1. **Start with signed content**: Content already signed by original signer
+2. **Wrap**: Make the signed content the subject of a new envelope
+3. **Add third-party assertions**: Attach assertions about the signed content
+4. **Sign**: Third party signs, binding their assertions
 
-  The `signer` predicate points to the XID where key purposes and devices are documented, allowing relying parties to determine which case applies.
+```
+{
+    // Alice's signed content (using Pattern 1)
+    {
+        Digest(contract)
+    } [
+        'signed': {
+            Signature [
+                'signer': XID(alice)
+            ]
+        } ['signed': Signature]
+    ]
+    [
+        // Timestamp authority's assertions about Alice's signed content
+        'anchoredAt': 2026-02-04T12:00:00Z
+        'anchoredBy': XID(timestamp-authority)
+    ]
+} [
+    'signed': {
+        Signature [
+            'signer': XID(timestamp-authority)
+            'xades:CommitmentType': "timestamp"
+        ]
+    } ['signed': Signature]
+]
+```
+
+The timestamp authority wraps Alice's signed content, adds timestamp assertions, and signs. The TSA's assertions are about Alice's content, not about the TSA's own signing act.
+
+### When to Use Each Pattern
+
+| Pattern | Use When | Who Asserts | About What |
+|---------|----------|-------------|------------|
+| Signature-with-assertions | Signer's own claims | The signer | Their signing act |
+| Wrapped signing | Third-party claims | Another party | The signed content |
+
+**Examples of wrapped signing**:
+- Timestamp authority adds `anchoredAt` to prove when content existed
+- Notary adds witnessing assertions to signed documents
+- Endorser adds endorsement to someone else's signed work
+- Fair witness adds observation assertions
+
+**Do not use wrapped signing** for a signer's own assertions about their signing — use signature-with-assertions instead.
 
 ### What Belongs in Signing Event Assertions
 
-The signing event assertions should contain **only the signer's own claims about the signing event**:
+Signing event assertions (on the Signature object) should contain **only the signer's own claims about their signing act**:
 
 | Signing Event Assertions | Does NOT Belong |
 |---------------------------|-----------------|
@@ -144,12 +193,15 @@ The signing event assertions should contain **only the signer's own claims about
 | `xades:ClaimedRole` — my claimed capacity (if applicable) | Endorsements of the signer |
 | `xades:CommitmentType` — what this signature means (if applicable) | Credentials about the signer |
 
-Third-party assertions about the signer (certifying their role, endorsing their authority, etc.) belong in the **signer's XID document**, not in the signing event assertions. The `signer` predicate points to where those third-party assertions live.
+Third-party assertions belong elsewhere:
+- **About the signer** (certifying role, endorsing authority): In the signer's XID document
+- **About the signed content** (timestamps, notarization): Using the wrapped signing pattern
 
 This separation ensures:
-1. Signing event assertions contain only self-asserted claims about the signing event
-2. Third-party assertions are discoverable via the XID reference
-3. Relying parties know which claims are self-asserted vs. third-party certified
+1. Signing event assertions are always self-asserted by the signer
+2. Third-party identity assertions are discoverable via the XID reference
+3. Third-party content assertions use a distinct structural pattern
+4. Relying parties can distinguish self-asserted vs. third-party claims by structure
 
 ### Dates Are Not Timestamps
 
@@ -165,36 +217,69 @@ This is the same mental model issue: people assume a date inside a signed envelo
 
 Timestamp authority patterns (similar to RFC 3161 TSA or blockchain anchoring) are outside the scope of this BCR. See BCR-2026-011 (Anchor Predicates) for cryptographic event log assertion patterns.
 
-## Counter-Signatures (Multi-Party)
+## Multi-Party Signatures
 
-When multiple parties sign with assertions, each applies the double-signing pattern:
+### Parallel Signatures (Independent Signers)
+
+When multiple parties independently sign the same content, each adds their signature-with-assertions:
 
 ```
 {
-    // Alice's double-signed envelope
-    {
-        {
-            Digest(contract)
-        } 'signed': Signature(alice)
-        [
+    Digest(contract)
+} [
+    // Alice's signature with her assertions
+    'signed': {
+        Signature [
             'signer': XID(alice)
             'signedOnBehalfOf': XID(acme-corp)
             'xades:ClaimedRole': "CEO"
             'xades:CommitmentType': "approval"
         ]
-    } 'signed': Signature(alice)
+    } ['signed': Signature]
 
-    // Bob's assertions (counter-signature)
-    [
-        'signer': XID(bob)
-        'signedOnBehalfOf': XID(widgets-inc)
-        'xades:ClaimedRole': "Authorized Representative"
-        'xades:CommitmentType': "approval"
-    ]
-} 'signed': Signature(bob)
+    // Bob's signature with his assertions
+    'signed': {
+        Signature [
+            'signer': XID(bob)
+            'signedOnBehalfOf': XID(widgets-inc)
+            'xades:ClaimedRole': "Authorized Representative"
+            'xades:CommitmentType': "approval"
+        ]
+    } ['signed': Signature]
+]
 ```
 
-Bob's outer signature binds his assertions to his counter-signature on Alice's already-signed envelope.
+Each signature is independent. Alice and Bob both signed the contract; neither signed over the other's signature.
+
+### Counter-Signatures (Sequential Signing)
+
+When a party signs **over** another's signed content — witnessing, notarizing, or approving — use wrapped signing:
+
+```
+{
+    // Alice's signed content
+    {
+        Digest(contract)
+    } [
+        'signed': {
+            Signature [
+                'signer': XID(alice)
+                'xades:CommitmentType': "approval"
+            ]
+        } ['signed': Signature]
+    ]
+} [
+    // Bob counter-signs Alice's signed content
+    'signed': {
+        Signature [
+            'signer': XID(bob)
+            'xades:CommitmentType': "witness"
+        ]
+    } ['signed': Signature]
+]
+```
+
+Bob's signature covers Alice's complete signed envelope. This proves Bob witnessed Alice's signature — he couldn't have signed something that didn't exist.
 
 ## Terminology
 
@@ -204,7 +289,9 @@ Bob's outer signature binds his assertions to his counter-signature on Alice's a
 
 **Signing Event Assertions**: The Envelope assertions containing the signer's attestations about the signing event — who they are (`signer`), who they represent (`signedOnBehalfOf`), in what capacity (`xades:ClaimedRole`), and the signature's purpose (`xades:CommitmentType`). These are self-asserted claims, not cryptographic proofs.
 
-**Double-Signing Pattern**: The technique of wrapping and signing twice to cryptographically bind assertions to an inner signature. The inner signature proves the key signed; the outer signature proves the key asserts the assertions.
+**Signature-with-Assertions Pattern**: The technique of making a Signature the subject of an envelope, adding assertions, wrapping, and signing again. Binds the signer's own assertions to their signature. See [BCR-2024-009](bcr-2024-009-signature-metadata.md).
+
+**Wrapped Signing Pattern**: The technique of wrapping already-signed content, adding assertions, and signing. Used when a third party adds assertions about signed content (timestamps, notarization, witnessing).
 
 **XID Document**: An eXtensible IDentifier document containing identity information, key bindings, key purposes, and other assertions about an identity.
 
@@ -224,19 +311,20 @@ The proposed codepoints (300-301) are placed above the compact 2-byte range (0-2
 
 **Type**: property
 **Definition**: Links a signature to a document identifying the signer.
-**Domain**: Signing event assertions (on inner signed envelope)
+**Domain**: Signing event assertions (on the Signature subject)
 **Range**: Identity reference (may be ELIDED for privacy)
 **Usage**: Establishes who made the signature, as opposed to which key made it.
 
 ```
 {
-    {
-        Digest(document)
-    } 'signed': Signature(key-abc123)
-    [
-        'signer': XID(alice)
-    ]
-} 'signed': Signature(key-abc123)
+    Digest(document)
+} [
+    'signed': {
+        Signature [
+            'signer': XID(alice)
+        ]
+    } ['signed': Signature]
+]
 ```
 
 **Notes**:
@@ -257,20 +345,21 @@ The proposed codepoints (300-301) are placed above the compact 2-byte range (0-2
 
 **Type**: property
 **Definition**: (Optional) Identifies another entity that the signer represents when making this signature.
-**Domain**: Signing event assertions (on inner signed envelope)
+**Domain**: Signing event assertions (on the Signature subject)
 **Range**: Identity reference
 **Usage**: Indicates the signer is acting for another entity.
 
 ```
 {
-    {
-        Digest(vendor-contract)
-    } 'signed': Signature(alice-key)
-    [
-        'signer': XID(alice)
-        'signedOnBehalfOf': XID(acme-corp)
-    ]
-} 'signed': Signature(alice-key)
+    Digest(vendor-contract)
+} [
+    'signed': {
+        Signature [
+            'signer': XID(alice)
+            'signedOnBehalfOf': XID(acme-corp)
+        ]
+    } ['signed': Signature]
+]
 ```
 
 **Notes**:
@@ -295,7 +384,7 @@ This BCR references predicates from the XAdES standard for signature properties 
 **Usage**: Describes the function the signer is performing.
 
 ```
-[
+Signature [
     'signer': XID(alice)
     'xades:ClaimedRole': "Chief Executive Officer"
 ]
@@ -314,7 +403,7 @@ This BCR references predicates from the XAdES standard for signature properties 
 **Usage**: Distinguishes different signature purposes (approval, acknowledgment, witness, etc.)
 
 ```
-[
+Signature [
     'signer': XID(alice)
     'xades:CommitmentType': "approval"
 ]
@@ -333,52 +422,55 @@ This BCR references predicates from the XAdES standard for signature properties 
 
 ```
 {
-    {
-        Digest(contract)
-    } 'signed': Signature(alice-key)
-    [
-        'signer': XID(alice)
-        'signedOnBehalfOf': XID(acme-corp)
-        'xades:ClaimedRole': "CEO"
-        'xades:CommitmentType': "approval"
-    ]
-} 'signed': Signature(alice-key)
+    Digest(contract)
+} [
+    'signed': {
+        Signature [
+            'signer': XID(alice)
+            'signedOnBehalfOf': XID(acme-corp)
+            'xades:ClaimedRole': "CEO"
+            'xades:CommitmentType': "approval"
+        ]
+    } ['signed': Signature]
+]
 ```
 
 ### Minimal Signature with Identity Only
 
 ```
 {
-    {
-        Digest(document)
-    } 'signed': Signature(alice-key)
-    [
-        'signer': XID(alice)
-    ]
-} 'signed': Signature(alice-key)
+    Digest(document)
+} [
+    'signed': {
+        Signature [
+            'signer': XID(alice)
+        ]
+    } ['signed': Signature]
+]
 ```
 
 ### Privacy-Preserving with Elided Signer
 
 ```
 {
-    {
-        Digest(document)
-    } 'signed': Signature(...)
-    [
-        'signer': ELIDED
-        'xades:CommitmentType': "witness"
-    ]
-} 'signed': Signature(...)
+    Digest(document)
+} [
+    'signed': {
+        Signature [
+            'signer': ELIDED
+            'xades:CommitmentType': "witness"
+        ]
+    } ['signed': Signature]
+]
 ```
 
 The signature structure is preserved, the commitment type is visible, but the signer identity is elided.
 
 ## Relationship to Other Specifications
 
-### Double-Signing Pattern
+### BCR-2024-009: Signatures with Metadata
 
-This BCR formally documents the double-signing pattern for signing event assertions. While the technique of wrapping and signing twice has been used informally in Gordian Envelope examples, this specification establishes the best practices and defines the predicates for expressing signing event assertions.
+This BCR defines the vocabulary for signing event assertions using the structural pattern established in [BCR-2024-009](bcr-2024-009-signature-metadata.md). BCR-2024-009 defined the technique of attaching metadata to signatures; this BCR specifies the predicates to use.
 
 ### BCR-2026-006: Principal Authority Predicates
 
@@ -408,23 +500,23 @@ Both may be present. Neither implies the other.
 ### Assertions Are Self-Asserted
 
 The predicates in this BCR express **claims by the signer**. Relying parties must:
-- Verify the signature cryptographically
+- Verify both signatures cryptographically (inner on content, outer on assertion envelope)
+- Confirm both signatures use the same public key (for self-asserted assertions)
 - Resolve the XID reference to confirm identity
 - Evaluate whether the claimed role and representation are plausible
 - Verify authority claims using BCR-2026-006 predicates if needed
 
-### Double-Signing Integrity
+### Signature-with-Assertions Integrity
 
-Both signatures should use the same key. If the outer signature uses a different key:
-- It becomes a counter-signature (third-party assertion about the inner signature)
-- The assertions become that third party's claims about the signer
-- This may be intentional (notarization) or a verification failure
+For self-asserted signing event assertions, both signatures must verify against the same key. If they use different keys:
+- For **signature-with-assertions**: This is a verification failure — someone tampered with the assertion envelope
+- For **wrapped signing**: This is expected — the wrapper is a different party (TSA, notary, etc.)
 
 ### Elision and Assertions
 
 When `signer` is elided:
-- The signature remains cryptographically valid
-- The signing key is visible (in the Signature)
+- Both signatures remain cryptographically valid
+- The signing key may still be visible (in the Signature)
 - The identity behind the key is hidden
 - Other assertions (role, commitment) may remain visible
 
@@ -433,6 +525,7 @@ This enables privacy-preserving signatures where identity is disclosed selective
 ## References
 
 - [BCR-2023-002: Known Value Registry](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2023-002-known-value.md)
+- [BCR-2024-009: Signatures with Metadata](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2024-009-signature-metadata.md) — Structural pattern for signature-with-assertions
 - [ETSI TS 101 903: XAdES](https://www.etsi.org/deliver/etsi_ts/101900_101999/101903/01.04.02_60/ts_101903v010402p.pdf)
 - [Gordian Envelope Specification](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2024-001-envelope.md)
 - [The BBS Signature Scheme (IETF Draft)](https://identity.foundation/bbs-signature/draft-irtf-cfrg-bbs-signatures.html) — Zero-knowledge proofs with unlinkable signatures
