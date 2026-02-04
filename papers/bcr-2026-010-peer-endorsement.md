@@ -188,21 +188,22 @@ Use BCR predicates when you need:
 
 ```
 {
-    {
-        Digest(peer-endorsement) [
-            'isA': 'PeerEndorsement'
-            'endorsementTarget': XID(subject)
-            'endorserStatement': "Reviewed 8 PRs over 6 months; consistently high-quality security-focused code"
-            'endorserRelationship': "Project maintainer who merged their contributions"
-            'endorsementBasis': "Direct observation of code quality and collaboration"
-            'disclosedLimitations': "Only reviewed backend security; cannot speak to frontend skills"
-            'validFrom': 2026-02-02
-        ]
-    } 'signed': Signature
-    [
-        'signer': XID(endorser)
+    Digest(peer-endorsement) [
+        'isA': 'PeerEndorsement'
+        'endorsementTarget': XID(subject)
+        'endorserStatement': "Reviewed 8 PRs over 6 months; consistently high-quality security-focused code"
+        'endorserRelationship': "Project maintainer who merged their contributions"
+        'endorsementBasis': "Direct observation of code quality and collaboration"
+        'disclosedLimitations': "Only reviewed backend security; cannot speak to frontend skills"
+        'validFrom': 2026-02-02
     ]
-} 'signed': Signature
+} [
+    'signed': {
+        Signature [
+            'signer': XID(endorser)
+        ]
+    } ['signed': Signature]
+]
 ```
 
 ## Referenced Predicates
@@ -327,32 +328,30 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    {
-        XID(alice) [
-            'acceptedEndorsement': {
-                {
-                    Digest(endorsement-from-bob) [
-                        'endorsementTarget': XID(alice)
-                        'endorserStatement': "..."
-                    ]
-                } 'signed': Signature
-                [
-                    'signer': XID(bob)
-                ]
-            } 'signed': Signature
+    XID(alice) [
+        'acceptedEndorsement': {
+            Digest(endorsement-from-bob) [
+                'endorsementTarget': XID(alice)
+                'endorserStatement': "..."
+            ]
+        } [
+            'signed': {
+                Signature ['signer': XID(bob)]
+            } ['signed': Signature]
         ]
-    } 'signed': Signature
-    [
-        'signer': XID(alice)
     ]
-} 'signed': Signature
+} [
+    'signed': {
+        Signature ['signer': XID(alice)]
+    } ['signed': Signature]
+]
 ```
 
 **Notes**:
 - The acceptance model ensures subjects maintain control over their identity
 - Subject's signature on the containing document implies acceptance
 - Subjects may decline endorsements they find inaccurate or unwanted
-- Both endorser (Bob) and subject (Alice) use double-signing pattern (BCR-2026-004)
+- Both endorser (Bob) and subject (Alice) use signature-with-assertions pattern (BCR-2026-004)
 
 ---
 
@@ -454,23 +453,24 @@ A well-formed peer endorsement includes observation, relationship, basis, and tr
 
 ```
 {
-    {
-        Digest(complete-endorsement) [
-            'isA': 'PeerEndorsement'
-            'endorsementTarget': XID(alice)
-            'endorserStatement': "I reviewed 8 of their security-focused PRs. All demonstrated understanding of constant-time operations, proper key handling, and defense in depth."
-            'endorserRelationship': "Project maintainer for crypto library; merged their contributions over 6 months"
-            'endorsementBasis': "15 years security engineering; maintain similar libraries at 2 other organizations"
-            'endorsementContext': "Cryptographic implementation and secure coding practices"
-            'disclosedLimitations': "Only reviewed their crypto code; cannot speak to UI/UX or project management skills"
-            'disclosedBias': "We have become professional friends through this collaboration"
-            'validFrom': 2026-02-02
-        ]
-    } 'signed': Signature
-    [
-        'signer': XID(endorser)
+    Digest(complete-endorsement) [
+        'isA': 'PeerEndorsement'
+        'endorsementTarget': XID(alice)
+        'endorserStatement': "I reviewed 8 of their security-focused PRs. All demonstrated understanding of constant-time operations, proper key handling, and defense in depth."
+        'endorserRelationship': "Project maintainer for crypto library; merged their contributions over 6 months"
+        'endorsementBasis': "15 years security engineering; maintain similar libraries at 2 other organizations"
+        'endorsementContext': "Cryptographic implementation and secure coding practices"
+        'disclosedLimitations': "Only reviewed their crypto code; cannot speak to UI/UX or project management skills"
+        'disclosedBias': "We have become professional friends through this collaboration"
+        'validFrom': 2026-02-02
     ]
-} 'signed': Signature
+} [
+    'signed': {
+        Signature [
+            'signer': XID(endorser)
+        ]
+    } ['signed': Signature]
+]
 ```
 
 ### Acceptance Model
@@ -479,41 +479,38 @@ The subject accepts endorsements by including them in their signed XIDDoc:
 
 ```
 {
-    {
-        XID(alice) [
-            'acceptedEndorsement': {
-                {
-                    Digest(endorsement-from-bob) [
-                        'isA': 'CodeReviewEndorsement'
-                        'endorsementTarget': XID(alice)
-                        'endorserStatement': "..."
-                    ]
-                } 'signed': Signature
-                [
-                    'signer': XID(bob)
-                ]
-            } 'signed': Signature
-            'acceptedEndorsement': {
-                {
-                    Digest(endorsement-from-carol) [
-                        'isA': 'CollaborationEndorsement'
-                        'endorsementTarget': XID(alice)
-                        'endorserStatement': "..."
-                    ]
-                } 'signed': Signature
-                [
-                    'signer': XID(carol)
-                ]
-            } 'signed': Signature
+    XID(alice) [
+        'acceptedEndorsement': {
+            Digest(endorsement-from-bob) [
+                'isA': 'CodeReviewEndorsement'
+                'endorsementTarget': XID(alice)
+                'endorserStatement': "..."
+            ]
+        } [
+            'signed': {
+                Signature ['signer': XID(bob)]
+            } ['signed': Signature]
         ]
-    } 'signed': Signature
-    [
-        'signer': XID(alice)
+        'acceptedEndorsement': {
+            Digest(endorsement-from-carol) [
+                'isA': 'CollaborationEndorsement'
+                'endorsementTarget': XID(alice)
+                'endorserStatement': "..."
+            ]
+        } [
+            'signed': {
+                Signature ['signer': XID(carol)]
+            } ['signed': Signature]
+        ]
     ]
-} 'signed': Signature
+} [
+    'signed': {
+        Signature ['signer': XID(alice)]
+    } ['signed': Signature]
+]
 ```
 
-The subject's signature on the outer document implies acceptance of all included endorsements. All signatures use the double-signing pattern (BCR-2026-004) to bind signer identity.
+The subject's signature on the outer document implies acceptance of all included endorsements. All signatures use the signature-with-assertions pattern (BCR-2026-004) to bind signer identity.
 
 ### Combined with Signing Event Attestations
 
@@ -521,19 +518,20 @@ For endorsements that involve delegation or institutional context, combine with 
 
 ```
 {
-    {
-        Digest(institutional-endorsement) [
-            'isA': 'PeerEndorsement'
-            'endorsementTarget': XID(subject)
-            'endorserStatement': "Committee approved contributor status"
-        ]
-    } 'signed': Signature
-    [
-        'signer': XID(committee-chair)
-        'signedOnBehalfOf': XID(organization)
-        'xades:ClaimedRole': "Security Review Committee Chair"
+    Digest(institutional-endorsement) [
+        'isA': 'PeerEndorsement'
+        'endorsementTarget': XID(subject)
+        'endorserStatement': "Committee approved contributor status"
     ]
-} 'signed': Signature
+} [
+    'signed': {
+        Signature [
+            'signer': XID(committee-chair)
+            'signedOnBehalfOf': XID(organization)
+            'xades:ClaimedRole': "Security Review Committee Chair"
+        ]
+    } ['signed': Signature]
+]
 ```
 
 ## Relationship to Other BCRs
