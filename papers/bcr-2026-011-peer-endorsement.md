@@ -102,7 +102,7 @@ For formal credentials with institutional backing, use the W3C Verifiable Creden
 
 ```
 {
-    CID(vc-endorsement) [
+    Digest(vc-endorsement) [
         '@context': ["https://www.w3.org/ns/credentials/v2"]
         'type': ["VerifiableCredential", "EndorsementCredential"]
         'issuer': XID(endorser)
@@ -130,7 +130,7 @@ For skill endorsements in educational or professional contexts, use Open Badges 
 
 ```
 {
-    CID(badge-endorsement) [
+    Digest(badge-endorsement) [
         '@context': "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
         'type': ["VerifiableCredential", "OpenBadgeCredential"]
         'issuer': {
@@ -163,7 +163,7 @@ For endorsements that need web search discoverability:
 
 ```
 {
-    CID(schema-endorsement) [
+    Digest(schema-endorsement) [
         '@context': "https://schema.org"
         '@type': "Recommendation"
         'author': {
@@ -175,7 +175,7 @@ For endorsements that need web search discoverability:
             'identifier': XID(subject)
         }
         'reviewBody': "Excellent security architecture skills..."
-        'dateCreated': "2026-02-02"
+        'dateCreated': "2026-02-02T00:00:00Z"
     ]
 }
 ```
@@ -194,8 +194,8 @@ Use BCR predicates when you need:
 
 ```
 {
-    CID(peer-endorsement) [
-        'isA': PeerEndorsement
+    Digest(peer-endorsement) [
+        'isA': 'PeerEndorsement'
         'endorsementTarget': XID(subject)
         'endorserStatement': "Reviewed 8 PRs over 6 months; consistently high-quality security-focused code"
         'endorserRelationship': "Project maintainer who merged their contributions"
@@ -241,12 +241,12 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Type**: property
 **Definition**: The entity (person, work, skill) being endorsed.
 **Domain**: Peer endorsement assertion
-**Range**: XID, CID, or URI identifying the endorsement target
+**Range**: XID, Digest, or URI identifying the endorsement target
 **Usage**: Identifies what or who this endorsement is about.
 
 ```
 {
-    CID(endorsement) [
+    Digest(endorsement) [
         'endorsementTarget': XID(alice)
         'endorserStatement': "Demonstrated excellent security review skills"
     ]
@@ -255,7 +255,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 **Notes**:
 - Similar to VC `credentialSubject` but designed for peer-to-peer context
-- Can reference a person (XID), a work (CID), or an external resource (URI)
+- Can reference a person (XID), a work (Digest), or an external resource (URI)
 
 ---
 
@@ -269,7 +269,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(endorsement) [
+    Digest(endorsement) [
         'endorserStatement': "I reviewed 8 of their PRs over 6 months. All were well-structured with comprehensive test coverage."
     ]
 }
@@ -292,7 +292,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(endorsement) [
+    Digest(endorsement) [
         'endorsementBasis': "12 years as security architect; reviewed similar systems at 3 organizations"
     ]
 }
@@ -314,7 +314,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(endorsement) [
+    Digest(endorsement) [
         'endorserRelationship': "Project maintainer who merged their contributions over 6 months"
     ]
 }
@@ -339,7 +339,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 {
     XID(alice) [
         'acceptedEndorsement': {
-            CID(endorsement-from-bob) [
+            Digest(endorsement-from-bob) [
                 'endorsementTarget': XID(alice)
                 'endorserStatement': "..."
                 'signed': Signature(bob)
@@ -367,7 +367,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(endorsement) [
+    Digest(endorsement) [
         'endorsementContext': "Security architecture and cryptographic implementation"
         'endorserStatement': "..."
     ]
@@ -393,8 +393,8 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(endorsement) [
-        'isA': PeerEndorsement
+    Digest(endorsement) [
+        'isA': 'PeerEndorsement'
         'endorsementTarget': XID(subject)
     ]
 }
@@ -410,8 +410,8 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(endorsement) [
-        'isA': CodeReviewEndorsement
+    Digest(endorsement) [
+        'isA': 'CodeReviewEndorsement'
         'endorserStatement': "Reviewed PRs #123, #145, #167 — all demonstrated solid security practices"
         'endorsementBasis': "As project maintainer, I merged these contributions"
     ]
@@ -428,8 +428,8 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(endorsement) [
-        'isA': CollaborationEndorsement
+    Digest(endorsement) [
+        'isA': 'CollaborationEndorsement'
         'endorserStatement': "Collaborated on 3-month security audit; reliable, communicative, delivered on commitments"
         'endorserRelationship': "Project collaborator and co-author"
     ]
@@ -446,8 +446,8 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    CID(endorsement) [
-        'isA': SkillEndorsement
+    Digest(endorsement) [
+        'isA': 'SkillEndorsement'
         'endorsementTarget': XID(subject)
         'endorsementContext': "Rust memory safety patterns"
         'endorserStatement': "Demonstrated deep understanding in our systems programming collaboration"
@@ -465,8 +465,8 @@ A well-formed peer endorsement includes observation, relationship, basis, and tr
 
 ```
 {
-    CID(complete-endorsement) [
-        'isA': PeerEndorsement
+    Digest(complete-endorsement) [
+        'isA': 'PeerEndorsement'
         'endorsementTarget': XID(alice)
         'endorserStatement': "I reviewed 8 of their security-focused PRs. All demonstrated understanding of constant-time operations, proper key handling, and defense in depth."
         'endorserRelationship': "Project maintainer for crypto library; merged their contributions over 6 months"
@@ -488,16 +488,16 @@ The subject accepts endorsements by including them in their signed XIDDoc:
 {
     XID(alice) [
         'acceptedEndorsement': {
-            CID(endorsement-from-bob) [
-                'isA': CodeReviewEndorsement
+            Digest(endorsement-from-bob) [
+                'isA': 'CodeReviewEndorsement'
                 'endorsementTarget': XID(alice)
                 'endorserStatement': "..."
                 'signed': Signature(bob)
             ]
         }
         'acceptedEndorsement': {
-            CID(endorsement-from-carol) [
-                'isA': CollaborationEndorsement
+            Digest(endorsement-from-carol) [
+                'isA': 'CollaborationEndorsement'
                 'endorsementTarget': XID(alice)
                 'endorserStatement': "..."
                 'signed': Signature(carol)
@@ -516,8 +516,8 @@ For endorsements that involve delegation or institutional context, combine with 
 
 ```
 {
-    CID(institutional-endorsement) [
-        'isA': PeerEndorsement
+    Digest(institutional-endorsement) [
+        'isA': 'PeerEndorsement'
         'endorsementTarget': XID(subject)
         'signingAs': "Security Review Committee Chair"
         'onBehalfOf': XID(organization)
