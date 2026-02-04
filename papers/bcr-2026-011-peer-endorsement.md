@@ -536,7 +536,7 @@ Fair Witness predicates (BCR-2026-010) and Peer Endorsement predicates serve dif
 |--------------|------------------|
 | Neutral third-party observation | Personal vouching for another |
 | "I observed X happened" | "I endorse X's skills/character" |
-| Temporal/additive (never revoked) | Can be withdrawn or superseded |
+| Temporal/additive (never revoked) | Can be withdrawn or updated |
 | Independence required | Relationship expected |
 
 Use Fair Witness for neutral attestation of facts; use Peer Endorsement for personal vouching.
@@ -573,7 +573,7 @@ Endorsements are point-in-time statements. They don't automatically update if:
 - The relationship changes
 - The endorser's opinion changes
 
-For changed circumstances, endorsers can create superseding endorsements using `supersedes` from BCR-2026-005.
+For changed circumstances, endorsers can create updated endorsements or revoke previous ones using `revocationReason` from BCR-2026-005.
 
 ## References
 
