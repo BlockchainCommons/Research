@@ -1,6 +1,6 @@
 # Fair Witness Predicates
 
-## BCR-2026-010
+## BCR-2026-009
 
 **© 2026 Blockchain Commons**
 
@@ -13,7 +13,7 @@ Date: February 2, 2026
 
 This document specifies Known Value predicates for Fair Witness attestations in Gordian Envelopes. These predicates support human observation and attestation, where a neutral third party observes and attests to facts without advocacy or interpretation.
 
-Fair Witness predicates are distinct from Anchor predicates (BCR-2026-004): anchors provide **cryptographic attestation** to event logs, while Fair Witness predicates support **human observation attestation** with disclosures about independence and perspective.
+Fair Witness predicates are distinct from Anchor predicates (BCR-2026-011): anchors provide **cryptographic attestation** to event logs, while Fair Witness predicates support **human observation attestation** with disclosures about independence and perspective.
 
 ## Status: Pre-Registration Proposal
 
@@ -97,7 +97,7 @@ The term "witness" is overloaded in technical contexts:
 | **Witness** (legal) | Courts | Person giving testimony |
 | **Witness** (cryptography) | Zero-knowledge proofs | Proof component |
 
-This BCR uses the **`observer*`** prefix to avoid ambiguity with cryptographic witnesses (which use `anchor*` in BCR-2026-004).
+This BCR uses the **`observer*`** prefix to avoid ambiguity with cryptographic witnesses (which use `anchor*` in BCR-2026-011).
 
 ### Solution
 
@@ -399,9 +399,9 @@ This BCR does not define predicates for provable timestamps. That work is deferr
 
 ## Distinction from Anchor Predicates
 
-BCR-2026-004 defines anchor predicates for cryptographic event log attestation. The distinction:
+BCR-2026-011 defines anchor predicates for cryptographic event log attestation. The distinction:
 
-| Aspect | Fair Witness (this BCR) | Anchor (BCR-2026-004) |
+| Aspect | Fair Witness (this BCR) | Anchor (BCR-2026-011) |
 |--------|-------------------------|----------------------|
 | **Nature** | Human observation | Cryptographic proof |
 | **What it proves** | "I observed this" | "This exists in the log" |
@@ -449,18 +449,18 @@ The `observationTimestamp` records when observation occurred. Consider:
 ## References
 
 - [BCR-2023-002: Known Value Registry](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2023-002-known-value.md)
-- [BCR-2026-004: Anchor Predicates](bcr-2026-004-anchor-predicates.md)
+- [BCR-2026-011: Anchor Predicates](bcr-2026-011-anchor-predicates.md)
 - [BCR-2026-005: General Assertion Predicates](bcr-2026-005-general-assertions.md)
-- [BCR-2026-007: Principal Authority Predicates](bcr-2026-007-principal-authority.md)
+- [BCR-2026-006: Principal Authority Predicates](bcr-2026-006-principal-authority.md)
 - [Gordian Envelope Specification](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2024-001-envelope.md)
 - [XID-Quickstart: Fair Witness Concept](https://github.com/BlockchainCommons/XID-Quickstart/blob/main/concepts/fair-witness.md) — Fair Witness pattern in Gordian context
 - Heinlein, Robert A. *Stranger in a Strange Land* (1961) — Origin of Fair Witness concept
 
 ## Distinction from Peer Endorsements
 
-BCR-2026-011 defines peer endorsement predicates. Fair Witness and Peer Endorsement serve different trust-building purposes:
+BCR-2026-010 defines peer endorsement predicates. Fair Witness and Peer Endorsement serve different trust-building purposes:
 
-| Aspect | Fair Witness (this BCR) | Peer Endorsement (BCR-2026-011) |
+| Aspect | Fair Witness (this BCR) | Peer Endorsement (BCR-2026-010) |
 |--------|-------------------------|--------------------------------|
 | **Purpose** | Neutral observation of facts | Personal vouching for another |
 | **Relationship** | Independence required | Relationship expected |
@@ -477,12 +477,12 @@ BCR-2026-011 defines peer endorsement predicates. Fair Witness and Peer Endorsem
 
 ## Related BCRs
 
-- **BCR-2026-004: Anchor Predicates** — Cryptographic log attestation (complementary)
+- **BCR-2026-011: Anchor Predicates** — Cryptographic log attestation (complementary)
 - **BCR-2026-005: General Assertion Predicates** — Transparency predicates (`disclosedBias`, `disclosedLimitations`, `assertionLimitations`) used by this BCR
-- **BCR-2026-007: Principal Authority Predicates** — Authority relationships
-- **BCR-2026-011: Peer Endorsement Predicates** — Personal endorsements (distinct from neutral observation)
+- **BCR-2026-006: Principal Authority Predicates** — Authority relationships
+- **BCR-2026-010: Peer Endorsement Predicates** — Personal endorsements (distinct from neutral observation)
 
 ---
 
-*BCR-2026-010: Fair Witness Predicates*
+*BCR-2026-009: Fair Witness Predicates*
 *Draft - February 2, 2026*
