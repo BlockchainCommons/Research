@@ -1,6 +1,6 @@
 # Peer Endorsement Predicates
 
-## BCR-2026-011
+## BCR-2026-010
 
 **© 2026 Blockchain Commons**
 
@@ -65,7 +65,7 @@ Before defining new predicates, check if existing standards provide the semantic
 | General attestation structure | Verifiable Credentials, Open Badges | Only define unique predicates |
 | Timestamps | Schema.org `dateCreated` | Core `validFrom` (21), `validUntil` (22) |
 | Evidence URLs | VC `evidence`, Schema.org `url` | Custom only if unique semantics |
-| Contributor roles | CRediT taxonomy, BCR-2026-008 | Custom only if gap exists |
+| Contributor roles | CRediT taxonomy, BCR-2026-007 | Custom only if gap exists |
 | Transparency | BCR-2026-005 `disclosedBias`, `disclosedLimitations` | — |
 
 This BCR defines **only** the predicates that cannot be adequately expressed with existing standards.
@@ -188,17 +188,21 @@ Use BCR predicates when you need:
 
 ```
 {
-    Digest(peer-endorsement) [
-        'isA': 'PeerEndorsement'
-        'endorsementTarget': XID(subject)
-        'endorserStatement': "Reviewed 8 PRs over 6 months; consistently high-quality security-focused code"
-        'endorserRelationship': "Project maintainer who merged their contributions"
-        'endorsementBasis': "Direct observation of code quality and collaboration"
-        'disclosedLimitations': "Only reviewed backend security; cannot speak to frontend skills"
-        'validFrom': 2026-02-02
-        'signed': Signature
+    {
+        Digest(peer-endorsement) [
+            'isA': 'PeerEndorsement'
+            'endorsementTarget': XID(subject)
+            'endorserStatement': "Reviewed 8 PRs over 6 months; consistently high-quality security-focused code"
+            'endorserRelationship': "Project maintainer who merged their contributions"
+            'endorsementBasis': "Direct observation of code quality and collaboration"
+            'disclosedLimitations': "Only reviewed backend security; cannot speak to frontend skills"
+            'validFrom': 2026-02-02
+        ]
+    } 'signed': Signature
+    [
+        'signer': XID(endorser)
     ]
-}
+} 'signed': Signature
 ```
 
 ## Referenced Predicates
@@ -323,23 +327,32 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 ```
 {
-    XID(alice) [
-        'acceptedEndorsement': {
-            Digest(endorsement-from-bob) [
-                'endorsementTarget': XID(alice)
-                'endorserStatement': "..."
-                'signed': Signature(bob)
-            ]
-        }
-        'signed': Signature(alice)
+    {
+        XID(alice) [
+            'acceptedEndorsement': {
+                {
+                    Digest(endorsement-from-bob) [
+                        'endorsementTarget': XID(alice)
+                        'endorserStatement': "..."
+                    ]
+                } 'signed': Signature
+                [
+                    'signer': XID(bob)
+                ]
+            } 'signed': Signature
+        ]
+    } 'signed': Signature
+    [
+        'signer': XID(alice)
     ]
-}
+} 'signed': Signature
 ```
 
 **Notes**:
 - The acceptance model ensures subjects maintain control over their identity
 - Subject's signature on the containing document implies acceptance
 - Subjects may decline endorsements they find inaccurate or unwanted
+- Both endorser (Bob) and subject (Alice) use double-signing pattern (BCR-2026-004)
 
 ---
 
@@ -441,19 +454,23 @@ A well-formed peer endorsement includes observation, relationship, basis, and tr
 
 ```
 {
-    Digest(complete-endorsement) [
-        'isA': 'PeerEndorsement'
-        'endorsementTarget': XID(alice)
-        'endorserStatement': "I reviewed 8 of their security-focused PRs. All demonstrated understanding of constant-time operations, proper key handling, and defense in depth."
-        'endorserRelationship': "Project maintainer for crypto library; merged their contributions over 6 months"
-        'endorsementBasis': "15 years security engineering; maintain similar libraries at 2 other organizations"
-        'endorsementContext': "Cryptographic implementation and secure coding practices"
-        'disclosedLimitations': "Only reviewed their crypto code; cannot speak to UI/UX or project management skills"
-        'disclosedBias': "We have become professional friends through this collaboration"
-        'validFrom': 2026-02-02
-        'signed': Signature(endorser)
+    {
+        Digest(complete-endorsement) [
+            'isA': 'PeerEndorsement'
+            'endorsementTarget': XID(alice)
+            'endorserStatement': "I reviewed 8 of their security-focused PRs. All demonstrated understanding of constant-time operations, proper key handling, and defense in depth."
+            'endorserRelationship': "Project maintainer for crypto library; merged their contributions over 6 months"
+            'endorsementBasis': "15 years security engineering; maintain similar libraries at 2 other organizations"
+            'endorsementContext': "Cryptographic implementation and secure coding practices"
+            'disclosedLimitations': "Only reviewed their crypto code; cannot speak to UI/UX or project management skills"
+            'disclosedBias': "We have become professional friends through this collaboration"
+            'validFrom': 2026-02-02
+        ]
+    } 'signed': Signature
+    [
+        'signer': XID(endorser)
     ]
-}
+} 'signed': Signature
 ```
 
 ### Acceptance Model
@@ -462,45 +479,61 @@ The subject accepts endorsements by including them in their signed XIDDoc:
 
 ```
 {
-    XID(alice) [
-        'acceptedEndorsement': {
-            Digest(endorsement-from-bob) [
-                'isA': 'CodeReviewEndorsement'
-                'endorsementTarget': XID(alice)
-                'endorserStatement': "..."
-                'signed': Signature(bob)
-            ]
-        }
-        'acceptedEndorsement': {
-            Digest(endorsement-from-carol) [
-                'isA': 'CollaborationEndorsement'
-                'endorsementTarget': XID(alice)
-                'endorserStatement': "..."
-                'signed': Signature(carol)
-            ]
-        }
-        'signed': Signature(alice)
+    {
+        XID(alice) [
+            'acceptedEndorsement': {
+                {
+                    Digest(endorsement-from-bob) [
+                        'isA': 'CodeReviewEndorsement'
+                        'endorsementTarget': XID(alice)
+                        'endorserStatement': "..."
+                    ]
+                } 'signed': Signature
+                [
+                    'signer': XID(bob)
+                ]
+            } 'signed': Signature
+            'acceptedEndorsement': {
+                {
+                    Digest(endorsement-from-carol) [
+                        'isA': 'CollaborationEndorsement'
+                        'endorsementTarget': XID(alice)
+                        'endorserStatement': "..."
+                    ]
+                } 'signed': Signature
+                [
+                    'signer': XID(carol)
+                ]
+            } 'signed': Signature
+        ]
+    } 'signed': Signature
+    [
+        'signer': XID(alice)
     ]
-}
+} 'signed': Signature
 ```
 
-The subject's signature on the outer document implies acceptance of all included endorsements.
+The subject's signature on the outer document implies acceptance of all included endorsements. All signatures use the double-signing pattern (BCR-2026-004) to bind signer identity.
 
-### Combined with Signature Context
+### Combined with Signing Event Attestations
 
-For endorsements that involve delegation or institutional context, combine with BCR-2026-006:
+For endorsements that involve delegation or institutional context, combine with BCR-2026-004:
 
 ```
 {
-    Digest(institutional-endorsement) [
-        'isA': 'PeerEndorsement'
-        'endorsementTarget': XID(subject)
-        'signingAs': "Security Review Committee Chair"
-        'onBehalfOf': XID(organization)
-        'endorserStatement': "Committee approved contributor status"
-        'signed': Signature
+    {
+        Digest(institutional-endorsement) [
+            'isA': 'PeerEndorsement'
+            'endorsementTarget': XID(subject)
+            'endorserStatement': "Committee approved contributor status"
+        ]
+    } 'signed': Signature
+    [
+        'signer': XID(committee-chair)
+        'signedOnBehalfOf': XID(organization)
+        'xades:ClaimedRole': "Security Review Committee Chair"
     ]
-}
+} 'signed': Signature
 ```
 
 ## Relationship to Other BCRs
@@ -512,25 +545,26 @@ Use transparency predicates from BCR-2026-005:
 - `disclosedLimitations` (1004) — endorser's knowledge limits
 - `assertionLimitations` (1005) — endorsement scope limits
 
-### BCR-2026-006 (Signature Context)
+### BCR-2026-004 (Signing Event Attestations)
 
 For endorsements involving institutional or delegated signing:
-- `signingAs` (1020) — capacity in which endorser signs
-- `onBehalfOf` (1021) — organization endorser represents
+- `signer` (300) — links signature to XID document
+- `signedOnBehalfOf` (301) — organization endorser represents
+- `xades:ClaimedRole` — capacity in which endorser signs (referenced standard)
 
-### BCR-2026-007 (Principal Authority)
+### BCR-2026-006 (Principal Authority)
 
 For endorsements that imply authority relationships:
 - `principalAuthority` (1040) — when endorsement implies direction authority
 - `assertsDelegationFrom` (1041) — when endorser claims delegation
 
-### BCR-2026-008 (CreativeWork Roles)
+### BCR-2026-007 (CreativeWork Roles)
 
-For endorsements about creative contributions, use role predicates from BCR-2026-008 alongside endorsement predicates.
+For endorsements about creative contributions, use role predicates from BCR-2026-007 alongside endorsement predicates.
 
-### BCR-2026-010 (Fair Witness)
+### BCR-2026-009 (Fair Witness)
 
-Fair Witness predicates (BCR-2026-010) and Peer Endorsement predicates serve different purposes:
+Fair Witness predicates (BCR-2026-009) and Peer Endorsement predicates serve different purposes:
 
 | Fair Witness | Peer Endorsement |
 |--------------|------------------|
@@ -586,11 +620,11 @@ For changed circumstances, endorsers can create updated endorsements or revoke p
 ## Related BCRs
 
 - **BCR-2026-005: General Assertion Predicates** — Transparency predicates (`disclosedBias`, etc.)
-- **BCR-2026-006: Signature Context Predicates** — Institutional/delegated signing
-- **BCR-2026-007: Principal Authority Predicates** — Authority relationships
-- **BCR-2026-010: Fair Witness Predicates** — Neutral observation (distinct from endorsement)
+- **BCR-2026-004: Signing Event Attestations** — Institutional/delegated signing
+- **BCR-2026-006: Principal Authority Predicates** — Authority relationships
+- **BCR-2026-009: Fair Witness Predicates** — Neutral observation (distinct from endorsement)
 
 ---
 
-*BCR-2026-011: Peer Endorsement Predicates*
+*BCR-2026-010: Peer Endorsement Predicates*
 *Draft - February 2, 2026*
