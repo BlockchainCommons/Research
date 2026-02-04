@@ -68,6 +68,8 @@ This specification defines four predicates for principal-agent authority relatio
 2. **`assertsConferralFrom`** — Agent asserts authority was conferred by a principal
 3. **`conferralScope`** — What the conferral covers
 4. **`conferralConstraints`** — What limits apply to the conferral
+5. **`conferredBy`** — Who granted authority (single-hop)
+6. **`conferralChain`** — Full chain of authority conferral (multi-hop)
 
 These predicates draw on the legal concept of Principal Authority from the Laws of Agency, where a principal confers authority to an agent who acts on their behalf while owing duties back to the principal. The term "conferral" is used instead of "delegation" to avoid confusion with cryptographic delegation (XID `delegate` predicate).
 
@@ -131,7 +133,7 @@ The two concerns are orthogonal:
 
 All proposed codepoints are in the **Community Assigned (specification required)** range (1000-1999).
 
-### Principal Authority (1040-1043)
+### Principal Authority (1040-1045)
 
 ---
 
@@ -232,6 +234,65 @@ All proposed codepoints are in the **Community Assigned (specification required)
 - Constraints define the negative space — what is excluded or conditional
 - Constraints may include approval requirements, prohibited actions, or review processes
 - The prefix `conferral-` provides symmetry with `conferralScope`
+
+---
+
+#### 1044: `conferredBy`
+
+**Type**: property
+**Definition**: The entity that granted the signer's or agent's authority.
+**Domain**: Signature context or authority assertion
+**Range**: XID, DID, or identifier of the conferring party
+**Usage**: Documents the immediate source of authority.
+
+```
+{
+    Digest(approval-document) [
+        'signed': {
+            XID(department-head) [
+                'signingAs': "Authorized Approver"
+                'conferredBy': XID(cfo)
+            ]
+        }
+    ]
+}
+```
+
+**Notes**:
+- For single-hop authority conferral, `conferredBy` is sufficient
+- For multi-hop conferral, use `conferralChain`
+- The conferral may be standing (ongoing) or contextual (one-time)
+- Works with both signature contexts and work authority assertions
+
+---
+
+#### 1045: `conferralChain`
+
+**Type**: property
+**Definition**: The full chain of authority conferral from original authority to current actor.
+**Domain**: Signature context or authority assertion
+**Range**: Ordered list of XIDs/DIDs representing the conferral path
+**Usage**: Documents multi-hop authority conferral for complex authority structures.
+
+```
+{
+    Digest(field-authorization) [
+        'signed': {
+            XID(field-manager) [
+                'signingAs': "Emergency Coordinator"
+                'onBehalfOf': XID(corporation)
+                'conferralChain': [XID(board), XID(ceo), XID(coo), XID(regional-vp)]
+            ]
+        }
+    ]
+}
+```
+
+**Notes**:
+- Chain is ordered from original authority to immediate conferrer
+- The actor (signer or agent) is implicitly at the end of the chain
+- Use for audit trails and authority verification
+- Simpler cases can use `conferredBy` alone
 
 ---
 
@@ -418,7 +479,7 @@ The "Meaningful Principal Authority" design note describes Legibility, Boundarie
 ## Related BCRs
 
 - **BCR-2026-005: General Assertion Predicates** — Lifecycle predicates used by this BCR
-- **BCR-2026-006: Signature Context Predicates** — Signing capacity and authority conferral (uses matching `conferral*` terminology)
+- **BCR-2026-006: Signature Context Predicates** — Signing capacity (`signingAs`, `onBehalfOf`); references this BCR for authority chains
 - **BCR-2026-008: CreativeWork Role Predicates** — Contribution roles (Author, Editor, etc.)
 
 ---
