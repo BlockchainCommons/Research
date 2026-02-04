@@ -158,13 +158,11 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Identifies who is providing the observation attestation.
 
 ```
-{
     Digest(contract-signing-observation) [
         'observerWitness': XID(notary)
         'observationTimestamp': 2026-02-02T14:30:00Z
         'observerIndependence': "No relationship with either party"
     ]
-}
 ```
 
 **Notes**:
@@ -199,13 +197,11 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Distinguishes direct physical observation from remote or indirect observation.
 
 ```
-{
     Digest(asset-verification) [
         'observerWitness': XID(inspector)
         'observerPhysicalPresence': true
         'observationTimestamp': 2026-02-02T10:00:00Z
     ]
-}
 ```
 
 **Notes**:
@@ -224,12 +220,10 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: Establishes that the observer has no stake in the outcome.
 
 ```
-{
     Digest(dispute-observation) [
         'observerWitness': XID(mediator)
         'observerIndependence': "Court-appointed mediator with no prior relationship to either party"
     ]
-}
 ```
 
 **Notes**:
@@ -248,13 +242,11 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Usage**: The core observation content — what the witness actually observed.
 
 ```
-{
     Digest(site-inspection) [
         'observerWitness': XID(inspector)
         'observationTimestamp': 2026-02-02T10:00:00Z
         'observerStatement': "Building foundation complete; concrete cured; no visible cracks or defects on south and east faces"
     ]
-}
 ```
 
 **Notes**:
@@ -272,7 +264,6 @@ All proposed codepoints are in the **Community Assigned (specification required)
 A Fair Witness attesting to a contract signing:
 
 ```
-{
     Digest(contract-signature-attestation) [
         'attestsTo': Digest(signed-contract)
         'observerWitness': XID(licensed-notary)
@@ -280,7 +271,6 @@ A Fair Witness attesting to a contract signing:
         'observerPhysicalPresence': true
         'observerIndependence': "Neutral third party; no business relationship with signers"
     ]
-}
 ```
 
 ### Remote Attestation
@@ -288,14 +278,12 @@ A Fair Witness attesting to a contract signing:
 Observation via video call:
 
 ```
-{
     Digest(remote-verification) [
         'observerWitness': XID(remote-inspector)
         'observationTimestamp': 2026-02-02T11:00:00Z
         'observerPhysicalPresence': "Remote via video call; visual and audio confirmation"
         'disclosedBias': "Engaged by requesting party; payment contingent on completion, not outcome"
     ]
-}
 ```
 
 ### Multiple Witnesses
@@ -304,22 +292,18 @@ Multiple independent observers for high-stakes attestation:
 
 ```
 // Witness 1
-{
     Digest(observation-1) [
         'attestsTo': Digest(event)
         'observerWitness': XID(witness-a)
         'observerIndependence': "Independent party"
     ]
-}
 
 // Witness 2
-{
     Digest(observation-2) [
         'attestsTo': Digest(event)
         'observerWitness': XID(witness-b)
         'observerIndependence': "Independent party"
     ]
-}
 ```
 
 ### Additive Observations Over Time
@@ -328,7 +312,6 @@ The same witness observing the same subject at different times — building prog
 
 ```
 // Initial observation (2024)
-{
     Digest(observation-2024) [
         'attestsTo': Digest(project-status)
         'observerWitness': XID(auditor)
@@ -336,10 +319,8 @@ The same witness observing the same subject at different times — building prog
         'observerPhysicalPresence': true
         'observerStatement': "Project infrastructure operational; 3 of 5 milestones complete"
     ]
-}
 
 // Follow-up observation (2025)
-{
     Digest(observation-2025) [
         'attestsTo': Digest(project-status)
         'observerWitness': XID(auditor)
@@ -347,10 +328,8 @@ The same witness observing the same subject at different times — building prog
         'observerPhysicalPresence': true
         'observerStatement': "All 5 milestones complete; system in production use"
     ]
-}
 
 // Later observation (2026)
-{
     Digest(observation-2026) [
         'attestsTo': Digest(project-status)
         'observerWitness': XID(auditor)
@@ -358,7 +337,6 @@ The same witness observing the same subject at different times — building prog
         'observerPhysicalPresence': "Remote via monitoring dashboard"
         'observerStatement': "System stable; 99.9% uptime over past 12 months"
     ]
-}
 ```
 
 All three observations remain valid — they represent what the witness observed at each point in time. Trust accumulates through the series.
@@ -368,15 +346,12 @@ All three observations remain valid — they represent what the witness observed
 Combining observation with delegation context:
 
 ```
-{
     Digest(witnessed-delegation) [
         'principalAuthority': XID(company-ceo)
         'assertsDelegationFrom': XID(company-ceo)
         'delegationScope': "Authority to sign vendor contracts"
     ]
-}
 
-{
     Digest(delegation-witness) [
         'attestsTo': Digest(witnessed-delegation)
         'observerWitness': XID(corporate-secretary)
@@ -384,7 +359,6 @@ Combining observation with delegation context:
         'observerPhysicalPresence': true
         'observerIndependence': "Corporate officer; role requires neutrality in delegation matters"
     ]
-}
 ```
 
 ## Timestamp Considerations
