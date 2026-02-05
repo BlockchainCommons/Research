@@ -1,3 +1,4 @@
+````markdown
 # Signature Qualifiers for Gordian Envelope
 
 This document defines an interoperable, XAdES-inspired vocabulary for signature metadata carried using the technique defined in [BCR-2024-009](bcr-2024-009-signature-metadata.md).
@@ -25,16 +26,27 @@ This document proposes a small, focused set of **Signature Qualifiers**: standar
 
 ---
 
+## Terminology
+
+This BCR uses the following terms consistently:
+
+- **Signature target**: the exact digest value that the signature commits to (declared using `sig:Target`).
+- **Signed envelope**: the target is a digest of a Gordian Envelope (`sig:EnvelopeSemanticDigest` or `sig:EnvelopeStructuralDigest`).
+- **Signed object**: any object referenced in metadata, including envelopes, detached byte sequences, or externally-resolved artifacts (declared using `sig:SignedObject`). `sig:SignedObject` is descriptive; it does not define the cryptographic binding unless it includes (or is tied to) the signature target digest.
+- **Signed presentation**: the concrete, possibly-obscured representation of the signed envelope at signing time (some nodes may be elided/encrypted/compressed).
+
+---
+
 ## Background
 
 ### Gordian Envelope signatures with metadata
 
 In [BCR-2024-009](bcr-2024-009-signature-metadata.md), we define a canonical pattern for making signature metadata immutable:
 
-1. Sign the payload envelope’s digest to produce an inner `Signature` object.
+1. Sign the signed object’s digest to produce an inner `Signature` object.
 2. Create a **signature metadata envelope** whose subject is that inner `Signature`, and add metadata as assertions on it.
 3. Wrap and sign the signature metadata envelope with the **same private key**.
-4. Attach the resulting signed signature-metadata envelope as the object of the payload’s `'signed'` assertion.
+4. Attach the resulting signed signature-metadata envelope as the object of the signed object’s `'signed'` assertion (when the signed object is an envelope), or otherwise associate it by application-defined means.
 
 This document does **not** change that structure. It defines interoperable metadata **inside** step (2).
 
@@ -80,10 +92,10 @@ Gordian Envelope already provides a mechanism for binding metadata immutably to 
    - *when* the signer claims to have signed
    - *what commitment* the signature represents
    - *what policy* the signature is bound to
-   - *what object(s)* are being signed (especially for attachments or detached objects)
+   - *what object(s)* are being signed (especially for detached objects and referenced artifacts)
    - role/place context (when needed)
    - countersignature/endorsement support
-   - an Envelope-native attestation of which parts of the envelope were obscured (not visible) at signing time
+   - an Envelope-native attestation of which signed-envelope nodes were obscured in the signed presentation
 5. **Practical privacy:** Support common metadata that can be partially disclosed and decorrelated when needed, especially for small enumerated fields.
 
 ---
@@ -116,11 +128,11 @@ We then mapped them into Envelope’s assertion model and the signature-metadata
 - Most qualifier objects are *typed record values* and SHOULD use **Unit** as subject.
 - Only use ARIDs (or other identifying subjects) when a qualifier object must be referenced independently across contexts.
 
-For small enumerated fields where elision may be expected and decorrelation is desirable, we adopt **Salted Values** per [BCR-2026-004](bcr-2026-004-salted-value.md).
+For small enumerated fields where elision may be expected and decorrelation is desirable, we adopt **Salted Values** per [BCR-2026-004](bcr-2026-004-salted-value.md). If you anticipate needing decorrelatable elision later, you MUST choose Salted Values at creation time; you cannot “add salt later” without changing the signed metadata.
 
 We also add one Envelope-native qualifier:
 
-- **Obscured-nodes claim (`sig:obscured`):** a lexicographically-sorted array of digests identifying which nodes in the payload envelope's Merkle tree were obscured (elided, encrypted, or compressed) at signing time. This exploits Envelope's existing digest tree rather than introducing a separate controlled vocabulary.
+- **Obscured-nodes claim (`sig:obscured`):** a lexicographically-sorted array of **semantic digests** identifying which nodes in a signed envelope were obscured *in the signed presentation* (elided, encrypted, or compressed) at signing time.
 
 ---
 
@@ -201,10 +213,10 @@ This range is intended for inclusion in the “community, specification required
 |       1604 | `sig:commitment`         | predicate | Commitment semantics (`sig:Commitment`).                                            |
 |       1605 | `sig:signaturePolicy`    | predicate | Policy binding (`sig:Policy`).                                                      |
 |       1606 | `sig:signedObject`       | predicate | Description of a signed object (`sig:SignedObject`), repeatable.                    |
-|       1607 | `sig:target`             | predicate | Declares the intended signature target (`sig:Target`).                              |
+|       1607 | `sig:target`             | predicate | Declares the signature target (`sig:Target`).                                       |
 |       1608 | `sig:countersignatureOf` | predicate | Identifies what signature (or signature digest) is being countersigned.             |
 |       1609 | `sig:endorsement`        | predicate | Explains countersignature intent (`sig:Endorsement`).                               |
-|       1610 | `sig:obscured`           | predicate | Sorted array of digests of nodes obscured at signing time (see below).              |
+|       1610 | `sig:obscured`           | predicate | Sorted array of semantic digests of signed-envelope nodes obscured in the signed presentation. |
 
 #### Field predicates used inside typed qualifier objects (1620–1659)
 
@@ -230,7 +242,7 @@ This range is intended for inclusion in the “community, specification required
 |       1637 | `sig:encoding`            | predicate | Encoding label (e.g., `binary`, `base64`).                                                          |
 |       1638 | `sig:displayName`         | predicate | Human label for the object.                                                                         |
 |       1639 | `sig:language`            | predicate | Language tag (BCP 47 string).                                                                       |
-|       1640 | `sig:targetType`          | predicate | Controlled target/reference type (see enum below).                                                  |
+|       1640 | `sig:targetType`          | predicate | Controlled digest type for `sig:Target` and for digest-valued `sig:objectRef` (see enum below).     |
 
 #### Types (1650–1669)
 
@@ -240,8 +252,8 @@ This range is intended for inclusion in the “community, specification required
 |       1651 | `sig:Commitment`   | type | Typed envelope describing commitment semantics.                   |
 |       1652 | `sig:Role`         | type | Typed envelope describing signer role/capacity.                   |
 |       1653 | `sig:Place`        | type | Typed envelope describing signing place/jurisdiction.             |
-|       1654 | `sig:SignedObject` | type | Typed envelope describing a signed object.                        |
-|       1655 | `sig:Target`       | type | Typed envelope declaring the intended signature target.           |
+|       1654 | `sig:SignedObject` | type | Typed envelope describing a signed object (descriptive).          |
+|       1655 | `sig:Target`       | type | Typed envelope declaring the signature target (cryptographic).    |
 |       1656 | `sig:Endorsement`  | type | Typed envelope describing countersignature endorsement semantics. |
 
 #### Commitment type controlled vocabulary (1670–1679)
@@ -266,7 +278,7 @@ This range is intended for inclusion in the “community, specification required
 
 `sig:EnvelopeSemanticDigest` is the default and most common target type. The semantic digest is stable across elision, encryption, and compression — a signature over a semantic digest remains valid regardless of how the envelope is later obscured or revealed.
 
-`sig:EnvelopeStructuralDigest` is used only when the signer intends the signature to be invalidated if the envelope's obscuration state changes. Because the structural digest incorporates whether each node is elided, encrypted, or compressed, any change to the envelope's disclosure — revealing an elided assertion, decrypting an encrypted one, or decompressing a compressed one — will change the structural digest and invalidate the signature. This is appropriate when the signer wants to lock down a specific presentation of the envelope. When validating such a signature, the envelope's structural digest must be used, not its semantic digest.
+`sig:EnvelopeStructuralDigest` is used only when the signer intends the signature to be invalidated if the signed envelope's obscuration state changes. Because the structural digest incorporates whether each node is elided, encrypted, or compressed, any change to the envelope's disclosure — revealing an elided assertion, decrypting an encrypted one, or decompressing a compressed one — will change the structural digest and invalidate the signature. This is appropriate when the signer wants to lock down a specific presentation of the envelope. When validating such a signature, the envelope's structural digest must be used, not its semantic digest.
 
 `sig:DetachedBytesDigest` is used when signing objects that are not Gordian Envelopes, such as files, binary artifacts, or other opaque byte sequences.
 
@@ -323,7 +335,7 @@ Role describes the signer’s claimed capacity and optionally the authority/evid
 
 Place is intentionally coarse-grained and disclosure-friendly.
 
-Fields such as `sig:region` and `sig:locality` are sometimes drawn from small enumerable sets and may be elided. To support decorrelation in those cases, producers MAY encode those fields as **Salted Values** per [BCR-2026-004](bcr-2026-004-salted-value.md).
+Fields such as `sig:region` and `sig:locality` are sometimes drawn from small enumerable sets and may be elided. To support decorrelation in those cases, producers MAY encode those fields as **Salted Values** per [BCR-2026-004](bcr-2026-004-salted-value.md). If you anticipate needing decorrelatable elision, you MUST choose Salted Values when constructing the signed metadata.
 
 Plain-string form:
 
@@ -358,21 +370,64 @@ Decorrelatable form (recommended when region/locality may be elided):
 ]
 ```
 
+### `sig:Target`
+
+`sig:Target` declares the **signature target**, i.e., the digest value that the signature commits to. It is the normative binding between a signature and what is signed.
+
+A `sig:Target` MUST use a `Digest` in `sig:objectRef`. `Reference` is not permitted as a signature target because it does not cryptographically bind to the referent.
+
+```envelope
+'' [
+    'isA': 'sig:Target'
+    'sig:targetType': 'sig:EnvelopeSemanticDigest'
+    'sig:objectRef': Digest(<envelope-semantic-digest>)
+]
+```
+
 ### `sig:obscured`
 
-The `sig:obscured` assertion records which parts of the payload envelope were **not visible** to the signer at signing time — that is, which nodes in the envelope's Merkle-like digest tree were elided, encrypted, or compressed.
+The `sig:obscured` assertion records which nodes in a **signed envelope** were obscured in the **signed presentation** — i.e., elided, encrypted, or compressed at signing time.
 
-The object is a CBOR array of `Digest` values, lexicographically sorted to support determinism. Each digest identifies a node (subject, assertion, predicate, or object) in the payload envelope that was obscured when the signer produced the signature.
+This qualifier applies **only** when the signature target is a signed envelope (`sig:EnvelopeSemanticDigest` or `sig:EnvelopeStructuralDigest`). It MUST NOT be used when the signature target is `sig:DetachedBytesDigest`.
 
-**Interpretation:**
+The object is a CBOR array of `Digest` values, lexicographically sorted. Each digest identifies a node (or subtree root) in the signed envelope that was obscured in the signed presentation.
 
-- **`'sig:obscured': []`** (empty array) — the signer claims the entire envelope was fully visible at signing time. Nothing was obscured.
-- **`'sig:obscured': [ Digest(<root>) ]`** where the digest is the payload envelope's top-level digest — the signer claims the envelope was "signed blind," with no knowledge of its contents.
-- **`'sig:obscured': [ Digest(<a>), Digest(<b>), ... ]`** — the signer claims that the listed sub-envelopes were obscured and everything else was visible.
+#### Digest type
 
-A verifier who holds the full (unobscured) payload envelope can check each digest against the envelope's digest tree to confirm that the listed nodes exist and to understand exactly which content the signer did not see.
+The `sig:obscured` array MUST contain **semantic digests** of the obscured nodes.
 
-**Example — signer saw everything:**
+This ensures the claim remains checkable against the same signed envelope even if the envelope’s obscuration state changes later (e.g., if an elided node is later revealed). In other words, `sig:obscured` complements signatures over `sig:EnvelopeSemanticDigest`.
+
+#### Minimality and redundancy
+
+To maximize interoperability and keep the list compact:
+
+- Producers SHOULD include only **maximal obscured subtree roots**.
+- Producers MUST NOT include both an obscured node and any of its descendants in the array.
+- Producers MUST NOT include duplicate digests.
+
+This makes `sig:obscured` a set of “roots of obscured regions” in the signed envelope.
+
+#### Ordering
+
+The digest array MUST be lexicographically sorted using Envelope/dCBOR’s existing digest-sorting rules: compare the **tagged CBOR-encoded byte strings** of the `Digest` values.
+
+#### Relationship to `sig:targetType`
+
+- If the signature target is `sig:EnvelopeSemanticDigest`, `sig:obscured` is the signer’s objective statement about what the signed presentation hid at signing time, and remains meaningful even if later disclosure changes.
+- If the signature target is `sig:EnvelopeStructuralDigest`, `sig:obscured` is generally redundant (because the structural digest already commits to obscuration state), but may still be included as an index. In that case, it SHOULD correspond to the obscuration state of the signed presentation.
+
+#### Interpretation
+
+- **`'sig:obscured': []`** (empty array) — the signer attests that the signed presentation contained no obscured nodes.
+- **`'sig:obscured': [ Digest(<root>) ]`** where the digest is the signed envelope’s semantic digest — the signer attests they signed a presentation where the entire signed envelope was obscured.
+- **`'sig:obscured': [ Digest(<a>), Digest(<b>), ... ]`** — the signer attests that the listed subtrees were obscured in the signed presentation, and (by omission) that other subtrees were not obscured.
+
+A verifier who holds the full (unobscured) signed envelope can check each digest against the envelope’s digest tree to confirm that the listed nodes exist and to understand exactly which content the signed presentation obscured.
+
+> `sig:obscured` is an objective claim about the signed presentation’s obscuration state, not about the signer’s private knowledge.
+
+**Example — signer attests the signed presentation hid nothing:**
 
 ```envelope
 Signature [
@@ -381,7 +436,7 @@ Signature [
 ]
 ```
 
-**Example — signer signed blind:**
+**Example — signer attests they signed a fully obscured envelope:**
 
 ```envelope
 Signature [
@@ -392,7 +447,7 @@ Signature [
 ]
 ```
 
-**Example — two assertions were elided at signing time:**
+**Example — two subtrees were obscured at signing time:**
 
 ```envelope
 Signature [
@@ -406,13 +461,213 @@ Signature [
 
 **Guidance:**
 
-- Producers SHOULD include `sig:obscured` whenever the payload envelope contained any obscured nodes at signing time.
-- Producers MAY include `'sig:obscured': []` to explicitly attest that everything was visible, though omitting the assertion entirely is also valid.
-- The digest array MUST be lexicographically sorted to ensure deterministic encoding.
-- Verifiers SHOULD treat the absence of `sig:obscured` as "unknown" — the signer made no claim about what was visible.
+- Producers SHOULD include `sig:obscured` whenever the signed presentation contains any obscured nodes.
+- Producers MAY include `'sig:obscured': []` to explicitly attest that nothing was obscured, though omitting the assertion entirely is also valid.
+- Verifiers SHOULD treat the absence of `sig:obscured` as "unknown" — the signer made no claim about obscuration.
 
 ### `sig:SignedObject`
 
-SignedObject describes an object that is signed or intended to be covered by the signature, especially when it is a detached object or an attachment.
+`sig:SignedObject` describes a **signed object** relevant to the signature (including the signed envelope itself, detached byte sequences, or referenced artifacts). It is descriptive metadata; it does not define the cryptographic binding unless it includes (or is explicitly tied to) the signature target digest.
 
-If `sig:objectRef` is a `Reference`, the referent type is resolved from context; producers SHOULD include enough context for resolution, such as `sig:targetType`, `sig:mediaType`, or other domain-specific qualifiers.
+If `sig:objectRef` is a `Reference`, the referent type is resolved from context; producers SHOULD include enough context for resolution, such as `sig:mediaType`, `sig:displayName`, `sig:language`, and domain-specific qualifiers.
+
+If `sig:objectRef` is a `Digest`, `sig:targetType` SHOULD be provided to specify what that digest means (`sig:EnvelopeSemanticDigest`, `sig:EnvelopeStructuralDigest`, or `sig:DetachedBytesDigest`).
+
+```envelope
+'' [
+    'isA': 'sig:SignedObject'
+    'sig:objectRef': Reference(<ref>)              // or Digest(...)
+    'sig:targetType': 'sig:DetachedBytesDigest'    // only when sig:objectRef is Digest(...)
+    'sig:mediaType': "application/pdf"
+    'sig:encoding': "binary"
+    'sig:displayName': "Contract.pdf"
+    'sig:language': "en-US"
+]
+```
+
+### `sig:Endorsement`
+
+Endorsement explains countersignature intent.
+
+```envelope
+'' [
+    'isA': 'sig:Endorsement'
+    'sig:commitmentType': 'sig:Witnessed'
+    'sig:commitmentStatement': "Witnessed Alice’s approval."
+    'sig:appliesTo': Digest(<signature-digest>)   // or Reference(...)
+]
+```
+
+---
+
+## Requirements for Use in Signature Metadata
+
+1. Signature Qualifiers MUST be placed inside the signature metadata envelope defined in [BCR-2024-009](bcr-2024-009-signature-metadata.md) if they are intended to be immutable.
+2. Producers SHOULD encode typed qualifier objects with **Unit** (`''`) as their subject, per [BCR-2026-001](bcr-2026-001-unit.md), unless they have a specific need for a referencable subject.
+3. Producers SHOULD use `Reference` (per [BCR-2024-011](bcr-2024-011-reference.md)) when they need a compact globally unique pointer to a referent; when the referent type is not otherwise clear, they SHOULD provide disambiguation (e.g., via `sig:mediaType`, `sig:displayName`, or other qualifiers).
+4. Producers MAY represent small enumerated values as **Salted Values** per [BCR-2026-004](bcr-2026-004-salted-value.md) when those values may be elided and decorrelation is desirable. This is particularly relevant for `sig:region` and `sig:locality`.
+5. When Salted Values are used and the value is to be concealed, presentations SHOULD elide the entire Salted Value wrapper (see [BCR-2026-004](bcr-2026-004-salted-value.md)).
+6. `sig:Target` MUST use a `Digest` in `sig:objectRef`. `Reference` MUST NOT be used as a signature target.
+7. `sig:obscured` MUST be used only when the signature target type is `sig:EnvelopeSemanticDigest` or `sig:EnvelopeStructuralDigest`. It MUST NOT be used when the signature target type is `sig:DetachedBytesDigest`.
+8. Producers SHOULD include `sig:obscured` whenever the signed presentation contains any obscured nodes. If present, the array:
+   - MUST contain semantic digests,
+   - MUST be lexicographically sorted by the tagged CBOR-encoded digest bytes,
+   - SHOULD contain only maximal obscured subtree roots, and
+   - MUST NOT include redundant ancestor/descendant digests.
+9. Verifiers that understand this BCR SHOULD:
+   - verify both the payload signature and the metadata signature as defined in [BCR-2024-009](bcr-2024-009-signature-metadata.md)
+   - interpret Signature Qualifier predicates and typed objects according to this BCR
+10. A verifier MAY ignore Signature Qualifiers it does not recognize.
+11. Producers SHOULD include `'sig:profile'` to allow future evolution.
+
+Example profile declaration:
+
+```envelope
+'sig:profile': "sig:SQ-1"
+```
+
+---
+
+## Examples
+
+### Example 1: Approval signature with explicit “nothing obscured” claim
+
+```envelope
+{
+    "Release Artifact" [
+        'isA': "SoftwareRelease"
+        'version': "1.2.3"
+        "artifact": Reference(<ref>)
+    ]
+} [
+    'signed': {
+        Signature(<alice-key>) [
+            'sig:profile': "sig:SQ-1"
+            'sig:signingTime': 2026-02-04T19:52:00Z
+            'sig:obscured': []
+
+            'sig:signaturePolicy': '' [
+                'isA': 'sig:Policy'
+                'sig:policyId': "urn:example:policy:release-approval:v1"
+                'sig:policyDigest': Digest(<sha256>)
+            ]
+
+            'sig:commitment': '' [
+                'isA': 'sig:Commitment'
+                'sig:commitmentType': 'sig:Approved'
+                'sig:commitmentStatement': "Approved for public release."
+                'sig:appliesTo': Reference(<ref>)
+            ]
+
+            'sig:signerRole': '' [
+                'isA': 'sig:Role'
+                'sig:roleName': "Release Manager"
+            ]
+
+            'sig:signingPlace': '' [
+                'isA': 'sig:Place'
+                'sig:country': "US"
+                'sig:region': "ID"
+                'sig:timeZone': "America/Boise"
+            ]
+
+            'sig:signedObject': '' [
+                'isA': 'sig:SignedObject'
+                'sig:objectRef': Reference(<ref>)
+                'sig:mediaType': "application/octet-stream"
+                'sig:displayName': "release-1.2.3.tgz"
+            ]
+        ]
+    } [ 'signed': Signature(<alice-key>) ]
+]
+```
+
+### Example 2: Signature made over an obscured signed-envelope presentation
+
+Here the signer attests that two subtrees were obscured in the signed presentation:
+
+```envelope
+Signature(<alice-key>) [
+    'sig:profile': "sig:SQ-1"
+    'sig:signingTime': 2026-02-04T19:52:00Z
+    'sig:obscured': [
+        Digest(3a7c8f2d)
+        Digest(b4e1a8c0)
+    ]
+]
+```
+
+### Example 3: Holder-based elision of sensitive place fields with decorrelation
+
+If the signature metadata was created with Salted Values for region/locality, a holder can elide those assertions without leaking correlatable digests for common small values.
+
+Original (created by signer):
+
+```envelope
+'sig:signingPlace': '' [
+    'isA': 'sig:Place'
+    'sig:country': "US"
+
+    'sig:region': '' [
+        'salt': Salt(<random-bytes>)
+        'value': "ID"
+    ]
+
+    'sig:locality': '' [
+        'salt': Salt(<random-bytes>)
+        'value': "Eagle"
+    ]
+
+    'sig:timeZone': "America/Boise"
+]
+```
+
+Redacted presentation (by holder):
+
+```envelope
+'sig:signingPlace': '' [
+    'isA': 'sig:Place'
+    'sig:country': "US"
+    ELIDED(2)    // elide the region and locality assertions (each uses a Salted Value wrapper)
+    'sig:timeZone': "America/Boise"
+]
+```
+
+---
+
+## Security Considerations
+
+1. **Metadata immutability:** These qualifiers are intended to be immutable only when used inside the signed signature-metadata structure of [BCR-2024-009](bcr-2024-009-signature-metadata.md).
+2. **Subject injection / identity pollution:** Using fresh UUIDs or ARIDs as subjects for record-like qualifier objects can create accidental claims of independent identity and can frustrate comparison/deduplication. Defaulting to **Unit** avoids this and correctly signals “meaning is entirely in the assertions” as defined in [BCR-2026-001](bcr-2026-001-unit.md).
+3. **Reference type ambiguity:** `Reference` values (per [BCR-2024-011](bcr-2024-011-reference.md)) do not carry type information. Producers SHOULD provide sufficient context to resolve a reference.
+4. **Correlation and dictionary attacks on elided small fields:** Elided digests of small enumerable values (e.g., state codes, common localities) can be correlated or brute-forced. Where these values may be elided, producers SHOULD consider Salted Values per [BCR-2026-004](bcr-2026-004-salted-value.md), and presentations that conceal the value SHOULD elide the wrapper.
+5. **Obscured claim semantics:** `sig:obscured` is an objective claim about the signed presentation’s obscuration state, not about the signer’s private knowledge. It is defined only for signed envelopes, not detached-byte targets.
+6. **Policy substitution:** If a policy URI is used without a policy digest, policy substitution attacks become possible. Implementers SHOULD include `sig:policyDigest` whenever policy meaning matters.
+
+---
+
+## Future Work
+
+- Standardize common `sig:profile` identifiers and evolution rules.
+- Define an optional profile for long-term validation material (timestamps, validation evidence) if Envelope deployments require it.
+- Align `sig:roleAuthority` and `sig:roleEvidence` with identity/credential work as it matures, while preserving the value-like default representation.
+
+---
+
+## References
+
+### Internal (BCR)
+
+- [BCR-2022-002: ARID: Apparently Random Identifier](bcr-2022-002-arid.md)
+- [BCR-2023-002: Known Values](bcr-2023-002-known-value.md)
+- [BCR-2023-017: UR Type Definition for Random Salt](bcr-2023-017-salt.md)
+- [BCR-2024-009: Signatures with Metadata in Gordian Envelope](bcr-2024-009-signature-metadata.md)
+- [BCR-2024-011: References](bcr-2024-011-reference.md)
+- [BCR-2026-001: Unit: The Known Value for Deliberate Emptiness](bcr-2026-001-unit.md)
+- [BCR-2026-004: Envelope Salted Values](bcr-2026-004-salted-value.md)
+
+### External
+
+- W3C Note: XML Advanced Electronic Signatures (XAdES): https://www.w3.org/TR/XAdES/
+- ETSI EN 319 132-1 V1.3.1: XAdES digital signatures (baseline signatures): https://www.etsi.org/deliver/etsi_en/319100_319199/31913201/01.03.01_60/en_31913201v010301p.pdf
+````
