@@ -1,6 +1,6 @@
 # Principal Authority Predicates
 
-## BCR-2026-006
+## BCR-2026-XXX
 
 **© 2026 Blockchain Commons**
 
@@ -13,7 +13,7 @@ Date: February 2, 2026
 
 This document specifies Known Value predicates for expressing principal-agent authority relationships in Gordian Envelopes. These predicates enable clear attribution when authorship and responsibility are distinct — such as AI-generated content under human direction, ghostwritten works, or any delegation of creative authority.
 
-This BCR depends on [BCR-2026-005: General Assertion Predicates](bcr-2026-005-general-assertions.md) for lifecycle management (`revocationReason`, `processDisclosure`).
+This BCR depends on [BCR-2026-XXX: General Assertion Predicates](bcr-2026-xxx-general-assertions.md) for lifecycle management (`revocationReason`, `processDisclosure`).
 
 ## Status: Pre-Registration Proposal
 
@@ -77,9 +77,9 @@ These predicates draw on the legal concept of Principal Authority from the Laws 
 ### Scope Boundary
 
 This BCR defines **authority relationship predicates**, not:
-- Contribution roles (Author, Editor, etc.) — see [BCR-2026-007: CreativeWork Role Predicates](bcr-2026-007-creativework-roles.md)
-- Signature context (`signer`, `signedOnBehalfOf`) — see [BCR-2026-004: Signing Event Attestations](bcr-2026-004-signing-event-attestations.md)
-- Assertion lifecycle (`revocationReason`) — see [BCR-2026-005: General Assertion Predicates](bcr-2026-005-general-assertions.md)
+- Contribution roles (Author, Editor, etc.) — see [BCR-2026-XXX: CreativeWork Role Predicates](bcr-2026-xxx-creativework-roles.md)
+- Signature context (`signer`, `signedOnBehalfOf`) — see [BCR-2026-XXX: Signing Event Attestations](bcr-2026-xxx-signing-event-assertions.md)
+- Assertion lifecycle (`revocationReason`) — see [BCR-2026-XXX: General Assertion Predicates](bcr-2026-xxx-general-assertions.md)
 
 ## Terminology
 
@@ -97,9 +97,9 @@ This BCR defines **authority relationship predicates**, not:
 
 ## Referenced Specifications
 
-### BCR-2026-005: General Assertion Predicates
+### BCR-2026-XXX: General Assertion Predicates
 
-This BCR uses predicates from BCR-2026-005 for assertion lifecycle:
+This BCR uses predicates from BCR-2026-XXX for assertion lifecycle:
 
 | Codepoint | Predicate | Usage in This Context |
 |-----------|-----------|----------------------|
@@ -248,7 +248,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 - For single-hop authority conferral, `conferredBy` is sufficient
 - For multi-hop conferral, use `conferralChain`
 - The conferral may be standing (ongoing) or contextual (one-time)
-- Works with both work authority assertions and signing event attestations (see BCR-2026-004)
+- Works with both work authority assertions and signing event attestations (see BCR-2026-XXX)
 
 ---
 
@@ -272,7 +272,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 - The actor (signer or agent) is implicitly at the end of the chain
 - Use for audit trails and authority verification
 - Simpler cases can use `conferredBy` alone
-- For signing event attestations with conferral chain, see BCR-2026-004
+- For signing event attestations with conferral chain, see BCR-2026-XXX
 
 ---
 
@@ -304,7 +304,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 **Notes**:
 - This is a **declaration by the principal**, signed by them
-- Uses signature-with-assertions pattern (BCR-2026-004) to bind signer identity to signature
+- Uses signature-with-assertions pattern (BCR-2026-XXX) to bind signer identity to signature
 - Complements `assertsConferralFrom` which is the agent's claim
 - Together they provide bidirectional verification:
   - Agent claims: `assertsConferralFrom`: XID(principal)
@@ -380,7 +380,7 @@ This intentional collapse keeps the predicate set minimal. Domain profiles may a
 
 Earlier drafts considered a `producedBy` predicate to mark causal participation (who/what actually created the content). This BCR intentionally omits it because:
 
-1. **Role predicates handle "who did what"** — BCR-2026-007 defines Author, Editor, etc.
+1. **Role predicates handle "who did what"** — BCR-2026-XXX defines Author, Editor, etc.
 2. **Process disclosure handles "how"** — `processDisclosure` captures production method
 3. **Principal authority handles "whose"** — `principalAuthority` captures responsibility
 
@@ -428,7 +428,7 @@ The term "conferral" was chosen because:
 2. It has minimal collision with existing technical vocabulary (OAuth, access control, cryptographic delegation)
 3. It clearly signals a social/legal relationship rather than a cryptographic operation
 
-BCR-2026-004 (Signing Event Attestations) uses matching terminology (`conferredBy`, `conferralChain`) for consistency.
+BCR-2026-XXX (Signing Event Attestations) uses matching terminology (`conferredBy`, `conferralChain`) for consistency.
 
 ## Security Considerations
 
@@ -470,7 +470,7 @@ Is there a need for an `oversightAuthority` predicate — the entity responsible
 Oversight suggests a monitoring relationship distinct from:
 - **Direction** — deciding what to create
 - **Execution** — doing the work
-- **Review** — one-time quality check (already covered by `Reviewer` role in BCR-2026-007)
+- **Review** — one-time quality check (already covered by `Reviewer` role in BCR-2026-XXX)
 
 Examples where oversight and authority might be held by different parties:
 - A board provides oversight of a CEO's work (CEO has authority, board monitors)
@@ -482,17 +482,17 @@ The "Meaningful Principal Authority" design note describes Legibility, Boundarie
 ## References
 
 - [BCR-2023-002: Known Value Registry](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2023-002-known-value.md)
-- [BCR-2026-005: General Assertion Predicates](bcr-2026-005-general-assertions.md)
-- [BCR-2026-004: Signing Event Attestations](bcr-2026-004-signing-event-attestations.md)
+- [BCR-2026-XXX: General Assertion Predicates](bcr-2026-xxx-general-assertions.md)
+- [BCR-2026-XXX: Signing Event Attestations](bcr-2026-xxx-signing-event-assertions.md)
 - [Gordian Envelope Specification](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2024-001-envelope.md)
 
 ## Related BCRs
 
-- **BCR-2026-005: General Assertion Predicates** — Lifecycle predicates used by this BCR
-- **BCR-2026-004: Signing Event Attestations** — Signing context (`signer`, `signedOnBehalfOf`, `xades:ClaimedRole`); references this BCR for authority chains
-- **BCR-2026-007: CreativeWork Role Predicates** — Contribution roles (Author, Editor, etc.)
+- **BCR-2026-XXX: General Assertion Predicates** — Lifecycle predicates used by this BCR
+- **BCR-2026-XXX: Signing Event Attestations** — Signing context (`signer`, `signedOnBehalfOf`, `xades:ClaimedRole`); references this BCR for authority chains
+- **BCR-2026-XXX: CreativeWork Role Predicates** — Contribution roles (Author, Editor, etc.)
 
 ---
 
-*BCR-2026-006: Principal Authority Predicates*
+*BCR-2026-XXX: Principal Authority Predicates*
 *Draft - February 2, 2026*
