@@ -1,6 +1,6 @@
 # Lifecycle Role Predicates
 
-## BCR-2026-008
+## BCR-2026-XXX
 
 **© 2026 Blockchain Commons**
 
@@ -13,7 +13,7 @@ Date: February 2, 2026
 
 This document specifies Known Value predicates for lifecycle roles in Gordian Envelopes. These roles describe contributions that occur before or after the creative act itself — commissioning what should exist, distributing the finished work, and stewarding it over time.
 
-These lifecycle roles complement the creative contribution roles in [BCR-2026-007: CreativeWork Role Predicates](bcr-2026-007-creativework-roles.md), which focus on what happens *during* creation.
+These lifecycle roles complement the creative contribution roles in [BCR-2026-XXX: CreativeWork Role Predicates](bcr-2026-xxx-creativework-roles.md), which focus on what happens *during* creation.
 
 ## Status: Pre-Registration Proposal
 
@@ -66,17 +66,17 @@ This specification defines three lifecycle roles:
 This BCR defines **lifecycle roles** — contributions before and after the creative act.
 
 **Not in scope:**
-- Creative contribution roles (Author, Editor, etc.) — see [BCR-2026-007: CreativeWork Role Predicates](bcr-2026-007-creativework-roles.md)
-- Authority relationships — see [BCR-2026-006: Principal Authority Predicates](bcr-2026-006-principal-authority.md)
+- Creative contribution roles (Author, Editor, etc.) — see [BCR-2026-XXX: CreativeWork Role Predicates](bcr-2026-xxx-creativework-roles.md)
+- Authority relationships — see [BCR-2026-XXX: Principal Authority Predicates](bcr-2026-xxx-principal-authority.md)
 - Social roles (community shepherding, facilitation) — see Roles Not Included
 
 ### Relationship to Other BCRs
 
 | BCR | Focus | Lifecycle Phase |
 |-----|-------|-----------------|
-| BCR-2026-006 | Authority relationships | Overlays all phases |
-| BCR-2026-007 | Creative contribution | During creation |
-| **BCR-2026-008** | **Lifecycle roles** | **Before and after creation** |
+| BCR-2026-XXX | Authority relationships | Overlays all phases |
+| BCR-2026-XXX | Creative contribution | During creation |
+| **BCR-2026-XXX** | **Lifecycle roles** | **Before and after creation** |
 
 ## Terminology
 
@@ -162,7 +162,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 - A website hosting and serving content
 
 **Notes**:
-- Distribution without responsibility: A Distributor may make work available without taking responsibility for its content (see BCR-2026-005 for `principalAuthority`)
+- Distribution without responsibility: A Distributor may make work available without taking responsibility for its content (see BCR-2026-XXX for `principalAuthority`)
 - Multiple distributors: A work may have many distributors across different channels
 
 ---
@@ -172,7 +172,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Type**: role
 **Definition**: Provides long-term care for the CreativeWork, its ideas, and any community around it.
 **Phase**: After creation (ongoing)
-**Distinction from Maintainer**: Maintainer (BCR-2026-004) focuses on technical updates; Steward encompasses broader care including ideas, community, and legacy.
+**Distinction from Maintainer**: Maintainer (BCR-2026-XXX) focuses on technical updates; Steward encompasses broader care including ideas, community, and legacy.
 
 ```
     Digest(community-project) [
@@ -302,24 +302,24 @@ Having the Commissioner role does not automatically confer `principalAuthority`.
 - Define scope without taking responsibility for content
 - Fund creation without editorial control
 
-Authority relationships should be expressed explicitly through BCR-2026-006.
+Authority relationships should be expressed explicitly through BCR-2026-XXX.
 
 ## References
 
 - [BCR-2023-002: Known Value Registry](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2023-002-known-value.md)
-- [BCR-2026-005: General Assertion Predicates](bcr-2026-005-general-assertions.md)
-- [BCR-2026-006: Principal Authority Predicates](bcr-2026-006-principal-authority.md)
-- [BCR-2026-007: CreativeWork Role Predicates](bcr-2026-007-creativework-roles.md)
+- [BCR-2026-XXX: General Assertion Predicates](bcr-2026-xxx-general-assertions.md)
+- [BCR-2026-XXX: Principal Authority Predicates](bcr-2026-xxx-principal-authority.md)
+- [BCR-2026-XXX: CreativeWork Role Predicates](bcr-2026-xxx-creativework-roles.md)
 - [Schema.org Known Values Registry](https://github.com/BlockchainCommons/Research/blob/master/known-value-assignments/markdown/10000_schema_registry.md) — `schema:contributor` (11227), `schema:roleName` (12151)
 - [RAA Framework](https://github.com/peterkaminski/raa-framework) — Role analysis informing this BCR
 
 ## Related BCRs
 
-- **BCR-2026-005: General Assertion Predicates** — Lifecycle management for assertions
-- **BCR-2026-006: Principal Authority Predicates** — Authority relationships
-- **BCR-2026-007: CreativeWork Role Predicates** — Creative contribution roles
+- **BCR-2026-XXX: General Assertion Predicates** — Lifecycle management for assertions
+- **BCR-2026-XXX: Principal Authority Predicates** — Authority relationships
+- **BCR-2026-XXX: CreativeWork Role Predicates** — Creative contribution roles
 
 ---
 
-*BCR-2026-008: Lifecycle Role Predicates*
+*BCR-2026-XXX: Lifecycle Role Predicates*
 *Draft - February 2, 2026*
