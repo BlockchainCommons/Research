@@ -1,6 +1,6 @@
 # General Assertion Predicates
 
-## BCR-2026-005
+## BCR-2026-XXX
 
 **© 2026 Blockchain Commons**
 
@@ -294,13 +294,13 @@ The presence of transparency predicates (`disclosedBias`, `disclosedLimitations`
 
 This BCR provides foundational predicates used by:
 
-- **BCR-2026-004: Signing Event Attestations** — Signing capacity and delegation
-- **BCR-2026-006: Principal Authority Predicates** — Authority relationships (principal, delegation, scope)
-- **BCR-2026-007: CreativeWork Role Predicates** — Contribution roles (Author, Editor, etc.)
-- **BCR-2026-009: Fair Witness Predicates** — Neutral observer attestations (references `disclosedBias`, `disclosedLimitations`)
-- **BCR-2026-010: Peer Endorsement Predicates** — Peer-to-peer trust building (references transparency predicates)
+- **BCR-2026-XXX: Signing Event Attestations** — Signing capacity and delegation
+- **BCR-2026-XXX: Principal Authority Predicates** — Authority relationships (principal, delegation, scope)
+- **BCR-2026-XXX: CreativeWork Role Predicates** — Contribution roles (Author, Editor, etc.)
+- **BCR-2026-XXX: Fair Witness Predicates** — Neutral observer attestations (references `disclosedBias`, `disclosedLimitations`)
+- **BCR-2026-XXX: Peer Endorsement Predicates** — Peer-to-peer trust building (references transparency predicates)
 
 ---
 
-*BCR-2026-005: General Assertion Predicates*
+*BCR-2026-XXX: General Assertion Predicates*
 *Draft - February 2, 2026*
