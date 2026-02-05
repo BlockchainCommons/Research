@@ -260,10 +260,15 @@ This range is intended for inclusion in the “community, specification required
 
 | Code Point | Term                           | Kind | Description                                                                 |
 |-----------:|--------------------------------|------|-----------------------------------------------------------------------------|
-|       1680 | `sig:EnvelopeSemanticDigest`   | enum | Target is the semantic digest of a Gordian Envelope.                        |
+|       1680 | `sig:EnvelopeSemanticDigest`   | enum | Target is the semantic digest of a Gordian Envelope (default).              |
 |       1681 | `sig:EnvelopeStructuralDigest` | enum | Target is the structural digest of a Gordian Envelope.                      |
-|       1682 | `sig:DetachedBytesDigest`      | enum | Target is a digest of detached bytes.                                       |
-|       1683 | `sig:Reference`                | enum | Target is a `Reference` (`ur:reference`, CBOR tag `#6.40025`) per [BCR-2024-011](bcr-2024-011-reference.md). |
+|       1682 | `sig:DetachedBytesDigest`      | enum | Target is a digest of detached bytes (non-Envelope object).                 |
+
+`sig:EnvelopeSemanticDigest` is the default and most common target type. The semantic digest is stable across elision, encryption, and compression — a signature over a semantic digest remains valid regardless of how the envelope is later obscured or revealed.
+
+`sig:EnvelopeStructuralDigest` is used only when the signer intends the signature to be invalidated if the envelope's obscuration state changes. Because the structural digest incorporates whether each node is elided, encrypted, or compressed, any change to the envelope's disclosure — revealing an elided assertion, decrypting an encrypted one, or decompressing a compressed one — will change the structural digest and invalidate the signature. This is appropriate when the signer wants to lock down a specific presentation of the envelope. When validating such a signature, the envelope's structural digest must be used, not its semantic digest.
+
+`sig:DetachedBytesDigest` is used when signing objects that are not Gordian Envelopes, such as files, binary artifacts, or other opaque byte sequences.
 
 ---
 
