@@ -1,6 +1,6 @@
 # Anchor Predicates
 
-## BCR-2026-011
+## BCR-2026-XXX
 
 **© 2026 Blockchain Commons**
 
@@ -308,7 +308,7 @@ Digest(update-anchor) [
 | 22 | `validUntil` | Use for assertion expiry |
 | 86 | `Revoke` | XID key revocation (different from assertion supersession) |
 
-### BCR-2026-005 (General Assertions)
+### BCR-2026-XXX (General Assertions)
 
 | Predicate | Usage with Anchors |
 |-----------|-------------------|
@@ -381,10 +381,10 @@ We invite feedback on how these specifications should interoperate. See also the
 
 ## Related BCRs
 
-- **BCR-2026-005: General Assertion Predicates** — `revocationReason` for anchor revocations
-- **BCR-2026-006: Principal Authority Predicates** — Authority relationships
+- **BCR-2026-XXX: General Assertion Predicates** — `revocationReason` for anchor revocations
+- **BCR-2026-XXX: Principal Authority Predicates** — Authority relationships
 
 ---
 
-*BCR-2026-011: Anchor Predicates*
+*BCR-2026-XXX: Anchor Predicates*
 *Draft - February 2, 2026*
