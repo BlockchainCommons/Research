@@ -1,6 +1,6 @@
 # Peer Endorsement Predicates
 
-## BCR-2026-010
+## BCR-2026-XXX
 
 **© 2026 Blockchain Commons**
 
@@ -65,8 +65,8 @@ Before defining new predicates, check if existing standards provide the semantic
 | General attestation structure | Verifiable Credentials, Open Badges | Only define unique predicates |
 | Timestamps | Schema.org `dateCreated` | Core `validFrom` (21), `validUntil` (22) |
 | Evidence URLs | VC `evidence`, Schema.org `url` | Custom only if unique semantics |
-| Contributor roles | CRediT taxonomy, BCR-2026-007 | Custom only if gap exists |
-| Transparency | BCR-2026-005 `disclosedBias`, `disclosedLimitations` | — |
+| Contributor roles | CRediT taxonomy, BCR-2026-XXX | Custom only if gap exists |
+| Transparency | BCR-2026-XXX `disclosedBias`, `disclosedLimitations` | — |
 
 This BCR defines **only** the predicates that cannot be adequately expressed with existing standards.
 
@@ -208,9 +208,9 @@ Use BCR predicates when you need:
 
 ## Referenced Predicates
 
-### From BCR-2026-005 (General Assertions)
+### From BCR-2026-XXX (General Assertions)
 
-This BCR references transparency predicates from BCR-2026-005:
+This BCR references transparency predicates from BCR-2026-XXX:
 
 | Codepoint | Predicate | Usage in Endorsements |
 |-----------|-----------|----------------------|
@@ -218,7 +218,7 @@ This BCR references transparency predicates from BCR-2026-005:
 | 1004 | `disclosedLimitations` | Limits of endorser's knowledge |
 | 1005 | `assertionLimitations` | Scope of endorsement itself |
 
-**Do not define endorsement-specific bias/limitations predicates.** Use the general predicates from BCR-2026-005.
+**Do not define endorsement-specific bias/limitations predicates.** Use the general predicates from BCR-2026-XXX.
 
 ### From Core Registry
 
@@ -293,7 +293,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 
 **Notes**:
 - Establishes endorser's qualification to make this endorsement
-- Combined with `disclosedLimitations` from BCR-2026-005, provides full context
+- Combined with `disclosedLimitations` from BCR-2026-XXX, provides full context
 
 ---
 
@@ -351,7 +351,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 - The acceptance model ensures subjects maintain control over their identity
 - Subject's signature on the containing document implies acceptance
 - Subjects may decline endorsements they find inaccurate or unwanted
-- Both endorser (Bob) and subject (Alice) use signature-with-assertions pattern (BCR-2026-004)
+- Both endorser (Bob) and subject (Alice) use signature-with-assertions pattern (BCR-2026-XXX)
 
 ---
 
@@ -373,7 +373,7 @@ All proposed codepoints are in the **Community Assigned (specification required)
 **Notes**:
 - Prevents over-generalization of endorsements
 - "I endorse their security skills" is different from "I endorse everything about them"
-- Works with `assertionLimitations` from BCR-2026-005 for complete scoping
+- Works with `assertionLimitations` from BCR-2026-XXX for complete scoping
 
 ---
 
@@ -510,11 +510,11 @@ The subject accepts endorsements by including them in their signed XIDDoc:
 ]
 ```
 
-The subject's signature on the outer document implies acceptance of all included endorsements. All signatures use the signature-with-assertions pattern (BCR-2026-004) to bind signer identity.
+The subject's signature on the outer document implies acceptance of all included endorsements. All signatures use the signature-with-assertions pattern (BCR-2026-XXX) to bind signer identity.
 
 ### Combined with Signing Event Attestations
 
-For endorsements that involve delegation or institutional context, combine with BCR-2026-004:
+For endorsements that involve delegation or institutional context, combine with BCR-2026-XXX:
 
 ```
 {
@@ -536,33 +536,33 @@ For endorsements that involve delegation or institutional context, combine with 
 
 ## Relationship to Other BCRs
 
-### BCR-2026-005 (General Assertions)
+### BCR-2026-XXX (General Assertions)
 
-Use transparency predicates from BCR-2026-005:
+Use transparency predicates from BCR-2026-XXX:
 - `disclosedBias` (1003) — endorser's biases
 - `disclosedLimitations` (1004) — endorser's knowledge limits
 - `assertionLimitations` (1005) — endorsement scope limits
 
-### BCR-2026-004 (Signing Event Attestations)
+### BCR-2026-XXX (Signing Event Attestations)
 
 For endorsements involving institutional or delegated signing:
 - `signer` (300) — links signature to XID document
 - `signedOnBehalfOf` (301) — organization endorser represents
 - `xades:ClaimedRole` — capacity in which endorser signs (referenced standard)
 
-### BCR-2026-006 (Principal Authority)
+### BCR-2026-XXX (Principal Authority)
 
 For endorsements that imply authority relationships:
 - `principalAuthority` (1040) — when endorsement implies direction authority
 - `assertsDelegationFrom` (1041) — when endorser claims delegation
 
-### BCR-2026-007 (CreativeWork Roles)
+### BCR-2026-XXX (CreativeWork Roles)
 
-For endorsements about creative contributions, use role predicates from BCR-2026-007 alongside endorsement predicates.
+For endorsements about creative contributions, use role predicates from BCR-2026-XXX alongside endorsement predicates.
 
-### BCR-2026-009 (Fair Witness)
+### BCR-2026-XXX (Fair Witness)
 
-Fair Witness predicates (BCR-2026-009) and Peer Endorsement predicates serve different purposes:
+Fair Witness predicates (BCR-2026-XXX) and Peer Endorsement predicates serve different purposes:
 
 | Fair Witness | Peer Endorsement |
 |--------------|------------------|
@@ -605,7 +605,7 @@ Endorsements are point-in-time statements. They don't automatically update if:
 - The relationship changes
 - The endorser's opinion changes
 
-For changed circumstances, endorsers can create updated endorsements or revoke previous ones using `revocationReason` from BCR-2026-005.
+For changed circumstances, endorsers can create updated endorsements or revoke previous ones using `revocationReason` from BCR-2026-XXX.
 
 ## References
 
@@ -617,12 +617,12 @@ For changed circumstances, endorsers can create updated endorsements or revoke p
 
 ## Related BCRs
 
-- **BCR-2026-005: General Assertion Predicates** — Transparency predicates (`disclosedBias`, etc.)
-- **BCR-2026-004: Signing Event Attestations** — Institutional/delegated signing
-- **BCR-2026-006: Principal Authority Predicates** — Authority relationships
-- **BCR-2026-009: Fair Witness Predicates** — Neutral observation (distinct from endorsement)
+- **BCR-2026-XXX: General Assertion Predicates** — Transparency predicates (`disclosedBias`, etc.)
+- **BCR-2026-XXX: Signing Event Attestations** — Institutional/delegated signing
+- **BCR-2026-XXX: Principal Authority Predicates** — Authority relationships
+- **BCR-2026-XXX: Fair Witness Predicates** — Neutral observation (distinct from endorsement)
 
 ---
 
-*BCR-2026-010: Peer Endorsement Predicates*
+*BCR-2026-XXX: Peer Endorsement Predicates*
 *Draft - February 2, 2026*
