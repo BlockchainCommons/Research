@@ -5,13 +5,15 @@
 **© 2026 Blockchain Commons**
 
 Authors: Christopher Allen, Wolf McNally, Shannon Appelcline<br/>
-Date: February 4, 2026
+Date: February 5, 2026
 
 ---
 
 ## Abstract
 
-A cryptographic signature proves a key signed content. It does not prove who holds the key, when signing occurred, or what the signature means. This BCR defines predicates for signers to attest these facts, bound to their signatures using the pattern from BCR-2024-009.
+A cryptographic signature proves a key signed content. It does not prove who holds the key, when signing occurred, or what the signature means. This BCR defines predicates for **signer identity binding** — linking signatures to identity documents (XIDs/DIDs) — using the pattern from BCR-2024-009.
+
+For signature metadata (time, place, role, commitment, policy), see BCR-2026-XXX Signature Qualifiers.
 
 ## Status: Draft
 
@@ -43,15 +45,25 @@ Alice signing personally and Alice signing as CEO for Acme Corp produce identica
 
 ### Solution
 
-This BCR defines:
+This BCR defines two predicates for **signer identity binding**:
 
-- `signer` (800) — links signature to signer's identity
+- `signer` (800) — links signature to signer's identity document
 - `signedOnBehalfOf` (801) — identifies who the signer represents
-- References `xades:ClaimedRole` and `xades:CommitmentType` from XAdES
 
 Two patterns bind assertions to signatures:
 - **Signature-with-assertions** — signer's own assertions (primary)
 - **Wrapped signing** — third-party assertions
+
+### Relationship to Signature Qualifiers
+
+This BCR and BCR-2026-XXX Signature Qualifiers are complementary:
+
+| BCR | Focus | Predicates |
+|-----|-------|------------|
+| **This BCR** | Signer identity binding | `signer`, `signedOnBehalfOf` |
+| Signature Qualifiers | Signature metadata | `sig:signerRole`, `sig:commitment`, `sig:signingTime`, etc. |
+
+Signature Qualifiers derives from XAdES, an international standard we do not control. XAdES handles identity via `SigningCertificate` (X.509-specific). This BCR fills the gap for identity-agnostic systems using XIDs and DIDs.
 
 ## Binding Assertions to Signatures
 
@@ -81,8 +93,14 @@ For a signer's own assertions, use the pattern from BCR-2024-009: make the Signa
         Signature [
             'signer': XID(alice)
             'signedOnBehalfOf': XID(acme-corp)
-            'xades:ClaimedRole': "CEO"
-            'xades:CommitmentType': "approval"
+            'sig:signerRole': '' [
+                'isA': 'sig:Role'
+                'sig:roleName': "CEO"
+            ]
+            'sig:commitment': '' [
+                'isA': 'sig:Commitment'
+                'sig:commitmentType': 'sig:Approved'
+            ]
         ]
     } ['signed': Signature]
 ]
@@ -111,7 +129,10 @@ For third-party assertions (timestamps, notarization), wrap the signed content, 
     'signed': {
         Signature [
             'signer': XID(timestamp-authority)
-            'xades:CommitmentType': "timestamp"
+            'sig:commitment': '' [
+                'isA': 'sig:Commitment'
+                'sig:commitmentType': 'sig:Attested'
+            ]
         ]
     } ['signed': Signature]
 ]
@@ -145,13 +166,19 @@ Multiple parties independently signing the same content:
     'signed': {
         Signature [
             'signer': XID(alice)
-            'xades:CommitmentType': "approval"
+            'sig:commitment': '' [
+                'isA': 'sig:Commitment'
+                'sig:commitmentType': 'sig:Approved'
+            ]
         ]
     } ['signed': Signature]
     'signed': {
         Signature [
             'signer': XID(bob)
-            'xades:CommitmentType': "approval"
+            'sig:commitment': '' [
+                'isA': 'sig:Commitment'
+                'sig:commitmentType': 'sig:Approved'
+            ]
         ]
     } ['signed': Signature]
 ]
@@ -174,7 +201,10 @@ A party signing over another's signed content:
     'signed': {
         Signature [
             'signer': XID(bob)
-            'xades:CommitmentType': "witness"
+            'sig:commitment': '' [
+                'isA': 'sig:Commitment'
+                'sig:commitmentType': 'sig:Witnessed'
+            ]
         ]
     } ['signed': Signature]
 ]
@@ -184,7 +214,9 @@ Bob's signature covers Alice's complete signed envelope.
 
 ## Terminology
 
-**Assertion**: Envelope term for a predicate-object pair. **Attestation**: The act of declaring facts. Signers *attest*; attestations are expressed as *assertions*.
+**Assertion**: Envelope term for a predicate-object pair. 
+
+**Attestation**: The act of declaring facts. Signers *attest*; attestations are expressed as *assertions*.
 
 **Signing Event**: A key producing a signature over content.
 
@@ -198,19 +230,37 @@ Proposed for the Reserved range (256-999) per BCR-2023-002.
 
 Links a signature to a document identifying the signer.
 
+**Subject**: Signature<br/>
+**Object**: Identity document (XID, DID, or URI)
+
 ```
 Signature [
     'signer': XID(alice)
 ]
 ```
 
-A signature proves a key signed; `signer` links to identity. Required because some schemes (EdDSA, BBS+, Longfellow) don't embed or allow recovery of the public key.
+A signature proves a key signed; `signer` links to identity. Useful in all scenarios, but required when signature schemes (EdDSA, BBS+, Longfellow) don't embed the public key or allow its recovery from the signature.
 
-Within the Gordian ecosystem (XIDs, Clubs, GSTP), references an XID or Club. Gordian Envelope also supports URIs and DIDs.
+Within the Gordian ecosystem (XIDs, Clubs, GSTP), `signer` references an XID or Club. Gordian Envelope also supports DIDs and other URIs.
+
+**Distinction from `sig:signerRole`**: This predicate's object is an **identity document**. The `sig:signerRole` predicate's object is a **role description**. Both may appear on the same signature:
+
+```
+Signature [
+    'signer': XID(alice)                    // WHO signed (identity)
+    'sig:signerRole': '' [                  // WHAT capacity (role)
+        'isA': 'sig:Role'
+        'sig:roleName': "CEO"
+    ]
+]
+```
 
 ### 801: `signedOnBehalfOf`
 
 Optional. Identifies who the signer represents.
+
+**Subject**: Signature<br/>
+**Object**: Identity document (XID, DID, or URI) of the represented entity
 
 ```
 Signature [
@@ -219,37 +269,13 @@ Signature [
 ]
 ```
 
-Only include when acting for another party. This is a claim — verification requires checking delegation authority (see BCR-2026-XXX).
+Only include when acting for another party. This is a claim, not fact — evaluation requires checking delegation authority (see BCR-2026-XXX Principal Authority).
 
-## Referenced Standards
-
-### xades:ClaimedRole
-
-From ETSI TS 101 903. The capacity in which the signer acts. Self-asserted.
-
-```
-Signature [
-    'signer': XID(alice)
-    'xades:ClaimedRole': "CEO"
-]
-```
-
-### xades:CommitmentType
-
-From ETSI TS 101 903. The purpose of the signature.
-
-```
-Signature [
-    'signer': XID(alice)
-    'xades:CommitmentType': "approval"
-]
-```
-
-Common values: approval, acknowledgment, witness, receipt, origin.
+**Note**: This predicate expresses representation without requiring any specific authority framework. A signer may represent another entity without formal delegation (e.g., a family member acting for an incapacitated person).
 
 ## Security Considerations
 
-### Verification Requirements
+### Cryptographic Verification Requirements
 
 For signature-with-assertions pattern, verifiers MUST:
 
@@ -263,9 +289,9 @@ For wrapped signing (third-party assertions), different keys are expected — th
 
 ### Claims vs Proof
 
-Signing event assertions are claims by the signer, not proof. Relying parties must:
-- Resolve the XID to verify the claimed identity
-- Evaluate whether claims (role, representation) are plausible
+Signing event assertions are claims by the signer, not proof. Relying parties must evaluate to affirm that:
+- The XID resolves to the claimed identity
+- All claims (role, representation) are plausible
 - Check delegation chains if `signedOnBehalfOf` is present
 
 ### Elision
@@ -280,7 +306,7 @@ For API guidance and reference implementation, see [BCR-2024-009](bcr-2024-009-s
 
 - [BCR-2023-002: Known Value Registry](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2023-002-known-value.md)
 - [BCR-2024-009: Signatures with Metadata](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2024-009-signature-metadata.md)
-- [ETSI TS 101 903: XAdES](https://www.etsi.org/deliver/etsi_ts/101900_101999/101903/01.04.02_60/ts_101903v010402p.pdf)
+- [BCR-2026-XXX: Signature Qualifiers](bcr-2026-xxx-signature-qualifiers.md)
 - [Gordian Envelope Specification](https://github.com/BlockchainCommons/Research/blob/master/papers/bcr-2024-003-envelope.md)
 - [BBS Signature Scheme](https://identity.foundation/bbs-signature/draft-irtf-cfrg-bbs-signatures.html)
 - [Longfellow ZK Scheme](https://datatracker.ietf.org/doc/html/draft-google-cfrg-libzk-01)
@@ -289,21 +315,9 @@ For API guidance and reference implementation, see [BCR-2024-009](bcr-2024-009-s
 
 - BCR-2026-XXX: General Assertion Predicates
 - BCR-2026-XXX: Principal Authority Predicates
-
----
-
-## Appendix A: XAdES Commitment Type OIDs
-
-| Commitment Type | OID |
-|-----------------|-----|
-| Proof of origin | 1.2.840.113549.1.9.16.6.1 |
-| Proof of receipt | 1.2.840.113549.1.9.16.6.2 |
-| Proof of delivery | 1.2.840.113549.1.9.16.6.3 |
-| Proof of sender | 1.2.840.113549.1.9.16.6.4 |
-| Proof of approval | 1.2.840.113549.1.9.16.6.5 |
-| Proof of creation | 1.2.840.113549.1.9.16.6.6 |
+- BCR-2026-XXX: Signature Qualifiers — complementary; provides `sig:signerRole`, `sig:commitment`, `sig:signingTime`, etc.
 
 ---
 
 *BCR-2026-XXX: Signing Event Assertions*
-*Draft - February 4, 2026*
+*Draft — February 5, 2026*
