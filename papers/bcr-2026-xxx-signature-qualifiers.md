@@ -83,7 +83,7 @@ Gordian Envelope already provides a mechanism for binding metadata immutably to 
    - *what object(s)* are being signed (especially for attachments or detached objects)
    - role/place context (when needed)
    - countersignature/endorsement support
-   - an Envelope-specific “what did the signer actually see?” claim to reduce misrepresentation after elision
+   - an Envelope-native attestation of which parts of the envelope were obscured (not visible) at signing time
 5. **Practical privacy:** Support common metadata that can be partially disclosed and decorrelated when needed, especially for small enumerated fields.
 
 ---
@@ -118,9 +118,9 @@ We then mapped them into Envelope’s assertion model and the signature-metadata
 
 For small enumerated fields where elision may be expected and decorrelation is desirable, we adopt **Salted Values** per [BCR-2026-004](bcr-2026-004-salted-value.md).
 
-We also add one Envelope-specific qualifier:
+We also add one Envelope-native qualifier:
 
-- **Visibility claim:** what portion(s) the signer asserts were visible at signing time, to reduce the chance that later disclosure/elision can be used to misrepresent what was endorsed.
+- **Obscured-nodes claim (`sig:obscured`):** a lexicographically-sorted array of digests identifying which nodes in the payload envelope's Merkle tree were obscured (elided, encrypted, or compressed) at signing time. This exploits Envelope's existing digest tree rather than introducing a separate controlled vocabulary.
 
 ---
 
@@ -204,7 +204,7 @@ This range is intended for inclusion in the “community, specification required
 |       1607 | `sig:target`             | predicate | Declares the intended signature target (`sig:Target`).                              |
 |       1608 | `sig:countersignatureOf` | predicate | Identifies what signature (or signature digest) is being countersigned.             |
 |       1609 | `sig:endorsement`        | predicate | Explains countersignature intent (`sig:Endorsement`).                               |
-|       1610 | `sig:visibility`         | predicate | Signer visibility claim (`sig:Visibility`).                                         |
+|       1610 | `sig:obscured`           | predicate | Sorted array of digests of nodes obscured at signing time (see below).              |
 
 #### Field predicates used inside typed qualifier objects (1620–1659)
 
@@ -231,7 +231,6 @@ This range is intended for inclusion in the “community, specification required
 |       1638 | `sig:displayName`         | predicate | Human label for the object.                                                                         |
 |       1639 | `sig:language`            | predicate | Language tag (BCP 47 string).                                                                       |
 |       1640 | `sig:targetType`          | predicate | Controlled target/reference type (see enum below).                                                  |
-|       1641 | `sig:visibilityType`      | predicate | Controlled visibility type (see enum below).                                                        |
 
 #### Types (1650–1669)
 
@@ -244,7 +243,6 @@ This range is intended for inclusion in the “community, specification required
 |       1654 | `sig:SignedObject` | type | Typed envelope describing a signed object.                        |
 |       1655 | `sig:Target`       | type | Typed envelope declaring the intended signature target.           |
 |       1656 | `sig:Endorsement`  | type | Typed envelope describing countersignature endorsement semantics. |
-|       1657 | `sig:Visibility`   | type | Typed envelope describing signer visibility claim.                |
 
 #### Commitment type controlled vocabulary (1670–1679)
 
@@ -258,22 +256,14 @@ This range is intended for inclusion in the “community, specification required
 |       1675 | `sig:Certified` | enum | “I certify this.”                |
 |       1676 | `sig:Attested`  | enum | “I attest this is true/correct.” |
 
-#### Visibility type controlled vocabulary (1680–1689)
-
-| Code Point | Term                   | Kind | Description                                                                  |
-|-----------:|------------------------|------|------------------------------------------------------------------------------|
-|       1680 | `sig:FullContentSeen`  | enum | Signer claims they saw the full unelided plaintext content.                  |
-|       1681 | `sig:DigestOnly`       | enum | Signer claims they only validated digests/commitments, not full plaintext.   |
-|       1682 | `sig:DisclosedDigests` | enum | Signer claims they saw a specific disclosed subset (identified by digests).  |
-
-#### Target type controlled vocabulary (1690–1699)
+#### Target type controlled vocabulary (1680–1689)
 
 | Code Point | Term                           | Kind | Description                                                                 |
 |-----------:|--------------------------------|------|-----------------------------------------------------------------------------|
-|       1690 | `sig:EnvelopeSemanticDigest`   | enum | Target is the semantic digest of a Gordian Envelope.                        |
-|       1691 | `sig:EnvelopeStructuralDigest` | enum | Target is the structural digest of a Gordian Envelope.                      |
-|       1692 | `sig:DetachedBytesDigest`      | enum | Target is a digest of detached bytes.                                       |
-|       1693 | `sig:Reference`                | enum | Target is a `Reference` (`ur:reference`, CBOR tag `#6.40025`) per [BCR-2024-011](bcr-2024-011-reference.md). |
+|       1680 | `sig:EnvelopeSemanticDigest`   | enum | Target is the semantic digest of a Gordian Envelope.                        |
+|       1681 | `sig:EnvelopeStructuralDigest` | enum | Target is the structural digest of a Gordian Envelope.                      |
+|       1682 | `sig:DetachedBytesDigest`      | enum | Target is a digest of detached bytes.                                       |
+|       1683 | `sig:Reference`                | enum | Target is a `Reference` (`ur:reference`, CBOR tag `#6.40025`) per [BCR-2024-011](bcr-2024-011-reference.md). |
 
 ---
 
@@ -363,8 +353,61 @@ Decorrelatable form (recommended when region/locality may be elided):
 ]
 ```
 
+### `sig:obscured`
+
+The `sig:obscured` assertion records which parts of the payload envelope were **not visible** to the signer at signing time — that is, which nodes in the envelope's Merkle-like digest tree were elided, encrypted, or compressed.
+
+The object is a CBOR array of `Digest` values, lexicographically sorted to support determinism. Each digest identifies a node (subject, assertion, predicate, or object) in the payload envelope that was obscured when the signer produced the signature.
+
+**Interpretation:**
+
+- **`'sig:obscured': []`** (empty array) — the signer claims the entire envelope was fully visible at signing time. Nothing was obscured.
+- **`'sig:obscured': [ Digest(<root>) ]`** where the digest is the payload envelope's top-level digest — the signer claims the envelope was "signed blind," with no knowledge of its contents.
+- **`'sig:obscured': [ Digest(<a>), Digest(<b>), ... ]`** — the signer claims that the listed sub-envelopes were obscured and everything else was visible.
+
+A verifier who holds the full (unobscured) payload envelope can check each digest against the envelope's digest tree to confirm that the listed nodes exist and to understand exactly which content the signer did not see.
+
+**Example — signer saw everything:**
+
+```envelope
+Signature [
+    'sig:signingTime': 2026-02-04T19:52:00Z
+    'sig:obscured': []
+]
+```
+
+**Example — signer signed blind:**
+
+```envelope
+Signature [
+    'sig:signingTime': 2026-02-04T19:52:00Z
+    'sig:obscured': [
+        Digest(71274df1)
+    ]
+]
+```
+
+**Example — two assertions were elided at signing time:**
+
+```envelope
+Signature [
+    'sig:signingTime': 2026-02-04T19:52:00Z
+    'sig:obscured': [
+        Digest(3a7c8f2d)
+        Digest(b4e1a8c0)
+    ]
+]
+```
+
+**Guidance:**
+
+- Producers SHOULD include `sig:obscured` whenever the payload envelope contained any obscured nodes at signing time.
+- Producers MAY include `'sig:obscured': []` to explicitly attest that everything was visible, though omitting the assertion entirely is also valid.
+- The digest array MUST be lexicographically sorted to ensure deterministic encoding.
+- Verifiers SHOULD treat the absence of `sig:obscured` as "unknown" — the signer made no claim about what was visible.
+
 ### `sig:SignedObject`
 
 SignedObject describes an object that is signed or intended to be covered by the signature, especially when it is a detached object or an attachment.
 
-If `sig:objectRef` is a `Reference`, the referent type is resolved from context; producers SHOULD include enough context for resolution, such as `sig:tar
+If `sig:objectRef` is a `Reference`, the referent type is resolved from context; producers SHOULD include enough context for resolution, such as `sig:targetType`, `sig:mediaType`, or other domain-specific qualifiers.
