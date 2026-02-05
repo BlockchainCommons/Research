@@ -128,10 +128,12 @@ A Salted Value wrapper:
 
 ### Required predicates
 
-- `'salt'` is an existing Known Value (see [BCR-2024-007](bcr-2024-007-envelope-decorrelation.md)).
-- `'value'` is a proposed new Known Value (code point TBD) representing the wrapped underlying value.
+| Code Point | Predicate | Description                                                                                                                          |
+|:-----------|:----------|:-------------------------------------------------------------------------------------------------------------------------------------|
+| 15         | `'salt'`  | Random salt for decorrelation (see [BCR-2024-007](bcr-2024-007-envelope-decorrelation.md) and [BCR-2023-017](bcr-2023-017-salt.md)). |
+| 25         | `'value'` | The wrapped underlying value.                                                                                                        |
 
-Pattern invariants:
+### Pattern Invariants
 
 - The subject MUST be Unit (`''`) per [BCR-2026-001](bcr-2026-001-unit.md).
 - There MUST be exactly one `'salt'` assertion, and its object must be a `Salt` of at least 8 bytes (see below for further guidance),
