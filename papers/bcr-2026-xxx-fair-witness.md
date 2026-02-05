@@ -99,6 +99,8 @@ The term "witness" is overloaded in technical contexts:
 
 This BCR uses the **`observer*`** prefix to avoid ambiguity with cryptographic witnesses (which use `anchor*` in BCR-2026-XXX).
 
+**Distinction from `sig:Witnessed`**: BCR-2026-XXX Signature Qualifiers defines `sig:Witnessed` as a commitment type enum value — it describes a signer's *intent* when signing ("I signed to witness this"). The subject is the Signature. In contrast, `observerWitness` identifies the *person* who observed facts — a human attestation, not a signing intent. The subject is an Observation. Both may apply: a Fair Witness might sign their attestation with `sig:commitmentType: sig:Witnessed` while identifying themselves via `observerWitness`.
+
 ### Solution
 
 This specification defines five predicates for Fair Witness attestation, mapping to the three pillars:
