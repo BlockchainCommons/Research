@@ -196,10 +196,11 @@ Example State University grants Bob a Master of Science in Computer Science. The
             'isA': 'schema:CollegeOrUniversity'
             'schema:name': "Example State University"
         ]
-        'target': XID(988f199d)
-        'schema:name': "Master of Science in Computer Science"
-        'schema:credentialCategory': "degree"
-        'schema:educationalLevel': "Master's"
+        'target': XID(988f199d) [
+            'schema:name': "Master of Science in Computer Science"
+            'schema:credentialCategory': "degree"
+            'schema:educationalLevel': "Master's"
+        ]
     ]
 } [
     'signed': {
@@ -270,10 +271,11 @@ With all three edges embedded, Bob's complete XID document looks like this:
                     'isA': 'schema:CollegeOrUniversity'
                     'schema:name': "Example State University"
                 ]
-                'target': XID(988f199d)
-                'schema:name': "Master of Science in Computer Science"
-                'schema:credentialCategory': "degree"
-                'schema:educationalLevel': "Master's"
+                'target': XID(988f199d) [
+                    'schema:name': "Master of Science in Computer Science"
+                    'schema:credentialCategory': "degree"
+                    'schema:educationalLevel': "Master's"
+                ]
             ]
         } [
             'signed': {
@@ -311,10 +313,11 @@ Because Gordian Envelope preserves its Merkle-like digest tree even when parts a
                     'isA': 'schema:CollegeOrUniversity'
                     'schema:name': "Example State University"
                 ]
-                'target': XID(988f199d)
-                'schema:name': "Master of Science in Computer Science"
-                'schema:credentialCategory': "degree"
-                'schema:educationalLevel': "Master's"
+                'target': XID(988f199d) [
+                    'schema:name': "Master of Science in Computer Science"
+                    'schema:credentialCategory': "degree"
+                    'schema:educationalLevel': "Master's"
+                ]
             ]
         } [
             'signed': {
@@ -366,10 +369,11 @@ For example, Bob could extract the university credential and send it to a prospe
             'isA': 'schema:CollegeOrUniversity'
             'schema:name': "Example State University"
         ]
-        'target': XID(988f199d)
-        'schema:name': "Master of Science in Computer Science"
-        'schema:credentialCategory': "degree"
-        'schema:educationalLevel': "Master's"
+        'target': XID(988f199d) [
+            'schema:name': "Master of Science in Computer Science"
+            'schema:credentialCategory': "degree"
+            'schema:educationalLevel': "Master's"
+        ]
     ]
 } [
     'signed': {
