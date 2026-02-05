@@ -4,7 +4,7 @@
 
 **© 2026 Blockchain Commons**
 
-Authors: Christopher Allen<br/>
+Authors: Christopher Allen, Wolf McNally, Shannon Appelcline<br/>
 Date: February 4, 2026
 
 ---
