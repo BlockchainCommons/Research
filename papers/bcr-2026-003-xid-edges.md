@@ -21,6 +21,18 @@ The design draws on the graph representation patterns described in [BCR-2024-006
 
 ⭐️ This document is has a reference implementation in the `bc-envelope` crate and downstream tools like `bc-envelope-cli`. It is open for community feedback.
 
+## Design Rationale
+
+In a full entity-relationship model, not every claim is a simple binary relationship. A credential, for instance, is an entity in its own right: a university *confers* a credential, and that credential is *conferred upon* a student. Modeling this faithfully would require the credential to be a first-class node with its own incoming and outgoing edges.
+
+Edges in XID documents deliberately flatten this into a single directed connection — source, target, and a type — for two reasons:
+
+1. **Edges connect agents.** Both the source and target of an edge are XIDs backed by XID documents: entities with keys, permissions, and the ability to sign and verify. The edge subject (a credential number, a UUID) is just an identifier — it has no XID document, no keys, and no ability to participate as a source or target of further edges. Modeling it as a first-class graph node would add complexity without a corresponding agent to anchor it.
+
+2. **`'isA'` is intentionally overloaded.** For a colleague relationship, `'isA': 'schema:colleague'` types the relationship itself. For a credential, `'isA': 'schema:EducationalOccupationalCredential'` types what is formally an intermediate entity. This overloading is a pragmatic trade-off: the three-assertion structure remains uniform and simple, at the cost of not distinguishing relationship-typed edges from entity-typed edges at the structural level.
+
+If a future use case requires intermediate objects to be first-class participants — holding their own edges, being independently resolvable, carrying their own keys — that would be defined by an envelope schema for that object type, outside the scope of this specification.
+
 ## Edge Structure
 
 An edge is a [Gordian Envelope](bcr-2024-003-envelope.md) whose subject is a locally unique identifier. The edge has exactly three assertions:
