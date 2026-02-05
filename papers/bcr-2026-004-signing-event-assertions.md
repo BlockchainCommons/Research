@@ -45,8 +45,8 @@ Alice signing personally and Alice signing as CEO for Acme Corp produce identica
 
 This BCR defines:
 
-- `signer` (300) — links signature to signer's identity
-- `signedOnBehalfOf` (301) — identifies who the signer represents
+- `signer` (800) — links signature to signer's identity
+- `signedOnBehalfOf` (801) — identifies who the signer represents
 - References `xades:ClaimedRole` and `xades:CommitmentType` from XAdES
 
 Two patterns bind assertions to signatures:
@@ -194,7 +194,7 @@ Bob's signature covers Alice's complete signed envelope.
 
 Proposed for the Reserved range (256-999) per BCR-2023-002.
 
-### 300: `signer`
+### 800: `signer`
 
 Links a signature to a document identifying the signer.
 
@@ -208,7 +208,7 @@ A signature proves a key signed; `signer` links to identity. Required because so
 
 Within the Gordian ecosystem (XIDs, Clubs, GSTP), references an XID or Club. Gordian Envelope also supports URIs and DIDs.
 
-### 301: `signedOnBehalfOf`
+### 801: `signedOnBehalfOf`
 
 Optional. Identifies who the signer represents.
 
