@@ -1,6 +1,6 @@
 # Signing Event Assertions
 
-## BCR-2026-004
+## BCR-2026-XXX
 
 **© 2026 Blockchain Commons**
 
@@ -219,7 +219,7 @@ Signature [
 ]
 ```
 
-Only include when acting for another party. This is a claim — verification requires checking delegation authority (see BCR-2026-006).
+Only include when acting for another party. This is a claim — verification requires checking delegation authority (see BCR-2026-XXX).
 
 ## Referenced Standards
 
@@ -287,8 +287,8 @@ For API guidance and reference implementation, see [BCR-2024-009](bcr-2024-009-s
 
 ## Related BCRs
 
-- BCR-2026-005: General Assertion Predicates
-- BCR-2026-006: Principal Authority Predicates
+- BCR-2026-XXX: General Assertion Predicates
+- BCR-2026-XXX: Principal Authority Predicates
 
 ---
 
@@ -305,5 +305,5 @@ For API guidance and reference implementation, see [BCR-2024-009](bcr-2024-009-s
 
 ---
 
-*BCR-2026-004: Signing Event Assertions*
+*BCR-2026-XXX: Signing Event Assertions*
 *Draft - February 4, 2026*
