@@ -528,7 +528,10 @@ For endorsements that involve delegation or institutional context, combine with 
         Signature [
             'signer': XID(committee-chair)
             'signedOnBehalfOf': XID(organization)
-            'xades:ClaimedRole': "Security Review Committee Chair"
+            'sig:signerRole': '' [
+                'isA': 'sig:Role'
+                'sig:roleName': "Security Review Committee Chair"
+            ]
         ]
     } ['signed': Signature]
 ]
@@ -543,12 +546,15 @@ Use transparency predicates from BCR-2026-XXX:
 - `disclosedLimitations` (1004) — endorser's knowledge limits
 - `assertionLimitations` (1005) — endorsement scope limits
 
-### BCR-2026-XXX (Signing Event Attestations)
+### BCR-2026-XXX (Signing Event Assertions)
 
 For endorsements involving institutional or delegated signing:
-- `signer` (300) — links signature to XID document
-- `signedOnBehalfOf` (301) — organization endorser represents
-- `xades:ClaimedRole` — capacity in which endorser signs (referenced standard)
+- `signer` (800) — links signature to XID document
+- `signedOnBehalfOf` (801) — organization endorser represents
+
+For role and commitment context, use BCR-2026-XXX Signature Qualifiers:
+- `sig:signerRole` — capacity in which endorser signs
+- `sig:commitment` — signing intent (e.g., `sig:Approved`)
 
 ### BCR-2026-XXX (Principal Authority)
 
@@ -572,6 +578,10 @@ Fair Witness predicates (BCR-2026-XXX) and Peer Endorsement predicates serve dif
 | Independence required | Relationship expected |
 
 Use Fair Witness for neutral attestation of facts; use Peer Endorsement for personal vouching.
+
+### BCR-2026-XXX (Signature Qualifiers)
+
+**Distinction from `sig:endorsement`**: Signature Qualifiers defines `sig:endorsement` to describe a *countersignature's intent* — why the countersigner endorsed a signature. The subject is the Signature; the object explains the signing act. In contrast, this BCR's endorsement predicates describe *peer trust relationships between people*. The subject is an Endorsement envelope; predicates describe who, what, and why of the endorsement relationship. Both may apply: a peer endorsement envelope might be countersigned by a third party using `sig:endorsement` to explain why they're co-signing.
 
 ## Security Considerations
 
