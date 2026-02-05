@@ -185,6 +185,12 @@
       "description": "The subject is a nickname for the object."
     },
     {
+      "codepoint": 25,
+      "name": "value",
+      "uri": "",
+      "description": "The object is the primary value in a set of assertions. Frequently used with `salt`."
+    },
+    {
       "codepoint": 50,
       "name": "attachment",
       "type": "property",

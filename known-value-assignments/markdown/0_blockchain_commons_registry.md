@@ -47,6 +47,7 @@
 | 22 | `validUntil` | property | https://schema.org/validUntil | The subject is valid until the date in the object. |
 | 23 | `position` | property | https://schema.org/position | The position of an item in a series or sequence of items. |
 | 24 | `nickname` | property | http://xmlns.com/foaf/spec/#term_nick | The subject is a nickname for the object. |
+| 25 | `value` | property | | The object is the primary value in a set of assertions. Frequently used with `salt`. |
 
 ### Attachments (50-52)
 
