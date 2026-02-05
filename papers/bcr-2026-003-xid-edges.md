@@ -19,7 +19,7 @@ The design draws on the graph representation patterns described in [BCR-2024-006
 
 ### Status
 
-📙 This document is research and a work in progress. It describes conventions for representing edges in XID documents, but is not yet a formal specification.
+⭐️ This document is has a reference implementation in the `bc-envelope` crate and downstream tools like `bc-envelope-cli`. It is open for community feedback.
 
 ## Edge Structure
 
