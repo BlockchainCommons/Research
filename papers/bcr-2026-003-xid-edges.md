@@ -43,6 +43,8 @@ An edge is a [Gordian Envelope](bcr-2024-003-envelope.md) whose subject is a loc
 
 No other assertions are permitted on the edge subject. The edge subject and its three assertions define *what kind of claim is being made, by whom, and about whom*. All additional detail — the substance of the claim — is carried as assertions on the *target* object.
 
+This placement follows directly from a foundational principle of Gordian Envelope: assertions on a subject are always claims about the *referent* — the real-world thing — that the subject identifies. The edge subject (a UUID, credential number, or other identifier) refers to the *claim itself*; its three assertions correctly describe properties of the claim — its type, its claimant, and its subject entity. The target XID, by contrast, refers to the *real-world entity* the claim is about. Placing claim details like `'foaf:firstName': "Bob"` or `'schema:credentialCategory': "degree"` on the target object therefore asserts those facts about the entity, which is semantically correct. Placing them on the edge subject would assert that the *claim* has a first name or credential category — a category error. The three-assertion constraint enforces this boundary, keeping the edge's topology (type, source, target) cleanly separated from the claim's substance (which belongs to the target's referent).
+
 In schematic form:
 
 ```envelope
