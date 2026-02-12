@@ -191,6 +191,20 @@
       "description": "The object is the primary value in a set of assertions. Frequently used with `salt`."
     },
     {
+      "codepoint": 26,
+      "name": "attestation",
+      "type": "property",
+      "uri": "",
+      "description": "Natural language assertion statement"
+    },
+    {
+      "codepoint": 27,
+      "name": "verifiableAt",
+      "type": "property",
+      "uri": "",
+      "description": "URI where attestation can be verified"
+    },
+    {
       "codepoint": 50,
       "name": "attachment",
       "type": "property",
@@ -717,7 +731,7 @@
     }
   ],
   "statistics": {
-    "total_entries": 89,
+    "total_entries": 103,
     "code_point_range": {
       "start": 0,
       "end": 706
