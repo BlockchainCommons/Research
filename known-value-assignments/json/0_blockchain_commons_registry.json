@@ -499,6 +499,20 @@
       "description": "The Tezos cryptocurrency (\"XTZ\")"
     },
     {
+      "codepoint": 304,
+      "name": "Polkadot",
+      "type": "value",
+      "uri": "",
+      "description": "The Polkadot cryptocurrency (\"DOT\")"
+    },
+    {
+      "codepoint": 305,
+      "name": "Kusama",
+      "type": "value",
+      "uri": "",
+      "description": "The Kusama cryptocurrency (\"KSM\")"
+    },
+    {
       "codepoint": 400,
       "name": "network",
       "type": "property",
