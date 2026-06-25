@@ -10,6 +10,8 @@ If you are using the specifications from a BCR, [please let us know](mailto:team
 
 Generally, it's only if a BCR advances to the BCP stage that we more deeply involve community in its continued maturation and focus on it becoming an actual standard.
 
+* [See Other Blockchain Commons Resources](https://developer.blockchaincommons.com/resources/)
+
 ## Status
 
 Each BCR has a status which is indicated by a symbol.
