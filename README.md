@@ -2,7 +2,7 @@
 
 ![](images/logos/bcc-research-screen.jpg)
 
-<div style="float: right">
+<div style="float: right !important">
   <p>
     <a href="https://developer.blockchaincommons.com/resources/">
       <img src="https://developer.blockchaincommons.com/assets/badges/cat-resources.png" width=150px>
