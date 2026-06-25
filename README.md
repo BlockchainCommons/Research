@@ -2,19 +2,6 @@
 
 ![](images/logos/bcc-research-screen.jpg)
 
-<div style="float: right !important">
-  <p>
-    <a href="https://developer.blockchaincommons.com/resources/">
-      <img src="https://developer.blockchaincommons.com/assets/badges/cat-resources.png" width=150px>
-    </a>
-  </p>
-  <p>
-    <a href=".">
-      <img src="https://developer.blockchaincommons.com/assets/badges/research.png" width=150px>
-    </a>
-  </p>
-</div>
-
 This repository contains early-stage research of interest to the blockchain community.
 
 Blockchain Commons Research papers (BCRs) are _not_ standards. They are fluid specifications, typically based on our own libraries or other coding. Because of their fluidity, BCRs might change without notice. If you decide to adopt a Blockchain Commons Research paper, you are becoming a Research Partner, examining how the specification might work in the real world. We look forward to working with you!
